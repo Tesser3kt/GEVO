@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pycodestyle = "*"
+pylint = "*"
+autopep8 = "*"
+numpy = "*"
+pycairo = "*"
+manim = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
