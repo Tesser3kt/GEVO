@@ -1,11 +1,10 @@
 % Modelo de slides para projetos de disciplinas do Abel
-\documentclass[aspectratio=169,11pt]{beamer}
+\documentclass[aspectratio=169,11pt,handout]{beamer}
 
 \usetheme[%
  sectionpage=none,%
  subsectionpage=progressbar%
  ]{metropolis}
-\setbeamercovered{transparent}
 \useoutertheme{infolines}
 \setbeamersize{text margin left=1cm,text margin right=1cm}
 \setbeamertemplate{part page}
@@ -58,7 +57,7 @@
  \tableofcontents
 \end{frame}
 
-\section[Program]{Program}
+\section[Program]{Počítačový program}
 \subsection[CPU]{CPU}
 
 \begin{frame}
@@ -117,6 +116,61 @@
 \end{frame}
 
 \subsection[Instrukce]{Typy instrukcí}
+
+\begin{frame}
+ \frametitle{Paměťové operace}
+ \begin{itemize}
+  \item<1-> \alert{SET}: Nastav blok vnitřní paměti na danou hodnotu.
+  \item<2-> \alert{COPY}: Zkopíruj hodnotu z bloku vnitřní paměti do jiného bloku.
+  \item<3-> \alert{READ/WRITE}: Zapisuj data nebo je čti z připojených zařízení.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Početní a logické operace}
+ \begin{itemize}
+  \item<1-> \alert{Sečti/odečti/vynásob/vyděl} spolu hodnoty ve dvou blocích
+   paměti.
+  \item<2-> \alert{Konjunkce/disjunkce} dvou uložených hodnot.
+  \item<3-> \alert{Porovnej} spolu dvě uložené hodnoty.
+  \item<4-> Operace na desetinných číslech (\alert{floating point} arithmetic).
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Řídící (control flow) operace}
+ \begin{itemize}
+  \item<1-> \alert{Odboč} na jiné místo v programu a vykonej tamější instrukce.
+  \item<2-> \alert{Podmínečně odboč} na jiné místo v programu a vykonej tamější
+   instrukce.
+  \item<3-> \alert{Zavolej} jiný blok kódu, uchovav následující instrukci jako
+   místo návratu.
+ \end{itemize}
+\end{frame}
+
+\part[Pseudokód]{Pseudokód}
+
+\begin{frame}
+ \partpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Obsah}
+ \tableofcontents
+\end{frame}
+
+\section[Definice a příklady]{Definice a příklady}
+\subsection[Definice]{Definice}
+
+\begin{frame}
+ \begin{tcolorbox}[title=Pseudokód,center,width=.95\textwidth]
+  Pseudokód je \alert{neformální} zápis počítačového programu/algoritmu.
+ \end{tcolorbox}
+\end{frame}
+
+\subsection[Příklady]{Příklady}
+
+
 
 \begin{frame}
  \centering\Huge Díky za pozorst.
