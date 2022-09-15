@@ -22,6 +22,8 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{tcolorbox}
+\usepackage[linesnumbered,vlined,commentsnumbered,czech]{algorithm2e}
+\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
 
 \tcbset{%
  sharp corners=all,%
@@ -170,10 +172,126 @@
 
 \subsection[Příklady]{Příklady}
 
+\begin{frame}
+ \frametitle{Sčítání pod sebou}
+ \centering
+ \begin{minipage}{.8\textwidth}
+  \scalebox{0.6}{
+  \begin{algorithm}[H]
+   \DontPrintSemicolon
+   \SetKwData{X}{x}\SetKwData{Y}{y}\SetKwData{C}{c}\SetKwData{N}{i}
+   \SetKwData{R}{r}
+   \SetKw{KwAnd}{and}\SetKw{KwReturn}{return}
 
+   \Input{$A,B \in \mathbb{N}$\tcp*[f]{$A,B$ mají stejný počet číslic}}
+   \Output{$A + B$}
+   \BlankLine
+
+   \C$\leftarrow 0$\;
+   \N$\leftarrow 0$\;
+   \R$\leftarrow 0$\;
+   \While{$A > 0$ \KwAnd  $B > 0$}{
+    \X$\leftarrow A \bmod 10$\;
+    \Y$\leftarrow B \bmod 10$\;
+    $\R\leftarrow \R + (\X + \Y + \C \bmod 10) \cdot 10^{\N}$\;
+    \If{$\X + \Y + \C \geq 10$}{
+     $\C\leftarrow 1$
+    }
+    \Else{
+     $\C\leftarrow 0$
+    }
+    $A \leftarrow \left\lfloor A / 10 \right\rfloor$\;
+    $B \leftarrow \left\lfloor B / 10 \right\rfloor$\;
+    $\N\leftarrow \N + 1$
+   }
+   \KwReturn \R
+  \end{algorithm}
+ }
+ \end{minipage}
+\end{frame}
 
 \begin{frame}
- \centering\Huge Díky za pozorst.
+ \frametitle{Přihlášení uživatele}
+ \centering
+ \begin{minipage}{.8\textwidth}
+  \scalebox{0.8}{
+   \begin{algorithm}[H]
+    \DontPrintSemicolon
+    \SetKw{KwReturn}{return}
+    \Input{user, pass\hspace{2em}\tcp*[l]{uživatelské jméno, heslo}}
+    \Output{true/false\hspace{2em}\tcp*[l]{přihlášení úspěšné/neúspěšné}}
+    \SetKwData{User}{user}
+    \SetKwData{Pass}{pass}
+    \BlankLine
+
+    \If{\User není uložen v databázi}{
+     \KwReturn false
+    }
+    \If{\Pass neodpovídá heslu uloženému pod \User v databázi}{
+     \KwReturn false
+    }
+    \KwReturn true
+   \end{algorithm}
+  }
+ \end{minipage}
+\end{frame}
+
+\section[Základní koncepty]{Základní koncepty}
+\subsection[Proměnné]{Proměnné}
+
+\begin{frame}
+ \frametitle{Co to je proměnná?}
+ \begin{tcolorbox}[title=Proměnná,center,width=.9\textwidth]
+  Proměnná je písmeno nebo slovo, které \alert{představuje nějakou hodnotu}.
+  Tato hodnota může být na různých místech programu různá.
+ \end{tcolorbox}
+\end{frame}
+
+\subsection[Podmínky]{Podmínky}
+
+\begin{frame}
+ \frametitle{Co to je podmínka?}
+ \begin{tcolorbox}[title=Podmínka,center,width=.9\textwidth]
+  Podmínka je \alert{logický výraz} určující, která sada následujících instrukcí
+  v~programu se má provést.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Příklad 1}
+ \centering
+ \begin{minipage}{.8\textwidth}
+  \begin{algorithm}[H]
+   \DontPrintSemicolon
+   \SetKw{KwReturn}{return}
+   \Input{$x \in \mathbb{R}$}
+   \Output{$|x|$}
+   \BlankLine
+
+   \If{$x \geq 0$}{
+    \KwReturn $x$
+   }
+   \Else{
+    \KwReturn $-x$
+   }
+  \end{algorithm}
+ \end{minipage}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Příklad 2}
+ \centering
+ \begin{minipage}{.8\textwidth}
+  \begin{algorithm}[H]
+   \DontPrintSemicolon
+   \SetKw{KwReturn}{return}
+
+  \end{algorithm}
+ \end{minipage}
+\end{frame}
+
+\begin{frame}
+ \centering\Huge Díky za pozornost.
 \end{frame}
 
 \end{document}
