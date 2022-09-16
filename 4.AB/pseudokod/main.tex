@@ -24,6 +24,7 @@
 \usepackage{tcolorbox}
 \usepackage[linesnumbered,vlined,commentsnumbered,czech]{algorithm2e}
 \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+\SetKw{KwReturn}{return}\SetKw{KwFrom}{from}
 
 \tcbset{%
  sharp corners=all,%
@@ -181,7 +182,7 @@
    \DontPrintSemicolon
    \SetKwData{X}{x}\SetKwData{Y}{y}\SetKwData{C}{c}\SetKwData{N}{i}
    \SetKwData{R}{r}
-   \SetKw{KwAnd}{and}\SetKw{KwReturn}{return}
+   \SetKw{KwAnd}{and}
 
    \Input{$A,B \in \mathbb{N}$\tcp*[f]{$A,B$ mají stejný počet číslic}}
    \Output{$A + B$}
@@ -217,7 +218,6 @@
   \scalebox{0.8}{
    \begin{algorithm}[H]
     \DontPrintSemicolon
-    \SetKw{KwReturn}{return}
     \Input{user, pass\hspace{2em}\tcp*[l]{uživatelské jméno, heslo}}
     \Output{true/false\hspace{2em}\tcp*[l]{přihlášení úspěšné/neúspěšné}}
     \SetKwData{User}{user}
@@ -263,7 +263,6 @@
  \begin{minipage}{.8\textwidth}
   \begin{algorithm}[H]
    \DontPrintSemicolon
-   \SetKw{KwReturn}{return}
    \Input{$x \in \mathbb{R}$}
    \Output{$|x|$}
    \BlankLine
@@ -281,13 +280,84 @@
 \begin{frame}
  \frametitle{Příklad 2}
  \centering
- \begin{minipage}{.8\textwidth}
+ \begin{minipage}{.9\textwidth}
   \begin{algorithm}[H]
    \DontPrintSemicolon
-   \SetKw{KwReturn}{return}
+   \SetKwData{Word}{word}
 
+   \Input{word\hspace{4.7ex}\hspace{2em}\tcp*[l]{nějaké slovo}}
+   \Output{true/false\hspace{2em}\tcp*[l]{slovo obsahuje/neobsahuje písmeno
+   `b'}}
+
+   \If{\Word obsahuje `b'}{
+    \KwReturn true
+   }
+   \Else{
+    \KwReturn false
+   }
   \end{algorithm}
  \end{minipage}
+\end{frame}
+
+\subsection[Cykly]{Cykly}
+
+\begin{frame}
+ \frametitle{Co je to cyklus?}
+ \begin{tcolorbox}[title=Cyklus,center,width=.9\textwidth]
+  Cyklus je posloupnost instrukcí, která se v průběhu algoritmu
+  \alert{několikrát za sebou opakuje}, pokaždé s jinými vstupními daty.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{For} cyklus (uzavřený cyklus)}
+ \begin{tcolorbox}[title=\texttt{For} cyklus,center,width=.9\textwidth]
+  Cyklus, který se opakuje postupně pro \alert{všechny prvky z nějaké konečné
+  množiny}.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Příklad 1}
+ \centering
+ \scalebox{.9}{
+  \begin{algorithm}[H]
+   \DontPrintSemicolon
+
+   \Input{$A$\hspace{2em}\tcp*[l]{množina čísel}}
+   \Output{$B$\hspace{2em}\tcp*[l]{množina obsahující všechny prvky $A$
+   vynásobené $2$}}
+   \BlankLine
+
+   $B\leftarrow \{\}$\;
+   \For{$x \in A$}{
+    $B\leftarrow B \cup \{2 \cdot x\}$\;
+   }
+   \KwReturn $B$
+  \end{algorithm}
+ }
+\end{frame}
+
+\begin{frame}
+ \frametitle{Příklad 2}
+ \centering
+ \scalebox{.9}{
+  \begin{algorithm}[H]
+   \DontPrintSemicolon
+
+   \Input{$n \in \mathbb{N}$\hspace{2em}\tcp*[l]{přirozené číslo udávající
+   rozsah}}
+   \Output{$P$\hspace{3.75em}\tcp*[l]{množina prvočísel menších než $n$}}
+   \BlankLine
+
+   \For{$x$ \KwFrom $1$ \KwTo $n$}{
+    \If{$x$ je prvočíslo}{
+     $P\leftarrow P \cup \{x\}$ 
+    }
+   }
+   \KwReturn $P$
+  \end{algorithm}
+ }
 \end{frame}
 
 \begin{frame}
