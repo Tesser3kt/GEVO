@@ -258,7 +258,7 @@
 \end{frame}
 
 \begin{frame}
- \frametitle{Příklad 1}
+ \frametitle{Příklad 1: absolutní hodnota}
  \centering
  \begin{minipage}{.8\textwidth}
   \begin{algorithm}[H]
@@ -278,7 +278,7 @@
 \end{frame}
 
 \begin{frame}
- \frametitle{Příklad 2}
+ \frametitle{Příklad 2: písmeno ve slově}
  \centering
  \begin{minipage}{.9\textwidth}
   \begin{algorithm}[H]
@@ -318,7 +318,7 @@
 \end{frame}
 
 \begin{frame}
- \frametitle{Příklad 1}
+ \frametitle{Příklad 1: násobení množiny dvěma}
  \centering
  \scalebox{.9}{
   \begin{algorithm}[H]
@@ -339,7 +339,7 @@
 \end{frame}
 
 \begin{frame}
- \frametitle{Příklad 2}
+ \frametitle{Příklad 2: všechna menší prvočísla}
  \centering
  \scalebox{.9}{
   \begin{algorithm}[H]
@@ -349,7 +349,8 @@
    rozsah}}
    \Output{$P$\hspace{3.75em}\tcp*[l]{množina prvočísel menších než $n$}}
    \BlankLine
-
+   
+   $P \leftarrow \{\}$\;
    \For{$x$ \KwFrom $1$ \KwTo $n$}{
     \If{$x$ je prvočíslo}{
      $P\leftarrow P \cup \{x\}$ 
@@ -358,6 +359,64 @@
    \KwReturn $P$
   \end{algorithm}
  }
+\end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{While} cyklus (otevřený cyklus)}
+ \begin{tcolorbox}[title=\texttt{While} cyklus,center,width=.9\textwidth]
+  Cyklus, který se opakuje, \alert{dokud je splněna nějaká podmínka}.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Příklad 1: kdo neumí pseudokód}
+ \centering
+ \begin{minipage}{0.8\textwidth}
+  \begin{algorithm}[H]
+   \DontPrintSemicolon
+   \SetKwData{Stud}{IVTstudent}
+   \Input{IVTstudent\hspace{1em}\tcp*[l]{jméno studenta IVT}}
+   \Output{$n \in \mathbb{N}$\hspace{3.2em}\tcp*[l]{počet napsaných algoritmů}}
+   \BlankLine
+
+   $n\leftarrow 0$\;
+   \While{\Stud neumí psát pseudokód}{
+    \Stud napíše algoritmus v pseudokódu.\;
+    $n\leftarrow n + 1$
+   }
+   \KwReturn n
+  \end{algorithm}
+ \end{minipage}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Příklad 2: rozklad na prvočísla}
+ \centering
+ \begin{minipage}{.9\textwidth}
+  \scalebox{0.8}{
+  \begin{algorithm}[H]
+   \DontPrintSemicolon
+   \Input{$n \in \mathbb{N}$\hspace{2em}\tcp*[l]{přirozené číslo k rozložení}}
+   \Output{$\{(p_i, m_i)\}$\hspace{0.35em}\tcp*[l]{posloupnost dvojic
+   (prvočíslo, mocnina)}}
+   \BlankLine
+
+   $p_1 \leftarrow 2$\;
+   $m_1 \leftarrow 0$\;
+   $i \leftarrow 1$\;
+   \While{$n > 1$}{
+    \While{$p_i$ dělí $n$}{
+     $n \leftarrow n / p_i$\;
+     $m_i \leftarrow m_i + 1$\;
+    } 
+    $p_{i+1} \leftarrow $ nejbližší prvočíslo větší než $p_i$\;
+    $m_{i+1} \leftarrow 0$\;
+    $i \leftarrow i + 1$\;
+   }
+   \KwReturn $\{(p_i,m_i)\}$
+  \end{algorithm}
+ }
+ \end{minipage}
 \end{frame}
 
 \begin{frame}
