@@ -1,0 +1,199 @@
+\documentclass[a4paper,11pt]{article}
+
+% Colors %
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{import}
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+% Title %
+\title{\Huge\textsf{}\\
+ \Large\textsf{ }
+ \author{}
+ \date{}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+
+% Enumerate %
+\usepackage{enumerate}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\fancyhf{}
+\pagestyle{fancy}
+\begin{document}
+
+\section*{Logic}
+
+Logic is the language of mathematics, it basically provides a framework for
+formally working with \emph{expressions}. We mean by \emph{expression}, any
+sentence which can be said to be either \textbf{true} or \textbf{false}.
+
+For example, sentences `I am thirsty.' and `Everyone hates math.' are
+expressions while `How ya doin', mate?' and `I hope this ends soon.' are not.
+Also, the sentence `Trump's going to win the next presidential election.' is
+also an \emph{expression} even though we don't know whether it's true or false.
+Our knowing or not knowing has nothing to do with a sentence being an
+expression.
+
+So called first-order logic has only two number/constants and five operations on
+expressions.
+\begin{itemize}
+ \item The two constants are $0$ (interpreted as \textbf{false} or \textbf{lie})
+  and $1$ (interpreted as \textbf{true} or \textbf{truth}). These are sometimes
+  written as $\bot$ for \textbf{false} and $\top$ for \textbf{true}.
+ \item Expressions in logic are typically written as small letters of roman
+  alphabet ($a$, $b$, $c$, ...). If for instance $a$ stands for the sentence
+  `It's raining.', it can be either $0$ or $1$ depending on the actual weather.
+ \item Let's say $a$ stands for `It's raining.' and $b$ for `I'm thirsty.' We
+  can perform these logical operations with $a$ and $b$:
+  \begin{itemize}
+   \item \textbf{negation} (denoted by $\neg)$: $\neg a$ means `It's \emph{not}
+    raining.' and $\neg b$ means `I'm \emph{not} thirsty.' 
+   \item \textbf{conjunction} (denoted by $ \wedge $ or $\&$): $a \wedge b$ means
+    `It's raining \emph{and} I'm thirsty.'
+   \item \textbf{disjunction} (denoted by $ \vee $ ): $a \vee b$ means `It's
+    raining \emph{or} I'm thirsty.' \textbf{Beware!} $a \vee b$ is true even if
+    both $a$ and $b$ are true.
+   \item \textbf{implication} (denoted by $ \implies $ or $\rightarrow$) $a
+    \implies b$ means `\emph{If} it's raining, \emph{then} I'm thirsty.'
+    \textbf{Beware!} Unlike in normal language, if $a$ is false, then $a
+    \implies b$ is always \textbf{true}! The sentence `If it's raining, then I'm
+    thirsty.' does not say \emph{anything at all} about me being thirsty when
+    it's not raining. Which means that $b$ can be true or false, I don't care.
+   \item \textbf{equivalence} (denoted by $ \iff $ or $\equiv$):  $a \iff b$ 
+    means `It's raining \emph{if and only if} I'm thirsty.' To translate, this
+    means that $a \iff b$ if both $a$ and $b$ are true or both $a$ and $b$ are
+    false.
+  \end{itemize}
+ \end{itemize}
+ Of course, we can chain these operations just as in basic arithmetic. So, for
+ example
+ \[
+  ((\neg a  \wedge b) \implies (c \vee \neg b)) \iff (a \implies \neg c)
+ \]
+ is an expression. It may be hard to tell when expressions are true or false.
+ For this we use \textbf{truth tables}. Simply put, truth tables are tables
+ where you put the studied expression and check whether it is true or false for
+ every possible value of the variables inside. For instance, let's take $\neg
+ a \implies b$. Then, we might want to write the table
+ \begin{center}
+  \begin{tabular}{c|c|c|c}
+   $a$ & $b$ & $\neg a$ & $\neg a \implies b$ \\
+   \hline
+   $0$ & $0$ &  $1$ & $0$\\
+   $0$ & $1$ & $1$ &  $1$\\
+    $1$ &  $0$ &  $0$ &  $1$\\
+     $1$ & $1$& $0$ & $1$
+  \end{tabular}
+ \end{center}
+ We simply check the `truthfulness' of $\neg a \implies b$ depending on whether
+ $a$ and $b$ are true or false. You may want to think about it for a while.
+
+ \textbf{Warning!} There is no $=$ symbol in logic. No two expressions are ever
+ equal. They can be equivalent but never equal.
+
+ \section*{Sets}
+ Modern mathematics is the language of set theory. Everything (literally) in
+ mathematics is a \emph{set}. This also means that mathematics cannot answer
+ the question `What is a set?' as it is the thing whereby math is formulated.
+ People typically think of sets as groups of elements which somehow belong
+ together. But any other interpretation is just as valid.
+
+ When talking about sets, we often mention their \emph{elements}. The fact that
+ an element $x$ lies in a set $A$ is denoted by $x \in A$. The symbol $\in$ is
+ a weirdified letter `E', standing for \emph{\textbf{E}lement}.
+
+ There are a few notions and operations concerning sets. We formulate them
+ using mathematical logic.
+ \begin{itemize} 
+  \item \textbf{Inclusion}. If $A,B$ are sets, then $A \subseteq B$ means that
+   every element of $A$ is also an element of $B$. In symbols,
+   \[
+    A \subseteq B \iff (x \in A \implies x \in B).
+   \]
+  We often say something like `$A$ is a \emph{subset} of $B$' or `$A$ is
+   \emph{contained} in $B$ '.
+  \item \textbf{Equality}. We write $A = B$ if $A$ and $B$ share all elements.
+   That is to say
+   \[
+    A = B \iff (A \subseteq B \wedge B \subseteq A)
+   \]
+   or, purely logically,
+   \[
+    A = B \iff (x \in A \iff x \in B).
+   \]
+   If we want to specify that $A$ is a subset of $B$ but is not equal to $B$,
+   that is, $A \subseteq B \wedge A \neq B$, we write succinctly $A \subsetneq
+   B$.
+  \item \textbf{Union}. The union $A \cup B$ of $A$ and $B$ is the set that
+   contains all elements which are in $A$ \emph{or} in $B$. Logically,
+   \[
+    x \in A \cup B \iff (x \in A \vee x \in B).
+   \]
+   \begin{figure}[h]
+    \centering
+    \begin{subfigure}{.45\textwidth}
+     \centering
+     \def\svgwidth{.7\textwidth}
+     \import{figs/}{union-before.pdf_tex}
+     \caption*{Sets \textcolor{green}{$A$} and \textcolor{red}{$B$}.}
+    \end{subfigure}
+    \begin{subfigure}{.45\textwidth}
+     \centering
+     \def\svgwidth{.7\textwidth}
+     \import{figs/}{union-after.pdf_tex}
+     \caption*{The union \textcolor{blue}{$A \cup B$}.}
+    \end{subfigure}
+   \end{figure}
+ \end{itemize}
+\end{document}
