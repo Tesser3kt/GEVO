@@ -1,0 +1,13 @@
+\documentclass[preview]{standalone}
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\begin{align*}
+&\mathtt{while} \:\: n > 1 \:\: \mathtt{do}\\ &\hspace*{12pt}\mathtt{while} \:\: p_i \text{ dělí } n \:\: \mathtt{do}\\ &\hspace*{24pt}n \leftarrow n / p_i\\ &\hspace*{24pt}m_i \leftarrow m_i + 1\\ &\hspace*{12pt}p_{i+1} \leftarrow \text{ nejbližší prvočíslo větší než } p_i\\ &\hspace*{12pt}m_{i+1} \leftarrow 0\\ &\hspace*{12pt}i \leftarrow i + 1\\ &\mathtt{return} \:\: \{(p_i, m_i)\}
+\end{align*}
+
+\end{document}
