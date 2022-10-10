@@ -1,5 +1,5 @@
 % Modelo de slides para projetos de disciplinas do Abel
-\documentclass[aspectratio=169,11pt,handout]{beamer}
+\documentclass[aspectratio=169,11pt]{beamer}
 
 \usetheme[%
  sectionpage=none,%
@@ -25,6 +25,10 @@
 \usepackage[linesnumbered,vlined,commentsnumbered,czech]{algorithm2e}
 \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
 \SetKw{KwReturn}{return}\SetKw{KwFrom}{from}
+\SetKw{KwAnd}{and}\SetKw{KwOr}{or}
+% skip line number
+\let\oldnl\nl
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}
 
 \tcbset{%
  sharp corners=all,%
@@ -419,7 +423,106 @@
  \end{minipage}
 \end{frame}
 
-\begin{frame}
+\subsection[Procedury]{Procedury}
+
+\begin{frame}{Co je to procedura?}
+ \begin{tcolorbox}[title=Procedura,center,width=.9\textwidth]
+  Procedura je \alert{blok kódu}, který mohu (s různými vstupními daty) provést
+  během algoritmu několikrát. Vlastně je to jakýsi malý algoritmus uvnitř
+  algoritmu.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Příklad 1: věková skupina}
+ \centering
+ \begin{minipage}{.8\textwidth}
+  \begin{procedure}[H]
+  \DontPrintSemicolon
+   \SetKwData{Age}{V}\SetKwData{Day}{d}
+   \SetKwData{Month}{m}\SetKwData{Year}{r}
+   \SetKwData{CurMonth}{M}\SetKwData{CurYear}{R}
+   \SetKwData{CurDay}{D}
+   \SetKw{KwProc}{Procedure}
+
+   \nonl\KwProc věk(d, m, r)\;
+   \BlankLine
+
+   \Input{datum narození\hspace{2em}\tcp*[l]{den, měsíc, rok}}
+   \Output{věk\hspace{11ex + 2.2em}\tcp*[l]{věk člověka (v letech)}}
+   \BlankLine
+
+   $\CurDay, \CurMonth, \CurYear \leftarrow$ současný den, současný měsíc,
+   současný rok\;
+   $\Age \leftarrow \CurYear - \Year$\;
+
+   \pause
+
+   \If{$(\CurMonth < \Month)$ \KwOr $(\CurMonth = \Month$ \KwAnd $\CurDay <
+   \Day)$}{
+    $\Age \leftarrow \Age - 1$\;
+   }
+   \KwReturn \Age
+  \end{procedure}
+ \end{minipage}
+\end{frame}
+
+\begin{frame}{Příklad 1: věková skupina (pokr.)}
+ \centering
+ \begin{minipage}{.8\textwidth}
+  \begin{algorithm}[H]
+   \DontPrintSemicolon
+    \SetKwData{Age}{V}\SetKwData{Day}{den}
+    \SetKwData{Month}{měsíc}\SetKwData{Year}{rok}
+   \Input{datum narození\hspace{2em}\tcp*[l]{den, měsíc, rok}}
+   \Output{věková skupina\hspace{2.15em}\tcp*[l]{dítě/dospělý/důchodce}}
+   \BlankLine
+
+   $\Age \leftarrow $ věk(\Day, \Month, \Year)\;
+   \pause
+   \If{$\Age \leq 18$}{
+    \KwReturn dítě
+   }
+   \pause
+   \ElseIf{$18 < \Age < 65$}{
+    \KwReturn dospělý
+   }
+   \pause
+   \Else{
+    \KwReturn důchodce
+   }
+  \end{algorithm}
+ \end{minipage}
+\end{frame}
+
+\begin{frame}{Příklad 2: spamming}
+ \centering
+ \begin{minipage}{.8\textwidth}
+  \begin{algorithm}[H]
+   \DontPrintSemicolon
+   \SetKwData{List}{list}
+   \SetKwData{Subj}{subject}
+   \SetKwData{Body}{body}
+   \SetKwData{Exc}{exc}
+   \SetKwData{Name}{name}
+   \SetKwData{Email}{e-mail}
+   \Input{$\List = \{(\Name, \Email)\}$\hspace{2em}\tcp*[l]{seznam (jmě,
+   e-mail)}}
+   \Output{nic}
+   \BlankLine
+
+   \List $\leftarrow$ seřaď(\List, \Name)\;
+   \pause
+   \For{$(\Name, \Email) \in \List$}{
+    $\Exc \leftarrow \; ! * 1000$\;
+    \Subj $\leftarrow$ VYHRÁLI JSTE 300,000 KČ \Exc\;
+    \Body $\leftarrow$ Vážený/á/é \Name, ...\;
+    pošli(\Email, \Subj, \Body)
+   }
+  \end{algorithm}
+ \end{minipage}
+\end{frame}
+
+\begin{frame}[plain]
  \centering\Huge Díky za pozornost.
 \end{frame}
 
