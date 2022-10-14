@@ -759,9 +759,24 @@ class WhileCycle(Scene):
         )
         self.pause(1)
 
-        # step 25
+        # step wtv
         self.play(
             FadeOut(tex, shift=0.1*UP),
+            Transform(algo_counter, algo_first_while_counter)
+        )
+
+        tex = MathTex(r'7 > 1?', font_size=WHILE_FONT_SIZE)
+        tex[0][0].set_color(VAR_COLORS[0])
+        tex.move_to(algo_guy_frame.get_center())
+        check.next_to(tex, RIGHT)
+
+        self.play(Write(tex))
+        self.pause(1)
+        self.play(Write(check))
+
+        # step
+        self.play(
+            FadeOut(tex, check, shift=0.1*UP),
             Transform(algo_counter, algo_second_while_counter)
         )
 
@@ -836,9 +851,24 @@ class WhileCycle(Scene):
 
         self.next_section()
 
-        # step 29
+        # step
         self.play(
             FadeOut(tex, shift=0.1*UP),
+            Transform(algo_counter, algo_first_while_counter)
+        )
+
+        tex = MathTex(r'7 > 1?', font_size=WHILE_FONT_SIZE)
+        tex[0][0].set_color(VAR_COLORS[0])
+        tex.move_to(algo_guy_frame.get_center())
+        check.next_to(tex, RIGHT)
+
+        self.play(Write(tex))
+        self.pause(1)
+        self.play(Write(check))
+
+        # step
+        self.play(
+            FadeOut(tex, check, shift=0.1*UP),
             Transform(algo_counter, algo_second_while_counter)
         )
 

@@ -1,0 +1,81 @@
+% Modelo de slides para projetos de disciplinas do Abel
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usetheme[%
+ sectionpage=none,%
+ subsectionpage=progressbar%
+ ]{metropolis}
+\useoutertheme{infolines}
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+\setbeamertemplate{part page}
+{
+  \begin{centering}
+    \begin{beamercolorbox}[sep=16pt,center]{part title}
+      \usebeamerfont{part title}\insertromanpartnumber.~\insertpart\par
+    \end{beamercolorbox}
+  \end{centering}
+}
+
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage[linesnumbered,vlined,commentsnumbered,czech]{algorithm2e}
+\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+\SetKw{KwReturn}{return}\SetKw{KwFrom}{from}
+\SetKw{KwAnd}{and}\SetKw{KwOr}{or}
+% skip line number
+\let\oldnl\nl
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}
+
+\tcbset{%
+ sharp corners=all,%
+ boxsep=7pt,%
+ fonttitle=\bfseries,%
+ colback=gray!30!white,%
+ colframe=mDarkTeal,%
+ boxrule=1pt,%
+ center,%
+ width=.9\textwidth%
+}
+
+\title{PYTHON}
+\date{\today}
+\author{Adam Klepáč}
+\institute[GEVO]{Gymnázium Evolution Jižní Město}
+
+% enumerate global settings
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=\alph*)}
+\setlist[itemize,1]{label=\textbullet}
+
+\begin{document}
+
+\maketitle
+
+\part[Programovací jazyky]{Programovací jazyky}
+
+\begin{frame}[plain]
+ \partpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Obsah}
+ \tableofcontents
+\end{frame}
+
+\section[Jak mluvit s počítačem?]{Jak mluvit s počítačem?}
+
+\begin{frame}{Nejnižší forma komunikace}
+ \begin{tcolorbox}[title=Strojový kód]
+  Strojový kód je 
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}[plain]
+ \centering\Huge Díky za pozornost.
+\end{frame}
+
+\end{document}

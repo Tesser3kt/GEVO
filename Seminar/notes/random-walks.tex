@@ -29,6 +29,8 @@
 \usepackage{amsthm}
 \usepackage{thmtools}
 
+\newtheorem*{problem}{Úloha}
+
 \theoremstyle{remark}
 \newtheorem*{example}{Příklad}
 
@@ -51,7 +53,7 @@
 \usepackage{booktabs}
 
 % Enumerate %
-\usepackage{enumerate}
+\usepackage{enumitem}
 
 % Operators %
 \DeclareMathOperator{\Ker}{Ker}
@@ -113,7 +115,7 @@ a směr každého dalšího kroku je volen náhodně (ve smyslu prvního odstavc
  \centering
  \def\svgwidth{.5\textwidth}
  \import{figs/}{path-in-2D.pdf_tex}
- \caption{Kus \textcolor{green}{náhodné cesty} ve 2D se začátkem v
+ \caption{\textcolor{green}{Náhodná cesta} ve 2D se začátkem v
  \textcolor{red}{počátku}.}
 \end{figure}
 
@@ -175,6 +177,11 @@ slouží následující příklad.
   &=1 \cdot 0.05 + 2 \cdot 0.4 + 3 \cdot 0.4 + 4 \cdot 0.05 + 5 \cdot 0.05 + 6
   \cdot 0.05 = 2.8.
  \end{align*}
+ Další možný způsob, jak si představit střední hodnotu, je jako \textbf{vážený
+ průměr}, tj. průměr, kterým se například počítá výsledná známka na vysvědčení
+ -- každou známku násobíte její vahou. V případě hodu kostkou je střední
+ hodnota vážený průměr, kde \uv{známky} jsou výsledky hodu a \uv{váhy} jsou
+ jejich prav\-děpodobnosti.
 \end{example}
 \hrule
 \vspace{\parskip}
@@ -201,7 +208,7 @@ protože sčítanec $\P(V=k)$ se objevuje přesně $k$-krát, rozdělím si sou�
   $\P(V=1)$ & $+$ & & & & & & \\[1ex]
   $\P(V=2)$ & $+$ & $\P(V=2)$ & $+$ & & & & \\[1ex]
   $\P(V=3)$ & $+$ & $\P(V=3)$ & $+$ & $\P(V=3)$ & $+$ & & \\[1ex]
-  $\P(V=4)$ & $+$ & $\P(V=4)$ & $+$ & $\P(V=4)$ & $+$ & $\P(V=4)$ & \\[1ex]
+  $\P(V=4)$ & $+$ & $\P(V=4)$ & $+$ & $\P(V=4)$ & $+$ & $\P(V=4)$ & + \\[1ex]
   $\vdots$ & & $\vdots$ & & $\vdots$ & & $\vdots$ & $\ddots$ \\
  \end{tabular}
 \end{center}
@@ -218,9 +225,105 @@ jednou.
 
 Hodnotu $\P(\text{návrat})$ si označím pro strohost zápisu jako $r$.
 
-Jak souvisí součet v druhém sloupci s $r$? No, úplně stejnou úvahou dojdeme k
-tomu, že součet v druhém sloupci mi dává pravděpodobnost, že se vrátím
-\textbf{aspoň dvakrát}.
+Jak souvisí součet v druhém sloupci s $r$? No, úplně stejnou úvahou dojdeme
+k~tomu, že součet v druhém sloupci mi dává pravděpodobnost, že se vrátím
+\textbf{aspoň dvakrát}. Protože aspoň jeden návrat se stane s pravděpodobností
+$r$, aspoň dva návraty se stanou s pravděpodobností $r^2$. Podobně, pro aspoň
+$k$ návratů mám pravděpodobnost $r^{k}$, což je zároveň $k$-tý sloupec v tom
+součtu nahoře.
 
+Dohromady dostanu, že
+\[
+ \E[V] = r + r^2 + r^3 +\ldots = \sum_{k=1}^{\infty} r^{k}.
+\]
+
+To je ovšem součet geometrické posloupnosti, tj. posloupnosti, kde každý další
+člen dostanu jako $\text{něco} \cdot \text{předchozí}$. V tomto případě to
+\uv{něco} je $r$ a první člen je taky $r$. Takováhle posloupnost má součet
+\[
+ \sum_{k=1}^{\infty} r^{k} = \frac{r}{1-r},
+\]
+právě tehdy, když $0 \leq r < 1$. Tím jsme převedli svůj původní problém na
+zjišťování, kdy je $\E[V] = \infty$. Pokud totiž $r = 1$, tedy pravděpodobnost
+návratu je 100 \%, pak $\E[V]$ je součet samých jedniček, takže nekonečný.
+Naopak, pokud $r < 1$, tedy existuje možnost, že se nevrátím, pak $\E[V] = r /
+(1-r)<\infty$.
+
+Zbytek textu se věnuje důkazu, že $\E[V] = \infty$ ve 2D. Pořád totiž řešíme
+problém, že $r = \P(\text{návrat})$ neumíme spočítat.
+
+Na řadě je další revoluční nápad, který jste určitě už dávno dostali. Místo
+toho ptát se rovnou po pravděpodobnosti návratu, zeptám se sérií otázek.
+
+\begin{center}
+ \begin{tabular}{lcc}
+  & Ano & Ne \\
+  \midrule
+  Vrátím se přesně po \textcolor{red}{1} kroku? & +1 & +0 \\
+  Vrátím se přesně po \textcolor{red}{2} krocích? & +1 & +0 \\
+  Vrátím se přesně po \textcolor{red}{3} krocích? & +1 & +0 \\
+  Vrátím se přesně po \textcolor{red}{4} krocích? & +1 & +0 \\
+  \multicolumn{1}{c}{\vdots} & \vdots & \vdots
+ \end{tabular}
+\end{center}
+
+Počet návratů $V$ dostanu tak, že přičtu jedna, kdykoli na nějakou z těchto
+otázek odpovím \uv{ano}. Fakt, že $V = k$, můžeme proto vnímat tak, že jsem
+\uv{ano} odpověděl u libovolných $k$ z těchto otázek. Pravděpodobnost, že se
+vrátím po přesně $n$ krocích si pomocně označíme $P^{(n)}$.
+
+Jak nám tohle pomůže? No, střední hodnota $P^{(n)}$ je
+\[
+ \E[P^{(n)}] = 1 \cdot \P(\text{\uv{ano} u $n$-té otázky}) + 0 \cdot
+ \P(\text{\uv{ne} u $n$-té otázky}),
+\]
+protože očekávám, že přičtu 1, když odpovím \uv{ano}, a 0, když odpovím \uv{ne}.
+To ale znamená, že $\E[P^{(n)}]$ je zkrátka $\P(\text{\uv{ano} u $n$-té
+otázky}) = P^{(n)}$.
+
+Jelikož počet návratů je právě počet kladných odpovědí na otázky výše, očekávám,
+že se vrátím přesně tolikrát, kolikrát očekávám, že odpovím \uv{ano}.
+Symbolicky,
+\[
+ \E[V] = \E[P^{(1)}] + \E[P^{(2)}] +\ldots = \sum_{n=1}^{\infty} \E[P^{(n)}] =
+ \sum_{n=1}^{\infty} P^{(n)}.
+\]
+Naštěstí, $P^{(n)}$ spočítat umíme.
+
+Co může asi být pravděpodobnost, že se vrátím po přesně $n$-krocích?
+\begin{enumerate}[label=\arabic*.,topsep=0pt]
+ \item Zajímají nás jen cesty, které mají přesně $n$ kroků.
+ \item Zajímají nás jen cesty, které končí v počátku (tam, kde začaly).
+ \item Zajímá nás pravděpodobnost, s jakou si vybereme jednu konkrétní cestu o
+  $n$ krocích.
+\end{enumerate}
+
+Bod 3 se počítá snadno. U každého dalšího kroku vybírám ze čtyř různých směrů,
+každý vyberu s pravděpodobností 1/4. Takže jednu konkrétní cestu si vyberu
+s~pravděpodobností $(1 / 4)^{n}$, jelikož se $n$-krát po sobě musím \uv{správně}
+rozhodnout.
+
+\begin{problem}
+ Spočítejte počet cest splňujících body 1 a 2.
+\end{problem}
+\emph{Hint}. Cesty, které končí tam, kde začaly, musejí nutně mít stejný počet
+kroků nahoru jako kroků dolu a kroků doleva jako kroků doprava (jinak by nemohly
+skončit na stejném místě). To mimo jiné znamená, že jenom cesty se
+\textbf{sudým} počtem kroků mohou splňovat bod 2. Na cestu se mohu dívat jako na
+posloupnost šipek. Třeba
+\[
+ \uparrow \quad \leftarrow \quad \leftarrow \quad \downarrow \quad \rightarrow
+ \quad \rightarrow
+\]
+je cesta o 6 krocích, která se vrátí do počátku, protože jdu nahoru, doleva,
+doleva, dolu, doprava, doprava. Počet různých seřazení $n$ šipek je $n!$. Ale ne
+každé seřazení dá různé cesty. Když třeba ty šipky nahoře seřadím takto:
+\[
+ \leftarrow \quad \uparrow \quad \leftarrow \quad \downarrow \quad \rightarrow
+ \quad \rightarrow,
+\]
+neboli prohodím první dvě šipky, dostanu opravdu jinou cestu. Když ale prohodím
+třeba druhou a třetí šipku z té původní cesty (které obě vedou doleva), nezměním
+nic. To je potřeba brát při počítání cest podle bodu 1 v úvahu.
 
 \end{document}

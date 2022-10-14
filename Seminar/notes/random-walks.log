@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.8.8)  7 OCT 2022 20:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.8.8)  11 OCT 2022 12:25
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -379,47 +379,52 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip70
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 48.
- (/usr/share/texmf-dist/tex/latex/tools/enumerate.sty
-Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks33
+Package hyperref Info: Option `colorlinks' set `true' on input line 50.
+ (/usr/local/share/texmf/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip71
+\enit@outerparindent=\dimen194
+\enit@toks=\toks33
+\enit@inbox=\box54
+\enit@count@id=\count301
+\enitdp@description=\count302
 ) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count301
-\l__pdf_internal_box=\box54
+\l__color_backend_stack_int=\count303
+\l__pdf_internal_box=\box55
 ) (./random-walks.aux)
 \openout1 = `random-walks.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count302
-\scratchdimen=\dimen194
-\scratchbox=\box55
-\nofMPsegments=\count303
-\nofMParguments=\count304
+\scratchcounter=\count304
+\scratchdimen=\dimen195
+\scratchbox=\box56
+\nofMPsegments=\count305
+\nofMParguments=\count306
 \everyMPshowfont=\toks34
-\MPscratchCnt=\count305
-\MPscratchDim=\dimen195
-\MPnumerator=\count306
-\makeMPintoPDFobject=\count307
+\MPscratchCnt=\count307
+\MPscratchDim=\dimen196
+\MPnumerator=\count308
+\makeMPintoPDFobject=\count309
 \everyMPtoPDFconversion=\toks35
 )
 *geometry* driver: auto-detecting
@@ -467,14 +472,14 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen196
-\Gin@req@width=\dimen197
+\Gin@req@height=\dimen197
+\Gin@req@width=\dimen198
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 78.
+Package hyperref Info: Link coloring ON on input line 80.
  (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
@@ -482,20 +487,20 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count308
+\c@section@level=\count310
 )
-LaTeX Info: Redefining \ref on input line 78.
-LaTeX Info: Redefining \pageref on input line 78.
-LaTeX Info: Redefining \nameref on input line 78.
+LaTeX Info: Redefining \ref on input line 80.
+LaTeX Info: Redefining \pageref on input line 80.
+LaTeX Info: Redefining \nameref on input line 80.
  (./random-walks.out) (./random-walks.out)
 \@outlinefile=\write3
 \openout3 = `random-walks.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 83.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 83.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./figs/path-in-2D.pdf_tex
@@ -507,28 +512,39 @@ Package pdftex.def Info: figs//path-in-2D.pdf , page1 used on input line 56.
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (3.7156pt too wide) in paragraph at lines 138--142
+Overfull \hbox (3.7156pt too wide) in paragraph at lines 140--144
 \OT1/cmr/m/n/10.95 n^^Sahodnou hod-notu) $\OML/cmm/m/it/10.95 V$ \OT1/cmr/m/n/10.95 jako `po^^Tcet n^^Savrat^^Wu'. Tedy nap^^Tr^^S^^Pklad $\OT1/cmr/bx/n/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 V \OT1/cmr/m/n/10.95 = 4)$ p^^Tredstavuje
  []
 
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 150.
-[2 <./figs//path-in-2D.pdf>] [3] [4] (./random-walks.aux)
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 152.
+[2 <./figs//path-in-2D.pdf>]
+Overfull \hbox (2.88853pt too wide) in paragraph at lines 179--185
+\OT1/cmr/m/n/10.95 pr^^Wum^^Ter, kde []zn^^Samky\ jsou v^^Sysledky hodu a []v^^Sahy\ jsou je-jich prav-d^^Tepodobnosti. 
+ []
+
+[3] [4]
+Overfull \hbox (5.26105pt too wide) in paragraph at lines 284--287
+[]\OT1/cmr/m/n/10.95 Jeliko^^Tz po^^Tcet n^^Savrat^^Wu je pr^^Sav^^Te po^^Tcet kladn^^Sych od-pov^^Ted^^S^^P na ot^^Sazky v^^Sy^^Tse, o^^Tcek^^Sav^^Sam,
+ []
+
+Package hyperref Info: bookmark level for unknown problem defaults to 0 on input line 307.
+[5] (./random-walks.aux)
 Package rerunfilecheck Info: File `random-walks.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14333 strings out of 478238
- 231431 string characters out of 5850457
- 552838 words of memory out of 5000000
- 32353 multiletter control sequences out of 15000+600000
- 478236 words of font info for 61 fonts, out of 8000000 for 9000
+ 14659 strings out of 478238
+ 236873 string characters out of 5850457
+ 561284 words of memory out of 5000000
+ 32669 multiletter control sequences out of 15000+600000
+ 479190 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,12n,76p,265b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,12n,76p,265b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on random-walks.pdf (4 pages, 132406 bytes).
+Output written on random-walks.pdf (5 pages, 144687 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
+ 100 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
