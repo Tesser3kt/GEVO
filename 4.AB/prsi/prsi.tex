@@ -1,0 +1,134 @@
+\documentclass[a4paper,11pt]{article}
+
+% Babel %
+\usepackage[czech]{babel}
+
+% Colors %
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+% Title %
+\title{\Huge\textsf{}\\
+ \Large\textsf{}
+ \author{}
+ \date{}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+
+% Enumerate %
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt}
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\textbf{Domácí úkol.} V pseudokódu naprogramujte karetní hru \emph{prší} pro tři
+hráče. Pravidla hry jsou následující.
+\begin{itemize}
+ \item Na začátku má každý hráč 4 karty.
+ \item Hráči se střídají po tahu.
+ \item Tah sestává z
+  \begin{itemize}
+   \item odhození jedné karty,
+   \item přibrání jedné karty z balíčku,
+   \item přibrání dvou karet z balíčku nebo
+   \item stání.
+  \end{itemize}
+ \item Hráč přibírá dvě karty, pokud hráč před ním odhodil 7 a sám nemá žádnou 7
+  v ruce. \textcolor{red}{Hráč přibírá vždy jen dvě karty na hozenou 7, bez
+  ohledu na to, kolikátá odhozená 7 to je!}
+ \item Hráč stojí, pokud hráč před ním odhodil A a sám nemá žádné A v ruce.
+ \item Hráč odhazuje, pokud má v ruce kartu stejné barvy nebo hodnoty, které je
+  poslední odhozená karta, a nenastal žádný z případů výše.
+ \item Hráč přibírá jednu kartu, když nenastal žádný z případů výše.
+\end{itemize}
+
+\vspace{\parskip}
+\hrule
+
+Vaším úkolem je napsat algoritmus, který běží, dokud má každý hráč v ruce aspoň
+jednu kartu. Algoritmus se musí v každém tahu zachovat podle pravidel výše a
+podle toho, jaká karta byla odhozena v předešlém tahu. Nemusíte řešit balíček
+karet; klidně počítejte s tím, že nikdy nedojde. Máte jen naprogramovat chování
+hráče v každém tahu.
+
+K dispozici máte
+\begin{itemize}
+ \item proměnné $p_1,p_2,p_3$ určující počet karet v ruce každého hráče. Na
+  začátku jsou všechny rovny $4$ a sami je musíte v každém tahu aktualizovat.
+ \item množinu $\mathcal{B}$ karetních barev, tj., $\mathcal{B} = \{\heartsuit,
+  \diamondsuit, \spadesuit, \clubsuit\}$.
+ \item množinu $\mathcal{H}$ karetních hodnot, tj., $\mathcal{H} = \{7, 8, 9,
+  10, J, Q, K, A\}$.
+\end{itemize}
+Zbytek je na vás. Můžete si definovat kolik nových proměnných a procedur chcete.
+Chování hráče může být libovolně složité, ale spodní hranice je taková, že
+kdokoli, kdo sleduje váš algoritmus, musí být schopen úspěšně odehrát hru prší.
+
+\vspace{\parskip}
+\hrule
+
+Speciální karty:
+\begin{itemize}
+ \item 7 libovolné barvy nutí následujícího hráče brát dvě karty z balíčku,
+  pokud sám nemá v ruce 7.
+ \item A libovolné barvy nutí následujícího hráče stát, pokud sám nemá A v ruce.
+ \item K$\spadesuit$ nutí následujícího hráče brát pět karet z balíčku za každé
+  situace.
+ \item Q libovolné barvy umožňuje hráči na tahu změnit barvu pro následujícího
+  hráče. \textbf{Q lze hodit, stejně jako všechny ostatní karty, pouze na jiné
+  Q nebo na kartu stejné barvy}.
+\end{itemize}
+
+\end{document}
