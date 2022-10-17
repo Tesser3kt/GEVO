@@ -1,0 +1,479 @@
+\documentclass[a4paper,11pt]{article}
+
+% Babel %
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc} % vstupní kódování je UTF-8
+\usepackage[T1]{fontenc} % výstupní kódování
+
+% Colors %
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{tikz}
+\newcommand{\tkzcircsimple}{\tikz{\node[circle,inner sep=0,outer sep=0,draw]{$\phantom{o}$}}}
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+\newtheorem{thm}{Věta}[subsection]
+
+\theoremstyle{definition}
+\newtheorem{exm}[thm]{Příklad}
+\newtheorem{dfn}[thm]{Definice}
+
+% Title %
+\title{\Huge\textsf{Logika, množiny, důkazy}\\
+ \Large\textsf{}
+ \author{}
+ \date{}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+
+% Tables %
+\usepackage{booktabs}
+
+% Enumerate %
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt}
+\setlist[enumerate]{topsep=0pt}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\section{Logika a množiny}
+\label{sec:logika-a-mnoziny}
+
+Matematická logika poskytuje formální prostředí pro práci s \emph{výroky}. Výrok
+je pro nás jakákoli věta, o které lze rozhodnout, zda \textbf{platí}, či
+\textbf{neplatí}.
+
+\begin{exm}\hfill
+ \begin{itemize}
+  \item \uv{Mám žízeň.} a \uv{Nikdo nemá rád matiku.} jsou výroky.
+  \item \uv{Jak se máš?} a \uv{Ať už je konec!} nejsou výroky.
+  \item \uv{Trump vyhraje příští volby.} je taky výrok, i když neumíme říct,
+   jestli platí, nebo ne. Naše schopnost rozhodnout o pravdivosti věty nesouvisí
+   s~tím, že věta je nebo není výrokem.
+ \end{itemize}
+\end{exm}
+
+\subsection{Logika prvního řádu}
+\label{ssec:logika-prvniho-radu}
+
+Logikou prvního řádu se v matice myslí jazyk o dvou číslech/konstantách a pěti
+(obvykle pěti) operacích na výrocích.
+
+Konstanty $0$ a $1$ (někdy taky $\perp$ a $\top$) se obvykle interpretují jako
+\uv{lež} a \uv{pravda}. V tomto kontextu můžeme říct, že výrok je věta, které
+můžeme přiřadit hodnotu $0$ nebo $1$.
+
+Výrazy se v logice obvykle reprezentují malými písmeny latinské abecedy
+(pokud jste o nich neslyšeli, jsou to $a$, $b$, $c$, atd.).  
+
+\begin{dfn}[Logické operace]
+ Řekněme, že $p$ a $q$ jsou výroky \uv{Prší.} a \uv{Mám žízeň.} Pak
+ \begin{itemize}
+  \item $\neg p$ (\textbf{ne} $p$; \textbf{negace} $p$) je výrok s opačnou
+   pravdivostní hodnotou k $p$. V~tom\-to případě
+   \[
+    \neg p = \text{\uv{Neprší.}}
+   \]
+   Operaci $\neg$ říkáme \textbf{negace}.
+  \item $p \wedge q$ ($p$ \textbf{a (zároveň)} $q$) platí jenom tehdy, když
+   platí $p$ i $q$. V našem případě je
+   \[
+    p \wedge q = \text{\uv{Prší a mám žízeň.}}
+   \]
+   Operaci $ \wedge $ říkáme \textbf{konjunkce}.
+  \item $p \vee q$ ($p$ \textbf{nebo} $q$) platí tehdy, když platí aspoň jeden z
+   výroků $p$, $q$. Tedy, \[
+    p \vee q = \text{\uv{Prší nebo mám žízeň.}}
+   \]
+   \textcolor{red}{Pozor!} Tohle \uv{nebo} není výlučné. Výrok $p \vee q$ platí
+   i v případě, že platí $p$ i $q$. Operaci $ \vee $ říkáme \textbf{disjunkce}.
+  \item $p \Rightarrow q$ ($p$ \textbf{implikuje} $q$; \textbf{z} $p$ 
+   \textbf{plyne} $q$; \textbf{když} $p$, \textbf{pak} $q$) platí v jedné ze
+   dvou možností:
+   \begin{enumerate}[label=(\arabic*)]
+    \item Platí $p$ a platí $q$.
+    \item Neplatí $p$.
+   \end{enumerate}
+   V našem případě
+   \[
+    p \Rightarrow q = \text{\uv{Když prší, mám žízeň.}}
+   \]
+   Operaci $ \Rightarrow $ říkáme \textbf{implikace}. Implikace může být trochu
+   ošemetná na pochopení. Možná pomůže fakt, že výroku $p$ se někdy říká 
+   \emph{předpoklad} a výroku $q$ \emph{důsledek}. Jde o to, že když platí
+   předpoklad, musí platit i důsledek; když ale předpoklad neplatí, důsledek
+   může i nemusí být pravdivý.
+
+   Pro naše zvolené výroky to konkrétně znamená, že \textbf{vždy} když prší, tak
+   mám žízeň, ale když neprší, tak můžu mít žízeň, ale taky nemusím. \item $p
+   \Leftrightarrow q$ ($p$ \textbf{právě tehdy, když} $q$; $p$ \textbf{je
+   ekvivalentní} $q$) platí přesně v situaci, kdy $p$ má stejnou pravdivostní
+   hodnotu jako $q$. V našem případě
+   \[
+    p \Leftrightarrow q = \text{\uv{Prší právě tehdy, když mám žízeň.}}
+   \]
+   Operaci $ \Leftrightarrow $ se říká \textbf{ekvivalence}.
+ \end{itemize}
+\end{dfn}
+
+\begin{dfn}[Logická formule]
+ Logická formule je pro nás jakákoli \emph{smysluplná} posloupnost výroků,
+ logických operací a závorek. Smysluplnost znamená, že za $\neg$ je výrok a na
+ obou stranách $ \wedge , \vee , \Rightarrow , \Leftrightarrow $ je vždy výrok.
+ Závorky určují prioritu logických operací.
+\end{dfn}
+
+Obecně se matematici nedohodli na nějaké přirozené prioritě logických operací,
+ale nejčastější úzus je, že nejvyšší prioritu má $\neg$, pod ní jsou  $ \wedge ,
+\vee $ a nejnižší prioritu mají $ \Rightarrow , \Leftrightarrow $.
+
+\begin{exm}
+ \label{exm:formula}
+ Třeba
+ \[
+  ((\neg p) \vee q) \Leftrightarrow ((p \vee (\neg q)) \Rightarrow r) 
+ \]
+ je formule, ale
+ \[
+  p \Leftrightarrow  \Rightarrow q \neg r
+ \]
+ není.
+\end{exm}
+
+V logice člověk často potřebuje zjistit, jakou pravdivostní hodnotu má formule v
+závislosti na pravdivostních hodnotách původních výroků. K tomu slouží tzv.
+\emph{tabulka pravdivostních hodnot}, kam si člověk napíše všechny možné
+pravdivostní hodnoty výroků a prostě počítá. Třeba pro formuli 
+\[
+ ((\neg p) \vee q) \Rightarrow r
+\]
+bychom sestrojili tabulku
+
+\begin{center}
+ \begin{tabular}{c|c|c|c|c|c|c}
+  $p$ & $q$ & $r$ & $\neg p$ & $\neg q$ & $(\neg p) \vee q$ & $((\neg p) \vee q)
+  \Rightarrow r$\\
+  \midrule
+  0 & 0 & 0 & 1 & 1 & 1 & 0\\
+  0 & 0 & 1 & 1 & 1 & 1 & 1\\
+  0 & 1 & 0 & 1 & 0 & 1 & 0\\
+  1 & 0 & 0 & 0 & 1 & 0 & 1\\
+  0 & 1 & 1 & 1 & 0 & 1 & 1\\
+  1 & 0 & 1 & 0 & 1 & 0 & 1\\
+  1 & 1 & 0 & 0 & 0 & 1 & 0\\
+  1 & 1 & 1 & 0 & 0 & 1 & 1
+ \end{tabular}
+\end{center}
+
+Pro představu, kdyby $p$ bylo \uv{Prší.}, $q$ bylo \uv{Mám žízeň.} a $r$ bylo
+\uv{Stíhám autobus.}, pak by výrok $((\neg p) \vee q) \Rightarrow r$ znamenal
+\begin{center}
+ \emph{Když neprší nebo mám žízeň, tak stíhám autobus}.
+\end{center}
+Hodně štěstí bez pomoci rozluštit, kdy je tahle věta pravdivá.
+
+\subsection{Množiny}
+\label{ssec:mnoziny}
+
+Množiny jsou základní stavební prvky moderní matematiky. Oproti tomu, co se vám
+někdo možná pokusí tvrdit, matematika neodpovídá na otázku \uv{Co je množina?}.
+Matika jenom používá množiny k modelování struktur, které obvykle mají šanci
+někoho zajímat. Ta otázka je veskrze filosofická.
+
+Asi každý si představuje množiny jako soubory prvků, které mají něco společného.
+Téhle interpretace se budeme taky držet. Fakt, že prvek $x$ patří do množiny $A$
+budeme zapisovat $x \in A$, kde symbol $ \in $ je pokroucené $e$ z anglického
+\textbf{e}lement. Když chci tvrdit opak, tedy, že prvek $x$ \emph{neleží} v
+množině $A$, píšu $x \notin A$.
+
+S množinami se táhne v závěsu pár vztahů a operací, které si teď zadefinujeme
+pomocí logických operací.
+
+\begin{dfn}[množinové vztahy]
+ Vztahy mezi množinami budeme velmi pravděpodobně potřebovat jen dva, a to
+ \emph{inkluzi} a \emph{rovnost}. Mějme dvě množiny $A,B$.
+ \begin{itemize}
+  \item $A \subseteq B$ ($A$ \textbf{je podmnožina/součást} $B$; $A$ 
+   \textbf{leží v/patří do} $B$) značí skutečnost, že každý prvek $A$ je taky
+   prvkem $B$. V logice
+   \[
+    A \subseteq B \Leftrightarrow (x \in A \Rightarrow x \in B).
+   \]
+   Vztahu $ \subseteq $ se říká \textbf{inkluze}. Samozřejmě můžu psát i $A
+   \supseteq B$ pro inkluzi opačným směrem.
+  \item $A = B$ ($A$ \textbf{je rovno} $B$) znamená, že $A$ a $B$ sdílejí
+   všechny prvky. Logicky buď třeba
+   \[
+    A = B \Leftrightarrow (A \subseteq B \wedge B \subseteq A)
+   \]
+   nebo
+   \[
+    A = B \Leftrightarrow (x \in A \Leftrightarrow x \in B).
+   \]
+ \end{itemize}
+ Když píšu $A \subseteq B$ může se stát i to, že $A = B$. Pokud chci zdůraznit
+ fakt, že $A \subseteq B$, ale $A \neq B$, napíšu $A \subsetneq B$.
+\end{dfn}
+
+\begin{dfn}[množinové operace]
+ Budeme rozeznávat čtyři množinové operace. Podobně jako výsledkem logických
+ operací na výrocích je zase výrok, výsledkem množinové operace na množinách je
+ množina (to je ale překvápko).
+ \begin{itemize}
+  \item $A \cup B$ ($A$ \textbf{sjednoceno s} $B$) je množina, která obsahuje
+   prvky ležící v $A$ \emph{nebo} v $B$. Logicky
+   \[
+    x \in A \cup B \Leftrightarrow (x \in A \vee x \in B).
+   \]
+   \begin{center}
+    \begin{figure}[h]
+     \centering
+     \begin{subfigure}{0.45\textwidth}
+      \centering
+      \def\svgwidth{0.6\textwidth}
+      \import{figs/}{union-before.pdf_tex}
+      \caption*{Množiny \textcolor{green}{$A$} a \textcolor{red}{$B$}.}
+     \end{subfigure}
+     \begin{subfigure}{0.45\textwidth}
+      \centering
+      \def\svgwidth{0.6\textwidth}
+      \import{figs/}{union-after.pdf_tex}
+      \caption*{Sjednocení \textcolor{blue}{$A \cup B$}.}
+     \end{subfigure}
+    \end{figure}
+   \end{center}
+   \vspace*{-8mm}
+   Operaci $ \cup $ říkáme \textbf{sjednocení}. Sjednocení z typografického
+   hlediska příliš velkého množství množin $A_1,\ldots,A_n$, kde $n \in \N$,
+   píšeme
+   \[
+    \bigcup_{i=1}^{n} A_i.
+   \]
+  \item $A \cap B$ ($A$ \textbf{proniknuto s} $B$) je množina, která obsahuje
+   jen ty prvky, které leží v obou množinách $A$, $B$.
+   \newpage
+   \begin{center}
+    \begin{figure}[h]
+     \centering
+     \begin{subfigure}{0.45\textwidth}
+      \centering
+      \def\svgwidth{0.6\textwidth}
+      \import{figs/}{inter-before.pdf_tex}
+      \caption*{Množiny \textcolor{green}{$A$} a \textcolor{red}{$B$}.}
+     \end{subfigure}
+     \begin{subfigure}{0.45\textwidth}
+      \centering
+      \def\svgwidth{0.6\textwidth}
+      \import{figs/}{inter-after.pdf_tex}
+      \caption*{Průnik \textcolor{blue}{$A \cap B$}.}
+     \end{subfigure}
+    \end{figure}
+   \end{center}
+   \vspace*{-8mm}
+   Operaci $ \cap $ říkáme \textbf{průnik}. Průnik spousty množin
+   $A_1,\ldots,A_n$ píšeme
+   \[
+    \bigcap_{i=1}^{n} A_i.
+   \]
+  \item $A \setminus B$ ($A$ \textbf{bez}/\textbf{méně} $B$) obsahuje právě ty
+   prvky, které jsou v $A$, ale nejsou v $B$. Logikou například takto:
+   \[
+    x \in A \setminus B \Leftrightarrow (x \in A \wedge x \notin B).
+   \]
+   \begin{center}
+    \begin{figure}[h]
+     \centering
+     \begin{subfigure}{0.45\textwidth}
+      \centering
+      \def\svgwidth{0.6\textwidth}
+      \import{figs/}{diff-before.pdf_tex}
+      \caption*{Množiny \textcolor{green}{$A$} a \textcolor{red}{$B$}.}
+     \end{subfigure}
+     \begin{subfigure}{0.45\textwidth}
+      \centering
+      \def\svgwidth{0.6\textwidth}
+      \import{figs/}{diff-after.pdf_tex}
+      \caption*{Rozdíl \textcolor{blue}{$A \setminus B$}.}
+     \end{subfigure}
+    \end{figure}
+   \end{center}
+   \vspace*{-8mm}
+   Operaci $ \setminus $ říkáme rozdíl. \textcolor{red}{Pozor!} Operace $
+   \setminus $ \textbf{není komutativní}, tzn., že $A \setminus B \neq B
+   \setminus A$. Z toho důvodu nemá rozdíl více než dvou množin smysl, protože
+   není jasné, v jakém pořadí třeba zápis
+   \[
+    A \setminus B \setminus C
+   \]
+   chápat.
+  \item $A \times B$ ($A$ \textbf{krát} $B$) je množina všech dvojic, kde první
+   prvek je z $A$ a druhý z $B$. Logicky
+   \[
+    (x,y) \in A \times B \Leftrightarrow (x \in A \wedge y \in B).
+   \]
+   Operaci $ \times $ říkáme \textbf{součin} nebo \textbf{produkt}. Součin mnoha
+   množin $A_1,\ldots,A_n$ píšeme
+   \[
+    \prod_{i=1}^{n} A_i,
+   \]
+   kde symbol $\Pi$ je velké řecké \uv{pí} pro \textbf{p}rodukt.
+ \end{itemize}
+\end{dfn}
+
+\begin{exm}
+ Uvážíme množiny
+ \[
+  A = \{\heartsuit, \clubsuit, \diamondsuit \}, \quad B = \{ \clubsuit,
+  \spadesuit \}, \quad C = \{\heartsuit, \diamondsuit, \spadesuit, \clubsuit\}.
+ \]
+ Pak
+ \begin{align*}
+  A \cup B &= \{\heartsuit, \clubsuit, \diamondsuit, \spadesuit\} = C, \\
+  A \cap B &= \{\clubsuit\}, \\
+  C \setminus A &= \{\spadesuit\}, \\
+  A \times B &= \{(\heartsuit, \clubsuit), (\heartsuit, \spadesuit), (\clubsuit,
+  \clubsuit), (\clubsuit, \spadesuit), (\diamondsuit, \clubsuit),
+  (\diamondsuit, \spadesuit)\}. \\
+ \end{align*}
+ \textcolor{red}{Pozor!} Sjednocení $ \cup $ a rozdíl $ \setminus $ se nechovají
+ jako $+$ a $-$. Všimněte si, že i když $A \cup B = C$, tak $C \setminus A \neq
+ B$.
+\end{exm}
+
+\subsection{Kvantifikátory}
+\label{ssec:kvantifikatory}
+
+Poslední základní ingrediencí matematického jazyka jsou kvantifikátory, které
+nám umožňují charakterizovat prvky množin pomocí logických výrazů.
+
+\begin{dfn}[kvantifikátory]
+ Rozlišujeme dva druhy kvantifikátorů -- univerzální a existenční. Řekněme, že
+ $p(x)$ značí výrok $p$, který v sobě obsahuje proměnnou $x$. Takový výrok může
+ vypadat třeba jako $x \geq 2$ nebo $x + 1 = 5$. Pokud $A$ je nějaká množina,
+ pak výrazem
+ \begin{itemize}
+  \item $ \forall x \in A: p(x)$ (\textbf{pro každé} x \textbf{z} A
+   \textbf{platí} $p(x)$) myslíme, že pro každý prvek $x \in A$ platí výrok
+   $p(x)$. Jinak řečeno, ať už si vyberu libovolný prvek množiny $A$ a dosadím
+   ho za $x$ do $p(x)$, tak $p(x)$ bude pravdivý. Symbol $ \forall $ je obrácené
+   \uv{A} z německého \emph{\textbf{A}llgemein} (pro všechny).
+  \item $ \exists x \in A: p(x)$ (\textbf{existuje} $x$ \textbf{z} $A$
+   \textbf{takové, že platí} $p(x)$) myslíme, že v $A$ se nachází prvek, po
+   jehož dosazení za $x$ do $p(x)$ je výrok $p(x)$ pravdivý. Symbol $ \exists $
+   je obrácené \uv{E} z anglického \emph{\textbf{E}xists}.
+ \end{itemize}
+\end{dfn}
+
+Kromě těchto kvantifikátorů budeme ještě používat symbol $ \exists !$, který
+znamená \uv{existuje právě jeden}. Logicky, napíšu-li $ \exists !x \in A:p(x)$,
+myslím tím
+\[
+ (\exists x \in A:p(x)) \wedge ( \forall y \in A:p(y) \Rightarrow y = x).
+\]
+Tedy, existuje prvek $x \in A$ splňující $p(x)$ a kdykoli $y \in A$ je prvek
+splňující $p(y)$, pak $y = x$. Konečně, symbolem $\nexists$ myslím
+\uv{neexistuje}.
+
+\begin{exm}\hfill
+ \begin{enumerate}
+  \item Řekněme, že $p(x)$ je výrok $x \geq 2$. Pak výroky $ \forall x \in
+   \R:p(x)$ a $ \exists !x \in \R:p(x)$ jsou lživé a $ \exists x \in \R:p(x)$ je
+   pravdivý.
+   \begin{itemize}
+    \item $ \forall x \in \R:p(x)$ je lživý, protože každé reálné číslo určitě
+     není větší než $2$. Například $-420$ není.
+    \item $ \exists !x \in \R:p(x)$ je taky lživý, protože existuje víc reálných
+     čísel větších než $2$. $69$ a $911$ jsou dvě z nich.
+    \item $ \exists x \in \R:p(x)$ je pravdivý, protože umím najít reálné číslo
+     větší než dva. Například $1337$.
+   \end{itemize}
+  \item Písmenem $P$ označíme množinu všech lidí. Pro $x,y \in P$ znamená výrok
+   $p(x,y)$, že \uv{Člověk $x$ zná jméno člověka $y$.} Pak výrok
+   \begin{itemize}
+    \item $ \forall x \; \forall y: p(x,y)$ znamená, že všichni lidé znají
+     navzájem svá jména.
+    \item $ \forall x \; \exists y: p(x,y)$ znamená, že každý člověk zná jméno
+     aspoň jednoho člověka.
+    \item $ \forall x \; \exists !y:p(x,y)$ znamená, že každý člověk zná jméno
+     přesně jednoho člověka.
+    \item $  \exists x \; \forall y :p(x,y)$ znamená, že je na světě člověk,
+     který zná jména všech lidí.
+    \item $ \exists x \; \exists y: p(x,y)$ znamená, že existuje člověk, který
+     zná jméno nějakého člověka.
+   \end{itemize}
+ \end{enumerate}
+\end{exm}
+
+\subsection{Relace a zobrazení}
+\label{ssec:relace-a-zobrazeni}
+
+Operace součinu na množinách je zvlášť zajímavá pro to, že nám umožňuje
+definovat vztahy mezi prvky množin. Hádám, že vás nikdy neučili dívat se třeba
+na $ \leq $ nebo na funkci $f(x) = 2x + 3$ jako na množiny...
+
+\begin{dfn}[relace/vztah]
+ Mějme množiny $A,B$. Jakékoli podmnožině $R \subseteq A \times B$ budeme říkat
+ \textbf{relace/vztah mezi} $A$ \textbf{a} $B$. O prvku $x \in A$ řekneme, že je
+ v relaci/vztahu $R$ s prvkem $y \in B$, pokud $(x,y) \in R$. Tohle často
+ zapisujeme jako $xRy$.
+
+ Pokud $A = B$, pak $R \subseteq A \times A$ je \textbf{relace na} $A$.
+\end{dfn}
+
+\begin{exm}
+ Vztah \uv{menší nebo rovno} je relace na reálných číslech. Smysl zápisu $xRy$
+ je opodstatněn tím, že důležité relace v matice mají často vlastní symboly.
+ Když totiž $R = \; \leq \; \subseteq \R \times \R$, pak nepíšeme třeba $
+ \leq\!\!(2,3)$, abychom vyjádřili, že $2$ je menší nebo rovno $3$, ale spíš $2
+ \leq 3$.
+\end{exm}
+
+\end{document}
