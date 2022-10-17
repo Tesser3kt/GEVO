@@ -40,6 +40,9 @@
 \newtheorem{exm}[thm]{Příklad}
 \newtheorem{dfn}[thm]{Definice}
 
+\theoremstyle{plain}
+\newtheorem*{exr}{Cvičení}
+
 % Title %
 \title{\Huge\textsf{Logika, množiny, důkazy}\\
  \Large\textsf{}
@@ -364,7 +367,11 @@ pomocí logických operací.
    \[
     \prod_{i=1}^{n} A_i,
    \]
-   kde symbol $\Pi$ je velké řecké \uv{pí} pro \textbf{p}rodukt.
+   kde symbol $\Pi$ je velké řecké \uv{pí} pro \textbf{p}rodukt. V případě, že
+   násobíme množinu samu se sebou, můžeme taky psát
+   \[
+    A^{n} \coloneqq \prod_{i=1}^{n} A. 
+   \]
  \end{itemize}
 \end{dfn}
 
@@ -475,5 +482,74 @@ na $ \leq $ nebo na funkci $f(x) = 2x + 3$ jako na množiny...
  \leq\!\!(2,3)$, abychom vyjádřili, že $2$ je menší nebo rovno $3$, ale spíš $2
  \leq 3$.
 \end{exm}
+
+Jinak řečeno, relace je doslova výpis všech dvojic prvků, které jsou v tom daném
+vztahu. Takto lze vnímat právě relaci $ \leq $ (třeba na $\R$) jako množinu
+všech dvojic ${(x,y) \in \R^2}$ pro $x \leq y$.
+
+\begin{exm}
+ Zkusím jednu analogii ze života. To nedopadne... Když bude $P$ zase označovat
+ množinu všech lidí, tak \uv{svazek manželský} je relace na $P$. Relaci
+ intuitivně interpretujeme jako nějaké pouto mezi objekty (v tomto případě
+ dvěma), ale v matematice je pouto mezi prvky zase množina.
+
+ Jde o to si uvědomit, že v matice tohle funguje obráceně než v životě. Neříkám,
+ že dva lidé jsou či nejsou manželé podle definice svazku manželského. Říkám, že
+ definice svazku manželského je právě množina všech manželských párů. V moment,
+ co se někdo rozvede nebo ožení/vdá, změní se moje definice manželského svazku.
+
+ Tohle je jedna z těch divných věcí v matice, které sice ze začátku nedávají
+ úplně intuitivní smysl, ale příliš snadno se s nimi pracuje, než aby se je
+ někdo snažil předělávat.
+\end{exm}
+
+\begin{dfn}[zobrazení]
+ Pokud $A,B$ jsou množiny, pak relaci $R$ mezi $A$ a $B$ nazveme
+ \textbf{zobrazením} (\textbf{mezi} $A$ \textbf{a} $B$), pokud
+ \[
+  \forall x \in A \; \forall y,z \in B: (xRy \wedge xRz) \Rightarrow (y = z).
+ \]
+ V případě, že $A = \R^{n}$ pro nějaké přirozené $n$ a $B = \R$, můžeme relaci
+ mezi $A$ a $B$ splňující výrok výše říkat \textbf{funkce}. To slovo je ale
+ hodně naprd, takže budu spíš vždycky říkat \textbf{zobrazení}. Fakt, že $f$ je
+ zobrazení mezi $A$ a $B$ budeme zapisovat buď jako
+ \[
+  f:A \to B \quad \text{nebo} \quad A \overset{f}{\longrightarrow} B.
+ \]
+\end{dfn}
+
+\begin{exr}
+ Rozluštěte předchozí definici.
+\end{exr}
+
+\begin{exm}
+ Zobrazení $\R  \overset{f}{\longrightarrow} \R$, $f(x) = 2x + 3$ je množina
+ všech dvojic $(x,2x+3) \in \R^2$. Když je zobrazení definováno na prvcích první
+ množiny (jako v~tomto případě), často budu psát $x \mapsto 2x + 3$ místo $f(x)
+ = 2x + 3$.
+\end{exm}
+
+\begin{dfn}[doména, kodoména, vzor, obraz]
+ Mějme zobrazení $A \overset{f}{\longrightarrow} B$. Pak se
+ \begin{itemize}
+  \item množina $A$ nazývá \textbf{doménou} zobrazení $f$.
+  \item množina $B$ nazývá \textbf{kodoménou} zobrazení $f$.
+  \item pro každé $x \in A$, nazývá $f(x)$ \textbf{obrazem} prvku $x$ při
+   zobrazení $f$.
+  \item pro každé $y \in B$ nazývá prvek $x \in A$ takový, že $f(x) = y$ 
+   \textbf{vzorem} prvku $y$ při zobrazení $f$. Značíme $y =
+   f^{-1}(x)$.
+
+   \textcolor{red}{Pozor! Vzor prvku nemusí vždy existovat.} Například při $\R
+   \overset{f}{ \to } \R, x \mapsto 1 / x$ nemá $0$ žádný vzor.
+ \end{itemize}
+\end{dfn}
+
+Tahle sekce ještě není hotová.
+
+\subsection{Metody důkazů}
+\label{ssec:metody-dukazu}
+
+Zatím nic. rip
 
 \end{document}
