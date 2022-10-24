@@ -1,3 +1,5 @@
+from calendar import c
+from ctypes import alignment
 import numpy as np
 
 from dataclasses import dataclass
@@ -16,9 +18,10 @@ CENTER_CARD_HEIGHT = 2
 
 FIRST_CARD_COLOR = WHITE
 
-HAND_CARD_FONT_SIZE = 30
-HAND_CARD_WIDTH = 0.75
-HAND_CARD_HEIGHT = 1
+HAND_CARD_FONT_SIZE = 25
+HAND_CARD_WIDTH = 0.6
+HAND_CARD_HEIGHT = 0.8
+HAND_CARD_BUFF = 0.15
 
 
 class Suit(Enum):
@@ -103,12 +106,12 @@ def get_card_rank(rank: Rank, color: str, size: int) -> VMobject:
         return Tex(r"K", color=color, font_size=size)
 
 
-def get_card(suit: Suit, rank: Rank, color: str, font_size: int,
+def get_card(card: Card, color: str, font_size: int,
              width: int, height: int) -> VMobject:
     card_rank = get_card_rank(
-        rank, color, font_size)
+        card.rank, color, font_size)
     suit_symbol = get_suit_symbol(
-        suit, color, font_size
+        card.suit, color, font_size
     )
     card = VGroup(card_rank, suit_symbol).arrange(RIGHT, buff=0.05)
 
@@ -127,7 +130,7 @@ def get_hand(cards: list[Card], player: int) -> VGroup:
     hand = VGroup()
     for card in cards:
         card = get_card(
-            card.suit, card.rank, PLAYER_COLORS[player],
+            card, PLAYER_COLORS[player],
             HAND_CARD_FONT_SIZE, HAND_CARD_WIDTH, HAND_CARD_HEIGHT
         )
         hand.add(card)
@@ -168,10 +171,76 @@ def card_to_play(hand: list[Card], last_card: Card) -> tuple[int, int]:
 
 
 class Prsi(Scene):
-    def get_show_hand_anim(self, hand: VGroup, shift_by: np.ndarray,
-                           arrange_by: np.ndarray) -> None:
-        return [FadeIn(card) for card in hand] +\
-            [hand.animate.arrange(arrange_by, buff=0.15).shift(shift_by)]
+    def show_hand_anim(self, hand: VGroup, player: int) -> None:
+        if player == 0:
+            anim = hand.animate.arrange_in_grid(
+                6, 3, buff=HAND_CARD_BUFF, flow_order='dl').move_to(
+                    3 * LEFT, aligned_edge=RIGHT
+            )
+        elif player == 1:
+            anim = hand.animate.arrange_in_grid(
+                3, 6, buff=HAND_CARD_BUFF, flow_order='rd').move_to(
+                    2 * DOWN, aligned_edge=UP
+            )
+        else:  # player == 2
+            anim = hand.animate.arrange_in_grid(
+                6, 3, buff=HAND_CARD_BUFF, flow_order='dr').move_to(
+                    3 * RIGHT, aligned_edge=LEFT
+            )
+
+        return [FadeIn(card) for card in hand] + [anim]
+
+    def adding_anim(self, hand: VGroup, cards: list[Card],
+                    player: int) -> None:
+        anim = []
+        card_objects = [
+            get_card(
+                card, PLAYER_COLORS[player],
+                HAND_CARD_FONT_SIZE, HAND_CARD_WIDTH, HAND_CARD_HEIGHT
+            )
+            for card in cards
+        ]
+
+        for card in card_objects:
+            card.rotate(-PI / 2 + (PI / 2) * player)
+            if player == 0:
+                if len(hand) % 6:
+                    card.next_to(hand[-1], DOWN, buff=HAND_CARD_BUFF)
+                else:
+                    card.next_to(hand[0], LEFT, buff=HAND_CARD_BUFF)
+                anim.append(FadeIn(card, shift=0.2 * UP))
+            elif player == 1:
+                if len(hand) % 6:
+                    card.next_to(hand[-1], RIGHT, buff=HAND_CARD_BUFF)
+                else:
+                    card.next_to(hand[0], DOWN, buff=HAND_CARD_BUFF)
+                anim.append(FadeIn(card, shift=0.2 * LEFT))
+            else:  # player == 2
+                if len(hand) % 6:
+                    card.next_to(hand[-1], DOWN, buff=HAND_CARD_BUFF)
+                else:
+                    card.next_to(hand[0], RIGHT, buff=HAND_CARD_BUFF)
+                anim.append(FadeIn(card, shift=0.2 * RIGHT))
+
+            hand.add(card)
+
+        if player == 0:
+            anim.append(hand.animate.arrange_in_grid(
+                6, 3, buff=HAND_CARD_BUFF, flow_order='dl').move_to(
+                    3 * LEFT, aligned_edge=RIGHT
+            ))
+        elif player == 1:
+            anim.append(hand.animate.arrange_in_grid(
+                3, 6, buff=HAND_CARD_BUFF, flow_order='rd').move_to(
+                    2 * DOWN, aligned_edge=UP
+            ))
+        else:  # player == 2
+            anim.append(hand.animate.arrange_in_grid(
+                6, 3, buff=HAND_CARD_BUFF, flow_order='dr').move_to(
+                    3 * RIGHT, aligned_edge=LEFT
+            ))
+
+        return anim
 
     def construct(self):
         deck = get_deck()
@@ -185,7 +254,7 @@ class Prsi(Scene):
         self.next_section('Intro', skip_animations=True)
 
         first_card = get_card(
-            deck.stack[-1].suit, deck.stack[-1].rank, FIRST_CARD_COLOR,
+            deck.stack[-1], FIRST_CARD_COLOR,
             CENTER_CARD_FONT_SIZE, CENTER_CARD_WIDTH, CENTER_CARD_HEIGHT
         )
         self.play(FadeIn(first_card))
@@ -198,25 +267,37 @@ class Prsi(Scene):
         player_hands[2].shift(3 * RIGHT)
 
         self.play(
-            *self.get_show_hand_anim(player_hands[0], 3 * LEFT, DOWN),
-            *self.get_show_hand_anim(player_hands[1], 3 * DOWN, RIGHT),
-            *self.get_show_hand_anim(player_hands[2], 3 * RIGHT, DOWN)
+            *self.show_hand_anim(player_hands[0], 0),
+            *self.show_hand_anim(player_hands[1], 1),
+            *self.show_hand_anim(player_hands[2], 2)
         )
 
         # game section
         self.next_section('Game', skip_animations=False)
 
-        new_suit = 0
-        while all((len(hand) > 0 for hand in players)):
-            last_card = deck.stack[-1]
+        self.play(
+            *self.adding_anim(player_hands[1], [deck.pop()
+                                                for _ in range(5)], 1)
+        )
 
-            # make a copy of last card and change suit to new suit if queen
-            # was played
-            if last_card.rank == Rank.QUEEN:
-                last_card = last_card.copy()
-                last_card.suit = Suit(new_suit)
+        # new_suit = 0
+        # while all((len(hand) > 0 for hand in players)):
+        #     last_card = deck.stack[-1]
 
-            card_index, penalty = card_to_play(players[cur_player], last_card)
-            break
+        #     # make a copy of last card and change suit to new suit if queen
+        #     # was played
+        #     if last_card.rank == Rank.QUEEN:
+        #         last_card = last_card.copy()
+        #         last_card.suit = Suit(new_suit)
+
+        #     card_index, penalty = card_to_play(players[cur_player], last_card)
+
+        #     # take cards
+        #     if penalty:
+        #         cards_to_add = [deck.pop() for _ in range(penalty)]
+        #         players[cur_player] += cards_to_add
+        #         self.animate_adding(
+        #             player_hands[cur_player], cards_to_add, cur_player
+        #         )
 
         self.pause(2)

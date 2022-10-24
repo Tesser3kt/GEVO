@@ -1,0 +1,148 @@
+\documentclass[a4paper,11pt]{article}
+
+% Colors %
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{transparent}
+\usepackage{framed}
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+% Title %
+\title{\Huge\textsf{}\\
+ \Large\textsf{}
+ \author{}
+ \date{}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+
+% Enumerate %
+\usepackage{enumerate}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\begin{figure}[t]
+ \centering
+ \def\svgwidth{\textwidth}
+ \import{figs/}{triangle.pdf_tex}
+ \caption*{Rozkouskouvaný trojúhelník ABC.}
+\end{figure}
+
+Ty body dotyku kružnice s trojúhelníkem mi ho rozdělí na tři páry shodných
+pravoúhlých trojúhelníků. Protože $a = 6$ a $b = 5$, délky všech kousků stran
+můžu vyjádřit pomocí jedné neznámé -- $x$. Stačí mi, když spočítám $x$, protože
+strana $c$ měří $(5 - x) + (6 - x) = 11 - 2x$.
+
+Použiju dvě goniometrické identity:
+\begin{framed}
+ \begin{align*}
+  \cot(\pi / 2 - \theta) &= \tan\theta\\
+  \tan(\theta + \omega) &= \frac{\cot\theta + \cot\omega}{\cot\theta\cot\omega -
+  1}.
+ \end{align*}
+\end{framed}
+
+Půlky úhlů $\alpha, \beta, \gamma$ si označím $\overline{\alpha} \coloneqq
+\alpha / 2$, $\overline{\beta} \coloneqq \beta / 2$ a $\overline{\gamma}
+\coloneqq \gamma / 2$. Pak
+\[
+ \cot \overline{\alpha} = \frac{5-x}{r} = \frac{5-x}{1.5}, \quad 
+ \cot \overline{\beta} = \frac{6-x}{1.5}, \quad 
+ \cot \overline{\gamma} = \frac{x}{1.5}. \\
+\]
+Máme $\alpha + \beta + \gamma = \pi$, takže $\overline{\alpha} +
+\overline{\beta} + \overline{\gamma} = \pi / 2$. Dál,
+\[
+ \cot \overline{\gamma} = \cot(\pi / 2 - (\overline{\alpha} + \overline{\beta}))
+ = \tan(\overline{\alpha} + \overline{\beta}).
+\]
+Potom,
+\[
+ \cot \overline{\gamma} = \tan(\overline{\alpha} + \overline{\beta}) =
+ \frac{\cot \overline{\alpha} + \cot \overline{\beta}}{\cot \overline{\alpha}
+ \cot \overline{\beta} - 1}.
+\]
+Položíme
+\[
+ y \coloneqq \cot \overline{\alpha}, \quad z \coloneqq \cot \overline{\beta}.
+\]
+Takže dostaneme soustavu
+\begin{align*}
+ y &= \frac{5 - x}{1.5}, \\
+ z &= \frac{6 - x}{1.5}, \\
+ \frac{y + z}{yz - 1} &= \frac{x}{1.5}.
+\end{align*}
+Dosadíme za $y$ a za $z$ do třetí rovnice.
+\[
+ 1.5\frac{\frac{5-x}{1.5} + \frac{6-x}{1.5}}{\frac{5-x}{1.5}\frac{6-x}{1.5} -
+ 1} = x.
+\]
+Odtud
+\[
+ \frac{(1.5)^2(11 - 2x)}{(5 - x)(6 - x) - 2.25} = x.
+\]
+Po zkrášlení
+\[
+ 99 - 18x = x(4x^2 - 44x + 111).
+\]
+To dá rovnici
+\[
+ 4x^3 - 44x^2 + 129x - 99 = 0.
+\]
+Ta má řešení (podle Pythonu) $3$, $4 - \sqrt{31} / 2$ a $4 + \sqrt{31} / 2$.
+Protože $c = 11 - 2x$, dostaneme, že $c$ je $5$, $3 + \sqrt{31}$ nebo $3 -
+\sqrt{31}$.
+
+
+\end{document}
