@@ -55,18 +55,11 @@
 
 \maketitle
 
-\part[Programovací jazyky]{Programovací jazyky}
+\section[Programovací jazyky]{Jak mluvit s počítačem?}
 
 \begin{frame}[plain]
- \partpage
+ \sectionpage
 \end{frame}
-
-\begin{frame}
- \frametitle{Obsah}
- \tableofcontents
-\end{frame}
-
-\section[Jak mluvit s počítačem?]{Jak mluvit s počítačem?}
 
 \begin{frame}{Nejnižší forma komunikace}
  \begin{tcolorbox}[title=Strojový kód]
@@ -120,6 +113,109 @@
     \item částečně automatická správa paměti -- pole, třídy, ...
    \end{itemize}
  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Kam patří Python?}
+ \begin{itemize}
+  \item<1-> Python je high-level programovací jazyk.
+  \item<2-> Python $\rightarrow$ C $\rightarrow$ (Assembly $\rightarrow$) stroj.
+   kód 
+  \item<3-> Python je \alert{interpretovaný} (vs. kompilovaný) programovací
+   jazyk -- to znamená, že počítač překládá Python za běhu programu.
+  \item<4-> Python má automatickou správu paměti a dokonce vás ani nenutí
+   typovat.
+ \end{itemize}
+\end{frame}
+
+\part[Programování v Pythonu]{Programování v Pythonu}
+
+\begin{frame}[plain]
+ \partpage
+\end{frame}
+
+\section[Datové typy]{Datové typy}
+
+\begin{frame}[plain]
+ \sectionpage
+\end{frame}
+
+\begin{frame}{Co to je?}
+ \begin{tcolorbox}[title=Datový typ]
+  \alert{Datový typ} je doslova typ (forma, podoba, ...) informace uložené
+  v~paměti počítače.
+ \end{tcolorbox}
+ \pause
+ \begin{itemize}
+  \item<2-> Narozdíl od pseudokódu, v programovacích jazycích musíte kromě názvu
+   proměnné uvádět i její typ.
+  \item<3-> Základní typy v Pythonu jsou \texttt{int, float, str, set, list,
+   tuple, dict}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Měnné vs. neměnné}
+ \begin{itemize}
+  \item<1-> Python rozlišuje mezi \alert{měnnými} (mutable) a \alert{neměnnými}
+   (immutable) datovými typy.
+  \item<2-> Do struktury měnných typů (seznamy, slovníky, ...) můžete zasahovat
+   během programu, ale do struktury neměnných (čísla, slova, ...) nikoliv.
+ \end{itemize}
+\end{frame}
+
+\subsection[Číselné typy]{Číselné typy}
+
+\begin{frame}{Celá čísla}
+ \begin{tcolorbox}[title=Datový typ \texttt{int}]
+  Zkratka \alert{\texttt{int}} (z angl. \alert{int}eger) Python označuje typ
+  celých čísel, tj. čísel bez desetinné části.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Celá čísla}
+ Python umí následující operace na celých číslech.
+ \begin{itemize}
+  \item součet (\texttt{+});
+  \item rozdíl (\texttt{-});
+  \item součin (\texttt{*});
+  \pause
+  \item<2-> celočíselný podíl (\texttt{//}), např. \texttt{11 // 3 = 3};
+  \item<3-> zbytek po dělení (\texttt{\%}), např. \texttt{11 \% 3 = 2};
+  \item<4-> mocninu (\texttt{**}), např. \texttt{4 ** 3 = 64}.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Desetinná čísla}
+ \begin{tcolorbox}[title=Datový typ \texttt{float}]
+  Zkratka \alert{\texttt{float}} (z angl. \alert{float}ing point) označuje v
+  Pythonu typ desetinných čísel.
+ \end{tcolorbox}
+ \pause
+ \emph{Poznámka.} Celá čísla jsou samozřejmě zároveň desetinná. Aby je Python v
+ tomto případě rozlišil, píše \texttt{2.0} pro \uv{desetinné číslo} dva a
+ \texttt{2} pro \uv{celé číslo} dva.
+\end{frame}
+
+\begin{frame}{Desetinná čísla}
+ Python umí následující operace na desetinných číslech.
+ \begin{itemize}
+  \item součet (\texttt{+});
+  \item rozdíl (\texttt{-});
+  \item součin (\texttt{*});
+  \item podíl (\texttt{/});
+  \item mocninu (\texttt{**}).
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{celá $\leftrightarrow$ desetinná} 
+ \begin{itemize}
+  \item<1-> Slova \texttt{int} a \texttt{float} jsou zároveň názvy
+   funkcí/procedur v Pythonu pro převod mezi číselnými typy.
+  \item<2-> \texttt{\alert{int}(x: float)} vrátí tzv. \uv{celou část} z
+   \texttt{x}; např. \texttt{\alert{int}(3.9) == 3}.
+  \item<3-> \texttt{\alert{float}(x: int)} převede celé číslo \texttt{x} na
+   desetinné prostě tak, že k němu přidá \uv{\texttt{.0}}. Takže třeba
+   \texttt{\alert{float}(3) == 3.0}.
+ \end{itemize}
 \end{frame}
 
 \begin{frame}[plain]
