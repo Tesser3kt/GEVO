@@ -1,0 +1,179 @@
+\documentclass[a4paper,11pt]{article}
+
+% Language %
+\usepackage[czech]{babel}
+
+% Colors %
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+% Title %
+\title{\Huge\textsf{}\\
+ \Large\textsf{}
+ \author{}
+ \date{}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+
+% Enumerate %
+\usepackage{enumitem}
+
+% Pseudocode %
+\usepackage[linesnumbered,vlined,czech]{algorithm2e}
+\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+\SetKw{KwReturn}{return}\SetKw{KwFrom}{from}
+\SetKw{KwAnd}{and}\SetKw{KwOr}{or}
+% skip line number
+\let\oldnl\nl
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\section*{Šablona k Prší}
+
+Pro ty, kdo opravdu potřebují, posílám jakousi nedodělanou verzi šablony pro
+Prší, kterou jsem nastínil na hodině. Komentáře (tj. objasňující věty, co
+\textbf{nepatří} do pseudokódu) budou psány buď \textcolor{blue}{modře} nebo
+\textcolor{red}{červeně} v závislosti na důležitosti.
+
+Na začátku mám proměnné $p_1, p_2, p_3$, ve kterých je uložen počet karet
+každého kráče (tj. na začátku jsou všechny rovny 4). Mám taky množiny barev a
+hodnot jednotlivých karet.
+
+Aby vypadal náhodný výběr z ruky a odebírání/přidávání karet trochu elegantně,
+definuji si ještě proměnné $P_1,P_2,P_3$, což jsou množiny karet každého hráče.
+Dál potřebuji přepínat mezi hráči, na to si definuji proměnnou $i$, ve které
+budou vždycky čísla $1, 2, 3, 1, 2, 3, \ldots$ To znamená, že hráč na tahu bude
+pokaždé $p_i$. Poslední, co budu potřebovat je proměnná, ve které je uložena
+poslední hozená karta, třeba $k$. Můžu počítat s tím, že všechny tyhle proměnné
+dostanu na vstupu, jelikož ty jsou dané ještě před tím, než hra vůbec začne.
+
+Připomínám, že to celé \textbf{můžete dělat úplně jinak}. Tohle je jen způsob,
+jak bych to řešil já.
+
+Algoritmus je na další stránce.
+
+\begin{algorithm}[h]
+ \DontPrintSemicolon
+ \SetSideCommentRight
+
+ \nonl\textcolor{blue}{\tcc{Význam všech těchhle proměnných je výše.}}
+ \Input{$p_1, p_2, p_3, P_1, P_2, P_3, i, k$}
+ \nonl\textcolor{blue}{\tcc{Výstupem může být třeba vítěz, tj. číslo $1, 2$ nebo
+ $3$.}}
+ \Output{číslo výherce}
+ \BlankLine
+
+ \nonl\textcolor{red}{\tcc{Hra nekončí, dokud má každý hráč aspoň jednu kartu
+ v~ruce, tj. dokud $p_1, p_2$ i $p_3$ je větší než nula. Ještě si vytvořím
+ proměnnou $b$, kde budu ukládat barvu vybranou hráčem, který poslední hodil
+ $Q$. Zatím v ní může být cokoliv, to je jedno.}}
+ $b \leftarrow \text{nějaká barva}$\;
+ \While{$(p_1 > 0)$ \KwAnd $(p_2 > 0)$ \KwAnd $(p_3 > 0)$}{
+  \nonl\textcolor{red}{\tcc{Přijde mi nejlepší se nejdřív podívat, jestli vůbec
+  můžu odhodit nějakou kartu. Pokud jo, pak prostě nějakou náhodnou vyhodím.
+  Jenom, když nemůžu odhodit, řeším, co vlastně mám dělat (přibírat, stát
+  apod.)}}
+  \nonl\textcolor{blue}{\tcc{Jedinou výjimkou je $K\spadesuit$, kde vždycky
+  přibírám 5 karet. Připomínám, že $k$ označuje poslední hozenou kartu.}}
+  \If{$k = K\spadesuit$}{
+   Přiber pět karet. Tenhle příkaz musíte rozvést. Pokud si pamatujete jen počty
+   karet, stačí přičíst $5$; pokud i karty v ruce, vytvořte si ideálně nějakou
+   přibírací proceduru.
+  }
+  \nonl\textcolor{blue}{\tcc{Na $Q$ můžu použít takový trik. Abych nemusel
+  speciálně hledat karty k odhození pro $Q$, můžu prostě změnit jeho barvu na tu
+  zvolenou (jako byste si představili, že to $Q$ má tu zvolenou barvu). Pak
+  všechno funguje normálně.}}
+  \If{$\text{hodnota } k = Q$}{
+   $\text{barva } k \leftarrow b$
+  }
+  \nonl\textcolor{blue}{\tcc{Množina $X$ budou všechny karty, které můžu
+  odhodit. Ideálně si napište proceduru, která vám odpoví, co můžete odhodit.
+  Doporučuji for cyklem procházet ruku hráče (pokud ji máte) a zkoušet, jestli
+  sedí barva nebo hodnota s poslední odhozenou kartou.}}
+  $X \leftarrow \{\text{všechny karty, které může hráč $i$ odhodit}\}$\;
+  \nonl\textcolor{red}{\tcc{Když $X$ není prázdná, tak můžu něco odhodit. Vyberu
+  náhodně a neřeším. Odhození zase musíte rozvést. POZOR! Odhozenou kartu si
+  musíte pamatovat, a pokud je to $Q$, musíte zvolit (třeba náhodně) i nějakou
+  barvu.}}
+  \If{$X \neq \emptyset$}{
+   Hráč $i$ odhodí náhodnou kartu z $X$.
+  }
+  \Else{
+   \nonl\textcolor{red}{\tcc{Tohle je asi ta nejdůležitější část. Musíte
+   rozlišit případy pro $7$ a pro $A$. $Q$ už máme vyřešeno, protože si
+   `představujeme', že má tu změněnou barvu.}}
+   Hráč $i$ dělá, co má, v závislosti na poslední hozené kartě.
+  }
+  \nonl\textcolor{blue}{\tcc{Posunu se na dalšího hráče.}}
+  $i \leftarrow i + 1$\;
+  \If{$i > 3$}{ 
+   $i \leftarrow 1$\;
+  }
+ }
+ \nonl\textcolor{blue}{\tcc{Odpovím číslo výherce. Výherce je předchozí hráč,
+ protože pro hráče na tahu už se cyklus nespustil. To znamená, že předchozí hráč
+ musel odhodit poslední kartu.}}
+ \If{$i > 1$}{
+  \KwReturn $i - 1$
+ }
+ \Else{
+  \KwReturn $3$
+ }
+\end{algorithm}
+
+\end{document}
