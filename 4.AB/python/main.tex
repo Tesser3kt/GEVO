@@ -50,6 +50,7 @@
 \setlist[enumerate,1]{label=\arabic*.}
 \setlist[enumerate,2]{label=\alph*)}
 \setlist[itemize,1]{label=\textbullet}
+\setlist[itemize,2]{label=$\circ$}
 
 \begin{document}
 
@@ -166,7 +167,7 @@
 
 \begin{frame}{Celá čísla}
  \begin{tcolorbox}[title=Datový typ \texttt{int}]
-  Zkratka \alert{\texttt{int}} (z angl. \alert{int}eger) Python označuje typ
+  Zkratkou \alert{\texttt{int}} (z angl. \alert{int}eger) Python označuje typ
   celých čísel, tj. čísel bez desetinné části.
  \end{tcolorbox}
 \end{frame}
@@ -178,9 +179,9 @@
   \item rozdíl (\texttt{-});
   \item součin (\texttt{*});
   \pause
-  \item<2-> celočíselný podíl (\texttt{//}), např. \texttt{11 // 3 = 3};
-  \item<3-> zbytek po dělení (\texttt{\%}), např. \texttt{11 \% 3 = 2};
-  \item<4-> mocninu (\texttt{**}), např. \texttt{4 ** 3 = 64}.
+  \item<2-> celočíselný podíl (\texttt{//}), např. \texttt{11 // 3 == 3};
+  \item<3-> zbytek po dělení (\texttt{\%}), např. \texttt{11 \% 3 == 2};
+  \item<4-> mocninu (\texttt{**}), např. \texttt{4 ** 3 == 64}.
  \end{itemize}
 \end{frame}
 
@@ -215,6 +216,69 @@
   \item<3-> \texttt{\alert{float}(x: int)} převede celé číslo \texttt{x} na
    desetinné prostě tak, že k němu přidá \uv{\texttt{.0}}. Takže třeba
    \texttt{\alert{float}(3) == 3.0}.
+ \end{itemize}
+\end{frame}
+
+\section[Řetězce]{Řetězce}
+
+\begin{frame}[plain]
+ \sectionpage
+\end{frame}
+
+\begin{frame}{Řetězce (stringy)}
+ \begin{tcolorbox}[title=Datový typ \texttt{str}]
+  Zkratkou \alert{\texttt{str}} (z angl. \alert{str}ing) Python označuje typ
+  \uv{řetězců znaků}, tj. posloupností v zásadě libovolných symbolů.
+ \end{tcolorbox}
+ \begin{itemize}
+  \item<2-> Stringy se píší do uvozovek, buď jednoduchých
+   (\texttt{\textquotesingle}) nebo dvojitých (\texttt{"}). Na výběru nezáleží,
+   ale string musí začínat končit stejnou uvozovkou.
+  \item<3-> Python používá pro kódování textu UTF-8 (\textbf{U}nicode
+   \textbf{T}ransformation \textbf{F}ormat -- 8-bit). Tedy umí rozpoznat každý
+   znak v tomto kódování.
+ \end{itemize}\end{frame}
+
+\begin{frame}{Řetězce (stringy)}
+ Python umí následující operace na řetězcích.
+ \begin{itemize}
+  \item<1-> součet/spojení (\texttt{+} nebo mezera)
+   \begin{itemize}
+    \item např. \texttt{"auto"} \texttt{+} \texttt{"bus"} \texttt{==}
+     \texttt{"autobus"}
+    \item např. \texttt{"mrt"} \texttt{"vola"} \texttt{==} \texttt{"mrtvola"}
+   \end{itemize}
+  \item<2-> součin/opakování (\texttt{*}): např. \texttt{"hehe"} \texttt{* 3}
+   \texttt{==} \texttt{"hehehehehehe"}
+  \item<3-> výběr prvku(\texttt{[pořadí prvku]}): např. \texttt{"python"[2]}
+   \texttt{==} \texttt{"t"}.\\
+   \alert{Pozor!} Python čísluje od 0.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{stringy $\leftrightarrow$ čísla}
+ \begin{itemize}
+  \item Zkratka \texttt{str} je zároveň procedura na převod dané proměnné na
+   string. V případě čísel máme
+   \begin{itemize}
+    \item \texttt{str(x: int)} převede celé číslo na string. Třeba
+     \texttt{str(3)} \texttt{==} \texttt{"3"}.
+    \item \texttt{str(x: float)} převede desetinné číslo na string. Např. 
+     \texttt{str(3.14159)} \texttt{==} \texttt{"3.14159"}.
+   \end{itemize}
+   \alert{Pozor!} Python neřeší, jestli je ve stringu číslo. Takže třeba
+   \texttt{"1"} \texttt{+} \texttt{"1"} \texttt{==} \texttt{"11"}, ale
+   \texttt{1} \texttt{+} \texttt{1} \texttt{==} \texttt{2}.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{stringy $\leftrightarrow$ čísla}
+ Procedury \texttt{int} a \texttt{float} taky převádějí stringy na číslo, pokud
+ to lze. Např.
+ \begin{itemize}
+  \item<1-> \texttt{int("69")} \texttt{==} \texttt{69},
+  \item<2-> \texttt{float("3.14159")} \texttt{==} \texttt{3.14159}, ale
+  \item<3-> \texttt{float("hehe")} i \texttt{int("9.11")} hodí chybu.
  \end{itemize}
 \end{frame}
 
