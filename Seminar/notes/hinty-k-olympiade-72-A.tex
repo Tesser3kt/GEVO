@@ -1,0 +1,121 @@
+\documentclass[a4paper,11pt]{article}
+
+% Lang %
+\usepackage[czech]{babel}
+
+% Colors %
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+% Title %
+\title{\Huge\textsf{}\\
+ \Large\textsf{}
+ \author{}
+ \date{}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+
+% Enumerate %
+\usepackage{enumerate}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+Pár hintů k úlohám z mat. olympiády (72. ročník, kategorie A).
+
+\begin{enumerate}
+ \item Zamyslete se, jestli se ta rovnice nedá nějak zjednodušit. Dále,
+  $\lfloor a \rfloor$ je vždycky celé číslo pro každé $a \in \R$. Co se tím
+  mohu dozvědět o té další proměnné?
+ \item Trojúhelník $AB'C'$ je dvakrát větší než $ABC$. V trojúhelnících se
+  všechny vzdálenosti zvětšují lineárně, to znamená, že $AB'C'$ má vzdálenosti
+  mezi všemi body (ne jen vrcholy) dvakrát větší.
+ \item Nejdřív si položte jednodušší otázku. Hledáme \textbf{nejmenší} možný
+  počet tahů. Je dobré začít tím, že si vytvořím nějakou (sice nereálnou ale
+  aspoň přibližnou) spodní hranici toho, kolik budu potřebovat tahů. Co kdybych
+  mohl žetony posouvat i skrz ostatní žetony (zkrátka na libovolné sousední 
+  políčko). Kolik potřebuji v takovém případě minimálně tahů, abych každý žeton
+  dostal tam, kde má na konci být? Nedá se tahle situace náhodou rozšířit na tu
+  původní?
+ \item Jaký má medián posloupnost $1,2,3,\ldots,k$ a posloupnost
+  $1,2,3,\ldots,n$? Jaké číslo vás jako první napadne, že by měl být medián
+  \textbf{podílu} těchhle posloupností? Ten tip je správně, ale je třeba to
+  dokázat. Já jsem postupoval tak, že jsem ukázal, že to číslo má stejný počet
+  zlomků nalevo jako napravo. Ale určitě to jde i chytřejc.
+ \item Tuhle úlohu jsem řešil hloupě, takže spíš budu radši, když to zkusíte
+  jinak. Nenapadlo mě jiné řešení než to prostě upočítat. Položte si ten
+  trojúhelník do reálné roviny a rozmyslete si, že si můžete počítání hodně
+  zjednodušit. Například si mohu nějak pěkně volit souřadnice jednoho z
+  vrcholů. Taky, protože se všechno v trojúhelníku zvětšuje lineárně, mohu si i
+  zvolit libovolně délku jedné strany. Najděte si vzorečky pro osu úhlu a
+  ortocentrum (průnik výšek) a pak si zahrajte na kalkulačku. \textbf{Ale
+  zkuste to prosím nejdřív jinak}.
+ \item (\textcolor{red}{těžká úloha, hlavně část (b)}).
+  \begin{enumerate}[(a)]
+   \item Každé číslo v té posloupnosti musí být dělitelné \textbf{nějakým}
+    prvočíslem.  Stačí vám proto ukázat, že když nějaké prvočíslo dělí nějaký
+    člen, pak nemůže dělit žádný vyšší. Protože je nekonečně mnoho členů a
+    každé různé prvočíslo dělí nejvýše jeden, musí těch prvočísel dělících
+    jeden člen být nekonečně mnoho.
+   \item Tuhle úlohu jsem řešil s trochou znalosti teorie čísel, takže neznám
+    zatím žádné čistě \uv{středoškolské} řešení. Ale aspoň startovní bod, který
+    by měl fungovat, vám prozradím. Řeště to sporem. Představte si, že by jen
+    konečně mnoho prvočísel nedělilo žádný člen té posloupnosti. Protože jich
+    je jen konečně mnoho, existuje mezi nimi nějaké nejvyšší (třeba $p$). Co
+    pak můžeme říct o všech prvočíslech větších než $p$?
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
