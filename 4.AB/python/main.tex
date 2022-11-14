@@ -250,7 +250,7 @@
    \end{itemize}
   \item<2-> součin/opakování (\texttt{*}): např. \texttt{"hehe"} \texttt{* 3}
    \texttt{==} \texttt{"hehehehehehe"}
-  \item<3-> výběr prvku(\texttt{[pořadí prvku]}): např. \texttt{"python"[2]}
+  \item<3-> výběr prvku (\texttt{str[pořadí prvku]}): např. \texttt{"python"[2]}
    \texttt{==} \texttt{"t"}.\\
    \alert{Pozor!} Python čísluje od 0.
  \end{itemize}
@@ -279,6 +279,164 @@
   \item<1-> \texttt{int("69")} \texttt{==} \texttt{69},
   \item<2-> \texttt{float("3.14159")} \texttt{==} \texttt{3.14159}, ale
   \item<3-> \texttt{float("hehe")} i \texttt{int("9.11")} hodí chybu.
+ \end{itemize}
+\end{frame}
+
+\section[Seznamy]{Seznamy}
+
+\begin{frame}[plain]
+ \sectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Seznamy}
+ \begin{tcolorbox}[title=Datový tip \texttt{list}]
+  Slovem \texttt{\alert{list}} označuje Python seznam; vlastně množinu, kde
+  každý prvek má jednoznačné pořadí. \textbf{Prvky v seznamu mohu nahrazovat,
+  přidávat a odebírat}.
+ \end{tcolorbox}
+ \pause
+ \begin{itemize}
+  \item<2-> Seznamy se píší do \alert{hranatých závorek} \texttt{[]} a prvky
+   oddělují čárkami. Třeba \texttt{[2,~"hora", 4, 7]} je seznam se čtyřmi
+   prvky.
+  \item<3-> Prvkem seznamu může být další seznam. Třeba  \texttt{[1, [2, "tři"],
+   4]} je seznam, jehož druhým prvkem je seznam \texttt{[2, "tři"]}.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Seznamy}
+ Python umí následující operace na seznamech.
+ \begin{itemize}
+  \item<1-> součet/spojení (\texttt{+})
+   \begin{itemize}
+    \item např. \texttt{[69, 420]} \texttt{+} \texttt{[911, 1337]} \texttt{==}
+     \texttt{[69, 420, 911, 1337]}.
+   \end{itemize}
+  \item<2-> součin/opakování (\texttt{*})
+   \begin{itemize}
+    \item např. \texttt{[1, 2]} \texttt{*} \texttt{4} \texttt{==} \texttt{[1, 2,
+     1, 2, 1, 2, 1, 2]}.
+   \end{itemize}
+  \item<3-> výběr prvku (\texttt{list[pořadí prvku]})
+   \begin{itemize}
+    \item např. \texttt{[1, 4, 7, "hroch"][2]} \texttt{==} \texttt{7}.
+    \item např. \texttt{[1, 4, 7, "hroch"][-1]} \texttt{==} \texttt{"hroch"}.
+   \end{itemize}
+   \alert{Pozor!} Python čísluje buď od \texttt{0} nahoru (začátek $\rightarrow$
+   konec) nebo od \texttt{-1} dolu (konec $\rightarrow$ začátek)
+ \end{itemize}
+\end{frame}
+
+\section[N-tice]{N-tice}
+
+\begin{frame}[plain]
+ \sectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{N-tice}
+ \begin{tcolorbox}[title=Datový typ \texttt{tuple}]
+  Slovem \texttt{\alert{tuple}} Python označuje n-tici, neboli posloupnost n
+  prvků. \textbf{Prvky n-tice nemohu nahrazovat, přidávat ani odebírat}.
+ \end{tcolorbox}
+ \begin{itemize}
+  \item<2-> N-tice se píší buď kulatou závorkou s prvky oddělenými čárkou, třeba
+   \texttt{(1, 2)}, nebo v mnoha případech i bez závorky, třeba \texttt{1, 2}.
+  \item<3-> Python umí stejné operace na n-ticích jako na seznamech.
+ \end{itemize}
+\end{frame}
+
+\section[Slovníky]{Slovníky}
+
+\begin{frame}[plain]
+ \sectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Slovníky}
+ \begin{tcolorbox}[title=Datový typ \texttt{dict}]
+  Zkratkou \texttt{\alert{dict}} (z angl. \alert{dict}ionary) označuje Python
+  typ slovníku, tj. množiny hodnot, které jsou zařazeny pod klíči.
+  \textbf{Slovník umožňuje nahrazování, přidávání i odebírání klíčů i hodnot}.
+ \end{tcolorbox}
+ \begin{itemize}
+  \item<2-> Slovník se píše do složených závorek \texttt{\{\}} a prvky jsou v
+   podobě \texttt{klíč: hodnota} odděleny čárkami. Např. \texttt{\{(1, 2):
+   "kočka", 3: [4, 5], "pes": 6\}}.
+  \item<3-> Hodnotou může být cokoli, ale klíč musí být \alert{neměnný datový
+   typ} (číslo, slovo, n-tice apod.).
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Slovníky}
+ Slovníky nelze sčítat/spojovat ani násobit/opakovat. Jedinou základní operací
+ je výběr prvku příkazem \texttt{dict[}klíč\texttt{]}. Pár příkladů:
+ \begin{itemize}
+  \item<2-> \texttt{\{"kočka": 2, "pes": 3\}["pes"]} \texttt{==} \texttt{3}.
+  \item<3-> \texttt{\{(1, 2, 3): "teď", 4: 5\}[(1, 2, 3)]} \texttt{==}
+   \texttt{"teď"}.
+  \item<4-> \texttt{\{0: "nula", 1: "jedna", 2: "dva"\}[1]} \texttt{==}
+   \texttt{"jedna"}.
+ \end{itemize}
+\end{frame}
+
+\section[\texttt{list}, \texttt{tuple} a \texttt{dict} jako
+procedury]{\texttt{list}, \texttt{tuple} a \texttt{dict} jako procedury}
+
+\begin{frame}[plain]
+ \sectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{\texttt{list} jako procedura}
+ Procedure/funkce \texttt{\alert{list}} umožňuje převod jiného datového typu na
+ seznam, pokud to (podle Pythonu) dává smysl. Obecné pravidlo je, že Python umí
+ převést na seznam jen ty datové typy, \textbf{které jsou číslované}.
+ \begin{itemize}
+  \item<1-> \texttt{list(x: \alert{int}|\alert{float})} hodí chybu,
+  \item<2-> \texttt{list(x: \alert{str})} převede řetězec na seznam jeho znaků,
+   \begin{itemize}
+    \item např. \texttt{list("kočka")} \texttt{==} \texttt{["k", "o", "č", "k",
+     "a"]}.
+   \end{itemize}
+  \item<3-> \texttt{list(x: \alert{tuple})} převede n-tici na seznam se stejnými
+   prvky,
+   \begin{itemize}
+    \item např. \texttt{list((1, 2, 3))} \texttt{==} \texttt{[1, 2, 3]}.
+   \end{itemize}
+  \item<4-> \texttt{list(x: \alert{dict})} převede slovník na seznam klíčů.
+   \begin{itemize}
+    \item např. \texttt{list(\{"pes": "haf", "kočka": "mňau"\}} \texttt{==}
+     \texttt{["pes", "kočka"]}.
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{tuple} jako procedura}
+ Procedura/funkce \alert{\texttt{tuple}} funguje v zásadě stejně jako
+ \texttt{list}. Tzn.
+ \pause
+ \begin{itemize}
+  \item \texttt{tuple(x: \alert{int}|\alert{float})} hodí chybu,
+  \item \texttt{tuple(x: \alert{str})} udělá z řetězce n-tici jeho symbolů,
+  \item \texttt{tuple(x: \alert{list})} převede seznam na n-tici se stejnými
+   prvky.
+  \item \texttt{tuple(x: \alert{dict})} převede slovník na n-tici jeho klíčů.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{dict} jako procedura}
+ Procedura/funkce \alert{dict} lze použít pouze na převod seznamu nebo n-tice,
+ jejichž \textbf{každý prvek má délku 2} (tj. dvojice nebo seznam o dvou
+ prvcích). Příklady:
+ \begin{itemize}
+  \item \texttt{dict([("pes", 2), ("kočka", 3)])} \texttt{==} \texttt{\{"pes":
+   2, "kočka": 3\}}.
+  \item \texttt{dict((["pes", 2], ["kočka", 3]))} \texttt{==} \texttt{\{"pes":
+   2, "kočka": 3\}}.
  \end{itemize}
 \end{frame}
 
