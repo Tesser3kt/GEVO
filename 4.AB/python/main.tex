@@ -358,15 +358,15 @@
  \frametitle{Slovníky}
  \begin{tcolorbox}[title=Datový typ \texttt{dict}]
   Zkratkou \texttt{\alert{dict}} (z angl. \alert{dict}ionary) označuje Python
-  typ slovníku, tj. množiny hesel/hodnot, které jsou zařazeny pod klíči.
-  \textbf{Slovník umožňuje nahrazování, přidávání i odebírání prvků}.
+  typ slovníku, tj. množiny hodnot, které jsou zařazeny pod klíči.
+  \textbf{Slovník umožňuje nahrazování, přidávání i odebírání klíčů i hodnot}.
  \end{tcolorbox}
  \begin{itemize}
-  \item<2-> Slovník se píše do složených závorek \texttt{\{\}} a prvky jsou v podobě
-   \texttt{klíč: heslo} odděleny čárkami. Např. \texttt{\{(1, 2): "kočka", 3:
-   [4, 5], "pes": 6\}}.
-  \item<3-> Heslem může být cokoli, ale klíč musí být \alert{neměnný datový typ}
-   (číslo, slovo, n-tice apod.).
+  \item<2-> Slovník se píše do složených závorek \texttt{\{\}} a prvky jsou v
+   podobě \texttt{klíč: hodnota} odděleny čárkami. Např. \texttt{\{(1, 2):
+   "kočka", 3: [4, 5], "pes": 6\}}.
+  \item<3-> Hodnotou může být cokoli, ale klíč musí být \alert{neměnný datový
+   typ} (číslo, slovo, n-tice apod.).
  \end{itemize}
 \end{frame}
 
@@ -383,20 +383,27 @@
  \end{itemize}
 \end{frame}
 
+\section[\texttt{list}, \texttt{tuple} a \texttt{dict} jako
+procedury]{\texttt{list}, \texttt{tuple} a \texttt{dict} jako procedury}
+
+\begin{frame}[plain]
+ \sectionpage
+\end{frame}
+
 \begin{frame}
  \frametitle{\texttt{list} jako procedura}
  Procedure/funkce \texttt{\alert{list}} umožňuje převod jiného datového typu na
  seznam, pokud to (podle Pythonu) dává smysl. Obecné pravidlo je, že Python umí
  převést na seznam jen ty datové typy, \textbf{které jsou číslované}.
  \begin{itemize}
-  \item<1-> \texttt{list(x: \alert{int}|\alert{float})} hodí chybu.
-  \item<2-> \texttt{list(x: \alert{str})} převede řetězec na seznam jeho znaků.
+  \item<1-> \texttt{list(x: \alert{int}|\alert{float})} hodí chybu,
+  \item<2-> \texttt{list(x: \alert{str})} převede řetězec na seznam jeho znaků,
    \begin{itemize}
     \item např. \texttt{list("kočka")} \texttt{==} \texttt{["k", "o", "č", "k",
      "a"]}.
    \end{itemize}
   \item<3-> \texttt{list(x: \alert{tuple})} převede n-tici na seznam se stejnými
-   prvky.
+   prvky,
    \begin{itemize}
     \item např. \texttt{list((1, 2, 3))} \texttt{==} \texttt{[1, 2, 3]}.
    \end{itemize}
@@ -405,6 +412,31 @@
     \item např. \texttt{list(\{"pes": "haf", "kočka": "mňau"\}} \texttt{==}
      \texttt{["pes", "kočka"]}.
    \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{tuple} jako procedura}
+ Procedura/funkce \alert{\texttt{tuple}} funguje v zásadě stejně jako
+ \texttt{list}. Tzn.
+ \pause
+ \begin{itemize}
+  \item \texttt{tuple(x: \alert{int}|\alert{float})} hodí chybu,
+  \item \texttt{tuple(x: \alert{str})} udělá z řetězce n-tici jeho symbolů,
+  \item \texttt{tuple(x: \alert{list})} převede seznam na n-tici se stejnými
+   prvky.
+  \item \texttt{tuple(x: \alert{dict})} převede slovník na n-tici jeho klíčů.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{dict} jako procedura}
+ Procedura/funkce \alert{dict} lze použít pouze na převod seznamu nebo n-tice,
+ jejichž \textbf{každý prvek má délku 2} (tj. dvojice nebo seznam o dvou
+ prvcích). Příklady:
+ \begin{itemize}
+  \item \texttt{dict([("pes", 2), ("kočka", 3)])} \texttt{==} \texttt{\{"pes":
+   2, "kočka": 3\}}.
+  \item \texttt{dict((["pes", 2], ["kočka", 3]))} \texttt{==} \texttt{\{"pes":
+   2, "kočka": 3\}}.
  \end{itemize}
 \end{frame}
 
