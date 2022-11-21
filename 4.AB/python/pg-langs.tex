@@ -1,0 +1,65 @@
+\begin{frame}{Nejnižší forma komunikace}
+ \begin{tcolorbox}[title=Strojový kód]
+  Strojový kód je jazyk sestávající pouze ze \alert{základních instrukcí} pro
+  CPU.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Nejvyšší forma komunikace}
+ \begin{tcolorbox}[title=Programovací jazyk]
+  Programovací jazyk je jakýkoli jazyk, který lze \alert{automaticky přeložit}
+  do strojového kódu.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Nač programovací jazyky?}
+ \begin{itemize}
+  \item<1-> Strojový kód je člověku nečitelný.
+  \item<2-> Programovací jazyky se čím dál více přibližují lidské řeči.
+  \item<3-> Programovací jazyky jsou rozšířitelné -- umožňují přidání nových
+   konceptů (proměnných, podmínek, ...)
+  \item<4-> V programovacích jazycích lze některé běžné paměťové operace CPU
+   automatizovat (rekurze, garbage collector, ...)
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Jaká je cena?}
+ \begin{itemize}
+  \item<1-> Překlad prog. jazyků je automatický -- vzniká spousta přebytečného
+   strojového kódu.
+  \item<2-> Přebytečné instrukce zpomalují běh programu.
+  \item<3-> Velká práce s údržbou -- každá nová funkce programovací jazyka
+   vyžaduje mnoho testování správnosti překladu do stroj. kódu
+  \item<4-> V různých jazycích jsou stejné funkce psané jinak.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Typy programovací jazyků}
+ \begin{enumerate}[label=(\arabic*)]
+  \item<1-> strojový kód,
+  \item<2-> assemblery (jazyky symbolických adres):
+   \begin{itemize}
+    \item symbolické reprezentace CPU instrukcí
+    \item zkratky pro běžné operace
+    \item žádná automatizace
+   \end{itemize}
+  \item<3-> high-level (vysokoúrovňové) programovací jazyky:
+   \begin{itemize}
+    \item pokročilé řídící sekvence -- proměnné, podmínky, cykly, ...
+    \item automatická správa běhu -- procedury, funkce
+    \item částečně automatická správa paměti -- pole, třídy, ...
+   \end{itemize}
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}{Kam patří Python?}
+ \begin{itemize}
+  \item<1-> Python je high-level programovací jazyk.
+  \item<2-> Python $\rightarrow$ C $\rightarrow$ (Assembly $\rightarrow$) stroj.
+   kód 
+  \item<3-> Python je \alert{interpretovaný} (vs. kompilovaný) programovací
+   jazyk -- to znamená, že počítač překládá Python za běhu programu.
+  \item<4-> Python má automatickou správu paměti a dokonce vás ani nenutí
+   typovat.
+ \end{itemize}
+\end{frame}

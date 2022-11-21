@@ -1,0 +1,286 @@
+\begin{frame}{Co to je?}
+ \begin{tcolorbox}[title=Datový typ]
+  \alert{Datový typ} je doslova typ (forma, podoba, ...) informace uložené
+  v~paměti počítače.
+ \end{tcolorbox}
+ \pause
+ \begin{itemize}
+  \item<2-> Narozdíl od pseudokódu, v programovacích jazycích musíte kromě názvu
+   proměnné uvádět i její typ.
+  \item<3-> Základní typy v Pythonu jsou \texttt{int, float, str, set, list,
+   tuple, dict}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Měnné vs. neměnné}
+ \begin{itemize}
+  \item<1-> Python rozlišuje mezi \alert{měnnými} (mutable) a \alert{neměnnými}
+   (immutable) datovými typy.
+  \item<2-> Do struktury měnných typů (seznamy, slovníky, ...) můžete zasahovat
+   během programu, ale do struktury neměnných (čísla, slova, ...) nikoliv.
+ \end{itemize}
+\end{frame}
+
+\subsection[Číselné typy]{Číselné typy}
+
+\begin{frame}{Celá čísla}
+ \begin{tcolorbox}[title=Datový typ \texttt{int}]
+  Zkratkou \alert{\texttt{int}} (z angl. \alert{int}eger) Python označuje typ
+  celých čísel, tj. čísel bez desetinné části.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Celá čísla}
+ Python umí následující operace na celých číslech.
+ \begin{itemize}
+  \item součet (\texttt{+});
+  \item rozdíl (\texttt{-});
+  \item součin (\texttt{*});
+  \pause
+  \item<2-> celočíselný podíl (\texttt{//}), např. \texttt{11 // 3 == 3};
+  \item<3-> zbytek po dělení (\texttt{\%}), např. \texttt{11 \% 3 == 2};
+  \item<4-> mocninu (\texttt{**}), např. \texttt{4 ** 3 == 64}.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Desetinná čísla}
+ \begin{tcolorbox}[title=Datový typ \texttt{float}]
+  Zkratka \alert{\texttt{float}} (z angl. \alert{float}ing point) označuje v
+  Pythonu typ desetinných čísel.
+ \end{tcolorbox}
+ \pause
+ \emph{Poznámka.} Celá čísla jsou samozřejmě zároveň desetinná. Aby je Python v
+ tomto případě rozlišil, píše \texttt{2.0} pro \uv{desetinné číslo} dva a
+ \texttt{2} pro \uv{celé číslo} dva.
+\end{frame}
+
+\begin{frame}{Desetinná čísla}
+ Python umí následující operace na desetinných číslech.
+ \begin{itemize}
+  \item součet (\texttt{+});
+  \item rozdíl (\texttt{-});
+  \item součin (\texttt{*});
+  \item podíl (\texttt{/});
+  \item mocninu (\texttt{**}).
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{celá $\leftrightarrow$ desetinná} 
+ \begin{itemize}
+  \item<1-> Slova \texttt{int} a \texttt{float} jsou zároveň názvy
+   funkcí/procedur v Pythonu pro převod mezi číselnými typy.
+  \item<2-> \texttt{\alert{int}(x: float)} vrátí tzv. \uv{celou část} z
+   \texttt{x}; např. \texttt{\alert{int}(3.9) == 3}.
+  \item<3-> \texttt{\alert{float}(x: int)} převede celé číslo \texttt{x} na
+   desetinné prostě tak, že k němu přidá \uv{\texttt{.0}}. Takže třeba
+   \texttt{\alert{float}(3) == 3.0}.
+ \end{itemize}
+\end{frame}
+
+\subsection[Řetězce]{Řetězce}
+
+\begin{frame}{Řetězce (stringy)}
+ \begin{tcolorbox}[title=Datový typ \texttt{str}]
+  Zkratkou \alert{\texttt{str}} (z angl. \alert{str}ing) Python označuje typ
+  \uv{řetězců znaků}, tj. posloupností v zásadě libovolných symbolů.
+ \end{tcolorbox}
+ \begin{itemize}
+  \item<2-> Stringy se píší do uvozovek, buď jednoduchých
+   (\texttt{\textquotesingle}) nebo dvojitých (\texttt{"}). Na výběru nezáleží,
+   ale string musí začínat končit stejnou uvozovkou.
+  \item<3-> Python používá pro kódování textu UTF-8 (\textbf{U}nicode
+   \textbf{T}ransformation \textbf{F}ormat -- 8-bit). Tedy umí rozpoznat každý
+   znak v tomto kódování.
+ \end{itemize}\end{frame}
+
+\begin{frame}{Řetězce (stringy)}
+ Python umí následující operace na řetězcích.
+ \begin{itemize}
+  \item<1-> součet/spojení (\texttt{+} nebo mezera)
+   \begin{itemize}
+    \item např. \texttt{"auto"} \texttt{+} \texttt{"bus"} \texttt{==}
+     \texttt{"autobus"}
+    \item např. \texttt{"mrt"} \texttt{"vola"} \texttt{==} \texttt{"mrtvola"}
+   \end{itemize}
+  \item<2-> součin/opakování (\texttt{*}): např. \texttt{"hehe"} \texttt{* 3}
+   \texttt{==} \texttt{"hehehehehehe"}
+  \item<3-> výběr prvku (\texttt{str[pořadí prvku]}): např. \texttt{"python"[2]}
+   \texttt{==} \texttt{"t"}.\\
+   \alert{Pozor!} Python čísluje od 0.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{stringy $\leftrightarrow$ čísla}
+ \begin{itemize}
+  \item Zkratka \texttt{str} je zároveň procedura na převod dané proměnné na
+   string. V případě čísel máme
+   \begin{itemize}
+    \item \texttt{str(x: int)} převede celé číslo na string. Třeba
+     \texttt{str(3)} \texttt{==} \texttt{"3"}.
+    \item \texttt{str(x: float)} převede desetinné číslo na string. Např. 
+     \texttt{str(3.14159)} \texttt{==} \texttt{"3.14159"}.
+   \end{itemize}
+   \alert{Pozor!} Python neřeší, jestli je ve stringu číslo. Takže třeba
+   \texttt{"1"} \texttt{+} \texttt{"1"} \texttt{==} \texttt{"11"}, ale
+   \texttt{1} \texttt{+} \texttt{1} \texttt{==} \texttt{2}.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{stringy $\leftrightarrow$ čísla}
+ Procedury \texttt{int} a \texttt{float} taky převádějí stringy na číslo, pokud
+ to lze. Např.
+ \begin{itemize}
+  \item<1-> \texttt{int("69")} \texttt{==} \texttt{69},
+  \item<2-> \texttt{float("3.14159")} \texttt{==} \texttt{3.14159}, ale
+  \item<3-> \texttt{float("hehe")} i \texttt{int("9.11")} hodí chybu.
+ \end{itemize}
+\end{frame}
+
+\subsection[Seznamy]{Seznamy}
+
+\begin{frame}
+ \frametitle{Seznamy}
+ \begin{tcolorbox}[title=Datový tip \texttt{list}]
+  Slovem \texttt{\alert{list}} označuje Python seznam; vlastně množinu, kde
+  každý prvek má jednoznačné pořadí. \textbf{Prvky v seznamu mohu nahrazovat,
+  přidávat a odebírat}.
+ \end{tcolorbox}
+ \pause
+ \begin{itemize}
+  \item<2-> Seznamy se píší do \alert{hranatých závorek} \texttt{[]} a prvky
+   oddělují čárkami. Třeba \texttt{[2,~"hora", 4, 7]} je seznam se čtyřmi
+   prvky.
+  \item<3-> Prvkem seznamu může být další seznam. Třeba \texttt{\mdb{[}1,
+   \mlg{[}2, "tři"\mlg{]}, 4\mdb{]}} je seznam, jehož druhým prvkem je seznam
+   \texttt{[2, "tři"]}.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Seznamy}
+ Python umí následující operace na seznamech.
+ \begin{itemize}
+  \item<1-> součet/spojení (\texttt{+})
+   \begin{itemize}
+    \item např. \texttt{[69, 420]} \texttt{+} \texttt{[911, 1337]} \texttt{==}
+     \texttt{[69, 420, 911, 1337]}.
+   \end{itemize}
+  \item<2-> součin/opakování (\texttt{*})
+   \begin{itemize}
+    \item např. \texttt{[1, 2]} \texttt{*} \texttt{4} \texttt{==} \texttt{[1, 2,
+     1, 2, 1, 2, 1, 2]}.
+   \end{itemize}
+  \item<3-> výběr prvku (\texttt{list[pořadí prvku]})
+   \begin{itemize}
+    \item např. \texttt{\mlg{[}1, 4, 7, "hroch"\mlg{]}\mlb{[}2\mlb{]}}
+     \texttt{==} \texttt{7}.
+    \item např. \texttt{\mlg{[}1, 4, 7, "hroch"\mlg{]}\mlb{[}-1\mlb{]}}
+     \texttt{==} \texttt{"hroch"}.
+   \end{itemize}
+   \alert{Pozor!} Python čísluje buď od \texttt{0} nahoru (začátek $\rightarrow$
+   konec) nebo od \texttt{-1} dolu (konec $\rightarrow$ začátek)
+ \end{itemize}
+\end{frame}
+
+\subsection[N-tice]{N-tice}
+
+\begin{frame}
+ \frametitle{N-tice}
+ \begin{tcolorbox}[title=Datový typ \texttt{tuple}]
+  Slovem \texttt{\alert{tuple}} Python označuje n-tici, neboli posloupnost n
+  prvků. \textbf{Prvky n-tice nemohu nahrazovat, přidávat ani odebírat}.
+ \end{tcolorbox}
+ \begin{itemize}
+  \item<2-> N-tice se píší buď kulatou závorkou s prvky oddělenými čárkou, třeba
+   \texttt{(1, 2)}, nebo v mnoha případech i bez závorky, třeba \texttt{1, 2}.
+  \item<3-> Python umí stejné operace na n-ticích jako na seznamech.
+ \end{itemize}
+\end{frame}
+
+\subsection[Slovníky]{Slovníky}
+
+\begin{frame}
+ \frametitle{Slovníky}
+ \begin{tcolorbox}[title=Datový typ \texttt{dict}]
+  Zkratkou \texttt{\alert{dict}} (z angl. \alert{dict}ionary) označuje Python
+  typ slovníku, tj. množiny hodnot, které jsou zařazeny pod klíči.
+  \textbf{Slovník umožňuje nahrazování, přidávání i odebírání klíčů i hodnot}.
+ \end{tcolorbox}
+ \begin{itemize}
+  \item<2-> Slovník se píše do složených závorek \texttt{\string{\string}} a
+   prvky jsou v podobě \texttt{klíč: hodnota} odděleny čárkami. Např.
+   \texttt{\mlb{\string{}\mlg{(}1, 2\mlg{)}: "kočka", 3: \mlg{[}4, 5\mlg{]},
+   "pes": 6\mlb{\string}}}.
+  \item<3-> Hodnotou může být cokoli, ale klíč musí být \alert{neměnný datový
+   typ} (číslo, slovo, n-tice apod.).
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Slovníky}
+ Slovníky nelze sčítat/spojovat ani násobit/opakovat. Jedinou základní operací
+ je výběr prvku příkazem \texttt{dict\mlb{[}}klíč\texttt{\mlb{]}}. Pár příkladů:
+ \begin{itemize}
+  \item<2-> \texttt{\string{"kočka": 2, "pes": 3\string}\mlb{[}"pes"\mlb{]}} \texttt{==} \texttt{3}.
+  \item<3-> \texttt{\string{\mlg{(}1, 2, 3\mlg{)}: "teď", 4:
+   5\string}\mlb{[}\mlg{(}1, 2, 3\mlg{)}\mlb{]}} \texttt{==} \texttt{"teď"}.
+  \item<4-> \texttt{\string{0: "nula", 1: "jedna", 2:
+   "dva"\string}\mlb{[}1\mlb{]}} \texttt{==} \texttt{"jedna"}.
+ \end{itemize}
+\end{frame}
+
+\subsection[\texttt{list}, \texttt{tuple} a \texttt{dict} jako
+procedury]{\texttt{list}, \texttt{tuple} a \texttt{dict} jako procedury}
+
+\begin{frame}
+ \frametitle{\texttt{list} jako procedura}
+ Procedure/funkce \texttt{\alert{list}} umožňuje převod jiného datového typu na
+ seznam, pokud to (podle Pythonu) dává smysl. Obecné pravidlo je, že Python umí
+ převést na seznam jen ty datové typy, \textbf{které jsou číslované}.
+ \begin{itemize}
+  \item<1-> \texttt{list(x: \alert{int}|\alert{float})} hodí chybu,
+  \item<2-> \texttt{list(x: \alert{str})} převede řetězec na seznam jeho znaků,
+   \begin{itemize}
+    \item např. \texttt{list("kočka")} \texttt{==} \texttt{["k", "o", "č", "k",
+     "a"]}.
+   \end{itemize}
+  \item<3-> \texttt{list(x: \alert{tuple})} převede n-tici na seznam se stejnými
+   prvky,
+   \begin{itemize}
+    \item např. \texttt{list\mlb{(}\mlg{(}1, 2, 3\mlg{)}\mlb{)}} \texttt{==}
+     \texttt{[1, 2, 3]}.
+   \end{itemize}
+  \item<4-> \texttt{list(x: \alert{dict})} převede slovník na seznam klíčů.
+   \begin{itemize}
+    \item např. \texttt{list\mlb{(}\mlg{\string{}"pes": "haf", "kočka":
+     "mňau"\mlg{\string}}\mlb{)}} \texttt{==} \texttt{["pes", "kočka"]}.
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{tuple} jako procedura}
+ Procedura/funkce \alert{\texttt{tuple}} funguje v zásadě stejně jako
+ \texttt{list}. Tzn.
+ \pause
+ \begin{itemize}
+  \item \texttt{tuple(x: \alert{int}|\alert{float})} hodí chybu,
+  \item \texttt{tuple(x: \alert{str})} udělá z řetězce n-tici jeho symbolů,
+  \item \texttt{tuple(x: \alert{list})} převede seznam na n-tici se stejnými
+   prvky.
+  \item \texttt{tuple(x: \alert{dict})} převede slovník na n-tici jeho klíčů.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{dict} jako procedura}
+ Procedura/funkce \alert{dict} lze použít pouze na převod seznamu nebo n-tice,
+ jejichž \textbf{každý prvek má délku 2} (tj. dvojice nebo seznam o dvou
+ prvcích). Příklady:
+ \begin{itemize}
+  \item \texttt{dict\mlb{(}\mlg{[}\mdb{(}"pes", 2\mdb{)}, \mdb{(}"kočka",
+   3\mdb{)}\mlg{]}\mlb{)}} \texttt{==} \texttt{\string{"pes": 2, "kočka":
+   3\string}}.
+  \item \texttt{dict\mlb{(}\mlg{(}\mdb{[}"pes", 2\mdb{]}, \mdb{[}"kočka",
+   3\mdb{]}\mlg{)}\mlb{)}} \texttt{==} \texttt{\string{"pes": 2, "kočka":
+   3\string}}.
+ \end{itemize}
+\end{frame}

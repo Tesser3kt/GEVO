@@ -1,0 +1,129 @@
+\begin{frame}{Co tím myslím?}
+ \begin{block}{Co myslím řídící sekvencí.}
+  \begin{itemize}
+   \item<1-> podmínky (\alert{if} $\rightarrow$ \alert{elif} $\rightarrow$
+    \alert{else}),
+   \item<2-> cykly (\alert{for} nebo \alert{while}),
+   \item<3-> procedury/funkce (\alert{def}).
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\subsection[Proměnné]{Proměnné}
+
+\begin{frame}{Proměnné v Pythonu}
+ \begin{itemize}
+  \item<1-> Proměnné v Pythonu se dají pojmenovat v podstatě jakoukoli
+   posloupností znaků (až na výjimky).
+  \item<2-> Nemusíte Pythonu říkat, jaký má proměnná datový typ; on si to určí
+   sám.
+  \item<3-> Táž proměnná může být v průběhu programu různých typů.
+  \item<4-> Hodnota se do proměnné ukládá jednoduchým \texttt{=}.\\
+   \alert{Pozor!} Tohle \texttt{=} \textbf{nemá nic společného se stejným
+   symbolem v matematice}. Čte se \alert{zprava doleva}.
+   \begin{itemize}
+    \item např. \texttt{\mlb{number}} \texttt{=} \texttt{\mlg{3}} znamená \uv{do
+     \texttt{\mlb{number}} dosaď \texttt{\mlg{3}}} a
+    \item \texttt{\mlb{number} = \mlg{number + 2}} znamená \uv{do
+     \texttt{\mlb{number}} dosaď \texttt{\mlg{number + 2}}}.
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Proměnné -- příklady}
+ \begin{block}{Příklad s čísly}
+  \vspace{6pt}
+  Program\\
+  $\vcenter{\rule{.5\textwidth}{0.4pt}}$\\
+  \texttt{\mlb{first\_number} = 4}\\
+  \texttt{\mlg{second\_number} = 5}\\
+  \texttt{print(\mlb{first\_number} * \mlg{second\_number})}\\
+  $\vcenter{\rule{.5\textwidth}{0.4pt}}$\\
+  vytiskne \texttt{20}.
+ \end{block}
+\end{frame}
+
+\begin{frame}{Proměnné -- příklady}
+ \begin{block}{Příklad se stringy}
+  \vspace{6pt}
+  Program\\
+  $\vcenter{\rule{.55\textwidth}{0.4pt}}$\\
+  \texttt{\mlb{first_word} = "kocour"}\\
+  \texttt{\mlg{second_word} = "kočka"}\\
+  \texttt{print(\mlb{first_word}[3] + \mlg{second_word}[-2])}\\
+  $\vcenter{\rule{.55\textwidth}{0.4pt}}$\\
+  vytiskne \texttt{"ok"}.
+ \end{block}
+\end{frame}
+
+\begin{frame}{Proměnné -- příklady}
+ \begin{block}{Příklad se seznamy}
+  \vspace{6pt}
+  Program\\
+  $\vcenter{\rule{.55\textwidth}{0.4pt}}$\\
+  \texttt{\mlb{inner_list} = [4, "blb"]}\\
+  \texttt{\mlg{outer_list} = ["ano", inner_list, 5, 6]}\\
+  \texttt{print(\mlg{outer_list})}\\
+  $\vcenter{\rule{.55\textwidth}{0.4pt}}$\\
+  vytiskne \texttt{["ano", [4, "blb"], 5, 6]}.
+ \end{block}
+\end{frame}
+
+\subsection[Podmínky]{Podmínky}
+
+\begin{frame}{Podmínky v Pythonu}
+ \begin{itemize}
+  \item<1-> Podmínky se píší ve tvaru
+   \begin{center}
+    \texttt{\mlb{if}} nějaká
+    podmínka\texttt{\mlb{:}}
+   \end{center}
+   Pro další možnosti pište \texttt{\mlb{elif}} (zkráceno z \mlb{el}se \mlb{if})
+   a nakonec \texttt{\mlb{else}}.
+  \item<2-> Kód, který se má za dané podmínky vykonat, \textbf{musí být
+   odsazen!} Ideálně odsazujte klávesou \texttt{Tab}.
+  \item<3-> Každá (správně napsaná) podmínka je v Pythonu vyhodnocena buď jako
+   pravda (\texttt{\mlb{True}}), nebo lež (\texttt{\mlb{False}}).
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Tvoření podmínky -- vnitřek}
+  Uvnitř podmínky budeme nejčastěji používat operátory
+  \begin{itemize}
+   \item<1-> \texttt{\mlb{in}} (doslova \uv{v} -- testuje, jestli to nalevo je
+    uvnitř toho napravo)
+    \begin{itemize}
+     \item Např. \texttt{("s"}~\texttt{\mlb{in} "synek")} \texttt{==}
+      \texttt{\mdb{True}}, ale
+     \item \texttt{(3 \mlb{in} [1, 2, 4, 5])} \texttt{==} \texttt{\mdb{False}}.
+    \end{itemize}
+   \item<2-> \texttt{\mlb{==}} (testuje, jestli je nalevo to samé, co napravo).
+    \textbf{Tohle je ten ekvivalent jednoduchého \texttt{=} v matice.} V Pythonu
+    jednoduché \texttt{=} dosazuje do proměnných!
+    \begin{itemize}
+     \item Např. \texttt{("sova"[2]} \texttt{\mlb{==}} \texttt{"v")} \texttt{==}
+      \texttt{\mdb{True}}.
+    \end{itemize}
+   \item<3-> \texttt{\mlb{<,>,<=,>=}} (porovnání toho, co je nalevo, s tím, co
+    je napravo). Symboly \texttt{\mlb{<=}} a \texttt{\mlb{>=}} značí \uv{menší
+    nebo rovno} a \uv{větší nebo rovno}, resp.
+    \begin{itemize}
+     \item Např. \texttt{(5 \mlb{>} 3)} \texttt{==} \texttt{\mdb{True}} a
+     \item \texttt{("c"~\mlb{<=} "f")} \texttt{==} \texttt{\mdb{True}}.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Tvoření podmínky -- vnějšek}
+ \textbf{Vně} podmínek budeme používat (logické) operátory
+ \begin{itemize}
+  \item<1-> \texttt{\mlb{not}} (logický opak podmínky)
+   \begin{itemize}
+    \item Např. \texttt{\mlb{not} (5 > 3)} \texttt{==} \texttt{\mdb{False}} a
+    \item \texttt{\mlb{not} ("x"~in "kocour")} \texttt{==} \texttt{\mdb{True}}.\\
+     Místo \texttt{\mlb{not} ("x"~in "kocour")} lze psát (přirozenějc)
+     \texttt{"x"~\mlb{not} in "kocour"}.
+   \end{itemize}
+  \item 
+ \end{itemize}
+\end{frame}
