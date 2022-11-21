@@ -117,13 +117,21 @@
 \begin{frame}{Tvoření podmínky -- vnějšek}
  \textbf{Vně} podmínek budeme používat (logické) operátory
  \begin{itemize}
-  \item<1-> \texttt{\mlb{not}} (logický opak podmínky)
+  \item<1-> \texttt{\mlb{not}} (doslova \uv{ne} -- logický opak podmínky)
    \begin{itemize}
     \item Např. \texttt{\mlb{not} (5 > 3)} \texttt{==} \texttt{\mdb{False}} a
     \item \texttt{\mlb{not} ("x"~in "kocour")} \texttt{==} \texttt{\mdb{True}}.\\
      Místo \texttt{\mlb{not} ("x"~in "kocour")} lze psát (přirozenějc)
      \texttt{"x"~\mlb{not} in "kocour"}.
    \end{itemize}
-  \item 
+  \item<2-> \mlb{and} (doslova \uv{a} -- musí platit obě podmínky)
+   \begin{itemize}
+    \item Např. \texttt{(5 > 3 \mlb{and} "s"~in "synek")} \texttt{==}
+     \texttt{\mdb{True}},
+    \item \texttt{(3 <= 4 \mlb{and} "x"~in "kocour")} \texttt{==}
+     \texttt{\mdb{False}} a
+    \item \texttt{(1 in [2, 3] \mlb{and} "x"~in "kocour")} \texttt{==}
+     \texttt{\mdb{False}}.
+   \end{itemize}
  \end{itemize}
 \end{frame}
