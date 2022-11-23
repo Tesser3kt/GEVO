@@ -75,8 +75,10 @@
  \begin{itemize}
   \item<1-> Podmínky se píší ve tvaru
    \begin{center}
-    \texttt{\mlb{if}} nějaká
-    podmínka\texttt{\mlb{:}}
+    \fbox{
+     \texttt{\mlb{if}} nějaká
+     podmínka\texttt{\mlb{:}}
+    }
    \end{center}
    Pro další možnosti pište \texttt{\mlb{elif}} (zkráceno z \mlb{el}se \mlb{if})
    a nakonec \texttt{\mlb{else}}.
@@ -134,4 +136,151 @@
      \texttt{\mdb{False}}.
    \end{itemize}
  \end{itemize}
+\end{frame}
+
+\begin{frame}{Tvoření podmínky -- vnějšek}
+ \textbf{Vně} podmínek budeme používat (logické) operátory
+ \begin{itemize}
+  \item \mlb{or} (doslova \uv{nebo} -- musí platit \textbf{alespoň} jedna z
+   podmínek)
+   \begin{itemize}
+    \item Např. \texttt{(5 > 3 \mlb{or} "s"~in "synek")} \texttt{==}
+     \texttt{\mdb{True}},
+    \item \texttt{(3 <= 4 \mlb{or} "x"~in "kocour")} \texttt{==}
+     \texttt{\mdb{True}} a
+    \item \texttt{(1 in [2, 3] \mlb{or} "x"~in "kocour"} \texttt{==}
+     \texttt{\mdb{False}}.
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Příklad -- liché číslo}
+ Program, který určuje, jestli je číslo liché, může vypadat třeba takto.
+ $\vcenter{\rule{.5\textwidth}{0.4pt}}$\\
+ \texttt{\mlg{number} = 5}\\
+ \texttt{\mlb{if} \mlg{number} \% 2 == 1\mlb{:}}\\
+ \hspace{4ex}\texttt{print(str(\mlg{number}) + "~je liché.")}\\
+ \texttt{\mlb{else:}}\\
+ \hspace{4ex}\texttt{print(str(\mlg{number}) + "~je sudé.")}\\
+ $\vcenter{\rule{.5\textwidth}{0.4pt}}$
+\end{frame}
+
+\subsection[Cykly]{Cykly}
+
+\begin{frame}{\texttt{for} cyklus v Pythonu}
+ \begin{itemize}
+  \item<1-> \texttt{for} cyklus se v Pythonu píše
+   \begin{center}
+    \fbox{
+     \texttt{\mlb{for}} prvek \texttt{\mlb{in}}
+     seznam/n-tice/slovník\texttt{\mlb{:}}
+    }
+   \end{center}
+   a kód uvnitř cyklu se odsazuje.\\
+   \alert{Pozor!} Python prochází seznam a n-tici po prvcích, ale
+   \textbf{slovník po klíčích}.
+  \item<2-> Proměnná pro cyklus se může jmenovat jakkoliv. Python do ní během
+   cyklu postupně dosazuje všechny prvky seznamu/n-tice, klíče slovníku a po
+   jeho konci ji zapomene.
+  \item<3-> Důležitá je funkce \texttt{\textcolor{violet}{range}(\mdb{n}: int)},
+   která vrací seznam přirozených čísel menších než \texttt{\mdb{n}}. Např.
+   \texttt{\textcolor{violet}{range}(5)} \texttt{==} \texttt{[0, 1, 2, 3, 4]}.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Příklad -- průchod seznamem}
+ Program, který vytiskne každý prvek seznamu krát dva lze napsat jako
+ $\vcenter{\rule{.65\textwidth}{0.4pt}}$
+ \texttt{\mlg{random_stuff} = [1, "hračka", [2, 3], (4, 5)]}\\
+ \texttt{\mlb{for} \mdb{wtv} \mlb{in} \mlg{random_stuff}\mlb{:}}\\
+ \hspace{4ex}\texttt{print(\mdb{wtv} * 2)}\\
+ $\vcenter{\rule{.65\textwidth}{0.4pt}}$
+ \pause
+ nebo použitím \texttt{\textcolor{violet}{range}} jako
+ $\vcenter{\rule{.65\textwidth}{0.4pt}}$
+ \texttt{\mlg{random_stuff} = [1, "hračka", [2, 3], (4, 5)]}\\
+ \texttt{\mlb{for} \mdb{index} \mlb{in} \textcolor{violet}{range}(4)\mlb{:}}\\
+ \hspace{4ex}\texttt{print(\mlg{random_stuff}[\mdb{index}] * 2)}
+ $\vcenter{\rule{.65\textwidth}{0.4pt}}$
+\end{frame}
+
+\begin{frame}{\texttt{while} cyklus v Pythonu}
+ \begin{itemize}
+  \item<1-> \texttt{while} cyklus se v Pythonu píše
+   \begin{center}
+    \fbox{
+     \texttt{\mlb{while} podmínka\mlb{\texttt{:}}}
+    }
+   \end{center}
+   a obsah cyklu je odsazený.
+  \item<2-> Stavění podmínek ve \texttt{\alert{while}} cyklu je stejné jako v
+   \texttt{\alert{if}}.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Příklad -- mocniny dvojky}
+ Program, který vypíše všechny mocniny dvojky menší než dané číslo
+ \texttt{\mdb{limit}}, může vypadat třeba takhle.
+ $\vcenter{\rule{.55\textwidth}{0.4pt}}$
+ \texttt{\mdb{limit} = 69 ** 69}\\
+ \texttt{\mlg{power_of_two} = 2}\\
+ \texttt{\mlb{while} \mlg{power_of_two} < \mdb{limit}\mlb{:}}\\
+ \hspace{4ex}\texttt{print(\mlg{power_of_two})}\\
+ \hspace{4ex}\texttt{\mlg{power_of_two} = \mlg{power_of_two} * 2}
+ $\vcenter{\rule{.55\textwidth}{0.4pt}}$
+\end{frame}
+
+\subsection[Funkce]{Funkce}
+
+\begin{frame}{Funkce/procedury v Pythonu}
+ \begin{itemize}
+  \item<1-> V Pythonu se funkce píší
+   \begin{center}
+    \fbox{
+     \texttt{\mlb{def}} jméno funkce\texttt{\mlb{(}}jména
+     parametrů\texttt{\mlb{):}}
+    }
+   \end{center}
+   a obsah funkce je odsazený.
+  \item<2-> \texttt{\mlb{def}} je z angl. \alert{def}ine.
+  \item<3-> Pro ukončení funkce a vrácení nějaké hodnoty slouží
+   \begin{center}
+    \fbox{
+     \texttt{\mlb{return} hodnota}
+    }
+   \end{center}
+   \alert{Pozor!} Funkce \textbf{nemusí vracet nic}. Jakmile provede svůj obsah,
+   skončí sama, i když \texttt{\mlb{return}} nikam nenapíšete.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Příklady funkcí}
+ Funkce, co dostane jméno a příjmení a vrátí je spojená dohromady, se dá napsat
+ třeba takhle.
+ $\vcenter{\rule{.55\textwidth}{0.4pt}}$
+ \texttt{\mlb{def} whole_name\mlb{(}\mlg{name}\mlb{,} \mlg{surname}\mlb{):}}\\
+ \hspace{4ex}\texttt{\mlb{return} \mlg{name}~+~"~"~+~\mlg{surname}}
+ $\vcenter{\rule{.55\textwidth}{0.4pt}}$
+ \pause
+ Další funkce, co dostane věk a připojí za něj \uv{let}, vypadá
+ $\vcenter{\rule{.55\textwidth}{0.4pt}}$
+ \texttt{\mlb{def} age_to_string\mlb{(}\mlg{age}\mlb{):}}\\
+ \hspace{4ex}\texttt{\mlb{return} str(\mlg{age})~+~"~let"}\\
+ $\vcenter{\rule{.55\textwidth}{0.4pt}}$
+\end{frame}
+
+\begin{frame}{Příklad -- využití funkcí z před. slidu}
+ Řekněme, že máme daný seznam \texttt{\mdb{data}} trojic \texttt{(}jméno,
+ příjmení, věk\texttt{)}, kde jméno a příjmení jsou stringy a věk je int. Pomocí
+ funkcí z předchozího slidu ho pěkně vytiskneme.
+ $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+ \texttt{\mlb{for} (\mlg{name}, \mlg{surname},
+ \mlg{age})~in~\mdb{data}\mlb{:}}\\
+ \hspace{4ex}\texttt{whole_name =
+ \textcolor{violet}{whole_name(}\mlg{name}\textcolor{violet}{,}
+ \mlg{surname}\textcolor{violet}{)}}\\
+ \hspace{4ex}\texttt{age =
+ \textcolor{violet}{age_to_string(}\mlg{age}\textcolor{violet}{)}}\\
+ \hspace{4ex}\texttt{print(whole_name~+~",~"~+~age)}
+ $\vcenter{\rule{.6\textwidth}{0.4pt}}$
 \end{frame}
