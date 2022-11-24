@@ -57,12 +57,22 @@ def get_well(color: str) -> VGroup:
 
 class GraphTheoryExamples(Scene):
     def construct(self):
-        house = VGroup(*get_house(HOUSE_COLOR)).scale(0.3).move_to(ORIGIN)
+        house1 = VGroup(*get_house(HOUSE_COLOR)).scale(0.3).move_to(ORIGIN)
+        house2 = house1.copy()
+        house3 = house1.copy()
 
         self.play(AnimationGroup(
-            AnimationGroup(*[Create(house[i]) for i in range(2)]),
-            AnimationGroup(*[Create(house[i]) for i in range(2, 5)]),
-            lag_ratio=0.5
+            AnimationGroup(
+                AnimationGroup(*[Create(house1[i]) for i in range(2)]),
+                AnimationGroup(*[Create(house1[i]) for i in range(2, 5)]),
+                lag_ratio=0.5
+            ),
+            AnimationGroup(
+                house2.animate.shift(4 * LEFT).set_stroke(opacity=1),
+                house3.animate.shift(4 * RIGHT).set_stroke(opacity=1),
+                run_time=1
+            ),
+            lag_ratio=0.6
         ))
 
         # well = get_well(WELL_COLOR)
