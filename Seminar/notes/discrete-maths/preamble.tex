@@ -1,0 +1,618 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                Basic Packages                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Gives us multiple colors.
+\usepackage[usenames,dvipsnames,pdftex]{xcolor}
+% Lets us style link colors.
+\usepackage{hyperref}
+% Lets us import images and graphics.
+\usepackage{graphicx}
+% Lets us use figures in floating environments.
+\usepackage{float}
+% Lets us create multiple columns.
+\usepackage{multicol}
+% Gives us better math syntax.
+\usepackage{amsmath,mathtools,amsthm}
+% Lets us strikethrough text.
+\usepackage{cleveref}
+\usepackage{cancel}
+% Lets us edit the caption of a figure.
+\usepackage{caption}
+% Lets us import pdf directly in our tex code.
+\usepackage{pdfpages}
+% Lets us do algorithm stuff.
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+\setlist[enumerate,1]{label=(\arabic*)}
+\setlist[itemize,1]{label=$\bullet$}
+\setlist[itemize,2]{label=$\circ$}
+
+\def\class{article}
+
+% FONTS
+\usepackage{kpfonts}
+\usepackage[defaultsans]{cantarell} %% Use option "defaultsans" to use cantarell as sans serif only
+\usepackage{fontawesome}
+
+\usepackage{sectsty}
+
+\allsectionsfont{\sffamily}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                Basic Settings                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+%  Symbols  %
+%%%%%%%%%%%%%
+
+\let\implies\Rightarrow
+\let\impliedby\Leftarrow
+\let\iff\Leftrightarrow
+\let\epsilon\varepsilon
+
+%%%%%%%%%%%%
+%  Tables  %
+%%%%%%%%%%%%
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand\arraystretch{1.5}
+
+%%%%%%%%%%%%%%
+%  SI Unitx  %
+%%%%%%%%%%%%%%
+
+\usepackage{siunitx}
+\sisetup{locale = FR}
+
+%%%%%%%%%%
+%  TikZ  %
+%%%%%%%%%%
+
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tikzsymbols}
+
+\usetikzlibrary{intersections, angles, quotes, calc, positioning, shapes, snakes}
+\usetikzlibrary{arrows.meta}
+
+\tikzset{
+  force/.style={thick, {Circle[length=2pt]}-stealth, shorten <=-1pt}
+}
+
+%%%%%%%%%%%%%%%
+%  PGF Plots  %
+%%%%%%%%%%%%%%%
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%  Center Title Page  %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Create a grey background in the middle of the PDF  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{eso-pic}
+\newcommand\definegraybackground{
+  \definecolor{reallylightgray}{HTML}{FAFAFA}
+  \AddToShipoutPicture{
+    \ifthenelse{\isodd{\thepage}}{
+      \AtPageLowerLeft{
+        \put(\LenToUnit{\dimexpr\paperwidth-222pt},0){
+          \color{reallylightgray}\rule{222pt}{297mm}
+        }
+      }
+    }
+    {
+      \AtPageLowerLeft{
+        \color{reallylightgray}\rule{222pt}{297mm}
+      }
+    }
+  }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%  Modify Links Color  %
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+  % Enable highlighting links.
+  colorlinks,
+  % Change the color of links to blue.
+  linkcolor=blue,
+  % Change the color of citations to black.
+  citecolor={black},
+  % Change the color of url's to blue with some black.
+  urlcolor={blue!80!black}
+}
+
+%%%%%%%%%%%%%%%%%%
+% Fix WrapFigure %
+%%%%%%%%%%%%%%%%%%
+
+\newcommand{\wrapfill}{\par\ifnum\value{WF@wrappedlines}>0
+    \parskip=0pt
+    \addtocounter{WF@wrappedlines}{-1}%
+    \null\vspace{\arabic{WF@wrappedlines}\baselineskip}%
+    \WFclear
+\fi}
+
+%%%%%%%%%%%%%%%%%
+% Multi Columns %
+%%%%%%%%%%%%%%%%%
+
+\let\multicolmulticols\multicols
+\let\endmulticolmulticols\endmulticols
+
+\RenewDocumentEnvironment{multicols}{mO{}}
+{%
+  \ifnum#1=1
+    #2%
+  \else % More than 1 column
+    \multicolmulticols{#1}[#2]
+  \fi
+}
+{%
+  \ifnum#1=1
+\else % More than 1 column
+  \endmulticolmulticols
+\fi
+}
+
+\newlength{\thickarrayrulewidth}
+\setlength{\thickarrayrulewidth}{5\arrayrulewidth}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           School Specific Commands                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Initiate New Counters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{lecturecounter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Helpful New Commands  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+
+\newcommand\resetcounters{
+  % Reset the counters for subsection, subsubsection and the definition
+  % all the custom environments.
+  \setcounter{subsection}{0}
+  \setcounter{subsubsection}{0}
+  \setcounter{paragraph}{0}
+  \setcounter{subparagraph}{0}
+  \setcounter{theorem}{0}
+  \setcounter{claim}{0}
+  \setcounter{corollary}{0}
+  \setcounter{lemma}{0}
+  \setcounter{exercise}{0}
+
+  \@ifclasswith\class{nocolor}{
+    \setcounter{definition}{0}
+  }{}
+}
+
+%%%%%%%%%%%%%%%%%%%%%
+%  Lecture Command  %
+%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xifthen}
+
+% EXAMPLE:
+% 1. \lesson{Oct 17 2022 Mon (08:46:48)}{Lecture Title}
+% 2. \lesson[4]{Oct 17 2022 Mon (08:46:48)}{Lecture Title}
+% 3. \lesson{Oct 17 2022 Mon (08:46:48)}{}
+% 4. \lesson[4]{Oct 17 2022 Mon (08:46:48)}{}
+% Parameters:
+% 1. (Optional) Lesson number.
+% 2. Time and date of lecture.
+% 3. Lecture Title.
+\def\@lesson{}
+\newcommand\lesson[3][\arabic{lecturecounter}]{
+  % Add 1 to the lecture counter.
+  \addtocounter{lecturecounter}{1}
+
+  % Set the section number to the lecture counter.
+  \setcounter{section}{#1}
+  \renewcommand\thesubsection{#1.\arabic{subsection}}
+
+  % Reset the counters.
+  \resetcounters
+
+  % Check if user passed the lecture title or not.
+  \ifthenelse{\isempty{#3}}{
+    \def\@lesson{Lecture \arabic{lecturecounter}}
+  }{
+    \def\@lesson{Lecture \arabic{lecturecounter}: #3}
+  }
+
+  % Display the information like the following:
+  %                                                  Oct 17 2022 Mon (08:49:10)
+  % ---------------------------------------------------------------------------
+  % Lecture 1: Lecture Title
+  \hfill\small{#2}
+  \hrule
+  \vspace*{-0.3cm}
+  \section*{\@lesson}
+  \addcontentsline{toc}{section}{\@lesson}
+}
+
+%%%%%%%%%%%%%%%%%%%%
+%  Import Figures  %
+%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{import}
+\pdfminorversion=7
+
+% EXAMPLE:
+% 1. \incfig{limit-graph}
+% 2. \incfig[0.4]{limit-graph}
+% Parameters:
+% 1. The figure name. It should be located in figures/NAME.tex_pdf.
+% 2. (Optional) The width of the figure. Example: 0.5, 0.35.
+\newcommand\incfig[2][1]{%
+  \def\svgwidth{#1\columnwidth}
+  \import{./figures/}{#2.pdf_tex}
+}
+
+\begingroup\expandafter\expandafter\expandafter\endgroup
+\expandafter\ifx\csname pdfsuppresswarningpagegroup\endcsname\relax
+\else
+  \pdfsuppresswarningpagegroup=1\relax
+\fi
+
+%%%%%%%%%%%%%%%%%
+% Fancy Headers %
+%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+
+% Force a new page.
+\newcommand\forcenewpage{\clearpage\mbox{~}\clearpage\newpage}
+
+% This command makes it easier to manage my headers and footers.
+\newcommand\createintro{
+  % Use roman page numbers (e.g. i, v, vi, x, ...)
+  \pagenumbering{roman}
+
+  % Display the page style.
+  \maketitle
+  % Make the title pagestyle empty, meaning no fancy headers and footers.
+  \thispagestyle{empty}
+  % Create a newpage.
+  \newpage
+
+  % Input the intro.tex page if it exists.
+  \IfFileExists{intro.tex}{ % If the intro.tex file exists.
+    % Input the intro.tex file.
+    \input{intro}
+
+    % Make the pagestyle fancy for the intro.tex page.
+    \pagestyle{fancy}
+
+    % Remove the line for the header.
+    \renewcommand\headrulewidth{0pt}
+
+    % Remove all header stuff.
+    \fancyhead{}
+
+    % Add stuff for the footer in the center.
+    \fancyfoot[C]{
+      \textit{For more notes like this, visit
+      \href{\linktootherpages}{\shortlinkname}}. \\
+      \vspace{0.1cm}
+      \hrule
+      \vspace{0.1cm}
+      \@author, \\
+      \term: \academicyear, \\
+      Last Update: \@date, \\
+      \faculty
+    }
+  }{ % If the intro.tex file doesn't exist.
+    % Force a \newpageage.
+    \forcenewpage
+  }
+
+  % Create a new page.
+  \newpage
+
+  % Remove the center stuff we did above, and replace it with just the page
+  % number, which is still in roman numerals.
+  \fancyfoot[C]{\thepage}
+  % Add the table of contents.
+  \tableofcontents
+  % Force a new page.
+  \forcenewpage
+
+  % Move the page numberings back to arabic, from roman numerals.
+  \pagenumbering{arabic}
+  % Set the page number to 1.
+  \setcounter{page}{1}
+
+  % Add the header line back.
+  \renewcommand\headrulewidth{0.4pt}
+  % In the top right, add the lecture title.
+  \renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ ##1}}
+  \fancyhead[R]{\rightbotmark}
+  % In the top left, add the author name.
+  \fancyhead[L]{\leftmark}
+  % In the bottom center, add the page.
+  \fancyfoot[C]{\thepage}
+  % Add a nice gray background in the middle of all the upcoming pages.
+  % \definegraybackground
+}
+
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               Custom Commands                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+%  Circle  %
+%%%%%%%%%%%%
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+  \node[shape=circle,draw,inner sep=1pt] (char) {#1};}
+}
+
+%%%%%%%%%%%%%%%%%%%
+%  Todo Commands  %
+%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xargs}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\makeatletter
+
+\@ifclasswith\class{working}{
+  \newcommandx\unsure[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+  \newcommandx\change[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+  \newcommandx\info[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+  \newcommandx\improvement[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+
+  \newcommand\listnotes{
+    \newpage
+    \listoftodos[Notes]
+  }
+}{
+  \newcommandx\unsure[2][1=]{}
+  \newcommandx\change[2][1=]{}
+  \newcommandx\info[2][1=]{}
+  \newcommandx\improvement[2][1=]{}
+
+  \newcommand\listnotes{}
+}
+
+\makeatother
+
+%%%%%%%%%%%%%
+%  Correct  %
+%%%%%%%%%%%%%
+
+% EXAMPLE:
+% 1. \correct{INCORRECT}{CORRECT}
+% Parameters:
+% 1. The incorrect statement.
+% 2. The correct statement.
+\definecolor{correct}{HTML}{009900}
+\newcommand\correct[2]{{\color{red}{#1 }}\ensuremath{\to}{\color{correct}{ #2}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Environments                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{varwidth}
+\usepackage{thmtools}
+\usepackage[most,many,breakable]{tcolorbox}
+
+\tcbuselibrary{theorems,skins,hooks}
+\usetikzlibrary{arrows,calc,shadows.blur}
+
+%%%%%%%%%%%%%%%%%%%
+%  Define Colors  %
+%%%%%%%%%%%%%%%%%%%
+
+\definecolor{myblue}{RGB}{45, 111, 177}
+\definecolor{mygreen}{RGB}{56, 140, 70}
+\definecolor{myred}{RGB}{199, 68, 64}
+\definecolor{mypurple}{RGB}{197, 92, 212}
+
+\definecolor{definition}{HTML}{228b22}
+\definecolor{theorem}{HTML}{00007B}
+\definecolor{example}{HTML}{2A7F7F}
+\definecolor{definition}{HTML}{228b22}
+\definecolor{prop}{HTML}{191971}
+\definecolor{lemma}{HTML}{983b0f}
+\definecolor{exercise}{HTML}{88D6D1}
+\definecolor{warning}{HTML}{ea191d}
+
+\colorlet{definition}{mygreen!85!black}
+\colorlet{claim}{myblue!85!black}
+\colorlet{corollary}{mypurple!85!black}
+\colorlet{proof}{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Create Environments Styles Based on Given Parameter  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mdfsetup{skipabove=1em,skipbelow=0em}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%  Helpful Commands  %
+%%%%%%%%%%%%%%%%%%%%%%
+
+% EXAMPLE:
+% 1. \createnewtheoremstyle{thmdefinitionbox}{}{}
+% 2. \createnewtheoremstyle{thmtheorembox}{}{}
+% 3. \createnewtheoremstyle{thmproofbox}{qed=\qedsymbol}{
+%       rightline=false, topline=false, bottomline=false
+%    }
+% Parameters:
+% 1. Theorem name.
+% 2. Any extra parameters to pass directly to declaretheoremstyle.
+% 3. Any extra parameters to pass directly to mdframed.
+\newcommand\createnewtheoremstyle[3]{
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily, bodyfont=\normalfont, #2,
+  mdframed={
+    #3,
+  },
+  ]{#1}
+}
+
+% EXAMPLE:
+% 1. \createnewcoloredtheoremstyle{thmdefinitionbox}{definition}{}{}
+% 2. \createnewcoloredtheoremstyle{thmexamplebox}{example}{}{
+%       rightline=true, leftline=true, topline=true, bottomline=true
+%     }
+% 3. \createnewcoloredtheoremstyle{thmproofbox}{proof}{qed=\qedsymbol}{backgroundcolor=white}
+% Parameters:
+% 1. Theorem name.
+% 2. Color of theorem.
+% 3. Any extra parameters to pass directly to declaretheoremstyle.
+% 4. Any extra parameters to pass directly to mdframed.
+\newcommand\createnewcoloredtheoremstyle[4]{
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{#2}, bodyfont=\normalfont, #3,
+  mdframed={
+    linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt,
+    rightline=false, leftline=true, topline=false, bottomline=false,
+    linecolor=#2, backgroundcolor=#2!5, #4,
+  },
+  ]{#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Create the Environment Styles  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\@ifclasswith\class{nocolor}{
+  % Environments without color.
+
+  \createnewtheoremstyle{thmdefinitionbox}{}{}
+  \createnewtheoremstyle{thmtheorembox}{}{}
+  \createnewtheoremstyle{thmexamplebox}{}{}
+  \createnewtheoremstyle{thmclaimbox}{}{}
+  \createnewtheoremstyle{thmcorollarybox}{}{}
+  \createnewtheoremstyle{thmpropbox}{}{}
+  \createnewtheoremstyle{thmlemmabox}{}{}
+  \createnewtheoremstyle{thmexercisebox}{}{}
+  \createnewtheoremstyle{thmdefinitionbox}{}{}
+  \createnewtheoremstyle{thmquestionbox}{}{}
+  \createnewtheoremstyle{thmsolutionbox}{}{}
+
+  \createnewtheoremstyle{thmproofbox}{qed=\qedsymbol}{}
+  \createnewtheoremstyle{thmexplanationbox}{}{}
+}{
+  % Environments with color.
+
+  \createnewcoloredtheoremstyle{thmdefinitionbox}{definition}{}{}
+  \createnewcoloredtheoremstyle{thmtheorembox}{theorem}{}{}
+  \createnewcoloredtheoremstyle{thmexamplebox}{example}{}{
+    rightline=true, leftline=true, topline=true, bottomline=true
+  }
+  \createnewcoloredtheoremstyle{thmwarningbox}{warning}{}{
+    rightline=true, leftline=true, topline=true, bottomline=true
+  }
+  \createnewcoloredtheoremstyle{thmclaimbox}{claim}{}{}
+  \createnewcoloredtheoremstyle{thmcorollarybox}{corollary}{}{}
+  \createnewcoloredtheoremstyle{thmpropbox}{prop}{}{}
+  \createnewcoloredtheoremstyle{thmlemmabox}{lemma}{}{}
+  \createnewcoloredtheoremstyle{thmexercisebox}{exercise}{}{}
+
+  \createnewcoloredtheoremstyle{thmproofbox}{proof}{qed=\qedsymbol}{backgroundcolor=white}
+  \createnewcoloredtheoremstyle{thmexplanationbox}{example}{qed=\qedsymbol}{backgroundcolor=white}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Create the Environments  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\declaretheorem[numberwithin=subsection, style=thmtheorembox,     name=Věta]{theorem}
+\declaretheorem[numbered=no,          style=thmexamplebox,     name=Příklad]{example}
+\declaretheorem[numbered=no,          style=thmwarningbox,     name=Výstraha]{warning}
+\declaretheorem[numberwithin=subsection, style=thmclaimbox,       name=Tvrzení]{claim}
+\declaretheorem[numberwithin=subsection, style=thmcorollarybox,   name=Důsledek]{corollary}
+\declaretheorem[numberwithin=subsection, style=thmpropbox,        name=Proposition]{prop}
+\declaretheorem[numberwithin=subsection, style=thmlemmabox,       name=Lemma]{lemma}
+\declaretheorem[numberwithin=subsection, style=thmexercisebox,    name=Cvičení]{exercise}
+\declaretheorem[numberwithin=subsection, style=thmdefinitionbox,  name=Definice]{definition}
+\declaretheorem[numbered=no,          style=thmproofbox,       name=Důkaz]{replacementproof}
+\declaretheorem[numbered=no,          style=thmexplanationbox, name=Důkaz]{expl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Edit Proof Environment  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+\newenvironment{explanation}[1][\proofname]{\vspace{-10pt}\begin{expl}}{\end{expl}}
+
+\theoremstyle{definition}
+
+\newtheorem*{notation}{Notation}
+\newtheorem*{previouslyseen}{As previously seen}
+\newtheorem*{problem}{Problem}
+\newtheorem*{observe}{Observe}
+\newtheorem*{property}{Property}
+\newtheorem*{intuition}{Intuition}
+
+\makeatletter
+\AtBeginDocument{%
+\@ifpackageloaded{amsthm}%
+ {%
+  \renewrobustcmd\mdf@patchamsthm{%
+   \chardef\kludge@catcode@hyphen=\catcode`\-
+   \catcode`\-=12
+   \let\mdf@deferred@thm@head\deferred@thm@head
+   \pretocmd{\deferred@thm@head}{\@inlabelfalse}%
+      {\mdf@PackageInfo{mdframed detected package amsthm ^^J%
+                        changed the theorem header of amsthm\MessageBreak}%
+      }{%
+       \mdf@PackageError{mdframed detected package amsthm ^^J%
+                         changed the theorem header of amsthm
+                         failed\MessageBreak}%
+       }%
+   \catcode`\-=\kludge@catcode@hyphen
+     }%
+ }{}%
+}
+\makeatletter
+\providecommand*{\rightbotmark}{\expandafter\@rightmark\botmark\@empty\@empty}% <- added
+\makeatother
+
+% Math OPs
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{myred}}
+\newcommand{\clb}{\textcolor{myblue}}
+\newcommand{\clg}{\textcolor{mygreen}}
+\newcommand{\clp}{\textcolor{mypurple}}

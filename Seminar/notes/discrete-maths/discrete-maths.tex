@@ -1,0 +1,43 @@
+% Finished mode.
+% \documentclass[nocolor]{article}
+\documentclass[12pt, a4paper, oneside]{article}
+
+% Draft mode.
+% \documentclass[working,nocolor]{article}
+% \documentclass[working]{article}
+
+\input{preamble.tex}
+
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{10pt}}
+
+\titleformat{\section}[hang]{\Large\bfseries\sffamily}{\thesection\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Large\bfseries\sffamily}
+\titleformat{\subsection}[hang]{\large\bfseries\sffamily}{\thesubsection}{12pt}{\large\bfseries\sffamily}
+
+\sffamily
+
+\title{Jakýsi úvod do diskrétní matematiky}
+\author{Áďa Klepáčovic}
+\date{\today}
+
+\newcommand{\linktootherpages}{link}
+\newcommand{\shortlinkname}{link}
+\newcommand{\term}{Fall Term}
+\newcommand{\academicyear}{$2022$}
+\newcommand{\faculty}{Faculty of Something}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{12pt}
+
+\begin{document}
+  \pagestyle{empty}
+  \sffamily
+  \createintro
+ 
+  \pagestyle{fancy}
+  \normalfont
+ 
+  \input{zajimave-problemy}
+  \input{uvodni-pojmy}
+\end{document}

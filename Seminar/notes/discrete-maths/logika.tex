@@ -1,0 +1,66 @@
+\subsection{Logické spojky a kvantifikátory}
+\label{ssec:logicke-spojky-a-kvantifikatory}
+
+\begin{definition}[Výrok]
+ Výrokem nazveme jakoukoli větu, o které lze rozhodnout, zda je pravdivá, či
+ nikoliv.
+\end{definition}
+
+\begin{example}
+ Věty \uv{Je mi zle.} a \uv{Sumec je drůbež.} jsou výroky, zatímco \uv{Tvoje
+ máma.} a \uv{Cos' dostala z matiky?} nikoliževěk.
+
+ Je též dlužno mít na paměti, že naše znalost pravdivosti věty nemění nic na
+ tom, jestli daná věta je, nebo není výrokem. Třeba \uv{Do pěti století
+ kolonizujeme celou Sluneční soustavu.} je zcela jistě výrok.
+\end{example}
+
+Další text vyžaduje znalost operátorů $\neg, \wedge, \vee, \Rightarrow$ a
+$\Leftrightarrow$. Je-li $x$ výrok \uv{Prší.} a $y$ výrok \uv{Vezmu si
+deštník.}, pak
+\begin{itemize}
+ \item výrok $\neg x$ znamená \uv{\textbf{Ne}prší.},
+ \item výrok $x \wedge y$ znamená \uv{Prší \textbf{a} vezmu si deštník.},
+ \item výrok $x \vee y$ znamená \uv{Prší \textbf{nebo} si vezmu deštník.},
+ \item výrok $x \Rightarrow y$ znamená \uv{\textbf{Když} prší, \textbf{tak} si
+  vezmu deštník.} a
+ \item výrok $x \Leftrightarrow y$ znamená \uv{Prší, \textbf{právě tehdy když}
+  si vezmu deštník.}
+\end{itemize}
+
+\begin{warning}\hfill
+ \vspace*{-\parskip}
+ \begin{itemize}
+  \item Logická spojka $ \vee $ \textbf{není výlučná}. Tedy $x \vee y$ platí
+   v situaci, kdy
+   \begin{itemize}
+    \item platí pouze $x$,
+    \item platí pouze $y$,
+    \item platí $x$ i $y$.
+   \end{itemize}
+  \item Výrok $x \Rightarrow y$ je vždy \textbf{pravdivý}, pokud $x$ je
+   \textbf{lživý}. Jinak řečeno, $x \Rightarrow y$ platí za situace, kdy
+   \begin{itemize}
+    \item platí $x$ i $y$,
+    \item neplatí $x$ a platí $y$,
+    \item neplatí $x$ a neplatí $y$.
+   \end{itemize}
+ \end{itemize}
+\end{warning}
+
+Jako znalost logických spojek je kritická i znalost kvantifikátorů $ \forall $ 
+a $ \exists $, které se čtou \uv{pro všechny} a \uv{existuje}, resp.
+
+Pokud je $p(x)$ výrok závislý na proměnné $x$ (třeba \uv{$x$ je sudé.}), pak
+výrok
+\begin{itemize}
+ \item $ \forall x \in \N: p(x)$ zní \uv{Všechna přirozená čísla jsou sudá.} a
+ \item $ \exists x \in \N: p(x)$ zní \uv{Existuje sudé přirozené číslo.}
+\end{itemize}
+Budeme rovněž užívat kvantifikátory $ \exists!$ a $\nexists$, které znamenají
+\uv{existuje přesně jeden} a \uv{neexistuje}.
+
+Podáno intutivně: chci-li tvrdit, že $ \forall x \in \N:p(x)$, musím dokázat,
+že ať mi nepřítel dá \textbf{jakéḱoliv} přirozené číslo $x$, tak $p(x)$ platí.
+Naopak, dokázat $ \exists x \in \N: p(x)$ je obvykle zásadně jednodušší, neboť
+musím pouze najít \textbf{jedno} přirozené číslo $x$, pro které $p(x)$ platí.
