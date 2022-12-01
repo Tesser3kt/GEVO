@@ -50,25 +50,25 @@ Ekvivalence je velmi přirozený způsob, jak ztotožnit prvky, které bychom, �
 z technických důvodů, nechtěli považovat za různé. Vrátím-li se k~příkladu
 zlomků, asi bychom nechtěli vidět třeba $1 / 5$ a $2 / 10$ jako dva různé
 zlomky. Zlomek $1 / 5$ v tomto smyslu je vlastně množina všech zlomků, které
-jsou představují stejnou hodnotu. Tuto intuici zobecňuje pojem třídy
-ekvivalence.
+představují stejnou hodnotu. Tuto intuici zobecňuje pojem \emph{třídy
+ekvivalence}.
 
 \begin{definition}[Třída ekvivalence]
- Mějme ekvivalence $R \subseteq A^2$ a prvek $x \in A$. \textbf{Třídou
+ Mějme ekvivalenci $R \subseteq A^2$ a prvek $x \in A$. \textbf{Třídou
  ekvivalence} prvku $x$ \textbf{vzhledem k R} myslíme množinu
  \[
   [x]_{R} \coloneqq \{y \in A \mid xRy\},
  \]
- čili množinu všech prvků, které jsou s ním v relaci $R$. Dolní index $R$ v
- zápisu $[x]_R$ budeme často vynechávat a psát jen $[x]$. Uvědomme si, že
+ čili množinu všech prvků, které jsou s ním v relaci $R$. Dolní index $R$
+ v~zápisu $[x]_R$ budeme často vynechávat a psát jen $[x]$. Uvědomme si, že
  nezáleží na tom, jestli napíšu $xRy$ nebo $yRx$ v definici výše, protože $R$ je
  symetrická.
 \end{definition}
 
 \begin{example}[Racionální čísla]
  Symbolem $\N$ značím množinu přirozených čísel $\{1,2,3,\ldots\}$ a symbolem
- $\Z$ množinu celých čísel, tj. množinu přirozených čísel, čísel k nim opačným a
- $0$.
+ $\Z$ množinu celých čísel, tj. množinu přirozených čísel, čísel k nim opačných
+ a $0$.
 
  Racionální čísla se dají definovat jako všechny možné podíly celého čísla
  přirozeným. Když si zlomek $a / b$, kde  $a \in \Z$ a $b \in \N$ představím
@@ -158,16 +158,36 @@ důkaz je cvičení.
  \hyperref[claim:vlastnosti-trid-ekvivalence]{tvrzení nahoře} je $[1] = [2] =
  [4]$, protože tyto třídy ekvivalence nejsou disjunktní. Naopak, třída $[3]$
  \textbf{je} disjunktní s každou z nich. Můžeme proto rozdělit množinu $A$ na
- třídy ekvivalence třeba jako $A = [1] \cup [3]$. Náhled na obrázku
+ třídy ekvivalence třeba jako $A = [1] \cup [3]$. Náhled na
+ \hyperref[fig:rozdeleni-na-tridy]{obrázku~\ref*{fig:rozdeleni-na-tridy}}.
  \begin{figure}[H]
-  \vspace{1em}
   \centering
   \begin{tikzpicture}
-   \node[rectangle,draw=myred,thick,minimum height=2cm,minimum width=7cm] (rect)
+   \node[rectangle,draw=myred,thick,minimum height=2cm,minimum width=6cm] (rect)
    at (0,0) {};
    \node[above=2mm of rect] {$\clr{A}$};
+   \draw[thick] (1.5, 1) -- (1.5, -1);
+
+   \node at (-0.75, 0) {$\clg{[1] = [2] = [4]}$}; 
+   \node at (2.25, 0) {$\clg{[3]}$}; 
   \end{tikzpicture}
   \caption{Množina $\clr{A}$ rozdělená na třídy ekvivalence $\clg{R}$.}
   \label{fig:rozdeleni-na-tridy}
  \end{figure}
 \end{example}
+
+Pár cvičení nakonec.
+
+\begin{exercise}
+ Dokažte
+ \hyperref[claim:vlastnosti-trid-ekvivalence]{Tvrzení~\ref*{claim:vlastnosti-trid-ekvivalence}}.
+\end{exercise}
+
+\begin{exercise}[Skládání relací vs. transitivita]
+ Dokažte, že relace (ne nutně ekvivalence!) $R$ je transitivní, právě tehdy když
+ $R \circ R \subseteq R$.
+
+ \textbf{Pozor!} Píšeme \uv{právě tehdy, když}, tedy se jedná o (logickou)
+ ekvivalenci. Je třeba dokázat, že když $R \circ R \subseteq R$, pak $R$ je
+ transitivní, a že když je $R$ transitivní, pak $R \circ R \subseteq R$.
+\end{exercise}
