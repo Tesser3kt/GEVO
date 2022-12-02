@@ -7,13 +7,14 @@ takže se po celou sekci budeme soustředit na relaci na množině.
 
 Určitě nejznámějším typem uspořádání je relace \uv{menší nebo rovno} (ne\-bo
 \uv{menší}, \uv{větší nebo rovno} atd., to je jedno), kterou jistě všichni
-známe. Tohle jen ten příklad uspořádání, který doporučujeme mít na paměti,
+známe. Tohle je ten příklad uspořádání, který doporučujeme mít na paměti,
 kdykoli se zdají obecné definice těžko stravitelnými.
 
 Existuje ale samozřejmě spousta jiných druhů uspořádání s rozlišnými spektry
 užitku. Uveďme například uspořádání dělitelností, zcela zásadní v elementární
 teorii čísel, nebo lexikografické uspořádání, kterým se řadí slova ve slovnících
-a encyklopediích.
+a encyklopediích a dá se použít i pro řazení polynomů (například v důkazu
+slavného Gaussova algoritmu).
 
 Ještě před definicí uspořádání se ale musíme zmínit o pro ni klíčové vlastnosti
 relací.
@@ -28,7 +29,7 @@ relací.
  \end{itemize}
 \end{definition}
 
-Jak název napovídá, vlastnosti antisymetrie je opravdu jakýmsi protikladem
+Jak název napovídá, vlastnost antisymetrie je opravdu jakýmsi protikladem
 symetrie.
 
 Přeložena do jazyka aspoň některých lidí, relace je (silně) antisymetrická
@@ -106,9 +107,9 @@ Ještě poslední sousto nomenklatury.
 Protože základní idea za pojmem \uv{uspořádání} je, no, uspořádání prvků na
 množině, ujaly se pro jejich kreslení, spíše než mříže nebo šipky, tzv.
 \emph{Hasseho diagramy}. Hasseho diagram vypadá tak, že prvky množiny jsou
-značeny tečkami a porovnatelné prvky (tj. prvky, které jsou v relaci) jsou
-spojeny úsečkami. Navíc, prvky se kreslí zezdola nahoru vzhledem k jejich pozici
-v rámci daného uspořádání.
+značeny tečkami a mezi porovnatelnými prvky (tj. prvky, které jsou v relaci) se
+dá dostat po úsečkách (někdy přes více prvků). Navíc, prvky se kreslí zezdola
+nahoru vzhledem k jejich pozici v rámci daného uspořádání.
 
 \begin{example}[Uspořádání velikostí]
  Již jsme zpozorovali, že $ \leq $ je uspořádání. Jeho Hasseho diagram na
@@ -257,3 +258,91 @@ $\leq_{\text{lex}}$.
   \label{fig:hasse-lex}
  \end{figure}
 \end{example}
+
+Velmi pěkné obrázky uspořádání vznikají i na množině všech množin $A$, tedy na
+$2^{A}$, kde uspořádání je inkluzí $ \subseteq $. Tedy, nejníž je prázdná
+množina, která leží uvnitř každé množiny, a nejvýš je množina $A$, ve které je
+obsažena každá její podmnožina. Jeden malý příklad tu nakreslíme, určitě se vám
+bude líbit.
+
+\begin{example}
+ Mějme množinu $A \coloneqq \{1,2,3\}$. Množinu $\clr{2^{A}}$ uspořádáme
+ inkluzí, čili dvě podmnožiny $A$ jsou v relaci inkluze, když je jedna obsažena
+ v druhé. Jeden příklad za všechny je třeba $\{1\} \subseteq \{1,3\}$.
+ \hyperref[fig:hasse-power-set]{Hasseho diagram} takového uspořádání vidíte
+ níže. V rámci úspory píšeme třeba $12$ místo množiny $\{1,2\}$.
+ \begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+   \node[circle,draw,fill=black,minimum size=2mm,inner sep=0pt,outer
+   sep=0pt] (0) at (0, 0) {};
+   \node[circle,draw,fill=black,minimum size=2mm,inner sep=0pt,outer
+   sep=0pt] (1) at (-2, 2) {};
+   \node[circle,draw,fill=black,minimum size=2mm,inner sep=0pt,outer
+   sep=0pt] (2) at (0, 2) {};
+   \node[circle,draw,fill=black,minimum size=2mm,inner sep=0pt,outer
+   sep=0pt] (3) at (2, 2) {};
+   \node[circle,draw,fill=black,minimum size=2mm,inner sep=0pt,outer
+   sep=0pt] (12) at (-2, 4) {};
+   \node[circle,draw,fill=black,minimum size=2mm,inner sep=0pt,outer
+   sep=0pt] (13) at (0, 4) {};
+   \node[circle,draw,fill=black,minimum size=2mm,inner sep=0pt,outer
+   sep=0pt] (23) at (2, 4) {};
+   \node[circle,draw,fill=black,minimum size=2mm,inner sep=0pt,outer
+   sep=0pt] (123) at (0, 6) {};
+
+   \draw[thick] (0) -- (1);
+   \draw[thick] (0) -- (2);
+   \draw[thick] (0) -- (3);
+   \draw[thick] (1) -- (12);
+   \draw[thick] (1) -- (13);
+   \draw[thick] (2) -- (12);
+   \draw[thick] (2) -- (23);
+   \draw[thick] (3) -- (13);
+   \draw[thick] (3) -- (23);
+   \draw[thick] (12) -- (123);
+   \draw[thick] (13) -- (123);
+   \draw[thick] (23) -- (123);
+
+   \node[below=1mm of 0]{$\clr{\emptyset}$};
+   \node[left=1mm of 1]{$\clr{1}$};
+   \node[left=1mm of 2]{$\clr{2}$};
+   \node[right=1mm of 3]{$\clr{3}$};
+   \node[left=1mm of 12]{$\clr{12}$};
+   \node[left=1mm of 13]{$\clr{13}$};
+   \node[right=1mm of 23]{$\clr{23}$};
+   \node[above=1mm of 123]{$\clr{123}$};
+  \end{tikzpicture}
+  \caption{Hasseho diagram uspořádané množiny $(\clr{2^{A}}, \subseteq)$.}
+  \label{fig:hasse-power-set}
+ \end{figure}
+\end{example}
+Jako obvykle následuje několik cvičení na závěr sekce.
+
+\begin{exercise}
+ Udělejte cvičení rozmístěná po sekci. Konkrétně,
+ \begin{enumerate}
+  \item dokažte, že Hasseho diagram každého lineárního uspořádání má stejný tvar
+   jako diagram na \hyperref[fig:hasse-linear]{obrázku~\ref*{fig:hasse-linear}}.
+  \item dokažte, že relace dělitelnosti $ \mid $ je uspořádání na každé
+   podmnožině přirozených čísel.
+ \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+ Explicitně popište všechny relace (na libovolné množině), které jsou zároveň
+ ekvivalencí a (částečným) uspořádáním.
+\end{exercise}
+
+\begin{exercise}
+ Řekněme, že $R$ a $S$ jsou uspořádání na množině $A$. Které z následujících
+ relací jsou také uspořádáními na $A$?
+  \begin{itemize}[itemsep=0pt]
+  \item $R \cap S$ 
+  \item $R \cup S$ 
+  \item $R \setminus S$
+  \item $R \circ S$
+ \end{itemize}
+\end{exercise}
+
+
