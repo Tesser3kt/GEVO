@@ -6,7 +6,7 @@ možný, ale zcela jistě nejoblíbenější, způsob, jak dokazovat libovolná 
 přirozených číslech, která jsou vlastně právě tím číselným oborem, který studuje
 diskrétní matematika.
 
-Její princip spočívá v tom, že přirozená čísla jsou definována v zásadě velmi
+Princip indukce spočívá v tom, že přirozená čísla jsou definována v zásadě velmi
 jednoduše. Libovolná množina, která má nějaký \uv{základní prvek} (třeba
 jedničku) a spolu s každým prvkem má i jeho bezprostředního následníka (třeba to
 číslo o jedna větší), je automaticky \uv{ta samá množina} jako přirozená čísla.
@@ -49,7 +49,7 @@ dohromady dávají následující (nekonečný) řetězec důkazů:
 
 Princip indukce asi není přehnaně složitý, ale získat dostatek zkušenosti, aby
 jej člověk uměl neomylně aplikovat, je výrazně obtížnější. Pár příkladů snad s
-tímto krokem pomůže. Některé budeme záměrně formulovat jako lemmata či tvrzení,
+tímto krokem pomůže. Budeme je záměrně formulovat jako lemmata či tvrzení,
 jelikož indukce je v prvé řadě důkazová technika. Doporučujeme, abyste důkazy
 četli se zvýšenou pozorností.
 
@@ -77,8 +77,8 @@ jelikož indukce je v prvé řadě důkazová technika. Doporučujeme, abyste d�
  \]
  což dohromady s předchozím výpočtem dává
  \[
-  \sum_{i=0}^{n + 1} 2^{i} = \sum_{i=0}^{n} 2^{i} + 2^{n+1} = 2^{n + 1} - 1 +
-  2^{n+1} = 2 \cdot 2^{n+1} - 1 = 2^{n+2} - 1,
+  \sum_{i=0}^{n + 1} 2^{i} = \clr{\sum_{i=0}^{n} 2^{i}} + 2^{n+1} = \clr{2^{n +
+  1} - 1} + 2^{n+1} = 2 \cdot 2^{n+1} - 1 = 2^{n+2} - 1,
  \]
  jak jsme chtěli ukázat. Důkaz je podle principu indukce ukončen.
 \end{proof}
@@ -98,5 +98,55 @@ vy jste viděli nějaký přímočarý důkaz, že jdou čísla rozkládat na pr
 Opravdu lze \emph{každé} číslo rozložit na prvočísla a opravdu to lze
 \emph{pouze jediným způsobem}?
 
-\begin{proof}[Důkaz lemmatu~\ref{lemma:deleni-trojkou}]
-\end{proof}
+\begin{enhproof}[lemmatu~\ref{lemma:deleni-trojkou}]
+ Dokazujeme indukcí.
+
+ První přirozené číslo, pro které má smysl tvrzení dokázat, je $n = 3$. Pak
+ vskutku $3 \mid n = 3$ a $3 \mid n^2 = 9$.
+
+ Předpokládejme, že výrok $3 \mid n \Rightarrow 3 \mid n^2$ platí pro nějaké
+ $n \in \N$. Nejbližší další přirozené číslo po $n$, které je dělitelné $3$, je
+ $n + 3$. Tedy, víme, že když $3 \mid n$, pak $3 \mid n + 3$ a také $3 \mid
+ n^2$. Z těchto dvou faktů odvodíme, že $3 \mid (n+3)^2$.
+
+ Máme $(n + 3)^2 = n^2 + 6n + 9$. Protože $3 \mid 6$ a $3 \mid 9$, také $3 \mid
+ 6n + 9$. Předpokládáme, že $3 \mid n^2$, dohromady tudíž $3 \mid n^2 + 6n + 9 =
+ (n+3)^2$, jak jsme chtěli.
+\end{enhproof}
+
+Tři cvičení nakonec.
+\newpage
+\begin{exercise}
+ Dokažte indukcí, že
+ \[
+  \sum_{i=1}^{n} i 2^{i} = (n - 1)2^{n+1} + 2.
+ \]
+\end{exercise}
+
+\begin{exercise}[Fibonacciho čísla a zlatý řez]
+ Tak zvaná \emph{Fibonacciho} posloupnost je definována tak, že další člen
+ dostanu jako součet dvou předchozích. Formálně, $F_0 = 0, F_1 = 1$ a $F_n =
+ F_{n - 1} + F_{n - 2}$, kde $n \in \N$. Dokažte indukcí, že
+ \[
+  \frac{F_n}{F_{n-1}} \leq \frac{1+\sqrt{5}}{2}
+ \]
+ pro všechna $n \in \N$.
+
+ Číslu  $(1+\sqrt{5}) / 2$ se někdy říká hodnota \uv{zlatého řezu} (protože je
+ to v jistém smyslu \emph{ideální} poměr mezi délkami dvěma bezprostředních
+ úseček -- internet poví víc). Jestli si někdy ukážeme limity, pak dokážeme
+ tento výsledek zdokonalit v tom smyslu, že platí
+ \[
+  \frac{F_n}{F_{n-1}} \xrightarrow{n \to \infty} \frac{1+\sqrt{5}}{2}. 
+ \]
+\end{exercise}
+
+\begin{exercise}
+ Nakresleme $n$ přímek v rovině, a to tak, že
+ \begin{itemize}
+  \item žádné 2 nejsou rovnoběžné a
+  \item žádné 3 se neprotínají v jednom bodě.
+ \end{itemize}
+ Dokažte indukcí, že takhle nakreslené přímky rozdělují rovinu na $n(n+1) / 2 +
+ 1$ částí.
+\end{exercise}
