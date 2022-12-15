@@ -1,0 +1,63 @@
+\subsection{Zobrazení a podmnožiny}
+\label{ssec:zobrazeni-a-podmnoziny}
+
+Chvíli se budeme bavit počítáním zobrazení a podmnožin obvykle určených nějakou
+hezkou podmínkou. Začít právě tady je vhodné z páru důvodů. Zaprvé, není potřeba
+vymýšlet žádnou novou teorii a zadruhé -- snad trochu překvapivě -- umět počítat
+zobrazení a podmnožiny se hodí do spousty dalších matematických disciplín.
+Zmiňme Čínskou větu o zbytcích, v podstatě jeden ze základních stavebních kamenů
+teorie čísel, jejíž důkaz je založen právě na tom, že umíme počítat zobrazení
+mezi množinami. Dále je tu třeba Burnsideova věta z abstraktní algebry, na jejíž
+pravdivosti jsou postaveny různé třídy monitorů a jejíž důkaz vyžaduje
+porovnávání velikostí systémů podmnožin. Konečně, patří sem i latinské čtverce
+-- struktury, jejichž princip stojí za vznikem Sudoku.
+
+Pojďme začít tím nejjednodušším možným tvrzením, tedy o počtu všech zobrazení
+mezi množinami. Ukážeme si dva důkazy: jeden přímý a jeden indukcí.
+
+\begin{warning}
+ Pro stručnost budu v celé kapitole slovem zobrazení myslet \textbf{zobrazení
+ definované všude}. Diskrétní matematiku totiž pravdať úplně netrápí problémy
+ definičních oborů, takže není žádná výhoda v tom uvažovat zobrazení, která
+ nejsou definována pro všechny prvky svých domén.
+\end{warning}
+
+\begin{claim}
+ \label{claim:pocet-zobrazeni}
+ Mějme konečné množiny $A$ a $B$. Počet všech zobrazení $A \to B$ je $\# B^{\#
+ A}$.
+\end{claim}
+
+\begin{enhproof}[tvrzení~\ref{claim:pocet-zobrazeni} přímo]
+ Rozmysleme si nejprve, kdy se dvě zobrazení $f,g:A \to B$ liší. To je přeci
+ tehdy, když existuje nějaký prvek $a \in A$ takový, že $f(a) \neq g(a)$.
+
+ Jinak řečeno, každé zobrazení $A \to B$ popíšu tak, že určím obrazy všech prvků
+ z $A$. Kdykoli mám dvě zobrazení, jejichž obraz byť i jednoho prvku z $A$ se
+ neshoduje, pak jsou to různá zobrazení. Pro každý prvek z $A$ mám přesně $\# B$
+ prvků, na které ho mohu zobrazit, tedy mám celkem přesně $\# B^{\# A}$ možností,
+ jak zobrazit všechny prvky z $A$ na prvky z $B$.
+\end{enhproof}
+
+\begin{enhproof}[tvrzení~\ref{claim:pocet-zobrazeni} indukcí]
+ Dokážeme předchozí tvrzení užitím indukce podle velikosti množiny $A$.
+
+ Když je $A$ prázdná, čili $\# A = 0$, pak mám právě jedno zobrazení $A \to B$
+ -- to, které nezobrazuje nic na nic. Čili mám vskutku $\# B^{\# A} = \# B^{0} =
+ 1$ různých zobrazení $A \to B$.
+
+ Předpokládejme, že platí, že zobrazení z $A$ do $B$ je právě $\# B^{\# A}$ a
+ přidejme do množiny $A$ jeden prvek, třeba $x$. Chceme ukázat, že všech
+ zobrazení $A \cup \{x\} \to B$ je $\# B^{\# A + 1}$. Jeden způsob, jak to
+ udělat, je podívat se kolika způsoby můžeme zobrazení $A \to B$
+ \uv{dodefinovat} v $x$. No, $x$ přeci mohu zobrazit na jakýkoliv prvek z $B$ a
+ každá volba obrazu mi dává jiné zobrazení. Čili, z jednoho zobrazení $A \to B$
+ mi vznikne právě $\# B$ různých zobrazení $A \cup \{x\} \to B$. To ale znamená,
+ že všech zobrazení $A \cup \{x\} \to B$ je $\# B$-krát víc než zobrazení $A \to
+ B$. Tedy jich je podle předpokladu
+ \[
+  \# B^{\# A}\# B = \# B^{\#A + 1}.\qedhere
+ \]
+\end{enhproof}
+
+
