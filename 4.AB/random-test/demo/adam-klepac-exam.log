@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2022.12.21)  5 JAN 2023 19:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2022.12.21)  5 JAN 2023 21:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/tesserekt/source/repos/gevo/4.AB/random-test/template.tex
-(/home/tesserekt/source/repos/gevo/4.AB/random-test/template.tex
+**/home/tesserekt/source/repos/gevo/4.AB/random-test/demo/adam-klepac-exam.tex
+(/home/tesserekt/source/repos/gevo/4.AB/random-test/demo/adam-klepac-exam.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-07-15> (/usr/share/texlive/texmf-dist/tex/latex/exam/exam.cls
 Document Class: exam 2021/02/26 Version 2.7 by Philip Hirschhorn
@@ -106,8 +106,8 @@ File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count300
 \l__pdf_internal_box=\box52
-) (./template.aux)
-\openout1 = `template.aux'.
+) (./adam-klepac-exam.aux)
+\openout1 = `adam-klepac-exam.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
@@ -123,37 +123,21 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
-
-
-/home/tesserekt/source/repos/gevo/4.AB/random-test/template.tex:7: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7  \end{questions}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[1
+ (./pokusny-student-3.tex) (./pokusny-student-2.tex) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-This exam contains 0 questions with 0 parts, 0 subparts, and 0 subsubparts.
-
-Class exam Warning: Point totals have changed. Rerun to get point totals right.
-
-(./template.aux) ) 
+This exam contains 2 questions with 0 parts, 0 subparts, and 0 subsubparts.
+(./adam-klepac-exam.aux) ) 
 Here is how much of TeX's memory you used:
- 1525 strings out of 478023
- 24167 string characters out of 5841207
- 337156 words of memory out of 5000000
- 20052 multiletter control sequences out of 15000+600000
+ 1548 strings out of 478023
+ 24671 string characters out of 5841207
+ 338172 words of memory out of 5000000
+ 20069 multiletter control sequences out of 15000+600000
  469259 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,10n,52p,180b,178s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 48i,10n,52p,193b,178s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on template.pdf (1 page, 12336 bytes).
+Output written on adam-klepac-exam.pdf (1 page, 16250 bytes).
 PDF statistics:
  13 PDF objects out of 1000 (max. 8388607)
  7 compressed objects within 1 object stream
