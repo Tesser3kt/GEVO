@@ -1,0 +1,222 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+
+% Colors %
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+% Title %
+\title{\Huge\textsf{}\\
+ \Large\textsf{}
+ \author{}
+ \date{}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+
+% Enumerate %
+\usepackage{enumitem}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+Jen pár náhodných úloh ze semináře. Některé s řešením.
+
+\section*{Něco k relacím}
+
+Připomínám, že relaci $R$ na množině $A$ nazveme \emph{transitivní}, když $xRy
+\wedge yRz \Rightarrow xRz$ pro všechna $x,y,z \in A$.
+
+Dál připomínám, že pokud jsou $R,S$ relace na $A$, pak jejich \emph{složení}
+$R \circ S$ je relace definovaná jako
+\[
+ R \circ S \coloneqq \{(x,z) \mid  \exists y \in A: xRy \wedge ySz\},
+\]
+tedy relace, která je vlastně \uv{slepením} $R$ a $S$ přes nějaký prostřední
+prvek $y$.
+
+Ať je $R$ teďka \textbf{libovolná} relace na $A$ (tedy ne nutně transitivní).
+Relaci, kterou dostanu, když složím $R$ samu se sebou $k$-krát, čili
+$\underbrace{R \circ R \circ R \circ \cdots \circ R}_{\text{$k$-krát}}$, označím
+zkráceně jako $R^{k}$. Definuju si relaci na $A$ předpisem
+\[
+ T \coloneqq \bigcup_{i=1}^{\infty} R^{i} = (R) \cup (R \circ R) \cup (R \circ R
+ \circ R) \cup \ldots
+\]
+Lidsky řečeno, $T$ je relace, která obsahuje $R$ složenou samu se sebou $k$-krát
+pro každé přirozené číslo $k \in \N$.
+\begin{enumerate}
+ \item Dokažte, že $T$ je transitivní.
+ \item Dokažte, že každá transitivní relace $S$ na $A$ obsahuje (myšleno \uv{je
+  nadmnožinou}) $R$ právě tehdy, když obsahuje $T$.
+ \item Dokažte, že pokud $\# X = n$, pak
+  \[
+   T = \bigcup_{i=1}^{n-1} R^{i},
+  \]
+  tedy že všechny složené relace $R^{k}$ pro $k \geq n$ už jsou obsaženy v
+  nějaké složené relaci $R^{l}$ pro $l \leq n-1$.
+\end{enumerate}
+
+\textbf{Částečné řešení:}
+\begin{enumerate}
+ \item Tady vidím dva možné důkazy. Jeden přímo a jeden užitím cvičení, které
+  jsme dokázali na kroužku, že $T$ je transitivní právě tehdy, když $T \circ
+  T \subseteq T$. Napíšu tu ten přímý a napovím, jak na ten druhý.
+
+  Z definice transitivity předpokládáme, že máme prvky $x,y,z \in A$, které
+  splňují $xTy \wedge yTz$. Chceme odtud odvodit, že $xTz$. No, $T$ je přece
+  sjednocením všech složení $R$ se sebou samou, takže tu dvojici $(x,y) \in T$
+  musím najít v nějakém složení $R^{k}$, kde $k \in \N$ a taky dvojici $(y,z)$
+  musím najít v~nějakém složení $R^{l}$, kde $k,l \in \N$. Pak ale najdu dvojici
+  $(x,z)$ ve složení $R^{k} \circ R^{l} = R^{k+l}$ (dosaďte si do definice
+  složení relací za $R$ to $R^{k}$ a za $S$ to $R^{l}$, uvidíte to hned), které
+  je z definice podmnožinou $T$. Čili $(x,z) \in T$, jak jsem chtěl.
+
+  V tom nepřímém důkazu chce člověk ukázat, že $T \circ T \subseteq T$, pak bude
+  vědět, že $T$ je transitivní. Když si to rozepíšeme, dostaneme
+  \[
+   T \circ T = \left( \bigcup_{i=1}^{\infty} R^{i} \right) \circ
+   \left(\bigcup_{i=1}^{\infty} R^{i} \right). 
+  \]
+  Na to, aby mohl jeden tvrdit, že $T \circ T \subseteq T$, stačí ověřit, že
+  \[
+   \left( \bigcup_{i=1}^{\infty} R^{i} \right) \circ \left(
+   \bigcup_{i=1}^{\infty} R^{i} \right) = \bigcup_{i=1}^{\infty} (R^{i} \circ
+   R^{i}), 
+  \]
+  protože $R^{i} \circ R^{i} = R^{2i}$ leží pro každé $i  \in \N$ uvnitř $T$,
+  takže tam leží i celé to sjednocení nahoře. Ověřit tu rovnost si můžete zkusit
+  sami.
+
+ \item Všimněte si, že to tvrzení je (logická) ekvivalence. Chci dokázat
+  konkrétně, že
+  \[
+   R \subseteq S \Leftrightarrow T \subseteq S
+  \]
+  pro danou transitivní relaci $S$. Když dokazuju ekvivalenci, obvykle dokazuju
+  dvě implikace, tu zleva doprava a tu zprava doleva. Ta zprava doleva je v
+  tomhle případě samozřejmá. Relace $R$ je podmnožinou $T$, takže když $T
+  \subseteq S$, pak $R \subseteq T \subseteq S$, čili celkem $R \subseteq S$. Ta
+  zleva doprava je těžší, takže je spravedlivě na vás.
+\end{enumerate}
+
+\section*{Něco k indukci}
+
+Na kroužku jsem ukazoval důkaz indukcí, že $F_n \leq ((1+\sqrt{5}) / 2)^{n-1}$
+pro všechna $n \geq 0$, kde $F_n$ je $n$-tý člen Fibonacciho posloupnosti, která
+je definovaná:
+\[
+ F_0 = 0, F_1 = 1 \text{ a všechny další členy vzorcem } F_n = F_{n-1} +
+ F_{n-2}.
+\]
+Dělal jsem to trochu narychlo, tak to tu radši zopáknu.
+
+\textbf{První indukční krok:} Když $n = 0$, pak máme
+\[
+ F_0 = 0 \leq \left( \frac{1+\sqrt{5}}{2} \right) ^{0-1} = \left(
+ \frac{1+\sqrt{5}}{2} \right) ^{-1} = \frac{2}{1+\sqrt{5}},
+\]
+což je samozřejmě pravda, už jen pro to, že to číslo napravo je kladné. Takže
+všechno v okeju.
+
+\textbf{Druhý indukční krok:} Předpokládám, že platí
+\[
+ F_k \leq \left( \frac{1+\sqrt{5}}{2} \right)^{k-1} 
+\]
+pro nějaké $k \in \N$ a všechna menší přirozená čísla. Odtud chci odvodit, že
+\[
+ F_{k+1} \leq \left( \frac{1+\sqrt{5}}{2} \right) ^{k}.
+\]
+Ještě si označím $\varphi \coloneqq (1+\sqrt{5}) / 2$, abych se neupsal.
+Uvidíte, že na číselné hodnotě $\varphi$ záleží vlastně až úplně na konci
+důkazu. Vím, že $F_{k+1} = F_k + F_{k-1}$ a předpokládám, že
+\[
+ F_k \leq \varphi^{k-1} \quad \text{a} \quad F_{k-1} \leq \varphi^{k-2}.
+\]
+Když ta čísla sečtu dohromady, dostanu, že
+\[
+ F_{k+1} \leq F_k + F_{k-1} \leq \varphi^{k-1} + \varphi^{k-2}.
+\]
+Z toho výrazu napravo můžu vytknout $\varphi^{k-2}$, protože
+\[
+ \varphi^{k-1} = \varphi^{k-2} \cdot \varphi.
+\]
+Pak mi zůstane
+\[
+ \varphi^{k-1} + \varphi^{k-2} = \varphi^{k-2}(\varphi + 1).
+\]
+Dokazuju, že $F_{k+1} \leq \varphi^k$ a vím (z předpokladu), že $F_k \leq
+\varphi^{k-2}(\varphi + 1)$. Jinak řečeno, potřebuju ověřit nerovnost
+\[
+ \varphi^{k-2}(\varphi + 1) \leq \varphi^{k}.
+\]
+Ještě předtím, než dosadím zpátky za $\varphi$ to číslo, uvědomím si, že můžu
+zkrátit tu nerovnici $\varphi^{k-2}$, jelikož $\varphi^{k} =
+\varphi^{k-2}\varphi^{2}$. Teď už to prostě dopočítám.
+\begin{align*}
+ \varphi^{k-2}(\varphi + 1) & \leq \varphi^{k}\\
+ \varphi^{k-2}(\varphi + 1) & \leq \varphi^{k-2}\varphi^{2}\\
+ \varphi + 1 & \leq \varphi^2\\
+ \frac{1+\sqrt{5}}{2} + 1 & \leq \left( \frac{1+\sqrt{5}}{2} \right)^2\\
+ \frac{3+\sqrt{5}}{2} & \leq \frac{1 + 2\sqrt{5} + 5}{4}\\
+ \frac{3+\sqrt{5}}{2} & \leq \frac{6+2\sqrt{5}}{4}\\
+ \frac{3+\sqrt{5}}{2} & \leq \frac{3+\sqrt{5}}{2},
+\end{align*}
+čímž mám důkaz hotov.
+
+Všimněte si, jen pro zajímavost, že jsem na konci dokázal, že $\varphi + 1 =
+\varphi^2$, čili číslo $\varphi$ je řešením rovnice $x^2 - x - 1 = 0$.
+
+\end{document}
