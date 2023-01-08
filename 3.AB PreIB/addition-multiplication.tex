@@ -1,0 +1,182 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+% Title %
+\title{\Huge\textsf{Addition \& Multiplication}\\
+ \Large\textsf{Some `fun' with basic operations}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+Addition (I denote by $\tr{+}$) and multiplication (I denote by $\tv{\cdot}$ or
+by nothing) are operations on, let's say real numbers, satisfying the following
+properties.
+
+\begin{center}
+ \begin{tabular}{s|s}
+  \textbf{\tr{Addition}} & \textbf{\tv{Multiplication}} \\
+  \toprule
+  Commutativity (\tr{$C+$}) & Commutativity (\tv{$C \cdot $})\\
+  $a \tr{+} b = b \tr{+} a$ & $a \tv{ \cdot } b = b \tv{ \cdot } a$\\
+  \cmidrule(lr){1-2}
+  Associativity ($\tr{A+}$) & Associativity (\tv{$A \cdot $})\\
+  $a \tr{+} (b \tr{+} c) = (a \tr{+} b) \tr{+} c$ & $a \tv{ \cdot }  (b \tv{
+   \cdot } c) = (a \tv{ \cdot } b) \tv{ \cdot } c$\\
+  \cmidrule(lr){1-2}
+  \multicolumn{2}{c}{Distributivity ($D\tr{+}\tv{ \cdot })$} \\
+  \multicolumn{2}{c}{$a \tv{ \cdot } (b \tr{+} c) = (a \tv{ \cdot } b) \tr{+} (a \tv{ \cdot } c)$}
+ \end{tabular}
+\end{center}
+
+We also automatically assume that \tv{multiplication} has priority over
+\tr{addition} and that there exist numbers $0$ and $1$ such that $x \tr{+} 0 =
+x$ and $x \tv{ \cdot } 1 = x$ for every number $x$.
+
+We have seen that it's not too easy to deduce the basic bracket expansion
+rule, that is, for instance that
+\[
+ (2 \cdot x + 3) \cdot (3 \cdot x + 4) = 6 \cdot x^2 + 17 \cdot x + 12
+\]
+from only these properties. As an exercise, I'd like you to think about various
+other things concerning addition and multiplication which might seem obvious
+but aren't necessarily so.
+
+\textbf{Exercises} (the ones labeled by an \textbf{*} are probably hard):
+\begin{enumerate}[label=\arabic*.,topsep=0pt]
+ \item \textbf{*} Invent an operation $\tb{\triangle}$ on real numbers which is
+  commutative but \textbf{not} associative. This means that
+  \[
+   a \tb{\triangle} b = b \tb{\triangle} a  \quad \text{but} \quad a
+   \tb{\triangle} (b \tb{\triangle} c) \neq (a \tb{\triangle} b) \tb{\triangle}
+   c.
+  \]
+  You'll have to think quite a bit about this one.\\ \textbf{Hint}: linear
+  functions in two variables, something like $x\tb{\triangle}y = f(x,y) = 2
+  \cdot x + 3 \cdot y$, are good candidates for such an operation. Play with
+  them.
+
+ \item Invent an operation \tg{$\blacksquare$} on real numbers which is
+  associative but \textbf{not} commutative. This means that
+  \[
+   a \tg{\blacksquare} (b \tg{\blacksquare} c) = (a \tg{\blacksquare} b)
+   \tg{\blacksquare} c \quad \text{but} \quad a \tg{\blacksquare} b \neq b
+   \tg{\blacksquare} a.
+  \]
+  This one is actually much easier than 1.
+
+ \item \textbf{*} Invent two operations $\spadesuit$ and $\clubsuit$ that are
+  both commutative \textbf{and} associative but they are \textbf{not}
+  distributive in any direction. This means that
+  \begin{align*}
+   a \spadesuit b = b \spadesuit a  \quad &\text{and} \quad a \spadesuit (b
+   \spadesuit c) = (a \spadesuit b) \spadesuit c, \\ 
+   a \clubsuit b = b \clubsuit a \quad &\text{and} \quad a \clubsuit (b
+   \clubsuit c) = (a \clubsuit b) \clubsuit c
+  \end{align*}
+  but
+  \[
+   a \spadesuit (b \clubsuit c) \neq (a \spadesuit b) \clubsuit (a \spadesuit
+   c) \quad \text{and} \quad  a \clubsuit (b \spadesuit c) \neq (a \clubsuit b)
+   \spadesuit (a \clubsuit c).
+  \]
+ \item Explain how to get the equality
+  \[
+   (1 + x \cdot 2) + (y \cdot (3 \cdot 5)) = (15 \cdot y) + (2 \cdot x) + 1
+  \]
+  using only the rules of addition and multiplication in the table.
+ \item Where would the parentheses be in the expression
+  \[
+   (1 \cdot 2 + 3) \cdot (4 + 5 \cdot 6)
+  \]
+  if \textbf{addition had priority over multiplication}. I mean, write the
+  expression which has the same numerical value as this one assuming that we
+  first add and then we multiply.
+\end{enumerate}
+
+\end{document}
