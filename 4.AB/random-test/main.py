@@ -25,7 +25,7 @@ def read_students() -> dict[str, list[int]]:
     with open(
         os.path.join(CLASS_DIR, "studenti.txt"), "r", encoding="utf-8"
     ) as file:
-        students = {line.strip(): [1, 2, 3] for line in file}
+        students = {line.strip(): [1, 2, 3] for line in file.readlines()}
 
     return students
 
