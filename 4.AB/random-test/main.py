@@ -6,12 +6,13 @@ import ssl
 from datetime import datetime
 from random import randint, choice
 from unidecode import unidecode
+from collections import defaultdict
 from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-CLASS = "demo"
+CLASS = "4b2"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CLASS_DIR = os.path.join(BASE_DIR, CLASS)
 
@@ -19,15 +20,22 @@ EMAIL = "adam.klepac@gevo.cz"
 PASS = "*************"
 
 
-def read_students() -> dict[str, list[int]]:
+def read_questions_data() -> dict[str, list[tuple[int, int]]]:
     """ Read students from file. """
 
+    question_data = defaultdict(list)
     with open(
         os.path.join(CLASS_DIR, "studenti.txt"), "r", encoding="utf-8"
     ) as file:
-        students = {line.strip(): [1, 2, 3] for line in file.readlines()}
+        for line in file.readlines():
+            name, questions = line.strip().split(":")
+            values = questions.split("|")
 
-    return students
+            for value in values:
+                index, percentage = tuple(value.split(","))
+                question_data[name].append((int(index), int(percentage)))
+
+    return question_data
 
 
 def create_exam(student: str, questions: list[tuple[str, int]]) -> None:
@@ -41,13 +49,13 @@ def create_exam(student: str, questions: list[tuple[str, int]]) -> None:
     ) as file:
         template = file.readlines()
 
-    template[3] = f"{template[3].strip()} {student}\n"
+    template[7] = f"{template[7].strip()} {student}\n"
     for author, number in questions:
         decoded_author_name = "-".join(unidecode(name).lower()
                                        for name in author.split(" "))
         template.insert(
-            6,
-            f"  \\input{{{decoded_author_name}-{number}.tex}}\n"
+            10,
+            f"  \\input{{{decoded_author_name}-{number[0]}.tex}}\n"
         )
 
     with open(
@@ -124,38 +132,112 @@ def send_exams(students: list[str]) -> None:
             server.sendmail(sender_email, receiver_email, text)
 
 
+def good_questions(student: str, chosen_questions: list) -> True:
+    """ Determines if the chosen questions sum up to 100% and are from a
+    different student. """
+
+    total = 0
+    if len(chosen_questions) != 2:
+        return False
+
+    if chosen_questions[0][0] == chosen_questions[1][0]:
+        return False
+
+    for author, question in chosen_questions:
+        if author == student:
+            return False
+
+        total += question[1]
+
+    return total == 100
+
+
+def questions_distributed(questions_data: dict, chosen_questions: dict) -> bool:
+    """ Determines if all questions are distributed. """
+
+    if len(chosen_questions.keys()) != len(questions_data.keys()):
+        return False
+
+    for student in chosen_questions:
+        if not good_questions(student, chosen_questions[student]):
+            return False
+
+    return True
+
+
+def copy_dict(dictionary: dict) -> dict:
+    """ Copy dictionary. """
+
+    new_dict = {}
+    for key in dictionary:
+        new_dict[key] = dictionary[key].copy()
+
+    return new_dict
+
+
+def distribute_questions(questions_data: dict, chosen_questions: dict,
+                         used_questions: set, distributions: list) -> None:
+    """ Distribute questions among students. """
+
+    if questions_distributed(questions_data, chosen_questions):
+        distributions.append(copy_dict(chosen_questions))
+        return
+
+    if len(distributions) > 0:
+        return
+
+    for student_name in questions_data:
+        if len(chosen_questions[student_name]) == 2:
+            continue
+
+        for author_name in questions_data:
+            if len(questions_data[author_name]) == 0:
+                continue
+
+            if author_name == student_name:
+                continue
+
+            if len(questions_data[author_name]) == 1:
+                question = questions_data[author_name].pop()
+            else:
+                question = questions_data[author_name].pop(randint(0, 1))
+            chosen_questions[student_name].append((author_name, question))
+
+            distribute_questions(
+                questions_data, chosen_questions,
+                used_questions, distributions
+            )
+
+            chosen_questions[student_name].pop()
+            questions_data[author_name].append(question)
+
+
 def main():
     """ Main function. """
 
     # read students
-    students = read_students()
+    questions_data = read_questions_data()
 
     # eliminate one question of each student
-    for student in students:
-        students[student].pop(randint(0, 2))
+    for student_name in questions_data:
+        questions_data[student_name].pop(randint(0, 2))
 
     # distribute questions among students randomly
-    chosen_questions = {}
-    for student in students:
-        chosen_questions[student] = []
-        for _ in range(2):
-            author = choice(list(students.keys()))
-            while len(students[author]) == 0 or author == student:
-                author = choice(list(students.keys()))
+    possible_distributions = []
+    distribute_questions(questions_data, defaultdict(
+        list), set(), possible_distributions)
 
-            question = choice(students[author])
-            students[author].remove(question)
-            chosen_questions[student].append((author, question))
+    chosen_questions = choice(possible_distributions)
 
     # create exams for each student
-    for student, questions in chosen_questions.items():
-        create_exam(student, questions)
+    for student_name, questions in chosen_questions.items():
+        create_exam(student_name, questions)
 
     # build exams using pdflatex
     build_exams()
 
     # send exams via Gmail
-    send_exams(list(students.keys()))
+    # send_exams(list(students.keys()))
 
 
 if __name__ == '__main__':
