@@ -5,7 +5,9 @@ import ssl
 
 from datetime import datetime
 from random import randint, choice
-from unidecode import unidecode
+from copy import deepcopy
+from dataclasses import dataclass
+from unidecode import unidecode as ud
 from collections import defaultdict
 from email import encoders
 from email.mime.base import MIMEBase
@@ -20,22 +22,180 @@ EMAIL = "adam.klepac@gevo.cz"
 PASS = "*************"
 
 
-def read_questions_data() -> dict[str, list[tuple[int, int]]]:
+@dataclass
+class Question:
+    author: str
+    index: int
+    percentage: int
+
+    def __eq__(self, __o: object) -> bool:
+        return (self.author == __o.author and
+                self.index == __o.index)
+
+    def __add__(self, __o: object) -> int:
+        return self.percentage + __o.percentage
+
+    def __repr__(self) -> str:
+        return (f"Question {self.index} by "
+                f"{self.author} for {self.percentage} %.")
+
+
+@dataclass
+class Student:
+    name: str
+    surname: str
+    submitted: bool
+    authored_questions: list[Question]
+    exam_questions: list[Question]
+
+    def __eq__(self, __o: object) -> bool:
+        return (self.name == __o.name and
+                self.surname == __o.surname)
+
+    def __repr__(self) -> str:
+        return f"{self.full_name}"
+
+    @property
+    def full_name(self) -> str:
+        return f"{self.name} {self.surname}"
+
+    @property
+    def decoded_name(self) -> str:
+        return f"{ud(self.name).lower()}-{ud(self.surname).lower()}"
+
+    def add_exam_question(self, question: Question) -> bool:
+        if len(self.exam_questions) == 0:
+            if question.author == self.name:
+                return False
+            self.exam_questions.append(question)
+            return True
+
+        if len(self.exam_questions) == 1:
+            if question.author != "Pan Rezerva":
+                if question.author == self.full_name:
+                    return False
+                if question.author == self.exam_questions[0].author:
+                    return False
+
+            if question + self.exam_questions[0] < 100:
+                return False
+
+            self.exam_questions.append(question)
+            return True
+
+    def remove_exam_question(self, question: Question) -> None:
+        if question in self.exam_questions:
+            self.exam_questions.remove(question)
+
+
+def read_questions_data() -> list[Student]:
     """ Read students from file. """
 
-    question_data = defaultdict(list)
+    students = []
     with open(
         os.path.join(CLASS_DIR, "studenti.txt"), "r", encoding="utf-8"
     ) as file:
         for line in file.readlines():
             name, questions = line.strip().split(":")
+            name, surname = name.split(" ")
+            student = Student(
+                name=name,
+                surname=surname,
+                submitted=True,
+                authored_questions=[],
+                exam_questions=[]
+            )
+            if questions == "rezerva":
+                student.submitted = False
+                students.append(student)
+                continue
+
             values = questions.split("|")
 
             for value in values:
                 index, percentage = tuple(value.split(","))
-                question_data[name].append((int(index), int(percentage)))
+                question = Question(
+                    author=student.full_name,
+                    index=int(index),
+                    percentage=int(percentage)
+                )
+                student.authored_questions.append(question)
+            students.append(student)
 
-    return question_data
+    return students
+
+
+def good_distribution(students: list[Student]) -> bool:
+    for student in students:
+        if len(student.exam_questions) != 2:
+            return False
+    return True
+
+
+def distribute_questions(
+    students: list[Student],
+    rezerva: Student,
+    used_questions: set[Question],
+    num_of_questions_by: dict[str, int],
+    possible_distributions: list[list[Student]]
+):
+
+    if len(possible_distributions) > 0:
+        return
+
+    if good_distribution(students):
+        possible_distributions.add(deepcopy(students))
+        return
+
+    for student in students:
+        if student == rezerva:
+            continue
+
+        if len(student.exam_questions) == 2:
+            continue
+
+        if not student.submitted:
+            for question in rezerva.authored_questions:
+                if str(question) in used_questions:
+                    continue
+
+                if not student.add_exam_question(question):
+                    continue
+
+                used_questions.add(str(question))
+                distribute_questions(
+                    students, rezerva, used_questions,
+                    num_of_questions_by, possible_distributions
+                )
+                used_questions.remove(str(question))
+
+            continue
+
+        for other_student in students:
+            if other_student == rezerva:
+                continue
+
+            if num_of_questions_by[other_student.full_name] == 2:
+                continue
+
+            for question in other_student.authored_questions:
+                if str(question) in used_questions:
+                    continue
+
+                if not student.add_exam_question(question):
+                    continue
+
+                used_questions.add(str(question))
+                num_of_questions_by[other_student.full_name] += 1
+
+                distribute_questions(
+                    students, rezerva, used_questions, num_of_questions_by,
+                    possible_distributions
+                )
+
+                used_questions.remove(str(question))
+                num_of_questions_by[other_student.full_name] -= 1
+                student.remove_exam_question(question)
 
 
 def create_exam(student: str, questions: list[tuple[str, int]]) -> None:
@@ -132,109 +292,26 @@ def send_exams(students: list[str]) -> None:
             server.sendmail(sender_email, receiver_email, text)
 
 
-def good_questions(student: str, chosen_questions: list) -> True:
-    """ Determines if the chosen questions sum up to 100% and are from a
-    different student. """
-
-    total = 0
-    if len(chosen_questions) != 2:
-        return False
-
-    if chosen_questions[0][0] == chosen_questions[1][0]:
-        return False
-
-    for author, question in chosen_questions:
-        if author == student:
-            return False
-
-        total += question[1]
-
-    return total == 100
-
-
-def questions_distributed(questions_data: dict, chosen_questions: dict) -> bool:
-    """ Determines if all questions are distributed. """
-
-    if len(chosen_questions.keys()) != len(questions_data.keys()):
-        return False
-
-    for student in chosen_questions:
-        if not good_questions(student, chosen_questions[student]):
-            return False
-
-    return True
-
-
-def copy_dict(dictionary: dict) -> dict:
-    """ Copy dictionary. """
-
-    new_dict = {}
-    for key in dictionary:
-        new_dict[key] = dictionary[key].copy()
-
-    return new_dict
-
-
-def distribute_questions(questions_data: dict, chosen_questions: dict,
-                         used_questions: set, distributions: list) -> None:
-    """ Distribute questions among students. """
-
-    if questions_distributed(questions_data, chosen_questions):
-        distributions.append(copy_dict(chosen_questions))
-        return
-
-    if len(distributions) > 0:
-        return
-
-    for student_name in questions_data:
-        if len(chosen_questions[student_name]) == 2:
-            continue
-
-        for author_name in questions_data:
-            if len(questions_data[author_name]) == 0:
-                continue
-
-            if author_name == student_name:
-                continue
-
-            if len(questions_data[author_name]) == 1:
-                question = questions_data[author_name].pop()
-            else:
-                question = questions_data[author_name].pop(randint(0, 1))
-            chosen_questions[student_name].append((author_name, question))
-
-            distribute_questions(
-                questions_data, chosen_questions,
-                used_questions, distributions
-            )
-
-            chosen_questions[student_name].pop()
-            questions_data[author_name].append(question)
-
-
 def main():
     """ Main function. """
 
     # read students
-    questions_data = read_questions_data()
+    students = read_questions_data()
+    rezerva = students[-1]
 
-    # eliminate one question of each student
-    # for student_name in questions_data:
-    #     questions_data[student_name].pop(randint(0, 2))
-
-    # # distribute questions among students randomly
-    # possible_distributions = []
-    # distribute_questions(questions_data, defaultdict(
-    #     list), set(), possible_distributions)
+    # distribute questions among students randomly
+    possible_distributions = []
+    distribute_questions(students, rezerva, set(), defaultdict(int),
+                         possible_distributions)
 
     # chosen_questions = choice(possible_distributions)
 
-    # # create exams for each student
+    # create exams for each student
     # for student_name, questions in chosen_questions.items():
     #     create_exam(student_name, questions)
 
     # build exams using pdflatex
-    build_exams()
+    # build_exams()
 
     # send exams via Gmail
     # send_exams(list(questions_data.keys()))
