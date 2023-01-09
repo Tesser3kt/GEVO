@@ -219,25 +219,25 @@ def main():
     questions_data = read_questions_data()
 
     # eliminate one question of each student
-    for student_name in questions_data:
-        questions_data[student_name].pop(randint(0, 2))
+    # for student_name in questions_data:
+    #     questions_data[student_name].pop(randint(0, 2))
 
-    # distribute questions among students randomly
-    possible_distributions = []
-    distribute_questions(questions_data, defaultdict(
-        list), set(), possible_distributions)
+    # # distribute questions among students randomly
+    # possible_distributions = []
+    # distribute_questions(questions_data, defaultdict(
+    #     list), set(), possible_distributions)
 
-    chosen_questions = choice(possible_distributions)
+    # chosen_questions = choice(possible_distributions)
 
-    # create exams for each student
-    for student_name, questions in chosen_questions.items():
-        create_exam(student_name, questions)
+    # # create exams for each student
+    # for student_name, questions in chosen_questions.items():
+    #     create_exam(student_name, questions)
 
     # build exams using pdflatex
     build_exams()
 
     # send exams via Gmail
-    send_exams(list(questions_data.keys()))
+    # send_exams(list(questions_data.keys()))
 
 
 if __name__ == '__main__':
