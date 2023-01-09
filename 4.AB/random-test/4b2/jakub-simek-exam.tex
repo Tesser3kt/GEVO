@@ -1,0 +1,28 @@
+\documentclass{exam}
+\usepackage[czech]{babel}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\pointname{ \%}
+
+\begin{document}
+Jméno: Jakub Šimek
+\begin{questions}
+	\question[100]
+	Napiš program, který v zadaném textovém souboru \texttt{file.txt}
+	vycenzoruje všechna slova určená v jiném souboru \texttt{censor.txt}. Slova
+	v \texttt{censor.txt} jsou oddělena čárkami bez mezer. Vycensurovaný text je
+	uložen do souboru \texttt{file\_censored.txt} v \textbf{dokonale stejném
+		formátování} jako byl původní text. Konečně, všechna vycensurovaná slova
+	jsou vytištěna do konzole spolu s jejich počtem v původním textu.
+
+	Censura probíhá tak, že dané slovo je nahrazeno tolika hvězdičkami
+	(\texttt{*}), jaká je délka slova. Censura musí ignorovat velká, malá
+	písmena i čárky a háčky. Tedy, je-li například v \texttt{censor.txt} slovo
+	\texttt{reholnik}, pak program musí vycensurovat všechna slova
+	\texttt{řeholník} i \texttt{Řeholník} v původním textu.
+
+	Soubor \texttt{censor.txt} si vyrob sám, \texttt{file.txt} je
+	\href{https://drive.google.com/file/d/1hSUMrPpdCYT3i1POkVOjx2itOmyUwW6i/view?usp=sharing}{tady}.
+\end{questions}
+\end{document}

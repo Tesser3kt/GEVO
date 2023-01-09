@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2022.12.21)  8 JAN 2023 23:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2022.12.21)  9 JAN 2023 07:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -179,24 +179,40 @@ LaTeX Font Info:    ... okay on input line 7.
 \MPnumerator=\count310
 \makeMPintoPDFobject=\count311
 \everyMPtoPDFconversion=\toks24
-) (./rezerva/rezerva-6.tex) [1
+)
+
+/home/tesserekt/source/repos/gevo/4.AB/random-test/template.tex:11: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11 \end{questions}
+                    
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-This exam contains 1 questions with 0 parts, 0 subparts, and 0 subsubparts.
+This exam contains 0 questions with 0 parts, 0 subparts, and 0 subsubparts.
+
+Class exam Warning: Point totals have changed. Rerun to get point totals right.
+
 (./template.aux) ) 
 Here is how much of TeX's memory you used:
- 3943 strings out of 478023
- 61347 string characters out of 5841207
- 396601 words of memory out of 5000000
- 22424 multiletter control sequences out of 15000+600000
- 469427 words of font info for 29 fonts, out of 8000000 for 9000
+ 3911 strings out of 478023
+ 60949 string characters out of 5841207
+ 394548 words of memory out of 5000000
+ 22397 multiletter control sequences out of 15000+600000
+ 469259 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,10n,52p,226b,191s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on template.pdf (1 page, 30019 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on template.pdf (1 page, 12344 bytes).
 PDF statistics:
- 18 PDF objects out of 1000 (max. 8388607)
- 10 compressed objects within 1 object stream
+ 13 PDF objects out of 1000 (max. 8388607)
+ 7 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

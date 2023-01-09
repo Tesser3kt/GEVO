@@ -237,7 +237,7 @@ def main():
     build_exams()
 
     # send exams via Gmail
-    # send_exams(list(students.keys()))
+    send_exams(list(questions_data.keys()))
 
 
 if __name__ == '__main__':
