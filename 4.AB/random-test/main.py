@@ -3,23 +3,22 @@ import subprocess
 import smtplib
 import ssl
 
-from datetime import datetime
-from random import randint, choice
+from random import choice, shuffle
 from copy import deepcopy
 from dataclasses import dataclass
-from unidecode import unidecode as ud
 from collections import defaultdict
 from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from unidecode import unidecode as ud
 
-CLASS = "4b2"
+CLASS = "4b1"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CLASS_DIR = os.path.join(BASE_DIR, CLASS)
 
 EMAIL = "adam.klepac@gevo.cz"
-PASS = "*************"
+PASS = "*********"
 
 
 @dataclass
@@ -43,6 +42,7 @@ class Question:
 @dataclass
 class Student:
     name: str
+    middle_name: str
     surname: str
     submitted: bool
     authored_questions: list[Question]
@@ -50,6 +50,7 @@ class Student:
 
     def __eq__(self, __o: object) -> bool:
         return (self.name == __o.name and
+                self.middle_name == __o.middle_name and
                 self.surname == __o.surname)
 
     def __repr__(self) -> str:
@@ -57,15 +58,27 @@ class Student:
 
     @property
     def full_name(self) -> str:
+        if self.middle_name != "":
+            return f"{self.name} {self.middle_name} {self.surname}"
         return f"{self.name} {self.surname}"
 
     @property
     def decoded_name(self) -> str:
+        if self.middle_name != "":
+            return (f"{ud(self.name).lower()}-{ud(self.middle_name).lower()}-"
+                    f"{ud(self.surname).lower()}")
         return f"{ud(self.name).lower()}-{ud(self.surname).lower()}"
+
+    @property
+    def email(self) -> str:
+        if self.middle_name != "":
+            return (f"{ud(self.name).lower()}.{ud(self.middle_name).lower()}."
+                    f"{ud(self.surname).lower()}@gevo.cz")
+        return f"{ud(self.name).lower()}.{ud(self.surname).lower()}@gevo.cz"
 
     def add_exam_question(self, question: Question) -> bool:
         if len(self.exam_questions) == 0:
-            if question.author == self.name:
+            if question.author == self.full_name:
                 return False
             self.exam_questions.append(question)
             return True
@@ -77,7 +90,7 @@ class Student:
                 if question.author == self.exam_questions[0].author:
                     return False
 
-            if question + self.exam_questions[0] < 100:
+            if question + self.exam_questions[0] != 100:
                 return False
 
             self.exam_questions.append(question)
@@ -97,9 +110,16 @@ def read_questions_data() -> list[Student]:
     ) as file:
         for line in file.readlines():
             name, questions = line.strip().split(":")
-            name, surname = name.split(" ")
+            name_list = name.split(" ")
+            if len(name_list) == 2:
+                name, surname = tuple(name_list)
+                middle_name = ""
+            elif len(name_list) == 3:
+                name, middle_name, surname = tuple(name_list)
+
             student = Student(
                 name=name,
+                middle_name=middle_name,
                 surname=surname,
                 submitted=True,
                 authored_questions=[],
@@ -125,8 +145,10 @@ def read_questions_data() -> list[Student]:
     return students
 
 
-def good_distribution(students: list[Student]) -> bool:
+def good_distribution(students: list[Student], rezerva: Student) -> bool:
     for student in students:
+        if student == rezerva:
+            continue
         if len(student.exam_questions) != 2:
             return False
     return True
@@ -140,11 +162,11 @@ def distribute_questions(
     possible_distributions: list[list[Student]]
 ):
 
-    if len(possible_distributions) > 0:
+    if len(possible_distributions) > 20:
         return
 
-    if good_distribution(students):
-        possible_distributions.add(deepcopy(students))
+    if good_distribution(students, rezerva):
+        possible_distributions.append(deepcopy(students))
         return
 
     for student in students:
@@ -198,11 +220,8 @@ def distribute_questions(
                 student.remove_exam_question(question)
 
 
-def create_exam(student: str, questions: list[tuple[str, int]]) -> None:
+def create_exam(student: Student) -> None:
     """ Create exam for student. """
-
-    decoded_student_name = "-".join(unidecode(name).lower()
-                                    for name in student.split(" "))
 
     with open(
         os.path.join(BASE_DIR, "template.tex"), "r", encoding="utf-8"
@@ -210,16 +229,20 @@ def create_exam(student: str, questions: list[tuple[str, int]]) -> None:
         template = file.readlines()
 
     template[7] = f"{template[7].strip()} {student}\n"
-    for author, number in questions:
-        decoded_author_name = "-".join(unidecode(name).lower()
-                                       for name in author.split(" "))
+    for question in student.exam_questions:
+        decoded_author_name = "-".join(ud(name).lower()
+                                       for name in question.author.split(" "))
+        file_path = f"{decoded_author_name}-{question.index}.tex"
+        if question.author == "Pan Rezerva":
+            file_path = f"../rezerva/rezerva-{question.index}.tex"
+
         template.insert(
-            10,
-            f"  \\input{{{decoded_author_name}-{number[0]}.tex}}\n"
+            9,
+            f"  \\input{{{file_path}}}\n"
         )
 
     with open(
-        os.path.join(CLASS_DIR, f"{decoded_student_name}-exam.tex"),
+        os.path.join(CLASS_DIR, f"{student.decoded_name}-exam.tex"),
         "w",
         encoding="utf-8"
     ) as file:
@@ -244,19 +267,33 @@ def build_exams() -> None:
             )
 
 
-def send_exams(students: list[str]) -> None:
+def send_exams(students: list[Student]):
     """ Send exams to students. """
 
-    decoded_names = []
     for student in students:
-        decoded_name = [unidecode(name).lower() for name in student.split(" ")]
-        decoded_names.append(decoded_name)
+        if student.surname == "Rezerva":
+            continue
 
-    for decoded_name in decoded_names:
         sender_email = EMAIL
-        receiver_email = f"{'.'.join(decoded_name)}@gevo.cz"
-        subject = f"IVT Test - {datetime.today().strftime('%d.%m.%Y')}"
-        body = "Posílám náhodně přiřazený test z IVT."
+        receiver_email = student.email
+        subject = f"IVT DÚ - do 15. 1. 2023"
+        body = (
+            "Čau,\n"
+            "\n"
+            "moc se omlouvám za zdržení. Protože jsme se dohodli, že test uděláme radši formou domácího úkolu,"
+            " posílám náhodně vybrané otázky (pokud můj program funguje). Ti z vás, "
+            "kdo mi odevzdali předchozí domácí úkol, mají "
+            "přidělené otázky od ostatních, kdo odevzdali. Ti, kdo ne, mají přiřazené nějaké ode mě. "
+            "Ještě pošlu některé úlohy vyřešené na Classroom.\n"
+            "\n"
+            "Máte právo na celkem dvě odevzdání. Když mi úkol poprvé pošlete a "
+            "nebude dobře, vrátím vám ho s komentáři k předělání. Druhé odevzdání "
+            "je definitivní. Úkoly odevzdávejte jako soubor s koncovkou .py; "
+            "fotky a screenshoty nebo - Nedej, Bože! - textové dokumenty "
+            "neberu.\n"
+            "\n"
+            "Adam"
+        )
 
         message = MIMEMultipart()
         message["From"] = sender_email
@@ -266,7 +303,7 @@ def send_exams(students: list[str]) -> None:
 
         filename = os.path.join(
             CLASS_DIR,
-            f"{'-'.join(decoded_name)}-exam.pdf"
+            f"{student.decoded_name}-exam.pdf"
         )
         with open(filename, "rb") as attachment:
             part = MIMEBase("application", "octet-stream")
@@ -299,22 +336,27 @@ def main():
     students = read_questions_data()
     rezerva = students[-1]
 
-    # distribute questions among students randomly
-    possible_distributions = []
-    distribute_questions(students, rezerva, set(), defaultdict(int),
-                         possible_distributions)
+    # shuffle students and their questions
+    # shuffle(students)
+    # for student in students:
+    #     shuffle(student.authored_questions)
 
-    # chosen_questions = choice(possible_distributions)
+    # distribute questions among students randomly
+    # possible_distributions = []
+    # distribute_questions(students, rezerva, set(), defaultdict(int),
+    #                      possible_distributions)
 
     # create exams for each student
-    # for student_name, questions in chosen_questions.items():
-    #     create_exam(student_name, questions)
+    # for student in choice(possible_distributions):
+    #     if student.surname == "Rezerva":
+    #         continue
+    #     create_exam(student)
 
     # build exams using pdflatex
     # build_exams()
 
     # send exams via Gmail
-    # send_exams(list(questions_data.keys()))
+    send_exams(students)
 
 
 if __name__ == '__main__':

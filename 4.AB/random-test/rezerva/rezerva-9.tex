@@ -1,11 +1,12 @@
-\question[70]
-Vytvořte simulaci boje prince s drakem. Princ i drak jsou trojice celých čísel
-\texttt{(hp, damage, heal)}, které představují po řadě: kolik má princ/drak
-životů, kolik v jednom kole princ/drak ubere životů tomu druhému, kolik životů
-se princi/draku v každém kole vrátí. Vyhraje ten, kdo první sníží životy toho
-druhého na \texttt{0} (nebo míň). Vypište \texttt{"XXX vyhraje souboj."}, kde
-\texttt{XXX} je buď \texttt{"Princ"} nebo \texttt{"Drak"}.\\
-\textbf{Hint:} Tohle je jasný \texttt{while} cyklus. Stačí každé kolo sebrat
-\texttt{damage} prince z \texttt{hp} draka, pak \texttt{damage} draka z
-\texttt{hp} prince a oběma zvýšit \texttt{hp} o jejich \texttt{heal}.\\
-\textcolor{red}{Pozor! Volte si ty trojice tak, aby souboj někdy skončil.}
+\question[50]
+Máte dán seznam (vyrobte si ho) dvojic \texttt{jméno, čas} představující jméno
+běžce (string) a jeho čas na 100 metrů (desetinné číslo). Vytiskněte výherce
+závodu, tj. běžce s nejkratším
+časem ve formě \texttt{"Běžec XXX vyhrál
+	závod."}, kde \texttt{XXX} je jméno
+výherce.\\
+\textbf{Hint:} Pamatujte si v nějaké proměnné zatím nejlepší čas a jméno běžce s
+tímto časem. Procházejte
+seznam \texttt{for} cyklem a kdykoli narazíte na čas, který je menší než ten
+zatím nejlepší, zapamatujte si místo toho zatím nejlepšího tenhle.\\
+\textcolor{red}{Nesmíte použít funkci \texttt{max}!}
