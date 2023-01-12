@@ -13,12 +13,12 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from unidecode import unidecode as ud
 
-CLASS = "4b1"
+CLASS = "4a2"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CLASS_DIR = os.path.join(BASE_DIR, CLASS)
 
 EMAIL = "adam.klepac@gevo.cz"
-PASS = "*********"
+PASS = "Ad031169Kle9410"
 
 
 @dataclass
@@ -276,21 +276,22 @@ def send_exams(students: list[Student]):
 
         sender_email = EMAIL
         receiver_email = student.email
-        subject = f"IVT DÚ - do 15. 1. 2023"
+        subject = f"IVT DÚ - do 18. 1. 2023"
         body = (
             "Čau,\n"
             "\n"
             "moc se omlouvám za zdržení. Protože jsme se dohodli, že test uděláme radši formou domácího úkolu,"
             " posílám náhodně vybrané otázky (pokud můj program funguje). Ti z vás, "
             "kdo mi odevzdali předchozí domácí úkol, mají "
-            "přidělené otázky od ostatních, kdo odevzdali. Ti, kdo ne, mají přiřazené nějaké ode mě. "
+            "přidělené otázky od ostatních, kdo taky odevzdali. Ti, kdo ne, mají přiřazené nějaké ode mě. "
             "Ještě pošlu některé úlohy vyřešené na Classroom.\n"
             "\n"
             "Máte právo na celkem dvě odevzdání. Když mi úkol poprvé pošlete a "
             "nebude dobře, vrátím vám ho s komentáři k předělání. Druhé odevzdání "
             "je definitivní. Úkoly odevzdávejte jako soubor s koncovkou .py; "
             "fotky a screenshoty nebo - Nedej, Bože! - textové dokumenty "
-            "neberu.\n"
+            "neberu. Na další hodině vás budu obcházet a ptát se na vaše řešení, abych "
+            "si byl jistý, že jim rozumíte. S těmi, kdo nepřijdou, se domluvím individuálně.\n"
             "\n"
             "Adam"
         )
