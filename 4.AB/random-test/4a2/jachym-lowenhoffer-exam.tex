@@ -1,0 +1,62 @@
+\documentclass{exam}
+\usepackage[czech]{babel}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{logicpuzzle}
+\pointname{ \%}
+
+\begin{document}
+Jméno: Jáchym Löwenhöffer
+\begin{questions}
+	\question[0.1]
+	\emph{Latinský čtverec velikosti $n$} je pole $n \times n$ takové, že každý
+ prvek z množiny libovolných $n$ prvků (obvykle se používá $A,B,C,\ldots$, proto
+ \uv{latinský}) je v každém sloupci a v každém řádku přesně jednou. Například
+ \begin{center}
+  \begin{logicpuzzle}[rows=3,columns=3]
+   \setrow{3}{$A$,$B$,$C$}
+   \setrow{2}{$B$,$C$,$A$}
+   \setrow{1}{$C$,$A$,$B$}
+  \end{logicpuzzle}
+ \end{center}
+ je latinský čtverec velikosti $3$.
+
+ Napiš funkci, která dostane pole (seznam seznamů) velikosti $n \times n$,
+ kde prvky jsou čísla od $1$ do $n$ a určí, zda se jedná o latinský čtverec.
+
+ \question[0.01][* celkem hard]
+ Napiš funkci, která pro dané $n \leq 7$ určí počet všech různých latinských
+ čtverců velikosti $n$.
+
+ \textbf{Hint:} Ani to nezkoušej na papíře. Pro $n = 7$ jich je
+ $61,479,419,904,000$.
+
+ \question[0.001]
+ \emph{Řecko-latinský čtverec} velikosti $n$ je pole $n \times n$ obsahující na
+ každém místě dvojici prvků ze součinu dvou disjunktních množin velikosti $n$
+ tak, že každý prvek z jedné množiny je v každém sloupci a v každém řádku právě
+ jednou a navíc je každá dvojice prvků právě jednou v celém čtverci. Například
+ \begin{center}
+  \begin{logicpuzzle}[rows=3,columns=3]
+   \setrow{3}{$A\alpha$,$B\beta$,$C\gamma$}
+   \setrow{2}{$B\gamma$,$C\alpha$,$A\beta$}
+   \setrow{1}{$C\beta$,$A\gamma$,$B\alpha$}
+  \end{logicpuzzle}
+ \end{center}
+ je řecko-latinský čtverec velikosti $3$. Jsou to jakoby dva přes sebe přeložené
+ latinské čtverce tak, aby odpovídající dvojice v každém políčku byly unikátní.
+
+ Dva latinské čtverce nazveme \emph{vzájemně ortogonální (kolmé)}, když jejich
+ přeložení přes sebe je řecko-latinský čtverec.
+
+ Napiš funkci, která dostane dva latinské čtverce jako pole $n \times n$ 
+ čísel od $1$ do $n$ a určí, zda jsou vzájemně ortogonální.
+
+ \question[0.0001][** extra hard]
+ Napiš funkci, která pro dané $n \leq 6$ určí počet všech (neuspořádáných)
+ dvojic vzájemně ortogonálních latinských čtverců.
+\end{questions}
+\end{document}
