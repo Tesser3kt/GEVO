@@ -116,11 +116,33 @@ class Counting(Scene):
         arrow_groups = []
         main_text = None
 
+        counting_text = MathTex(r"3", font_size=80).shift(3 * DOWN)
         for i, _ in enumerate(A_elems):
             arrows, text = self.show_arrows(
                 A, B, A_elems, B_elems, i, list(range(len(B[0]))), main_text
             )
             arrow_groups.append(arrows)
             main_text = text
+            if i == 0:
+                self.play(Write(counting_text))
+            else:
+                new_counting_text = MathTex(
+                    r"3" + i * r"\cdot 3", font_size=80).move_to(
+                        counting_text.get_center())
+                self.play(Transform(counting_text, new_counting_text))
+
+        new_counting_text = MathTex(
+            r"3 \cdot 3 \cdot 3 \cdot 3", r"=3^4", font_size=80
+        ).align_to(counting_text, DOWN)
+        self.play(
+            counting_text.animate.align_to(new_counting_text, LEFT),
+            FadeIn(new_counting_text[1], shift=0.2*LEFT)
+        )
+
+        self.pause(1)
+
+        result = MathTex(r"=\# B^{\# A}", font_size=80).next_to(
+            new_counting_text, RIGHT)
+        self.play(Write(result))
 
         self.pause(2)

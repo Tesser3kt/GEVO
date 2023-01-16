@@ -1,0 +1,112 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage{etoolbox}
+\preto\tabular{\shorthandoff{-}}
+
+% Colors %
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{tikz-cd}
+\usepackage{dsfont}
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+\theoremstyle{definition}
+\newtheorem*{defin}{Definice}
+
+% Title %
+\title{\Huge\textsf{}\\
+ \Large\textsf{}
+ \author{}
+ \date{}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+
+% Enumerate %
+\usepackage{enumitem}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+Slinty o inverzních zobrazeních. Zobrazení $f:A \to B$ jsou pro nás automaticky
+\textbf{zobrazení definovaná všude}, tedy $f(a)$ je prvek $B$ pro každé $a \in
+A$.
+
+Když $f:A \to B$ a $g:B \to C$, pak složení zobrazení $g \circ f$, které je
+definováno stejně jako složení relací (bo zobrazení jsou relace), je zobrazení
+$A \to C$. Většinou budu vynechávat symbol $ \circ $ a místo $g \circ f$ psát
+jenom $gf$. Dobře se složení zobrazení představují jako skládání šipek za sebe:
+\begin{center}
+ \begin{tikzcd}
+  A \ar[r, "f"] \ar[rr, "gf", bend right=45] & B \ar[r, "g"] & C
+ \end{tikzcd}
+\end{center}
+
+Na každé množině $A$ je jedno speciální zobrazení, které každému prvku přiřadí
+ten samý. Budu mu říkat \emph{identické zobrazení} a značit je $\mathds{1}_A$.
+Tedy, $\mathds{1}_A$ je zobrazení $A \to A$ takové, že $\mathds{1}_A(a) = a$ pro
+každé $a \in A$.
+
+\begin{defin}[Inverzní zobrazení]
+ Ať $f:A \to B$. \emph{Inverzním zobrazením} k $f$ nazveme zobrazení $g:B \to A$
+ splňující
+ \[
+  gf = 
+ \]
+ 
+\end{defin}
+
+\end{document}
