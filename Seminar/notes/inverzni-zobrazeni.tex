@@ -1,10 +1,6 @@
 \documentclass[a4paper,11pt]{article}
 
 \usepackage[czech]{babel}
-\usepackage[T1]{fontenc}
-
-\usepackage{etoolbox}
-\preto\tabular{\shorthandoff{-}}
 
 % Colors %
 \usepackage[dvipsnames]{xcolor}
@@ -28,15 +24,25 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{wrapfig}
-\usepackage{tikz-cd}
+
+% TikZ
+\usepackage{tikz}
+\usetikzlibrary{cd,babel,positioning,arrows,calc}
+
 \usepackage{dsfont}
 
 % Theorems
 \usepackage{amsthm}
 \usepackage{thmtools}
 
+\theoremstyle{plain}
+\newtheorem*{rmrk}{Poznámka}
+
 \theoremstyle{definition}
 \newtheorem*{defin}{Definice}
+
+\theoremstyle{theorem}
+\newtheorem*{theorem}{Věta}
 
 % Title %
 \title{\Huge\textsf{}\\
@@ -60,11 +66,12 @@
 \usepackage{enumitem}
 
 % Operators %
-\DeclareMathOperator{\Ker}{Ker}
-\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\codom}{codom}
 
 % Common operators %
 \newcommand{\R}{\mathbb{R}}
@@ -95,6 +102,22 @@ jenom $gf$. Dobře se složení zobrazení představují jako skládání šipek
  \end{tikzcd}
 \end{center}
 
+Dívat se na složení $gf$ jako na základnu trojúhelníku s rameny $f$ a $g$ asi
+taky může pomoct:
+
+\begin{center}
+ \begin{tikzcd}[sep=small]
+  & & B \arrow[ddrr, "g"] & &\\
+  & & & &\\
+  A \arrow[uurr, "f"] \arrow[rrrr, "gf"'] & & & & C
+ \end{tikzcd}
+\end{center}
+
+Zobrazení $f:A \to B$ a $g:C \to D$ lze v skládat pořadí $g \circ f$ jenom
+tehdy, když $f$ končí tam, kde $g$ začíná, formálně když $\codom f = \dom g$. V
+tomhle případě to znamená $B = C$. V opačném pořadí, tj. $f \circ g$, je lze
+skládat, když $\codom g = \dom f$ neboli $D = A$.
+
 Na každé množině $A$ je jedno speciální zobrazení, které každému prvku přiřadí
 ten samý. Budu mu říkat \emph{identické zobrazení} a značit je $\mathds{1}_A$.
 Tedy, $\mathds{1}_A$ je zobrazení $A \to A$ takové, že $\mathds{1}_A(a) = a$ pro
@@ -104,9 +127,219 @@ každé $a \in A$.
  Ať $f:A \to B$. \emph{Inverzním zobrazením} k $f$ nazveme zobrazení $g:B \to A$
  splňující
  \[
-  gf = 
+  gf = \mathds{1}_A \quad \text{a} \quad fg = \mathds{1}_B.
  \]
- 
+ Inverzní zobrazení samozřejmě nemusí existovat. Pokud existuje, značíme ho,
+ pravdaže dost nesmyslně, $f^{-1}$. Čili $ff^{-1} = \mathds{1}_{B}$ a $f^{-1}f =
+ \mathds{1}_{A}$.
 \end{defin}
+
+\begin{rmrk}
+ Všimněte si, že $ff^{-1}$ je zobrazení $B \to B$ a $f^{-1}f$ je zobrazení $A
+ \to A$! V obrázcích
+ \begin{center}
+  \begin{tikzcd}
+   A \arrow[r, "f",] \arrow[rr, "f^{-1}f = \mathds{1}_A"', bend right=45] & B
+   \arrow[r, "f^{-1}"] & A & & B \arrow[r, "f^{-1}"] \arrow[rr, "ff^{-1} =
+   \mathds{1}_B"', bend right=45] & A \arrow[r, "f"] & B.
+  \end{tikzcd}
+ \end{center}
+\end{rmrk}
+
+Možná vám někdo někdy řekl, že k zobrazení (asi jim říkali \uv{funkce}) existuje
+zobrazení inverzní právě tehdy, když je prosté. To nám nestačí. My budeme
+uvažovat inverzní zobrazení pouze k bijekcím (tj. k zobrazením, která jsou
+prostá a na). Má to následující důvod.
+
+Prosté zobrazení $f:A \to B$ je totiž \uv{to samé}, co bijekce $f:A \to \im f$,
+kde $\im f$ je množina všech obrazů prvků z $A$ při zobrazení $f$. Symbolicky,
+\[
+ \im f = \{f(a) \mid a \in A\} \subseteq B.
+\]
+Když zobrazení $f$ není na, pak $\im f$ je pouze podmnožina $B$, a ne celé $B$.
+Když ale vynechám z $B$ ty prvky, na které se nic z $A$ nezobrazuje, tak přece
+dostanu úplně to samé zobrazení. V obrázcích si to můžete představovat tak, že
+pokud $f$ je třeba následující zobrazení:
+\begin{center}
+ \begin{tikzpicture}
+  \node[circle,fill,inner sep=1.5pt] (A1) at (-1.5,2) {};
+  \node[circle,fill,inner sep=1.5pt] (A2) at (-1.5,1) {};
+  \node[circle,fill,inner sep=1.5pt] (A3) at (-1.5,0) {};
+  \node[left=2mm of A1] {$1$};
+  \node[left=2mm of A2] {$2$};
+  \node[left=2mm of A3] {$3$};
+  \node (A) [above=5mm of A1] {$A$};
+
+
+  \node[circle,fill,inner sep=1.5pt] (B1) at (1.5,2) {};
+  \node[circle,fill,inner sep=1.5pt] (B2) at (1.5,1) {};
+  \node[circle,fill,inner sep=1.5pt] (B3) at (1.5,0) {};
+  \node[circle,fill,inner sep=1.5pt] (B4) at (1.5,-1) {};
+  \node[circle,fill,inner sep=1.5pt] (B5) at (1.5,-2) {};
+  \node[right=2mm of B1] {$1$};
+  \node[right=2mm of B2] {$2$};
+  \node[right=2mm of B3] {$3$};
+  \node[right=2mm of B4] {$4$};
+  \node[right=2mm of B5] {$5$,};
+  \node (B) [above=5mm of B1] {$B$};
+
+  \draw[blue, ->, shorten >=2pt, shorten <=2pt] (A1) -- (B2);
+  \draw[blue, ->, shorten >=2pt, shorten <=2pt] (A2) -- (B3);
+  \draw[blue, ->, shorten >=2pt, shorten <=2pt] (A3) -- (B5);
+  \node[blue] at (0, 2) {$f$};
+
+  \draw[red,thick] (1.3, 2.2) -- (1.7, 1.8);
+  \draw[red,thick] (1.7, 2.2) -- (1.3, 1.8);
+
+  \draw[red,thick] (1.7, -0.8) -- (1.3, -1.2);
+  \draw[red,thick] (1.7, -1.2) -- (1.3, -0.8);
+ \end{tikzpicture}
+\end{center}
+pak když vynechám z $B$ prvky $1$ a $4$, které nejsou v $\im f$, pak dostanu
+opravdu to samé zobrazení. Konkrétně,
+\begin{center}
+ \begin{tikzpicture}
+  \node[circle,fill,inner sep=1.5pt] (A1) at (-1.5,2) {};
+  \node[circle,fill,inner sep=1.5pt] (A2) at (-1.5,1) {};
+  \node[circle,fill,inner sep=1.5pt] (A3) at (-1.5,0) {};
+  \node[left=2mm of A1] {$1$};
+  \node[left=2mm of A2] {$2$};
+  \node[left=2mm of A3] {$3$};
+  \node (A) [above=5mm of A1] {$A$};
+
+
+  \node[circle,fill,inner sep=1.5pt] (B2) at (1.5,2) {};
+  \node[circle,fill,inner sep=1.5pt] (B3) at (1.5,1) {};
+  \node[circle,fill,inner sep=1.5pt] (B5) at (1.5,0) {};
+  \node[right=2mm of B2] {$2$};
+  \node[right=2mm of B3] {$3$};
+  \node[right=2mm of B5] {$5$.};
+  \node (B) [above=5mm of B1] {$\im f \subsetneq B$};
+
+  \draw[blue, ->, shorten >=2pt, shorten <=2pt] (A1) -- (B2);
+  \draw[blue, ->, shorten >=2pt, shorten <=2pt] (A2) -- (B3);
+  \draw[blue, ->, shorten >=2pt, shorten <=2pt] (A3) -- (B5);
+  \node[blue] at (0, 2.5) {$f$};
+ \end{tikzpicture}
+\end{center}
+
+Skončíme následující větou, která potvrzuje, že přemýšlíme správným směrem.
+
+\begin{theorem}[Bijekce $\iff$ existuje inverzní zobrazení]
+ Ať $f:A \to B$ je zobrazení. Pak $f$ je bijekce (prosté a na) právě tehdy, když
+ k němu existuje inverzní zobrazení.
+\end{theorem}
+\begin{proof}
+ Tvrzení je ekvivalence, takže budeme dokazovat dvě implikace.
+
+ Nejdřív dokážeme implikaci \uv{zleva doprava}, tj. že k bijekci vždycky
+ existuje inverzní zobrazení. Ať $f$ je tedy bijekce, tedy prosté a na.
+ Potřebujeme definovat zobrazení $g:B \to A$ takové, aby $fg = \mathds{1}_{B}$ a
+ $gf = \mathds{1}_{A}$.
+
+ Uděláme to prostě prvek po prvku. Zvolme si náhodně nějaké $b \in B$. Protože
+ $f$ je na, existuje $a \in A$, že $f(a) = b$. Navíc, protože $f$ je prosté,
+ tohle $a$ je právě jedno, tj. žádný jiný prvek z $A$ se na $b$ nezobrazuje.
+ Definujme $g(b) = a$. Pak máme $fg(b) = f(a) = b$ (tady využíváme toho, že  $f$ 
+ je na, tedy máme prvek $a$, který se zobrazuje na $b$) a taky $gf(a) = g(b) =
+ a$ (tady využíváme toho, že $f$ je prosté, tedy že opravdu jenom $a$ se zobrazí
+ na $b$). Čili, $g = f^{-1}$.
+
+ Implikaci zprava doleva uděláme trochu jinak. Pamatujte z logiky, že implikace
+ $p \Rightarrow q$ je to samé, jako implikace $\neg q \Rightarrow \neg p$. Takže
+ budeme předpokládat, že $f$ \textbf{není} bijekce (tedy není prosté nebo není
+ na) a chceme dokázat, že $f$ \textbf{nemá} k~sobě inverzní funkci. Pro spor
+ tedy budeme předpokládat, že $f^{-1}$ existuje a ukážeme, že to vede na
+ nesmysl.
+
+ Máme celkem dvě možnosti:
+ \begin{enumerate}[label=(\arabic*),topsep=0pt]
+  \item Zobrazení $f$ není prosté. Pak existují dva prvky $a_1,a_2 \in A$
+   takové, že $f(a_1) = f(a_2)$. Označíme jejich obraz $b$. Pak ale $f^{-1}f$
+   nemůže být rovno $\mathds{1}_{A}$, protože buď
+   \begin{enumerate}[label=(\alph*)]
+    \item $f^{-1}(b) = a_1$ a pak $f^{-1}f(a_2) = f^{-1}(b) = a_1$, nebo
+    \item $f^{-1}(b) = a_2$ a pak $f^{-1}f(a_1) = f^{-1}(b) = a_2$.
+   \end{enumerate}
+   V obou případech jsme se dostali z jednoho prvku pomocí zobrazení $f^{-1}f$ 
+   do jiného, tedy to nemůže být identické zobrazení. Pomocný obrázek ukazuje
+   ten problém -- $f^{-1}$ totiž může $b$ zobrazovat jen na jeden prvek, což je
+   ale dost problém, když $f$ na $b$ zobrazuje prvky \textbf{dva}.
+   \begin{center}
+    \begin{tikzpicture}
+     \node at (-1.5,1.75) {\vdots};
+     \node[circle,fill,inner sep=1.5pt] (a1) at (-1.5,1) {};
+     \node[circle,fill,inner sep=1.5pt] (a2) at (-1.5,0) {};
+     \node at (-1.5,-0.5) {\vdots};
+     \node[left=2mm of a1] {$a_1$};
+     \node[left=2mm of a2] {$a_2$};
+     \node (A) at (-1.5, 2.25) {$A$};
+
+     \node at (1.5,1.25) {\vdots};
+     \node[circle,fill,inner sep=1.5pt] (b) at (1.5,0.5) {};
+     \node at (1.5,-0.5) {\vdots};
+     \node[below=1mm of b] {$b$};
+     \node (B) at (1.5, 2.25) {$B$};
+
+     \node at (4.5,1.75) {\vdots};
+     \node[circle,fill,inner sep=1.5pt] (a11) at (4.5,1) {};
+     \node[circle,fill,inner sep=1.5pt] (a22) at (4.5,0) {};
+     \node at (4.5,-0.5) {\vdots};
+     \node[right=2mm of a11] {$a_1$};
+     \node[right=2mm of a22] {$a_2$};
+     \node (A) at (4.5, 2.25) {$A$};
+
+     \draw[blue, ->, shorten >= 2pt, shorten <= 2pt] (a1) -- (b);
+     \draw[blue, ->, shorten >= 2pt, shorten <= 2pt] (a2) -- (b);
+     \node[blue] (f) at (0, 1) {$f$};
+
+     \draw[red, ->, shorten >= 2pt, shorten <= 2pt, dashed] (b) -- (a11);
+     \draw[red, ->, shorten >= 2pt, shorten <= 2pt, dashed] (b) -- (a22);
+     \node[red] (f-1) at (3, 1) {$f^{-1}$};
+    \end{tikzpicture}
+   \end{center}
+  \item Zobrazení $f$ není na. Pak existuje prvek $b \in B$, na který se žádné
+   $a \in A$ nezobrazuje. To je ovšem taky dost problém, protože potom se $b$ 
+   pomocí $ff^{-1}$ nemůže zobrazit zpátky na $b$. Vskutku, ať $f^{-1}(b)$ je
+   nějaký prvek $a$. Pak ale $f(a) \neq b$, protože $f$ nezobrazuje nic na $b$.
+   tedy $ff^{-1}(b) \neq b$, takže $ff^{-1} \neq \mathds{1}_{B}$. Problém opět
+   vidíte na obrázku.
+   \begin{center}
+    \begin{tikzpicture}
+     \node at (-1.5,1.75) {\vdots};
+     \node[circle,fill,inner sep=1.5pt] (b) at (-1.5,1) {};
+     \node[circle,fill,inner sep=1.5pt] (c) at (-1.5,0) {};
+     \node at (-1.5,-0.5) {\vdots};
+     \node[left=2mm of b] {$b$};
+     \node[left=2mm of c] {$c$};
+     \node (B) at (-1.5, 2.25) {$B$};
+
+     \node at (1.5,1.25) {\vdots};
+     \node[circle,fill,inner sep=1.5pt] (a) at (1.5,0.5) {};
+     \node at (1.5,-0.5) {\vdots};
+     \node[below=1mm of a] {$a$};
+     \node (A) at (1.5, 2.25) {$A$};
+     
+     \node at (4.5,1.75) {\vdots};
+     \node[circle,fill,inner sep=1.5pt] (b') at (4.5,1) {};
+     \node[circle,fill,inner sep=1.5pt] (c') at (4.5,0) {};
+     \node at (4.5,-0.5) {\vdots};
+     \node[right=2mm of a11] {$b$};
+     \node[right=2mm of a22] {$c$};
+     \node (B) at (4.5, 2.25) {$B$};
+
+     \draw[red, ->, shorten >= 2pt, shorten <= 2pt] (b) -- (a);
+     \node[red] (f-1) at (0, 1.25) {$f^{-1}$};
+
+     \draw[blue, ->, shorten >= 2pt, shorten <= 2pt] (a) -- (c');
+     \node[blue] (f) at (3, 0.75) {$f$};
+    \end{tikzpicture}
+   \end{center}
+   Shrnuto, když $f$ není prosté, pak nemůže platit $f^{-1}f = \mathds{1}_{A}$,
+   a když $f$ není na, pak nemůže platit $ff^{-1} = \mathds{1}_{B}$. Celkově,
+   zobrazení, které není bijektivní, k sobě nemůže mít inverzní
+   zobrazení.\qedhere
+ \end{enumerate}
+\end{proof}
 
 \end{document}
