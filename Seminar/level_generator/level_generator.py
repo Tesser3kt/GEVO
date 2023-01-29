@@ -1,32 +1,11 @@
-from enum import Enum
 from PIL import Image, ImageDraw
-from random import randint, choice
-
-WIDTH = 60
-HEIGHT = 50
-BG_COLOR = 0, 0, 0
-DEFAULT_CHANCE = 10000
-PROB_DECREASE = 100
-POINT_COLOR = 255, 255, 0
-STABLE_MOVES = 0
-
-
-class Direction(Enum):
-    """ Enum for directions."""
-    UP = (0, -1)
-    DOWN = (0, 1)
-    LEFT = (-1, 0)
-    RIGHT = (1, 0)
+from random import choice
+from level_generator_config import *
 
 
 def draw_point(x: int, y: int, color: tuple[int]) -> None:
     """ Draw a single point on the canvas as a 1x1 rectangle. """
     draw.rectangle((x, y, x, y), fill=color)
-
-
-def distance(x1: int, y1: int, x2: int, y2: int) -> float:
-    """ Calculate the Manhattan distance between two points. """
-    return abs(x1 - x2) + abs(y1 - y2)
 
 
 def can_move(x: int, y: int, direction: Direction) -> bool:
