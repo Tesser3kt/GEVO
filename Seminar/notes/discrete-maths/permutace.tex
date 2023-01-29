@@ -33,10 +33,39 @@ Takže, o co tu vlastně jde.
 \end{definition}
 
 Jelikož všichni rádi počítáme (xD), určíme si na začátek počet všech permutací
-na dané množině. Předtím jen rychlé lemmátko.
-\begin{lemma}
- Ať $f:A \to A$ je prosté zobrazení na konečné množině $A$. Pak 
-\end{lemma}
+na dané množině. Podle
+\hyperref[ex:proste-iff-na]{cvičení~\ref*{ex:proste-iff-na}}, které jste
+\emph{všichni} dělali, zobrazení na konečné množině $X$ je prosté právě tehdy,
+když je na, tedy právě tehdy, když je bijektivní. Tento fakt nám pomůže s
+důkazem následujícího tvrzení. Jen ještě jedna definice usnadňující zápis.
+
+\begin{definition}[Faktoriál]
+\label{def:faktorial}
+ Pro přirozené číslo $n \in \N$ definujeme
+ \[
+  n! \coloneqq \prod_{i=0}^{n-1} n-i. 
+ \]
+ Výraz $n!$ čteme $n$ \emph{faktoriál}.
+\end{definition}
+
+\begin{claim}[Počet permutací na množině]
+\label{prop:pocet-permutaci-na-mnozine}
+ Ať $X$ je konečná množina. Pak $\# S_X = (\# X)!$.
+\end{claim}
+
+\begin{proof}
+ Podle
+ \hyperref[claim:pocet-prostych-zobrazeni]{tvrzení~\ref{claim:pocet-prostych-zobrazeni}},
+ počet prostých zobrazení $A \to B$ je
+ \[
+  \prod_{i=0}^{\# A-1} \# B - i.  
+ \]
+ Když $A = B$, pak bijekce $A \to A$ jsou totéž, co prostá zobrazení $A \to A$.
+ Tedy, všech bijekcí $A \to A$ (tj. všech permutací na $A$) je
+ \[
+  \prod_{i=0}^{\# A-1} \# A - i = (\# A)!.\qedhere 
+ \]
+\end{proof}
 
 \subsubsection{Zápis permutací}
 \label{sssec:zapis-permutaci}
