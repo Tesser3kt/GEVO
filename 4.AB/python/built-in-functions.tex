@@ -1,0 +1,240 @@
+\begin{frame}
+ \frametitle{Co jsou built-in funkce?}
+ \begin{itemize}
+  \item<1-> Funkce, které jsou součástí Pythonu a provádějí běžné nebo užitečné
+   operace.
+  \item<2-> Např. zjišťování délky stringu/seznamu, převádění mezi datovými
+   typy, přidávání prvků do seznamu, řazení seznamu apod.
+  \item<3-> Některé built-in funkce lze použít na různé datové typy a některé se
+   vážou ke konkrétním typům.
+ \end{itemize}
+\end{frame}
+
+\subsection[Obecné]{Obecné}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{abs}}}
+ \begin{block}{Vrací absolutní hodnotu celého/desetinného čísla.}
+  \pause
+  Například
+  \begin{itemize}
+   \item \texttt{\mlb{abs}(-5)} \texttt{==} \texttt{5},
+   \item \texttt{\mlb{abs}(2.718)} \texttt{==} \texttt{2.718}.
+  \end{itemize}
+  Pro žádný jiný běžný datový typ nefunguje.
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{enumerate}}}
+ \begin{block}{Vytvoří ze seznamu/n-tice seznam dvojic (pořadí, hodnota).}
+  \pause
+  Obvykle se používá s \texttt{for} cyklem. Např.
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+  \texttt{lst} \texttt{=} \texttt{["pes", "kočka"]}\\
+  \texttt{for \mlg{i}, \mdb{element} in \mlb{enumerate(}lst\mlb{)}}:\\
+  \hspace{4ex}\texttt{print(\mlg{i}, \mdb{element})}
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+  \pause
+  vytiskne 
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+  \texttt{\mlg{0}~\mdb{pes}}\\
+  \texttt{\mlg{1}~\mdb{kočka}}
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{filter}}}
+ \begin{block}{Dostává dva parametry -- \mlg{funkci} a
+  \mdb{seznam/n-tici/slovník}. Vrátí
+  jako seznam prvky, pro které \mlg{funkce} vrací \texttt{True}.}
+  \pause
+  \vspace{1ex}
+  Například, pokud si definuju funkci
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+  \texttt{def \mlg{divisible_by_five}(cislo):}\\
+  \hspace{4ex}\texttt{return (cislo \% 5 == 0)}
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+  \pause
+  pak můžu ze seznamu \texttt{\mdb{lst} = [4, 5, 10, 13]} dostat seznam všech
+  čísel dělitelných pěti jako
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+  \texttt{lst2 = \mlb{filter(}\mlg{divisible_by_five},~\mdb{lst}\mlb{)}}
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{input}}}
+ \begin{block}{Vrátí vstup od uživatele jako typ \texttt{string}. Jako
+  parametrem dostává string, který se uživateli zobrazí.}
+  \pause
+  \vspace{1ex}
+  Například, napíšu-li
+  $\vcenter{\rule{.8\textwidth}{0.4pt}}$
+  \texttt{birth\_year = \mlb{input(}"Zadejte svůj rok narození: "\mlb{)}}\\
+  $\vcenter{\rule{.8\textwidth}{0.4pt}}$
+  \pause
+  uživateli se zobrazí
+  $\vcenter{\rule{.8\textwidth}{0.4pt}}$
+  \texttt{Zadejte svůj rok narození: }
+  $\vcenter{\rule{.8\textwidth}{0.4pt}}$
+  a odpověď se uloží \textbf{jako string} do proměnné
+  \texttt{birth\_year}.
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{isinstance}}}
+ \begin{block}{Dostane dva parametry -- \mlg{proměnnou} a \mdb{datový typ} -- a
+  odpoví, zda je proměnná onoho typu.}
+  \pause
+  \vspace{1ex}
+  Například,
+  \begin{itemize}
+   \item \texttt{\mlb{isinstance(}\mlg{\textquotesingle
+    kočka\textquotesingle},~\mdb{str}\mlb{)}} \texttt{==} \texttt{True},
+   \item \texttt{\mlb{isinstance(}\mlg{3.14}, \mdb{float}\mlb{)} == True},
+   \item \texttt{\mlb{isinstance(}\mlg{4}, \mdb{list}\mlb{)} == False} a
+   \item \texttt{\mlb{isinstance(}\mlg{[1, 2]}, \mdb{tuple}\mlb{)} == False}.
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{len}}}
+ \begin{block}{Parametrem dostane cokoli, kde má \uv{smysl} počítat počet prvků.
+  Ten vrátí jako celé číslo.}
+  \pause
+  \vspace{1ex}
+  Například
+  \begin{itemize}
+   \item \texttt{\mlb{len(}"auto"\mlb{)} == 4},
+   \item \texttt{\mlb{len(}[4, 5, 6]\mlb{)} == 3} a
+   \item \texttt{\mlb{len(}\string{1: "jedna",~2: "dva"\string}\mlb{)} == 2}.
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{map}}}
+ \begin{block}{Dostane parametrem \mlg{funkci} a \mdb{seznam/n-tici/slovník} a
+  vrátí seznam s \mlg{funkcí} aplikovanou na každý prvek.}
+  \pause
+  \vspace{1ex}
+  Například s funkcí
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+  \texttt{def \mlg{last_letter(}word\mlg{)}:}\\
+  \hspace{4ex}\texttt{return word[-1]}
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+  \pause
+  můžu ze seznamu slov \texttt{\mdb{words} = ["pes", "kočka", "dikobraz"]}
+  získat seznam jenom jejich posledních písmen jako
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+  \texttt{last\_letters = \mlb{map(}\mlg{last\_letter},~\mdb{words}\mlb{)}}
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{max}}/\texttt{\mlb{min}}}
+ \begin{block}{Ze seznamu/n-tice/slovníku vrátí největší/nejmenší prvek.}
+  \pause
+  Například,
+  \begin{itemize}
+   \item<1-> \texttt{\mlb{max(}[4, 7, 2]\mlb{)} == 7},
+   \item<1-> \texttt{\mlb{min(}[4, 7, 2]\mlb{)} == 2},
+   \item<2-> \texttt{\mlb{max(}["pes", "kočka", "dikobraz"]\mlb{)} == "pes"},
+   \item<2-> \texttt{\mlb{min(}["pes", "kočka", "dikobraz"]\mlb{)} ==
+    "dikobraz"}.
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{print}}}
+ \begin{block}{Vytiskne to, co dostane parametrem, do konzole.}
+  \pause
+  \vspace{1ex}
+  Například
+  \begin{itemize}
+   \item \texttt{\mlb{print(}3\mlb{)}} vytiskne číslo \texttt{3} a
+   \item \texttt{\mlb{print(}"kočka"\mlb{)}} vytiskne \texttt{kočka}.
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{range}}}
+ \begin{block}{Dostane parametrem celé číslo a vrátí seznam celých čísel menších
+  než toto číslo počínaje \texttt{0}.}
+  \pause
+  \vspace{1ex}
+  Nejčastěji se používá s \texttt{for} cyklem. Tedy, např.
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+  \texttt{for \mlg{i} in \mlb{range(}5\mlb{)}:}\\
+  \hspace{4ex}\texttt{print(\mlg{i} * 2)}
+  $\vcenter{\rule{.6\textwidth}{0.4pt}}$
+  vytiskne postupně čísla \texttt{0, 2, 4, 6, 8}, protože
+  \texttt{\mlb{range(}5\mlb{)} == [0, 1, 2, 3, 4]}.
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{round}}}
+ \begin{block}{Zaokrouhlí dané desetinné číslo -- od \texttt{.5} nahoru, jinak
+  dolu.}
+  \pause
+  Například,
+  \begin{itemize}
+   \item \texttt{\mlb{round(}3.14\mlb{)} == 3} a
+   \item \texttt{\mlb{round(}2.718\mlb{)} == 3}.
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{sum}}}
+ \begin{block}{Vrátí součet všech prvků v daném seznamu/n-tici. Funguje pouze
+  pro čísla.}
+  \pause
+  Například,
+  \begin{itemize}
+   \item \texttt{\mlb{sum(}[1, 2, 3, 4]\mlb{)} == 10},
+   \item \texttt{\mlb{sum(}(69, 420, 1337)\mlb{)} == 1826}.
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{zip}}}
+ \begin{block}{Dostane parametrem libovolný počet seznamů/n-tic a vrátí seznam,
+  kde každým prvkem je n-tice prvků na odpovídajících pozicích těchto
+  seznamů/n-tic.}
+  \pause
+  \vspace{1ex}
+  Například,
+  \begin{itemize}
+   \item<1-> \texttt{\mlb{zip(}[1, 2, 3], [4, 5, 6]\mlb{)} == [(1, 4), (2, 5),
+    (3, 6)]}
+   \item<2-> \texttt{\mlb{zip(}("kočka", "pes"), ("dělá", "dělá"), ("haf",
+    "mňau")\mlb{)} == [("kočka", "dělá", "haf"), ("pes", "dělá", "mňau")]}.
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funkce \texttt{\mlb{int}, \mlb{float}, \mlb{str}, \mlb{list},
+ \mlb{tuple}, \mlb{dict}}}
+ \begin{block}{Převádějí jiné datové typy na stejnojmenné.}
+  \pause
+  \vspace{1ex}
+  Například,
+  \begin{itemize}
+   \item \texttt{\mlb{int(}"5"\mlb{)} == 5},
+   \item \texttt{\mlb{str(}1.23\mlb{)} == "1.23"},
+   \item \texttt{\mlb{tuple(}[4, 5, 6]\mlb{)} == (4, 5, 6).}
+  \end{itemize}
+ \end{block}
+\end{frame}
