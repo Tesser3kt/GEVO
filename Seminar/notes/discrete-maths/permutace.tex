@@ -197,7 +197,55 @@ tohoto prvku.
   \sigma\tau = (243),
  \]
  protože $\tau$ pošle $1$ na $4$ a $\sigma$ pošle $4$ na $1$, tedy  $\sigma\tau$
- pošle $1$ na $1$. Podobně pro ostatní prvky. Dále,
+ pošle $1$ na $1$. Podobně pro ostatní prvky. V šipkách složení $\sigma\tau$ 
+ vypadá takto:
+ \begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+   \filldraw[black] (-1.5,0) circle (.5ex) {};
+   \filldraw[black] (-1.5,1) circle (.5ex) {};
+   \filldraw[black] (-1.5,2) circle (.5ex) {};
+   \filldraw[black] (-1.5,3) circle (.5ex) {};
+   \node at (-2, 0) {$4$};
+   \node at (-2, 1) {$3$};
+   \node at (-2, 2) {$2$};
+   \node at (-2, 3) {$1$};
+
+   \filldraw[black] (1.5,0) circle (.5ex) {};
+   \filldraw[black] (1.5,1) circle (.5ex) {};
+   \filldraw[black] (1.5,2) circle (.5ex) {};
+   \filldraw[black] (1.5,3) circle (.5ex) {};
+   \node at (1.5, -0.5) {$4$};
+   \node at (1.5, 0.5) {$3$};
+   \node at (1.5, 1.5) {$2$};
+   \node at (1.5, 2.5) {$1$};
+
+   \filldraw[black] (4.5,0) circle (.5ex) {};
+   \filldraw[black] (4.5,1) circle (.5ex) {};
+   \filldraw[black] (4.5,2) circle (.5ex) {};
+   \filldraw[black] (4.5,3) circle (.5ex) {};
+   \node at (5, 0) {$4$};
+   \node at (5, 1) {$3$};
+   \node at (5, 2) {$2$};
+   \node at (5, 3) {$1$};
+
+   \draw[thick,red,->,shorten <=5pt,shorten >=5pt] (1.5, 3) -- (4.5, 1);
+   \draw[thick,red,->,shorten <=5pt,shorten >=5pt] (1.5, 1) -- (4.5, 0);
+   \draw[thick,red,->,shorten <=5pt,shorten >=5pt] (1.5, 0) -- (4.5, 3);
+   \draw[thick,red,->,shorten <=5pt,shorten >=5pt] (1.5, 2) -- (4.5, 2);
+
+   \draw[thick,blue,->,shorten <=5pt,shorten >=5pt] (-1.5, 3) -- (1.5, 0);
+   \draw[thick,blue,->,shorten <=5pt,shorten >=5pt] (-1.5, 0) -- (1.5, 3);
+   \draw[thick,blue,->,shorten <=5pt,shorten >=5pt] (-1.5, 2) -- (1.5, 1);
+   \draw[thick,blue,->,shorten <=5pt,shorten >=5pt] (-1.5, 1) -- (1.5, 2);
+
+   \node[red] at (3, 3) {$\sigma$};
+   \node[blue] at (0, 3) {$\tau$};
+  \end{tikzpicture}
+  \label{fig:slozeni-permutaci-sipky}
+  \caption{Složení permutací $\clr{\sigma}\clb{\tau}$ znázorněno v šipkách.}
+ \end{figure}
+ Všimněte si ale, že
  \[
   \tau\sigma = (123).
  \]
@@ -205,9 +253,128 @@ tohoto prvku.
 \begin{warning}
  Jak bylo vidno z předchozího příkladu, skládání permutací (jako obecně i
  relací) \textbf{není komutativní}. Dokonce platí, že pouze skládání permutace
- se sebou samou je komutativní, čili jsou-li $\sigma,\tau \in S_X$
+ se sebou samou je komutativní, čili jsou-li $\sigma,\tau \in S_X$, pak
  \[
   \sigma\tau = \tau\sigma \implies \tau = \sigma
  \]
  za předpokladu, že $\# X \geq 3$.
 \end{warning}
+
+Nyní si konečně povíme, co znamená \uv{řád} permutace a že každou permutaci lze
+rozložit na \uv{transpozice}.
+
+Když $\sigma = c_1c_2\cdots c_n$ je rozklad permutace $\sigma \in S_X$ na cykly
+$c_1,c_2,\ldots,c_n$, pak \emph{délkou cyklu} $c_i$ myslíme počet prvků množiny
+$X$, které se v něm vyskytují. Tedy, např. délka cyklu $(1324)$ je $4$ a délka
+cyklu $(457)$ je $3$.
+
+\begin{definition}[Transpozice]
+\label{def:transpozice}
+ Permutace $\sigma \in S_X$ se nazývá \emph{transpozice}, když obsahuje právě
+ jeden cyklus délky $2$. Lidsky řečeno, transpozice jsou přesně ty permutace,
+ které prohazují dva prvky.
+\end{definition}
+
+Možná trochu překvapivý výsledek ohledně permutací je, že každou permutaci lze
+napsat jako složení transpozic. Navíc je algoritmus velmi přímočarý -- stačí
+zkrátka každý cyklus délky $k$ rozložit na $k - 1$ transpozic tak, že každý
+\uv{vnitřní} prvek cyklu zdvojíme. Zformulujeme si tvrzení a ukážeme si
+algoritmus na příkladě.
+
+\begin{claim}[Rozklad na transpozice]
+ Ať $\sigma \in S_X$ a $\# X \geq 2$ (jinak bychom neměli dva prvky k
+ prohození). Pak existují transpozice $\tau_1,\ldots,\tau_n$ takové, že
+ \[
+  \sigma = \tau_1\tau_2\cdots \tau_n.
+ \]
+ Navíc, počet transpozic v rozkladu $\sigma$ je určen jednoznačně.
+\end{claim}
+\begin{proof}
+ Formální. Vynechám. Ideu si ukážeme na příkladě.
+\end{proof}
+
+\begin{example}
+ Rozložíme permutaci $\sigma = (1342)(576)$ na transpozice. Každý cyklus vlastně
+ rozdělíme na cykly délky dva (což jsou vlastně transpozice) zdvojením každého
+ vnitřního prvku. Tedy, cyklus $(576)$ se rozdělí na transpozice $(57)$ a $(76)$
+ a cyklus  $(1342)$ se rozdělí na $(13)$, $(34)$ a $(42)$. Pak dostaneme
+ (\textbf{pozor na pořadí!})
+ \[
+  \sigma = (13) \circ (34) \circ (42) \circ (57) \circ (76),
+ \]
+ což je rozklad $\sigma$ na transpozice. Na
+ \hyperref[fig:rozklad-na-transpozice]{obrázku} vidíte znázornění aplikace
+ permutace $\sigma$ na množinu $\{1,\ldots,7\}$ a postupnou aplikaci příslušných
+ transpozic.
+ \begin{figure}[H]
+  \centering
+  \begin{tikzcd}
+   1 \; 2 \; 3 \; 4 \; 5 \; 6 \; 7 \ar[ddddd, "\sigma = (1342)(576)"'] & 1 \; 2 \; 3 \; 4 \; 5 \; 6 \; 7 \arrow[d, "(76)"] \\
+   & 1 \; 2 \; 3 \; 4 \; 5 \; 7 \; 6 \arrow[d, "(57)"] \\
+   & 1 \; 2 \; 3 \; 4 \; 7 \; 5 \; 6 \ar[d, "(42)"] \\
+   & 1 \; 4 \; 3 \; 2 \; 7 \; 5 \; 6 \ar[d, "(34)"] \\
+   & 1 \; 3 \; 4 \; 2 \; 7 \; 5 \; 6 \ar[d, "(13)"] \\
+   3 \; 1 \; 4 \; 2 \; 7 \; 5 \; 6 & 3 \; 1 \; 4 \; 2 \; 7 \; 5 \; 6
+  \end{tikzcd}
+  \label{fig:rozklad-na-transpozice}
+  \caption{Znázornění rozkladu permutace $\sigma$ na transpozice.}
+ \end{figure}
+\end{example}
+
+\begin{definition}[Sudá/lichá permutace]
+\label{def:suda/licha-permutace}
+ Permutaci $\sigma \in S_X$ nazveme \emph{sudou}, když její rozklad na
+ transpozice obsahuje sudý počet transpozic. Jinak ji nazveme \emph{lichou}.
+\end{definition}
+
+Poslední zajímavý výsledek o permutacích, který zmíníme, říká, že když jednu
+permutaci složím samu se sebou dostatečněkrát, dostanu identické zobrazení na
+$X$. Počtu složení se formálně říká \uv{řád} permutace.
+
+\begin{definition}[Řád permutace]
+\label{def:rad-permutace}
+ Mějme $\sigma \in S_X$. Přirozené nenulové číslo ${k \in \N}$ nazveme
+ \emph{řádem} permutace $\sigma$, když
+ \[
+  \sigma^{k} = \mathds{1}_X.
+ \]
+ Řád permutace značíme $\ord \sigma$ (z angl. \textbf{ord}er).
+\end{definition}
+
+Na konec sekce si rozmyslíme, že každá permutace má konečný řád a jak ho
+počítat. Uvažme třeba permutaci $\sigma = (143)$. Tahle permutace posílá $1$ na
+$4$, $4$ na $3$ a $3$ zpět na $1$. To ovšem znamená, že když ji \uv{zopakuji}
+třikrát za sebou, dostanu se rovnou z $1$ na $1$. Vskutku, můžete si ověřit, že
+\[
+ \sigma^3 = (143) \circ (143) \circ (143) = \mathds{1}_{\{1,2,3,4\}}.
+\]
+Tento pohled napovídá, že když cyklus délky $k$ zopakuji $k$-krát, zobrazím
+všechny prvky v tomto cyklu na ony samé.
+
+Co když mám ale permutaci složenou z cyklů různých délek, jako třeba
+$(143)(25)$? No, cyklus $(143)$ musím zopakovat třikrát a cyklus $(25)$ dvakrát.
+Když ale tuto permutaci třikrát zopakuji, nedostanu identické zobrazení, protože
+cyklus $(25)$ zopakovaný třikrát je zase $(25)$. Když se zamyslíme, zjistíme, že
+abych dostal z permutace identické zobrazení, musím ji opakovat právě tolikrát,
+kolik je nejmenší společný násobek délek jejích cyklů, aby se každý cyklus
+zopakoval nějakým násobkem své délky. Zformulujeme si tento fakt jako tvrzení,
+ale dokazovat ho nebudeme, protože důkaz je otravně formální.
+
+\begin{claim}[O řádu permutace]
+ Ať $\sigma \in S_X$ a
+ \[
+  \sigma = c_1c_2\cdots c_n
+ \]
+ je zápis $\sigma$ v cyklech $c_1,\ldots,c_n$. Označme $d_i$ délku cyklu $c_i$ 
+ pro každé $i \leq n$. Pak
+ \[
+  \ord \sigma = \mathrm{lcm}(d_1,\ldots,d_n),
+ \]
+ kde $\mathrm{lcm}$ (z angl. \textbf{l}east \textbf{c}ommon \textbf{m}ultiple)
+ značí nejmenší společný násobek.
+\end{claim}
+
+Myslím, že tohle tvrzení je pěkným příkladem přirozeného avšak poměrně silného
+tvrzení. Kdybyste nevěděli nic o permutacích a řekl bych vám, že máte dokázat
+fakt, že když bijekci na konečné množině složím samu se sebou hodněkrát, dostanu
+identické zobrazení, asi byste se zapotili.

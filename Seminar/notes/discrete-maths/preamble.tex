@@ -21,7 +21,7 @@
 % Lets us create multiple columns.
 \usepackage{multicol}
 % Gives us better math syntax.
-\usepackage{amsmath,mathtools,amsthm}
+\usepackage{amsmath,mathtools,amsthm,dsfont}
 % Lets us strikethrough text.
 \usepackage{cleveref}
 \usepackage{cancel}
@@ -86,6 +86,7 @@
 
 \usetikzlibrary{intersections, angles, quotes, calc, positioning, shapes, snakes}
 \usetikzlibrary{arrows.meta}
+\usetikzlibrary{babel}
 
 \tikzset{
   force/.style={thick, {Circle[length=2pt]}-stealth, shorten <=-1pt}
@@ -622,3 +623,4 @@
 \newcommand{\clp}{\textcolor{mypurple}}
 
 \DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\ord}{ord}
