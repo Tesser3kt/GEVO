@@ -452,6 +452,7 @@
 \definecolor{lemma}{HTML}{983b0f}
 \definecolor{exercise}{HTML}{5d4037}
 \definecolor{warning}{HTML}{ea191d}
+\definecolor{observation}{HTML}{ff00ff}
 
 \colorlet{definition}{mygreen!85!black}
 \colorlet{claim}{myblue!85!black}
@@ -547,6 +548,7 @@
   \createnewcoloredtheoremstyle{thmpropbox}{prop}{}{}
   \createnewcoloredtheoremstyle{thmlemmabox}{lemma}{}{}
   \createnewcoloredtheoremstyle{thmexercisebox}{exercise}{}{}
+  \createnewcoloredtheoremstyle{thmobservationbox}{observation}{}{}
 
   \createnewcoloredtheoremstyle{thmproofbox}{proof}{qed=\qedsymbol}{backgroundcolor=white}
   \createnewcoloredtheoremstyle{thmexplanationbox}{example}{qed=\qedsymbol}{backgroundcolor=white}
@@ -568,6 +570,8 @@
 \declaretheorem[numberwithin=subsection, style=thmdefinitionbox,  name=Definice]{definition}
 \declaretheorem[numbered=no,          style=thmproofbox,       name=Důkaz]{replacementproof}
 \declaretheorem[numbered=no,          style=thmproofbox, name=Důkaz]{enhproof}
+\declaretheorem[numbered=no,          style=thmobservationbox,
+name=Pozorování]{observation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Edit Proof Environment  %

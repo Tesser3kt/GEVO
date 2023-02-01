@@ -417,9 +417,146 @@ poslednímu dechu s šancí větší než 30 \%. Navíc je velmi přímočará. 
 každý vězeň otevíral obálky v pořadí, které určují kameny v nich obsažené.
 Konkrétně, každý vězeň otevře jako první obálku na stolici se stejným pořadím,
 jako je to jeho. Další otevře obálku na stolici s pořadím, které odpovídá číslu
-na kameni v obálce, kterou právě otevřel. Takhle pokračuje až dojde k padesáté
-obálce.
+na kameni v obálce, kterou právě otevřel. Takhle pokračuje, dokud nenajde své
+číslo, nebo dokud neprojde padesát různých obálek.
 
 Ilustrujme si postup na příkladě. Do jídelny vstoupí vězeň s číslem $11$. Otevře
 obálku číslo $11$ a najde v ní kámen s číslem $34$. Dále otevře obálku s číslem
-$34$, v níž je číslo $77$.
+$34$, v níž je číslo $77$. Ještě jednou, v obálce číslo $77$ najde číslo $5$. V
+obálce číslo $5$ najde kámen s číslem $97$. A nakonec -- Ejhle! -- v obálce
+číslo $97$ najde kámen se svým číslem -- $11$.
+
+Označme permutaci určenou čísly na kamenech v obálkách třeba $\kappa$ (jako
+\textbf{k}ámen). Situace v předchozím odstavci znamená, že v $\kappa$ existuje
+cyklus
+\begin{center}
+ \begin{tikzpicture}
+  \node[circle,fill=black,inner sep=0pt,minimum
+  size=5pt,label={[yshift=-0.8cm]$11$}] (a) at (0,0) {};
+  \path (a) ++(0:2) node [circle,fill=black,inner sep=0pt,minimum
+  size=5pt,label={[yshift=-0.8cm]$34$.}] (b) {};
+  \path (b) ++(72:2) node [circle,fill=black,inner sep=0pt,minimum
+  size=5pt,label={[shift={(0.4cm, -0.35cm)}]$77$}] (c) {};
+  \path (c) ++(144:2) node [circle,fill=black,inner sep=0pt,minimum
+  size=5pt,label={[shift={(0cm, 0cm)}]$5$}] (d) {};
+  \path (d) ++(216:2) node [circle,fill=black,inner sep=0pt,minimum
+  size=5pt,label={[shift={(-0.4cm, -0.35cm)}]$97$}] (e) {};
+
+  \draw[thick,->,shorten <=5pt,shorten >=5pt] (a) -- (b);
+  \draw[thick,->,shorten <=5pt,shorten >=5pt] (b) -- (c);
+  \draw[thick,->,shorten <=5pt,shorten >=5pt] (c) -- (d);
+  \draw[thick,->,shorten <=5pt,shorten >=5pt] (d) -- (e);
+  \draw[thick,->,shorten <=5pt,shorten >=5pt] (e) -- (a);
+ \end{tikzpicture}
+\end{center}
+
+Nyní už si můžeme rozmyslet, za jaké podmínky objeví všichni vězni obálku s
+kamenem svého čísla. V moment, kdy vězeň otevře první obálku, dostane se tím do
+jednoho konkrétního cyklu permutace $\kappa$. Podle dané strategie bude tento
+cyklus sledovat až do konce. Pokud je délka daného cyklu třeba $d$, pak v
+moment, kdy otevře tento vězeň svoji $d$-tou obálku, bude v ní kámen s jeho
+číslem. Samozřejmě, podmínka propuštění říkala, že každý vězeň smí otevřít
+maximálně $50$ obálek. Protože každý vězeň má přiřazeno jiné, určitě čísla všech
+vězňů dohromady vyčerpají všechny cykly permutace $\kappa$. To znamená, že
+všichni vězni najdou svoje číslo tímto postupem jedině v případě, \textbf{kdy
+permutace $\kappa$ neobsahuje cyklus délky větší než 50}. Zformulujeme si to
+jako pozorování.
+
+\begin{observation}
+ Problém sta vězňů má řešení (tedy všech sto vězňů bude propuštěno) právě tehdy,
+ když permutace $\kappa$, určená čísly na kamenech v obálkách, neobsahuje cyklus
+ délky větší než $50$.
+\end{observation}
+
+Abychom spočítali šanci vězňů na úspěch, zbývá nám umět spočítat počet všech
+takových permutací, tj. permutací s cykly délky maximálně $50$.
+
+Ať $X \coloneqq \{1,\ldots,100\}$. Bude výhodnější řešit opačný problém, tedy
+hledat počet permutací s cyklem délky aspoň $51$, protože (vzhledem k tomu, že
+množina $X$ má $100$ prvků), takový cyklus tam může být nejvýše jeden.
+
+Ať $C_n(S_X)$ značí počet všech permutací na $X$ s aspoň jedním cyklem délky
+$n$. Jak jsme právě řekli, pro $n \geq 51$ může mít libovolná permutace takový
+cyklus jenom jeden. Dále je zřejmé, že počet všech permutací s cyklem délky
+\emph{aspoň} $51$ spočtu tak, že sečtu počty permutací s cyklem délky $n$ pro
+všechna $n$ od $51$ do $100$. Když $C_{ \geq 51}(S_X)$ značí počet permutací s
+cyklem délky aspoň $51$, máme
+\[
+ C_{ \geq 51}(S_X) = \sum_{n=51}^{100} C_n(S_X). 
+\]
+
+Spočítáme $C_n(S_X)$ pro $n \geq 51$. Abychom určili permutace s cyklem délky
+$n$, musíme zvolit $n$ z těch $100$ čísel, která se v cyklu objeví. Počet
+způsobů, jak zvolit $n$ čísel ze $100$ je $\binom{100}{n}$ (vizte sekci o
+kombinačních číslech). %TODO
+Čísla v tomto cyklu mohou být uspořádána $n!$ způsoby. \textbf{Ovšem, pozor!}
+Nezapomeňte, že uvnitř cyklu mohu čísla posouvat a cyklus tím nechat stejný.
+Protože mám v cyklu $n$ čísel, dělá to dohromady $n$ možných posunutí. Tedy mám
+\[
+ \frac{\binom{100}{n}n!}{n} = \binom{100}{n}(n-1)!
+\]
+různých způsobů, jak zvolit cyklus délky $n$.
+
+Konečně, zbývající čísla (tedy ta mimo ten cyklus) můžu přeuspořádat $(100-n)!$
+způsoby. Celkem, počet všech permutací s cyklem délky $n$ pro $n \geq 51$ je
+\[
+ C_n(S_X) = \binom{100}{n}(n-1)!(100-n)!.
+\]
+Je na čase završit výpočet. Všech možných permutací na $100$ číslech je $100!$.
+Počet všech permutací s cyklem délky aspoň $51$ je $C_{\geq 51}(S_X)$. Čili šance,
+že náhodně vybraná permutace na $100$ číslech \textbf{obsahuje} cyklus délky
+větší než $50$ je
+\[
+ \frac{C_{ \geq 51}(S_X)}{100!} = \frac{\sum_{n=51}^{100} C_n(S_X)}{100!} =
+ \frac{\sum_{n=51}^{100} \binom{100}{n}(n-1)!(100-n)!}{100!} \approx 0.688,
+\]
+čili $68,8~\%$. To ovšem znamená, že šance, že náhodná permutace
+\textbf{neobsahuje} cyklus délky větší než $50$ je přibližně $1 - 0.688 =
+0.312$. Takže při využití této strategie mají vězni přibližně  $31.2~\%$ na
+přežití. O něco lepší než náhodné zkoušení.
+
+\begin{exercise}
+ Spočtěte složení $\sigma\tau$ a $\tau\sigma$, když
+ \begin{enumerate}[topsep=0pt,label=(\arabic*)]
+  \item $\sigma = (143)(26), \tau = (146)(253)$,
+  \item $\sigma = (14)(25)(36), \tau = (123456)$,
+  \item $\sigma = (145)(263), \tau = (154)(236)$.
+ \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+ Určete řád permutace $\sigma$, kde
+ \begin{enumerate}[label=(\arabic*),topsep=0pt]
+  \item $\sigma = (1345)$,
+  \item $\sigma = (1346)(28)(579)$.
+ \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[těžké]
+ Určete číslo $C_n(S_X)$, kde $\# X = 100$ a $n \leq 50$, tedy počet všech
+ permutací na $100$ číslech s aspoň jedním cyklem délky menší nebo rovné
+ $50$.
+\end{exercise}
+
+\begin{exercise}
+ Ať $\sigma \in S_n$, tedy $\sigma$ je permutace množiny $\{1,\ldots,n\}$.
+ Řekneme, že $\sigma$ \emph{invertuje} dvojici $(i,j)$, kde $i,j \in
+ \{1,\ldots,n\}$, když $i<j$, ale $\sigma(i)>\sigma(j)$.
+
+ Definujme
+  \[
+   I(\sigma) \coloneqq \{(i,j) \in \{1,\ldots,n\}^2 \mid \sigma \text{ invertuje
+   } (i,j)\},
+ \]
+ čili $I(\sigma)$ je množina všech dvojic $(i,j)$, které $\sigma$ invertuje.
+ Uvědomme si, že $I(\sigma)$ je podmnožinou $\{1,\ldots,n\}^2$, čili relací na
+ $\{1,\ldots,n\}$.
+ \begin{enumerate}[label=(\arabic*),topsep=0pt]
+  \item Dokažte, že $I(\sigma)$ je transitivní relace na $\{1,\ldots,n\}$ pro
+   každou permutaci $\sigma \in S_n$.
+  \item* Navrhněte algoritmus, který pro danou permutaci $\sigma \in S_n$ spočte
+   $\# I(\sigma)$.
+  \item Spočtěte počet invertovaných dvojic, čili $\# I(\sigma)$, permutací
+   $\sigma = (134)(579)(26)$.
+ \end{enumerate}
+\end{exercise}
