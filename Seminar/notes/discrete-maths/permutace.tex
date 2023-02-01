@@ -378,3 +378,48 @@ Myslím, že tohle tvrzení je pěkným příkladem přirozeného avšak poměrn
 tvrzení. Kdybyste nevěděli nic o permutacích a řekl bych vám, že máte dokázat
 fakt, že když bijekci na konečné množině složím samu se sebou hodněkrát, dostanu
 identické zobrazení, asi byste se zapotili.
+
+\subsection{Problém sta vězňů}
+\label{sssec:problem-sta-veznu}
+
+Za sedmero horami a sedmero řekami, byla nebyla kdysi jedna věznice, ve které
+bylo žilo a živořilo sto vězňů. Její dozorce, chor a zchřadl, matematik řemeslem
+a krutovládce povahou, jednoho jitra rozhodl, že vězně propustí -- buď do světa,
+nebo až do toho příštího.
+
+Vyklidiv vězeňskou jídelnu, postavil zde sto dřevěných stolic nesoucích sto
+papírových obálek. Mezi obálky rozloučil sto kamení, v každém toporně vyryto
+různé číslo od jedné do sta.
+
+Rozkázav vězně seřaditi před jídelnu, přičlenil každému rovněž různé číslo od
+jedné do sta, v pořadí, kterak stáli. Vězni měli po řadě postoupit do jídelny a
+otevřít padesát obálek. Našli-liž mezi nimi kámen zračící jejich číslo, vrátili
+jej zpět a směli opustit jídelnu opačným východem.
+
+Podmínka propuštění děla, že každý vězeň musí v jedné z padesáti obálek, které
+otevřel, zřít své číslo. Pokud byť i jeden vězeň své číslo neobjeví, celé těleso
+vězňů bude kvapně popraveno.
+
+Asi není těžké si rozmyslet, že tohle je úloha na permutace. Pořadí, v jakém
+jsou umístěny stolice, můžeme vnímat jako množinu přirozených čísel
+$\{1,\ldots,100\}$ a rozmístění kamenů do obálek jako jednu její náhodně
+zvolenou permutaci. Tedy, to, že v obálce číslo $6$ je kámen s číslem $23$
+znamená, že tato permutace posílá prvek $6$ na prvek $23$.
+
+Pokud by vězni vybírali obálky k otevření náhodně, pak má každý z nich na
+nalezení kamene se svým číslem šanci přesně $1 / 2$. Protože tahle situace se má
+opakovat stokrát po sobě, šance, že všichni najdou tímto způsobem své číslo, je
+$(1 / 2)^{100}$, tedy $1$ ku $1 267 650 600 228 229 401 496 703 205 376$ -- čili
+pořád větší, než že si MŠMT všimne, že existují počítače -- ale přesto malá.
+
+My tvrdíme, že ve skutečnosti existuje strategie, která umožní vězňům uniknout
+poslednímu dechu s šancí větší než 30 \%. Navíc je velmi přímočará. Stačí, aby
+každý vězeň otevíral obálky v pořadí, které určují kameny v nich obsažené.
+Konkrétně, každý vězeň otevře jako první obálku na stolici se stejným pořadím,
+jako je to jeho. Další otevře obálku na stolici s pořadím, které odpovídá číslu
+na kameni v obálce, kterou právě otevřel. Takhle pokračuje až dojde k padesáté
+obálce.
+
+Ilustrujme si postup na příkladě. Do jídelny vstoupí vězeň s číslem $11$. Otevře
+obálku číslo $11$ a najde v ní kámen s číslem $34$. Dále otevře obálku s číslem
+$34$, v níž je číslo $77$.
