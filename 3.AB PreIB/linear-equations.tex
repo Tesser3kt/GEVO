@@ -105,7 +105,7 @@ review them here and then you'll have to do a few exercises.
 \section*{Linear equations as functions}
 
 In this interpretation, it is useful to think of numbers as representing
-\emph{prices} of things, for instance in dollars. A linear functions is some
+\emph{prices} of the things, for instance in dollars. A linear functions is some
 `box' which eats a thing of some price and gives back a multiple (possibly
 negative) of that thing and an amount (possibly negative) of dollars on top.
 
@@ -132,7 +132,7 @@ This function receives a $\tr{\triangle}$ of some price and gives back two such
 $\tr{\triangle}$'s and $\$ 4$. A \emph{linear equation} is a comparison of the
 total price of things two (typically different) functions give back when
 receiving \textbf{the same thing}. The \emph{solution} is the \textbf{price of
-the thing} for which the total prices of things given back by these two
+the thing} for which the total prices of what is given back by these two
 functions are equal. One can visualize it like this:
 \begin{center}
  \begin{tikzpicture}
@@ -179,9 +179,9 @@ is simply written as $f(\tr{\triangle}) = g(\tr{\triangle})$.
   that Freedomcoin loses no investors, how many investors does Dogecoin have to
   lose so that its value falls to the value of Freedomcoin?
 
-  Express the drop in value based on the number of lost investors as a linear
-  function. Compare it to the value of Freedomcoin. As the numbers are ugly,
-  \textbf{you simply have to construct the equation, not solve it}.
+  Express the drop in value of Dogecoin based on the number of lost investors as
+  a linear function. Compare it to the value of Freedomcoin. As the numbers are
+  ugly, \textbf{you simply have to construct the equation, not solve it}.
 \end{enumerate}
 
 \section*{Linear equations as scales}
@@ -190,10 +190,10 @@ This interpretation of linear equations is based on the comparison of
 \emph{weights} of objects. Unlike in physics, we have no qualms about giving our
 objects negative weights. The bowls of the given pair of scales contain one type
 of object (whose weight we typically don't know) and then some absolute weights.
-The word \emph{equation} is here expressed in a fact that the scales are always
-in balance. The \emph{solution} to such an equation is a situation where in
-either bowl, there is only one object of unknown value and in the other are only
-absolute weights.
+The word \emph{equation} is here expressed in the fact that the scales are
+always in balance. The \emph{solution} to such an equation is a situation where
+in either bowl, there is only one object of unknown value and in the other are
+only absolute weights.
 
 For instance, one possible solution to the equation
 \begin{center}
@@ -336,13 +336,14 @@ Given some linear equation, for example
 \[
  \tr{3x - 1} = \tb{2x + 1},
 \]
-one can look at the left side and right side separately as linear functions in
-one variable. We know that we can visualize linear functions in one variable as
-lines. Hence, the \emph{equation} in this case is a `drawing' of two lines in
-the plane. In this case, we let $\tr{f(x)} = \tr{3x - 1}$ and $\tb{g(x)} =
-\tb{2x + 1}$ and draw the values of $x$ on the horizontal axis and the values of
-both $\tr{f}$ and $\tb{g}$ on the vertical. For each, we calculate two points
-(that is all we need to draw a line). We can put them into a table:
+one can look at the left side and the right side separately as linear functions
+in one variable. We know that we can visualize linear functions in one variable
+as lines. Hence, the \emph{equation} in this case is a `drawing' of two lines in
+the plane. We let $\tr{f(x)} = \tr{3x - 1}$ and $\tb{g(x)} = \tb{2x + 1}$ and
+draw the values of $x$ on the horizontal axis and the values of both $\tr{f}$
+and $\tb{g}$ on the vertical. For each, we calculate two points (that is all we
+need to draw a line). We can put them into a table:
+
 \begin{center}
  \begin{tabular}{c|cc}
   $x$ & $0$ & $1$\\
@@ -356,15 +357,122 @@ both $\tr{f}$ and $\tb{g}$ on the vertical. For each, we calculate two points
 Using these points to draw our two lines gives the following picture.
 
 \begin{center}
- \begin{tikzpicture}[scale=1]
-  \tkzInit[xmax=4,ymax=4,xmin=-4,ymin=-4]
+ \begin{tikzpicture}[scale=0.75]
+  \tkzInit[xmax=6,ymax=6,xmin=-6,ymin=-6]
   \tkzGrid
-   \tkzLabelX
-   \tkzDrawX
+  \tkzLabelX[font=\scriptsize, orig=false]
+  \tkzLabelY[font=\scriptsize, orig=false]
+  \tkzDrawX
+  \tkzDrawY[label={$\tr{f(x)},\tb{g(x)}$}]
 
   \tkzDefPoint(0, -1){f1}
   \tkzDefPoint(1, 2){f2}
+  \tkzDefPoint(1, 3){g1}
+  \tkzDefPoint(0, 1){g2}
+
+  \tkzDrawPoints[color=red,size=4pt](f1, f2)
+  \tkzDrawPoints[color=blue,size=4pt](g1, g2)
+
+  \tkzDrawLine[color=red,line width=1pt, add=1.5 and 1.3](f1,f2)
+  \tkzDrawLine[color=blue,line width=1pt, add=1.5 and 1.5](g1,g2)
+
+  \tkzInterLL(f1,f2)(g1,g2)
+   \tkzGetPoint{I}
+
+  \tkzShowPointCoord(I)
+  \tkzDrawPoint[color=black,fill=white,size=6pt](I)
+  \tkzLabelPoint[below right,font=\small](I){$(2,5)$}
  \end{tikzpicture}
 \end{center}
+The \emph{solution} to this equation is the point of intersection of the line
+representing $\tr{f}$ with the line representing $\tb{g}$.
+
+\subsection*{Exercises.}
+
+\begin{enumerate}[topsep=0pt,label=\arabic*.]
+ \item Two competing brothers, Lidl and Penny, decided to go on a vacation
+  together. However, one cannot stand the idea of arriving to their chosen
+  destination later than the other. They decided they're both going to travel on
+  motorcycles this time around. Lidl is the poorer of the two and his motorcycle
+  only reaches the velocity of 80 km/h on average. But, Lidl doesn't mind
+  getting up early and is thus willing to set off already at 5 AM. Penny, on the
+  other hand, owns a motorcycle that tops 120 km/h but is too lazy to get up so
+  early in the morning. Assuming that their destination is 720 km away, when
+  does Penny have to get up to arrive there \textbf{at the same time as} Lidl
+  and prevent a quarrel?
+
+  Represent time traveled on the horizontal axis and distance traveled on the
+  vertical axis. Define linear functions $l(x)$ and $p(x)$ representing the
+  distance traveled by Lidl and Penny based on $x$ (which is the time traveled).
+  Make sure to choose $l(x)$ so that the point of intersection of these two
+  lines has $y$-coordinate equal to $720$, which precisely means that they both
+  traveled 720 km before meeting each other.
+
+ \item You're given three linear functions,
+  \begin{align*}
+   \tr{f(x)} &= \tr{x + 1},\\
+   \tb{g(x)} &= \tb{-2x + 4},\\
+   \tm{h(x)} &= \tm{-\frac{1}{2}x - \frac{1}{2}}.
+  \end{align*}
+ Represented as lines, they look like this:
+ \begin{center}
+  \begin{tikzpicture}[scale=0.75]
+   \tkzInit[xmax=4,ymax=4,xmin=-4,ymin=-4]
+   \tkzGrid
+   \tkzLabelX[font=\scriptsize, orig=false]
+   \tkzLabelY[font=\scriptsize, orig=false]
+   \tkzDrawX
+   \tkzDrawY[label={$\tr{f(x)},\tb{g(x)},\tm{h(x)}$}]
+
+   \tkzDefPoint(0, 1){f1}
+   \tkzDefPoint(-1, 0){f2}
+   \tkzDefPoint(1, 2){g1}
+   \tkzDefPoint(2, 0){g2}
+   \tkzDefPoint(1, -1){h1}
+   \tkzDefPoint(-1, 0){h2}
+
+   \tkzInterLL(f1,f2)(g1,g2)
+    \tkzGetPoint{fg}
+   \tkzInterLL(f1,f2)(h1,h2)
+    \tkzGetPoint{fh}
+   \tkzInterLL(g1,g2)(h1,h2)
+    \tkzGetPoint{gh}
+   \tkzFillPolygon[color=yellow!20,fill opacity=.8](fg, fh, gh)
+
+
+   \tkzDrawPoints[color=red,size=4pt](f1, f2)
+   \tkzDrawPoints[color=blue,size=4pt](g1, g2)
+   \tkzDrawPoints[color=magenta,size=4pt](h1, h2)
+
+   \tkzDrawLine[color=red,line width=1pt, add=3 and 3](f1,f2)
+   \tkzDrawLine[color=blue,line width=1pt, add=1 and 2](g1,g2)
+   \tkzDrawLine[color=magenta,line width=1pt, add=1.5 and 1.5](h1,h2)
+
+   \tkzShowPointCoord(fg)
+   \tkzShowPointCoord(fh)
+   \tkzShowPointCoord(gh)
+   \tkzDrawPoints[color=black,fill=white,size=6pt](fg,fh,gh)
+
+  \end{tikzpicture}
+ \end{center}
+ As you can see, the linear equation
+ \[
+  \tr{f(x)} = \tb{g(x)} = \tm{h(x)}
+ \]
+ has no solution because the three lines don't intersect at a single point. Move
+ any one of the lines (\textbf{without changing its slope/steepness}) so that
+ all three \emph{do} intersect at a single point. Change also the definition of
+ the corresponding linear function. That is, if you choose to move for example
+ the line representing $\tm{h}$, then the definition of the function $\tm{h}$ as
+ given above must change as well.
+
+ Look at the triangle (filled with yellow color) which is determined by the
+ three intersection points. Observe that if the equation $\tr{f(x)} = \tb{g(x)}
+ = \tm{h(x)}$ \emph{has no solution}, then the three lines always determine a
+ triangle. Deduce the relation between the number of solutions of $\tr{f(x)} =
+ \tb{g(x)} = \tm{h(x)}$ (that is, one or no solution) and the area of this
+ triangle. In other words, what is the area of this triangle if $\tr{f(x)} =
+ \tb{g(x)} = \tm{h(x)}$ \textbf{has} a solution?
+\end{enumerate}
 
 \end{document}
