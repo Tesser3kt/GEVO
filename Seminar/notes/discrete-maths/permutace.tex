@@ -92,7 +92,7 @@ nějakém předem dohodnutém pořadí a permutaci $\sigma$ zapsat prostě jako
  3 & 2 & 4 & 1
  \end{pmatrix}. 
 \]
-V obvyklém kreslení permutací bychom $\sigma$ znázornili, jak vidíte na 
+V obvyklém kreslení zobrazení bychom $\sigma$ znázornili, kterak vidíte na 
 \hyperref[fig:permutace-jako-sipky]{obrázku níže}.
 \begin{figure}[h]
  \centering
@@ -124,9 +124,9 @@ V obvyklém kreslení permutací bychom $\sigma$ znázornili, jak vidíte na
  \caption{Permutace $\clr{\sigma}$ zakreslená šipkami.}
 \end{figure}
 
-Ačkoli je tento způsob zápisu intuitivní a podporuje představu permutace jako
+Ačkoli je způsob zápisu do řádku intuitivní a podporuje představu permutace jako
 \uv{proházení} prvků na množině, mnohem více se používá tzv. zápis v cyklech.
-Důvody jsou primárně formální; z cyklického zápisu se velmi snadno totiž pozná,
+Důvody jsou primárně formální; z cyklického zápisu se velmi snadno totiž pozná
 jak \uv{řád} permutace, tak její rozložení na \uv{transpozi\-ce}. Oba pojmy
 definujeme a vysvětlíme později.
 
@@ -175,7 +175,8 @@ odteď využívat výhradně.
 \begin{warning}
  Zápis permutace pomocí cyklů \textbf{není jednoznačný}. Je to pro to, že u
  daného cyklu nelze říct, kde \uv{končí} a kde \uv{začíná}. Důležité je pouze
- pořadí prvků. Permutace $(134), (341)$ a $(413)$ jsou tudíž jedna a ta samá.
+ vzájemné pořadí prvků. Permutace $(134), (341)$ a $(413)$ jsou tudíž jedna a ta
+ samá.
 \end{warning}
 
 \subsubsection{Skládání permutací}
@@ -187,7 +188,7 @@ skládat v libovolném pořadí a libovolném množství.
 
 Na výpočet složení dvou permutací $\sigma,\tau \in S_X$ není myslím žádný
 vyloženě snadný postup. Člověk se musí zkrátka v cyklickém zápisu dočíst, kam
-posílá první permutace daný prvek, a kam zase druhá permutace posílá obraz
+posílá první permutace daný prvek a kam zase druhá permutace posílá obraz
 tohoto prvku.
 
 \begin{example}
@@ -336,12 +337,17 @@ $X$. Počtu složení se formálně říká \uv{řád} permutace.
  Mějme $\sigma \in S_X$. Přirozené nenulové číslo ${k \in \N}$ nazveme
  \emph{řádem} permutace $\sigma$, když
  \[
-  \sigma^{k} = \mathds{1}_X.
+  \sigma^{k} = \mathds{1}_X,
  \]
- Řád permutace značíme $\ord \sigma$ (z angl. \textbf{ord}er).
+ kde výrazem $\sigma^{k}$ myslíme složení $\sigma$ se sebou samou $k$-krát, tj.
+ \[
+  \sigma^{k} \coloneqq \underbrace{\sigma \circ \sigma \circ \cdots \circ
+  \sigma.}_{k\text{-krát}}
+ \]
+ Řád permutace $\sigma$ značíme $\ord \sigma$ (z angl. \textbf{ord}er).
 \end{definition}
 
-Na konec sekce si rozmyslíme, že každá permutace má konečný řád a jak ho
+Na konec podsekce si rozmyslíme, že každá permutace má konečný řád a jak ho
 počítat. Uvažme třeba permutaci $\sigma = (143)$. Tahle permutace posílá $1$ na
 $4$, $4$ na $3$ a $3$ zpět na $1$. To ovšem znamená, že když ji \uv{zopakuji}
 třikrát za sebou, dostanu se rovnou z $1$ na $1$. Vskutku, můžete si ověřit, že
@@ -358,7 +364,8 @@ cyklus $(25)$ zopakovaný třikrát je zase $(25)$. Když se zamyslíme, zjistí
 abych dostal z permutace identické zobrazení, musím ji opakovat právě tolikrát,
 kolik je nejmenší společný násobek délek jejích cyklů, aby se každý cyklus
 zopakoval nějakým násobkem své délky. Zformulujeme si tento fakt jako tvrzení,
-ale dokazovat ho nebudeme, protože důkaz je otravně formální.
+ale dokazovat ho nebudeme, protože důkaz je otravně formální a ideu jsme si
+právě řekli.
 
 \begin{claim}[O řádu permutace]
  Ať $\sigma \in S_X$ a
@@ -379,7 +386,7 @@ tvrzení. Kdybyste nevěděli nic o permutacích a řekl bych vám, že máte do
 fakt, že když bijekci na konečné množině složím samu se sebou hodněkrát, dostanu
 identické zobrazení, asi byste se zapotili.
 
-\subsection{Problém sta vězňů}
+\subsubsection{Problém sta vězňů}
 \label{sssec:problem-sta-veznu}
 
 Za sedmero horami a sedmero řekami, byla nebyla kdysi jedna věznice, ve které
@@ -397,16 +404,16 @@ otevřít padesát obálek. Našli-liž mezi nimi kámen zračící jejich čís
 jej zpět a směli opustit jídelnu opačným východem.
 
 Podmínka propuštění děla, že každý vězeň musí v jedné z padesáti obálek, které
-otevřel, zřít své číslo. Pokud byť i jeden vězeň své číslo neobjeví, celé těleso
-vězňů bude kvapně popraveno.
+otevřel, uzřít své číslo. Pokud byť i jeden vězeň své číslo neobjevil, celé
+těleso vězňů bylo by kvapně popraveno.
 
-Asi není těžké si rozmyslet, že tohle je úloha na permutace. Pořadí, v jakém
+Asi není těžké si rozmyslet, že tohle je úloha na permutace. Pořadí, v~jakém
 jsou umístěny stolice, můžeme vnímat jako množinu přirozených čísel
 $\{1,\ldots,100\}$ a rozmístění kamenů do obálek jako jednu její náhodně
-zvolenou permutaci. Tedy, to, že v obálce číslo $6$ je kámen s číslem $23$
+zvolenou permutaci. Tedy to, že v obálce číslo $6$ je kámen s číslem $23$,
 znamená, že tato permutace posílá prvek $6$ na prvek $23$.
 
-Pokud by vězni vybírali obálky k otevření náhodně, pak má každý z nich na
+Pokud by vězni vybírali obálky k otevření náhodně, měl by každý z nich na
 nalezení kamene se svým číslem šanci přesně $1 / 2$. Protože tahle situace se má
 opakovat stokrát po sobě, šance, že všichni najdou tímto způsobem své číslo, je
 $(1 / 2)^{100}$, tedy $1$ ku $1 267 650 600 228 229 401 496 703 205 376$ -- čili
@@ -416,19 +423,19 @@ My tvrdíme, že ve skutečnosti existuje strategie, která umožní vězňům u
 poslednímu dechu s šancí větší než 30 \%. Navíc je velmi přímočará. Stačí, aby
 každý vězeň otevíral obálky v pořadí, které určují kameny v nich obsažené.
 Konkrétně, každý vězeň otevře jako první obálku na stolici se stejným pořadím,
-jako je to jeho. Další otevře obálku na stolici s pořadím, které odpovídá číslu
-na kameni v obálce, kterou právě otevřel. Takhle pokračuje, dokud nenajde své
-číslo, nebo dokud neprojde padesát různých obálek.
+jako je to jeho. Dál půjde otevřít obálku na stolici s~pořadím, které odpovídá
+číslu na kameni v obálce, kterou právě otevřel. Takhle pokračuje, dokud nenajde
+své číslo, nebo dokud neprojde padesát různých obálek.
 
 Ilustrujme si postup na příkladě. Do jídelny vstoupí vězeň s číslem $11$. Otevře
 obálku číslo $11$ a najde v ní kámen s číslem $34$. Dále otevře obálku s číslem
-$34$, v níž je číslo $77$. Ještě jednou, v obálce číslo $77$ najde číslo $5$. V
-obálce číslo $5$ najde kámen s číslem $97$. A nakonec -- Ejhle! -- v obálce
+$34$, v níž je číslo $77$. Ještě jednou, v obálce číslo $77$ najde číslo $5$.
+V~obálce číslo $5$ najde kámen s číslem $97$. A nakonec -- Ejhle! -- v obálce
 číslo $97$ najde kámen se svým číslem -- $11$.
 
-Označme permutaci určenou čísly na kamenech v obálkách třeba $\kappa$ (jako
-\textbf{k}ámen). Situace v předchozím odstavci znamená, že v $\kappa$ existuje
-cyklus
+Označme permutaci určenou čísly na kamenech v obálkách třeba $\kappa$ (podle
+slova \textbf{k}ámen). Situace v předchozím odstavci znamená, že v $\kappa$
+existuje cyklus
 \begin{center}
  \begin{tikzpicture}
   \node[circle,fill=black,inner sep=0pt,minimum
@@ -450,17 +457,17 @@ cyklus
  \end{tikzpicture}
 \end{center}
 
-Nyní už si můžeme rozmyslet, za jaké podmínky objeví všichni vězni obálku s
+Nyní už si můžeme rozmyslet, za jaké podmínky objeví všichni vězni obál\-ku s
 kamenem svého čísla. V moment, kdy vězeň otevře první obálku, dostane se tím do
 jednoho konkrétního cyklu permutace $\kappa$. Podle dané strategie bude tento
-cyklus sledovat až do konce. Pokud je délka daného cyklu třeba $d$, pak v
-moment, kdy otevře tento vězeň svoji $d$-tou obálku, bude v ní kámen s jeho
-číslem. Samozřejmě, podmínka propuštění říkala, že každý vězeň smí otevřít
-maximálně $50$ obálek. Protože každý vězeň má přiřazeno jiné, určitě čísla všech
-vězňů dohromady vyčerpají všechny cykly permutace $\kappa$. To znamená, že
-všichni vězni najdou svoje číslo tímto postupem jedině v případě, \textbf{kdy
-permutace $\kappa$ neobsahuje cyklus délky větší než 50}. Zformulujeme si to
-jako pozorování.
+cyklus sledovat až do konce (když \uv{začátkem} cyklu myslíme číslo vězně).
+Pokud je délka daného cyklu třeba $d$, pak v moment, kdy otevře tento vězeň
+$d$-tou obálku, bude v ní kámen s jeho číslem. Samozřejmě, podmínka propuštění
+říkala, že každý vězeň smí otevřít maximálně $50$ obálek. Protože každý vězeň má
+přiřazeno jiné, určitě čísla všech vězňů dohromady vyčerpají všechny cykly
+permutace $\kappa$. To znamená, že všichni vězni najdou svoje číslo tímto
+postupem jedině v případě, \textbf{kdy permutace $\kappa$ neobsahuje cyklus
+délky větší než 50}. Zformulujeme si to jako pozorování.
 
 \begin{observation}
  Problém sta vězňů má řešení (tedy všech sto vězňů bude propuštěno) právě tehdy,
@@ -512,7 +519,7 @@ větší než $50$ je
 \]
 čili $68,8~\%$. To ovšem znamená, že šance, že náhodná permutace
 \textbf{neobsahuje} cyklus délky větší než $50$ je přibližně $1 - 0.688 =
-0.312$. Takže při využití této strategie mají vězni přibližně  $31.2~\%$ na
+0.312$. Takže při využití této strategie mají vězni přibližně $31.2\%$ šanci na
 přežití. O něco lepší než náhodné zkoušení.
 
 \begin{exercise}
@@ -536,6 +543,9 @@ přežití. O něco lepší než náhodné zkoušení.
  Určete číslo $C_n(S_X)$, kde $\# X = 100$ a $n \leq 50$, tedy počet všech
  permutací na $100$ číslech s aspoň jedním cyklem délky menší nebo rovné
  $50$.
+
+ Samozřejmě jich je $100! - C_{ \geq 51}(S_X)$, ale cílem úlohy je spočítat je
+ nějak chytře, aby člověk dostal hezčí vzoreček.
 \end{exercise}
 
 \begin{exercise}
