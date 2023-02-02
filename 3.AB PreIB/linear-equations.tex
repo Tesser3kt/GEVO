@@ -1,0 +1,370 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+% Title %
+\title{\Huge\textsf{Linear Equations}\\
+ \Large\textsf{Scales, Lines \& Functions}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+We have seen three different ways of interpreting linear equations -- as
+comparisons of functions, as crossings of lines and as pairs of scales. We'll
+review them here and then you'll have to do a few exercises.
+
+\section*{Linear equations as functions}
+
+In this interpretation, it is useful to think of numbers as representing
+\emph{prices} of things, for instance in dollars. A linear functions is some
+`box' which eats a thing of some price and gives back a multiple (possibly
+negative) of that thing and an amount (possibly negative) of dollars on top.
+
+One can draw such a function for instance like this:
+\begin{center}
+ \begin{tikzpicture}
+  \node[draw,red,isosceles triangle,isosceles triangle apex
+  angle=60,anchor=center,rotate=90,xshift=-1mm] (triangle) at (-3,0) {};
+  \node[draw,rectangle,minimum width=2cm,minimum height=1cm] (rectangle) at
+  (0,0) {BOX};
+  \node[draw,red,isosceles triangle,isosceles triangle apex
+  angle=60,anchor=center,rotate=90,xshift=-1mm] (triangle2) at (3,0.25) {};
+  \node[draw,red,isosceles triangle,isosceles triangle apex
+  angle=60,anchor=center,rotate=90,xshift=-1mm] (triangle3) at (3,-0.25) {};
+  \node (plus) at (3.6, 0) {$+$};
+  \node (dollars) at (4.1, 0) {$\$4$};
+
+  \draw[->,shorten <=10pt,shorten >=5pt] (-3,0) -- (rectangle);
+  \draw[->,shorten <=5pt,shorten >=10pt] (rectangle) -- (3,0);
+ \end{tikzpicture}
+\end{center}
+
+This function receives a $\tr{\triangle}$ of some price and gives back two such
+$\tr{\triangle}$'s and $\$ 4$. A \emph{linear equation} is a comparison of the
+total price of things two (typically different) functions give back when
+receiving \textbf{the same thing}. The \emph{solution} is the \textbf{price of
+the thing} for which the total prices of things given back by these two
+functions are equal. One can visualize it like this:
+\begin{center}
+ \begin{tikzpicture}
+  \node[draw,red,isosceles triangle,isosceles triangle apex
+  angle=60,anchor=center,rotate=90,xshift=-1mm] (triangle1) at (-6,0) {};
+  \node[draw,rectangle,minimum width=2cm,minimum height=1cm] (box1) at
+  (-3,0) {BOX \#1};
+  \node[draw,circle,align=center] (total price) at (0, 0) {TOTAL\\PRICE};
+  \node[draw,rectangle,minimum width=2cm,minimum height=1cm] (box2) at
+  (3,0) {BOX \#2};
+  \node[draw,red,isosceles triangle,isosceles triangle apex
+  angle=60,anchor=center,rotate=90,xshift=-1mm] (triangle2) at (6,0) {};
+
+  \draw[->,shorten <=10pt,shorten >=5pt] (-6,0) -- (box1);
+  \draw[->,shorten <=5pt,shorten >=5pt] (box1) -- (total price);
+
+  \draw[->,shorten <=5pt,shorten >=5pt] (box2) -- (total price);
+  \draw[->,shorten <=10pt,shorten >=5pt] (6, 0) -- (box2);
+ \end{tikzpicture}
+\end{center}
+Of course, one typically calls BOX \#1 and BOX \#2 by letters, such as $f$ and
+$g$ and treats them as linear functions in one variable. Then, the picture above
+is simply written as $f(\tr{\triangle}) = g(\tr{\triangle})$.
+
+\subsection*{Exercises.}
+\begin{enumerate}[topsep=0pt,label=\arabic*.]
+ \item Sir Minkowski and Sir Riemann are pickpockets. Sir Minkowski boasts that
+  he robs on average 5 people a day of their wallets and finds on average \$50
+  by picking coins from the ground. Sir Riemann takes a nobler approach. He only
+  ever robs or cajoles people and deigns not pick money from the ground. On
+  average, he robs 7 people a day of their wallets. How much money must an
+  average person's wallet contain so that Sir Riemann and Sir Minkowski have
+  gained the same amount of money by the end of each day?
+
+  Express the total value both Sir Riemann and Sir Minkowski acquire each day as
+  linear functions and compare their outputs. What does the \textbf{variable} of
+  these functions represent? What does the \textbf{value/output} of these
+  functions represent? Are they the same?
+
+ \item The cryptocurrencies Dogecoin and Freedomcoin are steadily losing their
+  value (as expressed in US Dollars). At the time of writing, Dogecoin stands at
+  \$0.094 apiece and Freedomcoin stands at \$0.0188 apiece. For every lost
+  investor, the value of Dogecoin drops by 0.1 \% of its current value. Assuming
+  that Freedomcoin loses no investors, how many investors does Dogecoin have to
+  lose so that its value falls to the value of Freedomcoin?
+
+  Express the drop in value based on the number of lost investors as a linear
+  function. Compare it to the value of Freedomcoin. As the numbers are ugly,
+  \textbf{you simply have to construct the equation, not solve it}.
+\end{enumerate}
+
+\section*{Linear equations as scales}
+
+This interpretation of linear equations is based on the comparison of
+\emph{weights} of objects. Unlike in physics, we have no qualms about giving our
+objects negative weights. The bowls of the given pair of scales contain one type
+of object (whose weight we typically don't know) and then some absolute weights.
+The word \emph{equation} is here expressed in a fact that the scales are always
+in balance. The \emph{solution} to such an equation is a situation where in
+either bowl, there is only one object of unknown value and in the other are only
+absolute weights.
+
+For instance, one possible solution to the equation
+\begin{center}
+ \begin{tikzpicture}
+  \draw (-5,2) -- (-2,2);
+  \draw (2,2) -- (5,2);
+  \draw (-3.5,2) -- (-3.5,1);
+  \draw (3.5,2) -- (3.5,1);
+  \draw (-3.5,1) -- (3.5,1);
+  \node[draw,isosceles triangle,isosceles triangle apex
+  angle=60,anchor=center,rotate=90,inner xsep=6mm,xshift=2mm] (triangle) at
+  (0,0) {};
+
+  \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at
+  (-4.6, 2.3) {};
+  \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at (-4,
+  2.3) {};
+  \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at
+  (-3.4, 2.3) {};
+  \node[draw,trapezium,inner xsep=0pt] at (-2.6, 2.3) {$-3$};
+  \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at (2.7, 2.3) {};
+  \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at (3.3, 2.3) {};
+  \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at (3.3,
+  2.9) {};
+  \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at (2.7,
+  2.9) {};
+  \node[draw,trapezium,inner xsep=0pt] at (4.1, 2.3) {$-5$};
+ \end{tikzpicture}
+\end{center}
+is the following state of the scales:
+\begin{center}
+ \begin{tikzpicture}
+  \draw (-5,2) -- (-2,2);
+  \draw (2,2) -- (5,2);
+  \draw (-3.5,2) -- (-3.5,1);
+  \draw (3.5,2) -- (3.5,1);
+  \draw (-3.5,1) -- (3.5,1);
+  \node[draw,isosceles triangle,isosceles triangle apex
+  angle=60,anchor=center,rotate=90,inner xsep=6mm,xshift=2mm] (triangle) at
+  (0,0) {};
+
+  \node[draw,trapezium,inner xsep=2pt] at (-3.5, 2.3) {$2$};
+  \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at (3.5, 2.3) {};
+ \end{tikzpicture}
+\end{center}
+
+\subsection*{Exercises.}
+\begin{enumerate}[topsep=0pt,label=\arabic*.]
+ \item Pharaoh Amenhotep had been a notoriously known swindler. He would fill
+  hollow objects with dirt to increase their weight and thus sell them for more
+  gold. Knowing that the following scales are in balance
+ \begin{center}
+  \begin{tikzpicture}
+   \draw (-5,2) -- (-2,2);
+   \draw (2,2) -- (5,2);
+   \draw (-3.5,2) -- (-3.5,1);
+   \draw (3.5,2) -- (3.5,1);
+   \draw (-3.5,1) -- (3.5,1);
+   \node[draw,isosceles triangle,isosceles triangle apex
+   angle=60,anchor=center,rotate=90,inner xsep=6mm,xshift=2mm] (triangle) at
+   (0,0) {};
+
+   \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at
+   (-4.4, 2.3) {};
+   \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at
+   (-3.8,
+   2.3) {};
+   \node[draw,blue,rectangle,minimum width=5mm, minimum height=5mm] at
+   (-3.2, 2.3) {};
+   \node[draw,blue,rectangle,minimum width=5mm, minimum height=5mm] at
+   (-2.6, 2.3) {};
+   2.9) {};
+   \node[draw,trapezium,inner xsep=0pt] at (3.5, 2.3) {$12$};
+  \end{tikzpicture}
+ \end{center}
+  where $\tb{\square}$ are the hollow objects and $\tb{\blacksquare}$ are those
+  filled with dirt, determine the weight of $\tb{\square}$ if one
+  $\tb{\blacksquare}$ is 2 kg heavier than one $\tb{\square}$.
+ \item The following scales are in balance:
+ \begin{center}
+  \begin{tikzpicture}
+   \draw (-5,2) -- (-2,2);
+   \draw (2,2) -- (5,2);
+   \draw (-3.5,2) -- (-3.5,1);
+   \draw (3.5,2) -- (3.5,1);
+   \draw (-3.5,1) -- (3.5,1);
+   \node[draw,isosceles triangle,isosceles triangle apex
+   angle=60,anchor=center,rotate=90,inner xsep=6mm,xshift=2mm] (triangle) at
+   (0,0) {};
+
+   \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at
+   (-4.1, 2.3) {};
+   \node[draw,red,fill,circle,minimum width=5mm, minimum height=5mm] at
+   (-3.5,
+   2.3) {};
+   \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at
+   (-2.9, 2.3) {};
+   \node[draw,green,fill,regular polygon,regular polygon sides=3,outer sep=0pt,
+   inner sep=1.1mm,yshift=0.2mm] at (-2.9, 2.8) {};
+   \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at
+   (-3.5, 2.9) {};
+   \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at
+   (-2.9, 3.5) {};
+   \node[draw,green,fill,regular polygon,regular polygon sides=3,outer sep=0pt,
+   inner sep=1.1mm,yshift=0.2mm] at (-3.5, 3.4) {};
+
+   \node[draw,trapezium,inner xsep=2pt] at (3, 2.3) {$5$};
+   \node[draw,trapezium,inner xsep=0pt] at (4, 2.3) {$10$};
+  \end{tikzpicture}
+ \end{center}
+ Find a way to remove all objects from both bowls \textbf{without ever breaking
+ the balance} assuming that the scales
+ \begin{center}
+  \begin{tikzpicture}
+   \draw (-5,2) -- (-2,2);
+   \draw (2,2) -- (5,2);
+   \draw (-3.5,2) -- (-3.5,1);
+   \draw (3.5,2) -- (3.5,1);
+   \draw (-3.5,1) -- (3.5,1);
+   \node[draw,isosceles triangle,isosceles triangle apex
+   angle=60,anchor=center,rotate=90,inner xsep=6mm,xshift=2mm] (triangle) at
+   (0,0) {};
+
+   \node[draw,blue,fill,rectangle,minimum width=5mm, minimum height=5mm] at
+   (3.2, 2.3) {};
+   \node[draw,red,fill,circle,minimum width=5mm, minimum height=5mm] at
+   (3.8, 2.3) {};
+   \node[draw,green,fill,regular polygon,regular polygon sides=3,outer sep=0pt,
+   inner sep=1.1mm,yshift=0.2mm] at (-3.5, 2.2) {};
+  \end{tikzpicture}
+ \end{center}
+ are also in balance. \textbf{You are not allowed to add objects to the scales
+ or to split weights. You can only remove objects as they are and you must
+ maintain the balance of the scales in the process}.
+\end{enumerate}
+
+\section*{Linear equations as lines}
+
+Given some linear equation, for example
+\[
+ \tr{3x - 1} = \tb{2x + 1},
+\]
+one can look at the left side and right side separately as linear functions in
+one variable. We know that we can visualize linear functions in one variable as
+lines. Hence, the \emph{equation} in this case is a `drawing' of two lines in
+the plane. In this case, we let $\tr{f(x)} = \tr{3x - 1}$ and $\tb{g(x)} =
+\tb{2x + 1}$ and draw the values of $x$ on the horizontal axis and the values of
+both $\tr{f}$ and $\tb{g}$ on the vertical. For each, we calculate two points
+(that is all we need to draw a line). We can put them into a table:
+\begin{center}
+ \begin{tabular}{c|cc}
+  $x$ & $0$ & $1$\\
+  \cmidrule{1-3}
+  $\tr{f(x)}$ & $\tr{-1}$ & $\tr{2}$\\
+  \cmidrule{1-3}
+  $\tb{g(x)}$ & $\tb{1}$ & $\tb{3}$
+ \end{tabular}
+\end{center}
+
+Using these points to draw our two lines gives the following picture.
+
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+  \tkzInit[xmax=4,ymax=4,xmin=-4,ymin=-4]
+  \tkzGrid
+   \tkzLabelX
+   \tkzDrawX
+
+  \tkzDefPoint(0, -1){f1}
+  \tkzDefPoint(1, 2){f2}
+ \end{tikzpicture}
+\end{center}
+
+\end{document}
