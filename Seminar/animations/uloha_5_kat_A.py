@@ -5,7 +5,6 @@ from uloha_5_kat_A_config import *
 
 
 def angle_bisector(p: Line, q: Line) -> Line:
-<<<<<<< HEAD
     """ Returns the angle bisector of the angle between the two lines. """
 
     length = max(p.get_length(), q.get_length())
@@ -36,7 +35,6 @@ def line_intersection(p: Line, q: Line) -> np.ndarray:
         ((x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4))
 
     return np.array([x, y, 0])
-=======
     """ Return the angle bisector of two lines."""
     p = p.copy()
     q = q.copy()
@@ -46,12 +44,10 @@ def line_intersection(p: Line, q: Line) -> np.ndarray:
     b.rotate((p.get_angle() + q.get_angle()) / 2, about_point=b.get_start())
 
     return b
->>>>>>> d30123628076a7a21cb955a8c888b3a99b42b859
 
 
 class Uloha5(Scene):
     def construct(self):
-<<<<<<< HEAD
 
         self.next_section("Intro", skip_animations=False)
 
@@ -236,7 +232,6 @@ class Uloha5(Scene):
                        stroke_width=PAR_STROKE_WIDTH, z_index=PAR_Z_INDEX + 1)
 
         self.play(Create(AYVX), run_time=2)
-=======
         # create ABC
         ABC = Polygon(
             np.array([-6, 0, 0]),
@@ -264,6 +259,5 @@ class Uloha5(Scene):
         D = Intersection(ABC, b, color=GREEN, fill_opacity=1, z_index=10)
 
         self.play(Create(b), Create(D))
->>>>>>> d30123628076a7a21cb955a8c888b3a99b42b859
 
         self.pause(2)
