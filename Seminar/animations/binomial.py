@@ -14,13 +14,17 @@ class Binomial(Scene):
         # tex template stuff
         tex_template = TexTemplate()
         tex_template.add_to_preamble(
+            r"\usepackage[utf8]{inputenc}", True)
+        tex_template.add_to_preamble(
+            r"\usepackage[T1]{fontenc}", True)
+        tex_template.add_to_preamble(
             r"\usepackage[czech,english]{babel}", True)
         tex_template.add_to_preamble(r"\usepackage{mathtools}")
 
         self.next_section("Intro Text", skip_animations=True)
 
         intro_text = MathTex(
-            "U_k(", "X", ")", r"\coloneqq", r"\#", r"\{", "(", "x_1", ",",
+            "U_3(", "X", ")", r"\coloneqq", r"\#", r"\{", "(", "x_1", ",",
             "x_2", ",", "x_3", ")", r"\in", "X", r"^3", r"\mid", "x_1", ",",
             "x_2", ",", "x_3", r"\text{ navzájem různé}", r"\}",
             substrings_to_isolate=["X", "x_1", "x_2", "x_3"],
@@ -38,9 +42,8 @@ class Binomial(Scene):
         self.next_section("Creating the set X...", skip_animations=True)
 
         # random elements trackers
-        elem_labels = [intro_text[7], intro_text[9], intro_text[11]]
-        for label in elem_labels:
-            label.save_state()
+        elem_labels = VGroup(*[intro_text[7], intro_text[9], intro_text[11]])
+        elem_labels.save_state()
 
         # the set X
         X = VGroup(
@@ -133,18 +136,85 @@ class Binomial(Scene):
             )
         self.wait(2)
 
-        self.next_section("Randomly permuting X...", skip_animations=False)
+        self.next_section("Randomly permuting X...", skip_animations=True)
 
         # generate targets for elements of X to shuffle to
         for element in X[1:]:
             element.generate_target()
 
         # shuffle the elements of X repeatedly
-        for _ in range(5):
+        for _ in range(3):
             self.shuffle_set(X)
 
             # animate the shuffle
             self.play(*list(map(MoveToTarget, X[1:])))
-            self.wait(1)
+            self.wait(2)
+
+        self.next_section("Calculating U_3(X)...", skip_animations=True)
+
+        # returning intro text to its original state and fading out A, X
+        arrows.clear_updaters()
+        elem_labels.clear_updaters()
+        self.play(
+            *[FadeOut(mob) for mob in [A, X, arrows, A_labels]],
+            Restore(elem_labels),
+            *[FadeIn(intro_text[i]) for i in range(len(intro_text))
+              if i not in [7, 9, 11]]
+        )
+
+        # text about injective funcs
+        injective_text = MathTex(
+            r"= \text{počet prostých funkcí } \{1, 2, 3\} \to", "X",
+            substrings_to_isolate="X",
+            tex_to_color_map={
+                "X": Config.Color.X_COLOR
+            },
+            tex_template=tex_template
+        ).next_to(intro_text, DOWN, buff=0.5).align_to(intro_text[3], LEFT)
+
+        self.play(Write(injective_text))
+
+        intro_text.add(injective_text)
+
+        # text calculating injective funcs
+        calc_text = MathTex(
+            r"= \prod_{i=0}^{3 - 1} \#", "X", " - i.",
+            substrings_to_isolate="X",
+            tex_to_color_map={
+                "X": Config.Color.X_COLOR
+            },
+            tex_template=tex_template
+        ).next_to(intro_text, DOWN, buff=0.5).align_to(intro_text[3], LEFT)
+
+        self.wait(1)
+
+        self.play(Write(calc_text))
+
+        intro_text.add(calc_text)
+
+        self.wait(2)
+
+        self.next_section("Choosing k elements from X", skip_animations=False)
+        # fading everything out
+        self.play(FadeOut(intro_text))
+
+        # create X as a rectangular grid
+        X = VGroup(
+            MathTex("X", color=Config.Color.X_COLOR),
+            VGroup(
+                Rectangle(color=Config.Color.X_COLOR,
+                          fill_opacity=0, width=6, height=1),
+            )
+        ).arrange(DOWN).shift(2 * UP)
+
+        X_bars = VGroup(*[Line(
+            start=X[1].get_corner(UP + LEFT) + (i + 1) * RIGHT,
+            end=X[1].get_corner(DOWN + LEFT) + (i + 1) * RIGHT,
+            color=Config.Color.X_COLOR,
+            stroke_width=3)
+            for i in range(5)
+        ])
+
+        self.play(Write(X[0]), Create(X[1]), Create(X_bars))
 
         self.wait(2)
