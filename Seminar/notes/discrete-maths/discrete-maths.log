@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.14)  2 FEB 2023 19:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.14)  16 FEB 2023 21:21
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1732,7 +1732,7 @@ LaTeX Font Info:    Font shape `T1/cantarell-TLF/b/n' will be
 
  [3
 
-] [4
+] [4] [5
 
 ] (./zajimave-problemy.tex (./studne.tex
 LaTeX Font Info:    Font shape `T1/cantarell-TLF/b/n' will be
@@ -2491,8 +2491,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [44]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 526.
-Package mdframed Info: Not enough space on this page on input line 532.
+(mdframed)              on input line 527.
+Package mdframed Info: Not enough space on this page on input line 533.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2502,22 +2502,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
 [45]
-Package mdframed Info: Not enough space on this page on input line 532.
+Package mdframed Info: Not enough space on this page on input line 533.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 535.
+(mdframed)              on input line 536.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 542.
+(mdframed)              on input line 543.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 552.
+(mdframed)              on input line 553.
 
-Overfull \hbox (2.01733pt too wide) in paragraph at lines 567--569
+Overfull \hbox (2.01733pt too wide) in paragraph at lines 568--570
 []\T1/jkp/m/n/12 * Na-vrh-n¥te al-go-rit-mus, který pro da-nou per-mu-taci $\OML/jkp/m/it/12 ^^[ \OMS/jkp/m/n/12 2 \OML/jkp/m/it/12 S[]$ \T1/jkp/m/n/12 spo£te
  []
 
-))
+) (./kombinacni-cisla.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.01804pt, for example:
@@ -2525,23 +2525,43 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
-[46] (./discrete-maths.aux)
+[46]
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 15.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[47]))
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[48] (./discrete-maths.aux)
 Package rerunfilecheck Info: File `discrete-maths.out' has not changed.
-(rerunfilecheck)             Checksum: 1161B563BD03B98450FFC4F92BDEF904;2729.
+(rerunfilecheck)             Checksum: 89F2E064ACC6427693E210E40500670A;2882.
  ) 
 Here is how much of TeX's memory you used:
- 59799 strings out of 475071
- 1385533 string characters out of 5782907
- 1910922 words of memory out of 5000000
- 79939 multiletter control sequences out of 15000+600000
+ 59817 strings out of 475071
+ 1385902 string characters out of 5782907
+ 1911059 words of memory out of 5000000
+ 79948 multiletter control sequences out of 15000+600000
  557464 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,18n,121p,756b,1378s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cantarell/a_5r5lpu.enc}<c:/texlive/2022/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Bold.pfb><c:/texlive/2022/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Regular.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpexa.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpsya.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpsyb.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb>
-Output written on discrete-maths.pdf (50 pages, 348909 bytes).
+Output written on discrete-maths.pdf (53 pages, 356893 bytes).
 PDF statistics:
- 722 PDF objects out of 1000 (max. 8388607)
- 604 compressed objects within 7 object streams
- 248 named destinations out of 1000 (max. 500000)
- 309 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 745 PDF objects out of 1000 (max. 8388607)
+ 624 compressed objects within 7 object streams
+ 254 named destinations out of 1000 (max. 500000)
+ 317 words of extra memory for PDF output out of 10000 (max. 10000000)
 
