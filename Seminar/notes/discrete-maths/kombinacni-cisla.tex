@@ -1,7 +1,7 @@
 \subsection{Kombinační čísla}
 \label{ssec:kombinacni-cisla}
 
-V této podsekci se budeme zabývat asi poměrně přirozenou otázkou -- kolik má
+V této sekci se budeme zabývat asi poměrně přirozenou otázkou -- kolik má
 množina $X$ podmnožin velikosti $k$, kde $k$ může být libovolné číslo od $0$ do
 $\# X$. Pro $k=0$ i $k=\# X$ je odpověď jednoduchá: přesně jednu. Pro $k = 1$
 člověku hádám taky dojde, že jednoprvková podmnožina je vlastně totéž, co její
@@ -42,16 +42,16 @@ Zatím všechny věci, které jsme počítali, byly v jistém smyslu \emph{uspo�
 Počet všech zobrazení $A \to B$ jsme počítali tak, že jsme prvky $A$
 \textbf{jeden po druhém} zobrazovali na prvky $B$. Vlastně nevědomky jsme si tak
 nějakým náhodným způsobem \emph{uspořádali} množinu $A$, aby se nám dobře
-počítalo. Permutace jsou v podstatě přímo definované tak, že mění
-\emph{uspořádání} prvků na množině.
+počítalo. Permutace jsou taky přímo definované tak, že mění \emph{uspořádání}
+prvků na množině.
 
 Vybrat si nějaké uspořádání na $X$ a všechny její podmnožiny pak považovat za
 uspořádané podle stejného uspořádání je chytrý nápad, který přinese ovoce. Na
-konci výpočtu je však potřeba zanedbat všechny možné způsoby, kterými jsem
-$k$-prvkové množiny mohl uspořádat. Uvidíte, že nám nakonec opravdu vyjde, že
+konci výpočtu je však potřeba zanedbat všechny možné způsoby, kterými jsme 
+$k$-prvkové množiny mohli uspořádat. Uvidíte, že nám nakonec opravdu vyjde, že
 počet všech $k$-prvkových podmnožin $X$ je vlastně počet všech $k$-prvkových
-podmnožin $X$ s nějakým konkrétním uspořádáním dělen počtem způsobů, kolika jsem
-takové uspořádání mohl zvolit.
+podmnožin $X$ s nějakým konkrétním uspořádáním dělen počtem způsobů, kolika jsme
+takové uspořádání mohli zvolit.
 
 Pojďme tedy místo množiny $\{x_1,\ldots,x_k\}$ uvažovat její \uv{uspořádanou
 verzi}, tím míním $k$-tici $(x_1,\ldots,x_k)$. Rozdíl je samozřejmě v tom, že
@@ -64,9 +64,72 @@ různých takových $k$-tic mi z jedné množiny může vzniknout. No přeci tol
 kolika způsoby mohu mezi sebou proházet (nebo třeba cizeji \uv{pro\-permutovat}
 $\leftarrow$ hint btw) její prvky. Každá permutace na $\{x_1,\ldots,x_k\}$ mi
 určuje přesně jedno možné uspořádání. Těch je, podle
- \hyperref[prop:pocet-permutaci-na-mnozine]{tvrzení~\ref*{prop:pocet-permutaci-na-mnozine}},
- $k!$. Z~definice máme $\# \binom{X}{k}$ různých $k$-prvkových podmnožin $X$ a
- každá určuje $k!$ uspořádaných $k$-tic. Celkem těchto tedy máme $k! \cdot \#
- \binom{X}{k}$. To činí jednu stranu naší rovnice.
+\hyperref[prop:pocet-permutaci-na-mnozine]{tvrzení~\ref*{prop:pocet-permutaci-na-mnozine}},
+$k!$. Z~definice máme $\# \binom{X}{k}$ různých $k$-prvkových podmnožin $X$ a
+každá určuje $k!$ uspořádaných $k$-tic. Celkem těchto tedy máme $k! \cdot \#
+\binom{X}{k}$. To činí jednu stranu naší rovnice.
 
-Na druhé straně, vybrat 
+Na druhé straně, vybrat $k$ prvků z $X$ a nějak je uspořádat je přeci to samé,
+jako jim nějak přiřadit čísla od $1$ do $k$. Takovéhle přiřazení mi určí přesně,
+v jakém pořadí prvky $x_1,\ldots,x_k$ jsou. Tedy, ten prvek, který dostane $1$,
+jde první, ten s $2$ jde druhý atd.
+
+Uvědomme si, že výběr přesně $k$ prvků z množiny $X$ a jejich následné
+uspořádání (tedy přiřazení čísel od $1$ do $k$) je vlastně prosté zobrazení ${f:
+\{1,\ldots,k\} \to X}$. Každému takovému zobrazení odpovídá uspořádaná $k$-tice
+$(f(1),\ldots,f(k))$ prvků z $X$ a naopak každou $k$-tici $(x_1,\ldots,x_k)$
+lze považovat za prosté zobrazení $g: \{1,\ldots,k\} \to X$ takové, že
+$g(i)=x_i$ pro všechna $i \leq k$. Čili, pro každou podmnožinu
+$\{x_1,\ldots,x_k\} \subseteq X$ mám tolik uspořádaných $k$-tic
+$(x_1,\ldots,x_k)$ jako mám prostých zobrazení $\{1,\ldots,k\} \to X$. Podle
+\hyperref[claim:pocet-prostych-zobrazeni]{tvrzení~\ref*{claim:pocet-prostych-zobrazeni}}
+je tento počet roven $\prod_{i=0}^{k-1} \#X-i$.
+
+Na závěr již stačí obě množství vzniklá dvěma různými způsoby počítání
+uspořádaných $k$-prvkových podmnožin $X$ porovnat. Dostaneme
+\[
+ \prod_{i=0}^{k-1} \# X-i = k! \cdot \# \binom{X}{k}, 
+\]
+odkud okamžitě plyne
+\[
+ \# \binom{X}{k} = \frac{\prod_{i=0}^{k-1} \# X - i}{k!}.
+\]
+
+Diskuse tvořící obsah předchozích dvou stránek je velmi obšírným důkazem
+následujícího tvrzení.
+
+\begin{claim}[Počet $k$-prvkových podmnožin]
+ \label{claim:pocet-k-prvkovych-podmnozin}
+ Ať $X$ je konečná množina. Pak počet všech $k$-prvkových podmnožin $X$ je roven
+ \[
+  \frac{\prod_{i=0}^{k-1} \# X - i}{k!}.
+ \]
+\end{claim}
+
+K tomuto tvrzení se víže definice tzv. \emph{kombinačního čísla}.
+
+\begin{definition}[Kombinační číslo]
+ \label{def:kombinacni-cislo}
+ Ať $k,n \in \N$ a $k \leq n$. Pak definujeme
+ \[
+  \binom{n}{k} \coloneqq \frac{\prod_{i=0}^{k-1} n-i }{k!}.
+ \]
+ Výraz $\binom{n}{k}$ čteme $n$ nad $k$.
+\end{definition}
+
+V závěsu \hyperref[def:kombinacni-cislo]{definice~\ref*{def:kombinacni-cislo}}
+můžeme
+\hyperref[claim:pocet-k-prvkovych-podmnozin]{tvrzení~\ref*{claim:pocet-k-prvkovych-podmnozin}}
+přepsat jako rovnost
+\[
+ \# \binom{X}{k} = \binom{\# X}{k}.
+\]
+
+Ve škole se často učí interpretace kombinačního čísla $\binom{n}{k}$ jako
+\uv{počet způsobů, jak volit $k$ předmětů z $n$ bez závislosti na pořadí}. Ta je
+plně v souladu s naší definicí, interpretujeme-li $X$ jako množinu předmětů a
+jednu její $k$-prvkovou podmnožinu jako výběr $k$ předmětů, kde však
+pochopitelně (jedná se o \textbf{podmnožinu}) nezáleží na jejich uspořádání.
+
+\input{rozklad-na-scitance}
+\input{par-vlastnosti-kombinacnich-cisel}
