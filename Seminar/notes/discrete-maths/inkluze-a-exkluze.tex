@@ -1,0 +1,238 @@
+\subsection{Princip inkluze a exkluze}
+\label{ssec:princip-inkluze-a-exkluze}
+
+Další základní úlohou, která se objevuje napříč diskrétní matematikou, je
+problém velikosti sjednocení množin.
+
+Velikost průniku se dá spočítat snadno. Člověk se zkrátka podívá, které prvky
+leží v každé množině, a spočítá je. Vlastně stačí vzít tu nejmenší množinu a
+započítat jen ty prvky, které leží i ve všech ostatních.
+
+Se sjednocením je to však těžší, neboť některé prvky mohou ležet v jedné
+množině, ve všech množinách nebo v jakémkoli počtu množin mezi těmito extrémy.
+Měl-li by člověk počítat velikost sjednocení manuálně, musel by množiny
+procházet jednu po druhé a navíc si u každého prvku pamatovat, zda ho už
+započetl, či ještě ne. Tento způsob je sice algoritmicky přímočarý, ale
+neefektivní i z~hlediska výpočetního. Navíc často není ani použitelný, protože
+se může stát, že znám jen velikosti jednotlivých množin, ale ne přesný výčet 
+jejich prvků. Lepší způsob, který si teď ukážeme a vysvětlíme, počítá, možná i
+trochu překvapivě, velikost sjednocení vlastně jako součet přes všechny možné
+průniky.
+
+Nejprve jakýsi \uv{motivační} příklad. Jeho praktické využití je za účelem
+zachování jednoduchosti pravdaže poněkud omezené.
+
+\begin{example}
+ \label{exam:inkluze-exkluze}
+ Na Gymnáziu Growth Severní Obec je možné se učit třem cizím jazykům -- němčině,
+ španělštině a francouzštině. Německy se učí 30 studentů, španělsky 25 studentů
+ a 2 velmi nešťastné osoby se učí francouzsky. Přitom, mezi němčináři jsou 4
+ španělštináři a jeden bageťák. Exkluzivně románským jazykům neholduje nikdo.
+ Jeden no-lifer se ale dokonce učí všem třem jazykům naráz.
+
+ Kolik celkem studentů se učí aspoň jednomu cizímu jazyku?
+\end{example}
+
+Můžete si zkusit úlohu vyřešit manuálně. Chvíli vám to zabere a na konci navíc
+zjistíte, že jste vynalezli tzv. \emph{princip inkluze a exkluze}, což je
+honosný název pro vzoreček, který říká, že velikost sjednocení množin dostanu
+tak, že sečtu velikosti všech průniků lichého počtu množin a odečtu velikosti
+průniků sudého počtu množin.
+
+Protože vám předchozí věta vůbec nic neřekla, ukážeme si nejprve na třech
+množinách (a pomocí obrázků), jak \emph{princip inkluze a exkluze} funguje.
+
+Uvažujme tři množiny $\clr{A},\clb{B}$ a $\clg{C}$ s neprázdným průnikem, tedy
+$\clr{A} \cap \clb{B} \cap \clg{C} \neq \emptyset$. Nakreslenou vidíte tuto
+situaci na
+\hyperref[fig:inkluze-exkluze-1]{obrázku~\ref*{fig:inkluze-exkluze-1}}.
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \begin{scope}[blend group=soft light]
+   \fill[blue!70!white] (30:1.3) circle (2cm);
+   \fill[red!70!white] (150:1.3) circle (2cm);
+   \fill[green!70!white] (270:1.3) circle (2cm);
+  \end{scope}
+  \draw[gray,very thick] (30:1.3) circle (2cm);
+  \draw[gray,very thick] (150:1.3) circle (2cm);
+  \draw[gray,very thick] (270:1.3) circle (2cm);
+ \end{tikzpicture}
+ \caption{Množiny $\clr{A}, \clb{B}, \clg{C}$ s neprázdným průnikem.}
+ \label{fig:inkluze-exkluze-1}
+\end{figure}
+
+Budeme nyní počítat velikost sjednocení $\clr{A} \cup \clb{B} \cup \clg{C}$.
+
+Za předpokladu, že by množiny byly disjunktní, stačilo by zkrátka sečíst
+velikosti jednotlivých množin. V této situaci však započteme některé prvky
+vícekrát. Stane se to proto, že když sečtu třeba $\# \clr{A} + \# \clb{B}$, tak
+prvky, které leží i v $\clr{A}$ i v $\clb{B}$ (tedy ty v průniku
+\textcolor[HTML]{7f33e8}{$A \cap B$}) započtu dvakrát. Na
+\hyperref[fig:inkluze-exkluze-2]{obrázku níže} vidíte, kolikrát započteme který
+\uv{díl} svého Vennova diagramu.
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \begin{scope}[blend group=soft light]
+   \fill[blue!70!white] (30:1.3) circle (2cm);
+   \fill[red!70!white] (150:1.3) circle (2cm);
+   \fill[green!70!white] (270:1.3) circle (2cm);
+  \end{scope}
+  \draw[gray,very thick] (30:1.3) circle (2cm);
+  \draw[gray,very thick] (150:1.3) circle (2cm);
+  \draw[gray,very thick] (270:1.3) circle (2cm);
+  
+  \foreach \angle in {30,150,270} {
+   \node at (\angle:2) {\Large $1$};
+  }
+  \foreach \angle in {90,210,330} {
+   \node at (\angle:1.3) {\Large $2$};
+  }
+  \node at (0,0) {\Large $3$};
+ \end{tikzpicture}
+ \caption{Znázornění součtu $\# \clr{A} + \# \clb{B} + \# \clg{C}$.}
+ \label{fig:inkluze-exkluze-2}
+\end{figure}
+
+Jak můžete vyčíst z \hyperref[fig:inkluze-exkluze-2]{obrázku}, některé průniky
+jsme započítali mockrát. Černá čísla značí, kolikrát jsme každý kousek
+sjednocení započetli, když jsme sečetli $\# \clr{A} + \# \clb{B} + \# \clg{C}$.
+Například jsme tedy započetli každý prvek ležící v průniku
+$\textcolor[HTML]{e78033}{A \cap C}$ dvakrát a každý prvek v průniku
+$\textcolor[HTML]{6a6ee9}{A \cap B \cap C}$ dokonce třikrát.
+
+Abychom situaci napravili, a započetli průnik každého páru množin jen jednou,
+odečteme od součtu $\# \clr{A} + \# \clb{B} + \# \clg{C}$ velikosti všech
+průniků dvou množin. Odpovídající diagram vidíte
+\hyperref[fig:inkluze-exkluze-3]{níže}.
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \begin{scope}[blend group=soft light]
+   \fill[blue!70!white] (30:1.3) circle (2cm);
+   \fill[red!70!white] (150:1.3) circle (2cm);
+   \fill[green!70!white] (270:1.3) circle (2cm);
+  \end{scope}
+  \draw[gray,very thick] (30:1.3) circle (2cm);
+  \draw[gray,very thick] (150:1.3) circle (2cm);
+  \draw[gray,very thick] (270:1.3) circle (2cm);
+  
+  \foreach \angle in {30,150,270} {
+   \node at (\angle:2) {\Large $1$};
+  }
+  \foreach \angle in {90,210,330} {
+   \node at (\angle:1.3) {\Large $1$};
+  }
+  \node at (0,0) {\Large $0$};
+ \end{tikzpicture}
+ \caption{Znázornění výrazu $\# \clr{A} + \# \clb{B} + \# \clg{C} - \#
+ \textcolor[HTML]{7f33e8}{A \cap B} - \# \textcolor[HTML]{e78033}{A \cap C} - \#
+ \textcolor[HTML]{3a87ef}{B \cap C}$.}
+ \label{fig:inkluze-exkluze-3}
+\end{figure}
+
+Ovšem, nyní jsme zase odečetli třikrát průnik $\textcolor[HTML]{6a6ee9}{A \cap B
+\cap C}$, protože každý prvek v $\textcolor[HTML]{6a6ee9}{A \cap B \cap C}$ leží
+zároveň v $\textcolor[HTML]{7f33e8}{A \cap B}$, v $\textcolor[HTML]{e78033}{A
+\cap C}$ i v $\textcolor[HTML]{3a87ef}{B \cap C}$, a ty jsme všechny odečetli.
+Tedy nám z průniku $\textcolor[HTML]{6a6ee9}{A \cap B \cap C}$ žádné prvky
+nezůstaly. Situaci napravíme tím, že jeho velikost přičteme zpátky. Celkově
+dostaneme pro velikost sjednocení $\# A \cup B \cup C$ vzorec
+\[
+ \# A \cup B \cup C = \# \clr{A} + \# \clb{B} + \# \clg{C} - \#
+ \textcolor[HTML]{7f33e8}{A \cap B} - \# \textcolor[HTML]{e78033}{A \cap C} - \#
+ \textcolor[HTML]{3a87ef}{B \cap C} + \# \textcolor[HTML]{6a6ee9}{A \cap B \cap
+ C}.
+\]
+Finální znázornění vidíte na
+\hyperref[fig:inkluze-exkluze-4]{obrázku~\ref*{fig:inkluze-exkluze-4}}.
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \begin{scope}[blend group=soft light]
+   \fill[blue!70!white] (30:1.3) circle (2cm);
+   \fill[red!70!white] (150:1.3) circle (2cm);
+   \fill[green!70!white] (270:1.3) circle (2cm);
+  \end{scope}
+  \draw[gray,very thick] (30:1.3) circle (2cm);
+  \draw[gray,very thick] (150:1.3) circle (2cm);
+  \draw[gray,very thick] (270:1.3) circle (2cm);
+  
+  \foreach \angle in {30,150,270} {
+   \node at (\angle:2) {\Large $1$};
+  }
+  \foreach \angle in {90,210,330} {
+   \node at (\angle:1.3) {\Large $1$};
+  }
+  \node at (0,0) {\Large $1$};
+ \end{tikzpicture}
+ \caption{Velikost sjednocení $\# A \cup B \cup C$ podle principu inkluze a
+ exkluze.}
+ \label{fig:inkluze-exkluze-4}
+\end{figure}
+
+Formální znění principu inkluze a exkluze dí, že tento postup funguje zcela
+obecně, tedy že pokud průniky sudého počtu množin odečítám a lichého počtu
+přičítám, dostanu tím velikost sjednocení.
+
+Ještě předtím, než ho uvedeme a dokážeme, si ale určíme počet studentů
+z~\hyperref[exam:inkluze-exkluze]{úvodního příkladu}. Množiny němčinářů,
+španělštinářů a francouzštinářů označíme po řadě $N$, $\check{S}$ a $\check{Z}$
+(jako \textbf{ž}abožrout). Ze zadání víme, že $\# N = 30, \# \check{S} = 25$ a
+$\# \check{Z} = 2$. Dále víme, že $\# N \cap \check{S} = 4$, protože mezi
+němčináři jsou čtyři španělštináři; podobně $\# N \cap \check{Z} = 1$ a $\#
+\check{S} \cap \check{Z} = 0$. Konečně, $\# N  \cap \check{S} \cap \check{Z} =
+1$. Podle principu inkluze a exkluze máme
+\begin{align*}
+ \# N \cup \check{S} \cup \check{Z} &= \# N + \# \check{S} + \# \check{Z} - \# N
+  \cap \check{S} - \# N  \cap \check{Z} - \# \check{S} \cap \check{Z} + \# N
+  \cap \check{S}  \cap \check{Z}\\
+ &= 30 + 25 + 2 - 4 - 1 - 0 + 1 = 53.
+\end{align*}
+Celkem se tedy na Gymnáziu Growth Severní Obec učí 53 studentů cizím jazykům.
+
+Posledním krokem, který zbývá, je umět princip inkluze a exkluze nějak rozumně
+zapsat. Tohle je asi první situace, na kterou jsme narazili, kdy bez rozumného
+zápisu daného tvrzení bychom se ze symbolů doslova zbláznili (hlavně v jeho
+důkazu). Natvrdo napsaný říká princip inkluze a exkluze, že
+\begin{align*}
+ \# \bigcup_{i=1}^{n} A_i &= \# A_1 + \# A_2 + \cdots + \# A_n\\
+ &- \# A_1 \cap A_2 - \# A_1 \cap A_3 - \cdots - \# A_1 \cap A_n - \# A_2
+ \cap A_3 - \cdots - \# A_{n-1} \cap A_n\\
+ &+ \# A_1 \cap A_2 \cap A_3 + \cdots + \# A_{n-2} \cap A_{n-1} \cap A_n +
+ \cdots + (-1)^{n-1} \bigcap_{i=1}^{n} A_i.
+\end{align*}
+Jak sami vidíte, z tohoto zápisu je sotva (pokud vůbec) poznat, čemu se vlastně
+velikost sjednocení $\bigcup_{i=1}^{n} A_i$ rovná. Musíme tento zápis
+zjednodušit. Nejprve, pro každou $I \subseteq \{1,\ldots,n\}$ znamená zápis
+\[
+ \bigcap_{i \in I}^{} A_i
+\]
+průnik přesně těch množin $A_i$, jejichž indexy leží v množině $I$. Je-li tedy
+např. $I = \{1,4,5\}$, pak
+\[
+ \bigcap_{i  \in I}^{} A_i = A_1 \cap A_4 \cap A_5.
+\]
+Pro extrémní případ $I = \emptyset$ dodefinujeme $\bigcap_{i \in  I}^{}A_i
+\coloneqq \emptyset$, tedy prázdný průnik je prázdná množina.
+
+Dále si rozmyslíme jednoduchý způsob, jak zapsat znaménko u každého z průniků.
+Víme, že průnik sudého počtu množin má záporné znaménko a průnik lichého počtu
+má kladné. Ještě jinak, když $\# I$ je sudé číslo, pak $\bigcap_{i \in  I}^{}
+A_i$ musí dostat záporné znaménko a když $\# I$ je liché číslo, tak kladné. V
+matematice se pro tyto účely obvykle používá $(-1)^{k}$ pro přirozené číslo $k
+\in \N$, protože $(-1)^{k}=1$, když $k$ je sudé, a $(-1)^{k} = -1$, když $k$ je
+liché. To ale znamená, že výraz $\# \bigcap_{i \in  I}^{} A_i$ musí být
+vynásobený číslem $(-1)^{\# I-1}$.
+
+Už jsme skoro hotovi. Pro vyjádření $\# \bigcup_{i=1}^{n} A_i$ pomocí průniků
+musíme sečíst velikosti všech průniků $k$ různých množin pro $k$ od $1$ až do
+$n$ se správným znaménkem. Čili, musíme sčítat všechny výrazy $(-1)^{\# I - 1}\#
+\bigcap_{i \in  I}^{} A_i$ pro všechny podmnožiny $I \subseteq \{1,\ldots,n\}$.
+
+Předchozí diskuse nám umožňuje zapsat princip inkluze a exkluze jako

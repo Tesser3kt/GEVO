@@ -1,5 +1,6 @@
 from manim import *
 import numpy as np
+from itertools import permutations
 
 from binomial_config import Config
 
@@ -21,7 +22,7 @@ class Binomial(Scene):
             r"\usepackage[czech,english]{babel}", True)
         tex_template.add_to_preamble(r"\usepackage{mathtools}")
 
-        self.next_section("Intro Text", skip_animations=True)
+        self.next_section("Intro Text", skip_animations=False)
 
         intro_text = MathTex(
             "U_3(", "X", ")", r"\coloneqq", r"\#", r"\{", "(", "x_1", ",",
@@ -39,7 +40,7 @@ class Binomial(Scene):
         self.play(Write(intro_text))
 
         self.wait(2)
-        self.next_section("Creating the set X...", skip_animations=True)
+        self.next_section("Creating the set X...", skip_animations=False)
 
         # random elements trackers
         elem_labels = VGroup(*[intro_text[7], intro_text[9], intro_text[11]])
@@ -89,7 +90,7 @@ class Binomial(Scene):
             )
 
         self.next_section("Creating a set of 3 elements...",
-                          skip_animations=True)
+                          skip_animations=False)
 
         A = VGroup(
             Tex(r"$A$", color=Config.Color.A_COLOR),
@@ -110,7 +111,7 @@ class Binomial(Scene):
             lag_ratio=0.4
         ))
 
-        self.next_section("Creating arrows A -> X...", skip_animations=True)
+        self.next_section("Creating arrows A -> X...", skip_animations=False)
         arrows = VGroup(*[
             Arrow(start=A[i + 1].get_center(),
                   end=chosen_elements[i].get_center(),
@@ -136,7 +137,7 @@ class Binomial(Scene):
             )
         self.wait(2)
 
-        self.next_section("Randomly permuting X...", skip_animations=True)
+        self.next_section("Randomly permuting X...", skip_animations=False)
 
         # generate targets for elements of X to shuffle to
         for element in X[1:]:
@@ -150,7 +151,7 @@ class Binomial(Scene):
             self.play(*list(map(MoveToTarget, X[1:])))
             self.wait(2)
 
-        self.next_section("Calculating U_3(X)...", skip_animations=True)
+        self.next_section("Calculating U_3(X)...", skip_animations=False)
 
         # returning intro text to its original state and fading out A, X
         arrows.clear_updaters()
@@ -200,21 +201,78 @@ class Binomial(Scene):
 
         # create X as a rectangular grid
         X = VGroup(
-            MathTex("X", color=Config.Color.X_COLOR),
-            VGroup(
-                Rectangle(color=Config.Color.X_COLOR,
-                          fill_opacity=0, width=6, height=1),
-            )
+            MathTex("X", color=Config.Color.X_COLOR_ENDGAME),
+            Rectangle(color=Config.Color.X_COLOR_ENDGAME,
+                      fill_opacity=0, width=6, height=1),
         ).arrange(DOWN).shift(2 * UP)
 
         X_bars = VGroup(*[Line(
             start=X[1].get_corner(UP + LEFT) + (i + 1) * RIGHT,
             end=X[1].get_corner(DOWN + LEFT) + (i + 1) * RIGHT,
-            color=Config.Color.X_COLOR,
+            color=Config.Color.X_COLOR_ENDGAME,
             stroke_width=3)
             for i in range(5)
         ])
 
         self.play(Write(X[0]), Create(X[1]), Create(X_bars))
+
+        self.wait(1)
+
+        # create rects for three random elements from X
+        random_permutation = np.random.permutation(6)
+        rectangles = VGroup(*[
+            Rectangle(
+                fill_color=Config.Color.RECT_COLORS[i], height=1, width=1,
+                stroke_opacity=0, fill_opacity=0.5).align_to(
+                    X[1].get_corner(UP + LEFT), UP + LEFT)
+            .shift(random_permutation[i] * RIGHT)
+            for i in range(3)
+        ])
+        self.play(FadeIn(rectangles))
+
+        self.wait(1)
+        self.next_section("Permutations of rects...", skip_animations=False)
+
+        all_rects = VGroup()
+        # first perm
+        rectangles.generate_target()
+        rectangles.target.arrange(RIGHT, buff=0.15).move_to(
+            DOWN + 4 * LEFT).set_fill(opacity=1)
+
+        self.play(MoveToTarget(rectangles), run_time=1)
+        all_rects.add(rectangles)
+
+        # other perms
+        perms = list(permutations([0, 1, 2]))
+        for j, perm in enumerate(perms[1:]):
+            new_rects = rectangles.copy()
+            new_rects.move_to(all_rects[-1].get_center())
+            new_rects.set_fill(opacity=0)
+            for i in range(3):
+                new_rects[i].generate_target()
+                new_rects[i].target.move_to(
+                    new_rects[perm[i]]).set_fill(opacity=1)
+                if j != 2:
+                    new_rects[i].target.shift(4 * RIGHT)
+                else:
+                    new_rects[i].target.shift(8 * LEFT + 2 * DOWN)
+            all_rects.add(new_rects)
+
+            self.play(*list(map(MoveToTarget, new_rects)), run_time=1)
+            self.wait(0.5)
+
+        self.next_section("Counting perms...", skip_animations=False)
+        self.play(X.animate.shift(1.5 * DOWN), all_rects.animate.shift(
+            0.5 * DOWN), X_bars.animate.shift(1.5 * DOWN))
+        final_text = MathTex(
+            "U_3(", "X", ") = ", r"{\#", "X", r"\choose 3}"
+        ).shift(3 * UP)
+        final_text_addendum = MathTex(
+            r"\; \cdot \; 3!"
+        ).next_to(final_text, RIGHT, buff=0.2)
+
+        self.play(Write(final_text))
+        self.wait(1)
+        self.play(Write(final_text_addendum))
 
         self.wait(2)
