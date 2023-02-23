@@ -224,7 +224,7 @@ Pro extrémní případ $I = \emptyset$ dodefinujeme $\bigcap_{i \in  I}^{}A_i
 Dále si rozmyslíme jednoduchý způsob, jak zapsat znaménko u každého z průniků.
 Víme, že průnik sudého počtu množin má záporné znaménko a průnik lichého počtu
 má kladné. Ještě jinak, když $\# I$ je sudé číslo, pak $\bigcap_{i \in  I}^{}
-A_i$ musí dostat záporné znaménko a když $\# I$ je liché číslo, tak kladné. V
+A_i$ musí dostat záporné znaménko, a když $\# I$ je liché číslo, tak kladné. V
 matematice se pro tyto účely obvykle používá $(-1)^{k}$ pro přirozené číslo $k
 \in \N$, protože $(-1)^{k}=1$, když $k$ je sudé, a $(-1)^{k} = -1$, když $k$ je
 liché. To ale znamená, že výraz $\# \bigcap_{i \in  I}^{} A_i$ musí být
@@ -235,4 +235,166 @@ musíme sečíst velikosti všech průniků $k$ různých množin pro $k$ od $1$
 $n$ se správným znaménkem. Čili, musíme sčítat všechny výrazy $(-1)^{\# I - 1}\#
 \bigcap_{i \in  I}^{} A_i$ pro všechny podmnožiny $I \subseteq \{1,\ldots,n\}$.
 
-Předchozí diskuse nám umožňuje zapsat princip inkluze a exkluze jako
+Předchozí diskuse nám umožňuje zapsat princip inkluze a exkluze jako rovnost
+\[
+ \# \bigcup_{i=1}^{n} A_i = \sum_{I \subseteq \{1,\ldots,n\}}^{} (-1)^{\# I - 1}
+ \# \bigcap_{i \in  I}^{} A_i,
+\]
+kde symbol $\sum_{I \subseteq \{1,\ldots,n\}}^{}$ značí součet přes všechny
+\textbf{podmnožiny} množiny $\{1,\ldots,n\}$.
+
+Ještě jednou tedy princip inkluze a exkluze formulujeme jako větu.
+
+\begin{theorem}[Princip inkluze a exkluze]
+ \label{thm:princip-inkluze-a-exkluze}
+ Ať $A_1,A_2,\ldots,A_n$ jsou množiny. Pak platí rovnost
+ \begin{equation*}
+  \label{eq:inkluze-exkluze}
+  \tag{$\triangle$}
+  \# \bigcup_{i=1}^{n} A_i = \sum_{I \subseteq \{1,\ldots,n\}}^{} (-1)^{\# I -
+  1} \# \bigcap_{i \in  I}^{} A_i.
+ \end{equation*}
+\end{theorem}
+\begin{proof}
+ Důkaz povedeme indukcí podle $n$.
+
+ Když $n = 1$, pak na levé straně rovnosti \eqref{eq:inkluze-exkluze} máme
+ \[
+  \# \bigcup_{i=1}^{1} A_i = \# A_1
+ \]
+ a na pravé straně
+ \begin{align*}
+  \sum_{I \subseteq \{1\}}^{} (-1)^{\# I - 1} \# \bigcap_{i \in  I}^{} A_i &=
+  (-1)^{\#\emptyset-1} \# \bigcap_{i  \in \emptyset}^{} A_i + (-1)^{\#\{1\}-1}
+  \# \bigcap_{i  \in \{1\}}^{} A_i\\
+  &= (-1)^{-1} \cdot 0 + (-1)^{0} \cdot \# A_1 = \# A_1,
+ \end{align*}
+ protože jediné podmnožiny $\{1\}$ jsou $\emptyset$ a $\{1\}$. Čili pro $n = 1$ 
+ rovnost \eqref{eq:inkluze-exkluze} platí.
+
+ Předpokládejme nyní, že rovnost platí pro všechna čísla menší než $n$ a
+ dokazujme rovnost pro $n$. Sjednocení na levé straně \eqref{eq:inkluze-exkluze}
+ můžeme napsat jako
+ \[
+  \bigcup_{i=1}^{n} A_i = \clr{\bigcup_{i=1}^{n-1} A_i} \cup \clb{A_n}.
+ \]
+ Označíme si $\clr{B_1} \coloneqq \clr{\bigcup_{i=1}^{n-1} A_i}$ a $\clb{B_2}
+ \coloneqq \clb{A_n}$. Podle principu inkluze a exkluze pro 2 množiny (ten
+ můžeme použít z indukčního předpokladu) máme
+ \[
+  \# \clr{B_1} \cup \clb{B_2} = \# \clr{B_1} + \# \clb{B_2} - \# \clr{B_1} \cap
+  \clb{B_2}.
+ \]
+ Přepsání zpět do množin $A_i$ nám dá
+ \[
+  \# \bigcup_{i=1}^{n} A_i= \# \clr{\bigcup_{i=1}^{n-1} A_i} \cup \clb{A_n} = \#
+  \clr{\bigcup_{i=1}^{n-1} A_i} + \# \clb{A_n} - \#
+  \left(\clr{\bigcup_{i=1}^{n-1} A_i} \cap \clb{A_n}\right).
+ \]
+ Nejprve si uvědomíme, že
+ \[
+  \left(\clr{\bigcup_{i=1}^{n-1} A_i}\right) \cap \clb{A_n} =
+  \bigcup_{i=1}^{n-1} (\clr{A_i} \cap \clb{A_n}),
+ \]
+ tedy, že je to samé sjednotit množiny $\clr{A_i}$ a pak je proniknout s
+ množinou $\clb{A_n}$ jako nejprve proniknout každou množinu $\clr{A_i}$ s
+ množinou $\clb{A_n}$ a pak všechny ty průniky sjednotit.
+
+ Teď můžeme (opět z indukčního předpokladu) použít princip inkluze a exkluze na
+ sjednocení $\bigcup_{i=1}^{n-1} \clr{A_i}$ a zároveň na $\bigcup_{i=1}^{n-1}
+ (\clr{A_i} \cap \clb{A_n})$.
+
+ Dostaneme
+ \[
+  \# \bigcup_{i=1}^{n-1} \clr{A_i} = \sum_{I \subseteq \{1,\ldots,n-1\}}
+  (-1)^{\# I - 1} \# \bigcap_{i \in  I}^{} \clr{A_i}
+ \]
+ a
+ \[
+  \# \bigcup_{i=1}^{n-1} (\clr{A_i} \cap \clb{A_n}) = \sum_{I \subseteq
+  \{1,\ldots,n-1\}}^{} (-1)^{\# I - 1} \# \bigcap_{i \in  I}^{} (\clr{A_i} \cap
+  \clb{A_n}). 
+ \]
+ Na jedné straně tedy máme vyjádření
+ \begin{equation}
+  \label{eq:ink-exk-1}
+  \begin{split}
+   \# \bigcup_{i=1}^{n} A_i &= \sum_{I \subseteq \{1,\ldots,n-1\}}^{} (-1)^{\# I -
+   1} \# \bigcap_{i \in  I}^{} \clr{A_i} + \# \clb{A_n}\\
+   &- \sum_{I \subseteq \{1,\ldots,n-1\}}^{} (-1)^{\# I - 1} \# \bigcap_{i \in
+   I}^{} (\clr{A_i} \cap \clb{A_n}).
+  \end{split}
+ \end{equation}
+ Na druhé straně potřebujeme dokázat (\textbf{ještě to nevíme!}), že
+ \begin{equation}
+  \label{eq:ink-exk-2}
+  \# \bigcup_{i=1}^{n} A_i  \overset{?}{=} \sum_{I \subseteq \{1,\ldots,n\}}^{}
+  (-1)^{\# I - 1} \# \bigcap_{i \in  I}^{} A_i.
+ \end{equation}
+ Porovnáváme tedy součty na pravých stranách rovností \eqref{eq:ink-exk-1} a
+ \eqref{eq:ink-exk-2}. Jediný rozumný způsob, jak to udělat, je podívat se, že
+ každý sčítanec v~\eqref{eq:ink-exk-2} je rovněž sčítancem v
+ \eqref{eq:ink-exk-1}.
+
+ Rozlišíme dva případy podle toho, zda podmnožina $I$ obsahuje $n$, či ne.
+ \begin{enumerate}[label=(\alph*)]
+  \item Ať nejprve $n \notin I$. Pak v sumě \eqref{eq:ink-exk-2} je sčítanec
+   \[
+    (-1)^{\# I-1} \# \bigcap_{i \in  I}^{} A_i,
+   \]
+   kde ten průnik neobsahuje $A_n$, protože $n \notin I$. Jenže pak je $I
+   \subseteq \{1,\ldots,n-1\}$, a tedy i součet \eqref{eq:ink-exk-1} obsahuje
+   ten samý sčítanec (v té úplně první sumě nahoře) se stejným znaménkem.
+  \item Teď předpokládáme, že $n \in I$. Musíme rozlišit zase dva případy (xD).
+   \begin{enumerate}[label=(\greek*)]
+    \item $I = \{n\}$. Pak součet \eqref{eq:ink-exk-2} obsahuje sčítanec
+     \[
+      (-1)^{\#\{n\}-1} \# \bigcap_{i \in \{n\}}^{} A_i = \# A_n,
+     \]
+     který je ale i v součtu \eqref{eq:ink-exk-1} (mezi těmi dvěma sumami).
+    \item $I$ obsahuje $n$ a $\# I \geq 2$. V tomto případě máme v součtu
+     \eqref{eq:ink-exk-2} sčítanec
+     \[
+      (-1)^{\# I - 1} \# \bigcap_{i \in I}^{} A_i,
+     \]
+     jejž si však můžeme přepsat jako
+     \begin{align*}
+      (-1)^{\# I - 1} \# \bigcap_{i \in I}^{} A_i &= (-1)^{\# I - 1} \#
+      \left(\bigcap_{i \in  I \setminus \{n\}}^{} \clr{A_i}\right) \cap
+      \clb{A_n}\\
+      &= (-1)^{\# I - 1} \# \bigcap_{i  \in I \setminus \{n\}}^{} (\clr{A_i}
+      \cap \clb{A_n}),
+     \end{align*}
+     jelikož předpokládáme, že $n \in I$. Protože $I \setminus \{n\} \subseteq
+     \{1,\ldots,n-1\}$, je v součtu \eqref{eq:ink-exk-1} (v té sumě dole)
+     sčítanec
+     \[
+     (-1)^{\#(I \setminus \{n\}) - 1} \# \bigcap_{i  \in I \setminus \{n\}}^{}
+     (\clr{A_i} \cap \clb{A_n}),
+     \]
+     což je v podstatě tentýž, až na znaménko. To však není problém, neboť si
+     můžete všimnout, že v součtu \eqref{eq:ink-exk-1} tu druhou sumu obsahující
+     všechny průniky s množinou $\clb{A_n}$ odečítám. Tedy, odpovídající
+     sčítanec má ve skutečnosti znaménko $-(-1)^{\# (I \setminus \{n\})-1} =
+     (-1)^{\# I - 1}$.
+   \end{enumerate}
+ \end{enumerate}
+ Tím jsme ověřili, že součet ve vyjádření \eqref{eq:ink-exk-1} obsahuje přesně
+ tytéž sčítance jako součet ve vyjádření \eqref{eq:ink-exk-2}, a tudíž se jedná
+ o stejný součet. Tím je podle principu matematické indukce důkaz dokončen.
+\end{proof}
+
+Nakonec se podíváme, že
+\hyperref[thm:princip-inkluze-a-exkluze]{věta~\ref*{thm:princip-inkluze-a-exkluze}}
+souhlasí plně s naší intuicí v již prozkoumaném případě tří množin s neprázdným
+průnikem.
+
+\begin{example}
+ Uvažme množiny $A_1,A_2,A_3$ takové, že $A_1 \cap A_2 \cap A_3 \neq \emptyset$.
+ Podle \hyperref[thm:princip-inkluze-a-exkluze]{principu inkluze a exkluze}
+ počítáme
+ \[
+  \# A_1 \cup A_2 \cup A_3 = \sum_{I \subseteq \{1,2,3\}}^{} (-1)^{\#I - 1}\#
+  \bigcap_{i \in  I}^{} A_i.
+ \]
+\end{example}
