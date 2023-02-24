@@ -397,4 +397,54 @@ průnikem.
   \# A_1 \cup A_2 \cup A_3 = \sum_{I \subseteq \{1,2,3\}}^{} (-1)^{\#I - 1}\#
   \bigcap_{i \in  I}^{} A_i.
  \]
+ Jednoprvkové podmnožiny $\{1,2,3\}$ jsou $\{1\}, \{2\}$ a $\{3\}$. Tedy
+ započteme
+ \[
+  (-1)^{1-1} \# A_1 + (-1)^{1-1}\# A_2 + (-1)^{1-1}\# A_3 = \# A_1 + \# A_2 + \#
+  A_3.
+ \]
+ Ty dvouprvkové jsou $\{1,2\}, \{1,3\}$ a $\{2,3\}$. Dávají nám po řadě sčítance
+ \begin{align*}
+  &(-1)^{2-1}\# A_1 \cap A_2 + (-1)^{2-1}\# A_1 \cap A_3 + (-1)^{2-1}\# A_2 \cap
+  A_3\\
+  &= -\# A_1 \cap A_2 - \# A_1 \cap A_3 - \#A_2 \cap A_3.
+ \end{align*}
+ Konečně, tříprvkovou podmnožinu má $\{1,2,3\}$ jenom jednu -- sebe samu. Za tu
+ si započteme
+ \[
+  (-1)^{3-1}\#A_1 \cap A_2 \cap A_3 = \# A_1 \cap A_2 \cap A_3.
+ \]
+ Když sečteme průniky přes všechny podmnožiny $\{1,2,3\}$, dostaneme
+ \begin{align*}
+  \# A_1 \cup A_2 \cup A_3 &= \#A_1 + \#A_2 + \#A_3\\
+  &-\#A_1 \cap A_2 - \#A_1 \cap A_3 - \#A_2 \cap A_3\\
+  &+ \# A_1 \cap A_2 \cap A_3,
+ \end{align*}
+ jak jsme očekávali.
 \end{example}
+
+Kterak káže obyčej, pár cvičení závěrem.
+
+\begin{exercise}[zase trocha teorie čísel]
+ Jeden z oblíbených a celkem rychlých rozkladů čísla na prvočísla je tzv.
+ \emph{Eratosthenovo síto}.
+ 
+ Funguje na principu vyškrtávání násobků čísel. Konkrétně, algoritmus prochází
+ seznam čísel až do nějaké hranice, a kdykoli narazí na ještě neodškrtnuté
+ číslo, odškrtne z tohoto seznamu všechny jeho násobky kromě něho samotného.
+ Sami si rozmyslete, že tímto způsobem zůstanou ve výsledném seznamu pouze
+ prvočísla.
+
+ My si tady rozmyslíme pouze zjednodušenou verzi. Spočtěte, kolik zůstane čísel
+ mezi $1$ a $1000$ potom, co vyškrtáme všechny násobky čísel $2,3,5$ a $7$.
+\end{exercise}
+
+\begin{exercise}
+ Určete počet přirozených čísel menších než $100$, které nedělí druhá mocnina
+ žádného přirozeného čísla (kromě $1$).
+\end{exercise}
+
+\begin{exercise}
+ Kolika způsoby lze seřadit do řady 5 Čechů, 4 Maďary a 3 Rusy, aby všichni
+ příslušníci jednoho národa nikdy nestáli hned za sebou?
+\end{exercise}
