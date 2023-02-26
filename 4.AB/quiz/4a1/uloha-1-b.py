@@ -1,8 +1,13 @@
-ceny = [499, 599, 499, 479]
-doprava = [79, 0, 99, 139]
+cesty = [
+    [35, 10, 15],
+    [10, 5, 5, 10],
+    [120]
+]
 
-nejmensi_cena = 0
-for i in range(len(ceny)):
-    nejmensi_cena = nejmensi_cena + ceny[i] + doprava[i]
+nejkratsi_cesta = cesty[0]
+for i in range(len(cesty)):
+    if len(cesty[i]) <= 3:
+        if sum(cesty[i]) < sum(nejkratsi_cesta):
+            nejkratsi_cesta = cesty[i]
 
-print(nejmensi_cena)
+print(sum(nejkratsi_cesta))

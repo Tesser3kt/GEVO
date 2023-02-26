@@ -23,7 +23,7 @@
 % Gives us better math syntax.
 \usepackage{amsmath,mathtools,amsthm,dsfont}
 % Lets us strikethrough text.
-\usepackage{cleveref}
+\usepackage[nameinlink]{cleveref}
 \usepackage{cancel}
 % Lets us edit the caption of a figure.
 \usepackage{caption}
@@ -631,3 +631,5 @@ name=Pozorování]{observation}
 
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\ord}{ord}
+
+\newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
