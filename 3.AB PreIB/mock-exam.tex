@@ -35,8 +35,11 @@
 \usepackage{tkz-euclide}
 
 % Theorems
-\usepackage{amsthm}
 \usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
 
 % Title %
 \title{\Huge\textsf{Mock Exam}\\
@@ -103,21 +106,360 @@
 You're baking cookies for a big party. Your cookies are surprisingly pretty good
 and each of the guests will have on average eaten 4 of them by the end of the
 event. \emph{\tb{Define a function}} which expresses the number of snacks
-\textbf{that are left} (on average) after the event ends based on the number of
-people that attended the party. Assume you have baked 300 cookies.
+\textbf{that are left} (on average) after the event ends based on \textbf{the
+number of people that attended} and also \textbf{the number of cookies you have
+baked}, that is, as a function which receives two inputs.
 
 In comes your rival. She couldn't stand the idea of the guests eating only your
 handmade cookies. So she made hers. However, they are rushed and in general not
 very tasty. An average guest eats 2 of them during the night. She is a hard
-worker, though, so she made twice as many as you did. \textbf{The number of
-cookies you made is now also an unknown}. If $x$ denotes the number of people
-that attended the party and $y$ denotes the number of cookies you made,
-\emph{\tb{define a function}} which expresses the \textbf{number of cookies made
-by your rival that are left} after the event ends with inputs $x$ and $y$.
+worker, though, so she made twice as many as you did. If $x$ denotes the number
+of people that attended the party and $y$ denotes the number of cookies you
+made, \emph{\tb{define a function}} which expresses the \textbf{number of
+cookies made by your rival that are left} after the event ends with inputs $x$
+and $y$.
 
 Finally, the event is over and out of the cookies you made, 100 are left, and
 out of the cookies your rival made, 350 are left. \textbf{How many cookies did
 you make and how many guests attended the party?} Formulate this problem as a
 system of two linear equations in two variables -- $x$ and $y$ -- and solve it.
+
+\begin{solution}
+ I'll denote the number of people that attended the party by $x$ and the number
+ of cookies I baked by $y$. Since every person ate on average $4$ of my cookies,
+ the total number of my cookies that were eaten is $4x$. Subtracting this
+ quantity from the number of cookies I baked ($y$) gives the total number of
+ cookies left after the party. It follows that the desired function is for
+ instance
+ \[
+  f(x,y) = y - 4x.
+ \]
+ As my rival baked twice as many cookies, she baked $2y$ of them. On average,
+ one person ate two pieces of her handmade cookies, so the number of her cookies
+ that were eaten is $2x$. Same as before, subtracting these quantities gives the
+ number of my rival's cookies that were left uneaten after the party has ended.
+ The function can be expressed as
+ \[
+  g(x,y) = 2y - 2x.
+ \]
+ As 100 of my cookies were not eaten, I have the equation $f(x,y) = 100$.
+ Similarly, 350 of my rival's cookies weren't eaten, which gives $g(x,y) = 350$.
+ Hence, I'm required to solve the system
+ \begin{align*}
+  f(x,y)&= 100, \\
+  g(x,y)&= 350.
+ \end{align*}
+ Rewriting using the definitions of $f$ and $g$ gives
+ \begin{align*}
+  y - 4x &= 100, \\
+  2y - 2x &= 350.
+ \end{align*}
+ Isolating $y$ from the first equation yields $y = 100 + 4x$. Substituting into
+ the second equation then gives
+ \[
+  2(100 + 4x) - 2x = 350.
+ \]
+ One easily rearranges this to
+ \[
+  6x = 150
+ \]
+ or
+ \[
+  x = 25.
+ \]
+ Ultimately, substituting $x = 25$ into $y = 100 + 4x$ gives $y = 200$. The
+ conclusion is that 25 people attended the party and I made 200 cookies.
+\end{solution}
+
+\section*{Problem 2.}
+
+Consider the following two pairs of scales.
+
+\begin{center}
+ \begin{tikzpicture}
+  \draw (-5,2) -- (-2,2);
+  \draw (2,2) -- (5,2);
+  \draw (-3.5,2) -- (-3.5,1);
+  \draw (3.5,2) -- (3.5,1);
+  \draw (-3.5,1) -- (3.5,1);
+
+  \node[draw,fill,blue,rectangle,minimum width=5mm, minimum height=5mm] at
+  (-4.1, 2.3) {};
+  \node[draw,fill,blue,rectangle,minimum width=5mm, minimum height=5mm] at
+  (-4.1, 2.9) {};
+  \node[draw,fill,blue,rectangle,minimum width=5mm, minimum height=5mm] at
+  (-3.5, 2.3) {};
+  \node[draw,fill,blue,rectangle,minimum width=5mm, minimum height=5mm] at
+  (-3.5, 2.9) {};
+
+  \node[draw,green,fill,regular polygon,regular polygon sides=3,outer sep=0pt,
+  inner sep=1.1mm,yshift=0.1mm] at (-2.9, 2.8) {};
+  \node[draw,red,fill,circle,minimum width=5mm, minimum height=5mm] at
+  (-2.9, 2.3) {};
+
+  \node[draw,trapezium,inner xsep=2pt] at (3, 2.3) {$7$};
+  \node[draw,green,fill,regular polygon,regular polygon sides=3,outer sep=0pt,
+  inner sep=1.1mm,yshift=0.1mm] at (3.8, 2.2) {};
+ \end{tikzpicture}
+
+ \begin{tikzpicture}
+  \draw (-5,2) -- (-2,2);
+  \draw (2,2) -- (5,2);
+  \draw (-3.5,2) -- (-3.5,1);
+  \draw (3.5,2) -- (3.5,1);
+  \draw (-3.5,1) -- (3.5,1);
+
+  \node[draw,fill,blue,rectangle,minimum width=5mm, minimum height=5mm] at
+  (-3.8, 2.3) {};
+  \node[draw,fill,blue,rectangle,minimum width=5mm, minimum height=5mm] at
+  (-3.8, 2.9) {};
+
+  \node[draw,green,fill,regular polygon,regular polygon sides=3,outer sep=0pt,
+  inner sep=1.1mm,yshift=0.1mm] at (-3.2, 2.8) {};
+  \node[draw,green,fill,regular polygon,regular polygon sides=3,outer sep=0pt,
+  inner sep=1.1mm,yshift=0.1mm] at (-3.2, 2.2) {};
+
+  \node[draw,trapezium,inner xsep=2pt] at (3, 2.3) {$3$};
+  \node[draw,red,fill,circle,minimum width=5mm, minimum height=5mm] at
+  (3.8, 2.3) {};
+ \end{tikzpicture}
+\end{center}
+
+They define a system of two linear equations in three variables, and thus a
+system \textbf{with infinitely many solutions}. Fill the right bowl of the
+following third pair of scales \textbf{with only shapes (no absolute weights)}
+in a way that this system has a \textbf{unique} solution and this solution
+further satisfies \tikz\draw[red,fill=red] (0,0) circle (.5ex); $= 3$.
+
+\begin{center}
+ \begin{tikzpicture}
+  \draw (-5,2) -- (-2,2);
+  \draw (2,2) -- (5,2);
+  \draw (-3.5,2) -- (-3.5,1);
+  \draw (3.5,2) -- (3.5,1);
+  \draw (-3.5,1) -- (3.5,1);
+
+  \node[draw,fill,blue,rectangle,minimum width=5mm, minimum height=5mm] at
+  (-4.1, 2.3) {};
+ 
+  \node[draw,green,fill,regular polygon,regular polygon sides=3,outer sep=0pt,
+  inner sep=1.1mm,yshift=0.1mm] at (-3.5, 2.2) {};
+  \node[draw,red,fill,circle,minimum width=5mm, minimum height=5mm] at
+  (-2.9, 2.3) {};
+
+  \node at (3.5, 2.3) {? (only shapes)};
+ \end{tikzpicture}
+\end{center}
+
+When you're done, solve the system.
+
+\begin{solution}
+ I'll first rewrite the system (of the former two pairs of scales) so that I
+ have a clearer view. I get
+ \begin{align*}
+  4 \cdot \tikz\draw[blue,fill=blue] (0,0) rectangle ++(0.2,0.2); +
+  \tikz\node[draw,green,fill,regular polygon,regular polygon sides=3,outer
+  sep=0pt, inner sep=0.45mm] at (0, 0) {}; + \tikz\draw[red,fill=red] (0,0)
+  circle (.6ex); &= 7 + \tikz\node[draw,green,fill,regular polygon,regular
+  polygon sides=3,outer sep=0pt, inner sep=0.45mm] at (0, 0) {};, \\
+  2 \cdot \tikz\draw[blue,fill=blue] (0,0) rectangle ++(0.2,0.2); + 2 \cdot
+  \tikz\node[draw,green,fill,regular polygon,regular polygon sides=3,outer
+  sep=0pt, inner sep=0.45mm] at (0, 0) {}; &= 3 + \tikz\draw[red,fill=red] (0,0)
+  circle (.6ex);.
+ \end{align*}
+ If I write \tikz\draw[red,fill=red] (0,0) circle (.5ex); instead of $3$ (since
+ I assume that \tikz\draw[red,fill=red] (0,0) circle (.5ex); weighs $3$) in
+ the second equation and divide both sides by $2$, I get
+ \[
+  \tikz\draw[blue,fill=blue] (0,0) rectangle ++(0.2,0.2); +
+  \tikz\node[draw,green,fill,regular polygon,regular polygon sides=3,outer
+  sep=0pt, inner sep=0.45mm] at (0, 0) {}; = \tikz\draw[red,fill=red] (0,0)
+  circle (.6ex);.
+ \]
+ This means that I can fill the empty right bowl in the last pair of scales for
+ example like this:
+ \begin{center}
+  \begin{tikzpicture}
+   \draw (-5,2) -- (-2,2);
+   \draw (2,2) -- (5,2);
+   \draw (-3.5,2) -- (-3.5,1);
+   \draw (3.5,2) -- (3.5,1);
+   \draw (-3.5,1) -- (3.5,1);
+
+   \node[draw,fill,blue,rectangle,minimum width=5mm, minimum height=5mm] at
+   (-4.1, 2.3) {};
+  
+   \node[draw,green,fill,regular polygon,regular polygon sides=3,outer sep=0pt,
+   inner sep=1.1mm,yshift=0.1mm] at (-3.5, 2.2) {};
+   \node[draw,red,fill,circle,minimum width=5mm, minimum height=5mm] at
+   (-2.9, 2.3) {};
+
+   \node[draw,red,fill,circle,minimum width=5mm, minimum height=5mm] at
+   (3.2, 2.3) {};
+   \node[draw,red,fill,circle,minimum width=5mm, minimum height=5mm] at
+   (3.8, 2.3) {};
+
+  \end{tikzpicture}
+ \end{center}
+ Putting all three equations one above another yields the system
+ \begin{align*}
+  4 \cdot \tikz\draw[blue,fill=blue] (0,0) rectangle ++(0.2,0.2); +
+  \tikz\node[draw,green,fill,regular polygon,regular polygon sides=3,outer
+  sep=0pt, inner sep=0.45mm] at (0, 0) {}; + \tikz\draw[red,fill=red] (0,0)
+  circle (.6ex); &= 7 + \tikz\node[draw,green,fill,regular polygon,regular
+  polygon sides=3,outer sep=0pt, inner sep=0.45mm] at (0, 0) {};, \\
+  2 \cdot \tikz\draw[blue,fill=blue] (0,0) rectangle ++(0.2,0.2); + 2 \cdot
+  \tikz\node[draw,green,fill,regular polygon,regular polygon sides=3,outer
+  sep=0pt, inner sep=0.45mm] at (0, 0) {}; &= 3 + \tikz\draw[red,fill=red] (0,0)
+  circle (.6ex);,\\
+  \tikz\draw[blue,fill=blue] (0,0) rectangle ++(0.2,0.2); +
+  \tikz\node[draw,green,fill,regular polygon,regular polygon sides=3,outer
+  sep=0pt, inner sep=0.45mm] at (0, 0) {}; + \tikz\draw[red,fill=red] (0,0)
+  circle (.6ex); &= 2 \cdot \tikz\draw[red,fill=red] (0,0) circle (.6ex);.
+ \end{align*}
+ I know that \tikz\draw[red,fill=red] (0,0) circle (.5ex); $ = 3$, and
+ substituting this equality into the system above lets me forget one equation
+ and solve only the system (for example)
+ \begin{align*}
+  4 \cdot \tikz\draw[blue,fill=blue] (0,0) rectangle ++(0.2,0.2); +
+  \tikz\node[draw,green,fill,regular polygon,regular polygon sides=3,outer
+  sep=0pt, inner sep=0.45mm] at (0, 0) {}; + 3 &= 7 +
+  \tikz\node[draw,green,fill,regular polygon,regular polygon sides=3,outer
+  sep=0pt, inner sep=0.45mm] at (0, 0) {};,\\
+  \tikz\draw[blue,fill=blue] (0,0)
+  rectangle ++(0.2,0.2); + \tikz\node[draw,green,fill,regular polygon,regular
+  polygon sides=3,outer sep=0pt, inner sep=0.45mm] at (0, 0) {}; &= 3.
+ \end{align*}
+ Observe that the first equation is actually independent of
+ \tikz\node[draw,green,fill,regular polygon,regular polygon sides=3,outer
+ sep=0pt, inner sep=0.45mm] at (0, 0) {}; because it simplifies to
+ \[
+  4 \cdot \tikz\draw[blue,fill=blue] (0,0) rectangle ++(0.2,0.2); + 3 = 7.
+ \]
+ This gives $\tikz\draw[blue,fill=blue] (0,0) rectangle ++(0.2,0.2); = 1$.
+ Finally, substitution into the second equation produces
+ \[
+  1 + \tikz\node[draw,green,fill,regular polygon,regular
+  polygon sides=3,outer sep=0pt, inner sep=0.45mm] at (0, 0) {}; = 3
+ \]
+ and thus $\tikz\node[draw,green,fill,regular polygon,regular polygon
+ sides=3,outer sep=0pt, inner sep=0.45mm] at (0, 0) {}; = 2$. The system is
+ solved.
+\end{solution}
+
+\section*{Problem 3.}
+
+You're given the following system of equations.
+\begin{center}
+ \begin{tikzpicture}[scale=0.75]
+  \tkzInit[xmax=4,ymax=4,xmin=-4,ymin=-4]
+  \tkzGrid
+  \tkzLabelX[font=\scriptsize, orig=false]
+  \tkzLabelY[font=\scriptsize, orig=false]
+  \tkzDrawX
+  \tkzDrawY[label={$\tr{f(x)},\tb{g(x)},\tm{h(x)}$}]
+
+  \tkzDefPoint(0, -2){f1}
+  \tkzDefPoint(1, 0){f2}
+  \tkzDefPoint(0, 0){g1}
+  \tkzDefPoint(2, 2){g2}
+  \tkzDefPoint(-1, -1){h1}
+  \tkzDefPoint(0, -2){h2}
+
+  \tkzInterLL(f1,f2)(g1,g2)
+   \tkzGetPoint{fg}
+  \tkzInterLL(f1,f2)(h1,h2)
+   \tkzGetPoint{fh}
+  \tkzInterLL(g1,g2)(h1,h2)
+   \tkzGetPoint{gh}
+
+
+  \tkzDrawPoints[color=red,size=4pt](f1, f2)
+  \tkzDrawPoints[color=blue,size=4pt](g1, g2)
+  \tkzDrawPoints[color=magenta,size=4pt](h1, h2)
+
+  \tkzDrawLine[color=red,line width=1pt, add=1 and 2](f1,f2)
+  \tkzDrawLine[color=blue,line width=1pt, add=2 and 1](g1,g2)
+  \tkzDrawLine[color=magenta,line width=1pt, add=3 and 2](h1,h2)
+
+  % \tkzShowPointCoord(fg)
+  % \tkzShowPointCoord(fh)
+  % \tkzShowPointCoord(gh)
+  \tkzDrawPoints[color=black,fill=white,size=6pt](fg,fh,gh)
+
+ \end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\alph*),topsep=0pt]
+ \item What number $x$ is the solution to the linear equation
+  \[
+   \tr{f(x)} = \tm{h(x)}?
+  \]
+  What is the value of $\tr{f(x)}$ for such an $x$? Is it the same as the value
+  $\tm{h(x)}$ for the same $x$?
+ \item Write the system of three linear equations in two variables corresponding
+  to this picture. Does it have a solution? Why?
+ \item \textbf{Move} (that is, do \textbf{not} rotate) the graph of $\tr{f}$ so
+  that the three lines intersect at a single point. What is the definition of
+  the moved $\tr{f(x)}$?
+ \item Write (the moved) $\tr{f(x)}$ as a combination of $\tb{g(x)}$ and
+  $\tm{h(x)}$, that is, find numbers $a$ and $b$ which satisfy
+  \[
+   \tr{f(x)} = a \cdot \tb{g(x)} + b \cdot \tm{h(x)}.
+  \]
+  \textbf{Hint:} Scale $f$ by $2$ first.
+\end{enumerate}
+\begin{solution}\hfill
+ \begin{enumerate}[label=(\alph*),topsep=0pt]
+  \item The solution to the equation
+   \[
+    \tr{f(x)} = \tm{h(x)}
+   \]
+   is the point of intersection of their graphs, which is, as we can see from
+   the picture, the point $(0,-2)$. This means that for $x = 0$, the outputs of
+   these functions coincide. In particular, $\tr{f(0)} = -2$ and also $\tm{h(0)}
+   = -2$ so the values of these function for $x = 0$ are indeed the same.
+  \item I have to calculate the definitions of $\tr{f}, \tb{g}$ and $\tm{h}$.
+   Definition of any linear function has the shape $a \cdot x + b$ for some real
+   numbers $a,b$. The number $b$ is always the intersection of the graph of the
+   function with the output ($y$) axis. The number $a$ tells me how many steps
+   upwards (or downwards) the function makes for one step to the right.
+
+   Since $\tr{f}$ makes two steps upwards for one step to the right and crosses
+   the $y$-axis at the point $(0,-2)$, I deduce that $\tr{f(x) = 2x - 2}$. Next,
+   $\tb{g}$ crosses the $y$-axis at $(0,0)$ and makes one step upwards for a
+   single step to the right. Hence, $\tb{g(x) = x}$. Finally, $\tm{h}$ makes a
+   step downwards for one step rightwards and crosses the $y$-axis at $(0,-2)$,
+   so $\tm{h(x) = -x - 2}$. If we view the outputs $\tr{f(x)},\tb{g(x)}$ and
+   $\tm{h(x)}$ as the variable $y$, the system described by the picture is
+   \begin{align*}
+    y &= 2x - 2, \\
+    y &= x, \\
+    y &= -x - 2.
+   \end{align*}
+  \item In the definition of a linear function $a \cdot x + b$, the coefficient
+   $a$ determines rotation, so it must be left unchanged. It follows that the
+   moved function $\tr{f(x)}$ must be defined as $\tr{f(x) = 2x + b}$ for some
+   real $b$. It is easy to calculate $b$ because I know that the graph of
+   $\tr{f}$ must pass through the intersection of $\tb{g}$ and $\tm{h}$, which
+   is (from the picture) the point $(-1,-1)$. So we have to solve the equation
+   \[
+    \tr{f(-1)} = -1,
+   \]
+   which gives $2 \cdot (-1) + b = -1$. From this, one gets $b = 1$. So, the
+   moved function $\tr{f}$ is defined as $\tr{f(x) = 2x + 1}$.
+  \item I first scale $\tr{f}$ by $2$ to get $2 \cdot \tr{f(x)} = 4x + 2$. After
+   a while of trying (you could calculate this systematically but it's not
+   necessary), I see that
+   \[
+    2 \cdot \tr{f(x)} = 3 \cdot \tb{g(x)} - 1 \cdot \tm{h(x)} = 3 \cdot \tb{x}
+    -1 \cdot (\tm{-x-2}).
+   \]
+   Dividing both sides by $2$ gives
+   \[
+    \tr{f(x)} = \frac{3}{2} \cdot \tb{g(x)} -\frac{1}{2} \cdot \tm{h(x)}.
+   \]
+ \end{enumerate}
+\end{solution}
 
 \end{document}
