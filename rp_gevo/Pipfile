@@ -11,6 +11,13 @@ flask = "*"
 flask-sqlalchemy = "*"
 python-decouple = "*"
 flask-mysqldb = "*"
+google-auth = "*"
+google-auth-oauthlib = "*"
+oauthlib = "*"
+pathlib = "*"
+vendor = "*"
+requests = "*"
+requests-oauthlib = "*"
 
 [dev-packages]
 
