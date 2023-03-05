@@ -1,0 +1,179 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+% Title %
+\title{\Huge\textsf{Math Exam -- PreIB 3.AB 2}\\
+ \Large\textsf{Systems of Linear Equations}
+ \author{Áďa Klepáčů}
+ \date{March 6, 2023}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+ \textbf{\tr{DON'T FORGET TO EXPLAIN EVERYTHING EVEN IF YOU THINK IT'S
+ OBVIOUS!}}
+\end{center}
+
+I'm following the path of two trains ($\tr{A}$ and $\tb{B}$) \textbf{on the same
+track} that are now both stationary.
+
+I know that train $\tr{A}$ has an average speed of \textbf{60 km/h} and train
+$\tb{B}$ travels on average at \textbf{100 km/h}. I also know that train
+$\tr{A}$ is at this moment 3 times as far from the depot as train $\tb{B}$ is.
+
+I denote by $y$ \textbf{the distance} (in km) train $\tb{B}$ is from the depot.
+I also denote by $x$ \textbf{the time} (in hours) both trains have travelled for
+from the moment they started moving.
+
+\begin{enumerate}[label=(\alph*),topsep=0pt]
+ \item Express \textbf{the distance from the depot} of these two trains as
+  linear functions $\tr{A(x,y)}$ and $\tb{B(x,y)}$ with inputs: 
+  \begin{itemize}[topsep=0pt]
+   \item the time they have been moving ($x$) and
+   \item their initial distance from the depot ($y$).
+  \end{itemize}
+\end{enumerate}
+\newpage
+
+The terminal station of train $\tr{A}$ is 330 km away from the depot and the
+terminal station of train $\tb{B}$ is 350 km away from the depot. I know that
+both trains \textbf{reached the terminal station at the same time}.
+\begin{enumerate}[label=(\alph*),topsep=0pt]
+ \setcounter{enumi}{1}
+ \item Write a system of two linear equations in two variables which will allow
+  me to calculate how long the trains travelled to their terminal station ($x$)
+  and their initial distances from the depot ($y$).
+ \item Solve the system.
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}[label=(\alph*),topsep=0pt]
+ \setcounter{enumi}{3}
+ \item Interpret the equations of the system as linear functions in one
+  variable. Draw their graphs as lines (it needn't be precise). You may want to
+  use the following grid. \textbf{\tr{Make sure you are drawing them correctly.
+  Their intersection must be the solution to the system.}}
+  \begin{center}
+   \begin{tikzpicture}[scale=1.25]
+    \tkzInit[xmax=8,ymax=350,xmin=0,ymin=0,ystep=50]
+    \tkzGrid
+    \tkzLabelX[font=\scriptsize]
+    \tkzLabelY[font=\scriptsize]
+    \tkzDrawX
+    \tkzDrawY
+   \end{tikzpicture}
+  \end{center}
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}[label=(\alph*),topsep=0pt]
+ \setcounter{enumi}{4}
+ \item Let's say I add another train, $\tg{C}$. This train starts moving at the
+  exact same time as $\tr{A}$ and $\tb{B}$ at \textbf{80 km/h}. Its initial
+  distance from the depot is \textbf{twice that of $\tr{A}$} and the distance of
+  its terminal station from the depot is \textbf{400 km}.
+
+  As you did before, express the initial distance of $\tg{C}$, that is, the
+  variable $y$, as a linear function dependent on its velocity $(x)$. Finally,
+  draw the graph of this function (ideally to the same grid as $\tr{A}$ and
+  $\tb{B}$).
+ \item Does $\tg{C}$ reach its terminal station at the same time as $\tr{A}$ and
+  $\tb{B}$? -- \textbf{Read this information from the graph!}
+
+  If not, \textbf{change its velocity} so that it does reach its terminal
+  station together with the two other trains (you do \textbf{not} have to draw
+  the graph of the changed linear function).
+\end{enumerate}
+
+\end{document}
