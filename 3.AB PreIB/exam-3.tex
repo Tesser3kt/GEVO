@@ -1,0 +1,191 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+% Title %
+\title{\Huge\textsf{Math Exam -- PreIB 3.AB 3}\\
+ \Large\textsf{Systems of Linear Equations}
+ \author{Áďa Klepáčů}
+ \date{March 9, 2023}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+\newcommand{\tmar}{\textcolor[HTML]{e23636}}
+\newcommand{\tav}{\textcolor[HTML]{2e67a0}}
+
+\definecolor{marvel}{HTML}{e23636}
+\definecolor{avatar}{HTML}{2e67a0}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+ \textbf{\tr{DON'T FORGET TO EXPLAIN EVERYTHING EVEN IF YOU THINK IT'S
+ OBVIOUS!}}
+\end{center}
+
+You're selling \tmar{Marvel Comics} and \tav{Avatar} toys. As \tav{Avatar} is
+trending right now, you sell one \tav{Avatar} toy for \$40. \tmar{Marvel Comics}
+toys don't sell as well and you can only cash in \$20 apiece.
+
+Denote the number of sold \tmar{Marvel Comics} toys by $\tmar{m}$ and the number
+of sold \tav{Avatar} toys by $\tav{a}$.
+
+\begin{enumerate}[topsep=0pt,label=(\alph*)]
+ \item \textbf{Define a linear function} $A(\tmar{m},\tav{a})$ in variables
+  $\tmar{m}$ and $\tav{a}$ which calculates \textbf{your total revenue} based on
+  the number of sold \tmar{Marvel Comics} and \tav{Avatar} toys.
+\end{enumerate}
+
+\newpage
+
+It seems you're not the only one in the neighbourhood selling toys. Your
+competitor seems to think that \tmar{Marvel Toys} don't really sell and only
+prices them at \$15. On the other hand, he prices \tav{Avatar} toys at a
+whopping \$45.
+
+Surprisingly, at the end of the day, \textbf{both of you sold the same number of
+each type of toy}. Your competitor's aggressive pricing paid off as he earned
+\$1050 and you earned only \$1000.
+
+\begin{enumerate}[label=(\alph*),topsep=0pt]
+ \setcounter{enumi}{1}
+ \item \textbf{Define a linear function} $B(\tmar{m},\tav{a})$ in variables
+  $\tmar{m}$ and $\tav{a}$ which calculates \textbf{your competitor's revenue}
+  based on the number of \tmar{Marvel Comics} and \tav{Avatar} toys he sold.
+ \item Write down the \textbf{system of linear equations} which allows you to
+  calculate the number of sold toys assuming that \textbf{you earned \$1000},
+  \textbf{your competitor earned \$1050} and \textbf{both of you sold the same
+  number of each type of toy}.\\
+  Hint: Remember, total revenues are exactly the outputs of the functions $A$ 
+  and $B$.
+ \item Solve the system.
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}[label=(\alph*),topsep=0pt]
+ \setcounter{enumi}{4}
+ \item Interpret the equations of the previous system as linear functions $f$
+  and $g$ with output $\tmar{m}$ and input $\tav{a}$. Write down their
+  definitions.\\
+  Hint: Just isolate the variable $\tmar{m}$ in the equations.
+\end{enumerate}
+
+\newpage
+
+In comes yet another competitor. He really doesn't like \tmar{Marvel} and prices
+their toys at mere \$10. But he also seems to think that \tav{Avatar} toys are
+going to sell no matter what and values them just as you do, at \$40. His
+revenue at the end of the day is only \$800. You can see the graph of the
+equation determining his revenue in the grid below.
+
+\begin{enumerate}[label=(\alph*),topsep=0pt]
+ \setcounter{enumi}{5}
+ \item Draw the graphs of the linear functions $f$ and $g$ into the grid below.
+  Did the third competitor sell the same number of each type of toy as you
+  did? -- \textbf{Read this information from the graphs!}
+\end{enumerate}
+
+\begin{center}
+ \begin{tikzpicture}[scale=1.25]
+  \tkzInit[xmax=30,ymax=90,xmin=0,ymin=0,xstep=5,ystep=10]
+  \tkzGrid
+  \tkzLabelX[text=avatar,font=\scriptsize]
+  \tkzLabelY[text=marvel,font=\scriptsize]
+  \tkzDrawX[label=$\tav{a}$]
+  \tkzDrawY[label=$\tmar{m}$]
+  \tkzDefPoint(0,80){a};
+  \tkzDefPoint(20,0){b};
+  \tkzDrawPoints[size=6pt](a,b);
+  \tkzDrawLine[add=0 and 0](a,b);
+
+  \tkzLabelLine[rotate=-63,yshift=3mm,pos=0.2](a,b){third competitor}
+ \end{tikzpicture}
+\end{center}
+
+\end{document}

@@ -18,6 +18,8 @@ pathlib = "*"
 vendor = "*"
 requests = "*"
 requests-oauthlib = "*"
+flask-cors = "*"
+flask-oauth = "*"
 
 [dev-packages]
 

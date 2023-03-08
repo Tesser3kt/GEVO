@@ -1,13 +1,13 @@
-cesty = [
-    [35, 10, 15],
-    [10, 5, 5, 10],
-    [120]
-]
+def divna_morseovka(zprava):
+    pocet_tecek = 0
+    pocet_carek = 0
 
-nejkratsi_cesta = cesty[0]
-for i in range(len(cesty)):
-    if len(cesty[i]) <= 3:
-        if sum(cesty[i]) < sum(nejkratsi_cesta):
-            nejkratsi_cesta = cesty[i]
+    for znak in zprava:
+        if znak == ".":
+            pocet_tecek = pocet_tecek + 1
+        elif znak == "-":
+            pocet_carek = pocet_carek + 1
+        else:
+            return False
 
-print(sum(nejkratsi_cesta))
+    return pocet_tecek == pocet_carek
