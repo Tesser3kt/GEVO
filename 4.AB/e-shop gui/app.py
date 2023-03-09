@@ -62,6 +62,11 @@ while True:
                     'id': id_uzivatele,
                     'jmeno': hodnoty[0]
                 }
+                # nacti kosik z databaze
+                seznam_polozek = spravce_databaze.nacti_kosik_z_databaze(
+                    prihlaseny_uzivatel['id']
+                )
+                kosik.nacti_ze_seznamu(seznam_polozek)
                 okno = rozhrani.zobraz_hlavni_menu(hodnoty[0])
 
     if udalost == 'Zaregistrovat se':
@@ -82,6 +87,10 @@ while True:
                     'id': id_uzivatele,
                     'jmeno': hodnoty[0]
                 }
+                seznam_polozek = spravce_databaze.nacti_kosik_z_databaze(
+                    prihlaseny_uzivatel['id']
+                )
+                kosik.nacti_ze_seznamu(seznam_polozek)
                 sg.popup_ok("Registrace proběhla úspěšně.",
                             relative_location=POZICE_OKNA)
                 okno.close()
@@ -115,12 +124,6 @@ while True:
 
     if udalost == 'Košík':
         # kliknuti na tlacitko kosik
-        # nacti kosik z databaze
-        seznam_polozek = spravce_databaze.nacti_kosik_z_databaze(
-            prihlaseny_uzivatel['id']
-        )
-        kosik.nacti_ze_seznamu(seznam_polozek)
-
         okno.close()
         okno = rozhrani.zobraz_kosik(prihlaseny_uzivatel['jmeno'],
                                      kosik.kosik, kosik.soucet)

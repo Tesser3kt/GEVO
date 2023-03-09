@@ -1,6 +1,6 @@
 VYCHOZI_FONT = "Source Sans Pro"
 VYCHOZI_VELIKOST = 12
-POZICE_OKNA = (960, 0)
+POZICE_OKNA = (0, 0)
 MOTIV = {
     'BACKGROUND': '#4c566a',
     'TEXT': '#eceff4',

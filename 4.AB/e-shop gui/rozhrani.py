@@ -170,7 +170,7 @@ class Rozhrani:
         ]
         polozky = [
             [sg.Frame('', self.__rozlozeni_polozky(polozka),
-                      border_width=1, size=(600, 50), pad=(10, 10),
+                      border_width=1, size=(800, 50), pad=(10, 10),
                       key=f"Polozka {polozka['id']}")]
             for polozka in polozky_k_zobrazeni
         ] if polozky_k_zobrazeni else [
