@@ -1,45 +1,76 @@
+import os
 import requests
 from config import *
-from flask import Flask, url_for, redirect, session
+
+from flask import Flask, url_for, redirect, session, abort, request
 from flask_sqlalchemy import SQLAlchemy
-from flask_oauth import OAuth
+
+from google.oauth2 import id_token
+from google_auth_oauthlib.flow import Flow
+from google.auth.transport import requests as google_requests
+
+from pip._vendor import cachecontrol
+
+# allow insecure transport for development
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 # create Flask app
 app = Flask(__name__)
 app.debug = DEBUG
 app.secret_key = SECRET_KEY
 
-# create OAuth object
-oauth = OAuth(app)
-google = oauth.register(
-    name='google',
-    client_id=GOOGLE_CLIENT_ID,
-    client_secret=GOOGLE_CLIENT_SECRET,
-    access_token_url='https://accounts.google.com/o/oauth2/token',
-    access_token_method='POST',
-    authorize_url='https://accounts.google.com/o/oauth2/auth',
-    authorize_method='GET',
-    base_url='https://www.googleapis.com/oauth2/v1/',
-    request_token_params={
-        'scope': ['email', 'profile'],
-        'response_type': 'code'
-    }
-)
-
 # configure SQLAlchemy database URI
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URI
 
 # create SQLAlchemy object
-db = SQLAlchemy(app)
+db = SQLAlchemy()
+db.init_app(app)
+
+# load client secrets from JSON file
+client_secrets_file = os.path.join(
+    os.path.dirname(__file__), 'client_secrets.json'
+)
+
+# create google auth flow
+flow = Flow.from_client_secrets_file(
+    client_secrets_file=client_secrets_file,
+    scopes=['openid', 'email', 'profile'],
+    redirect_uri=url_for('oauth2callback', _external=True)
+)
 
 
 @app.route('/login')
 def login():
+    """ Redirect to Google login page and return user info. """
+    authorization_url, state = flow.authorization_url()
+    session['state'] = state
+    return redirect(authorization_url)
 
 
-@app.route('/authorize')
-def authorize():
-    ...
+@app.route('/oauth2callback')
+def oauth2callback():
+    """ Handle Google OAuth2 callback. """
+    # fetch token from Google
+    flow.fetch_token(authorization_response=request.url)
+
+    if session['state'] != request.args['state']:
+        abort(500)
+
+    credentials = flow.credentials
+    request_session = requests.session()
+    cached_session = cachecontrol.CacheControl(request_session)
+    token_request = google_requests.Request(session=cached_session)
+
+    id_info = id_token.verify_oauth2_token(
+        id_token=credentials._id_token,
+        request=token_request,
+        audience=GOOGLE_CLIENT_ID
+    )
+
+    session['google_id'] = id_info.get('sub')
+    session['name'] = id_info.get('name')
+
+    return f"Hello {session['name']}! You are logged in."
 
 
 class User(db.Model):
