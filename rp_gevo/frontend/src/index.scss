@@ -1,0 +1,42 @@
+@import 'variables';
+
+/* Global styles */
+body {
+	color: $gunmetal;
+
+	font: {
+		family: $font-body;
+		weight: $font-weight-normal;
+	}
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $yinmn-blue;
+
+	font: {
+		family: $font-headings;
+		weight: $font-weight-bold;
+		size: $font-size-large;
+	}
+}
+
+/* Login Page */
+
+.app-title {
+	font-size: $font-size-title;
+
+	border: {
+		bottom: 3px solid $burnt-sienna;
+	}
+}
+
+/* Error Page */
+.error-triangle {
+	color: $burnt-sienna;
+}

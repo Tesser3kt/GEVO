@@ -1,15 +1,8 @@
 import os
-import requests
 from config import *
 
 from flask import Flask, url_for, redirect, session, abort, request
 from flask_sqlalchemy import SQLAlchemy
-
-from google.oauth2 import id_token
-from google_auth_oauthlib.flow import Flow
-from google.auth.transport import requests as google_requests
-
-from pip._vendor import cachecontrol
 
 # allow insecure transport for development
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
@@ -31,46 +24,48 @@ client_secrets_file = os.path.join(
     os.path.dirname(__file__), 'client_secrets.json'
 )
 
-# create google auth flow
-flow = Flow.from_client_secrets_file(
-    client_secrets_file=client_secrets_file,
-    scopes=['openid', 'email', 'profile'],
-    redirect_uri=url_for('oauth2callback', _external=True)
-)
+
+@app.after_request
+def set_headers(response):
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Headers"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "*"
+    return response
 
 
-@app.route('/login')
+@app.route('/api/login', methods=['GET', 'POST'])
 def login():
-    """ Redirect to Google login page and return user info. """
-    authorization_url, state = flow.authorization_url()
-    session['state'] = state
-    return redirect(authorization_url)
-
-
-@app.route('/oauth2callback')
-def oauth2callback():
-    """ Handle Google OAuth2 callback. """
-    # fetch token from Google
-    flow.fetch_token(authorization_response=request.url)
-
-    if session['state'] != request.args['state']:
-        abort(500)
-
-    credentials = flow.credentials
-    request_session = requests.session()
-    cached_session = cachecontrol.CacheControl(request_session)
-    token_request = google_requests.Request(session=cached_session)
-
-    id_info = id_token.verify_oauth2_token(
-        id_token=credentials._id_token,
-        request=token_request,
-        audience=GOOGLE_CLIENT_ID
-    )
-
-    session['google_id'] = id_info.get('sub')
-    session['name'] = id_info.get('name')
-
-    return f"Hello {session['name']}! You are logged in."
+    """ Log user in. """
+    if request.method == 'POST':
+        # get user data from request
+        user_data = request.get_json()
+        # check if user exists
+        user = User.query.filter_by(email=user_data['email']).first()
+        if user is None:
+            # create new user
+            user = User(
+                name=user_data['name'],
+                email=user_data['email'],
+                role='teacher'
+            )
+            db.session.add(user)
+            db.session.commit()
+        # log user in
+        session['user_email'] = user.email
+        session['user_name'] = user.name
+        return {
+            'user_name': user.name,
+            'user_email': user.email
+        }
+    elif request.method == 'GET':
+        # check if user is logged in
+        if 'user_name' in session:
+            return {
+                'user_name': session['user_name'],
+                'user_email': session['user_email']
+            }
+        else:
+            return None
 
 
 class User(db.Model):
