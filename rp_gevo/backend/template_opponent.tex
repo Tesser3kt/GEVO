@@ -1,0 +1,218 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage[T1]{fontenc}
+\usepackage{FiraSans}
+\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+\usepackage{PTSerif}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=0.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+\newcommand{\tmar}{\textcolor[HTML]{e23636}}
+\newcommand{\tav}{\textcolor[HTML]{2e67a0}}
+
+\definecolor{marvel}{HTML}{e23636}
+\definecolor{avatar}{HTML}{2e67a0}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\arraystretch}{1.2}
+% Document %
+\pagestyle{fancy}
+
+\newcolumntype{C}[1]{%
+ >{\vbox to 5ex\bgroup\vfill\centering}%
+ p{#1}%
+ <{\egroup}}
+
+\begin{document}
+
+\thispagestyle{fancy}
+\begin{minipage}{.3\textwidth}
+ \includegraphics[width=\textwidth]{logo}
+\end{minipage}
+\hfill
+\begin{minipage}{.69\textwidth}
+ \centering
+ \Large{\sffamily
+  GYMNÁZIUM EVOLUTION JIŽNÍ MĚSTO\\
+  Posudek oponenta ročníkové práce\\
+  2022/23
+ }
+\end{minipage}
+
+\begin{center}
+ \large{
+ \begin{tabular}{ll}
+  \textsf{Název práce:} &
+  \textsf{
+   %%TITLE%%
+  }\\
+  \textsf{Autor práce, třída:} &
+  \textsf{
+   %%AUTHOR%%
+  }\\
+  \textsf{Oponent práce:} &
+  \textsf{
+   %%OPPONENT%%
+  }
+ \end{tabular}
+ }
+\end{center}
+
+\section*{\sffamily \centering Hodnocení ročníkové práce}
+
+\begin{center}
+ \begin{tabular}{c|m{.65\textwidth}|c|c}
+  & \multicolumn{1}{c|}{\textsf{Hodnocení ročníkové práce}} & \textsf{Váha} &
+  \textsf{Známka}\\
+  \toprule
+  1. & Problematika a cíl práce jsou zformulovány a odpovídají zadání a názvu
+  práce. & 1 &
+  %%FORMULATION%%
+  \\
+  \midrule
+  2. & Metodika práce vede k naplnění cílů, je správně a logicky zvolená a
+  kvalitně provedená. & 3 &
+  %%METHODOLOGY%%
+  \\
+  \midrule
+  3. & Autor se opírá o relevantní prameny a literaturu. & 2 &
+  %%BIBLIOGRAPHY%%
+  \\
+  \midrule
+  4. & Struktura práce je logická a vyvážená a předepsané části práce naplňují
+  svůj účel i obsah. & 4 &
+  %%STRUCTURE%%
+  \\
+  \midrule
+  5. & Práce je originální a obsahuje jednoznačně definovatelný vlastní přínos
+  studenta zvolené tématice. & 4 &
+  %%CONTRIBUTION%%
+  \\
+  \midrule
+  6. & Práce používá správnou odbornou terminologii, obrazový doprovod je
+  kvalitní a odpovídá tématu. & 1 &
+  %%TERMINOLOGY%%
+  \\
+  \midrule
+  7. & Cíle práce byly splněny. & 4 &
+  %%RESULTS%%
+ \end{tabular}
+\end{center}
+
+\begin{center}
+ \fbox{\textbf{Výsledná známka (vážený průměr):} \textbf{
+  %%WEIGHTED MEAN%%
+ }}
+\end{center}
+
+\subsection*{\sffamily\centering Kritéria hodnocení}
+\begin{center}
+ \begin{tabular}{c|l|l}
+  1 & splňuje na výborné úrovni & 100 \%*, 99 -- 85 \% \\
+  \midrule
+  2 & splňuje chvalitebně & 84 -- 70 \% \\
+  \midrule
+  3 & splňuje z větší části & 69 -- 55 \% \\
+  \midrule
+  4 & splňuje z menší části & 54 -- 40 \% \\
+  \midrule
+  5 & nesplňuje & 39 -- 0 \%
+ \end{tabular}\\
+ *\footnotesize{mimořádný výkon po všech stránkách}
+\end{center}
+
+\section*{\sffamily \centering Slovní hodnocení výsledné práce (klady a
+nedostatky)}
+%%REVIEW%%
+
+\section*{\sffamily \centering Doporučené otázky k obhajobě}
+
+\begin{enumerate}
+  %%QUESTIONS%%
+\end{enumerate}
+
+\vfill
+
+\textbf{Datum:
+%%DATE%%
+}
+
+\end{document}

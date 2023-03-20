@@ -32,6 +32,8 @@ flask-sqlalchemy = "*"
 mysqlclient = "*"
 authlib = "*"
 flask-cors = "*"
+openpyxl = "*"
+unidecode = "*"
 
 [dev-packages]
 

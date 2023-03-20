@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       colors: {
         'yinmn-blue': '#3d5a80',
-        'powder-blue': '98c1d9',
+        'powder-blue': '#98c1d9',
         'light-cyan': '#e0fbfc',
         'burnt-sienna': '#ee6c4d',
         'gunmetal': '#293241'
@@ -15,6 +15,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('prettier-plugin-tailwindcss')
+    require('prettier-plugin-tailwindcss'),
+    require('@tailwindcss/forms')
   ],
 }

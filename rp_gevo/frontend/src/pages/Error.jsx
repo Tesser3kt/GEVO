@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Error() {
 	const { state } = useLocation();
@@ -11,6 +12,10 @@ function Error() {
 				</svg>
 				<h2 className="error-message">{state.message}</h2>
 				<p className="error-detail rounded-md p-4 my-4 bg-gray-100 ring-2 ring-burnt-sienna">{state.err}</p>
+
+				<button className="btn rounded-md p-4 my-10">
+					<Link to="/">Zpět na hlavní stránku</Link>
+				</button>
 			</div>
 		</div>
 	);
