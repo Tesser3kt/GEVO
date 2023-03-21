@@ -1,0 +1,4 @@
+from manim import *
+
+VERTEX_COLOR = YELLOW_C
+EDGE_COLOR = PURPLE_A
