@@ -1,91 +1,88 @@
 function ThesisGradeForm(props) {
 	const tableData = props.viewingSupervisor ? [
 		{
-			description: 'Problematika a cíl práce jsou zformulovány a odpovídají zadání a názvu práce.',
-			weight: 1
+			description: 'Úvod',
+			points: 5
 		},
 		{
-			description: 'Metodika práce vede k naplnění cílů, je správně a logicky zvolená a kvalitně provedená.',
-			weight: 3
+			description: 'Literární rešerše',
+			points: 5
 		},
 		{
-			description: 'Autor se opírá o relevantní prameny a literaturu.',
-			weight: 2
+			description: 'Metoda',
+			points: 5
 		},
 		{
-			description: 'Struktura práce je logická a vyvážená a předepsané části práce naplňují svůj účel i obsah.',
-			weight: 4
+			description: 'Analýza',
+			points: 5
 		},
 		{
-			description: 'Práce je originální a obsahuje jednoznačně definovatelný vlastní přínos studenta zvolené tématice.',
-			weight: 4
+			description: 'Zhodnocení',
+			points: 5
 		},
 		{
-			description: 'Práce používá správnou odbornou terminologii, obrazový doprovod je kvalitní a odpovídá tématu.',
-			weight: 1
+			description: 'Jazyk',
+			points: 3
 		},
 		{
-			description: 'Formální stránka práce – autor správně cituje, má správně vedený seznam literatury, nic podstatného neopominul.',
-			weight: 3
+			description: 'Citace',
+			points: 2
 		},
 		{
-			description: 'Jazyková stránka práce.',
-			weight: 2
+			description: 'Formátování',
+			points: 2
 		},
 		{
-			description: 'Grafická stránka práce (formátování). Hodnotí pověřený učitel.',
-			weight: 2
-		},
-		{
-			description: 'Cíle práce byly splněny.',
-			weight: 4
+			description: 'Logická struktura',
+			points: 3
 		}
 	] : [
 		{
-			description: 'Problematika a cíl práce jsou zformulovány a odpovídají zadání a názvu práce.',
-			weight: 1
+			description: 'Úvod',
+			points: 5
 		},
 		{
-			description: 'Metodika práce vede k naplnění cílů, je správně a logicky zvolená a kvalitně provedená.',
-			weight: 3
+			description: 'Literární rešerše',
+			points: 5
 		},
 		{
-			description: 'Autor se opírá o relevantní prameny a literaturu.',
-			weight: 2
+			description: 'Metoda',
+			points: 5
 		},
 		{
-			description: 'Struktura práce je logická a vyvážená a předepsané části práce naplňují svůj účel i obsah.',
-			weight: 4
+			description: 'Analýza',
+			points: 5
 		},
 		{
-			description: 'Práce je originální a obsahuje jednoznačně definovatelný vlastní přínos studenta zvolené tématice.',
-			weight: 4
+			description: 'Zhodnocení',
+			points: 5
 		},
 		{
-			description: 'Práce používá správnou odbornou terminologii, obrazový doprovod je kvalitní a odpovídá tématu.',
-			weight: 1
+			description: 'Jazyk',
+			points: 3
 		},
 		{
-			description: 'Cíle práce byly splněny.',
-			weight: 4
+			description: 'Citace',
+			points: 2
+		},
+		{
+			description: 'Formátování',
+			points: 2
+		},
+		{
+			description: 'Logická struktura',
+			points: 3
 		}
 	];
 
-	function getWeightedMean() {
-		let weightedMean = 0;
-		let sumOfWeights = 0;
-
-		for (let i = 0; i < tableData.length; i++) {
-			weightedMean += props.grades[i] * tableData[i].weight;
-			sumOfWeights += tableData[i].weight;
-		}
-
-		return Math.round(weightedMean / sumOfWeights);
+	function getTotalPoints() {
+		return tableData.reduce((total, item) => total + item.points, 0);
 	}
 
 	function onGradeChange(event) {
 		const target = event.target;
 		const index = parseInt(target.id);
+		const maxPoints = tableData[index].points;
 		let grade = parseInt(target.value);
 
 		if (isNaN(grade)) {
@@ -95,8 +92,8 @@ function ThesisGradeForm(props) {
 		if (grade < 0) {
 			grade = 0;
 		}
-		if (grade > 100) {
-			grade = 100;
+		if (grade > maxPoints) {
+			grade = maxPoints;
 		}
 
 		const newGrades = [...props.grades];
@@ -114,8 +111,8 @@ function ThesisGradeForm(props) {
 							<tr>
 								<th></th>
 								<th>Hodnocení ročníkové práce</th>
-								<th>Váha</th>
-								<th>Známka</th>
+								<th>Max. bodů</th>
+								<th>Body</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -138,7 +135,7 @@ function ThesisGradeForm(props) {
 						</tbody>
 					</table>
 					<div className="container mx-auto mt-4 text-center">
-						<span className="weighted-mean">Výsledná známka (vážený průměr): {getWeightedMean()} %</span>
+						<span className="weighted-mean">Celkem bodů: {getTotalPoints()} %</span>
 					</div>
 					<div className="container mt-8 flex flex-col justify-center items-center min-w-full">
 						{(props.editStatus === 'success' && props.showEditMessage) &&

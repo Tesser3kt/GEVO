@@ -175,4 +175,99 @@ class TreeExamples(Scene):
         # tree normal
         self.play(G.animate.change_layout(
             "tree", root_vertex=13, layout_scale=3), run_time=2)
-        self.wait(1)
+        self.wait(2)
+
+
+class PathAndCycleExamples(Scene):
+    def construct(self):
+        G = Graph.from_networkx(nx.circular_ladder_graph(5),
+                                vertex_config={"color": VERTEX_COLOR,
+                                               "radius": 0.15},
+                                edge_config={"color": EDGE_COLOR},
+                                layout="circular", layout_scale=3.5,
+                                labels=False)
+
+        for v in G.vertices.values():
+            v.set_z_index(10)
+        for e in G.edges.values():
+            e.set_z_index(5)
+
+        self.play(Create(G), run_time=2)
+        self.wait(2)
+
+        # walk example
+        walk_vertices = [0, 1, 6, 7, 2, 1, 0, 4]
+        dot = Dot(radius=0.2, color=PATH_COLOR).set_z_index(12)
+        dot.move_to(G[walk_vertices[0]].get_center())
+
+        self.play(Create(dot))
+        dot_trace_1 = TracedPath(dot.get_center, stroke_width=4,
+                                 stroke_color=PATH_COLOR).set_z_index(7)
+        dot_trace_2 = TracedPath(dot.get_center, stroke_width=4,
+                                 stroke_color=PATH_COLOR_TWICE).set_z_index(8)
+        dot_trace_3 = TracedPath(dot.get_center, stroke_width=4,
+                                 stroke_color=PATH_COLOR).set_z_index(9)
+        self.add(dot_trace_1)
+        for i, v in enumerate(walk_vertices):
+            self.play(dot.animate.move_to(G[v].get_center()))
+            G[v].set_color(PATH_COLOR)
+            if i in [5, 6]:
+                G[v].set_color(PATH_COLOR_TWICE)
+            if i == 4:
+                self.add(dot_trace_2)
+                self.play(dot.animate.set_color(PATH_COLOR_TWICE))
+            if i == 6:
+                self.add(dot_trace_3)
+                self.play(dot.animate.set_color(PATH_COLOR))
+
+        self.wait(2)
+
+        # trail example
+        self.play(
+            FadeOut(dot_trace_1, dot_trace_2, dot_trace_3, dot),
+            *[v.animate.set_color(VERTEX_COLOR)
+              for v in G.vertices.values()]
+        )
+
+        trail_vertices = [2, 7, 6, 1, 2, 3, 4]
+        dot.move_to(G[trail_vertices[0]].get_center())
+        self.play(Create(dot))
+
+        dot_trace = TracedPath(dot.get_center, stroke_width=4,
+                               stroke_color=PATH_COLOR).set_z_index(7)
+        self.add(dot_trace)
+
+        for i, v in enumerate(trail_vertices):
+            self.play(dot.animate.move_to(G[v].get_center()))
+            G[v].set_color(PATH_COLOR)
+            if i == 4:
+                G[v].set_color(PATH_COLOR_TWICE)
+
+        self.wait(2)
+
+        # path example
+        self.play(
+            FadeOut(dot_trace, dot),
+            *[v.animate.set_color(VERTEX_COLOR)
+              for v in G.vertices.values()]
+        )
+
+        path_vertices = [0, 5, 6, 7, 2, 3, 4]
+
+        dot.move_to(G[path_vertices[0]].get_center())
+        self.play(Create(dot))
+
+        dot_trace = TracedPath(dot.get_center, stroke_width=4,
+                               stroke_color=PATH_COLOR).set_z_index(7)
+        self.add(dot_trace)
+
+        for v in path_vertices:
+            self.play(dot.animate.move_to(G[v].get_center()))
+            G[v].set_color(PATH_COLOR)
+
+        self.wait(2)
+
+        # cycle example
+        self.play(dot.animate.move_to(G[0].get_center()))
+
+        self.wait(2)
