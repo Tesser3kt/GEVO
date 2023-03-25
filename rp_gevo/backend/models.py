@@ -126,30 +126,28 @@ class Thesis(db.Model):
 
 class Evaluation(db.Model):
     """ Evaluation database model. """
-    WEIGHTS = {
-        'formulation': 1,
-        'methodology': 3,
-        'bibliography': 2,
-        'structure': 4,
-        'contribution': 4,
-        'terminology': 1,
-        'citations': 3,
-        'language': 2,
+    POINTS = {
+        'introduction': 5,
+        'research': 5,
+        'methodology': 5,
+        'analysis': 5,
+        'evaluation': 5,
+        'language': 3,
+        'citations': 2,
         'formatting': 2,
-        'results': 4
+        'structure': 3
     }
     __tablename__ = 'evaluations'
     id = db.Column(db.Integer, primary_key=True)
-    formulation = db.Column(db.Integer, unique=False, nullable=False)
+    introduction = db.Column(db.Integer, unique=False, nullable=False)
+    research = db.Column(db.Integer, unique=False, nullable=False)
     methodology = db.Column(db.Integer, unique=False, nullable=False)
-    bibliography = db.Column(db.Integer, unique=False, nullable=False)
+    analysis = db.Column(db.Integer, unique=False, nullable=False)
+    evaluation = db.Column(db.Integer, unique=False, nullable=False)
+    language = db.Column(db.Integer, unique=False, nullable=False)
+    citations = db.Column(db.Integer, unique=False, nullable=False)
+    formatting = db.Column(db.Integer, unique=False, nullable=False)
     structure = db.Column(db.Integer, unique=False, nullable=False)
-    contribution = db.Column(db.Integer, unique=False, nullable=False)
-    terminology = db.Column(db.Integer, unique=False, nullable=False)
-    citations = db.Column(db.Integer, unique=False, nullable=True)
-    language = db.Column(db.Integer, unique=False, nullable=True)
-    formatting = db.Column(db.Integer, unique=False, nullable=True)
-    results = db.Column(db.Integer, unique=False, nullable=False)
 
     supervisor_thesis_id = db.Column(
         db.Integer, db.ForeignKey('theses.id'), nullable=True)
@@ -162,13 +160,9 @@ class Evaluation(db.Model):
         return f"<Evaluation of {thesis}>"
 
     @property
-    def weighted_mean(self):
+    def total(self):
         """ Returns the weighted mean of the evaluation. """
-        total = 0
-        for key, value in self.WEIGHTS.items():
-            if getattr(self, key):
-                total += getattr(self, key) * value
-        return round(total / sum(self.WEIGHTS.values()))
+        return sum(getattr(self, key) for key in self.POINTS)
 
 
 class Review(db.Model):

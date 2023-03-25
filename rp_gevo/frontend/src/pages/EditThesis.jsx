@@ -71,11 +71,7 @@ function EditThesis() {
 	const [opponent, setOpponent] = useState(thesisData.opponent);
 	const [newThesisData, setNewThesisData] = useState(thesisData);
 
-	const [grades, setGrades] = useState(
-		openTab === 1 ?
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0] :
-		[0, 0, 0, 0, 0, 0, 0]
-	);
+	const [grades, setGrades] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
 	const [review, setReview] = useState('');
 

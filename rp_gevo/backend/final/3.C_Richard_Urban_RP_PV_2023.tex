@@ -51,6 +51,8 @@
 % Tables %
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{?}{!{\vrule width 1pt\hspace*{.7pt}\vrule width 1pt}}
 
 % Patch for hyphens
 \usepackage{regexpatch}
@@ -139,98 +141,64 @@
 \section*{\sffamily \centering Hodnocení ročníkové práce}
 
 \begin{center}
- \begin{tabular}{c|m{.65\textwidth}|c|c}
-  & \multicolumn{1}{c|}{\textsf{Hodnocení ročníkové práce}} & \textsf{Váha} &
-  \textsf{Známka}\\
+ \begin{tabular}{c|c|c|c|c|c|c|c|c|c}
+  \sffamily
+  Úv & LR & Me & An & Zh & Jaz & Cit & For & LS & Celkem\\
   \toprule
-  1. & Problematika a cíl práce jsou zformulovány a odpovídají zadání a názvu
-  práce. & 1 &
-  0 \%
-  \\
-  \midrule
-  2. & Metodika práce vede k naplnění cílů, je správně a logicky zvolená a
-  kvalitně provedená. & 3 &
-  90 \%
-  \\
-  \midrule
-  3. & Autor se opírá o relevantní prameny a literaturu. & 2 &
-  80 \%
-  \\
-  \midrule
-  4. & Struktura práce je logická a vyvážená a předepsané části práce naplňují
-  svůj účel i obsah. & 4 &
-  0 \%
-  \\
-  \midrule
-  5. & Práce je originální a obsahuje jednoznačně definovatelný vlastní přínos
-  studenta zvolené tématice. & 4 &
-  0 \%
-  \\
-  \midrule
-  6. & Práce používá správnou odbornou terminologii, obrazový doprovod je
-  kvalitní a odpovídá tématu. & 1 &
-  0 \%
-  \\
-  \midrule
-  7. & Formální stránka práce –- autor správně cituje, má správně vedený seznam
-  literatury, nic podstatného neopominul. & 3 &
-  10 \%
-  \\
-  \midrule
-  8. & Jazyková stránka práce. & 2 &
-  50 \%
-  \\
-  \midrule
-  9. & Grafická stránka práce (formátování). Hodnotí pověřený učitel & 2 &
-  50 \%
-  \\
-  \midrule
-  10. & Cíle práce byly splněny. & 4 &
-  0 \%
- \end{tabular}
+  \normalfont
+  5
+  &
+  4
+  &
+  2
+  &
+  3
+  &
+  3
+  &
+  3
+  &
+  2
+  &
+  2
+  &
+  1
+  &
+  25
+\end{tabular}
 \end{center}
 
 \begin{center}
- \fbox{\textbf{Výsledná známka (vážený průměr):} \textbf{
-  25 \%
- }}
-\end{center}
-
-\subsection*{\sffamily\centering Kritéria hodnocení}
-\begin{center}
- \begin{tabular}{c|l|l}
-  1 & splňuje na výborné úrovni & 100 \%*, 99 -- 85 \% \\
-  \midrule
-  2 & splňuje chvalitebně & 84 -- 70 \% \\
-  \midrule
-  3 & splňuje z větší části & 69 -- 55 \% \\
-  \midrule
-  4 & splňuje z menší části & 54 -- 40 \% \\
-  \midrule
-  5 & nesplňuje & 39 -- 0 \%
- \end{tabular}\\
- *\footnotesize{mimořádný výkon po všech stránkách}
-\end{center}
+  \begin{tabular}{l|l?l|l?l|l}
+   Úv & Úvod & An & Analýza & Cit & Citace\\
+   LR & Literární rešerše & Zh & Zhodnocení & For & Formátování\\
+   Me & Metoda & Jaz & Jazyk & LS & Logická struktura\\
+  \end{tabular}
+ \end{center}
 
 \section*{\sffamily \centering Slovní hodnocení výsledné práce (klady a
 nedostatky)}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam rhoncus aliquam metus. Quisque porta. Integer imperdiet lectus quis justo. Duis risus. Cras elementum. Nullam rhoncus aliquam metus. Maecenas lorem. Pellentesque ipsum. Nulla non lectus sed nisl molestie malesuada. Duis condimentum augue id magna semper rutrum. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Duis risus.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce wisi. Etiam commodo dui eget wisi. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Cras elementum. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nulla non lectus sed nisl molestie malesuada. Curabitur sagittis hendrerit ante. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo.
 
-Proin mattis lacinia justo. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Etiam bibendum elit eget erat. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Fusce suscipit libero eget elit. Mauris tincidunt sem sed arcu. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis pulvinar. Integer pellentesque quam vel velit. Nullam rhoncus aliquam metus. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Etiam dictum tincidunt diam. Nullam faucibus mi quis velit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Fusce consectetuer risus a nunc. Proin in tellus sit amet nibh dignissim sagittis. Duis condimentum augue id magna semper rutrum. Aliquam erat volutpat. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus.
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus luctus egestas leo. Etiam neque. Proin in tellus sit amet nibh dignissim sagittis. Mauris tincidunt sem sed arcu. Curabitur sagittis hendrerit ante. Etiam quis quam. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Duis condimentum augue id magna semper rutrum. Donec quis nibh at felis congue commodo. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Nulla non arcu lacinia neque faucibus fringilla. Vivamus porttitor turpis ac leo. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Aliquam erat volutpat. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam.
 
-Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Pellentesque pretium lectus id turpis. Sed convallis magna eu sem. Morbi scelerisque luctus velit. Maecenas libero. Pellentesque ipsum. Maecenas sollicitudin. Suspendisse nisl. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus et lorem id felis nonummy placerat. Praesent in mauris eu tortor porttitor accumsan. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien.
+Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Etiam posuere lacus quis dolor. Integer malesuada. Duis risus. Nullam rhoncus aliquam metus. Vestibulum fermentum tortor id mi. Mauris elementum mauris vitae tortor. Mauris dictum facilisis augue. Et harum quidem rerum facilis est et expedita distinctio. Duis viverra diam non justo. Nam quis nulla.
 
 \section*{\sffamily \centering Doporučené otázky k obhajobě}
 
 \begin{enumerate}
-  \item Whatever?
-\item lqkwndlqwdnqwk
+  \item qlkwnlqwnd?
+\item wepwefoweif?
 \end{enumerate}
 
 \vfill
 
 \textbf{Datum:
-20.03.2023
+23.03.2023
+}
+\hfill
+\textit{
+  Adam Klepáč
 }
 
 \end{document}

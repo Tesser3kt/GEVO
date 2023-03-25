@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from '@react-oauth/google';
@@ -12,7 +12,12 @@ import Dashboard from "./pages/Dashboard";
 import EditThesis from "./pages/EditThesis";
 import NotFound from "./pages/NotFound";
 
+
 export default function App() {
+  useEffect(() => {
+    document.title = "RP GEVO";
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -30,8 +35,6 @@ export default function App() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <GoogleOAuthProvider clientId="236865910793-d0gr4u2sinbaqk5emcem912av6kq8m0d.apps.googleusercontent.com">
-    <React.StrictMode>
       <App />
-    </React.StrictMode>
   </GoogleOAuthProvider>
 );

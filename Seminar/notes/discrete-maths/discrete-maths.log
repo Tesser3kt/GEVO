@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.17)  26 FEB 2023 17:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.2)  24 MAR 2023 23:46
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -40,8 +40,8 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
-) (/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+) (/usr/local/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
  (/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
@@ -49,16 +49,16 @@ Package xcolor Info: Package option `usenames' ignored on input line 218.
 Package xcolor Info: Driver file: pdftex.def on input line 227.
  (/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
-)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
-Package xcolor Info: Model `RGB' extended on input line 1368.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+) (/usr/share/texmf-dist/tex/latex-dev/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
  (/usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 )) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -161,14 +161,14 @@ with kernel methods
 \c@bookmark@seq@number=\count271
  (/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
- (/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+
+(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
 \Hy@SectionHShift=\skip49
-)
-(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
@@ -256,28 +256,29 @@ Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \mult@nat@firstbox=\box95
 \colbreak@box=\box96
 \mc@col@check@num=\count282
-) (/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2021/10/15 v2.17l AMS math features
+) (/usr/local/share/texmf/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2022/04/08 v2.17n AMS math features
 \@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/share/texmf/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
- (/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+ (/usr/local/share/texmf/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks21
 \ex@=\dimen155
-)) (/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (/usr/local/share/texmf/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen156
-) (/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2021/08/26 v2.02 operator names
+) (/usr/local/share/texmf/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count283
 LaTeX Info: Redefining \frac on input line 234.
 \uproot@=\count284
 \leftroot@=\count285
 LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
 \classnum@=\count286
 \DOTSCASE@=\count287
 LaTeX Info: Redefining \ldots on input line 496.
@@ -285,10 +286,19 @@ LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
 \Mathstrutbox@=\box97
 \strutbox@=\box98
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen157
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count288
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
 \c@MaxMatrixCols=\count289
 \dotsspace@=\muskip17
 \c@parentequation=\count290
@@ -308,8 +318,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \multlinegap=\skip53
 \multlinetaggap=\skip54
 \mathdisplay@stack=\toks25
-LaTeX Info: Redefining \[ on input line 2938.
-LaTeX Info: Redefining \] on input line 2939.
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
 ) (/usr/share/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
  (/usr/share/texmf-dist/tex/latex/tools/calc.sty
@@ -489,9 +499,9 @@ Package: moreenum 2011/11/03 v1.03
 Package: alphalph 2019/12/09 v2.6 Convert numbers to letters (HO)
 ) (/usr/share/texmf-dist/tex/latex/fmtcount/fmtcount.sty
 Package: fmtcount 2020/01/30 v3.07
- (/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
- (/usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+ (/usr/local/share/texmf/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (/usr/local/share/texmf/tex/generic/xkeyval/xkeyval.tex (/usr/local/share/texmf/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks35
 \XKV@tempa@toks=\toks36
 )
@@ -515,278 +525,274 @@ Package: fcnumparser 2017/06/15
 \@tmpstrctr=\count324
 \@DT@loopN=\count325
 \@DT@X=\count326
-)) (/usr/share/texmf-dist/tex/latex/kpfonts/kpfonts.sty
-Package: kpfonts  2010/08/20 v3.31
- (/usr/share/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-LaTeX Font Info:    Changing ? sub-encoding to TS1/0 on input line 78.
-)
+)) (/usr/local/share/texmf/tex/latex/kpfonts/kpfonts.sty
+Package: kpfonts  2022/09/19 v3.34
 \c@mv@rm=\count327
 \c@mv@boldrm=\count328
 \c@mv@sf=\count329
 \c@mv@boldsf=\count330
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 354.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 374.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/jkp/m/n on input line 354.
+(Font)                  OT1/cmr/m/n --> OT1/jkp/m/n on input line 374.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/jkp/m/n on input line 354.
+(Font)                  OT1/cmr/bx/n --> OT1/jkp/m/n on input line 374.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `rm'
-(Font)                  OT1/cmr/m/n --> OT1/jkp/m/n on input line 354.
+(Font)                  OT1/cmr/m/n --> OT1/jkp/m/n on input line 374.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `boldrm'
-(Font)                  OT1/cmr/m/n --> OT1/jkp/m/n on input line 354.
+(Font)                  OT1/cmr/m/n --> OT1/jkp/m/n on input line 374.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `sf'
-(Font)                  OT1/cmr/m/n --> OT1/jkp/m/n on input line 354.
+(Font)                  OT1/cmr/m/n --> OT1/jkp/m/n on input line 374.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `boldsf'
-(Font)                  OT1/cmr/m/n --> OT1/jkp/m/n on input line 354.
+(Font)                  OT1/cmr/m/n --> OT1/jkp/m/n on input line 374.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/jkp/m/n --> OT1/jkp/b/n on input line 355.
+(Font)                  OT1/jkp/m/n --> OT1/jkp/b/n on input line 375.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `rm'
-(Font)                  OT1/jkp/m/n --> OT1/jkp/m/n on input line 357.
+(Font)                  OT1/jkp/m/n --> OT1/jkp/m/n on input line 377.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `boldrm'
-(Font)                  OT1/jkp/m/n --> OT1/jkp/b/n on input line 358.
+(Font)                  OT1/jkp/m/n --> OT1/jkp/b/n on input line 378.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `sf'
-(Font)                  OT1/jkp/m/n --> OT1/jkpss/m/n on input line 359.
+(Font)                  OT1/jkp/m/n --> OT1/jkpss/m/n on input line 379.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `boldsf'
-(Font)                  OT1/jkp/m/n --> OT1/jkpss/b/n on input line 360.
-LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 364.
+(Font)                  OT1/jkp/m/n --> OT1/jkpss/b/n on input line 380.
+LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 384.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/jkp/m/n --> OT1/jkp/b/n on input line 365.
+(Font)                  OT1/jkp/m/n --> OT1/jkp/b/n on input line 385.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `rm'
-(Font)                  OT1/jkp/m/n --> OT1/jkp/m/n on input line 366.
+(Font)                  OT1/jkp/m/n --> OT1/jkp/m/n on input line 386.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `boldrm'
-(Font)                  OT1/jkp/m/n --> OT1/jkp/b/n on input line 367.
+(Font)                  OT1/jkp/m/n --> OT1/jkp/b/n on input line 387.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `sf'
-(Font)                  OT1/jkp/m/n --> OT1/jkp/m/n on input line 368.
+(Font)                  OT1/jkp/m/n --> OT1/jkp/m/n on input line 388.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `boldsf'
-(Font)                  OT1/jkp/m/n --> OT1/jkp/b/n on input line 369.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 378.
+(Font)                  OT1/jkp/m/n --> OT1/jkp/b/n on input line 389.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 398.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 378.
+(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 398.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 378.
+(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 398.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `rm'
-(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 378.
+(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 398.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `boldrm'
-(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 378.
+(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 398.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `sf'
-(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 378.
+(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 398.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `boldsf'
-(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 378.
+(Font)                  OT1/cmr/bx/n --> OT1/jkp/b/n on input line 398.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/jkp/b/n --> OT1/jkp/b/n on input line 379.
+(Font)                  OT1/jkp/b/n --> OT1/jkp/b/n on input line 399.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `rm'
-(Font)                  OT1/jkp/b/n --> OT1/jkp/b/n on input line 381.
+(Font)                  OT1/jkp/b/n --> OT1/jkp/b/n on input line 401.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `boldrm'
-(Font)                  OT1/jkp/b/n --> OT1/jkp/b/n on input line 382.
+(Font)                  OT1/jkp/b/n --> OT1/jkp/b/n on input line 402.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `sf'
-(Font)                  OT1/jkp/b/n --> OT1/jkpss/b/n on input line 383.
+(Font)                  OT1/jkp/b/n --> OT1/jkpss/b/n on input line 403.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `boldsf'
-(Font)                  OT1/jkp/b/n --> OT1/jkpss/b/n on input line 384.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 390.
+(Font)                  OT1/jkp/b/n --> OT1/jkpss/b/n on input line 404.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 410.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/jkp/m/it on input line 390.
+(Font)                  OT1/cmr/m/it --> OT1/jkp/m/it on input line 410.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/jkp/m/it on input line 390.
+(Font)                  OT1/cmr/bx/it --> OT1/jkp/m/it on input line 410.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `rm'
-(Font)                  OT1/cmr/m/it --> OT1/jkp/m/it on input line 390.
+(Font)                  OT1/cmr/m/it --> OT1/jkp/m/it on input line 410.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `boldrm'
-(Font)                  OT1/cmr/m/it --> OT1/jkp/m/it on input line 390.
+(Font)                  OT1/cmr/m/it --> OT1/jkp/m/it on input line 410.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `sf'
-(Font)                  OT1/cmr/m/it --> OT1/jkp/m/it on input line 390.
+(Font)                  OT1/cmr/m/it --> OT1/jkp/m/it on input line 410.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `boldsf'
-(Font)                  OT1/cmr/m/it --> OT1/jkp/m/it on input line 390.
+(Font)                  OT1/cmr/m/it --> OT1/jkp/m/it on input line 410.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/jkp/m/it --> OT1/jkp/b/it on input line 391.
+(Font)                  OT1/jkp/m/it --> OT1/jkp/b/it on input line 411.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `rm'
-(Font)                  OT1/jkp/m/it --> OT1/jkp/m/it on input line 393.
+(Font)                  OT1/jkp/m/it --> OT1/jkp/m/it on input line 413.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `boldrm'
-(Font)                  OT1/jkp/m/it --> OT1/jkp/b/it on input line 394.
+(Font)                  OT1/jkp/m/it --> OT1/jkp/b/it on input line 414.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `sf'
-(Font)                  OT1/jkp/m/it --> OT1/jkpss/m/it on input line 395.
+(Font)                  OT1/jkp/m/it --> OT1/jkpss/m/it on input line 415.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `boldsf'
-(Font)                  OT1/jkp/m/it --> OT1/jkpss/b/it on input line 396.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 401.
+(Font)                  OT1/jkp/m/it --> OT1/jkpss/b/it on input line 416.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 421.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/jkpss/m/n on input line 401.
+(Font)                  OT1/cmss/m/n --> OT1/jkpss/m/n on input line 421.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/jkpss/m/n on input line 401.
+(Font)                  OT1/cmss/bx/n --> OT1/jkpss/m/n on input line 421.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `rm'
-(Font)                  OT1/cmss/m/n --> OT1/jkpss/m/n on input line 401.
+(Font)                  OT1/cmss/m/n --> OT1/jkpss/m/n on input line 421.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `boldrm'
-(Font)                  OT1/cmss/m/n --> OT1/jkpss/m/n on input line 401.
+(Font)                  OT1/cmss/m/n --> OT1/jkpss/m/n on input line 421.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `sf'
-(Font)                  OT1/cmss/m/n --> OT1/jkpss/m/n on input line 401.
+(Font)                  OT1/cmss/m/n --> OT1/jkpss/m/n on input line 421.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `boldsf'
-(Font)                  OT1/cmss/m/n --> OT1/jkpss/m/n on input line 401.
+(Font)                  OT1/cmss/m/n --> OT1/jkpss/m/n on input line 421.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/jkpss/m/n --> OT1/jkpss/b/n on input line 402.
+(Font)                  OT1/jkpss/m/n --> OT1/jkpss/b/n on input line 422.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `rm'
-(Font)                  OT1/jkpss/m/n --> OT1/jkpss/m/n on input line 403.
+(Font)                  OT1/jkpss/m/n --> OT1/jkpss/m/n on input line 423.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `boldrm'
-(Font)                  OT1/jkpss/m/n --> OT1/jkpss/b/n on input line 404.
+(Font)                  OT1/jkpss/m/n --> OT1/jkpss/b/n on input line 424.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `sf'
-(Font)                  OT1/jkpss/m/n --> OT1/jkpss/m/n on input line 405.
+(Font)                  OT1/jkpss/m/n --> OT1/jkpss/m/n on input line 425.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `boldsf'
-(Font)                  OT1/jkpss/m/n --> OT1/jkpss/b/n on input line 406.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 410.
+(Font)                  OT1/jkpss/m/n --> OT1/jkpss/b/n on input line 426.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 430.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 410.
+(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 430.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 410.
+(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 430.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `rm'
-(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 410.
+(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 430.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `boldrm'
-(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 410.
+(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 430.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `sf'
-(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 410.
+(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 430.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `boldsf'
-(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 410.
+(Font)                  OT1/cmtt/m/n --> OT1/jkptt/m/n on input line 430.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/jkptt/m/n --> OT1/jkptt/b/n on input line 411.
+(Font)                  OT1/jkptt/m/n --> OT1/jkptt/b/n on input line 431.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `rm'
-(Font)                  OT1/jkptt/m/n --> OT1/jkptt/m/n on input line 412.
+(Font)                  OT1/jkptt/m/n --> OT1/jkptt/m/n on input line 432.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `boldrm'
-(Font)                  OT1/jkptt/m/n --> OT1/jkptt/b/n on input line 413.
+(Font)                  OT1/jkptt/m/n --> OT1/jkptt/b/n on input line 433.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `sf'
-(Font)                  OT1/jkptt/m/n --> OT1/jkptt/m/n on input line 414.
+(Font)                  OT1/jkptt/m/n --> OT1/jkptt/m/n on input line 434.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `boldsf'
-(Font)                  OT1/jkptt/m/n --> OT1/jkptt/b/n on input line 415.
-LaTeX Font Info:    Redeclaring symbol font `letters' on input line 423.
+(Font)                  OT1/jkptt/m/n --> OT1/jkptt/b/n on input line 435.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 443.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/cmm/m/it --> OML/jkp/m/it on input line 423.
+(Font)                  OML/cmm/m/it --> OML/jkp/m/it on input line 443.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/cmm/b/it --> OML/jkp/m/it on input line 423.
+(Font)                  OML/cmm/b/it --> OML/jkp/m/it on input line 443.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `rm'
-(Font)                  OML/cmm/m/it --> OML/jkp/m/it on input line 423.
+(Font)                  OML/cmm/m/it --> OML/jkp/m/it on input line 443.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `boldrm'
-(Font)                  OML/cmm/m/it --> OML/jkp/m/it on input line 423.
+(Font)                  OML/cmm/m/it --> OML/jkp/m/it on input line 443.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `sf'
-(Font)                  OML/cmm/m/it --> OML/jkp/m/it on input line 423.
+(Font)                  OML/cmm/m/it --> OML/jkp/m/it on input line 443.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `boldsf'
-(Font)                  OML/cmm/m/it --> OML/jkp/m/it on input line 423.
+(Font)                  OML/cmm/m/it --> OML/jkp/m/it on input line 443.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/jkp/m/it --> OML/jkp/bx/it on input line 424.
+(Font)                  OML/jkp/m/it --> OML/jkp/bx/it on input line 444.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `rm'
-(Font)                  OML/jkp/m/it --> OML/jkp/m/it on input line 426.
+(Font)                  OML/jkp/m/it --> OML/jkp/m/it on input line 446.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `boldrm'
-(Font)                  OML/jkp/m/it --> OML/jkp/bx/it on input line 427.
+(Font)                  OML/jkp/m/it --> OML/jkp/bx/it on input line 447.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `sf'
-(Font)                  OML/jkp/m/it --> OML/jkpss/m/it on input line 428.
+(Font)                  OML/jkp/m/it --> OML/jkpss/m/it on input line 448.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `boldsf'
-(Font)                  OML/jkp/m/it --> OML/jkpss/bx/it on input line 429.
+(Font)                  OML/jkp/m/it --> OML/jkpss/bx/it on input line 449.
 \symlettersA=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `lettersA' in version `bold'
-(Font)                  U/jkpmia/m/it --> U/jkpmia/bx/it on input line 439.
+(Font)                  U/jkpmia/m/it --> U/jkpmia/bx/it on input line 459.
 LaTeX Font Info:    Overwriting symbol font `lettersA' in version `rm'
-(Font)                  U/jkpmia/m/it --> U/jkpmia/m/it on input line 441.
+(Font)                  U/jkpmia/m/it --> U/jkpmia/m/it on input line 461.
 LaTeX Font Info:    Overwriting symbol font `lettersA' in version `boldrm'
-(Font)                  U/jkpmia/m/it --> U/jkpmia/bx/it on input line 442.
+(Font)                  U/jkpmia/m/it --> U/jkpmia/bx/it on input line 462.
 LaTeX Font Info:    Overwriting symbol font `lettersA' in version `sf'
-(Font)                  U/jkpmia/m/it --> U/jkpssmia/m/it on input line 443.
+(Font)                  U/jkpmia/m/it --> U/jkpssmia/m/it on input line 463.
 LaTeX Font Info:    Overwriting symbol font `lettersA' in version `boldsf'
-(Font)                  U/jkpmia/m/it --> U/jkpssmia/bx/it on input line 444.
-LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 456.
+(Font)                  U/jkpmia/m/it --> U/jkpssmia/bx/it on input line 464.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 476.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> OMS/jkp/m/n on input line 456.
+(Font)                  OMS/cmsy/m/n --> OMS/jkp/m/n on input line 476.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> OMS/jkp/m/n on input line 456.
+(Font)                  OMS/cmsy/b/n --> OMS/jkp/m/n on input line 476.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `rm'
-(Font)                  OMS/cmsy/m/n --> OMS/jkp/m/n on input line 456.
+(Font)                  OMS/cmsy/m/n --> OMS/jkp/m/n on input line 476.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `boldrm'
-(Font)                  OMS/cmsy/m/n --> OMS/jkp/m/n on input line 456.
+(Font)                  OMS/cmsy/m/n --> OMS/jkp/m/n on input line 476.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `sf'
-(Font)                  OMS/cmsy/m/n --> OMS/jkp/m/n on input line 456.
+(Font)                  OMS/cmsy/m/n --> OMS/jkp/m/n on input line 476.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `boldsf'
-(Font)                  OMS/cmsy/m/n --> OMS/jkp/m/n on input line 456.
+(Font)                  OMS/cmsy/m/n --> OMS/jkp/m/n on input line 476.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/jkp/m/n --> OMS/jkp/bx/n on input line 457.
+(Font)                  OMS/jkp/m/n --> OMS/jkp/bx/n on input line 477.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `rm'
-(Font)                  OMS/jkp/m/n --> OMS/jkp/m/n on input line 459.
+(Font)                  OMS/jkp/m/n --> OMS/jkp/m/n on input line 479.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `boldrm'
-(Font)                  OMS/jkp/m/n --> OMS/jkp/bx/n on input line 460.
+(Font)                  OMS/jkp/m/n --> OMS/jkp/bx/n on input line 480.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `sf'
-(Font)                  OMS/jkp/m/n --> OMS/jkp/m/n on input line 461.
+(Font)                  OMS/jkp/m/n --> OMS/jkp/m/n on input line 481.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `boldsf'
-(Font)                  OMS/jkp/m/n --> OMS/jkp/bx/n on input line 462.
+(Font)                  OMS/jkp/m/n --> OMS/jkp/bx/n on input line 482.
 \symAMSa=\mathgroup5
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/jkpsya/m/n --> U/jkpsya/bx/n on input line 476.
+(Font)                  U/jkpsya/m/n --> U/jkpsya/bx/n on input line 496.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `rm'
-(Font)                  U/jkpsya/m/n --> U/jkpsya/m/n on input line 477.
+(Font)                  U/jkpsya/m/n --> U/jkpsya/m/n on input line 497.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `boldrm'
-(Font)                  U/jkpsya/m/n --> U/jkpsya/bx/n on input line 478.
+(Font)                  U/jkpsya/m/n --> U/jkpsya/bx/n on input line 498.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `sf'
-(Font)                  U/jkpsya/m/n --> U/jkpsya/m/n on input line 479.
+(Font)                  U/jkpsya/m/n --> U/jkpsya/m/n on input line 499.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `boldsf'
-(Font)                  U/jkpsya/m/n --> U/jkpsya/bx/n on input line 480.
+(Font)                  U/jkpsya/m/n --> U/jkpsya/bx/n on input line 500.
 \symAMSb=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
-(Font)                  U/jkpsyb/m/n --> U/jkpsyb/bx/n on input line 529.
+(Font)                  U/jkpsyb/m/n --> U/jkpsyb/bx/n on input line 549.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `rm'
-(Font)                  U/jkpsyb/m/n --> U/jkpsyb/m/n on input line 530.
+(Font)                  U/jkpsyb/m/n --> U/jkpsyb/m/n on input line 550.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `boldrm'
-(Font)                  U/jkpsyb/m/n --> U/jkpsyb/bx/n on input line 531.
+(Font)                  U/jkpsyb/m/n --> U/jkpsyb/bx/n on input line 551.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `sf'
-(Font)                  U/jkpsyb/m/n --> U/jkpsssyb/m/n on input line 532.
+(Font)                  U/jkpsyb/m/n --> U/jkpsssyb/m/n on input line 552.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `boldsf'
-(Font)                  U/jkpsyb/m/n --> U/jkpsssyb/bx/n on input line 533.
+(Font)                  U/jkpsyb/m/n --> U/jkpsssyb/bx/n on input line 553.
 \symsymbolsC=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `symbolsC' in version `bold'
-(Font)                  U/jkpsyc/m/n --> U/jkpsyc/bx/n on input line 549.
+(Font)                  U/jkpsyc/m/n --> U/jkpsyc/bx/n on input line 569.
 LaTeX Font Info:    Overwriting symbol font `symbolsC' in version `rm'
-(Font)                  U/jkpsyc/m/n --> U/jkpsyc/m/n on input line 551.
+(Font)                  U/jkpsyc/m/n --> U/jkpsyc/m/n on input line 571.
 LaTeX Font Info:    Overwriting symbol font `symbolsC' in version `boldrm'
-(Font)                  U/jkpsyc/m/n --> U/jkpsyc/bx/n on input line 552.
+(Font)                  U/jkpsyc/m/n --> U/jkpsyc/bx/n on input line 572.
 LaTeX Font Info:    Overwriting symbol font `symbolsC' in version `sf'
-(Font)                  U/jkpsyc/m/n --> U/jkpsyc/m/n on input line 553.
+(Font)                  U/jkpsyc/m/n --> U/jkpsyc/m/n on input line 573.
 LaTeX Font Info:    Overwriting symbol font `symbolsC' in version `boldsf'
-(Font)                  U/jkpsyc/m/n --> U/jkpsyc/bx/n on input line 554.
+(Font)                  U/jkpsyc/m/n --> U/jkpsyc/bx/n on input line 574.
 LaTeX Font Info:    Overwriting math alphabet `\mathscr' in version `bold'
-(Font)                  U/jkpsyd/m/n --> U/jkpsyd/bx/n on input line 583.
+(Font)                  U/jkpsyd/m/n --> U/jkpsyd/bx/n on input line 603.
 LaTeX Font Info:    Overwriting math alphabet `\mathscr' in version `rm'
-(Font)                  U/jkpsyd/m/n --> U/jkpsyd/m/n on input line 585.
+(Font)                  U/jkpsyd/m/n --> U/jkpsyd/m/n on input line 605.
 LaTeX Font Info:    Overwriting math alphabet `\mathscr' in version `boldrm'
-(Font)                  U/jkpsyd/m/n --> U/jkpsyd/bx/n on input line 586.
+(Font)                  U/jkpsyd/m/n --> U/jkpsyd/bx/n on input line 606.
 LaTeX Font Info:    Overwriting math alphabet `\mathscr' in version `sf'
-(Font)                  U/jkpsyd/m/n --> U/jkpsyd/m/n on input line 587.
+(Font)                  U/jkpsyd/m/n --> U/jkpsyd/m/n on input line 607.
 LaTeX Font Info:    Overwriting math alphabet `\mathscr' in version `boldsf'
-(Font)                  U/jkpsyd/m/n --> U/jkpsyd/bx/n on input line 588.
-LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 598.
+(Font)                  U/jkpsyd/m/n --> U/jkpsyd/bx/n on input line 608.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 618.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 598.
+(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 618.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 598.
+(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 618.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `rm'
-(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 598.
+(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 618.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `boldrm'
-(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 598.
+(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 618.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `sf'
-(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 598.
+(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 618.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `boldsf'
-(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 598.
+(Font)                  OMX/cmex/m/n --> OMX/jkp/m/n on input line 618.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/jkp/m/n --> OMX/jkp/bx/n on input line 599.
+(Font)                  OMX/jkp/m/n --> OMX/jkp/bx/n on input line 619.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `rm'
-(Font)                  OMX/jkp/m/n --> OMX/jkp/m/n on input line 601.
+(Font)                  OMX/jkp/m/n --> OMX/jkp/m/n on input line 621.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `boldrm'
-(Font)                  OMX/jkp/m/n --> OMX/jkp/bx/n on input line 602.
+(Font)                  OMX/jkp/m/n --> OMX/jkp/bx/n on input line 622.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `sf'
-(Font)                  OMX/jkp/m/n --> OMX/jkpss/m/n on input line 603.
+(Font)                  OMX/jkp/m/n --> OMX/jkpss/m/n on input line 623.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `boldsf'
-(Font)                  OMX/jkp/m/n --> OMX/jkpss/bx/n on input line 604.
+(Font)                  OMX/jkp/m/n --> OMX/jkpss/bx/n on input line 624.
 \symlargesymbolsA=\mathgroup8
 LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `bold'
-(Font)                  U/jkpexa/m/n --> U/jkpexa/bx/n on input line 615.
+(Font)                  U/jkpexa/m/n --> U/jkpexa/bx/n on input line 635.
 LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `rm'
-(Font)                  U/jkpexa/m/n --> U/jkpexa/m/n on input line 617.
+(Font)                  U/jkpexa/m/n --> U/jkpexa/m/n on input line 637.
 LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `boldrm'
-(Font)                  U/jkpexa/m/n --> U/jkpexa/bx/n on input line 618.
+(Font)                  U/jkpexa/m/n --> U/jkpexa/bx/n on input line 638.
 LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `sf'
-(Font)                  U/jkpexa/m/n --> U/jkpexa/m/n on input line 619.
+(Font)                  U/jkpexa/m/n --> U/jkpexa/m/n on input line 639.
 LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `boldsf'
-(Font)                  U/jkpexa/m/n --> U/jkpexa/bx/n on input line 620.
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 940.
-LaTeX Info: Redefining \not on input line 1580.
+(Font)                  U/jkpexa/m/n --> U/jkpexa/bx/n on input line 640.
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 960.
+LaTeX Info: Redefining \not on input line 1600.
 ) (/usr/share/texmf-dist/tex/latex/cantarell/cantarell.sty
 Package: cantarell 2019/06/20 Style file for Cantarell.
  (/usr/share/texmf-dist/tex/latex/fontaxes/fontaxes.sty
@@ -801,10 +807,10 @@ LaTeX Info: Redefining \ulcshape on input line 41.
 LaTeX Info: Redefining \textsw on input line 47.
 LaTeX Info: Redefining \textssc on input line 48.
 LaTeX Info: Redefining \textulc on input line 49.
-)
-(/usr/share/texmf-dist/tex/generic/iftex/ifluatex.sty
+) (/usr/share/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-) (/usr/share/texmf-dist/tex/generic/iftex/ifxetex.sty
+)
+(/usr/share/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 )) (/usr/share/texmf-dist/tex/latex/fontawesome/fontawesome.sty
 Package: fontawesome 2016/05/15 v4.6.3.1 font awesome icons
@@ -819,8 +825,8 @@ LaTeX Warning: Command \underbar  has changed.
 LaTeX Warning: Command \underline  has changed.
                Check if current package is valid.
 
-) (/usr/share/texmf-dist/tex/latex/siunitx/siunitx.sty
-Package: siunitx 2022-04-04 v3.0.50 A comprehensive (SI) units package
+) (/usr/local/share/texmf/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2022-11-16 v3.1.10 A comprehensive (SI) units package
 \l__siunitx_angle_tmp_dim=\dimen263
 \l__siunitx_angle_marker_box=\box111
 \l__siunitx_angle_unit_box=\box112
@@ -832,7 +838,9 @@ Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages 
 \l__siunitx_number_min_decimal_int=\count333
 \l__siunitx_number_min_integer_int=\count334
 \l__siunitx_number_round_precision_int=\count335
-\l__siunitx_number_group_minimum_int=\count336
+\l__siunitx_number_group_first_int=\count336
+\l__siunitx_number_group_size_int=\count337
+\l__siunitx_number_group_minimum_int=\count338
 \l__siunitx_table_tmp_box=\box113
 \l__siunitx_table_tmp_dim=\dimen264
 \l__siunitx_table_column_width_dim=\dimen265
@@ -842,14 +850,14 @@ Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages 
 \l__siunitx_table_after_box=\box117
 \l__siunitx_table_before_dim=\dimen266
 \l__siunitx_table_carry_dim=\dimen267
-\l__siunitx_unit_tmp_int=\count337
-\l__siunitx_unit_position_int=\count338
-\l__siunitx_unit_total_int=\count339
+\l__siunitx_unit_tmp_int=\count339
+\l__siunitx_unit_position_int=\count340
+\l__siunitx_unit_total_int=\count341
  (/usr/share/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2022-04-10 L3 programming layer (loader) 
  (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count340
+\l__color_backend_stack_int=\count342
 \l__pdf_internal_box=\box118
 ))
 Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
@@ -874,13 +882,13 @@ Package zref Info: New property list: main on input line 767.
 Package zref Info: New property: default on input line 768.
 Package zref Info: New property: page on input line 769.
 )
-\c@abspage=\count341
+\c@abspage=\count343
 Package zref Info: New property: abspage on input line 65.
 ) (/usr/share/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
 \mdf@templength=\skip84
-\c@mdf@globalstyle@cnt=\count342
+\c@mdf@globalstyle@cnt=\count344
 \mdf@skipabove@length=\skip85
 \mdf@skipbelow@length=\skip86
 \mdf@leftmargin@length=\skip87
@@ -950,14 +958,14 @@ Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@yd=\dimen281
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count343
-\c@pgf@countb=\count344
-\c@pgf@countc=\count345
-\c@pgf@countd=\count346
+\c@pgf@counta=\count345
+\c@pgf@countb=\count346
+\c@pgf@countc=\count347
+\c@pgf@countd=\count348
 \t@pgf@toka=\toks42
 \t@pgf@tokb=\toks43
 \t@pgf@tokc=\toks44
-\pgf@sys@id@count=\count347
+\pgf@sys@id@count=\count349
  (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
 )
@@ -968,8 +976,8 @@ File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
 File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 ))) (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count348
-\pgfsyssoftpath@bigbuffer@items=\count349
+\pgfsyssoftpath@smallbuffer@items=\count350
+\pgfsyssoftpath@bigbuffer@items=\count351
 ) (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
@@ -977,13 +985,13 @@ Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen282
-\pgfmath@count=\count350
+\pgfmath@count=\count352
 \pgfmath@box=\box122
 \pgfmath@toks=\toks45
 \pgfmath@stack@operand=\toks46
 \pgfmath@stack@operation=\toks47
 ) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count351
+\c@pgfmathroundto@lastzeros=\count353
 )) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@picminx=\dimen283
@@ -1013,7 +1021,7 @@ File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box123
 \pgf@hbox=\box124
 \pgf@layerbox@main=\box125
-\pgf@picture@serial@count=\count352
+\pgf@picture@serial@count=\count354
 ) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgflinewidth=\dimen301
@@ -1034,8 +1042,8 @@ File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@max=\dimen306
-\pgf@sys@shading@range@num=\count353
-\pgf@shadingcount=\count354
+\pgf@sys@shading@range@num=\count355
+\pgf@shadingcount=\count356
 ) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
@@ -1072,7 +1080,7 @@ Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count355
+\pgf@plot@mark@count=\count357
 \pgfplotmarksize=\dimen311
 )
 \tikz@lastx=\dimen312
@@ -1087,17 +1095,17 @@ File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikz@figbox@bg=\box129
 \tikz@tempbox=\box130
 \tikz@tempbox@bg=\box131
-\tikztreelevel=\count356
-\tikznumberofchildren=\count357
-\tikznumberofcurrentchild=\count358
-\tikz@fig@count=\count359
+\tikztreelevel=\count358
+\tikznumberofchildren=\count359
+\tikznumberofcurrentchild=\count360
+\tikz@fig@count=\count361
  (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count360
-\pgfmatrixcurrentcolumn=\count361
-\pgf@matrix@numberofcolumns=\count362
+\pgfmatrixcurrentrow=\count362
+\pgfmatrixcurrentcolumn=\count363
+\pgf@matrix@numberofcolumns=\count364
 )
-\tikz@expandcount=\count363
+\tikz@expandcount=\count365
  (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))) (/usr/share/texmf-dist/tex/latex/mdframed/md-frame-1.mdf
@@ -1135,16 +1143,16 @@ File: md-frame-1.mdf 2013/07/01\ 1.9b: md-frame-1
 \mdf@horizontalspaceofbox=\skip148
 \mdfsubtitleheight=\skip149
 \mdfsubsubtitleheight=\skip150
-\c@mdfcountframes=\count364
+\c@mdfcountframes=\count366
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count365
-\c@mdf@env@i=\count366
-\c@mdf@env@ii=\count367
-\c@mdf@zref@counter=\count368
+\mdf@envdepth=\count367
+\c@mdf@env@i=\count368
+\c@mdf@env@ii=\count369
+\c@mdf@zref@counter=\count370
 Package zref Info: New property: mdf@pagevalue on input line 895.
 ) (/usr/share/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
@@ -1172,7 +1180,7 @@ File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfdecoratedinputsegmentcompleteddistance=\dimen327
 \pgfdecoratedinputsegmentremainingdistance=\dimen328
 \pgf@decorate@distancetomove=\dimen329
-\pgf@decorate@repeatstate=\count369
+\pgf@decorate@repeatstate=\count371
 \pgfdecorationsegmentamplitude=\dimen330
 \pgfdecorationsegmentlength=\dimen331
 )
@@ -1181,89 +1189,89 @@ File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 File: tikzlibrarytrees.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
 \l__tikzsymbols_Moai_thickness_dim=\dimen332
-\l__tikzsymbols_Kochtopf_nr_arguments_int=\count370
-\l__tikzsymbols_Bratpfanne_nr_arguments_int=\count371
-\l__tikzsymbols_Schneebesen_nr_arguments_int=\count372
-\l__tikzsymbols_Sieb_nr_arguments_int=\count373
-\l__tikzsymbols_Purierstab_nr_arguments_int=\count374
-\l__tikzsymbols_Dreizack_nr_arguments_int=\count375
-\l__tikzsymbols_Backblech_nr_arguments_int=\count376
-\l__tikzsymbols_Ofen_nr_arguments_int=\count377
-\l__tikzsymbols_Pfanne_nr_arguments_int=\count378
-\l__tikzsymbols_Herd_nr_arguments_int=\count379
-\l__tikzsymbols_Saftpresse_nr_arguments_int=\count380
-\l__tikzsymbols_Schussel_nr_arguments_int=\count381
-\l__tikzsymbols_Schaler_nr_arguments_int=\count382
-\l__tikzsymbols_Reibe_nr_arguments_int=\count383
-\l__tikzsymbols_Flasche_nr_arguments_int=\count384
-\l__tikzsymbols_Nudelholz_nr_arguments_int=\count385
-\l__tikzsymbols_Knoblauchpresse_nr_arguments_int=\count386
-\l__tikzsymbols_Sadey_nr_arguments_int=\count387
-\l__tikzsymbols_dSadey_nr_arguments_int=\count388
-\l__tikzsymbols_Changey_nr_arguments_int=\count389
-\l__tikzsymbols_dChangey_nr_arguments_int=\count390
-\l__tikzsymbols_cChangey_nr_arguments_int=\count391
-\l__tikzsymbols_dcChangey_nr_arguments_int=\count392
-\l__tikzsymbols_Annoey_nr_arguments_int=\count393
-\l__tikzsymbols_dAnnoey_nr_arguments_int=\count394
-\l__tikzsymbols_Smiley_nr_arguments_int=\count395
-\l__tikzsymbols_dSmiley_nr_arguments_int=\count396
-\l__tikzsymbols_Laughey_nr_arguments_int=\count397
-\l__tikzsymbols_dLaughey_nr_arguments_int=\count398
-\l__tikzsymbols_Neutrey_nr_arguments_int=\count399
-\l__tikzsymbols_dNeutrey_nr_arguments_int=\count400
-\l__tikzsymbols_Winkey_nr_arguments_int=\count401
-\l__tikzsymbols_oldWinkey_nr_arguments_int=\count402
-\l__tikzsymbols_dWinkey_nr_arguments_int=\count403
-\l__tikzsymbols_olddWinkey_nr_arguments_int=\count404
-\l__tikzsymbols_Sey_nr_arguments_int=\count405
-\l__tikzsymbols_dSey_nr_arguments_int=\count406
-\l__tikzsymbols_Xey_nr_arguments_int=\count407
-\l__tikzsymbols_dXey_nr_arguments_int=\count408
-\l__tikzsymbols_Innocey_nr_arguments_int=\count409
-\l__tikzsymbols_wInnocey_nr_arguments_int=\count410
-\l__tikzsymbols_dInnocey_nr_arguments_int=\count411
-\l__tikzsymbols_Cooley_nr_arguments_int=\count412
-\l__tikzsymbols_dCooley_nr_arguments_int=\count413
-\l__tikzsymbols_Tongey_nr_arguments_int=\count414
-\l__tikzsymbols_dTongey_nr_arguments_int=\count415
-\l__tikzsymbols_Nursey_nr_arguments_int=\count416
-\l__tikzsymbols_dNursey_nr_arguments_int=\count417
-\l__tikzsymbols_Vomey_nr_arguments_int=\count418
-\l__tikzsymbols_dVomey_nr_arguments_int=\count419
-\l__tikzsymbols_Walley_nr_arguments_int=\count420
-\l__tikzsymbols_rWalley_nr_arguments_int=\count421
-\l__tikzsymbols_dWalley_nr_arguments_int=\count422
-\l__tikzsymbols_drWalley_nr_arguments_int=\count423
-\l__tikzsymbols_Cat_nr_arguments_int=\count424
-\l__tikzsymbols_SchrodingersCat_nr_arguments_int=\count425
-\l__tikzsymbols_Ninja_nr_arguments_int=\count426
-\l__tikzsymbols_dNinja_nr_arguments_int=\count427
-\l__tikzsymbols_Sleepey_nr_arguments_int=\count428
-\l__tikzsymbols_dSleepey_nr_arguments_int=\count429
-\l__tikzsymbols_Maskey_nr_arguments_int=\count430
-\l__tikzsymbols_NiceReapey_nr_arguments_int=\count431
-\l__tikzsymbols_Strichmaxerl_nr_arguments_int=\count432
-\l__tikzsymbols_Person_nr_arguments_int=\count433
-\l__tikzsymbols_Heart_nr_arguments_int=\count434
-\l__tikzsymbols_dHeart_nr_arguments_int=\count435
-\l__tikzsymbols_HeartBroken_nr_arguments_int=\count436
-\l__tikzsymbols_Candle_nr_arguments_int=\count437
-\l__tikzsymbols_Fire_nr_arguments_int=\count438
-\l__tikzsymbols_Coffeecup_nr_arguments_int=\count439
-\l__tikzsymbols_Chair_nr_arguments_int=\count440
-\l__tikzsymbols_Bed_nr_arguments_int=\count441
-\l__tikzsymbols_Tribar_nr_arguments_int=\count442
-\l__tikzsymbols_Moai_nr_arguments_int=\count443
-\l__tikzsymbols_Snowman_nr_arguments_int=\count444
-\l__tikzsymbols_BasicTree_nr_arguments_int=\count445
-\l__tikzsymbols_WorstTree_nr_arguments_int=\count446
-\l__tikzsymbols_Springtree_nr_arguments_int=\count447
-\l__tikzsymbols_Summertree_nr_arguments_int=\count448
-\l__tikzsymbols_Autumntree_nr_arguments_int=\count449
-\l__tikzsymbols_Wintertree_nr_arguments_int=\count450
+\l__tikzsymbols_Kochtopf_nr_arguments_int=\count372
+\l__tikzsymbols_Bratpfanne_nr_arguments_int=\count373
+\l__tikzsymbols_Schneebesen_nr_arguments_int=\count374
+\l__tikzsymbols_Sieb_nr_arguments_int=\count375
+\l__tikzsymbols_Purierstab_nr_arguments_int=\count376
+\l__tikzsymbols_Dreizack_nr_arguments_int=\count377
+\l__tikzsymbols_Backblech_nr_arguments_int=\count378
+\l__tikzsymbols_Ofen_nr_arguments_int=\count379
+\l__tikzsymbols_Pfanne_nr_arguments_int=\count380
+\l__tikzsymbols_Herd_nr_arguments_int=\count381
+\l__tikzsymbols_Saftpresse_nr_arguments_int=\count382
+\l__tikzsymbols_Schussel_nr_arguments_int=\count383
+\l__tikzsymbols_Schaler_nr_arguments_int=\count384
+\l__tikzsymbols_Reibe_nr_arguments_int=\count385
+\l__tikzsymbols_Flasche_nr_arguments_int=\count386
+\l__tikzsymbols_Nudelholz_nr_arguments_int=\count387
+\l__tikzsymbols_Knoblauchpresse_nr_arguments_int=\count388
+\l__tikzsymbols_Sadey_nr_arguments_int=\count389
+\l__tikzsymbols_dSadey_nr_arguments_int=\count390
+\l__tikzsymbols_Changey_nr_arguments_int=\count391
+\l__tikzsymbols_dChangey_nr_arguments_int=\count392
+\l__tikzsymbols_cChangey_nr_arguments_int=\count393
+\l__tikzsymbols_dcChangey_nr_arguments_int=\count394
+\l__tikzsymbols_Annoey_nr_arguments_int=\count395
+\l__tikzsymbols_dAnnoey_nr_arguments_int=\count396
+\l__tikzsymbols_Smiley_nr_arguments_int=\count397
+\l__tikzsymbols_dSmiley_nr_arguments_int=\count398
+\l__tikzsymbols_Laughey_nr_arguments_int=\count399
+\l__tikzsymbols_dLaughey_nr_arguments_int=\count400
+\l__tikzsymbols_Neutrey_nr_arguments_int=\count401
+\l__tikzsymbols_dNeutrey_nr_arguments_int=\count402
+\l__tikzsymbols_Winkey_nr_arguments_int=\count403
+\l__tikzsymbols_oldWinkey_nr_arguments_int=\count404
+\l__tikzsymbols_dWinkey_nr_arguments_int=\count405
+\l__tikzsymbols_olddWinkey_nr_arguments_int=\count406
+\l__tikzsymbols_Sey_nr_arguments_int=\count407
+\l__tikzsymbols_dSey_nr_arguments_int=\count408
+\l__tikzsymbols_Xey_nr_arguments_int=\count409
+\l__tikzsymbols_dXey_nr_arguments_int=\count410
+\l__tikzsymbols_Innocey_nr_arguments_int=\count411
+\l__tikzsymbols_wInnocey_nr_arguments_int=\count412
+\l__tikzsymbols_dInnocey_nr_arguments_int=\count413
+\l__tikzsymbols_Cooley_nr_arguments_int=\count414
+\l__tikzsymbols_dCooley_nr_arguments_int=\count415
+\l__tikzsymbols_Tongey_nr_arguments_int=\count416
+\l__tikzsymbols_dTongey_nr_arguments_int=\count417
+\l__tikzsymbols_Nursey_nr_arguments_int=\count418
+\l__tikzsymbols_dNursey_nr_arguments_int=\count419
+\l__tikzsymbols_Vomey_nr_arguments_int=\count420
+\l__tikzsymbols_dVomey_nr_arguments_int=\count421
+\l__tikzsymbols_Walley_nr_arguments_int=\count422
+\l__tikzsymbols_rWalley_nr_arguments_int=\count423
+\l__tikzsymbols_dWalley_nr_arguments_int=\count424
+\l__tikzsymbols_drWalley_nr_arguments_int=\count425
+\l__tikzsymbols_Cat_nr_arguments_int=\count426
+\l__tikzsymbols_SchrodingersCat_nr_arguments_int=\count427
+\l__tikzsymbols_Ninja_nr_arguments_int=\count428
+\l__tikzsymbols_dNinja_nr_arguments_int=\count429
+\l__tikzsymbols_Sleepey_nr_arguments_int=\count430
+\l__tikzsymbols_dSleepey_nr_arguments_int=\count431
+\l__tikzsymbols_Maskey_nr_arguments_int=\count432
+\l__tikzsymbols_NiceReapey_nr_arguments_int=\count433
+\l__tikzsymbols_Strichmaxerl_nr_arguments_int=\count434
+\l__tikzsymbols_Person_nr_arguments_int=\count435
+\l__tikzsymbols_Heart_nr_arguments_int=\count436
+\l__tikzsymbols_dHeart_nr_arguments_int=\count437
+\l__tikzsymbols_HeartBroken_nr_arguments_int=\count438
+\l__tikzsymbols_Candle_nr_arguments_int=\count439
+\l__tikzsymbols_Fire_nr_arguments_int=\count440
+\l__tikzsymbols_Coffeecup_nr_arguments_int=\count441
+\l__tikzsymbols_Chair_nr_arguments_int=\count442
+\l__tikzsymbols_Bed_nr_arguments_int=\count443
+\l__tikzsymbols_Tribar_nr_arguments_int=\count444
+\l__tikzsymbols_Moai_nr_arguments_int=\count445
+\l__tikzsymbols_Snowman_nr_arguments_int=\count446
+\l__tikzsymbols_BasicTree_nr_arguments_int=\count447
+\l__tikzsymbols_WorstTree_nr_arguments_int=\count448
+\l__tikzsymbols_Springtree_nr_arguments_int=\count449
+\l__tikzsymbols_Summertree_nr_arguments_int=\count450
+\l__tikzsymbols_Autumntree_nr_arguments_int=\count451
+\l__tikzsymbols_Wintertree_nr_arguments_int=\count452
 ) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
-\pgf@intersect@solutions=\count451
+\pgf@intersect@solutions=\count453
 )) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex
 File: tikzlibraryangles.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
@@ -1328,18 +1336,18 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 \t@pgfplots@tokb=\toks51
 \t@pgfplots@tokc=\toks52
 \pgfplots@tmpa=\dimen333
-\c@pgfplots@coordindex=\count452
-\c@pgfplots@scanlineindex=\count453
+\c@pgfplots@coordindex=\count454
+\c@pgfplots@scanlineindex=\count455
  (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count454
+\c@pgfplotsarray@tmp=\count456
 ) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count455
+\c@pgfplotstable@counta=\count457
 \t@pgfplotstable@a=\toks53
 ) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count456
+\c@pgfplotslibrarysurf@no=\count458
 
 (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count457
+\pgfplots@numplots=\count459
 \pgfplots@xmin@reg=\dimen334
 \pgfplots@xmax@reg=\dimen335
 \pgfplots@ymin@reg=\dimen336
@@ -1358,7 +1366,7 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 149.
 \thickarrayrulewidth=\skip154
-\c@lecturecounter=\count458
+\c@lecturecounter=\count460
  (/usr/share/texmf-dist/tex/latex/xifthen/xifthen.sty
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
  (/usr/share/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
@@ -1378,46 +1386,46 @@ Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footer
 \f@nch@O@orf=\skip163
 ) (/usr/share/texmf-dist/tex/latex/xargs/xargs.sty
 Package: xargs 2008/03/22 v1.1  extended macro definitions  (mpg)
-\xargs@max=\count459
+\xargs@max=\count461
 \xargs@toksa=\toks54
 \xargs@toksb=\toks55
 ) (/usr/share/texmf-dist/tex/latex/todonotes/todonotes.sty
 Package: todonotes 2021/06/04 v1.1.5 Todonotes source and documentation.
 Package: todonotes 2021/06/04
-\c@@todonotes@numberoftodonotes=\count460
+\c@@todonotes@numberoftodonotes=\count462
 ) (/usr/share/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box158
-\sift@deathcycles=\count461
+\sift@deathcycles=\count463
 \@vwid@loff=\dimen340
 \@vwid@roff=\dimen341
-) (/usr/share/texmf-dist/tex/latex/thmtools/thmtools.sty
-Package: thmtools 2020/08/01 v0.72
+) (/usr/local/share/texmf/tex/latex/thmtools/thmtools.sty
+Package: thmtools 2022/06/01 v0.73
 \thmt@toks=\toks56
-\c@thmt@dummyctr=\count462
- (/usr/share/texmf-dist/tex/latex/thmtools/thm-patch.sty
-Package: thm-patch 2020/08/01 v0.72
- (/usr/share/texmf-dist/tex/latex/thmtools/parseargs.sty
-Package: parseargs 2020/08/01 v0.72
+\c@thmt@dummyctr=\count464
+ (/usr/local/share/texmf/tex/latex/thmtools/thm-patch.sty
+Package: thm-patch 2022/06/01 v0.73
+ (/usr/local/share/texmf/tex/latex/thmtools/parseargs.sty
+Package: parseargs 2022/06/01 v0.73
 \@parsespec=\toks57
-)) (/usr/share/texmf-dist/tex/latex/thmtools/thm-kv.sty
-Package: thm-kv 2020/08/01 v0.72
+)) (/usr/local/share/texmf/tex/latex/thmtools/thm-kv.sty
+Package: thm-kv 2022/06/01 v0.73
 Package thm-kv Info: Theorem names will be uppercased on input line 42.
 Package thm-kv Info: kvsetkeys patch (v1.16 or later) on input line 158.
-) (/usr/share/texmf-dist/tex/latex/thmtools/thm-autoref.sty
-Package: thm-autoref 2020/08/01 v0.72
+) (/usr/local/share/texmf/tex/latex/thmtools/thm-autoref.sty
+Package: thm-autoref 2022/06/01 v0.73
 
-(/usr/share/texmf-dist/tex/latex/thmtools/aliasctr.sty
-Package: aliasctr 2020/08/01 v0.72
-)) (/usr/share/texmf-dist/tex/latex/thmtools/thm-listof.sty
-Package: thm-listof 2020/08/01 v0.72
-) (/usr/share/texmf-dist/tex/latex/thmtools/thm-restate.sty
-Package: thm-restate 2020/08/01 v0.72
-) (/usr/share/texmf-dist/tex/latex/thmtools/thm-amsthm.sty
-Package: thm-amsthm 2020/08/01 v0.72
+(/usr/local/share/texmf/tex/latex/thmtools/aliasctr.sty
+Package: aliasctr 2022/06/01 v0.73
+)) (/usr/local/share/texmf/tex/latex/thmtools/thm-listof.sty
+Package: thm-listof 2022/06/01 v0.73
+) (/usr/local/share/texmf/tex/latex/thmtools/thm-restate.sty
+Package: thm-restate 2022/06/01 v0.73
+) (/usr/local/share/texmf/tex/latex/thmtools/thm-amsthm.sty
+Package: thm-amsthm 2022/06/01 v0.73
 \thmt@style@headstyle=\toks58
-)) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2022/01/07 version 5.0.2 text color boxes
+)) (/usr/local/share/texmf/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2022/06/24 version 5.1.1 text color boxes
  (/usr/share/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks59
@@ -1432,26 +1440,26 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@upperbox=\box160
 \tcb@lowerbox=\box161
 \tcb@phantombox=\box162
-\c@tcbbreakpart=\count463
-\c@tcblayer=\count464
-\c@tcolorbox@number=\count465
+\c@tcbbreakpart=\count465
+\c@tcblayer=\count466
+\c@tcolorbox@number=\count467
 \tcb@temp=\box163
 \tcb@temp=\box164
 \tcb@temp=\box165
 \tcb@temp=\box166
- (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
-Library (tcolorbox): 'tcbraster.code.tex' version '5.0.2'
-\c@tcbrastercolumn=\count466
-\c@tcbrasterrow=\count467
-\c@tcbrasternum=\count468
-\c@tcbraster=\count469
-) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
-Library (tcolorbox): 'tcbskins.code.tex' version '5.0.2'
+ (/usr/local/share/texmf/tex/latex/tcolorbox/tcbraster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '5.1.1'
+\c@tcbrastercolumn=\count468
+\c@tcbrasterrow=\count469
+\c@tcbrasternum=\count470
+\c@tcbraster=\count471
+) (/usr/local/share/texmf/tex/latex/tcolorbox/tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '5.1.1'
 \tcb@waterbox=\box167
-(/usr/share/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
-Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '5.0.2'
-)) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
-Library (tcolorbox): 'tcbbreakable.code.tex' version '5.0.2'
+(/usr/local/share/texmf/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '5.1.1'
+)) (/usr/local/share/texmf/tex/latex/tcolorbox/tcbbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '5.1.1'
 (/usr/share/texmf-dist/tex/generic/oberdiek/pdfcol.sty
 Package: pdfcol 2019/12/29 v1.6 Handle new color stacks for pdfTeX (HO)
 )
@@ -1459,73 +1467,71 @@ Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
 \tcb@testbox=\box168
 \tcb@totalupperbox=\box169
 \tcb@totallowerbox=\box170
-) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
-Library (tcolorbox): 'tcbhooks.code.tex' version '5.0.2'
-) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
-Library (tcolorbox): 'tcbtheorems.code.tex' version '5.0.2'
-) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
-Library (tcolorbox): 'tcbfitting.code.tex' version '5.0.2'
+) (/usr/local/share/texmf/tex/latex/tcolorbox/tcbhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '5.1.1'
+) (/usr/local/share/texmf/tex/latex/tcolorbox/tcbtheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '5.1.1'
+) (/usr/local/share/texmf/tex/latex/tcolorbox/tcbfitting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '5.1.1'
 \tcbfitdim=\dimen342
 \tcb@lowerfitdim=\dimen343
 \tcb@upperfitdim=\dimen344
-\tcb@cur@hbadness=\count470
-) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbxparse.code.tex
-Library (tcolorbox): 'tcbxparse.code.tex' version '5.0.2'
-) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
-Library (tcolorbox): 'tcblistingsutf8.code.tex' version '5.0.2'
-(/usr/share/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
-Library (tcolorbox): 'tcblistings.code.tex' version '5.0.2'
+\tcb@cur@hbadness=\count472
+) (/usr/local/share/texmf/tex/latex/tcolorbox/tcblistingsutf8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '5.1.1'
+(/usr/local/share/texmf/tex/latex/tcolorbox/tcblistings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '5.1.1'
 (/usr/share/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count471
+\lst@mode=\count473
 \lst@gtempboxa=\box171
 \lst@token=\toks61
-\lst@length=\count472
+\lst@length=\count474
 \lst@currlwidth=\dimen345
-\lst@column=\count473
-\lst@pos=\count474
+\lst@column=\count475
+\lst@pos=\count476
 \lst@lostspace=\dimen346
 \lst@width=\dimen347
-\lst@newlines=\count475
-\lst@lineno=\count476
+\lst@newlines=\count477
+\lst@lineno=\count478
 \lst@maxwidth=\dimen348
  (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count477
-\lst@skipnumbers=\count478
+\c@lstnumber=\count479
+\lst@skipnumbers=\count480
 \lst@framebox=\box172
 ) (/usr/share/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
- (/usr/share/texmf-dist/tex/latex/tcolorbox/tcblistingscore.code.tex
-Library (tcolorbox): 'tcblistingscore.code.tex' version '5.0.2'
-(/usr/share/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
-Library (tcolorbox): 'tcbprocessing.code.tex' version '5.0.2'
+ (/usr/local/share/texmf/tex/latex/tcolorbox/tcblistingscore.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '5.1.1'
+(/usr/local/share/texmf/tex/latex/tcolorbox/tcbprocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '5.1.1'
 (/usr/share/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
 Package shellesc Info: Unrestricted shell escape enabled on input line 75.
 ))
-\c@tcblisting=\count479
+\c@tcblisting=\count481
 )) (/usr/share/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
 Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
  (/usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
-))) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
-Library (tcolorbox): 'tcbexternal.code.tex' version '5.0.2'
-) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbmagazine.code.tex
-Library (tcolorbox): 'tcbmagazine.code.tex' version '5.0.2'
-) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbvignette.code.tex
-Library (tcolorbox): 'tcbvignette.code.tex' version '5.0.2'
+))) (/usr/local/share/texmf/tex/latex/tcolorbox/tcbexternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '5.1.1'
+) (/usr/local/share/texmf/tex/latex/tcolorbox/tcbmagazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '5.1.1'
+) (/usr/local/share/texmf/tex/latex/tcolorbox/tcbvignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '5.1.1'
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
 File: tikzlibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
 File: pgflibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
-Library (tcolorbox): 'tcbposter.code.tex' version '5.0.2'
+))) (/usr/local/share/texmf/tex/latex/tcolorbox/tcbposter.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '5.1.1'
 )) (/usr/share/texmf-dist/tex/latex/pgf-blur/tikzlibraryshadows.blur.code.tex  v1.02, 2012/12/09 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadows.code.tex
 File: tikzlibraryshadows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-\pgfbs@fading@count=\count480
+\pgfbs@fading@count=\count482
 )
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=definition, backgroundcolor=definition!5, , ')
 (thmtools)             is not a known style key.
@@ -1584,16 +1590,16 @@ Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin
 (thmtools)             Will pass this to every \declaretheorem
 (thmtools)             that uses `style=thmexplanationbox' on input line 558.
 Package thmtools Info: Automatically pulling in `thmdef-mdframed' on input line 566.
- (/usr/share/texmf-dist/tex/latex/thmtools/thmdef-mdframed.sty
-Package: thmdef-mdframed 2020/08/01 v0.72
+ (/usr/local/share/texmf/tex/latex/thmtools/thmdef-mdframed.sty
+Package: thmdef-mdframed 2022/06/01 v0.73
 )
-\c@theorem=\count481
-\c@claim=\count482
-\c@corollary=\count483
-\c@prop=\count484
-\c@lemma=\count485
-\c@exercise=\count486
-\c@definition=\count487
+\c@theorem=\count483
+\c@claim=\count484
+\c@corollary=\count485
+\c@prop=\count486
+\c@lemma=\count487
+\c@exercise=\count488
+\c@definition=\count489
 ) (/usr/share/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \ttl@box=\box173
@@ -1607,24 +1613,24 @@ Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \titlewidthfirst=\dimen353
 ) (/usr/share/texmf-dist/tex/latex/blindtext/blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
-\c@blindtext=\count488
-\c@Blindtext=\count489
-\c@blind@countparstart=\count490
-\blind@countxx=\count491
-\blindtext@numBlindtext=\count492
-\blind@countyy=\count493
-\c@blindlist=\count494
-\c@blindlistlevel=\count495
-\c@blindlist@level=\count496
-\blind@listitem=\count497
-\c@blind@listcount=\count498
-\c@blind@levelcount=\count499
-\blind@mathformula=\count500
-\blind@Mathformula=\count501
-\c@blind@randomcount=\count502
-\c@blind@randommax=\count503
-\c@blind@pangramcount=\count504
-\c@blind@pangrammax=\count505
+\c@blindtext=\count490
+\c@Blindtext=\count491
+\c@blind@countparstart=\count492
+\blind@countxx=\count493
+\blindtext@numBlindtext=\count494
+\blind@countyy=\count495
+\c@blindlist=\count496
+\c@blindlistlevel=\count497
+\c@blindlist@level=\count498
+\blind@listitem=\count499
+\c@blind@listcount=\count500
+\c@blind@levelcount=\count501
+\blind@mathformula=\count502
+\blind@Mathformula=\count503
+\c@blind@randomcount=\count504
+\c@blind@randommax=\count505
+\c@blind@pangramcount=\count506
+\c@blind@pangrammax=\count507
 )
 LaTeX Font Info:    Trying to load font information for T1+cantarell-TLF on input line 18.
  (/usr/share/texmf-dist/tex/latex/cantarell/T1cantarell-TLF.fd
@@ -1633,20 +1639,20 @@ File: T1cantarell-TLF.fd 2019/06/24 Font definitions for T1/cantarell-TLF.
 LaTeX Font Info:    Font shape `T1/cantarell-TLF/m/n' will be
 (Font)              scaled to size 12.0pt on input line 18.
 LaTeX Font Info:    Trying to load font information for T1+jkp on input line 33.
- (/usr/share/texmf-dist/tex/latex/kpfonts/t1jkp.fd
+ (/usr/local/share/texmf/tex/latex/kpfonts/t1jkp.fd
 File: t1jkp.fd 2007/01/24 Fontinst v1.928 font definitions for T1/jkp.
 ) (./discrete-maths.aux)
 \openout1 = `discrete-maths.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 33.
 LaTeX Font Info:    Trying to load font information for OML+jkp on input line 33.
- (/usr/share/texmf-dist/tex/latex/kpfonts/omljkp.fd
+ (/usr/local/share/texmf/tex/latex/kpfonts/omljkp.fd
 File: omljkp.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 33.
 LaTeX Font Info:    Trying to load font information for OMS+jkp on input line 33.
- (/usr/share/texmf-dist/tex/latex/kpfonts/omsjkp.fd
+ (/usr/local/share/texmf/tex/latex/kpfonts/omsjkp.fd
 File: omsjkp.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 33.
@@ -1658,13 +1664,13 @@ LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 33.
 LaTeX Font Info:    Trying to load font information for OMX+jkp on input line 33.
- (/usr/share/texmf-dist/tex/latex/kpfonts/omxjkp.fd
+ (/usr/local/share/texmf/tex/latex/kpfonts/omxjkp.fd
 File: omxjkp.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 33.
 LaTeX Font Info:    Trying to load font information for U+jkpexa on input line 33.
- (/usr/share/texmf-dist/tex/latex/kpfonts/ujkpexa.fd
+ (/usr/local/share/texmf/tex/latex/kpfonts/ujkpexa.fd
 File: ujkpexa.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 33.
@@ -1674,16 +1680,16 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count506
+\scratchcounter=\count508
 \scratchdimen=\dimen354
 \scratchbox=\box174
-\nofMPsegments=\count507
-\nofMParguments=\count508
+\nofMPsegments=\count509
+\nofMParguments=\count510
 \everyMPshowfont=\toks63
-\MPscratchCnt=\count509
+\MPscratchCnt=\count511
 \MPscratchDim=\dimen355
-\MPnumerator=\count510
-\makeMPintoPDFobject=\count511
+\MPnumerator=\count512
+\makeMPintoPDFobject=\count513
 \everyMPtoPDFconversion=\toks64
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1699,7 +1705,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count512
+\c@section@level=\count514
 )
 LaTeX Info: Redefining \ref on input line 33.
 LaTeX Info: Redefining \pageref on input line 33.
@@ -1718,8 +1724,8 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-\c@mv@tabular=\count513
-\c@mv@boldtabular=\count514
+\c@mv@tabular=\count515
+\c@mv@boldtabular=\count516
 Package translations Info: no dictionary file `translations-basic-dictionary-czech.trsl' found. on input line 33.
 
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.13).
@@ -1727,29 +1733,29 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 
 Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 33.
 
-\c@lstlisting=\count515
+\c@lstlisting=\count517
 LaTeX Font Info:    Font shape `T1/cantarell-TLF/m/n' will be
 (Font)              scaled to size 20.74pt on input line 36.
 LaTeX Font Info:    Font shape `T1/cantarell-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 36.
 LaTeX Font Info:    Trying to load font information for OT1+jkp on input line 36.
-(/usr/share/texmf-dist/tex/latex/kpfonts/ot1jkp.fd
+(/usr/local/share/texmf/tex/latex/kpfonts/ot1jkp.fd
 File: ot1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for OT1/jkp.
 )
 LaTeX Font Info:    Trying to load font information for U+jkpmia on input line 36.
- (/usr/share/texmf-dist/tex/latex/kpfonts/ujkpmia.fd
+ (/usr/local/share/texmf/tex/latex/kpfonts/ujkpmia.fd
 File: ujkpmia.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsya on input line 36.
- (/usr/share/texmf-dist/tex/latex/kpfonts/ujkpsya.fd
+ (/usr/local/share/texmf/tex/latex/kpfonts/ujkpsya.fd
 File: ujkpsya.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyb on input line 36.
- (/usr/share/texmf-dist/tex/latex/kpfonts/ujkpsyb.fd
+ (/usr/local/share/texmf/tex/latex/kpfonts/ujkpsyb.fd
 File: ujkpsyb.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line 36.
- (/usr/share/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
+ (/usr/local/share/texmf/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
 ) [1
 
@@ -1763,25 +1769,15 @@ LaTeX Font Info:    Font shape `T1/cantarell-TLF/b/n' will be
  (./discrete-maths.toc
 LaTeX Font Info:    Font shape `T1/cantarell-TLF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 2.
- [3
-
-])
+)
 \tf@toc=\write5
 \openout5 = `discrete-maths.toc'.
 
- [4] [5
+ [3
 
-] (./zajimave-problemy.tex (./studne.tex
-LaTeX Font Info:    Font shape `T1/cantarell-TLF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 1.
-LaTeX Font Info:    Trying to load font information for U+fontawesometwo on input line 23.
- (/usr/share/texmf-dist/tex/latex/fontawesome/ufontawesometwo.fd
-File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
-)
-LaTeX Font Info:    Trying to load font information for U+fontawesomeone on input line 27.
- (/usr/share/texmf-dist/tex/latex/fontawesome/ufontawesomeone.fd
-File: ufontawesomeone.fd 2016/05/22 Font definitions for U/fontawesomeone.
-)) (./hratky.tex
+] [4
+
+] (./grafy.tex)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.01804pt, for example:
@@ -1791,1103 +1787,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1
 
-]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-)) (./uvodni-pojmy.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[2] (./logika.tex
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 4.
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 4.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 10.
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 10.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[3]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 31.
-Package hyperref Info: bookmark level for unknown warning defaults to 0 on input line 31.
-) (./mnoziny.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[4]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 36.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[5]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 47.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 59.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 64.
-Package hyperref Info: bookmark level for unknown claim defaults to 0 on input line 64.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 74.
-Package hyperref Info: bookmark level for unknown replacementproof defaults to 0 on input line 74.
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 95.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[6]) (./relace.tex
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 13.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[7]
-Overfull \hbox (2.33127pt too wide) in paragraph at lines 111--115
-\T1/jkp/m/n/12 kres-lení po-mocí ²i-pek. V zá-sad¥ si £lo-v¥k zob-razí ob¥ mno-ºiny jako sloupce
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[8]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 242.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 258.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[9]
-Package mdframed Info: Not enough space on this page on input line 371.
-) (./ekvivalence.tex
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 10.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[10]
-Package mdframed Info: Not enough space on this page on input line 31.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 38.
-
-Overfull \hbox (4.00072pt too wide) in paragraph at lines 49--55
-\T1/jkp/m/n/12 £asto z tech-nic-kých d·-vod·, ne-cht¥li po-va-ºo-vat za r·zné. Vrátím-li se k p°í-
- []
-
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 56.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[11]
-Package mdframed Info: Not enough space on this page on input line 66.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 68.
-
-Overfull \hbox (4.65639pt too wide) in paragraph at lines 85--90
-\T1/jkp/m/n/12 coº nám dává ná-vod, jak de-fi-no-vat ekvi-va-lenci na mno-ºin¥ v²ech zlom-
- []
-
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 102.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[12]
-Package mdframed Info: Not enough space on this page on input line 110.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 112.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 116.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[13]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 182.
-Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 182.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 186.
-) (./zobrazeni.tex
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 13.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 20.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[14]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[15]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 85.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 92.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 114.
-
-Overfull \hbox (4.13547pt too wide) in paragraph at lines 116--119
-\T1/jkp/m/n/12 zob-ra-zují na dva \T1/jkp/m/it/12 r·zné \T1/jkp/m/n/12 prvky v $\OML/jkp/m/it/12 B$\T1/jkp/m/n/12 . For-máln¥, zob-ra-zení $\OML/jkp/m/it/12 f$ \T1/jkp/m/n/12 je prosté,
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[16]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 141.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[17]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 216.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 233.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[18]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 245.
-
-Overfull \hbox (0.8171pt too wide) in paragraph at lines 246--248
-\T1/jkp/b/n/12 verz-ním zob-ra-ze-ním \T1/jkp/m/n/12 k $\OML/jkp/m/it/12 f$\T1/jkp/m/n/12 , zna-£e-ným dost ne-vhodn¥ $\OML/jkp/m/it/12 f[]$\T1/jkp/m/n/12 , na-zveme zob-
- []
-
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 255.
-
-Overfull \hbox (5.9535pt too wide) in paragraph at lines 258--263
-\T1/jkp/m/n/12 zob-ra-zení, pak má mno-ºina $\OML/jkp/m/it/12 f[]\OT1/jkp/m/n/12 (\OML/jkp/m/it/12 y\OT1/jkp/m/n/12 )$ \T1/jkp/m/n/12 bu¤ je-den pr-vek, nebo ºádný. V prv-
- []
-
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 268.
-
-Overfull \hbox (0.5544pt too wide) in paragraph at lines 272--275
-[]\T1/jkp/m/n/12 pro mno-ºinu $\OML/jkp/m/it/12 A$ \T1/jkp/m/n/12 ve-li-kosti $\OML/jkp/m/it/12 n$ \T1/jkp/m/n/12 ur-£ete po-£et r·z-ných bi-jek-tiv-ních zob-
- []
-
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 281.
-
-Overfull \hbox (5.7757pt too wide) in paragraph at lines 281--282
-[][]\T1/cantarell-TLF/b/n/12 Cvi£ení 2.5.2. [][]\T1/jkp/m/n/12 Do-kaºte, ºe kaºdá li-ne-ární funkce $\OML/jkp/m/it/12 f \OT1/jkp/m/n/12 : \U/jkpsyb/m/n/12 R \OMS/jkp/m/n/12 ! \U/jkpsyb/m/n/12 R$\T1/jkp/m/n/12 , tedy funkce
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[19]
-Package mdframed Info: Not enough space on this page on input line 286.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 289.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 301.
-) (./usporadani.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[20]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 22.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 42.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 56.
-
-Overfull \hbox (3.83353pt too wide) in paragraph at lines 56--60
-[][]\T1/cantarell-TLF/b/n/12 P°íklad. [][]\T1/jkp/m/n/12 Asi tu-²íte, co p°i-jde. Kdyº vám °ek-neme, abyste zeslabi-li vztah
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[21]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 62.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 75.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 96.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 104.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[22]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 114.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 137.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 144.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[23]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 229.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[24]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 269.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[25]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 323.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 333.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 338.
-) (./indukce.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[26]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 22.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 31.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[27]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 57.
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 57.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 63.
-
-Overfull \hbox (2.48602pt too wide) in paragraph at lines 67--71
-\T1/jkp/m/n/12 tedy tvr-zení platí pro $\OML/jkp/m/it/12 n \OT1/jkp/m/n/12 = 0$\T1/jkp/m/n/12 . P°ed-po-klá-dáme, ºe tvr-zení platí pro v²ech-
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[28]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 87.
-
-Overfull \hbox (3.02724pt too wide) in paragraph at lines 94--100
-\T1/jkp/m/n/12 klá-dat na pr-vo-£ísla? Opravdu lze \T1/jkp/m/it/12 kaºdé \T1/jkp/m/n/12 £íslo roz-lo-ºit na pr-vo-£ísla a opravdu
- []
-
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 101.
-Package hyperref Info: bookmark level for unknown enhproof defaults to 0 on input line 101.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[29]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 120.
-Package mdframed Info: Not enough space on this page on input line 124.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 126.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 145.
-)) (./pocitani.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[30] (./funkce-podmnoziny.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[31]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 19.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 25.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 31.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 42.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[32]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 72.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 80.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[33]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 113.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 118.
-
-Overfull \hbox (4.83746pt too wide) in paragraph at lines 125--128
-[]\T1/jkp/m/n/12 Definujme zob-ra-zení $\OML/jkp/m/it/12 f \OT1/jkp/m/n/12 : 2[] \OMS/jkp/m/n/12 ! \OT1/jkp/m/n/12 2[]$ \T1/jkp/m/n/12 ná-sle-du-jí-cím zp·-so-bem. []Po-zor! V²im-
- []
-
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 147.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[34]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 156.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 162.
-) (./permutace.tex
-Overfull \hbox (0.72346pt too wide) in paragraph at lines 14--18
-\T1/jkp/m/n/12 za-psat v ra-di-ká-lech (tj. od-moc-ni-nách), kdyº je stu-pe¬ po-ly-nomu v¥t²í
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[35]
-Overfull \hbox (3.87436pt too wide) in paragraph at lines 18--23
-\T1/jkp/m/n/12 fy-zi-kové po-u-ºí-vají jako mo-del £a-so-prostoru) exis-tuje ne-ko-ne£n¥ mno-
- []
-
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 26.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 42.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 51.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 57.
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 68.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[36]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[37]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 176.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[38]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 195.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 255.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[39]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 272.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 285.
-
-Overfull \hbox (10.69498pt too wide) in paragraph at lines 286--288
-[][]\T1/cantarell-TLF/b/n/12 Tvrzení 3.2.2 \T1/cantarell-TLF/m/n/12 (Roz-klad na trans-po-zice)\T1/cantarell-TLF/b/n/12 . [][]\T1/jkp/m/n/12 A´ $\OML/jkp/m/it/12 ^^[ \OMS/jkp/m/n/12 2 \OML/jkp/m/it/12 S[]$ \T1/jkp/m/n/12 a $\OT1/jkp/m/n/12 #\OML/jkp/m/it/12 X \OMS/jkp/m/n/12 ^^U \OT1/jkp/m/n/12 2$ \T1/jkp/m/n/12 (ji-nak bychom
- []
-
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 294.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 298.
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 323.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[40]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 325.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 335.
-LaTeX Font Info:    Trying to load font information for U+dsrom on input line 340.
- (/usr/share/texmf-dist/tex/latex/doublestroke/Udsrom.fd
-File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-)
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[41]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 370.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[42]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[43]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 473.
-Package hyperref Info: bookmark level for unknown observation defaults to 0 on input line 473.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[44]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 527.
-Package mdframed Info: Not enough space on this page on input line 533.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[45]
-Package mdframed Info: Not enough space on this page on input line 533.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 536.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 543.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 553.
-
-Overfull \hbox (2.01733pt too wide) in paragraph at lines 568--570
-[]\T1/jkp/m/n/12 * Na-vrh-n¥te al-go-rit-mus, který pro da-nou per-mu-taci $\OML/jkp/m/it/12 ^^[ \OMS/jkp/m/n/12 2 \OML/jkp/m/it/12 S[]$ \T1/jkp/m/n/12 spo£te
- []
-
-) (./kombinacni-cisla.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[46]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 15.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[47]
-Overfull \hbox (0.74438pt too wide) in paragraph at lines 48--55
-\T1/jkp/m/n/12 uspo-°á-dá-ním d¥-len po-£tem zp·-sob·, ko-lika jsme ta-kové uspo-°á-dání mohli
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[48]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 101.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 111.
- (./rozklad-na-scitance.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[49]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[50]) (./par-vlastnosti-kombinacnich-cisel.tex
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 13.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[51]
-Package mdframed Info: Not enough space on this page on input line 18.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 20.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[52]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[53]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 139.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 147.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[54]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 181.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 188.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 200.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 209.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 216.
-Package mdframed Info: Not enough space on this page on input line 223.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[55]
-Package mdframed Info: Not enough space on this page on input line 223.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 225.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 236.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 257.
-)) (./inkluze-a-exkluze.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[56]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 26.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[57]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[58]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[59]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[60]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 248.
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 248.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 259.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[61]
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 385.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[62]
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 385.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[63]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 393.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[64]
-Package mdframed Info: Not enough space on this page on input line 424.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 428.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[65]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 443.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 448.
- (./problem-satnarky.tex
-Overfull \hbox (3.39713pt too wide) in paragraph at lines 15--23
-\T1/jkp/m/n/12 zob-ra-zují na to-téº, jako $[]\OT1/jkp/m/n/12 (\OML/jkp/m/it/12 n\OT1/jkp/m/n/12 )$\T1/jkp/m/n/12 , pak °e-²e-ním pro-blému ²at-ná°ky je £íslo $[]\OT1/jkp/m/n/12 (\OML/jkp/m/it/12 n\OT1/jkp/m/n/12 )\OML/jkp/m/it/12 =n\OT1/jkp/m/n/12 !$\T1/jkp/m/n/12 . 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[66]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 36.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[67]
-LaTeX Font Info:    Trying to load font information for OT1+jkpss on input line 84.
- (/usr/share/texmf-dist/tex/latex/kpfonts/ot1jkpss.fd
-File: ot1jkpss.fd 2007/07/16 Fontinst v1.928 font definitions for OT1/jkpss.
-)
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 107.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 116.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[68]
-Overfull \hbox (5.40399pt too wide) in paragraph at lines 136--139
-[]\T1/jkp/m/n/12 Dopracovali jsme se k zá-v¥ru pro-blému. Díky [][]p°ed-cho-zímu lem-matu[][] máme
- []
-
-)))
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.01804pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.01804pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
-
-[69] (./discrete-maths.aux)
+] (./discrete-maths.aux)
 Package rerunfilecheck Info: File `discrete-maths.out' has not changed.
-(rerunfilecheck)             Checksum: 24DB29A0FF69E96D9FD80BC8C060DC1B;3723.
+(rerunfilecheck)             Checksum: 73451232BC10736C3F8943B56DF43D95;109.
  ) 
 Here is how much of TeX's memory you used:
- 60262 strings out of 478238
- 1386557 string characters out of 5850455
- 1872815 words of memory out of 5000000
- 77107 multiletter control sequences out of 15000+600000
- 565425 words of font info for 163 fonts, out of 8000000 for 9000
+ 58480 strings out of 478238
+ 1355821 string characters out of 5850457
+ 1833553 words of memory out of 5000000
+ 75739 multiletter control sequences out of 15000+600000
+ 517480 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,18n,121p,756b,1378s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/share/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc}{/usr/share/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}{/usr/share/texmf-dist/fonts/enc/dvips/cantarell/a_5r5lpu.enc}</usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Bold.pfb></usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb></usr/share/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpexa.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpssmn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsya.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsyb.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb>
-Output written on discrete-maths.pdf (74 pages, 440391 bytes).
+ 114i,11n,121p,756b,810s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/share/texmf/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/share/texmf-dist/fonts/enc/dvips/cantarell/a_5r5lpu.enc}</usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Bold.pfb></usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Regular.pfb></usr/local/share/texmf/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/share/texmf/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/share/texmf/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/share/texmf/fonts/type1/public/kpfonts/jkpsy.pfb>
+Output written on discrete-maths.pdf (5 pages, 81912 bytes).
 PDF statistics:
- 989 PDF objects out of 1000 (max. 8388607)
- 839 compressed objects within 9 object streams
- 337 named destinations out of 1000 (max. 500000)
- 373 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
+ 7 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -34,6 +34,7 @@ authlib = "*"
 flask-cors = "*"
 openpyxl = "*"
 unidecode = "*"
+gunicorn = "*"
 
 [dev-packages]
 

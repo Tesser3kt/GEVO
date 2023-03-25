@@ -12,11 +12,11 @@ import openpyxl
 import unidecode as ud
 
 # allow insecure transport for development
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+# os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 # create Flask app
-app = Flask(__name__)
-app.debug = DEBUG
+app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
+app.debug = False
 app.secret_key = SECRET_KEY
 
 # configure SQLAlchemy database URI
@@ -36,6 +36,10 @@ def set_headers(response):
     response.headers["Access-Control-Allow-Headers"] = "*"
     response.headers["Access-Control-Allow-Methods"] = "*"
     return response
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 
 @app.route('/api/current-user', methods=['GET'])
@@ -243,30 +247,28 @@ def thesis_evaluation():
             ).first()
             if not evaluation:
                 new_evaluation = Evaluation(
-                    formulation=grades[0],
-                    methodology=grades[1],
-                    bibliography=grades[2],
-                    structure=grades[3],
-                    contribution=grades[4],
-                    terminology=grades[5],
+                    introduction=grades[0],
+                    research=grades[1],
+                    methodology=grades[2],
+                    analysis=grades[3],
+                    evaluation=grades[4],
+                    language=grades[5],
                     citations=grades[6],
-                    language=grades[7],
-                    formatting=grades[8],
-                    results=grades[9],
+                    formatting=grades[7],
+                    structure=grades[8],
                     supervisor_thesis_id=thesis.id
                 )
                 db.session.add(new_evaluation)
             else:
-                evaluation.formulation = grades[0]
-                evaluation.methodology = grades[1]
-                evaluation.bibliography = grades[2]
-                evaluation.structure = grades[3]
-                evaluation.contribution = grades[4]
-                evaluation.terminology = grades[5]
+                evaluation.introduction = grades[0]
+                evaluation.research = grades[1]
+                evaluation.methodology = grades[2]
+                evaluation.analysis = grades[3]
+                evaluation.evaluation = grades[4]
+                evaluation.language = grades[5]
                 evaluation.citations = grades[6]
-                evaluation.language = grades[7]
-                evaluation.formatting = grades[8]
-                evaluation.results = grades[9]
+                evaluation.formatting = grades[7]
+                evaluation.structure = grades[8]
 
         elif thesis_evaluation_data['from'] == 'opponent':
             evaluation = Evaluation.query.filter_by(
@@ -274,24 +276,28 @@ def thesis_evaluation():
             ).first()
             if not evaluation:
                 new_evaluation = Evaluation(
-                    formulation=grades[0],
-                    methodology=grades[1],
-                    bibliography=grades[2],
-                    structure=grades[3],
-                    contribution=grades[4],
-                    terminology=grades[5],
-                    results=grades[6],
+                    introduction=grades[0],
+                    research=grades[1],
+                    methodology=grades[2],
+                    analysis=grades[3],
+                    evaluation=grades[4],
+                    language=grades[5],
+                    citations=grades[6],
+                    formatting=grades[7],
+                    structure=grades[8],
                     opponent_thesis_id=thesis.id
                 )
                 db.session.add(new_evaluation)
             else:
-                evaluation.formulation = grades[0]
-                evaluation.methodology = grades[1]
-                evaluation.bibliography = grades[2]
-                evaluation.structure = grades[3]
-                evaluation.contribution = grades[4]
-                evaluation.terminology = grades[5]
-                evaluation.results = grades[6]
+                evaluation.introduction = grades[0]
+                evaluation.research = grades[1]
+                evaluation.methodology = grades[2]
+                evaluation.analysis = grades[3]
+                evaluation.evaluation = grades[4]
+                evaluation.language = grades[5]
+                evaluation.citations = grades[6]
+                evaluation.formatting = grades[7]
+                evaluation.structure = grades[8]
 
         try:
             db.session.commit()
@@ -329,22 +335,21 @@ def thesis_evaluation():
                 return {
                     'success': True,
                     'grades': [
-                        evaluation.formulation,
+                        evaluation.introduction,
+                        evaluation.research,
                         evaluation.methodology,
-                        evaluation.bibliography,
-                        evaluation.structure,
-                        evaluation.contribution,
-                        evaluation.terminology,
-                        evaluation.citations,
+                        evaluation.analysis,
+                        evaluation.evaluation,
                         evaluation.language,
+                        evaluation.citations,
                         evaluation.formatting,
-                        evaluation.results
+                        evaluation.structure
                     ]
                 }
             else:
                 return {
                     'success': True,
-                    'grades': [0] * 10
+                    'grades': [0] * 9
                 }
 
         elif user_for == 'opponent':
@@ -355,19 +360,21 @@ def thesis_evaluation():
                 return {
                     'success': True,
                     'grades': [
-                        evaluation.formulation,
+                        evaluation.introduction,
+                        evaluation.research,
                         evaluation.methodology,
-                        evaluation.bibliography,
-                        evaluation.structure,
-                        evaluation.contribution,
-                        evaluation.terminology,
-                        evaluation.results
+                        evaluation.analysis,
+                        evaluation.evaluation,
+                        evaluation.language,
+                        evaluation.citations,
+                        evaluation.formatting,
+                        evaluation.structure
                     ]
                 }
             else:
                 return {
                     'success': True,
-                    'grades': [0] * 7
+                    'grades': [0] * 9
                 }
 
         else:
@@ -706,40 +713,35 @@ def __fill_template_file(user_job, thesis):
         return ''
 
     template_text = template_text.replace(
-        r'%%FORMULATION%%', f'{evaluation.formulation} \\%'
+        r'%%INTRODUCTION%%', f'{evaluation.introduction}'
     )
     template_text = template_text.replace(
-        r'%%METHODOLOGY%%', f'{evaluation.methodology} \\%'
+        r'%%RESEARCH%%', f'{evaluation.research}'
     )
     template_text = template_text.replace(
-        r'%%BIBLIOGRAPHY%%', f'{evaluation.bibliography} \\%'
+        r'%%METHODOLOGY%%', f'{evaluation.methodology}'
     )
     template_text = template_text.replace(
-        r'%%STRUCTURE%%', f'{evaluation.structure} \\%'
+        r'%%ANALYSIS%%', f'{evaluation.analysis}'
     )
     template_text = template_text.replace(
-        r'%%CONTRIBUTION%%', f'{evaluation.contribution} \\%'
+        r'%%EVALUATION%%', f'{evaluation.evaluation}'
     )
     template_text = template_text.replace(
-        r'%%TERMINOLOGY%%', f'{evaluation.terminology} \\%'
+        r'%%LANGUAGE%%', f'{evaluation.language}'
     )
     template_text = template_text.replace(
-        r'%%RESULTS%%', f'{evaluation.results} \\%'
+        r'%%CITATIONS%%', f'{evaluation.citations}'
     )
-    if user_job == 'supervisor':
-        template_text = template_text.replace(
-            r'%%CITATIONS%%', f'{evaluation.citations} \\%'
-        )
-        template_text = template_text.replace(
-            r'%%LANGUAGE%%', f'{evaluation.language} \\%'
-        )
-        template_text = template_text.replace(
-            r'%%FORMATTING%%', f'{evaluation.formatting} \\%'
-        )
     template_text = template_text.replace(
-        r'%%WEIGHTED MEAN%%', f'{evaluation.weighted_mean} \\%'
+        r'%%FORMATTING%%', f'{evaluation.formatting}'
     )
-
+    template_text = template_text.replace(
+        r'%%STRUCTURE%%', f'{evaluation.structure}'
+    )
+    template_text = template_text.replace(
+        r'%%TOTAL%%', f'{evaluation.total}'
+    )
     # review
     if user_job == 'supervisor':
         review = Review.query.filter_by(
@@ -823,11 +825,11 @@ def __register_name(name_list, class_, role):
     if user is None:
         if role == 'teacher':
             user = Teacher(
-                    name=name,
-                    email=(ud.unidecode(name).replace(' ', '.').lower()
-                           + '@gevo.cz'),
-                    role='teacher'
-                )
+                name=name,
+                email=(ud.unidecode(name).replace(' ', '.').lower()
+                       + '@gevo.cz'),
+                role='teacher'
+            )
         elif role == 'student':
             grade = class_.split('.')[0]
             letter = class_.split('.')[1]
@@ -836,19 +838,19 @@ def __register_name(name_list, class_, role):
 
             if class_ is None:
                 class_ = Class(
-                        grade=grade,
-                        letter=letter
-                    )
+                    grade=grade,
+                    letter=letter
+                )
                 db.session.add(class_)
                 db.session.commit()
 
             user = Student(
-                    name=name,
-                    email=(ud.unidecode(name).replace(' ', '.').lower()
-                           + '@gevo.cz'),
-                    role='student',
-                    class_id=class_.id
-                )
+                name=name,
+                email=(ud.unidecode(name).replace(' ', '.').lower()
+                       + '@gevo.cz'),
+                role='student',
+                class_id=class_.id
+            )
 
         if user:
             db.session.add(user)

@@ -51,6 +51,8 @@
 % Tables %
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{?}{!{\vrule width 1pt\hspace*{.7pt}\vrule width 1pt}}
 
 % Patch for hyphens
 \usepackage{regexpatch}
@@ -139,78 +141,40 @@
 \section*{\sffamily \centering Hodnocení ročníkové práce}
 
 \begin{center}
- \begin{tabular}{c|m{.65\textwidth}|c|c}
-  & \multicolumn{1}{c|}{\textsf{Hodnocení ročníkové práce}} & \textsf{Váha} &
-  \textsf{Známka}\\
+ \begin{tabular}{c|c|c|c|c|c|c|c|c|c}
+  \sffamily
+  Úv & LR & Me & An & Zh & Jaz & Cit & For & LS & Celkem\\
   \toprule
-  1. & Problematika a cíl práce jsou zformulovány a odpovídají zadání a názvu
-  práce. & 1 &
-  %%FORMULATION%%
-  \\
-  \midrule
-  2. & Metodika práce vede k naplnění cílů, je správně a logicky zvolená a
-  kvalitně provedená. & 3 &
+  \normalfont
+  %%INTRODUCTION%%
+  &
+  %%RESEARCH%%
+  &
   %%METHODOLOGY%%
-  \\
-  \midrule
-  3. & Autor se opírá o relevantní prameny a literaturu. & 2 &
-  %%BIBLIOGRAPHY%%
-  \\
-  \midrule
-  4. & Struktura práce je logická a vyvážená a předepsané části práce naplňují
-  svůj účel i obsah. & 4 &
-  %%STRUCTURE%%
-  \\
-  \midrule
-  5. & Práce je originální a obsahuje jednoznačně definovatelný vlastní přínos
-  studenta zvolené tématice. & 4 &
-  %%CONTRIBUTION%%
-  \\
-  \midrule
-  6. & Práce používá správnou odbornou terminologii, obrazový doprovod je
-  kvalitní a odpovídá tématu. & 1 &
-  %%TERMINOLOGY%%
-  \\
-  \midrule
-  7. & Formální stránka práce –- autor správně cituje, má správně vedený seznam
-  literatury, nic podstatného neopominul. & 3 &
-  %%CITATIONS%%
-  \\
-  \midrule
-  8. & Jazyková stránka práce. & 2 &
+  &
+  %%ANALYSIS%%
+  &
+  %%EVALUATION%%
+  &
   %%LANGUAGE%%
-  \\
-  \midrule
-  9. & Grafická stránka práce (formátování). Hodnotí pověřený učitel & 2 &
+  &
+  %%CITATIONS%%
+  &
   %%FORMATTING%%
-  \\
-  \midrule
-  10. & Cíle práce byly splněny. & 4 &
-  %%RESULTS%%
- \end{tabular}
+  &
+  %%STRUCTURE%%
+  &
+  %%TOTAL%%
+\end{tabular}
 \end{center}
 
 \begin{center}
- \fbox{\textbf{Výsledná známka (vážený průměr):} \textbf{
-  %%WEIGHTED MEAN%%
- }}
-\end{center}
-
-\subsection*{\sffamily\centering Kritéria hodnocení}
-\begin{center}
- \begin{tabular}{c|l|l}
-  1 & splňuje na výborné úrovni & 100 \%*, 99 -- 85 \% \\
-  \midrule
-  2 & splňuje chvalitebně & 84 -- 70 \% \\
-  \midrule
-  3 & splňuje z větší části & 69 -- 55 \% \\
-  \midrule
-  4 & splňuje z menší části & 54 -- 40 \% \\
-  \midrule
-  5 & nesplňuje & 39 -- 0 \%
- \end{tabular}\\
- *\footnotesize{mimořádný výkon po všech stránkách}
-\end{center}
+  \begin{tabular}{l|l?l|l?l|l}
+   Úv & Úvod & An & Analýza & Cit & Citace\\
+   LR & Literární rešerše & Zh & Zhodnocení & For & Formátování\\
+   Me & Metoda & Jaz & Jazyk & LS & Logická struktura\\
+  \end{tabular}
+ \end{center}
 
 \section*{\sffamily \centering Slovní hodnocení výsledné práce (klady a
 nedostatky)}
@@ -226,6 +190,10 @@ nedostatky)}
 
 \textbf{Datum:
 %%DATE%%
+}
+\hfill
+\textit{
+  %%SUPERVISOR%%
 }
 
 \end{document}

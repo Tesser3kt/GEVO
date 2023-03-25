@@ -51,6 +51,8 @@
 % Tables %
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{?}{!{\vrule width 1pt\hspace*{.7pt}\vrule width 1pt}}
 
 % Patch for hyphens
 \usepackage{regexpatch}
@@ -140,96 +142,60 @@ vyrobeného airsoftového štítu
 \section*{\sffamily \centering Hodnocení ročníkové práce}
 
 \begin{center}
- \begin{tabular}{c|m{.65\textwidth}|c|c}
-  & \multicolumn{1}{c|}{\textsf{Hodnocení ročníkové práce}} & \textsf{Váha} &
-  \textsf{Známka}\\
+ \begin{tabular}{c|c|c|c|c|c|c|c|c|c}
+  \sffamily
+  Úv & LR & Me & An & Zh & Jaz & Cit & For & LS & Celkem\\
   \toprule
-  1. & Problematika a cíl práce jsou zformulovány a odpovídají zadání a názvu
-  práce. & 1 &
-  0 \%
-  \\
-  \midrule
-  2. & Metodika práce vede k naplnění cílů, je správně a logicky zvolená a
-  kvalitně provedená. & 3 &
-  50 \%
-  \\
-  \midrule
-  3. & Autor se opírá o relevantní prameny a literaturu. & 2 &
-  40 \%
-  \\
-  \midrule
-  4. & Struktura práce je logická a vyvážená a předepsané části práce naplňují
-  svůj účel i obsah. & 4 &
-  0 \%
-  \\
-  \midrule
-  5. & Práce je originální a obsahuje jednoznačně definovatelný vlastní přínos
-  studenta zvolené tématice. & 4 &
-  0 \%
-  \\
-  \midrule
-  6. & Práce používá správnou odbornou terminologii, obrazový doprovod je
-  kvalitní a odpovídá tématu. & 1 &
-  89 \%
-  \\
-  \midrule
-  7. & Formální stránka práce –- autor správně cituje, má správně vedený seznam
-  literatury, nic podstatného neopominul. & 3 &
-  100 \%
-  \\
-  \midrule
-  8. & Jazyková stránka práce. & 2 &
-  100 \%
-  \\
-  \midrule
-  9. & Grafická stránka práce (formátování). Hodnotí pověřený učitel & 2 &
-  100 \%
-  \\
-  \midrule
-  10. & Cíle práce byly splněny. & 4 &
-  0 \%
- \end{tabular}
+  \normalfont
+  0
+  &
+  0
+  &
+  0
+  &
+  0
+  &
+  0
+  &
+  0
+  &
+  0
+  &
+  0
+  &
+  0
+  &
+  0
+\end{tabular}
 \end{center}
 
 \begin{center}
- \fbox{\textbf{Výsledná známka (vážený průměr):} \textbf{
-  39 \%
- }}
-\end{center}
-
-\subsection*{\sffamily\centering Kritéria hodnocení}
-\begin{center}
- \begin{tabular}{c|l|l}
-  1 & splňuje na výborné úrovni & 100 \%*, 99 -- 85 \% \\
-  \midrule
-  2 & splňuje chvalitebně & 84 -- 70 \% \\
-  \midrule
-  3 & splňuje z větší části & 69 -- 55 \% \\
-  \midrule
-  4 & splňuje z menší části & 54 -- 40 \% \\
-  \midrule
-  5 & nesplňuje & 39 -- 0 \%
- \end{tabular}\\
- *\footnotesize{mimořádný výkon po všech stránkách}
-\end{center}
+  \begin{tabular}{l|l?l|l?l|l}
+   Úv & Úvod & An & Analýza & Cit & Citace\\
+   LR & Literární rešerše & Zh & Zhodnocení & For & Formátování\\
+   Me & Metoda & Jaz & Jazyk & LS & Logická struktura\\
+  \end{tabular}
+ \end{center}
 
 \section*{\sffamily \centering Slovní hodnocení výsledné práce (klady a
 nedostatky)}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus sollicitudin. Aliquam erat volutpat. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Nulla non arcu lacinia neque faucibus fringilla. Integer tempor. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Etiam bibendum elit eget erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce nibh.
 
-Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Mauris dictum facilisis augue. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Nunc dapibus tortor vel mi dapibus sollicitudin. Aliquam ornare wisi eu metus. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Fusce wisi. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Nulla non lectus sed nisl molestie malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc tincidunt ante vitae massa. Nullam rhoncus aliquam metus. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus et lorem id felis nonummy placerat. Etiam bibendum elit eget erat. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Integer in sapien. Donec iaculis gravida nulla.
 
 \section*{\sffamily \centering Doporučené otázky k obhajobě}
 
 \begin{enumerate}
-  \item lq3jq3oifnqownfq?
-\item lqiwfnlqwbfoqewif?
+  \item qlwnoqw?
+\item oiwodfiwje?
 \end{enumerate}
 
 \vfill
 
 \textbf{Datum:
 23.03.2023
+}
+\hfill
+\textit{
+  Adam Klepáč
 }
 
 \end{document}

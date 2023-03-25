@@ -1,5 +1,6 @@
 from manim import *
 import networkx as nx
+from random import randint
 
 from graphs_config import *
 
@@ -213,7 +214,7 @@ class PathAndCycleExamples(Scene):
             G[v].set_color(PATH_COLOR)
             if i in [5, 6]:
                 G[v].set_color(PATH_COLOR_TWICE)
-            if i == 4:
+            if i == 5:
                 self.add(dot_trace_2)
                 self.play(dot.animate.set_color(PATH_COLOR_TWICE))
             if i == 6:
@@ -269,5 +270,75 @@ class PathAndCycleExamples(Scene):
 
         # cycle example
         self.play(dot.animate.move_to(G[0].get_center()))
+
+        self.wait(2)
+
+
+class SpanningTreeExample(Scene):
+    def construct(self):
+        grid_layout = {
+            (0, 0): [-3, -3, 0],
+            (0, 1): [-1, -3, 0],
+            (0, 2): [1, -3, 0],
+            (0, 3): [3, -3, 0],
+            (1, 0): [-3, -1, 0],
+            (1, 1): [-1, -1, 0],
+            (1, 2): [1, -1, 0],
+            (1, 3): [3, -1, 0],
+            (2, 0): [-3, 1, 0],
+            (2, 1): [-1, 1, 0],
+            (2, 2): [1, 1, 0],
+            (2, 3): [3, 1, 0],
+            (3, 0): [-3, 3, 0],
+            (3, 1): [-1, 3, 0],
+            (3, 2): [1, 3, 0],
+            (3, 3): [3, 3, 0]
+        }
+
+        nx_graph = nx.grid_2d_graph(4, 4)
+        edge_weights = {
+            edge: randint(1, 9)
+            for edge in nx_graph.edges
+        }
+        for e in edge_weights:
+            nx_graph[e[0]][e[1]]["weight"] = edge_weights[e]
+
+        G = Graph.from_networkx(nx_graph,
+                                vertex_config={"color": VERTEX_COLOR,
+                                               "radius": 0.15},
+                                edge_config={"color": EDGE_COLOR},
+                                layout=grid_layout,
+                                labels=False)
+        print(G.edges)
+
+        weight_labels = VGroup()
+        weight_labels_dict = {}
+        for edge, weight in edge_weights.items():
+            label = MathTex(str(weight), color=WHITE).scale(0.8)
+            if edge[0][0] == edge[1][0]:
+                label.next_to(G.edges[edge], UP, buff=0.15)
+            else:
+                label.next_to(G.edges[edge], RIGHT, buff=0.15)
+            weight_labels.add(label)
+            weight_labels_dict[edge] = label
+
+        for v in G.vertices.values():
+            v.set_z_index(10)
+        for e in G.edges.values():
+            e.set_z_index(5)
+
+        self.play(Create(G), run_time=2)
+        self.wait(1)
+
+        self.play(Write(weight_labels), run_time=2)
+        self.wait(2)
+
+        spanning_tree = nx.minimum_spanning_tree(nx_graph)
+        for e in sorted(spanning_tree.edges, key=lambda x: edge_weights[x]):
+            line = Line(G[e[0]].get_center(), G[e[1]].get_center(),
+                        stroke_width=15, stroke_color=SPANNING_TREE_COLOR,
+                        z_index=7)
+            self.play(Create(line),weight_labels_dict[e].animate.
+                      set_color(SPANNING_TREE_COLOR).scale(1.2))
 
         self.wait(2)
