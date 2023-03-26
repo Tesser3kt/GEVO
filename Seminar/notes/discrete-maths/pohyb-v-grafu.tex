@@ -1,0 +1,239 @@
+\subsection{Pohyb v grafu}
+\label{ssec:pohyb-v-grafu}
+
+Jak jsme zmínili na začátku kapitoly, mnoho aplikací teorie grafů využívá
+interpretace této struktury jako množiny \uv{uzlů} se \uv{spojnicemi}, po
+kterých se dá mezi uzly pohybovat. V této podsekci dáme pohybu po spojnicích
+formální tvář.
+
+Nejzákladnějším typem pohybu v grafu je libovolná posloupnost vrcholů se zcela
+přirozenou podmínkou, že mezi vrcholy v posloupnosti bezprostředně za sebou musí
+vést hrana. Takové posloupnosti se říká \emph{sled} (angl. \emph{walk}).
+
+\begin{definition}[Sled poprvé]
+\label{def:sled-poprve}
+ Ať $G = (V,E)$ je graf. Posloupnost vrcholů $v_1v_2\cdots v_n$ nazveme
+ \emph{sledem} v grafu $G$, pokud $v_i v_{i+1} \in E$ pro každý index ${i \in
+ \{1,\ldots,n-1\}}$.
+\end{definition}
+
+Je však užitečné si uvědomit, že každý sled lze ekvivalentně definovat jako
+posloupnost navazujících hran. Tento pohled (jak uvidíme později v kapitole) má
+své aplikace -- často nás totiž zajímá, po kterých spojnicích chodíme, spíše než
+které uzly procházíme.
+
+Máme-li sled $v_1v_2 \cdots v_n$, tak každá dvojice $v_iv_{i+1}$ musí být hranou
+v $G$. To ovšem znamená, že zcela identickou informaci poskytuje i posloupnost
+hran $e_1e_2 \cdots e_{n-1}$, kde $e_i = v_iv_{i+1}$.
+
+\begin{remark}
+ Tento princip, který prostupuje matematické struktury, je až překvapivě
+ zásadního významu. Zobecníme-li trochu předchozí pozorování, uvědomíme si, že
+ množina hran vlastně už v sobě obsahuje informaci o všech prvcích množiny $V$.
+ Tedy bychom dokonce mohli definovat graf pouze jako množinu hran a množinu
+ vrcholů bychom takto získali automaticky. Opak samozřejmě není pravdou.
+
+ Situace, kdy struktura na množině (či něčem složitějším) je dostatečně
+ \uv{hustá}, aby obsahovala kompletní informaci o této množině, je obecně velmi
+ žádaná, jelikož struktura je často konstruována systematicky (a tedy jí
+ rozumíme lépe) ve srovnání s náhodnou volbou její bázové množiny.
+
+ Pro nedostatek představivosti uvedeme příklad z homologické algebry, kde
+ injektivní a projektivní rezolventy modulů obsahují již kompletní informaci o
+ daném modulu. Tedy člověku pro pochopení teorie modulů z homologického hlediska
+ \uv{stačí} studovat injektivní a projektivní moduly, které jsou z definice více
+ omezené než moduly obecné, pročež snadněji popsatelné.
+\end{remark}
+
+\begin{definition}[Sled podruhé]
+\label{def:sled-podruhe}
+ Ať $G = (V,E)$ je graf. Posloupnost hran $e_1e_2 \cdots e_n$ nazveme
+ \emph{sledem} v grafu $G$, pokud $t(e_i) = s(e_{i+1})$ pro všechna $i \in
+ \{1,2,\ldots,n-1\}$.
+\end{definition}
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner sep=1pt}}
+  \tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{>[scale=0.8]}}},postaction={decorate}}}
+  \node[vertex,myred,text=white] (1) at (-1, 1) {$1$};
+  \node[vertex,myblue,text=white] (2) at (1, 1) {$2$};
+  \node[vertex,myblue,text=white] (3) at (1, -1) {$3$};
+  \node[vertex,myred,text=white] (4) at (-1, -1) {$4$};
+
+  \draw[->-=.55,ultra thick,myblue] (2) -- (1);
+  \draw[thick] (1) -- (3);
+  \draw[->-=.3,->-=.8,ultra thick,myred] (1) -- (4);
+  \draw[thick] (2) -- (3);
+  \draw[->-=.55,ultra thick,myblue] (4) -- (2);
+  \draw[->-=.55,ultra thick,myblue] (4) -- (3);
+ \end{tikzpicture}
+ \caption{Příklad sledu $142143$ v grafu. Jednou navštívené hrany a vrcholy jsou
+ značené \clb{modře}, dvakrát navštívené \clr{červeně}.}
+ \label{fig:priklad-sledu}
+\end{figure}
+
+Méně obecným pohybem v grafu je sled, ve kterém se nesmějí opakovat hrany.
+Takové sledy lze najít často třeba v běžné situaci, kdy si jako rozvůzce jídla
+plánujete cestu městem. Jako uzly si označíte například místa, která musíte
+objet, a hrany budou nejkratší trasy mezi nimi. Projet přes některá místa
+vícekrát vám příliš vadit nemusí, ale ztrácet čas cestováním po stejné trase
+sem a tam byste neradi.
+
+Takovému sledu se říká \emph{tah} (angl. \emph{trail}). Jeho definice je velmi
+přirozená.
+
+\begin{definition}[Tah]
+\label{def:tah}
+ Ať $G = (V,E)$. \emph{Tahem} v grafu $G$ nazveme buď
+ \begin{enumerate}
+  \item sled (vrcholů) $v_1v_2\cdots v_n$ takový, že $v_i v_{i+1} \neq v_j
+   v_{j+1}$ pro všechna $i \neq j$, nebo
+  \item sled (hran) $e_1e_2 \cdots e_{n-1}$ takový, že $e_i \neq e_j$ pro
+   všechna $i \neq j$.
+ \end{enumerate}
+\end{definition}
+
+\begin{warning}
+ Obě uvedené definice tahu jsou v našem (částečně neformálním) pojetí hran
+ skutečně ekvivalentní. Napíšeme-li totiž $v_i v_{i+1} \neq v_j v_{j+1}$ myslíme
+ tím vlastně dvě nerovnosti:
+ \[
+  (v_i,v_{i+1}) \neq (v_j,v_{j+1}) \wedge (v_i,v_{i+1}) \neq (v_{j+1},v_j);
+ \]
+ nebo zápis můžeme též chápat jako
+ \[
+  \{v_i,v_{i+1}\} \neq \{v_j,v_{j+1}\},
+ \]
+ čili každou hranu chceme projít (kterýmkoli směrem) maximálně jednou.
+\end{warning}
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner sep=1pt}}
+  \tikzset{->-/.style={decoration={
+   markings,
+   mark=at position #1 with {\arrow{>[scale=0.8]}}},postaction={decorate}}}
+
+  \node[vertex,myred,text=white] (1) at (-1, 1) {$1$};
+  \node[vertex,myred,text=white] (2) at (1, 1) {$2$};
+  \node[vertex,myblue,text=white] (3) at (1, -1) {$3$};
+  \node[vertex,myblue,text=white] (4) at (-1, -1) {$4$};
+
+  \draw[->-=.55,ultra thick,myblue] (1) -- (2);
+  \draw[->-=.45,ultra thick,myblue] (3) -- (1);
+  \draw[->-=.55,ultra thick,myblue] (1) -- (4);
+  \draw[->-=.55,ultra thick,myblue] (2) -- (3);
+  \draw[->-=.65,ultra thick,myblue] (4) -- (2);
+  \draw[thick] (3) -- (4);
+ \end{tikzpicture}
+ \caption{Příklad tahu $142312$ v grafu. Jednou navštívené hrany a vrcholy jsou
+ značené \clb{modře}, dvakrát navštívené \clr{červeně}.}
+ \label{fig:priklad-sledu}
+\end{figure}
+
+Posledním, a asi nejčastěji zkoumaným, typem pohybu grafem je \emph{cesta}
+(angl. \emph{path}), což je sled, ve kterém se nesmějí opakovat ani hrany ani
+vrcholy. Pro jednoduchost je užitečné si uvědomit, že z podmínky neopakování
+vrcholů automaticky plyne podmínka neopakování hran. Pokud bychom totiž chtěli
+po nějaké hraně přejít dvakrát, tak zároveň dvakrát projdeme její koncové
+vrcholy. Definovat cestu pomocí sledu vrcholů je tudíž přímočaré.
+
+U sledu hran je to však horší. Protože každá hrana definuje dva vrcholy sledu,
+je třeba zařídit, aby se oba koncové body každé hrany lišily od obou koncových
+bodů jiné hrany, ale jenom tehdy, když hrany nejdou bezprostředně za sebou. To
+bohužel vede na trochu neintuitivní definici cesty přes hrany. Totiž, cesta
+obsahující $n$ hran nutně obsahuje $n+1$ vrcholů, protože po sobě jdoucí hrany
+vždy sdílejí jeden vrchol. Rafinovaně se tedy cesta přes hrany dá vyjádřit jako
+tah, kde sjednocení přes všechny hrany (vnímané tentokrát jako množiny) má
+velikost právě $n + 1$.
+
+Studium cest má aplikace například právě v návrhu elektrických obvodů, kdy zcela
+jistě nechcete, aby do připojených zařízení šel proud z více, než jednoho místa.
+
+\begin{definition}[Cesta]
+\label{def:cesta}
+ Ať $G = (V,E)$ je graf. \emph{Cestou} v grafu $G$ nazveme buď
+ \begin{enumerate}
+  \item sled (vrcholů) $v_1v_2 \cdots v_n$ takový, že $v_i \neq v_j$ pro všechna
+   $i \neq j$, nebo
+  \item tah (hran) $e_1e_2 \cdots e_{n-1}$ takový, že
+   \[
+    \# \bigcup_{i=1}^{n-1} e_i = n.
+   \]
+ \end{enumerate}
+\end{definition}
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner sep=1pt}}
+  \tikzset{->-/.style={decoration={
+   markings,
+   mark=at position #1 with {\arrow{>[scale=0.8]}}},postaction={decorate}}}
+
+  \node[vertex,myblue,text=white] (1) at (-1, 1) {$1$};
+  \node[vertex,myblue,text=white] (2) at (1, 1) {$2$};
+  \node[vertex,myblue,text=white] (3) at (1, -1) {$3$};
+  \node[vertex,myblue,text=white] (4) at (-1, -1) {$4$};
+
+  \draw[->-=.55,ultra thick,myblue] (1) -- (2);
+  \draw[thick] (1) -- (3);
+  \draw[thick] (1) -- (4);
+  \draw[->-=.55,ultra thick,myblue] (2) -- (3);
+  \draw[thick] (2) -- (4);
+  \draw[->-=.55,ultra thick,myblue] (3) -- (4);
+ \end{tikzpicture}
+ \caption{Příklad cesty $1234$ v grafu. Navštívené hrany a vrcholy jsou značené
+ \clb{modře}.}
+ \label{fig:priklad-sledu}
+\end{figure}
+
+Posledním důležitým konceptem v grafu je tzv. \emph{cyklus} (též
+\emph{kružnice}, angl. \emph{cycle}). Jedná se vlastně o \uv{téměř cestu}, která
+končí tam, kde začala. Konkrétně je to tedy cesta prodloužená o svůj první
+vrchol (samozřejmě automaticky předpokládáme, že existuje hrana z posledního
+vrcholu do prvního).
+
+\begin{definition}[Cyklus]
+\label{def:cyklus}
+ Ať $G = (V,E)$ je graf. \emph{Cyklem} v grafu nazveme buď
+ \begin{enumerate}
+  \item sled (vrcholů) $v_1v_2  \cdots v_nv_1$, pokud $v_1v_2 \cdots v_n$ je
+   cesta v $G$, nebo
+  \item tah (hran) $e_1e_2 \cdots e_{n-1}e_n$, kde $t(e_n) = s(e_1)$ a $e_1e_2
+   \cdots e_{n-1}$ je cesta v~$G$.
+ \end{enumerate}
+\end{definition}
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner sep=1pt}}
+  \tikzset{->-/.style={decoration={
+   markings,
+   mark=at position #1 with {\arrow{>[scale=0.8]}}},postaction={decorate}}}
+
+  \node[vertex,myred,text=white] (1) at (-1, 1) {$1$};
+  \node[vertex,myblue,text=white] (2) at (1, 1) {$2$};
+  \node[vertex,myblue,text=white] (3) at (1, -1) {$3$};
+  \node[vertex,myblue,text=white] (4) at (-1, -1) {$4$};
+
+  \draw[->-=.55,ultra thick,myblue] (1) -- (2);
+  \draw[thick] (1) -- (3);
+  \draw[->-=.55,ultra thick,myblue] (4) -- (1);
+  \draw[->-=.55,ultra thick,myblue] (2) -- (3);
+  \draw[thick] (2) -- (4);
+  \draw[->-=.55,ultra thick,myblue] (3) -- (4);
+ \end{tikzpicture}
+ \caption{Příklad cyklu $12341$ v grafu. Jednou navštívené hrany a vrcholy jsou
+ značené \clb{modře}, dvakrát navštívené \clr{červeně}.}
+ \label{fig:priklad-cyklu}
+\end{figure}
+
+Příklad cyklu vidíte na \myref{obrázku}{fig:priklad-cyklu}. Jejich význam zatím
+necháme zahalen tajemstvím, jež má být odkryto v nejvíce dramatickou chvíli.

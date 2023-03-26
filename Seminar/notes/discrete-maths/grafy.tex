@@ -25,5 +25,338 @@ přírodních i společenských úkazů. Mezi nimi jmenujmež
  \item lingvistické modely, kde uzly jsou slova a spojnice vede mezi
   těmi syntakticky souvisejícími;
  \item studium molekul, kde uzly jsou atomy a spojnice vazby mezi nimi;
- \item 
+ \item analýza šíření fámy v sociologii, kde uzly jsou lidské komunity a
+  spojnice vede mezi komunitami s bezprostředním kontaktem.
 \end{itemize}
+
+Snad pro to, že uzly a spojnice grafu se obvykle kreslí jako body a úsečky
+v~prostoru, ujaly se pro ně názvy \emph{vrcholy} a \emph{hrany} (jako v
+mnohoúhelnících), respektive. Struktura zvaná \emph{graf} tedy sestává ze dvou
+údajů:
+\begin{enumerate}
+ \item množiny (obvykle konečné) vrcholů značené $V$ a
+ \item množiny hran $E$, která je spjata s množinou vrcholů; toto \uv{sepětí} se
+  však definuje různě, v závislosti na vkusu a aplikaci. My si ukážeme tři z
+  jistě většího množství různých definic.
+\end{enumerate}
+
+Asi prvním přirozeným kandidátem pro \uv{strukturu} je množina s relací. To je
+také první způsob, jak si budeme definovat pojem \emph{graf}. Je to také ten
+nejobecnější v tom smyslu, že jeho pouze drobné modifikace nám umožní definovat
+i obdobné struktury, jež také zmateně slují \emph{grafy}, byť s připojeným
+atributem.
+
+Abychom úsečky mezi body mohli popsat jako relaci, čili pomocí uspořádaných
+dvojic bodů, zcela jistě budeme požadovat, aby nevedly úsečky z~bodu do něho
+samého. Úsečku délky $0$ lze totiž triviálně ztotožnit s bodem. Dále, úsečka z
+bodu $A$ do bodu $B$ je jistě tatáž, kterak úsečka z bodu $B$ do bodu $A$. Tento
+fakt musí rovněž relace $E$ odrážet.
+
+První vlastností relace se, snad nepřekvapivě, říká \emph{antireflexivita}.
+Čili, relace $E$ na $V$ je \emph{antireflexivní}, když hrana $(v,v) \notin E$
+pro každý vrchol $v \in V$.
+
+Druhou vlastnost už jsme potkali a nazvali ji symetrií. Požadujeme, aby s~hranou
+$(v,w) \in E$ obsahovala $E$ též hranu $(w,v) \in E$ pro každé dva vrcholy $v,w
+\in V$.
+
+\begin{definition}[Graf poprvé]
+\label{def:graf-poprve}
+ Dvojici $G \coloneqq (V,E)$, kde $V$ je konečná množina a $E$ je relace na $V$,
+ nazveme \emph{grafem}, pokud je $E$ \textbf{antireflexivní} a
+ \textbf{symetrická}.
+\end{definition}
+
+\begin{remark}
+ Z hlediska ryze formálního neodpovídá tato definice dokonale naší geometrické
+ představě. My jsme totiž pouze požadovali, aby $E$ obsahovala jak úsečku z $v$ 
+ do $w$, tak úsečku z $w$ do $v$, ale nikoli, aby se jednalo o \emph{tutéž}
+ úsečku. Tedy, jedna úsečka mezi body je v~množině $E$ reprezentována dvěma
+ dvojicemi.
+
+ Nápravou by bylo definovat navíc ještě relaci $R$ na $E$, kde $(v,v')$ je
+ v~relaci $R$ s $(w,w')$ právě tehdy, když $(w,w') = (v',v)$ nebo $(w,w') =
+ (v,v')$. Jinak řečeno, úsečka z bodu $v$ do bodu $v'$ je v relaci sama se sebou
+ a s úsečkou z bodu $v'$ do bodu $v$.
+
+ Uvážíme-li pak jako hrany grafu $G$ nikoli množinu $E$, ale její třídy
+ ekvivalence podle $R$ (\textbf{Ověřte, že $R$ je ekvivalence!}), dostaneme již
+ přesnou množinovou paralelu bodů a úseček.
+
+ My však budeme v zájmu přehlednosti tento nedostatek ignorovat, protože není
+ pro pochopení ani rozvoj teorie relevantní.
+\end{remark}
+
+Cesta k druhé možné definici grafu není od první daleká. Stačí vlastně relaci
+$E$ interpretovat trochu jinak. Přece, antireflexivní a symetrická relace je
+\uv{totéž} jako množina dvouprvkových podmnožin $V$.
+
+Vskutku, vezměme nějakou $E' \subseteq \binom{V}{2}$. Relaci $E$ z
+\myref{definice}{def:graf-poprve} sestrojíme tak, že z množiny $\{v,w\} \in E'$
+vyrobíme dvojice $(v,w)$ a $(w,v)$. Protože prvky v množině nejsou uspořádané a
+nemohou se opakovat, dává tato konstrukce opravdu antireflexivní a symetrickou
+relaci. Vizuálně odpovídá rozdělení úsečky mezi $v$ a $w$ na šipku z $v$ do $w$
+a šipku z $w$ do $v$.
+
+Z druhé strany, mějme nějakou antireflexivní a symetrickou relaci $E$ na $V$.
+Protože s dvojicí $(v,w)$ obsahuje $E$ i dvojici $(w,v)$, můžeme z těchto dvojic
+ztvárnit množinu $\{v,w\}$. Relace $E$ je antireflexivní, čili se nemůže stát,
+že $v = w$, a množina $\{v,w\}$ je pročež vždy dvouprvková. Posbíráme-li všechny
+množiny $\{v,w\}$ do jedné velké množiny $E'$, bude platit $E' \subseteq
+\binom{V}{2}$. Vizuálně odpovídá tato konstrukce slepení šipky z $v$ do $w$ a
+šipky z $w$ do $v$ do jedné úsečky mezi $v$ a $w$.
+
+\begin{warning}
+ Mezi množinami $E$ a $E'$ \textbf{nemůže existovat bijekce}, třeba jen pro to,
+ že $\# E = 2 \# E'$. Co konstrukce v předchozích dvou odstavcích ukazují, je
+ pouze fakt, že pro naše účely definují $E$ a $E'$ stejnou strukturu na množině
+ $V$.
+
+ Ovšem, uvážili-li bychom místo $E$ pouze třídy ekvivalence jejích prvků podle
+ relace $R$ popsané v poznámce pod \myref{definicí}{def:graf-poprve}, pak bychom
+ skutečně tímto způsobem našli bijekci s množinou $E'$.
+\end{warning}
+
+\begin{definition}[Graf podruhé]
+\label{def:graf-podruhe}
+ Dvojici $G \coloneqq (V,E')$, kde $V$ je konečná množina a $E' \subseteq
+ \binom{V}{2}$, nazveme \emph{grafem}.
+\end{definition}
+
+Třetí pohled na hrany v grafu je více \uv{kategoriální}. Zatímco množiny $E$ a
+$E'$ jsou závislé ve své definici na množině $V$, třetí množina hran $E''$,
+kterou si zde definujeme, bude libovolná konečná množina.
+
+Tento popis grafové struktury bude odpovídat trochu jiné představě; konkrétně
+takové, kdy začínáme s množinou bodů $V$ a s množinou šipek $E$ (jež jsou od
+sebe naprosto odděleny) a oba konce každé šipky zapíchneme do dvou různých bodů
+z $V$. Toto \uv{zapíchnutí} realizují zobrazení $s,t: E'' \to V$ (z angl.
+\textbf{s}ource a \textbf{t}arget), která zobrazují šipky z $E''$ do bodů z $V$.
+Přičemž budeme trvat na tom, aby $s(e) \neq t(e)$ pro všechny šipky $e \in E''$
+a navíc, aby pro každou $e \in E''$ existovala šipka $e' \in E''$ taková, že
+$s(e) = t(e')$, $t(e) = s(e')$. Lidsky řečeno, nesmíme zapíchnout konce šipky do
+téhož vrcholu a, když zapíchneme začátek šipky do bodu $v$ a její konec do bodu
+$w$, pak musíme vzít další šipku, jejíž začátek zapíchneme do $w$ a konec do
+$v$.
+
+Je snadné si rozmyslet, že z množiny šipek $E''$ zrekonstruujeme množinu $E$ z
+\myref{definice}{def:graf-poprve} tak, že z šipky $e \in E''$ vytvoříme dvojici
+$(s(e),t(e)) \in E$. Podmínky kladené na zobrazení $s$ a $t$ zaručují, že
+vzniklá množina $E$ je relace na $V$, která je antireflexivní a symetrická. V
+tomto případě dává uvedená konstrukce dokonce bijekci $E \cong E''$, čili jsme
+opět definovali tutéž strukturu na $V$.
+
+Tato struktura bude zvlášť užitečná, až budeme probírat \emph{toky v síti}.
+
+\begin{definition}[Graf potřetí]
+\label{def:graf-potreti}
+ Čtveřici $G \coloneqq (V,E'',s,t)$, kde $V$ a $E''$ jsou konečné množiny a $s$ 
+ a $t$ jsou zobrazení $E'' \to V$ nazveme \emph{grafem}, pokud
+ \begin{enumerate}[label=(\alph*)]
+  \item $s(e) \neq t(e) \; \forall e \in E''$ a
+  \item $\forall e \in E'' \; \exists e' \in E'': s(e) = t(e') \wedge t(e) =
+   s(e')$.
+ \end{enumerate}
+\end{definition}
+
+\begin{remark}
+ Opět, aby \myref{definice}{def:graf-potreti} odpovídala představě bodů a
+ úseček (nebo oboustranných šipek), museli bychom definovat relaci $R$ na $E$
+ tak, aby $e$ a $e'$ byly v $R$, právě když $s(e) = s(e')$ a $t(e) = t(e')$ nebo
+ $s(e) = t(e')$ a $t(e) = s(e')$. V takovém případě bychom mohli sestrojit
+ bijekci mezi $E''$ a $E'$ z \myref{definice}{def:graf-podruhe}.
+\end{remark}
+
+\begin{example}
+ \label{exam:interpretace-grafu}
+ Ať $V \coloneqq \{1,2,3,4,5\}$ a 
+ \begin{enumerate}
+  \item $E \coloneqq
+   \{(1,2),(2,1),(1,3),(3,1),(1,4),(4,1),(1,5),(5,1),(2,3),(3,2),\\(4,5),(5,4)\}$;
+  \item $E' \coloneqq \{\{1,2\},\{1,3\},\{1,4\},\{1,5\},\{2,3\},\{4,5\}\}$;
+  \item $E'' \coloneqq
+   \{e_1,e_2,e_3,e_4,e_5,e_6,e_1',e_2',e_3',e_4',e_5',e_6'\}$, kde
+   \begin{enumerate}
+    \item $s(e_1) = s(e_2) = s(e_3) = s(e_4) = 1$, $s(e_5) = 2$, $s(e_6) = 4$,
+    \item $t(e_1) = 2$, $t(e_2) = t(e_5) = 3$, $t(e_3) = 4$, $t(e_4) = t(e_6) =
+     5$ a
+    \item $(s(e_i),t(e_i)) = (t(e_i'),s(e_i'))$ pro všechna $i \leq 6$.
+   \end{enumerate}
+ \end{enumerate}
+
+ Není těžké nahlédnout, že $E$, $E'$ i $(E'',s,t)$ definují tutéž strukturu na
+ $V$. Nakreslíme si grafy $G = (V,E), G' = (V,E')$ a $G'' = (V,E'',s,t)$.
+ Přičemž hrany z $E$ budeme kreslit jako oboustranné šipky, ty z $E'$ jako
+ prosté úsečky a ty z $E''$ rozdělíme na dvě protichůdné šipky, abychom
+ vyjádřili rozdíly v interpretaci těchto grafových struktur.
+
+ Graf $G = (V,E)$ vypadá například \hyperref[fig:graf-poprve]{takto}. Pomněte,
+ že například oboustranná šipka mezi vrcholy $1$ a $2$ představuje ve
+ skutečnosti \textbf{dvě} dvojice -- $(1,2)$ a $(2,1)$ z relace $E$.
+ \begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+   \tikzset{vertex/.style = {shape=circle,draw,minimum size=1.5em,inner sep=1pt}}
+   \tikzset{edge/.style = {<->,>={Latex[length=2.5mm]}}}
+   \node[vertex] (1) at (0, 0) {$1$};
+   \node[vertex] (2) at (-2, 1) {$2$};
+   \node[vertex] (3) at (-2, -1) {$3$};
+   \node[vertex] (4) at (2, 1) {$4$};
+   \node[vertex] (5) at (2, -1) {$5$};
+
+   \draw[edge,thick] (1) -- (2)
+   node[above right=2.5mm and 1mm,midway,rotate=-26,anchor=mid]{$(2,1)$}
+   node[below left=3mm and 1.5mm,midway,rotate=-26,anchor=mid]{$(1,2)$};
+   \draw[edge,thick] (1) -- (3)
+   node[above left=2.5mm and 1mm,midway,rotate=26,anchor=mid]{$(3,1)$}
+   node[below right=3mm and 1.5mm,midway,rotate=26,anchor=mid]{$(1,3)$};
+   \draw[edge,thick] (1) -- (4)
+   node[above left=2.5mm and 1mm,midway,rotate=26,anchor=mid]{$(1,4)$}
+   node[below right=3mm and 1.5mm,midway,rotate=26,anchor=mid]{$(4,1)$};
+   \draw[edge,thick] (1) -- (5)
+   node[above right=2.5mm and 1mm,midway,rotate=-26,anchor=mid]{$(1,5)$}
+   node[below left=3mm and 1.5mm,midway,rotate=-26,anchor=mid]{$(5,1)$};
+   \draw[edge,thick] (2) -- (3)
+   node[left=3mm,rotate=-90,midway,anchor=mid]{$(3,2)$}
+   node[right=3mm,rotate=-90,midway,anchor=mid]{$(2,3)$};
+   \draw[edge,thick] (4) -- (5)
+   node[left=3mm,rotate=-90,midway,anchor=mid]{$(5,4)$}
+   node[right=3mm,rotate=-90,midway,anchor=mid]{$(4,5)$};
+  \end{tikzpicture}
+  \caption{Graf jako množina $V$ s relací $E$.}
+  \label{fig:graf-poprve}
+ \end{figure}
+
+ Zcela stejně vypadá i graf $G' = (V,E')$.
+ \begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+   \tikzset{vertex/.style = {shape=circle,draw,minimum size=1.5em,inner sep=1pt}}
+   \node[vertex] (1) at (0, 0) {$1$};
+   \node[vertex] (2) at (-2, 1) {$2$};
+   \node[vertex] (3) at (-2, -1) {$3$};
+   \node[vertex] (4) at (2, 1) {$4$};
+   \node[vertex] (5) at (2, -1) {$5$};
+
+   \draw[thick] (1) -- (2)
+   node[above right=2.5mm and 1mm,midway,rotate=-26,anchor=mid]{$\{1,2\}$};
+   \draw[thick] (1) -- (3)
+   node[above left=2.5mm and 1mm,midway,rotate=26,anchor=mid]{$\{1,3\}$};
+   \draw[thick] (1) -- (4)
+   node[above left=2.5mm and 1mm,midway,rotate=26,anchor=mid]{$\{1,4\}$};
+   \draw[thick] (1) -- (5)
+   node[above right=2.5mm and 1mm,midway,rotate=-26,anchor=mid]{$\{1,5\}$};
+   \draw[thick] (2) -- (3)
+   node[right=3mm,rotate=-90,midway,anchor=mid]{$\{2,3\}$};
+   \draw[thick] (4) -- (5)
+   node[right=3mm,rotate=-90,midway,anchor=mid]{$\{4,5\}$};
+  \end{tikzpicture}
+  \caption{Graf jako množiny $V$ a $E' \subseteq \binom{V}{2}$.}
+  \label{fig:graf-podruhe}
+ \end{figure}
+
+ Konečně, $G'' = (V,E'',s,t)$ můžeme načrtnout taktéž velmi podobně.
+ \begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+   \tikzset{vertex/.style = {shape=circle,draw,minimum size=1.5em,inner sep=1pt}}
+   \tikzset{edge/.style = {->,>={Latex[length=2.5mm]}}}
+   \node[vertex] (1) at (0, 0) {$1$};
+   \node[vertex] (2) at (-2, 1) {$2$};
+   \node[vertex] (3) at (-2, -1) {$3$};
+   \node[vertex] (4) at (2, 1) {$4$};
+   \node[vertex] (5) at (2, -1) {$5$};
+
+   \draw[edge,thick,transform canvas={yshift=1mm,xshift=1mm},shorten <=-2pt] (2) -- (1)
+   node[above right=2.5mm and 1mm,midway,rotate=-26,anchor=mid]{$e_1$};
+   \draw[edge,thick,transform canvas={yshift=-1mm,xshift=-1mm},shorten <=-2pt] (1) -- (2)
+   node[below left=2.5mm and 1.5mm,midway,rotate=-26,anchor=mid]{$e'_1$};
+
+   \draw[edge,thick,transform canvas={yshift=1mm,xshift=-1mm},shorten >=-2pt] (3)
+   -- (1)
+   node[above left=3mm and 1mm,midway,rotate=26,anchor=mid]{$e'_2$};
+   \draw[edge,thick,transform canvas={yshift=-1mm,xshift=1mm},shorten >=-2pt] (1)
+   -- (3)
+   node[below right=2.5mm and 1.5mm,midway,rotate=26,anchor=mid]{$e_2$};
+
+   \draw[edge,thick,transform canvas={yshift=1mm,xshift=-1mm},shorten >=-2pt] (1)
+   -- (4)
+   node[above left=3mm and 1mm,midway,rotate=26,anchor=mid]{$e_3$};
+   \draw[edge,thick,transform canvas={yshift=-1mm,xshift=1mm},shorten >=-2pt] (4)
+   -- (1)
+   node[below right=2.5mm and 1.5mm,midway,rotate=26,anchor=mid]{$e'_3$};
+
+   \draw[edge,thick,transform canvas={yshift=1mm,xshift=1mm},shorten <=-2pt] (1)
+   -- (5)
+   node[above right=2.5mm and 1mm,midway,rotate=-26,anchor=mid]{$e_4$};
+   \draw[edge,thick,transform canvas={yshift=-1mm,xshift=-1mm},shorten <=-2pt]
+   (5) -- (1)
+   node[below left=2.5mm and 1.5mm,midway,rotate=-26,anchor=mid]{$e'_4$};
+
+   \draw[edge,thick,transform canvas={xshift=1mm},shorten >=-2pt] (2)
+   -- (3)
+   node[right=3mm,rotate=-90,midway,anchor=mid]{$e_5$};
+   \draw[edge,thick,transform canvas={xshift=-1mm},shorten >=-2pt] (3)
+   -- (2)
+   node[left=3mm,rotate=-90,midway,anchor=mid]{$e'_5$};
+
+    \draw[edge,thick,transform canvas={xshift=1mm},shorten >=-2pt] (4)
+   -- (5)
+   node[right=3mm,rotate=-90,midway,anchor=mid]{$e_6$};
+   \draw[edge,thick,transform canvas={xshift=-1mm},shorten >=-2pt] (5)
+   -- (4)
+   node[left=3mm,rotate=-90,midway,anchor=mid]{$e'_6$};
+  \end{tikzpicture}
+  \caption{Graf jako množina $V$ s trojicí $(E'',s,t)$.}
+  \label{fig:graf-potreti}
+ \end{figure}
+\end{example}
+
+\begin{warning}
+ Grafová struktura je obecně zcela nezávislá na jejím nakreslení. Například graf
+ $G = (V,E')$ z \hyperref[exam:interpretace-grafu]{předchozího příkladu} lze
+ ekvivalentně vyobrazit třeba následovně.
+ \begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+   \tikzset{vertex/.style = {shape=circle,draw,minimum size=1.5em,inner sep=1pt}}
+   \node[vertex] (1) at (0, -1) {$1$};
+   \node[vertex] (2) at (2, -2) {$2$};
+   \node[vertex] (3) at (1, 1) {$3$};
+   \node[vertex] (4) at (2, 1) {$4$};
+   \node[vertex] (5) at (1, -2) {$5$};
+
+   \draw[thick] (1) -- (2);
+   \draw[thick] (1) -- (3);
+   \draw[thick] (1) -- (4);
+   \draw[thick] (1) -- (5);
+   \draw[thick] (2) -- (3);
+   \draw[thick] (4) -- (5);
+  \end{tikzpicture}
+  \caption{Graf $G = (V,E')$ nakreslený jinak.}
+  \label{fig:graf-podruhe}
+ \end{figure}
+
+\end{warning}
+
+V následujícím textu spojíme všechny tři interpretace dohromady a pro $v,w \in
+V$ budeme hranu mezi $v$ a $w$ značit zjednodušeně jako $vw$. Pokud nehrozí
+nedorozumění, budeme pod tímto zápisem rozumět hranu, jejíž začátek je $v$ a
+konec $w$, čili $s(vw) = v$ a $t(vw) = w$. Avšak, kdykoli se nám to bude hodit,
+ztotožníme ji bez okolků s hranou $wv$ s obrácenými konci.
+
+Tento neformální přístup k popisu hran se může zdát jako nebezpečný, ale jak
+uvidíme, ve skutečnosti velmi zjednodušuje zápis a újma na rigorozitě je obecně
+minimální. Kompletněji řečeno, hranou mezi dvěma vrcholy ${v,w \in V}$ myslíme
+buď dvojici $(v,w) \in E$ nebo dvojici $(w,v) \in E$ nebo množinu $\{v,w\} \in
+E'$ nebo prvek $e \in E''$ takový, že $s(e) = v$ a $t(e) = w$, nebo prvek $e'
+\in E''$ takový, že $s(e') = w$ a $t(e') = v$, a je nám to u ...
+
+Obecně, v teorii grafů se velmi často pracuje s konečnými posloupnostmi (či
+$n$-ticemi, chcete-li) vrcholů a hran. Zavedeme proto zjednodušené značení
+$x_1x_2\cdots x_n$ pro uspořádanou $n$-tici $(x_1,\ldots,x_n)$. Kdyby hrozil
+konflikt se zápisem součinu prvků $x_1,\ldots,x_n$, samozřejmě tento úzus
+dočasně opustíme.
+
+\input{pohyb-v-grafu}
+\input{stromy}

@@ -27,6 +27,7 @@
 \usepackage{cancel}
 % Lets us edit the caption of a figure.
 \usepackage{caption}
+\usepackage{subcaption}
 % Lets us import pdf directly in our tex code.
 \usepackage{pdfpages}
 % Lets us do algorithm stuff.
@@ -87,7 +88,8 @@
 \usepackage{tikz-cd}
 \usepackage{tikzsymbols}
 
-\usetikzlibrary{intersections, angles, quotes, calc, positioning, shapes, snakes}
+\usetikzlibrary{graphs, intersections, angles, quotes, calc, positioning,
+shapes, snakes, decorations.markings}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{babel}
 
@@ -456,6 +458,7 @@
 \definecolor{exercise}{HTML}{5d4037}
 \definecolor{warning}{HTML}{ea191d}
 \definecolor{observation}{HTML}{ff00ff}
+\definecolor{remark}{HTML}{660066}
 
 \colorlet{definition}{mygreen!85!black}
 \colorlet{claim}{myblue!85!black}
@@ -552,6 +555,7 @@
   \createnewcoloredtheoremstyle{thmlemmabox}{lemma}{}{}
   \createnewcoloredtheoremstyle{thmexercisebox}{exercise}{}{}
   \createnewcoloredtheoremstyle{thmobservationbox}{observation}{}{}
+  \createnewcoloredtheoremstyle{thmremarkbox}{remark}{}{}
 
   \createnewcoloredtheoremstyle{thmproofbox}{proof}{qed=\qedsymbol}{backgroundcolor=white}
   \createnewcoloredtheoremstyle{thmexplanationbox}{example}{qed=\qedsymbol}{backgroundcolor=white}
@@ -575,6 +579,8 @@
 \declaretheorem[numbered=no,          style=thmproofbox, name=Důkaz]{enhproof}
 \declaretheorem[numbered=no,          style=thmobservationbox,
 name=Pozorování]{observation}
+\declaretheorem[numbered=no,          style=thmremarkbox,
+name=Poznámka]{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Edit Proof Environment  %
