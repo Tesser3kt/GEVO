@@ -1,0 +1,166 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+% Title %
+\title{\Huge\textsf{Vocabulary Exam -- PreIB 3.AB 3}\\
+ \Large\textsf{Systems of Linear Equations}
+ \author{Áďa Klepáčů}
+ \date{March 30, 2023}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+ \renewcommand{\baselinestretch}{1.2}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{minipage}{.7\textwidth}
+ Below, you see a \underline{\hspace{12ex}} of two \underline{\hspace{12ex}}
+ \underline{\hspace{18ex}} in two \underline{\hspace{18ex}}.
+ \begin{align*}
+  2x + 3y &= 7, \\
+  -x + 4y &= 2.
+ \end{align*}
+ One can solve it for example by \underline{\hspace{22ex}} one of the
+ \underline{\hspace{18ex}}. It seems easier to get rid of $x$. If I
+ \underline{\hspace{10ex}} the second \underline{\hspace{16ex}} by $2$, I get
+ \begin{align*}
+  2x + 3y &= 7,\\
+  -2x + 8y &= 4.
+ \end{align*}
+ I can then \underline{\hspace{6ex}} the first \underline{\hspace{16ex}} to the
+ second and get
+ \[
+  11y = 11,
+ \]
+ which means that $y = 1$. When I \underline{\hspace{20ex}} this result into the
+ first \underline{\hspace{16ex}}, I can solve
+ \[
+  2x + 3 \cdot 1 = 7
+ \]
+ and obtain $x = 2$. This gives me the \underline{\hspace{16ex}} $(2,1)$.
+
+ If I \underline{\hspace{14ex}} $y$ in the first \underline{\hspace{16ex}}, I
+ get
+ \[
+  y = -\frac{2}{3}x + \frac{7}{3}.
+ \]
+ This allows me to treat $y$ as a \underline{\hspace{12ex}}
+ \underline{\hspace{16ex}}
+ \[
+  f(x) = -\frac{2}{3}x + \frac{7}{3}.
+ \]
+ The \underline{\hspace{10ex}} of such a \underline{\hspace{16ex}} is a straight
+ line. Which means, that to draw it, I need to find two
+ \underline{\hspace{12ex}}. The first coordinates are the
+ \underline{\hspace{12ex}} of the \underline{\hspace{16ex}} $f$ and the second
+ coordinates are the \underline{\hspace{14ex}}. So, choosing for example $x = 0$ 
+ and $x = 2$, I get the two \underline{\hspace{12ex}}, $(0,7 / 3)$ and $(2,1)$ 
+ by \underline{\hspace{
+\end{minipage}
+\hfill
+\begin{minipage}{.25\textwidth}
+ \renewcommand{\arraystretch}{2}
+ \begin{tabular}{c}
+  \textbf{SYSTEM}\\
+  \textbf{LINEAR}\\
+  \textbf{EQUATION}\\
+  \textbf{VARIABLE/UNKNOWN}\\
+  \textbf{ELIMINATE}\\
+  \textbf{SCALE}\\
+  \textbf{ADD}\\
+  \textbf{SUBSTITUTE}\\
+  \textbf{SOLUTION}\\
+  \textbf{FUNCTION}\\
+  \textbf{POINT}\\
+  \textbf{INPUT}\\
+  \textbf{OUTPUT}
+ \end{tabular}
+\end{minipage}
+
+\end{document}
