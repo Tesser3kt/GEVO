@@ -62,16 +62,15 @@ jednoho z \uv{koncových} vrcholů, tzv. \emph{listů}. Příklad stromu je na
  \label{fig:priklad-stromu}
 \end{figure}
 
-\begin{warning}
- Listy stromu jsou určeny jednoznačně jeho strukturou (jsou to ty jediné
- vrcholy, do nichž cesty od kořene mohou pouze vést a nikoli jimi procházet). Za
- kořen lze však volit libovolný vrchol, klidně i jeden z listů. Strom z
- \myref{obrázku}{fig:priklad-stromu} může proto vypadat jako na
- \myref{obrázku}{fig:strom-jiny-koren}.
+\begin{warning} Listy stromu jsou určeny jednoznačně jeho strukturou (jsou to ty
+ jediné vrcholy, do nichž cesty od kořene mohou pouze vést a nikoli jimi
+ procházet). Za kořen lze však volit libovolný vrchol, klidně i jeden z listů.
+ Strom z \myref{obrázku}{fig:priklad-stromu} může proto vypadat i jak ukazuje
+ \myref{obrázek}{fig:strom-jiny-koren}.
 
- Někdy není ani nutno o kořenu a listech stromu hovořit, pokud je pro naše účely
- irelevantní rozlišovat jednotlivé vrcholy. Součástí definice stromu (kterou si
- záhy odvodíme) kořen ani listy nejsou.
+ Často není nutno o kořenu a listech stromu hovořit, pokud je v konkrétní
+ situaci irelevantní rozlišovat jednotlivé vrcholy. Součástí definice stromu
+ (kterou si záhy odvodíme) kořen ani listy nejsou.
 \end{warning}
 
 \begin{figure}[h]
@@ -145,12 +144,12 @@ tuto podmínku slují \emph{souvislé}.
  $v_n = w$.
 \end{definition}
 
-Samotný název \uv{strom} plyne z faktu, že se jako graf pouze \uv{větví}, tedy
-že při cestě směrem od (libovolného) kořene se jeden může pouze přibližovat k
-listům, ale nikoli se dostat zpět blíže ke kořeni. To lze snadno zařídit tak, že
-zakážeme cykly. Totiž, neexistuje-li v grafu cyklus, pak se po libovolné cestě z
-kteréhokoli vrcholu můžeme od tohoto vrcholu pouze vzdalovat. Takové grafy
-nazveme, přirozeně, \emph{acyklické}.
+Samotný název \uv{strom} plyne z faktu, že se jako graf pouze \uv{větví}, čímž
+míníme, že při cestě směrem od (libovolného) kořene se jeden může pouze
+přibližovat k listům, ale nikoli se dostat zpět blíže ke kořeni. To lze snadno
+zařídit tak, že zakážeme cykly. Totiž, neexistuje-li v grafu cyklus, pak se po
+libovolné cestě ze zvoleného vrcholu můžeme od tohoto vrcholu pouze vzdalovat.
+Takové grafy nazveme, přirozeně, \emph{acyklické}.
 
 \begin{definition}[Acyklický graf]
 \label{def:acyklicky-graf}
@@ -164,15 +163,15 @@ nazveme, přirozeně, \emph{acyklické}.
  Graf $G = (V,E)$ nazveme \emph{stromem}, je-li souvislý a acyklický.
 \end{definition}
 
-Na začátku sekce jsme slíbili ještě ekvivalentní definici stromu; ta je důvodem,
-proč jsou stromy užitečné, především v informatice.
+Na začátku sekce jsme slíbili ještě ekvivalentní definici stromu; ta činí začnou
+část důvodu užitečnosti stromů, především v informatice.
 
 Ukazuje se totiž, že neexistence cyklů spolu se souvislostí způsobují, že mezi
-dvěma vrcholy stromu vede vždy \textbf{přesně jedna cesta}. Po chvíli zamyšlení
-snad toto nepřichází jako nijak divoké tvrzení. Přeci, pokud by mezi vrcholy
-vedly cesty dvě, pak vrchol, kde se rozpojují, a vrchol, kde se opět spojují, by
-byly součástí cyklu uvnitř stromu, který jsme výslovně zakázali. Třeba
-překvapivější je fakt, že platí i opačná implikace.
+dvěma vrcholy vede vždy \textbf{přesně jedna cesta}. Po chvíli zamyšlení snad
+toto nepřichází jako nijak divoké tvrzení. Přeci, pokud by mezi vrcholy vedly
+cesty dvě, pak vrchol, kde se rozpojují, a vrchol, kde se opět spojují, by byly
+součástí cyklu uvnitř stromu, který jsme výslovně zakázali. Třeba překvapivější
+je fakt, že platí i opačná implikace.
 
 \begin{claim}[Ekvivalentní definice stromu]
  \label{claim:ekvivalentni-definice-stromu}
@@ -188,23 +187,24 @@ překvapivější je fakt, že platí i opačná implikace.
  mezi kterými nevede žádná cesta nebo vede více než jedna.
  \begin{enumerate}
   \item Pokud existují vrcholy, mezi kterými nevede cesta, pak $G$ není
-   souvislý, což odporuje definici stromu. Budeme tedy předpokládat, že existují
-   vrcholy $v,w$, mezi kterými vedou různé cesty $v_1 \cdots v_n$ a $v'_1 \cdots
-   v'_m$, kde $v_1 = v'_1 = v$ a $v_n = v'_m = w$. Myšlenka důkazu je najít
-   cyklus obsahující vrchol, kde se cesty rozdělují, a vrchol, kde se opět
-   spojují. Vizte \myref{obrázek}{fig:cast-1-dukazu-definice-stromu}.
+   souvislý, což odporuje \hyperref[def:strom]{definici stromu}. Budeme tedy
+   předpokládat, že existují vrcholy $v,w$, mezi kterými vedou různé cesty $v_1
+   \cdots v_n$ a $v'_1 \cdots v'_m$, kde $v_1 = v'_1 = v$ a $v_n = v'_m = w$.
+   Myšlenka důkazu je najít cyklus obsahující vrchol, kde se cesty rozdělují, a
+   vrchol, kde se opět spojují. Vizte
+   \myref{obrázek}{fig:cast-1-dukazu-definice-stromu}.
 
    Ať $r$ (od \textbf{r}ozpojení) je \textbf{největší} index takový, že $v_i =
    v'_i$ pro všechna $i \leq r$ (čili $v_r = v'_r$ je vrchol, ve kterém se cesty
    rozpojují). Ten určitě existuje, protože cesty se v nejhorším případě dělí už
-   ve vrcholu $v$.
+   ve vrcholu $v = v_1$.
 
    Podobně, ať $s$ (od \textbf{s}pojení) je \textbf{nejmenší} index takový, že
    existuje $k \in \Z$ splňující $v_j = v'_{j+k}$ pro všechna $j \geq s$. Čili,
    vrchol $v_s = v'_{s+k}$ je vrchol, ve kterém se cesty opět spojily. Ovšem,
    mohlo se tak stát v okamžiku, kdy jsme po jedné cestě prošli více nebo méně
    vrcholů než po druhé -- tento počet vyjadřuje ono číslo $k$. Takový vrchol
-   jistě existuje, v nejhorším je to přímo koncový vrchol $w$.
+   jistě existuje, v nejhorším je to přímo koncový vrchol $w = v_n$.
 
    Zřejmě platí $r < s$, jinak by cesty nebyly různé. Potom je ovšem například
    posloupnost vrcholů

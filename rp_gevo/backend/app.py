@@ -12,7 +12,7 @@ import openpyxl
 import unidecode as ud
 
 # allow insecure transport for development
-# os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 # create Flask app
 app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
@@ -36,6 +36,12 @@ def set_headers(response):
     response.headers["Access-Control-Allow-Headers"] = "*"
     response.headers["Access-Control-Allow-Methods"] = "*"
     return response
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
+
 
 @app.route('/')
 def index():
@@ -653,7 +659,6 @@ def thesis_pdf():
             }
         filepath = __fill_template_file(user_from, thesis)
         if filepath != '':
-            print(filepath)
             return send_file(filepath.replace('.tex', '.pdf'),
                              as_attachment=True)
         return {
@@ -663,6 +668,18 @@ def thesis_pdf():
         }
     else:
         abort(405)
+
+
+def __latexify(string):
+    """ Escape LaTeX special characters. """
+    symbol_list = list(string)
+    for i, symbol in enumerate(symbol_list):
+        if symbol in ['&', '%', '$', '#', '_', '{', '}', '~', '^']:
+            if string[i-1] != '\\':
+                symbol_list[i] = f'\\{symbol}'
+
+    final_string = ''.join(symbol_list)
+    return final_string
 
 
 def __fill_template_file(user_job, thesis):
@@ -680,7 +697,8 @@ def __fill_template_file(user_job, thesis):
     template_text = template.read()
 
     # basic data
-    template_text = template_text.replace(r'%%TITLE%%', thesis.title)
+    template_text = template_text.replace(
+        r'%%TITLE%%', __latexify(thesis.title))
     template_text = template_text.replace(
         r'%%AUTHOR%%', f'{thesis.author.name}, {str(thesis.author.class_)}'
     )
@@ -752,13 +770,13 @@ def __fill_template_file(user_job, thesis):
             opponent_thesis_id=thesis.id
         ).first()
 
-    if not review:
+    if not review or review.text == '':
         template.close()
         final.close()
         return ''
 
     template_text = template_text.replace(
-        r'%%REVIEW%%', review.text
+        r'%%REVIEW%%', __latexify(review.text)
     )
 
     # questions
@@ -771,13 +789,13 @@ def __fill_template_file(user_job, thesis):
             opponent_thesis_id=thesis.id
         ).order_by(Question.order).all()
 
-    if not questions:
+    if questions == []:
         template.close()
         final.close()
         return ''
 
     questions_text = [
-        f'\\item {question.text}'
+        f'\\item {__latexify(question.text)}'
         for question in questions
     ]
     template_text = template_text.replace(
@@ -801,7 +819,6 @@ def __fill_template_file(user_job, thesis):
     except Exception as e:
         print(e)
         os.chdir(os.path.dirname(__file__))
-        p.kill()
         return ''
 
     return final_path

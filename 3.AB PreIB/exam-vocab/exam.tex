@@ -11,13 +11,14 @@
 
 % Page Layout %
 \usepackage[margin=1in]{geometry}
+\usepackage{paracol}
 
 % Fancy Headers %
 \usepackage{fancyhdr}
 \fancyhf{}
-\cfoot{\thepage}
-\rhead{}
-\renewcommand{\headrulewidth}{0pt}
+\rhead{\sffamily\large Vocabulary Exam -- 3.AB PreIB 2}
+\lhead{\sffamily\large March 31, 2023}
+\renewcommand{\headrulewidth}{0.4pt}
 \setlength{\headheight}{16pt}
 
 % Math
@@ -96,10 +97,10 @@
  \renewcommand{\baselinestretch}{1.2}
 \begin{document}
 
-\maketitle
 \thispagestyle{fancy}
 
-\begin{minipage}{.7\textwidth}
+\columnratio{.7}
+\begin{paracol}{2}
  Below, you see a \underline{\hspace{12ex}} of two \underline{\hspace{12ex}}
  \underline{\hspace{18ex}} in two \underline{\hspace{18ex}}.
  \begin{align*}
@@ -131,7 +132,7 @@
   y = -\frac{2}{3}x + \frac{7}{3}.
  \]
  This allows me to treat $y$ as a \underline{\hspace{12ex}}
- \underline{\hspace{16ex}}
+ \underline{\hspace{16ex}} in $x$, written as
  \[
   f(x) = -\frac{2}{3}x + \frac{7}{3}.
  \]
@@ -139,28 +140,35 @@
  line. Which means, that to draw it, I need to find two
  \underline{\hspace{12ex}}. The first coordinates are the
  \underline{\hspace{12ex}} of the \underline{\hspace{16ex}} $f$ and the second
- coordinates are the \underline{\hspace{14ex}}. So, choosing for example $x = 0$ 
- and $x = 2$, I get the two \underline{\hspace{12ex}}, $(0,7 / 3)$ and $(2,1)$ 
- by \underline{\hspace{
-\end{minipage}
-\hfill
-\begin{minipage}{.25\textwidth}
+ coordinates are the \underline{\hspace{14ex}}. So, choosing for example $x = 0$
+ and $x = 2$, I obtain two \underline{\hspace{12ex}} -- $(0,7 / 3)$ and $(2,1)$
+ by \underline{\hspace{24ex}} the chosen values for $x$ into the
+ \underline{\hspace{20ex}} of $f$.
+
+ If I also draw the \underline{\hspace{10ex}} of $g$, the point where the two
+ lines meet, so called \underline{\hspace{24ex}}, is the
+ \underline{\hspace{16ex}} to the original \underline{\hspace{12ex}}.
+ 
+ \switchcolumn
  \renewcommand{\arraystretch}{2}
  \begin{tabular}{c}
+  \textbf{OUTPUT}\\
+  \textbf{INTERSECTION}\\
+  \textbf{DEFINITION}\\
   \textbf{SYSTEM}\\
-  \textbf{LINEAR}\\
+  \textbf{GRAPH}\\
   \textbf{EQUATION}\\
-  \textbf{VARIABLE/UNKNOWN}\\
-  \textbf{ELIMINATE}\\
-  \textbf{SCALE}\\
-  \textbf{ADD}\\
-  \textbf{SUBSTITUTE}\\
-  \textbf{SOLUTION}\\
-  \textbf{FUNCTION}\\
   \textbf{POINT}\\
+  \textbf{LINEAR}\\
+  \textbf{SUBSTITUTE}\\
+  \textbf{ADD}\\
+  \textbf{ELIMINATE}\\
   \textbf{INPUT}\\
-  \textbf{OUTPUT}
+  \textbf{FUNCTION}\\
+  \textbf{VARIABLE/UNKNOWN}\\
+  \textbf{SCALE}\\
+  \textbf{SOLUTION}
  \end{tabular}
-\end{minipage}
+\end{paracol}
 
 \end{document}

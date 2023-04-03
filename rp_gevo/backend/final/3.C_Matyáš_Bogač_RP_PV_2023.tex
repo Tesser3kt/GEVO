@@ -1,0 +1,204 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage[T1]{fontenc}
+\usepackage{FiraSans}
+\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+\usepackage{PTSerif}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=0.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{?}{!{\vrule width 1pt\hspace*{.7pt}\vrule width 1pt}}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+\newcommand{\tmar}{\textcolor[HTML]{e23636}}
+\newcommand{\tav}{\textcolor[HTML]{2e67a0}}
+
+\definecolor{marvel}{HTML}{e23636}
+\definecolor{avatar}{HTML}{2e67a0}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\arraystretch}{1.2}
+% Document %
+\pagestyle{fancy}
+
+\newcolumntype{C}[1]{%
+ >{\vbox to 5ex\bgroup\vfill\centering}%
+ p{#1}%
+ <{\egroup}}
+
+\begin{document}
+
+\thispagestyle{fancy}
+\begin{minipage}{.3\textwidth}
+ \includegraphics[width=\textwidth]{logo}
+\end{minipage}
+\hfill
+\begin{minipage}{.69\textwidth}
+ \centering
+ \Large{\sffamily
+  GYMNÁZIUM EVOLUTION JIŽNÍ MĚSTO\\
+  Posudek vedoucího ročníkové práce\\
+  2022/23
+ }
+\end{minipage}
+
+\begin{center}
+ \large{
+ \begin{tabular}{ll}
+  \textsf{Název práce:} &
+  \textsf{
+   Psychická příprava sportovce a její vliv na výkon
+  }\\
+  \textsf{Autor práce, třída:} &
+  \textsf{
+   Matyáš Bogač, 3.C
+  }\\
+  \textsf{Vedoucí práce:} &
+  \textsf{
+   Pavel Kejha
+  }
+ \end{tabular}
+ }
+\end{center}
+
+\section*{\sffamily \centering Hodnocení ročníkové práce}
+
+\begin{center}
+ \begin{tabular}{c|c|c|c|c|c|c|c|c|c}
+  \sffamily
+  Úv & LR & Me & An & Zh & Jaz & Cit & For & LS & Celkem\\
+  \toprule
+  \normalfont
+  4
+  &
+  4
+  &
+  2
+  &
+  3
+  &
+  4
+  &
+  2
+  &
+  2
+  &
+  2
+  &
+  3
+  &
+  26
+\end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}{l|l?l|l?l|l}
+   Úv & Úvod & An & Analýza & Cit & Citace\\
+   LR & Literární rešerše & Zh & Zhodnocení & For & Formátování\\
+   Me & Metoda & Jaz & Jazyk & LS & Logická struktura\\
+  \end{tabular}
+ \end{center}
+
+\section*{\sffamily \centering Slovní hodnocení výsledné práce (klady a
+nedostatky)}
+Práce pojednává o psychické přípravě a jejího vlivu na výkon dvou sportovců odlišného sportovního odvětví (kolektivní sport a individuální sport). Teoretická část popisuje  psychologický trénink,  roli rodiče a techniky pro trénink psychiky. V praktické části se zaměřuje na porovnání psychické přípravy a jejího vlivu na výkon a výsledky u dvou sportovců - zápasníka MMA a brankáře ledního hokeje. Práce je vyvážená a dobře strukturovaná. 
+Po gramatické stránce by se dalo práci vytknout pár drobností - stylistické chyby (čárka, překlepy apod.). 
+Škoda jen, že výzkum trval tak krátkou dobu, za kterou se až tolik toho neukázalo co se týká psychologického tréninku a jeho vlivu na výkon. V práci by mohl být zahrnutý dotazník, který by mapoval zda sportovci využívají mentálních koučů a proč.
+
+
+\section*{\sffamily \centering Doporučené otázky k obhajobě}
+
+\begin{enumerate}
+  \item Pracoval jsi někdy ty sám s mentálním koučem?
+\item Od kolika let bys doporučil začít pracovat s mentálním koučem?
+\item Jak často bys doporučil konzultaci s mentálním kaučem?
+\end{enumerate}
+
+\vfill
+
+\textbf{Datum:
+01.04.2023
+}
+\hfill
+\textit{
+  Pavel Kejha
+}
+
+\end{document}
