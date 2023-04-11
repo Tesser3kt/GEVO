@@ -1,0 +1,124 @@
+\subsubsection{Jordanovo centrum}
+\label{sssec:jordanovo-centrum}
+
+Teď, když už umíme najít minimální kostru ohodnoceného grafu, je čas vrátit se
+k původnímu problému umístění nemocnice. Za tímto účelem si definujeme několik
+přirozených pojmů, které usnadní hledání vhodného vrcholu (či vhodných
+vrchol\textbf{ů}?).
+
+Nejprve si však rozmyslíme, že onen \emph{facility location problem}, odteď
+FLP, má v závislosti na typu střediska dvě různá znění. V branži se jim občas
+říká \emph{\textbf{emergency} facility location problem} (EFLP), který zahrnuje
+určení vhodné polohy například právě nemocnic a poliklinik, a
+\emph{\textbf{service} facility location problem} (SFLP), sestávající z úloh
+nalezení nejdostupnějšího místa pro školy či obchodní centra, kde není nezbytně
+nutné, aby se z \textbf{každé} pokryté oblasti dalo ke středisku dostat
+efektivně (bo nejde o život), ale aby naopak průměr délek cest od všech
+obydlených oblastí ke středisku byl co nejmenší.
+
+K formulaci obou úloh ale potřebujeme zavést základní pojem \emph{vzdálenosti}
+mezi vrcholy v ohodnoceném grafu. Pro podrobnější výklad o cestách, souvislosti
+grafu., vzdálenosti a jejich relevanci k pojmu \emph{metriky} na množině vizte
+\myref{dodatek}{ssec:souvislost-grafu-a-metrika}.
+
+V zájmu strohosti vyjádření označíme pro libovolné dva vrcholy $u,v \in V$
+grafu $(V,E,w)$ symbolem $\mathcal{P}(u,v)$ množinu všech cest mezi $u$ a $v$.
+Speciálně, $\mathcal{P}(v,v) = \{v\}$, čili cesta z vrcholu do něj samého
+obsahuje pouze tento jeden vrchol, a $\mathcal{P}(u,v) = \emptyset$, pokud mezi
+$u$ a $v$ nevede v $G$ cesta.
+
+\begin{definition}[Vzdálenost v grafu]
+\label{def:vzdalenost-v-grafu}
+ Ať $G = (V,E,w)$ je ohodnocený graf a $v,w \in V$. \emph{Vzdáleností} mezi $u$
+ a $v$ v grafu $G$, značenou $d_G(u,v)$ (z angl. \textbf{d}istance) definujeme
+ jako
+ \[
+  d_G(u,v) \coloneqq 
+  \begin{cases}
+   \min_{\mathcal{P} \in \mathcal{P}(u,v)} w(\mathcal{P}),& \text{pokud }
+   \mathcal{P}(u,v) \neq \emptyset;\\
+   \infty, &\text{pokud } \mathcal{P}(u,v) = \emptyset.
+  \end{cases}
+ \]
+ Lidsky řečeno, vzdáleností mezi vrcholy je váha nejkratší cesty mezi nimi
+ vedoucí, pokud taková existuje.
+\end{definition}
+
+Abychom našli pro daný graf $G = (V,E,w)$ řešení EFLP, musíme najít takový
+vrchol, který minimalizuje největší možnou vzdálenost od něj ke všem ostatní
+vrcholům $G$. Takový vrchol (nebo vrchol\textbf{y}?) nazveme \emph{Jordanovým
+centrem} grafu $G$, po žabožroutím počtáři, Marie E. C. Jordanovi.
+
+Formálně, \emph{excentricita} vrcholu $v \in V$ je kvantita $e(v) \coloneqq
+max_{u \in V} d_G(v,u)$, tedy maximum přes všechny vzdálenosti od něj k
+ostatním vrcholům. Toto číslo vyjadřuje, jak moc je vrchol vzdálen od
+\uv{ideálního centra} grafu, tedy od bodu, od kterého by každý vrchol byl
+stejně daleko. Samozřejmě, toto ideální centrum málokdy existuje, takže hledáme
+pouze vrchol s nejmenším excentricitou, s nejmenší \emph{odchylkou} od centra.
+
+\begin{definition}[Emergency Facility Location Problem]
+\label{def:eflp}
+ Ať $G = (V,E,w)$ je \textbf{souvislý} ohodnocený graf. Úlohu nalézt vrchol s
+ minimální excentricitou nazveme EFLP. Jejím \emph{řešením} je vrchol s touto
+ vlastností, tedy vrchol $c \in V$ splňující
+ \[
+  e(c) = \min_{v \in V} e(v).
+ \]
+\end{definition}
+
+\begin{warning}
+ Řešení EFLP \textbf{není jednoznačně určeno}! Vizte např. graf na
+ \myref{obrázku}{fig:minimalni-excentricita}.
+
+ \begin{figure}[H]
+ \centering
+  \begin{tikzpicture}
+   \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner
+   sep=1pt}}
+   \tikzset{->-/.style={decoration={ markings, mark=at position #1 with
+   {\arrow{>[scale=1]}}},postaction={decorate}}}
+
+   \draw[thick] (-1,0) to node[above right=-2pt and -2pt] {$\clb{2}$} (-2, 1);
+   \draw[thick] (-1,0) to node[below right=-2pt and -2pt] {$\clb{2}$} (-2, -1);
+   \draw[thick] (-1,0) to node[above] {$\clb{1}$} (1, 0);
+   \draw[thick] (1,0) to node[above left=-2pt and -2pt] {$\clb{2}$} (2, 1);
+   \draw[thick] (1,0) to node[below left=-2pt and -2pt] {$\clb{2}$} (2, -1);
+
+   \node[vertex,minimum size=9pt,myred] at (-1, 0) {};
+   \node[vertex] at (-2, 1) {};
+   \node[vertex] at (-2, -1) {};
+   \node[vertex,minimum size=9pt,myred] at (1, 0) {};
+   \node[vertex] at (2, 1) {};
+   \node[vertex] at (2, -1) {};
+
+  \end{tikzpicture}
+  \caption{\clr{Vrcholy s minimální excentricitou} v grafu $G =
+  (V,E,\clb{w})$.}
+  \label{fig:minimalni-excentricita}
+ \end{figure}
+\end{warning}
+
+\begin{definition}[Jordanovo centrum]
+\label{def:jordanovo-centrum}
+ Množinu všech řešení EFLP pro graf $G = (V,E,w)$ nazýváme \emph{Jordanovým
+ centrem} grafu $G$.
+\end{definition}
+
+\begin{definition}[Poloměr grafu]
+\label{def:polomer-grafu}
+ Je-li $c$ vrchol v Jordanově centru grafu $G = (V,E,w)$, pak hodnotu $e(c)$
+ nazýváme \emph{poloměrem} grafu $G$ a značíme ji $\rho(G)$.
+\end{definition}
+
+\begin{remark}
+ V \hyperref[def:eflp]{definici EFLP} jsme požadovali, aby byl graf souvislý.
+ To z ryze technického hlediska není nutné, protože excentricita vrcholu je
+ definována i pro nesouvislý graf. Uvědomme si ale, že pro nesouvislý graf je
+ excentricita každého vrcholu rovna $\infty$, tedy Jordanovým centrem je celý
+ graf a úloha poněkud pozbývá smyslu.
+\end{remark}
+
+Obdobným způsobem si formalizujeme i SFLP a později si ukážeme souvislost obou
+úloh s minimální kostrou.
+
+

@@ -31,7 +31,7 @@
 % Lets us import pdf directly in our tex code.
 \usepackage{pdfpages}
 % Lets us do algorithm stuff.
-\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage[ruled,vlined,linesnumbered,czech]{algorithm2e}
 % Tables
 \usepackage{booktabs}
 
@@ -448,6 +448,8 @@ shapes, snakes, decorations.markings}
 \definecolor{mygreen}{RGB}{56, 140, 70}
 \definecolor{myred}{RGB}{199, 68, 64}
 \definecolor{mypurple}{RGB}{197, 92, 212}
+\definecolor{mybrown}{HTML}{5d4037}
+\definecolor{mydarkblue}{HTML}{00007B}
 
 \definecolor{definition}{HTML}{228b22}
 \definecolor{theorem}{HTML}{00007B}
@@ -577,10 +579,23 @@ shapes, snakes, decorations.markings}
 \declaretheorem[numberwithin=subsection, style=thmdefinitionbox,  name=Definice]{definition}
 \declaretheorem[numbered=no,          style=thmproofbox,       name=Důkaz]{replacementproof}
 \declaretheorem[numbered=no,          style=thmproofbox, name=Důkaz]{enhproof}
+\declaretheorem[numbered=no,          style=thmproofbox, name=Idea důkazu]{proofidea}
 \declaretheorem[numbered=no,          style=thmobservationbox,
 name=Pozorování]{observation}
 \declaretheorem[numbered=no,          style=thmremarkbox,
 name=Poznámka]{remark}
+<<<<<<< HEAD
+
+\makeatletter
+\let\c@claim\c@theorem
+\let\c@proposition\c@theorem
+\let\c@corollary\c@theorem
+\let\c@lemma\c@theorem
+\let\c@definition\c@theorem
+\let\c@example\c@theorem
+\makeatother
+=======
+>>>>>>> main
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Edit Proof Environment  %

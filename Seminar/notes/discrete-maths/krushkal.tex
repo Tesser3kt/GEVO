@@ -1,0 +1,114 @@
+\subsubsection{Kruskalův algoritmus}
+\label{sssec:kruskaluv-algoritmus}
+
+Na problém nalezení minimální kostry souvislého ohodnoceného grafu existuje
+skoro až zázračně přímočarý algoritmus, pojmenovaný po americkém matematiku,
+Josephu B. Kruskalovi. Jeho základní myšlenkou je prostě začít s grafem $K$
+obsahujícím všechny vrcholy z $V$ a přidávat hrany od těch s nejnižším
+ohodnocením po ty s nejvyšším tak dlouho, dokud nevznikne souvislý graf. Je
+potřeba pouze dávat pozor na cykly. K tomu stačí si pamatovat stromy (jako
+množiny vrcholů), které přidáváním hran vytvářím, a povolit přidání hrany
+jedině v případě, že spojuje dva různé stromy.
+
+Pro zápis v pseudokódu vizte \myref{algoritmus}{alg:kruskal}. Manim s průběhem
+algoritmu s náhodně vygenerovaným hodnocením je k dispozici
+\href{https://raw.githubusercontent.com/Tesser3kt/GEVO/main/Seminar/animations/media/videos/graphs/2160p60/SpanningTreeExample.mp4}{zde}.
+
+\pagebreak
+
+\begin{algorithm}
+ \caption{Kruskalův algoritmus.}
+ \label{alg:kruskal}
+
+ \SetKwInOut{Input}{input}
+ \SetKwInOut{Output}{output}
+ \SetKw{KwReturn}{return}
+
+ \Input{souvislý ohodnocený graf $G = (V,E,w)$, kde $V = \{v_1,\ldots,v_n\}$}
+ \Output{množina hran $E'$ minimální kostry grafu $G$}
+ \BlankLine
+ \emph{Inicializace}\;
+ $E' \leftarrow \emptyset$\;
+ \emph{Množina hran, které nelze přidat (jinak by vznikl cyklus)}\;
+ $X \leftarrow \emptyset$\;
+ \For{$i \leftarrow 1$ \KwTo $n$} {
+  \emph{Každý strom nejprve obsahuje pouze jediný vrchol}\;
+  $T_i \leftarrow \{v_i\}$\;
+ }
+ \emph{Množina indexů pro pamatování sloučených stromů}\;
+ $I \leftarrow \{1,\ldots,n\}$\;
+ \BlankLine
+ \emph{Přidávám hrany, dokud mám pořád víc než jeden strom}\;
+ \While{$\#I > 1$} {
+  $e \leftarrow \text{libovolná hrana s nejnižším } w(e) \text{, která není v }
+  E' \text{ ani v } X$\;
+  $i \leftarrow \text{index v } I \text{ takový, že } s(e) \in T_i$\;
+  $j \leftarrow \text{index v } I \text{ takový, že } t(e) \in T_j$\;
+  \BlankLine
+  \If{$i = j$}{
+   \emph{Hrana spojuje vrcholy ve stejném stromě, jejím přidáním by vznikl
+   cyklus}\;
+   $X \leftarrow X \cup \{e\}$\;
+  }
+  \Else {
+   \emph{Hrana spojuje různé stromy. Přidávám ji do kostry}\;
+   $E' \leftarrow E' \cup \{e\}$\;
+   $T_i \leftarrow T_i \cup T_j$\;
+   $I \leftarrow I \setminus \{j\}$\;
+  }
+ }
+ \KwReturn $E'$\;
+\end{algorithm}
+
+\begin{claim}
+ \label{claim:kruskal-korektni}
+ Kruskalův algoritmus je korektní.
+\end{claim}
+\begin{proof}
+ Potřebujeme ověřit, že
+ \begin{enumerate}
+  \item algoritmus provede pouze konečný počet kroků;
+  \item algoritmus vrátí správnou odpověď.
+ \end{enumerate}
+ Případ (1) je zřejmý, protože $\# E < \infty$, čili algoritmus přidá do $E'$
+ pouze konečně mnoho hran. Navíc, graf $G$ je z předpokladu souvislý, a tedy
+ vždy existuje hrana $e$ spojující dva různé stromy $T_i$ a $T_j$.
+
+ V případě (2) uvažme, že $K = (V,E',w)$ není minimální kostra $G$. V~takovém
+ případě se mohlo stát, že
+ \begin{enumerate}[label=(\alph*)]
+  \item $K$ není strom -- tedy buď není souvislý nebo obsahuje cyklus;
+  \item existuje podmnožina $E'' \subseteq E$ taková, že $K' = (V,E'',w)$ je strom a
+   \[
+    \sum_{e \in E''}^{} w(e) < \sum_{e \in E'}^{} w(e).
+   \]
+ \end{enumerate}
+ Případ (a) lze vyloučit snadno, neboť souvislost $K$ plyne ihned ze
+ souvislosti $G$, tedy, jak již bylo řečeno v bodě (1), vždy lze nalézt hranu
+ spojující do té doby dva různé stromy. Pokud $K$ obsahuje cyklus, tak
+ algoritmus musel v jednom kroku spojit hranou dva vrcholy ze stejného stromu,
+ což je spor.
+
+ Pokud nastal případ (b), pak musejí existovat hrany $e'' \in E'' \setminus E'$
+ a $e' \in E' \setminus E''$ takové, že $w(e'') < w(e')$. Protože algoritmus
+ zkouší přidávat hrany vždy počínaje těmi s nejmenší vahou, musel v nějakém
+ kroku narazit na hranu $e''$ a zavrhnout ji. To ovšem znamená, že hrana $e''$ 
+ spojila dva různé vrcholy téhož stromu a graf $K' = (V,E'',w)$ obsahuje
+ cyklus. To je spor s předpokladem, že $K'$ je strom. Tedy, taková podmnožina
+ $E'' \subseteq E$ nemůže existovat a $K$ je vskutku minimální kostra $G$.
+\end{proof}
+
+\begin{warning}
+ Minimální kostra grafu \textbf{není jednoznačně určena}! Všimněte si, že na
+ řádku 12 \hyperref[alg:kruskal]{Kruskalova algoritmu} volím
+ \textbf{libovolnou} hranu, která má ze všech zatím nepřidaných nejnižší váhu a
+ jejímž přidáním nevznikne cyklus.
+\end{warning}
+
+\begin{remark}
+ V \hyperref[def:minimalni-kostra]{definici minimální kostry} požadujeme, aby
+ $G$ byl souvislý graf. Pokud tomu však tak není, je pořád možné zkonstruovat
+ minimální kostru pro každou část $G$, která souvislá je (pro každou jeho tzv.
+ \emph{komponentu souvislosti}), zkrátka tím, že
+ \hyperref[alg:kruskal]{Kruskalův algoritmus} spouštíme opakovaně.
+\end{remark}

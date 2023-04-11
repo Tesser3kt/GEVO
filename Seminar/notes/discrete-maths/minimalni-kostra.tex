@@ -1,0 +1,146 @@
+\subsubsection{Minimální kostra}
+\label{sssec:minimalni-kostra}
+
+Ne všechny hrany jsou si rovny. Kterési se rodí krátké, jiné dlouhé; kterési
+štíhlé, jiné otylé; kterési racionální, jiné iracionální.
+
+Často nastávají situace, kdy jeden potřebuje hranám grafu přiřadit nějakou
+hodnotu, obvykle číselnou, která charakterizuje klíčovou vlastnost této hrany.
+Při reprezentaci dopravní sítě grafem to může být délka silnice či její
+vytížení, při reprezentaci elektrických obvodů pak například odpor. V teorii
+grafů takové přiřazení hodnoty hranám grafu sluje \emph{ohodnocení}.
+
+\begin{definition}[Ohodnocený graf]
+\label{def:ohodnoceny-graf}
+ Ať $G = (V,E)$ je graf. Libovolné zobrazení $w: E \to \R^{+} = (0,\infty)$ 
+ nazveme \emph{ohodnocením} grafu $G$. Trojici $(V,E,w)$, kde $w$ je ohodnocení
+ $G$, nazveme \emph{ohodnoceným grafem}.
+\end{definition}
+
+\begin{remark}
+ Každý graf $G = (V,E)$ lze triviálně ztotožnit s ohodnoceným grafem $(V,E,w)$,
+ kde $w: E \to \R^{+}$ je konstantní zobrazení. Obvykle se volí konkrétně $w
+ \equiv 1$, tedy zobrazení $w$ takové, že $w(e) = 1$ pro každou $e \in E$.
+\end{remark}
+
+Porozumění struktuře ohodnocených grafů může odpovědět na spoustu zajímavých
+(jak prakticky tak teoreticky) otázek. Můžeme se kupříkladu ptát, jak se nejlépe
+(vzhledem k danému ohodnocení) dostaneme cestou z jednoho vrcholu do druhého.
+Slovo \uv{nejlépe} zde chápeme pouze intuitivně. V závislosti na zpytovaném
+problému můžeme požadovat, aby cesta třeba minimalizovala či maximalizovala
+součet hodnot všech svých hran přes všechny možné cesty mezi danými vrcholy.
+Jsou však i případy, kdy člověk hledá cestu, která je nejblíže \uv{průměru}.
+
+Abychom pořád neříkali \uv{součet přes všechny hrany cesty}, zavedeme si pro
+toto často zkoumané množství název \emph{váha cesty}. Čili, je-li $\mathcal{P}
+\coloneqq e_1 \cdots e_n$ cesta v nějakém ohodnoceném grafu $G$, pak její vahou
+rozumíme výraz
+\[
+ w(\mathcal{P}) \coloneqq \sum_{i=1}^{n} w(e_i).
+\]
+Zápis $w(\mathcal{P})$ můžeme vnímat buď jako zneužití zavedeného značení, nebo
+jako fakt, že jsme zobrazení $w$ rozšířili z množiny všech hran na množinu všech
+cest v grafu $G$ (kde samotné hrany jsou z \hyperref[def:cesta]{definice} též
+cesty).
+
+První takový problém, kterým se budeme zabývat, je nalezení \emph{minimální
+kostry} (angl. \emph{spanning tree}).
+
+\begin{definition}[Minimální kostra]
+\label{def:minimalni-kostra}
+ Ať $G = (V,E,w)$ je \textbf{souvislý} ohodnocený graf. Ohodnocený graf $K =
+ (V',E',w)$ nazveme \emph{minimální kostrou} grafu $G$, pokud je souvislý, $V' =
+ V$ (tedy $K$ obsahuje všechny vrcholy $G$), $E' \subseteq E$ a
+ \[
+  \sum_{e \in E'}^{} w(e)
+ \]
+ je minimální vzhledem ke všem možným volbám podmnožiny $E' \subseteq E$.
+ Lidsky řečeno, graf $K$ spojuje všechny vrcholy $G$ tím \uv{nejlevnějším}
+ způsobem vzhledem k ohodnocení $w$.
+\end{definition}
+
+\begin{figure}[h]
+\centering
+ \begin{tikzpicture}[scale=2]
+  \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=9pt,inner
+  sep=1pt}}
+  \tikzset{->-/.style={decoration={ markings, mark=at position #1 with
+  {\arrow{>[scale=1]}}},postaction={decorate}}}
+  \foreach \weightx/\x in {3/0, 4/1, 1/2} {
+   \foreach \weighty/\y [evaluate=\weighty as \weight using {int(\weightx +
+   \weighty)}] in {1/0, 2/1, 0/2} {
+    \draw[thick] (\x,\y) to node[above,color=myblue] {$\weightx$} (\x+1,\y);
+    \draw[thick] (\x,\y) to node[right,color=myblue] {$\weight$} (\x,\y+1);
+   }
+  }
+  \foreach \weight/\x in {1/0, 2/1, 4/2} {
+   \draw[thick] (\x,3) to node[above,color=myblue] {$\weight$} (\x+1,3);
+  }
+  \foreach \weight/\y in {5/0, 1/1, 3/2} {
+   \draw[thick] (3,\y) to node[right,color=myblue] {$\weight$} (3,\y+1);
+  }
+
+  \draw[line width=1mm, color=myred] (0, 3) -- (1, 3);
+  \draw[line width=1mm, color=myred] (2, 2) -- (2, 3);
+  \draw[line width=1mm, color=myred] (2, 2) -- (3, 2);
+  \draw[line width=1mm, color=myred] (2, 0) -- (3, 0);
+  \draw[line width=1mm, color=myred] (2, 1) -- (3, 1);
+  \draw[line width=1mm, color=myred] (3, 1) -- (3, 2);
+
+  \draw[line width=1mm, color=myred] (2, 0) -- (2, 1);
+  \draw[line width=1mm, color=myred] (1, 3) -- (2, 3);
+
+  \draw[line width=1mm, color=myred] (3, 3) -- (3, 2);
+  \draw[line width=1mm, color=myred] (0, 3) -- (0, 2);
+  \draw[line width=1mm, color=myred] (0, 2) -- (1, 2);
+  \draw[line width=1mm, color=myred] (0, 1) -- (1, 1);
+  \draw[line width=1mm, color=myred] (0, 0) -- (1, 0);
+
+  \draw[line width=1mm, color=myred] (1, 0) -- (2, 0);
+  \draw[line width=1mm, color=myred] (0, 0) -- (0, 1);
+
+  \foreach \x in {0, 1, 2, 3} {
+   \foreach \y in {0, 1, 2, 3} {
+    \node[vertex,fill=myred] (v\x\y) at (\x, \y) {};
+   }
+  }
+ 
+ \end{tikzpicture}
+ \caption{\clr{Minimální kostra} grafu s ohodnocením \clb{$w$}.}
+ \label{fig:minimalni-kostra}
+\end{figure}
+
+\begin{observation}
+ Minimální kostra ohodnoceného grafu je strom.
+\end{observation}
+\begin{proof}
+ Kdyby minimální kostra nebyla strom, pak buď není souvislá, což jsme výslovně
+ zakázali, nebo obsahuje cyklus. Tudíž se mezi nějakými dvěma vrcholy dá jít po
+ více než jedné cestě, a proto můžeme přinejmenším jednu hranu z kostry
+ odebrat. Protože každá hrana má kladné ohodnocení, snížili jsme tím součet
+ hodnot všech hran. To je spor.
+\end{proof}
+
+\begin{corollary}
+ Minimální kostra ohodnoceného stromu je s ním totožná.
+\end{corollary}
+
+Minimální kostra je zvlášť užitečná v tzv. \uv{facility location problems},
+v~překladu přibližně \uv{úlohy umístění střediska}. Při výstavbě nové
+nemocnice, školy, elektrárny apod. je třeba zařídit, aby jí žádné cílové
+objekty (obce, okresy, domy, \ldots) nebyly příliš vzdáleny.
+
+Držme se příkladu nemocnice. Sídliště (či obecně části města s vysokou
+koncentrací obyvatel), o nichž se očekává, že svým působením pokryje, můžeme
+reprezentovat jako vrcholy ohodnoceného grafu. Další vrcholy tohoto grafu budou
+význačné dopravní uzly, přes které se cestou mezi sídlišti projíždí (z jednoho
+sídliště k dopravnímu uzlu či k jinému sídlišti může samozřejmě existovat více
+různých cest). Hrany budou v tomto případě nejkratší silniční spoje mezi
+vrcholy a ohodnocené budou průměrným časem jízdy.
+
+Ještě, než začneme hledat umístění nemocnice, uvědomíme si, že musí ležet na
+minimální kostře takového grafu. Prve si tedy ukážeme, jak vůbec hledat
+minimální kostru grafu, a pak zformalizujeme pojem \uv{ideálního} umístění
+nemocnice.
+
+
