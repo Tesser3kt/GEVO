@@ -18,6 +18,7 @@ grafů takové přiřazení hodnoty hranám grafu sluje \emph{ohodnocení}.
 \end{definition}
 
 \begin{remark}
+ \label{rmrk:ohodnoceni-neohodnoceneho}
  Každý graf $G = (V,E)$ lze triviálně ztotožnit s ohodnoceným grafem $(V,E,w)$,
  kde $w: E \to \R^{+}$ je konstantní zobrazení. Obvykle se volí konkrétně $w
  \equiv 1$, tedy zobrazení $w$ takové, že $w(e) = 1$ pro každou $e \in E$.
@@ -25,7 +26,7 @@ grafů takové přiřazení hodnoty hranám grafu sluje \emph{ohodnocení}.
 
 Porozumění struktuře ohodnocených grafů může odpovědět na spoustu zajímavých
 (jak prakticky tak teoreticky) otázek. Můžeme se kupříkladu ptát, jak se nejlépe
-(vzhledem k danému ohodnocení) dostaneme cestou z jednoho vrcholu do druhého.
+(vzhledem k danému ohodnocení) dostaneme cestou z~jednoho vrcholu do druhého.
 Slovo \uv{nejlépe} zde chápeme pouze intuitivně. V závislosti na zpytovaném
 problému můžeme požadovat, aby cesta třeba minimalizovala či maximalizovala
 součet hodnot všech svých hran přes všechny možné cesty mezi danými vrcholy.
@@ -43,8 +44,20 @@ jako fakt, že jsme zobrazení $w$ rozšířili z množiny všech hran na množi
 cest v grafu $G$ (kde samotné hrany jsou z \hyperref[def:cesta]{definice} též
 cesty).
 
-První takový problém, kterým se budeme zabývat, je nalezení \emph{minimální
-kostry} (angl. \emph{spanning tree}).
+\begin{remark}
+ Záměrně jsme užili slovního spojení \emph{váha} cesty místo snad přirozenějšího
+ \emph{délka} cesty. V teorii grafů se totiž délkou cesty myslí obyčejně počet
+ hran (nebo vrcholů), které obsahuje. Délka cesty $\mathcal{P} = e_1 \cdots e_n$
+ je tudíž $n$ (resp. $n + 1$), bo obsahuje $n$ hran (resp. $n + 1$ vrcholů).
+
+ Tento úzus svědčí účelu \hyperref[rmrk:ohodnoceni-neohodnoceneho]{předchozí
+ poznámky}. Pokud totiž každý graf bez ohodnocení vnímáme vlastně jako
+ ohodnocený graf, kde každá hrana má váhu přesně $1$, pak váha každé cesty je
+ rovna její délce.
+\end{remark}
+
+První (a nejjednodušší) problém, kterým se budeme zabývat, je nalezení
+\emph{minimální kostry} (angl. \emph{spanning tree}).
 
 \begin{definition}[Minimální kostra]
 \label{def:minimalni-kostra}
@@ -125,22 +138,22 @@ kostry} (angl. \emph{spanning tree}).
  Minimální kostra ohodnoceného stromu je s ním totožná.
 \end{corollary}
 
-Minimální kostra je zvlášť užitečná v tzv. \uv{facility location problems},
-v~překladu přibližně \uv{úlohy umístění střediska}. Při výstavbě nové
-nemocnice, školy, elektrárny apod. je třeba zařídit, aby jí žádné cílové
-objekty (obce, okresy, domy, \ldots) nebyly příliš vzdáleny.
+Minimální kostra je zvlášť užitečná právě při návrhů elektrických obvodů, kdy je
+potřeba zařídit, aby všechna připojená zařízení čerpala co nejmenší množství
+energie. Protože elektřina proudí rychlostí světla, délka kabelu (pokud není
+zrovna mezigalaktický) nás příliš netrápí, ale právě odpor či kvalita/vodivost
+konkrétních spojů by mohly.
 
-Držme se příkladu nemocnice. Sídliště (či obecně části města s vysokou
-koncentrací obyvatel), o nichž se očekává, že svým působením pokryje, můžeme
-reprezentovat jako vrcholy ohodnoceného grafu. Další vrcholy tohoto grafu budou
-význačné dopravní uzly, přes které se cestou mezi sídlišti projíždí (z jednoho
-sídliště k dopravnímu uzlu či k jinému sídlišti může samozřejmě existovat více
-různých cest). Hrany budou v tomto případě nejkratší silniční spoje mezi
-vrcholy a ohodnocené budou průměrným časem jízdy.
-
-Ještě, než začneme hledat umístění nemocnice, uvědomíme si, že musí ležet na
-minimální kostře takového grafu. Prve si tedy ukážeme, jak vůbec hledat
-minimální kostru grafu, a pak zformalizujeme pojem \uv{ideálního} umístění
-nemocnice.
-
-
+Další praktickou grafovou úlohou vedoucí na problém nalezení minimální kostry je
+potřeba spojit vzdálené servery. Korporace mají obvykle mnoho různých serverů
+rozmístěných po světě, jež spolu ale musejí sdílet data. Problém je v tom, že
+propojení mezi servery by nejen mělo vést k nejmenší možné prodlevě při přenosu
+dat (od toho \textbf{minimální}), ale nesmí ani obsahovat cykly (od toho
+\textbf{kostra}). Kdyby totiž cykly obsahovalo, pak by se při přenosu dat stalo,
+že by aspoň jeden server v tomto cyklu dostal aspoň dvakrát stejnou informaci z
+dvou různých zdrojů, ale v odlišný čas. Taková situace vede nezbytně dříve nebo
+později ke korupci dat; řekněme, když daný server už s obdrženou informací začal
+po přijetí provádět výpočet. Pro více detailů k tomuto využití minimálních
+koster vizte
+\href{https://en.wikipedia.org/wiki/Spanning_Tree_Protocol}{Spanning Tree
+Protocol}.

@@ -1,10 +1,16 @@
-\subsubsection{Jordanovo centrum}
-\label{sssec:jordanovo-centrum}
+\subsection{Jordanovo centrum}
+\label{ssec:jordanovo-centrum}
 
-Teď, když už umíme najít minimální kostru ohodnoceného grafu, je čas vrátit se
-k původnímu problému umístění nemocnice. Za tímto účelem si definujeme několik
-přirozených pojmů, které usnadní hledání vhodného vrcholu (či vhodných
-vrchol\textbf{ů}?).
+V návaznosti na \hyperref[sssec:minimalni-kostra]{sekci o minimální kostře} se
+rozhovoříme o jednom dalším optimalizačním problému -- konkrétně hledání
+\uv{centra} ohodnoceného grafu.
+
+Motivační úlohou je tzv. \emph{facility location problem}, v přibližném překladu
+\emph{úloha umístění střediska}. Jde o úlohu, kdy máte dánu dopravní síť sídlišť
+(obecně obydlených zón) a význačných uzlů, přes které se chtě nechtě musí jezdit
+(například velké křižovatky, Nuselák apod.). Hrany vedou mezi sídlišti či uzly,
+když od jednoho k druhému vede bezprostřední cesta (tedy cesta neprocházející
+žádným jiným sídlištěm nebo uzlem).
 
 Nejprve si však rozmyslíme, že onen \emph{facility location problem}, odteď
 FLP, má v závislosti na typu střediska dvě různá znění. V branži se jim občas

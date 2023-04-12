@@ -11,15 +11,11 @@ jednoho z \uv{koncových} vrcholů, tzv. \emph{listů}. Příklad stromu je na
 \begin{figure}[h]
  \centering
  \begin{tikzpicture}
-  \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner sep=1pt}}
+  \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner
+  sep=1pt}}
   \tikzset{->-/.style={decoration={
-<<<<<<< HEAD
-                  markings,
-                  mark=at position #1 with {\arrow{>[scale=0.8]}}},postaction={decorate}}}
-=======
    markings,
    mark=at position #1 with {\arrow{>[scale=0.8]}}},postaction={decorate}}}
->>>>>>> main
 
   \node[vertex,myred,text=white] (1) at (0, 0) {};
 
@@ -42,28 +38,6 @@ jednoho z \uv{koncových} vrcholů, tzv. \emph{listů}. Příklad stromu je na
   \node[vertex,myblue] (15) at (3.5, -3) {};
 
   \foreach \i in {2,3} {
-<<<<<<< HEAD
-                  \draw[thick] (1) -- (\i);
-          }
-  \foreach \i in {4,5} {
-                  \draw[thick] (2) -- (\i);
-          }
-  \foreach \i in {6,7} {
-                  \draw[thick] (3) -- (\i);
-          }
-  \foreach \i in {8,9} {
-                  \draw[thick] (4) -- (\i);
-          }
-  \foreach \i in {10,11} {
-                  \draw[thick] (5) -- (\i);
-          }
-  \foreach \i in {12,13} {
-                  \draw[thick] (6) -- (\i);
-          }
-  \foreach \i in {14,15} {
-                  \draw[thick] (7) -- (\i);
-          }
-=======
    \draw[thick] (1) -- (\i);
   }
   \foreach \i in {4,5} {
@@ -84,22 +58,21 @@ jednoho z \uv{koncových} vrcholů, tzv. \emph{listů}. Příklad stromu je na
   \foreach \i in {14,15} {
    \draw[thick] (7) -- (\i);
   }
->>>>>>> main
  \end{tikzpicture}
  \caption{Příklad stromu. Kořen je značen \clr{červeně} a listy \clb{modře}.}
  \label{fig:priklad-stromu}
 \end{figure}
 
-\begin{warning} Listy stromu jsou určeny jednoznačně jeho strukturou (jsou to ty
-<<<<<<< HEAD
-	jediné vrcholy, do nichž cesty od kořene mohou pouze vést a nikoli jimi
-	procházet). Za kořen lze však volit libovolný vrchol, klidně i jeden z listů.
-	Strom z \myref{obrázku}{fig:priklad-stromu} může proto vypadat i jak ukazuje
-	\myref{obrázek}{fig:strom-jiny-koren}.
+\begin{warning}
+ Listy stromu jsou určeny jednoznačně jeho strukturou (jsou to ty jediné
+ vrcholy, do nichž cesty od kořene mohou pouze vést a nikoli jimi procházet). Za
+ kořen lze však volit libovolný vrchol, klidně i jeden z listů. Strom z
+ \myref{obrázku}{fig:priklad-stromu} může proto vypadat i jak ukazuje
+ \myref{obrázek}{fig:strom-jiny-koren}.
 
-	Často není nutno o kořenu a listech stromu hovořit, pokud je v konkrétní
-	situaci irelevantní rozlišovat jednotlivé vrcholy. Součástí definice stromu
-	(kterou si záhy odvodíme) kořen ani listy nejsou.
+ Často není nutno o kořenu a listech stromu hovořit, pokud je v konkrétní
+ situaci irelevantní rozlišovat jednotlivé vrcholy. Součástí definice stromu
+ (kterou si záhy odvodíme) kořen ani listy nejsou.
 \end{warning}
 
 \begin{figure}[h]
@@ -155,71 +128,6 @@ jednoho z \uv{koncových} vrcholů, tzv. \emph{listů}. Příklad stromu je na
 	\end{tikzpicture}
 	\caption{Strom z \myref{obrázku}{fig:priklad-stromu} s jinou volbou kořene.}
 	\label{fig:strom-jiny-koren}
-=======
- jediné vrcholy, do nichž cesty od kořene mohou pouze vést a nikoli jimi
- procházet). Za kořen lze však volit libovolný vrchol, klidně i jeden z listů.
- Strom z \myref{obrázku}{fig:priklad-stromu} může proto vypadat i jak ukazuje
- \myref{obrázek}{fig:strom-jiny-koren}.
-
- Často není nutno o kořenu a listech stromu hovořit, pokud je v konkrétní
- situaci irelevantní rozlišovat jednotlivé vrcholy. Součástí definice stromu
- (kterou si záhy odvodíme) kořen ani listy nejsou.
-\end{warning}
-
-\begin{figure}[h]
- \centering
- \begin{tikzpicture}
-  \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner
-  sep=1pt}}
-  \tikzset{->-/.style={decoration={
-   markings,
-   mark=at position #1 with {\arrow{>[scale=0.8]}}},postaction={decorate}}}
-
-  \node[vertex,myred,text=white] (2) at (0, 0) {};
-
-  \node[vertex] (4) at (-3, -1) {};
-  \node[vertex] (5) at (0, -1) {};
-  \node[vertex] (1) at (3, -1) {};
-
-  \node[vertex,myblue] (8) at (-4, -2) {};
-  \node[vertex,myblue] (9) at (-2, -2) {};
-  \node[vertex,myblue] (10) at (-1, -2) {};
-  \node[vertex,myblue] (11) at (1, -2) {};
-  \node[vertex] (3) at (3, -2) {};
-
-  \node[vertex] (6) at (2, -3) {};
-  \node[vertex] (7) at (4, -3) {};
-
-  \node[vertex,myblue] (12) at (1.5, -4) {};
-  \node[vertex,myblue] (13) at (2.5, -4) {};
-  \node[vertex,myblue] (14) at (3.5, -4) {};
-  \node[vertex,myblue] (15) at (4.5, -4) {};
-  
-  \foreach \i in {2,3} {
-   \draw[thick] (1) -- (\i);
-  }
-  \foreach \i in {4,5} {
-   \draw[thick] (2) -- (\i);
-  }
-  \foreach \i in {6,7} {
-   \draw[thick] (3) -- (\i);
-  }
-  \foreach \i in {8,9} {
-   \draw[thick] (4) -- (\i);
-  }
-  \foreach \i in {10,11} {
-   \draw[thick] (5) -- (\i);
-  }
-  \foreach \i in {12,13} {
-   \draw[thick] (6) -- (\i);
-  }
-  \foreach \i in {14,15} {
-   \draw[thick] (7) -- (\i);
-  }
- \end{tikzpicture}
- \caption{Strom z \myref{obrázku}{fig:priklad-stromu} s jinou volbou kořene.}
- \label{fig:strom-jiny-koren}
->>>>>>> main
 \end{figure}
 
 Nyní si rozmyslíme dvě ekvivalentní definice stromu.
@@ -232,17 +140,10 @@ tak, aby končila v nějakém vrcholu, jímž původně procházela. Grafy splň
 tuto podmínku slují \emph{souvislé}.
 
 \begin{definition}[Souvislý graf]
-<<<<<<< HEAD
 	\label{def:souvisly-graf}
-	Graf $G = (V,E)$ nazveme \emph{souvislým}, pokud pro každé dva vrcholy $v,w \in
-		V$ existuje cesta z $v$ do $w$, tedy cesta $v_1v_2 \cdots v_n$, kde $v_1 = v$ a
-	$v_n = w$.
-=======
-\label{def:souvisly-graf}
  Graf $G = (V,E)$ nazveme \emph{souvislým}, pokud pro každé dva vrcholy $v,w \in
  V$ existuje cesta z $v$ do $w$, tedy cesta $v_1v_2 \cdots v_n$, kde $v_1 = v$ a
  $v_n = w$.
->>>>>>> main
 \end{definition}
 
 Samotný název \uv{strom} plyne z faktu, že se jako graf pouze \uv{větví}, čímž
@@ -253,7 +154,6 @@ libovolné cestě ze zvoleného vrcholu můžeme od tohoto vrcholu pouze vzdalov
 Takové grafy nazveme, přirozeně, \emph{acyklické}.
 
 \begin{definition}[Acyklický graf]
-<<<<<<< HEAD
 	\label{def:acyklicky-graf}
 	Graf $G = (V,E)$ nazveme \emph{acyklický}, pokud neobsahuje cyklus o aspoň dvou
 	vrcholech (samotné vrcholy jsou totiž z \hyperref[def:cyklus]{definice} vždy
@@ -263,17 +163,6 @@ Takové grafy nazveme, přirozeně, \emph{acyklické}.
 \begin{definition}[Strom]
 	\label{def:strom}
 	Graf $G = (V,E)$ nazveme \emph{stromem}, je-li souvislý a acyklický.
-=======
-\label{def:acyklicky-graf}
- Graf $G = (V,E)$ nazveme \emph{acyklický}, pokud neobsahuje cyklus o aspoň dvou
- vrcholech (samotné vrcholy jsou totiž z \hyperref[def:cyklus]{definice} vždy
- cykly).
-\end{definition}
-
-\begin{definition}[Strom]
-\label{def:strom}
- Graf $G = (V,E)$ nazveme \emph{stromem}, je-li souvislý a acyklický.
->>>>>>> main
 \end{definition}
 
 Na začátku sekce jsme slíbili ještě ekvivalentní definici stromu; ta činí začnou
@@ -287,7 +176,6 @@ součástí cyklu uvnitř stromu, který jsme výslovně zakázali. Třeba přek
 je fakt, že platí i opačná implikace.
 
 \begin{claim}[Ekvivalentní definice stromu]
-<<<<<<< HEAD
 	\label{claim:ekvivalentni-definice-stromu}
 	Graf $G = (V,E)$ je stromem ve smyslu \myref{definice}{def:strom} právě tehdy,
 	když mezi každými dvěma vrcholy $G$ vede přesně jedna cesta.
@@ -438,153 +326,3 @@ je fakt, že platí i opačná implikace.
 
 \input{minimalni-kostra}
 \input{krushkal}
-\input{jordanovo-centrum}
-=======
- \label{claim:ekvivalentni-definice-stromu}
- Graf $G = (V,E)$ je stromem ve smyslu \myref{definice}{def:strom} právě tehdy,
- když mezi každými dvěma vrcholy $G$ vede přesně jedna cesta.
-\end{claim}
-
-\begin{proof}
- Dokazujeme dvě implikace. Obě budeme dokazovat v jejich \emph{kontrapozitivní}
- formě, tedy jako obrácenou implikaci mezi negacemi výroků. Lidsky, dokážeme, že
- (1) když existují vrcholy, mezi kterými nevede žádná nebo vede více než jedna
- cesta, pak $G$ není strom, a (2) když $G$ není strom, tak existují vrcholy,
- mezi kterými nevede žádná cesta nebo vede více než jedna.
- \begin{enumerate}
-  \item Pokud existují vrcholy, mezi kterými nevede cesta, pak $G$ není
-   souvislý, což odporuje \hyperref[def:strom]{definici stromu}. Budeme tedy
-   předpokládat, že existují vrcholy $v,w$, mezi kterými vedou různé cesty $v_1
-   \cdots v_n$ a $v'_1 \cdots v'_m$, kde $v_1 = v'_1 = v$ a $v_n = v'_m = w$.
-   Myšlenka důkazu je najít cyklus obsahující vrchol, kde se cesty rozdělují, a
-   vrchol, kde se opět spojují. Vizte
-   \myref{obrázek}{fig:cast-1-dukazu-definice-stromu}.
-
-   Ať $r$ (od \textbf{r}ozpojení) je \textbf{největší} index takový, že $v_i =
-   v'_i$ pro všechna $i \leq r$ (čili $v_r = v'_r$ je vrchol, ve kterém se cesty
-   rozpojují). Ten určitě existuje, protože cesty se v nejhorším případě dělí už
-   ve vrcholu $v = v_1$.
-
-   Podobně, ať $s$ (od \textbf{s}pojení) je \textbf{nejmenší} index takový, že
-   existuje $k \in \Z$ splňující $v_j = v'_{j+k}$ pro všechna $j \geq s$. Čili,
-   vrchol $v_s = v'_{s+k}$ je vrchol, ve kterém se cesty opět spojily. Ovšem,
-   mohlo se tak stát v okamžiku, kdy jsme po jedné cestě prošli více nebo méně
-   vrcholů než po druhé -- tento počet vyjadřuje ono číslo $k$. Takový vrchol
-   jistě existuje, v nejhorším je to přímo koncový vrchol $w = v_n$.
-
-   Zřejmě platí $r < s$, jinak by cesty nebyly různé. Potom je ovšem například
-   posloupnost vrcholů
-   \[
-    (v_r,v_{r+1},\ldots,v_s = v'_{s+k},v'_{s+k-1},\ldots,v'_r = v_r)
-   \]
-   cyklem v $G$. Tedy ani v tomto případě $G$ není strom.
-  \item Když $G$ není strom, tak není souvislý nebo obsahuje cyklus. Když $G$
-   není souvislý, tak existují vrcholy, mezi nimiž nevede v $G$ cesta, což
-   protiřečí podmínce, aby mezi každým párem vrcholů vedla přesně jedna.
-
-   Budeme tedy předpokládat, že $G$ obsahuje cyklus $v_1v_2 \cdots v_n$ (tedy
-   $v_n = v_1$ a $n \geq 2$). Pak ovšem pro libovolné indexy $i < j \leq n$ jsou
-   posloupnosti
-   \[
-    (v_i,v_{i+1},\ldots,v_j) \quad \text{a} \quad (v_i,v_{i-1},\ldots,v_1 =
-    v_n,v_{n-1},\ldots,v_j)
-   \]
-   dvě různé cesty mezi $v_i$ a $v_j$. Vizte
-   \myref{obrázek}{fig:cast-2-dukazu-definice-stromu}.
- \end{enumerate}
- Tím je důkaz dokončen.
-\end{proof}
-
-\begin{figure}[h]
- \centering
- \begin{subfigure}{.45\textwidth}
-  \centering
-  \begin{tikzpicture}
-   \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner
-   sep=1pt}}
-   \tikzset{->-/.style={decoration={
-    markings,
-    mark=at position #1 with {\arrow{>[scale=1]}}},postaction={decorate}}}
-
-   \node[vertex] (1) at (0,0) {};
-   \node[vertex] (2) at (0.5,-1) {};
-   \node[vertex,myred,minimum size=9pt] (3) at (0.5,-2) {};
-
-   \node[vertex] (4) at (-0.5,-3) {};
-
-   \node[vertex] (5) at (1,-2.5) {};
-   \node[vertex] (6) at (1,-3.5) {};
-
-   \node[vertex,myblue,minimum size=9pt] (7) at (0.25,-4) {};
-   \node[vertex] (8) at (-1,-4.5) {};
-
-   \draw[->-=.55,thick] (1) -- (2);
-   \draw[->-=.55,thick] (2) -- (3);
-   \draw[->-=.55,thick] (3) -- (4);
-   \draw[->-=.55,thick] (3) -- (5);
-   \draw[->-=.55,thick] (4) -- (7);
-   \draw[->-=.55,thick] (5) -- (6);
-   \draw[->-=.55,thick] (6) -- (7);
-   \draw[->-=.55,thick] (7) -- (8);
-
-   \node[right = -.5mm of 1] {$v = v_1 = v'_1$};
-   \node[right = -.5mm of 2] {$v_2 = v'_2$};
-   \node[above left = -3mm and -.5mm of 3,text=myred] {$v_3 = v'_3$};
-   \node[left = -.5mm of 4]{$v_4$};
-   \node[right = -.5mm of 5]{$v'_4$};
-   \node[right = -.5mm of 6]{$v'_5$};
-   \node[below right = -3mm and -.5mm of 7,text=myblue]{$v_5 = v'_6$};
-   \node[left = -.5mm of 8]{$v'_7 = v_6 = w$};
-  \end{tikzpicture}
-  \caption{Část (1) důkazu \myref{tvrzení}{claim:ekvivalentni-definice-stromu}.
-  Zde $\clr{r = 3}, \clb{s = 5}$ a $k = 1$. Sestrojený cyklus je
-  $v_3v_4v_5v'_5v'_4v_3'$.}
-  \label{fig:cast-1-dukazu-definice-stromu}
- \end{subfigure}
- \hfill
- \begin{subfigure}{.45\textwidth}
-  \centering
-  \begin{tikzpicture}
-   \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner
-   sep=1pt}}
-   \tikzset{->-/.style={decoration={
-    markings,
-    mark=at position #1 with {\arrow{>[scale=1]}}},postaction={decorate}}}
-
-   \node[vertex] (1) at (0,0) {};
-   \node[vertex] (2) at (0.5,-1) {};
-   \node[vertex] (3) at (0.5,-2) {};
-
-   \node[vertex,minimum size=9pt,myred] (4) at (-0.5,-3) {};
-
-   \node[vertex] (5) at (1,-2.5) {};
-   \node[vertex,minimum size=9pt,myblue] (6) at (1,-3.5) {};
-
-   \node[vertex] (7) at (0.25,-4) {};
-   \node[vertex] (8) at (-1,-4.5) {};
-
-   \draw[thick] (1) -- (2);
-   \draw[thick] (2) -- (3);
-   \draw[->-=.55,thick] (4) -- (3);
-   \draw[->-=.55,thick] (3) -- (5);
-   \draw[->-=.55,thick] (4) -- (7);
-   \draw[->-=.55,thick] (5) -- (6);
-   \draw[->-=.55,thick] (7) -- (6);
-   \draw[thick] (7) -- (8);
-
-   \node[above left = -3mm and -.5mm of 3] {$v_6 = v_1$};
-   \node[left = -.5mm of 4,text=myred]{$v_2$};
-   \node[right = -.5mm of 5]{$v_5$};
-   \node[right = -.5mm of 6,text=myblue]{$v_4$};
-   \node[below right = -2mm and -.5mm of 7]{$v_3$};
-  \end{tikzpicture}
-  \caption{Část (2) důkazu \myref{tvrzení}{claim:ekvivalentni-definice-stromu}.
-  Zde $\clr{i = 2}, \clb{j = 4}$ a sestrojené cesty jsou $v_2v_3v_4$ a
-  $v_2v_1v_5v_4$.}
-  \label{fig:cast-2-dukazu-definice-stromu}
- \end{subfigure}
- \caption{Ilustrace k důkazu
- \myref{tvrzení}{claim:ekvivalentni-definice-stromu}.}
- \label{fig:ilustrace-k-ekvivalentni-definici-stromu}
-\end{figure}
->>>>>>> main
