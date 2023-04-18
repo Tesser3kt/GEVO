@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.3)  11 APR 2023 19:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.12)  18 APR 2023 13:38
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **discrete-maths.tex
 (./discrete-maths.tex
@@ -1541,7 +1542,7 @@ Library (tcolorbox): 'tcblistingscore.code.tex' version '6.0.1'
 Library (tcolorbox): 'tcbprocessing.code.tex' version '6.0.1'
 (/usr/share/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
-Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+Package shellesc Info: Restricted shell escape enabled on input line 77.
 ))
 \c@tcblisting=\count488
 )) (/usr/share/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
@@ -2138,9 +2139,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
 [19]
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 36.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2150,22 +2150,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
 [20]
-Overfull \hbox (15.44435pt too wide) in paragraph at lines 58--64
-\T1/jkp/m/n/12 toto ide-ální cen-t-rum má-lo-kdy exis-tuje, takºe hle-dáme pouze vr-chol s nejmen-
- []
-
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 65.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 76.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 107.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 113.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.01804pt, for example:
@@ -2177,7 +2161,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 120.
-)) (./appendix.tex
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 153.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 164.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.01804pt, for example:
@@ -2185,7 +2175,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
-[22] (./souvislost-metrika.tex))
+[22]
+Package mdframed Info: Not enough space on this page on input line 193.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 195.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 201.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 208.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 228.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.01804pt, for example:
@@ -2193,28 +2197,59 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
-[23
+[23]
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 244.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 250.
+ (./floyd-warshall.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[24]))) (./appendix.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[25] (./souvislost-metrika.tex))
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[26
 
 ] (./discrete-maths.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `discrete-maths.out' has not changed.
-(rerunfilecheck)             Checksum: 1E7E0441ACB286E8247CE63E07268D46;1161.
+(rerunfilecheck)             Checksum: 894A33CB583E0EC166875159D5938540;1382.
  ) 
 Here is how much of TeX's memory you used:
- 60745 strings out of 476025
- 1410259 string characters out of 5796533
- 1982559 words of memory out of 5000000
- 80003 multiletter control sequences out of 15000+600000
- 617359 words of font info for 156 fonts, out of 8000000 for 9000
+ 60799 strings out of 476025
+ 1411197 string characters out of 5796532
+ 1982967 words of memory out of 5000000
+ 80042 multiletter control sequences out of 15000+600000
+ 626769 words of font info for 168 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,15n,121p,756b,1316s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Bold.pfb></usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsyb.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb>
-Output written on discrete-maths.pdf (27 pages, 247342 bytes).
+Output written on discrete-maths.pdf (30 pages, 263218 bytes).
 PDF statistics:
- 466 PDF objects out of 1000 (max. 8388607)
- 377 compressed objects within 4 object streams
- 155 named destinations out of 1000 (max. 500000)
- 221 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 494 PDF objects out of 1000 (max. 8388607)
+ 401 compressed objects within 5 object streams
+ 165 named destinations out of 1000 (max. 500000)
+ 229 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,53 @@
+\subsubsection{Floydův-Warshallův algoritmus}
+\label{sssec:floyduv-warshalluv-algoritmus}
+
+Vlastně jedinou výzvou při na cestě vyřešení FLP je umět aspoň rámcově efektivně
+najít vzdálenost dvou vrcholů. Bohužel, žádná pěkná věta jako Pythagorova, která
+umožňuje okamžitě počítat vzdálenosti bodů v Eukleidovských prostorech, v teorii
+grafů neexistuje a existovat nemůže.
+
+Připomeňme, že v ohodnoceném grafu $G = (V,E,w)$ je vzdálenost vrcholů $u,v \in
+V$ \hyperref[def:vzdalenost-v-grafu]{definována} jako váha nejkratší cesty.
+Poznamenejme, že zde slovo \uv{nejkratší} chápeme ve smyslu \emph{váhy} cesty
+(tedy součtu vah všech jejích hran), nikoli ve smyslu \emph{délky} cesty (tedy
+počtu jejích hran). Asi bychom měli říkat \uv{nejlehčí} cesta, to je ale poněkud
+nepřirozené...
+
+Floydův-Warshallův algoritmus nesouvisí přímo s FLP. Je to algoritmus, který
+nalezne vzdálenost (tedy váhu nejkratší cesty) mezi všemi dvojicemi vrcholů. Je
+však zřejmé, jak znalost této informace vede okamžitě k řešení EFLP, resp. SFLP.
+V moment, kdy známe vzdálenost každého vrcholu od každého, stačí pouze spočítat
+excentricitu, resp. výstřednost, každého vrcholu a vybrat pouze ty s minimální.
+
+Jistě není překvapením, že zkoušet z každého vrcholu všechny možné cesty do
+všech ostatních vrcholů a z nich vybírat ty nejkratší není dvakrát efektivní.
+Floydův-Warshallův algoritmus stojí na dvou principech, jimž se především v
+programování říká \emph{rekurze} a \emph{dynamické programování}. Jejich úplné
+pochopení a nabytí schopnosti využívat může být časově náročné, ale
+Floydův-Warshallův algoritmus jich využívá velmi přímočaře. Postupně si
+rozebereme, že ze znalosti váhy nejkratší cesty mezi dvěma vrcholy,
+\textbf{která využívá jen nějakou podmnožinu ostatních vrcholů}, lze zvětšováním
+této podmnožiny získat nakonec váhu nejkratší cesty mezi těmito vrcholy v celém
+grafu (odtud \emph{rekurze}). Dále, ze znalosti vzdálenosti mezi určitými
+dvojicemi vrcholů můžeme rychle určit vzdálenost mezi párem, u kterého jsme ji
+zatím neznali (odtud \emph{dynamické programování}).
+
+Naší prací v této podsekci je dát předchozímu odstavci formální podobu. Ať $G =
+(V,E,w)$ je souvislý ohodnocený graf, kde $V = \{v_1,\ldots,v_n\}$. Definujme
+funkci $\delta(i,j,k): \{1,\ldots,n\}^3 \to \R^+$ následovně. Ať $\delta(i,j,k)$
+je váha nejkratší cesty mezi $v_i$ a $v_j$ \textbf{využívající pouze vrcholy z
+podmnožiny vrcholů} $\{v_1,\ldots,v_k\}$ (samozřejmě, kromě počátečního $v_i$ a
+koncového $v_j$). I když je $G$ souvislý, tak taková cesta nemusí vždy
+existovat, v takovém případě je $\delta(i,j,k) = \infty$.
+
+Je zřejmé, že $\delta(i,j,k) \leq \delta(i,j,k-1)$, neboť máme jeden vrchol
+navíc, a přes ten může vést nějaká kratší cesta. Základní, a vlastně jedinou,
+myšlenkou Floydova-Warshallova algoritmu je pozorování, že když nastane situace,
+kdy ${\delta(i,j,k) < \delta(i,j,k-1)}$, pak ta kratší cesta musí využívat
+vrchol $v_k$. Ovšem, tuto cestu lze v takovém případě rozdělit na dvě -- na
+cestu z $v_i$ do $v_k$ a na cestu $v_k$ do $v_j$. Původní cesta $v_i\cdots v_k
+\cdots v_j$ využívala pouze vrcholy z $\{v_1,\ldots,v_k\}$, takže obě její
+části, $v_1 \cdots v_k$ i $v_k \cdots v_j$ využívají pouze vrcholy
+z~$\{v_1,\ldots,v_{k-1}\}$. Zároveň to musejí být právě ty nejkratší cesty mezi
+$v_i$ a $v_k$ a $v_k$ a $v_j$, jinak by celková cesta $v_1 \cdots v_k \cdots
+v_j$ nebyla ta nejkratší.

@@ -12,20 +12,104 @@ Motivační úlohou je tzv. \emph{facility location problem}, v přibližném p�
 když od jednoho k druhému vede bezprostřední cesta (tedy cesta neprocházející
 žádným jiným sídlištěm nebo uzlem).
 
-Nejprve si však rozmyslíme, že onen \emph{facility location problem}, odteď
-FLP, má v závislosti na typu střediska dvě různá znění. V branži se jim občas
-říká \emph{\textbf{emergency} facility location problem} (EFLP), který zahrnuje
-určení vhodné polohy například právě nemocnic a poliklinik, a
-\emph{\textbf{service} facility location problem} (SFLP), sestávající z úloh
-nalezení nejdostupnějšího místa pro školy či obchodní centra, kde není nezbytně
-nutné, aby se z \textbf{každé} pokryté oblasti dalo ke středisku dostat
-efektivně (bo nejde o život), ale aby naopak průměr délek cest od všech
-obydlených oblastí ke středisku byl co nejmenší.
+Pojďme si úlohu rozmyslet podrobně. Máme u nějakého uzlu v síti dopravních
+křižovatek postavit středisko. Bez ohledu na typ střediska nás pravděpodobně
+zajímá, aby se všichni z obydlených zón, které má toto středisko pokrýt, dostali
+k němu co nejsnáze. Ovšem, výraz \uv{co nejsnáze} je matematicky příliš vágní.
+Jistě hledáme optimální řešení, ale v jakém smyslu konkrétně?
 
-K formulaci obou úloh ale potřebujeme zavést základní pojem \emph{vzdálenosti}
-mezi vrcholy v ohodnoceném grafu. Pro podrobnější výklad o cestách, souvislosti
-grafu., vzdálenosti a jejich relevanci k pojmu \emph{metriky} na množině vizte
-\myref{dodatek}{ssec:souvislost-grafu-a-metrika}.
+Snad bude užitečné kýžený smysl optimality vyzkoumat na příkladě. Řekněme, že
+střediskem, jež potřebujeme umístit, je nemocnice. Co znamená, že je vzhledem k
+dané síti nemocnice \emph{optimálně} umístěna? První, co by nás mohlo napadnout,
+je chtít, aby průměr vzdáleností od obydlených zón k~nemocnici byl co nejmenší.
+To je přirozená myšlenka, ale jak si ihned rozmyslíme, vcelku morbidní.
+
+U průměru totiž často nastává situace, že značný počet nízkých hodnot převáží
+nad zanedbatelným počtem hodnot vysokých. Uvažte síť uzlů a sídlišť danou grafem
+na \myref{obrázku}{fig:spatne-vyvazena-sit}, kde sídliště jsou značena
+\clb{modře}, dopravní uzly \clr{červeně} a ohodnocení hran, jak je vlastně
+zvykem, značí průměrnou dobu jízdy po těchto cestách.
+
+\begin{figure}[h]
+\centering
+ \begin{tikzpicture}
+  \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner
+  sep=1pt}}
+  \tikzset{->-/.style={decoration={ markings, mark=at position #1 with
+  {\arrow{>[scale=1]}}},postaction={decorate}}}
+
+  \foreach \y in {2, 1, ..., -2} {
+   \draw[thick] (2, 0) to node[pos=0.7, draw, circle, fill=white, inner
+    sep=0.5pt] {\footnotesize $1$} (3.5, \y);
+  }
+  \foreach \y in {1, -1} {
+   \draw[thick] (-2, 0) to node[pos=0.6, draw, circle, fill=white, inner
+    sep=0.5pt] {\footnotesize $7$} (-4, \y);
+  }
+  \draw[thick] (-2, 0) to node[midway, draw, circle, fill=white, inner
+   sep=0.5pt] {\footnotesize $10$} (2, 0);
+
+  \node[vertex, myred, minimum size=9pt] (v2) at (2, 0) {};
+  \node[above left = -1mm and -1mm of v2, myred] {$v_2$};
+  \node[vertex, myred, minimum size=9pt] (v1) at (-2, 0) {};
+  \node[above right = -1mm and -1mm of v1, myred] {$v_1$};
+
+  \foreach \y in {2, 1, ..., -2} {
+   \node[vertex, myblue] at (3.5, \y) {};
+  }
+  \foreach \y in {1, -1} {
+   \node[vertex, myblue] at (-4, \y) {};
+  }
+ \end{tikzpicture}
+ \caption{Špatně vyvážená síť \clb{sídlišť} a \clr{dopravních uzlů}.}
+ \label{fig:spatne-vyvazena-sit}
+\end{figure}
+
+V tomto případě by uzel $\clr{v_2}$ jistě nabízel mnohem lepší průměrné řešení,
+neboť můžeme snadno spočítat, že průměrná doba jízdy od libovolného sídliště k
+němu je asi pět a půl minuty. Naopak, průměrná doba jízdy k~uzlu $\clr{v_1}$
+činí těsně pod deset minut.
+
+My se ale přesto rozhodneme postavit nemocnici v uzlu $\clr{v_1}$. Proč? Totiž,
+při stavbě nemocnice nám nejde ani tolik o to, aby se do ní dostalo co nejvíce
+lidí co nejrychleji, ale \textbf{aby to nikdo neměl příliš daleko}. Kdybychom
+učinili opak a postavili nemocnici v uzlu $\clr{v_2}$, pak by sice lidé ze
+sídlišť na pravé straně to měli do nejbližší nemocnice pouhou minutu, ale lidé
+z~levých sídlišť by cestovali průměrně až sedmnáct minut. Do uzlu $\clr{v_1}$ se
+dostane každý člověk nejpozději za jedenáct minut.
+
+Tento způsob měření vhodnosti umístění nemocnice v dopravních sítích je skutečně
+v praxi používaný a je dozajista nepěkným příkladem volby menšího ze dvou zel.
+Tedy, není prioritou, aby se někomu dostalo pomoci velmi brzy, ale aby se nikomu
+nedostalo pomoci příliš pozdě.
+
+Problém, jenž jsme právě zformulovali, je variantou výše zmíněného
+\emph{facility location problem} (dále jen FLP), která sluje EFLP, tedy
+\emph{\textbf{emergency} facility location problem}. Úlohou je nalézt takový
+uzel, jehož \textbf{maximální} vzdálenost ke všem ostatním uzlům je minimální,
+čili uzel pro umístění středisek jako jsou právě nemocnice a polikliniky, či
+obecněji \uv{pohotovostní} střediska.
+
+Druhou známou variantou je SFLP, čili \emph{\textbf{service} facility location
+problem} -- úloha nalézt vhodný uzel pro umístění střediska \uv{služeb}, kde je
+naopak žádoucí, aby nastala druhá z výše diskutovaných situací, aby se k němu
+přiblížilo co nejvíce lidí co nejrychleji. Ti, již cestují dlouho, budou na
+nejméně libý pád kalé nálady sedíce rozčileně ve voze a shrbení klejíce
+ustavičně v kolena, však nezhynou.
+
+Formálně tedy hledáme uzel, který minimalizuje průměr všech vzdáleností od něj
+ke všem ostatním uzlům. Pro usnadnění výpočtu je dobré si uvědomit, že
+minimalizovat \textbf{průměr} všech vzdáleností je totéž, co minimalizovat
+\textbf{součet} všech vzdáleností, neboť počet uzlů se nemění
+(\textbf{Rozmys\-lete si to!}).
+
+K formulaci obou úloh potřebujeme zavést základní pojem \emph{vzdálenosti}
+me\-zi vrcholy v ohodnoceném grafu.
+
+% TODO
+% Pro podrobnější výklad o cestách, souvislosti
+% grafu, vzdálenosti a jejich relevanci k pojmu \emph{metriky} na množině vizte
+% \myref{dodatek}{ssec:souvislost-grafu-a-metrika}.
 
 V zájmu strohosti vyjádření označíme pro libovolné dva vrcholy $u,v \in V$
 grafu $(V,E,w)$ symbolem $\mathcal{P}(u,v)$ množinu všech cest mezi $u$ a $v$.
@@ -35,8 +119,8 @@ $u$ a $v$ nevede v $G$ cesta.
 
 \begin{definition}[Vzdálenost v grafu]
 \label{def:vzdalenost-v-grafu}
- Ať $G = (V,E,w)$ je ohodnocený graf a $v,w \in V$. \emph{Vzdáleností} mezi $u$
- a $v$ v grafu $G$, značenou $d_G(u,v)$ (z angl. \textbf{d}istance) definujeme
+ Ať $G = (V,E,w)$ je ohodnocený graf a $v,w \in V$. \emph{Vzdálenost} mezi $u$
+ a $v$ v grafu $G$, značenou $d_G(u,v)$ (z angl. \textbf{d}istance), definujeme
  jako
  \[
   d_G(u,v) \coloneqq 
@@ -55,12 +139,16 @@ vrchol, který minimalizuje největší možnou vzdálenost od něj ke všem ost
 vrcholům $G$. Takový vrchol (nebo vrchol\textbf{y}?) nazveme \emph{Jordanovým
 centrem} grafu $G$, po žabožroutím počtáři, Marie E. C. Jordanovi.
 
+Samozřejmě, nezajímá-li nás vzdálenost ke \textbf{všem} vrcholům, jako je tomu v
+příkladě umístění nemocnice, uvážíme pouze maximum vzdáleností k~relevantním
+vrcholům (tedy k sídlištím). Na principu úlohy to nic nemění.
+
 Formálně, \emph{excentricita} vrcholu $v \in V$ je kvantita $e(v) \coloneqq
 max_{u \in V} d_G(v,u)$, tedy maximum přes všechny vzdálenosti od něj k
 ostatním vrcholům. Toto číslo vyjadřuje, jak moc je vrchol vzdálen od
 \uv{ideálního centra} grafu, tedy od bodu, od kterého by každý vrchol byl
 stejně daleko. Samozřejmě, toto ideální centrum málokdy existuje, takže hledáme
-pouze vrchol s nejmenším excentricitou, s nejmenší \emph{odchylkou} od centra.
+pouze vrchol s nej\-menší excentricitou, s nejmenší \emph{odchylkou} od centra.
 
 \begin{definition}[Emergency Facility Location Problem]
 \label{def:eflp}
@@ -124,7 +212,51 @@ pouze vrchol s nejmenším excentricitou, s nejmenší \emph{odchylkou} od centr
  graf a úloha poněkud pozbývá smyslu.
 \end{remark}
 
-Obdobným způsobem si formalizujeme i SFLP a později si ukážeme souvislost obou
-úloh s minimální kostrou.
+Obdobným způsobem si formalizujeme i SFLP.
 
+Nyní chceme nalézt vrchol, který minimalizuje průměr (nebo ekvivalent\-ně
+součet) vzdáleností od něj k, buď všem nebo pouze zajímavým, vrcholům.
+Názvosloví zde poněkud selhává a tomuto součtu přes vzdálenosti ke všem vrcholům
+se rovněž často přezdívá \emph{excentricita}. Abychom pojmy odlišili, slovo
+\uv{excentricita} přeložíme a budeme říkat \uv{výstřednost}. Tedy,
+\emph{výstředností} vrcholu $v \in V$ v ohodnoceném grafu $G = (V,E,w)$ myslíme
+číslo
+\[
+ e'(v) \coloneqq \sum_{u \in V} d_G(v,u).
+\]
+
+\begin{definition}[Service Facility Location Problem]
+ \label{def:sflp}
+ Ať $G = (V,E,w)$ je souvislý ohodnocený graf. Úlohu nalézt vrchol s minimální
+ výstředností nazveme SFLP. Jejím řešením je vrchol $c' \in V$ s touto
+ vlastností, tedy takový, že
+ \[
+  e'(c') = \min_{v \in V} e'(v).
+ \]
+\end{definition}
+
+Pochopitelně, stejně jako EFLP, i SFLP může mít více řešení. Avšak, podle našeho
+nejlepšího vědomí se množině řešení SFLP nijak význačně neříká. Minimální
+výstřednost se občas nazývá \emph{status} grafu $G$. Etymologie tohoto
+názvosloví je spjata s novodobým využitím SFLP při vyvažování nervových sítí a
+její zevrubné objasnění je nad rámec tohoto textu.
+
+\begin{definition}[Status grafu]
+ Ať $G = (V,E,w)$ je souvislý ohodnocený graf. Když $c' \in V$ je řešení SFLP,
+ pak se hodnota $e'(c)$ nazývá \emph{status} grafu $G$ a značí se $\sigma(G)$.
+\end{definition}
+
+\begin{warning}
+ Řešení EFLP a řešení SFLP mohou (ale \textbf{nemusí}) být disjunktní.
+ Vrátíme-li se ke grafu na \myref{obrázku}{fig:spatne-vyvazena-sit}, pak řešením
+ EFLP je pouze vrchol $\clr{v_1}$, zatímco řešením SFLP je pouze vrchol
+ $\clr{v_2}$. 
+\end{warning}
+
+Následující podsekci dedikujeme obecnému algoritmu, pomocí nějž lze také hledat
+řešení jak EFLP, tak SFLP. Poznamenáme však, že existují mnohem efektivnější
+algoritmy, jež naleznou řešení těchto úloh; tyto ale vyžadují o poznání hlubší
+poznatky teorie grafů.
+
+\input{floyd-warshall}
 
