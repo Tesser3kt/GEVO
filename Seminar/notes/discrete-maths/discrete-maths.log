@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.12)  18 APR 2023 13:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.3)  19 APR 2023 13:01
 entering extended mode
- restricted \write18 enabled.
- file:line:error style messages enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **discrete-maths.tex
 (./discrete-maths.tex
@@ -1542,7 +1541,7 @@ Library (tcolorbox): 'tcblistingscore.code.tex' version '6.0.1'
 Library (tcolorbox): 'tcbprocessing.code.tex' version '6.0.1'
 (/usr/share/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
-Package shellesc Info: Restricted shell escape enabled on input line 77.
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
 ))
 \c@tcblisting=\count488
 )) (/usr/share/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
@@ -2161,12 +2160,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 120.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 153.
-Package mdframed Info: mdframed detected package amsthm 
-changed the theorem header of amsthm
-(mdframed)              on input line 164.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2176,19 +2169,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
 [22]
-Package mdframed Info: Not enough space on this page on input line 193.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
 (mdframed)              on input line 195.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 201.
+(mdframed)              on input line 206.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 208.
+(mdframed)              on input line 237.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 228.
+(mdframed)              on input line 243.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 250.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2200,10 +2195,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [23]
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 244.
+(mdframed)              on input line 270.
 Package mdframed Info: mdframed detected package amsthm 
 changed the theorem header of amsthm
-(mdframed)              on input line 250.
+(mdframed)              on input line 286.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 292.
  (./floyd-warshall.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2212,7 +2210,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
-[24]))) (./appendix.tex
+[24]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.01804pt, for example:
@@ -2220,7 +2218,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
-[25] (./souvislost-metrika.tex))
+[25]))) (./appendix.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.01804pt, for example:
@@ -2228,7 +2226,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
-[26
+[26] (./souvislost-metrika.tex))
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[27
 
 ] (./discrete-maths.aux)
 
@@ -2238,18 +2244,18 @@ Package rerunfilecheck Info: File `discrete-maths.out' has not changed.
 (rerunfilecheck)             Checksum: 894A33CB583E0EC166875159D5938540;1382.
  ) 
 Here is how much of TeX's memory you used:
- 60799 strings out of 476025
- 1411197 string characters out of 5796532
- 1982967 words of memory out of 5000000
- 80042 multiletter control sequences out of 15000+600000
+ 60850 strings out of 476025
+ 1411877 string characters out of 5796533
+ 1983247 words of memory out of 5000000
+ 80090 multiletter control sequences out of 15000+600000
  626769 words of font info for 168 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,15n,121p,756b,1316s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Bold.pfb></usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsyb.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb>
-Output written on discrete-maths.pdf (30 pages, 263218 bytes).
+Output written on discrete-maths.pdf (31 pages, 267187 bytes).
 PDF statistics:
- 494 PDF objects out of 1000 (max. 8388607)
- 401 compressed objects within 5 object streams
- 165 named destinations out of 1000 (max. 500000)
+ 501 PDF objects out of 1000 (max. 8388607)
+ 407 compressed objects within 5 object streams
+ 168 named destinations out of 1000 (max. 500000)
  229 words of extra memory for PDF output out of 10000 (max. 10000000)
 

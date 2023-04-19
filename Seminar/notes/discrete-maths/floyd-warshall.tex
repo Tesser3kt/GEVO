@@ -50,4 +50,40 @@ cestu z $v_i$ do $v_k$ a na cestu $v_k$ do $v_j$. Původní cesta $v_i\cdots v_k
 části, $v_1 \cdots v_k$ i $v_k \cdots v_j$ využívají pouze vrcholy
 z~$\{v_1,\ldots,v_{k-1}\}$. Zároveň to musejí být právě ty nejkratší cesty mezi
 $v_i$ a $v_k$ a $v_k$ a $v_j$, jinak by celková cesta $v_1 \cdots v_k \cdots
-v_j$ nebyla ta nejkratší.
+v_j$ nebyla ta nejkratší. Mrkněte na obrázek
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \tikzset{vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner
+  sep=1pt}}
+  \tikzset{->-/.style={decoration={ markings, mark=at position #1 with
+  {\arrow{>[scale=1]}}},postaction={decorate}}}
+
+  \node[vertex,myred,minimum size=9pt] (vi) at (-4,0) {};
+  \node[left=0mm of vi,myred] {$v_i$};
+  \node[vertex,myred,minimum size=9pt] (vj) at (4,0) {};
+  \node[below right=-11pt and 0mm of vj,myred] {$v_j$};
+
+  \node[vertex] (v1) at (-2,0) {};
+  \node[above left=-1mm and -1mm of v1] {$v_1$};
+  \node[vertex,mygreen] (v2) at (0,1) {};
+  \node[above=0mm of v2,mygreen] {$v_2$};
+  \node[vertex,mygreen] (v3) at (2,1) {};
+  \node[above=0mm of v3,mygreen] {$v_3$};
+  \node[vertex,myblue] (v4) at (1,-1) {};
+  \node[below=0mm of v4,myblue] {$v_4$};
+
+  \draw[thick] (vi) to node[midway,below] {$2$} (v1);
+
+  \draw[thick,mygreen] (v1) to node[pos=0.45,above] {$2$} (v2);
+  \draw[thick,mygreen] (v2) to node[midway,above] {$1$} (v3);
+  \draw[thick,mygreen] (v3) to node[pos=0.55,above] {$2$} (vj);
+
+  \draw[thick,myblue] (v1) to node[pos=0.45,below] {$3$} (v4);
+  \draw[thick,myblue] (v4) to node[pos=0.55,below] {$1$} (vj);
+ \end{tikzpicture}
+ \caption{Zde $\delta(\clr{i},\clr{j},\clg{3}) = 7$, ale
+ $\delta(\clr{i},\clr{j},\clb{4}) = 6$.}
+ \label{fig:delta-i-j-k}
+\end{figure}
