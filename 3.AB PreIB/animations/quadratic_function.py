@@ -29,8 +29,8 @@ class QuadraticFunction(Scene):
         f_label = MathTex("f(x) = ", "a", "x", " + ", "b", color=BLUE,
                           substrings_to_isolate=["a", "b"],
                           tex_to_color_map={
-                                "a": RED,
-                                "b": GREEN
+                              "a": RED,
+                              "b": GREEN
                           }).to_corner(UP + LEFT)
         a_label = MathTex("a = ", color=RED).next_to(f_label, DOWN,
                                                      aligned_edge=LEFT)
@@ -47,15 +47,15 @@ class QuadraticFunction(Scene):
         self.play(Create(linear))
 
         # triangle
-        x_tracker = ValueTracker(0.5)
+        x_tracker = ValueTracker(1.5)
         x = x_tracker.get_value()
         a = a_tracker.get_value()
         b = b_tracker.get_value()
 
-        line1 = Line(axes.c2p(x, a*x + b), axes.c2p(x + 1, a*x + b),
+        line1 = Line(axes.c2p(x - 1, a*(x - 1) + b), axes.c2p(x, a*(x - 1) + b),
                      color=WHITE)
-        line2 = Line(axes.c2p(x + 1, a*x + b),
-                     axes.c2p(x + 1, a*(x + 1) + b),
+        line2 = Line(line1.get_end(),
+                     axes.c2p(x, a*x + b),
                      color=RED)
 
         line1_label = MathTex("1", color=WHITE).next_to(line1, DOWN)
@@ -70,14 +70,16 @@ class QuadraticFunction(Scene):
             a = a_tracker.get_value()
             b = b_tracker.get_value()
             x = x_tracker.get_value()
-            mob.become(Line(axes.c2p(x + 1, a*x + b),
-                            axes.c2p(x + 1, a*(x + 1) + b),
+            mob.become(Line(line1.get_end(),
+                            axes.c2p(x, a*x + b),
                             color=RED))
+
         def update_line1(mob):
             a = a_tracker.get_value()
             b = b_tracker.get_value()
             x = x_tracker.get_value()
-            mob.become(Line(axes.c2p(x, a*x + b), axes.c2p(x + 1, a*x + b)))
+            mob.become(Line(axes.c2p(x - 1, a*(x - 1) + b),
+                       axes.c2p(x, a*(x - 1) + b)))
 
         def update_label2(mob):
             a = a_tracker.get_value()
@@ -92,9 +94,9 @@ class QuadraticFunction(Scene):
         self.play(Write(line1_label), Write(line2_label))
 
         self.wait()
-        self.play(x_tracker.animate.set_value(1), run_time=2)
-        self.play(x_tracker.animate.set_value(-1.5), run_time=2)
-        self.play(x_tracker.animate.set_value(0.5), run_time=2)
+        self.play(x_tracker.animate.set_value(2), run_time=2)
+        self.play(x_tracker.animate.set_value(-0.5), run_time=2)
+        self.play(x_tracker.animate.set_value(1.5), run_time=2)
 
         self.wait()
         self.play(a_tracker.animate.set_value(2),
@@ -105,8 +107,8 @@ class QuadraticFunction(Scene):
                   run_time=2)
 
         self.wait()
-        self.play(x_tracker.animate.set_value(-1.5), run_time=2)
-        self.play(x_tracker.animate.set_value(0.5), run_time=2)
+        self.play(x_tracker.animate.set_value(-0.5), run_time=2)
+        self.play(x_tracker.animate.set_value(1.5), run_time=2)
 
         self.wait()
         line1_label.clear_updaters()
@@ -122,7 +124,7 @@ class QuadraticFunction(Scene):
         self.play(
             a_tracker.animate.set_value(1),
             b_tracker.animate.set_value(0),
-            x_tracker.animate.set_value(0.2),
+            x_tracker.animate.set_value(1),
             ChangeDecimalToValue(a_value, 1),
             ChangeDecimalToValue(b_value, 0)
         )
@@ -130,10 +132,9 @@ class QuadraticFunction(Scene):
         g_label = MathTex("g(x) = ", "f(x)", "x", " + ", "c", color=PURPLE_A,
                           substrings_to_isolate=["f(x)", "c"],
                           tex_to_color_map={
-                                "f(x)": BLUE,
-                                "c": YELLOW
+                              "f(x)": BLUE,
+                              "c": YELLOW
                           }).to_corner(DOWN + LEFT).shift(2 * UP)
-
 
         a = a_tracker.get_value()
         b = b_tracker.get_value()
@@ -142,7 +143,7 @@ class QuadraticFunction(Scene):
 
         ff_label = MathTex("f(x) = ", color=BLUE).next_to(g_label, DOWN,
                                                           aligned_edge=LEFT)
-        ff_value = DecimalNumber(a*(x + 1) + b, num_decimal_places=2,
+        ff_value = DecimalNumber(a*x + b, num_decimal_places=2,
                                  color=BLUE).next_to(ff_label, RIGHT)
         c_label = MathTex("c = ", color=YELLOW).next_to(ff_label, DOWN,
                                                         aligned_edge=LEFT)
@@ -154,11 +155,11 @@ class QuadraticFunction(Scene):
                   Write(c_label), Write(c_value))
 
         self.wait()
-        line1 = Line(axes.c2p(x, (a*x + b) * x + c),
-                     axes.c2p(x + 1, (a*x + b) * x + c),
+        line1 = Line(axes.c2p(x - 1, (a*(x - 1) + b) * (x - 1) + c),
+                     axes.c2p(x, (a*(x - 1) + b) * (x - 1) + c),
                      color=WHITE)
-        line2 = Line(axes.c2p(x + 1, (a*x + b) * x + c),
-                     axes.c2p(x + 1, (a*(x + 1) + b) * (x + 1) + c),
+        line2 = Line(line1.get_end(),
+                     axes.c2p(x, (a*x + b) * x + c),
                      color=BLUE)
 
         def update_line12(mob):
@@ -166,8 +167,8 @@ class QuadraticFunction(Scene):
             b = b_tracker.get_value()
             c = c_tracker.get_value()
             x = x_tracker.get_value()
-            mob.become(Line(axes.c2p(x, (a*x + b) * x + c),
-                            axes.c2p(x + 1, (a*x + b) * x + c),
+            mob.become(Line(axes.c2p(x - 1, (a*(x - 1) + b) * (x - 1) + c),
+                            axes.c2p(x, (a*(x - 1) + b) * (x - 1) + c),
                             color=WHITE))
 
         def update_line22(mob):
@@ -175,21 +176,21 @@ class QuadraticFunction(Scene):
             b = b_tracker.get_value()
             c = c_tracker.get_value()
             x = x_tracker.get_value()
-            mob.become(Line(axes.c2p(x + 1, (a*x + b) * x + c),
-                            axes.c2p(x + 1, (a*(x + 1) + b) * (x + 1) + c),
+            mob.become(Line(line1.get_end(),
+                            axes.c2p(x, (a*x + b) * x + c),
                             color=BLUE))
 
         line1_label = MathTex("1", color=WHITE).next_to(line1, DOWN)
         line1_label.add_updater(lambda m: m.next_to(line1, DOWN))
 
-        line2_label = DecimalNumber(a * (x + 1) + b, num_decimal_places=2,
+        line2_label = DecimalNumber(2*a*x - a + b, num_decimal_places=2,
                                     color=BLUE).next_to(line2, RIGHT)
 
         def update_label22(mob):
             a = a_tracker.get_value()
             b = b_tracker.get_value()
             x = x_tracker.get_value()
-            mob.become(DecimalNumber(a*(x + 1) + b, num_decimal_places=2,
+            mob.become(DecimalNumber(2*a*x - a + b, num_decimal_places=2,
                                      color=BLUE).next_to(line2, RIGHT))
 
         line1.add_updater(update_line12)
@@ -206,24 +207,111 @@ class QuadraticFunction(Scene):
         dot.add_updater(lambda m: m.move_to(line2.get_end()))
 
         self.play(
-            x_tracker.animate.set_value(0),
-            ChangeDecimalToValue(ff_value, a*(0 + 1) + b)
+            x_tracker.animate.set_value(1.5),
+            ChangeDecimalToValue(ff_value, a*1 + b)
         )
 
+        self.wait(2)
         self.play(Create(dot))
         self.add(trace)
 
-        self.play(x_tracker.animate.set_value(1),
-                  ChangeDecimalToValue(ff_value, a*(1 + 1) + b),
+        self.play(x_tracker.animate.set_value(2),
+                  ChangeDecimalToValue(ff_value, a*2 + b),
                   run_time=2)
 
-        self.play(x_tracker.animate.set_value(-2),
-                  ChangeDecimalToValue(ff_value, a*(-2 + 1) + b),
+        self.play(x_tracker.animate.set_value(-1),
+                  ChangeDecimalToValue(ff_value, a*(-1) + b),
                   run_time=2)
 
-        # quadratic = axes.plot(lambda x: x**2, x_range=[-5, 5], color=BLUE)
-        # quadratic_label = axes.get_graph_label(quadratic, label="x^2",
-        #                                        x_val=-4, direction=UP/2)
-        # self.add(quadratic, quadratic_label)
+        self.wait(2)
+
+        self.play(FadeOut(trace))
+        line1.clear_updaters()
+        line2.clear_updaters()
+        line1_label.clear_updaters()
+        line2_label.clear_updaters()
+        dot.clear_updaters()
+        self.play(FadeOut(line1), FadeOut(line2), FadeOut(line1_label),
+                  FadeOut(line2_label), FadeOut(dot))
+
+        ff_label.clear_updaters()
+        c_value.add_updater(lambda m: m.next_to(c_label, RIGHT))
+        self.play(FadeOut(ff_label), FadeOut(ff_value),
+                  c_label.animate.next_to(g_label, DOWN, aligned_edge=LEFT,
+                                          buff=0.5))
+
+        quadratic = axes.plot(
+            lambda x: x**2, x_range=[-5, 5], color=PURPLE_A, stroke_width=4)
+        self.play(FadeIn(quadratic))
+
+        self.wait()
+
+        def update_quadratic(mob):
+            a = a_tracker.get_value()
+            b = b_tracker.get_value()
+            c = c_tracker.get_value()
+            mob.become(axes.plot(
+                lambda x: a*x**2 + b*x + c, x_range=[-5, 5],
+                color=PURPLE_A, stroke_width=4))
+
+        quadratic.add_updater(update_quadratic)
+
+        self.play(
+            c_tracker.animate.set_value(1),
+            ChangeDecimalToValue(c_value, 1),
+            run_time=2
+        )
+        self.wait()
+        self.play(
+            c_tracker.animate.set_value(-1),
+            ChangeDecimalToValue(c_value, -1),
+            run_time=2
+        )
+        self.wait()
+        self.play(
+            c_tracker.animate.set_value(0),
+            ChangeDecimalToValue(c_value, 0),
+            run_time=2
+        )
+
+        self.wait()
+
+        self.play(
+            a_tracker.animate.set_value(0.1),
+            ChangeDecimalToValue(a_value, 0.1),
+            run_time=2
+        )
+        self.wait()
+        self.play(
+            a_tracker.animate.set_value(4),
+            ChangeDecimalToValue(a_value, 4),
+            run_time=2
+        )
+        self.wait()
+        self.play(
+            a_tracker.animate.set_value(1),
+            ChangeDecimalToValue(a_value, 1),
+            run_time=2
+        )
+
+        self.wait()
+
+        self.play(
+            b_tracker.animate.set_value(-3),
+            ChangeDecimalToValue(b_value, -3),
+            run_time=2
+        )
+        self.wait()
+        self.play(
+            b_tracker.animate.set_value(4),
+            ChangeDecimalToValue(b_value, 4),
+            run_time=2
+        )
+        self.wait()
+        self.play(
+            b_tracker.animate.set_value(1),
+            ChangeDecimalToValue(b_value, 1),
+            run_time=2
+        )
 
         self.wait(2)
