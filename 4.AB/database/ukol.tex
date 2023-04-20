@@ -1,0 +1,158 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+% Title %
+% \title{\Huge\textsf{Math Exam -- PreIB 3.AB 2}\\
+%  \Large\textsf{Systems of Linear Equations}
+%  \author{Áďa Klepáčů}
+%  \date{March 6, 2023}
+% }
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+% \maketitle
+\thispagestyle{fancy}
+
+\section{Jak funguje GEVO E-Shop}
+\label{sec:jak-funguje-e-shop}
+
+\subsection{Databáze}
+\label{ssec:databaze}
+
+\textbf{Pravidla tvorby databází} (s klesající důležitostí):
+\begin{enumerate}[topsep=0pt]
+ \item Na údaje z cizí tabulky se \textbf{zásadně odkazuje pomocí
+  identifikátoru}, který je jedinečný a dostane ho každý údaj od databáze
+  automaticky.
+ \item V každé buňce je \textbf{jen jeden údaj}!
+ \item V žádné tabulce není \textbf{víc sloupců, než je třeba}!
+ \item V žádné tabulce není \textbf{víc řádků, než je třeba}!
+\end{enumerate}
+
+Potřebujeme si pamatovat tři typy údajů:
+\begin{itemize}[topsep=0pt]
+ \item uživatele,
+ \item produkty,
+ \item košík.
+\end{itemize}
+
+U uživatele si potřebujeme pamatovat pouze jméno a heslo. Košík \textbf{nepatří}
+do tabulky uživatelů. Ukládat s uživateli košík by znamenalo v jedné buňce
+ukládat seznam produktů i s jejich za\-koupeným množstvím. To naprosto protiřečí
+bodu 1 pravidel tvorby databází.
+
+U produktů potřebujeme znát název, cenu, počet kusů na skladě a popis.
+
+Nejtěžší vymyslet je košík. Chybný postup by byl ukládat pro každého uživatele
+\textbf{seznam} za\-koupených produktů. Seznam totiž není jeden údaj! Místo toho
+bude jeden řádek v tabulce košíku odpovídat jen jednomu produktu. To znamená, že
+si musíme pamatovat na každém řádku, o který jde produkt (pomocí
+\textbf{identifikátoru} z tabulky produktů), kdo ho koupil (pomocí
+identifikátoru z~tabulky uživatelů), a zakoupené množství.
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \node (uziv) at (-1,1) {
+   \begin{tabular}{|c|c|c|}
+    \textsf{\textbf{id}} & \textsf{\textbf{jméno}} & \textsf{\textbf{heslo}}\\
+    \toprule
+    1 & cr1ng3M3m3r & pE\@\%qXlL8axV\textbackslash1\$P\\
+    \midrule
+    2 & tvojemama & M5x\textbackslash'\{MjR8yR"J7\textbackslash\\
+    \midrule
+    3 & bigBadBoy & p/gC8Y3cJi;hZ\}6U
+   \end{tabular}
+  };
+ \end{tikzpicture}
+\end{figure}
+
+\end{document}
