@@ -1,10 +1,10 @@
 \subsubsection{Floydův-Warshallův algoritmus}
 \label{sssec:floyduv-warshalluv-algoritmus}
 
-Vlastně jedinou výzvou při na cestě vyřešení FLP je umět aspoň rámcově efektivně
-najít vzdálenost dvou vrcholů. Bohužel, žádná pěkná věta jako Pythagorova, která
-umožňuje okamžitě počítat vzdálenosti bodů v Eukleidovských prostorech, v teorii
-grafů neexistuje a existovat nemůže.
+Vlastně jedinou výzvou na cestě k vyřešení FLP je umět aspoň rámcově efektivně
+najít vzdálenost mezi všemi dvojicemi vrcholů. Bohužel, žádná pěkná věta jako
+Pythagorova, která umožňuje okamžitě počítat vzdálenosti bodů v Eukleidovských
+prostorech, v teorii grafů neexistuje a existovat nemůže.
 
 Připomeňme, že v ohodnoceném grafu $G = (V,E,w)$ je vzdálenost vrcholů $u,v \in
 V$ \hyperref[def:vzdalenost-v-grafu]{definována} jako váha nejkratší cesty.
@@ -20,7 +20,7 @@ V moment, kdy známe vzdálenost každého vrcholu od každého, stačí pouze s
 excentricitu, resp. výstřednost, každého vrcholu a vybrat pouze ty s minimální.
 
 Jistě není překvapením, že zkoušet z každého vrcholu všechny možné cesty do
-všech ostatních vrcholů a z nich vybírat ty nejkratší není dvakrát efektivní.
+všech ostatních vrcholů a z nich vybírat ty nejkratší, není dvakrát efektivní.
 Floydův-Warshallův algoritmus stojí na dvou principech, jimž se především v
 programování říká \emph{rekurze} a \emph{dynamické programování}. Jejich úplné
 pochopení a nabytí schopnosti využívat může být časově náročné, ale
@@ -34,23 +34,25 @@ zatím neznali (odtud \emph{dynamické programování}).
 
 Naší prací v této podsekci je dát předchozímu odstavci formální podobu. Ať $G =
 (V,E,w)$ je souvislý ohodnocený graf, kde $V = \{v_1,\ldots,v_n\}$. Definujme
-funkci $\delta(i,j,k): \{1,\ldots,n\}^3 \to \R^+$ následovně. Ať $\delta(i,j,k)$
+zobrazení $\delta: \{1,\ldots,n\}^3 \to \R^+$ následovně. Ať $\delta(i,j,k)$
 je váha nejkratší cesty mezi $v_i$ a $v_j$ \textbf{využívající pouze vrcholy z
 podmnožiny vrcholů} $\{v_1,\ldots,v_k\}$ (samozřejmě, kromě počátečního $v_i$ a
 koncového $v_j$). I když je $G$ souvislý, tak taková cesta nemusí vždy
-existovat, v takovém případě je $\delta(i,j,k) = \infty$.
+existovat; v takovém případě je $\delta(i,j,k) = \infty$. Je snadné si uvědomit,
+že $d_G(v_i,v_j) = \delta(i,j,n)$, čili vzdálenost mezi vrcholy v grafu $G$ je
+váha nejkratší cesty, která smí využít jeho všechny vrcholy.
 
 Je zřejmé, že $\delta(i,j,k) \leq \delta(i,j,k-1)$, neboť máme jeden vrchol
 navíc, a přes ten může vést nějaká kratší cesta. Základní, a vlastně jedinou,
 myšlenkou Floydova-Warshallova algoritmu je pozorování, že když nastane situace,
 kdy ${\delta(i,j,k) < \delta(i,j,k-1)}$, pak ta kratší cesta musí využívat
-vrchol $v_k$. Ovšem, tuto cestu lze v takovém případě rozdělit na dvě -- na
-cestu z $v_i$ do $v_k$ a na cestu $v_k$ do $v_j$. Původní cesta $v_i\cdots v_k
-\cdots v_j$ využívala pouze vrcholy z $\{v_1,\ldots,v_k\}$, takže obě její
-části, $v_1 \cdots v_k$ i $v_k \cdots v_j$ využívají pouze vrcholy
-z~$\{v_1,\ldots,v_{k-1}\}$. Zároveň to musejí být právě ty nejkratší cesty mezi
-$v_i$ a $v_k$ a $v_k$ a $v_j$, jinak by celková cesta $v_1 \cdots v_k \cdots
-v_j$ nebyla ta nejkratší. Mrkněte na obrázek
+vrchol $v_k$. Ovšem, takovou cestu lze rozdělit na dvě -- na cestu z $v_i$ do
+$v_k$ a cestu $v_k$ do $v_j$. Původní cesta $v_i\cdots v_k \cdots v_j$ využívala
+pouze vrcholy z $\{v_1,\ldots,v_k\}$, takže obě její části, $v_1 \cdots v_k$ i
+$v_k \cdots v_j$ využívají pouze vrcholy z~$\{v_1,\ldots,v_{k-1}\}$. Zároveň to
+musejí být právě ty nejkratší cesty mezi $v_i$ a $v_k$ a $v_k$ a $v_j$, jinak by
+celková cesta $v_1 \cdots v_k \cdots v_j$ nebyla ta nejkratší. Mrkněte na
+\myref{obrázek}{fig:delta-i-j-k}.
 
 \begin{figure}[h]
  \centering
@@ -87,3 +89,110 @@ v_j$ nebyla ta nejkratší. Mrkněte na obrázek
  $\delta(\clr{i},\clr{j},\clb{4}) = 6$.}
  \label{fig:delta-i-j-k}
 \end{figure}
+
+Odtud plyne, že $\delta(i,j,k)$ je buď
+\begin{itemize}
+ \item rovna $\delta(i,j,k-1)$, pokud přes vrchol $v_k$ nevede žádná kratší
+  cesta z~$v_i$ do $v_j$, nebo
+ \item rovna součtu vah nejkratší cesty z $v_i$ do $v_k$ a nejkratší cesty z
+  $v_k$ do $v_j$, pokud přes vrchol $v_k$ nějaká kratší cesta z $v_i$ do $v_j$
+  vede. V symbolech je tento součet roven $\delta(i,k,k-1) + \delta(k,j,k-1)$.
+\end{itemize}
+Předchozí body se dají shrnout do jednoho zápisu, neboť $\delta(i,j,k)$, jakožto
+váha \textbf{nejkratší} cesty, je vždy menším z obou množství. Konkrétně,
+vzoreček stojící za celým Floydovým-Warshallovým algoritmem je tento:
+\begin{equation*}
+ \label{eq:delta-i-j-k}
+ \tag{$\triangle$}
+ \delta(i,j,k) = \min(\delta(i,j,k-1), \delta(i,k,k-1) + \delta(k,j,k-1)).
+\end{equation*}
+Možná už vás napadá, jak samotný algoritmus bude fungovat. Přeci, čísla
+$\delta(i,j,k)$ mohu spočítat pro všechny dvojice $(i,j) \in \{1,\ldots,n\}^2$ v
+moment, kdy znám $\delta(i,j,k-1)$ opět pro všechny dvojice $(i,j)$. Jenže,
+$\delta(i,j,0)$ je váha hrany mezi $v_i$ a $v_j$, pokud existuje, jinak
+$\infty$. Symbolicky,
+\[
+ \delta(i,j,0) =
+ \begin{cases}
+  w(v_iv_j), &\text{pokud } v_iv_j \in E,\\
+  \infty, &\text{jinak}.
+ \end{cases}
+\]
+To znamená, že znám hodnotu $\delta(i,j,0)$ pro všechny dvojice $(i,j)$, a tedy
+postupným zvyšováním $k$ umím spočítat i všechny hodnoty $\delta(i,j,k)$, a tím
+i nakonec, pro $k = n$, vzdálenosti mezi všemi páry vrcholů.
+
+Nyní, když jsme myšlenku algoritmu doufám objasnili, zbývá jeho postup nějak
+rozumně zapsat. Naštěstí to lze velmi přímočaře, dokonce výrazně snadněji než
+například \hyperref[alg:kruskal]{Kruskalův algoritmus}.
+
+Vlastně nám jde o to postupně nacházet kratší a kratší cesty mezi všemi
+dvojicemi vrcholů. Ten fakt, že hledáme vzdálenosti mezi vskutku \textbf{všemi}
+dvojicemi, nám umožňuje díky závěrům v předchozích odstavcích toto dělat
+efektivně.
+
+Algoritmus vytváří zobrazení $D: V^2 \to (0,\infty]$, kterýmť si vlastně
+\uv{pama\-tuje} váhu zatím nejkratší nalezené cesty mezi každými dvěma vrcholy.
+Na začátku algoritmu je tudíž $D(v,v) \coloneqq 0$ pro všechny $v \in V$ a
+$D(u,v) \coloneqq w(uv)$ pro všechny dvojice $(u,v) \in V^2$, mezi kterými vede
+hrana. Pro všech\-ny ostatní dvojice $(u,v)$ pokládáme $D(u,v) \coloneqq
+\infty$.
+
+Opírajíce sebe o předšedší úvahy víme, že budeme muset učinit v algoritmu $n$
+kroků (to je počet vrcholů $G$) a v $k$-tém kroku vždy počítat hodnoty
+$\delta(i,j,k)$ pro všechny dvojice $(i,j)$. Přejeme si tudíž, aby hodnoty z
+předchozího kroku, tj. $\delta(i,j,k-1)$, byly před spuštěním $k$-tého kroku
+všechny již zakódovány v zobrazení $D$, jakožto čísla $D(v_i,v_j)$,
+představující \textbf{zatím} nejkratší známé cesty mezi všemi dvojicemi vrcholů.
+Rovnost \eqref{eq:delta-i-j-k} se pročež překládá (\textbf{v rámci $k$-tého
+kroku algoritmu}) do rovnosti
+\[
+ D(v_i,v_j) = \min(D(v_i,v_j), D(v_i,v_k) + D(v_k, v_j)).
+\]
+Po skončení $n$-tého kroku bude tedy zobrazení $D$ přesně odpovídat zobrazení
+$d_G$. Konečně můžeme přikročit k samotnému pseudokódu, jenž si prohlédněte
+\hyperref[alg:floyd-warshall]{níže}.
+
+\begin{algorithm}
+ \caption{Floydův-Warshallův algoritmus.}
+ \label{alg:floyd-warshall}
+
+ \SetKwInOut{Input}{input}
+ \SetKwInOut{Output}{output}
+ \SetKw{KwReturn}{return}
+
+ \Input{souvislý ohodnocený graf $G = (V,E,w)$, kde $V = \{v_1,\ldots,v_n\}$}
+ \Output{zobrazení $D:V^2 \to (0,\infty]$ takové, že $D \equiv d_G$}
+ \BlankLine
+ \emph{Inicializace}\;
+ \For{$i \leftarrow 1$ \KwTo $n$} {
+  \For{$j \leftarrow 1$ \KwTo $n$} {
+   \If{$i = j$} {
+    \emph{Vzdálenost od vrcholu k němu samému je $0$}\;
+    $D(v_i,v_i) \leftarrow 0$\;
+   }
+   \Else{
+    \If{$v_iv_j \in E$} {
+     \emph{Vzdálenost mezi různými vrcholy je váha hrany, pokud existuje}\;
+     $D(v_i,v_j) \leftarrow w(v_iv_j)$\;
+    }
+    \Else {
+     \emph{Jinak nastavíme hodnotu na $\infty$}\;
+     $D(v_i,v_j) \leftarrow \infty$\;
+    }
+   }
+  }
+ }
+ \BlankLine
+ \emph{Postupně pro každé $k$ od $1$ do $n$ budeme zmenšovat hodnoty
+ $D(v_i,v_j)$ pro všechny dvojice $(i,j)$}\;
+ \For{$k \leftarrow 1$ \KwTo $n$} {
+  \For{$i \leftarrow 1$ \KwTo $n$} {
+   \For{$j \leftarrow 1$ \KwTo $n$} {
+    $D(v_i,v_j) \leftarrow \min(D(v_i,v_j), D(v_i,v_k) + D(v_k,v_j))$\;
+   }
+  }
+ }
+ \KwReturn $D$\;
+\end{algorithm}
+
