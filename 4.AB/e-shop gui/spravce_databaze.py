@@ -296,3 +296,25 @@ class SpravceDatabaze:
             return kosik
         except sqlite3.Error:
             return None
+
+    # metody navic pro praci s databazi
+    def vsichni_uzivatele(self):
+        """ Metoda pro ziskani vsech uzivatelu z databaze. """
+        try:
+            self.kurzor.execute("""SELECT * FROM uzivatele;""")
+            uzivatele = self.kurzor.fetchall()
+            return uzivatele
+        except sqlite3.Error:
+            return None
+
+    def uloz_uzivatele(self, jmeno, heslo):
+        """ Metoda pro ulozeni noveho uzivatele do databaze. """
+        try:
+            self.kurzor.execute(
+                """INSERT INTO uzivatele (jmeno, heslo) VALUES (?, ?);""",
+                (jmeno, heslo)
+            )
+            self.pripojeni.commit()
+            return None
+        except sqlite3.Error as chyba:
+            return chyba

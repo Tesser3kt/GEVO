@@ -1,3 +1,4 @@
+import hashlib
 import os
 import PySimpleGUI as sg
 from spravce_databaze import SpravceDatabaze
@@ -36,6 +37,46 @@ kosik = Kosik(seznam_produktu)
 # zobraz login
 okno = rozhrani.zobraz_login()
 
+
+def prijatelne_jmeno(jmeno):
+    """ Jmeno musi mit aspon tri znaky a obsahovat jen pismena a cislice."""
+
+    # Sem piste kod
+
+
+def najdi_uzivatele(jmeno):
+    """Najde uzivatele v tabulce uzivatelu a vrati jeho id, jmeno a heslo jako
+    slovnik."""
+
+    # nacti vsechny uzivatele
+    vsechny_uzivatele = spravce_databaze.vsichni_uzivatele()
+
+    # Projdete vsechny uzivatele a najdete uzivatele s danym jmenem.
+    # Jeho udaje vratte jako slovnik s klici 'id', 'jmeno' a 'heslo'.
+
+
+def prijatelne_heslo(heslo):
+    """Heslo musi mit aspon sest znaku, aspon jedno velke pismeno, jedno male
+    pismeno a jednu cislici. """
+
+    # Sem piste kod
+
+
+def zakoduj_heslo(heslo):
+    """Zakoduje heslo pomoci hashovaci funkce sha256."""
+    return hashlib.sha256(heslo.encode()).hexdigest()
+
+
+def uloz_uzivatele(jmeno, heslo):
+    """Ulozi noveho uzivatele do databaze."""
+    spravce_databaze.uloz_uzivatele(jmeno, heslo)
+
+
+def zobraz_upozorneni(zprava):
+    """Zobrazi okno s upozornenim."""
+    sg.popup_ok(zprava, relative_location=POZICE_OKNA)
+
+
 while True:
     udalost, hodnoty = okno.read()
 
@@ -45,56 +86,45 @@ while True:
 
     if udalost == 'Přihlásit se':
         # kliknuti na tlacitko prihlasit se
-        chyba = spravce_databaze.prihlas_uzivatele(hodnoty[0], hodnoty[1])
-        if chyba:
-            sg.popup_ok("Došlo k chybě při přihlašování: ", chyba,
-                        relative_location=POZICE_OKNA)
-        else:
-            # prihlaseni probehlo uspesne
-            okno.close()
-            id_uzivatele = spravce_databaze.najdi_id_uzivatele(hodnoty[0])
-            if not id_uzivatele:
-                sg.popup_ok("Došlo k chybě při přihlašování: ",
-                            "Uživatel nebyl nalezen.",
-                            relative_location=POZICE_OKNA)
-            else:
-                prihlaseny_uzivatel = {
-                    'id': id_uzivatele,
-                    'jmeno': hodnoty[0]
-                }
-                # nacti kosik z databaze
-                seznam_polozek = spravce_databaze.nacti_kosik_z_databaze(
-                    prihlaseny_uzivatel['id']
-                )
-                kosik.nacti_ze_seznamu(seznam_polozek)
-                okno = rozhrani.zobraz_hlavni_menu(hodnoty[0])
+        jmeno = hodnoty[0]
+        heslo = hodnoty[1]
+
+        #######################################################################
+        ############### SEM VYPLNUJTE LOGIKU PRIHLASOVANI #####################
+        #######################################################################
+
+
+
+        #######################################################################
+        ################### TADY KONCI LOGIKA PRIHLASOVANI ####################
+        #######################################################################
+
+        # prihlaseni probehlo uspesne
+        okno.close()
+        # nacti kosik z databaze
+        seznam_polozek = spravce_databaze.nacti_kosik_z_databaze(
+            prihlaseny_uzivatel['id']
+        )
+        kosik.nacti_ze_seznamu(seznam_polozek)
+        okno = rozhrani.zobraz_hlavni_menu(prihlaseny_uzivatel['jmeno'])
 
     if udalost == 'Zaregistrovat se':
         # kliknuti na tlacitko zaregistrovat se
-        chyba = spravce_databaze.registruj_uzivatele(hodnoty[0], hodnoty[1])
-        if chyba:
-            sg.popup_ok("Došlo k chybě při registraci: ", chyba,
-                        relative_location=POZICE_OKNA)
-        else:
-            # registrace probehla uspesne
-            id_uzivatele = spravce_databaze.najdi_id_uzivatele(hodnoty[0])
-            if not id_uzivatele:
-                sg.popup_ok("Došlo k chybě při registraci: ",
-                            "Uživatel nebyl uložen.",
-                            relative_location=POZICE_OKNA)
-            else:
-                prihlaseny_uzivatel = {
-                    'id': id_uzivatele,
-                    'jmeno': hodnoty[0]
-                }
-                seznam_polozek = spravce_databaze.nacti_kosik_z_databaze(
-                    prihlaseny_uzivatel['id']
-                )
-                kosik.nacti_ze_seznamu(seznam_polozek)
-                sg.popup_ok("Registrace proběhla úspěšně.",
-                            relative_location=POZICE_OKNA)
-                okno.close()
-                okno = rozhrani.zobraz_hlavni_menu(hodnoty[0])
+        zadane_jmeno = hodnoty[0]
+        zadane_heslo = hodnoty[1]
+
+        #######################################################################
+        ############### SEM VYPLNUJTE LOGIKU REGISTRACE #######################
+        #######################################################################
+
+
+
+        #######################################################################
+        ################### TADY KONCI LOGIKA REGISTRACE ######################
+        #######################################################################
+
+        sg.popup_ok("Registrace proběhla úspěšně.",
+                    relative_location=POZICE_OKNA)
 
     if udalost == 'Odhlásit se':
         # kliknuti na tlacitko odhlasit se
