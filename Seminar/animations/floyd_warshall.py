@@ -10,6 +10,8 @@ INF_COLOR = RED_C
 TABLE_FONT_SIZE = 48
 
 LOOP_INDEX_COLOR = TEAL
+START_END_COLOR = RED_C
+OLD_PATH_COLOR = GREEN_C
 
 
 class FloydWarshall(Scene):
@@ -24,6 +26,34 @@ class FloydWarshall(Scene):
         return new_edges
 
     def construct(self):
+        def show_paths(i, j, old_path, new_path):
+            for x in (i, j):
+                graph[f"v_{x}"].generate_target()
+                graph[f"v_{x}"].target.become(
+                    LabeledDot(
+                        MathTex(f"v_{x}", color=WHITE), color=START_END_COLOR,
+                        radius=0.3
+                    ).move_to(graph[f"v_{x}"].get_center())
+                )
+            self.play(
+                MoveToTarget(graph[f"v_{i}"]),
+                MoveToTarget(graph[f"v_{j}"])
+            )
+
+            if old_path:
+                for v in old_path[1:-1]:
+                    graph[f"v_{v}"].generate_target()
+                    graph[f"v_{v}"].target.become(
+                        LabeledDot(
+                            MathTex(f"v_{v}", color=WHITE),
+                            color=OLD_PATH_COLOR,
+                            radius=0.3
+                        ).move_to(graph[f"v_{v}"].get_center())
+                    )
+                self.play(AnimationGroup(*[
+                    MoveToTarget(graph[f"v_{v}"])
+                    for v in old_path[1:-1]
+                ]))
 
         # Create graph
         nx_graph = nx.graph_atlas(997)
@@ -80,11 +110,21 @@ class FloydWarshall(Scene):
             [99999 for _ in range(len(nx_graph))]
             for _ in range(len(nx_graph))
         ]
+        paths = {}
         for i in range(len(nx_graph)):
             D[i][i] = 0
+            paths[(i+1, i+1)] = [i+1]
         for edge, weight in edge_weights.items():
             D[nx_vertices.index(edge[0])][nx_vertices.index(edge[1])] = weight
             D[nx_vertices.index(edge[1])][nx_vertices.index(edge[0])] = weight
+            paths[(nx_vertices.index(edge[0])+1,
+                   nx_vertices.index(edge[1])+1)] = [
+                nx_vertices.index(edge[0])+1, nx_vertices.index(edge[1])+1
+            ]
+            paths[(nx_vertices.index(edge[1])+1,
+                   nx_vertices.index(edge[0])+1)] = [
+                nx_vertices.index(edge[1])+1, nx_vertices.index(edge[0])+1
+            ]
 
         first_row = [VMobject()] + [
             MathTex(f"v_{i+1}", color=VERTEX_COLOR, font_size=TABLE_FONT_SIZE)
@@ -181,7 +221,8 @@ class FloydWarshall(Scene):
             distance_table[len(nx_graph) + 2].get_center()
         )
         self.play(Create(square))
-        for k in range(1, 3):
+
+        for k in range(1, len(nx_graph) + 1):
             self.play(k_label[1].animate.become(
                 MathTex(str(k), color=LOOP_INDEX_COLOR
                         ).next_to(k_label[0], RIGHT)
@@ -215,6 +256,12 @@ class FloydWarshall(Scene):
                 self.play(*animation)
 
                 for j in range(1, 3):
+                    old_path = paths.get((i, j), [])
+                    if D[i-1][j-1] > D[i-1][k-1] + D[k-1][j-1]:
+                        D[i-1][j-1] = D[i-1][k-1] + D[k-1][j-1]
+                        paths[(i, j)] = (paths.get((i, k), [])[:-1] +
+                                         paths.get((k, j), []))
+                    new_path = paths.get((i, j), [])
                     if j != 1:
                         square_animation = []
                         square_animation.append(
@@ -235,4 +282,5 @@ class FloydWarshall(Scene):
                         square = square2
                         self.play(*square_animation)
 
+                    show_paths(i, j, old_path, new_path)
         self.wait()
