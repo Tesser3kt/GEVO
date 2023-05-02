@@ -2,6 +2,7 @@
 \usepackage{geometry}
 \geometry{a4paper,margin=1.5cm,footskip=2em}
 
+\usepackage[czech]{babel}
 \usepackage[table]{xcolor}
 
 \usepackage{pgfpages}
@@ -37,7 +38,7 @@
 \usepackage{hyperref}
 \urlstyle{same}
 
-\title{\LaTeX (asi ty nejužitečnější) snippety}
+\title{\LaTeX~(asi ty nejužitečnější) snippety}
 \author{Adam Klepáč}
 \date{}
 
@@ -50,20 +51,236 @@ dopíšete (hlavně ty matematické). Některé fungují jen v matice. Abych to
 odlišil, když}
 \begin{itemize}
  \item \emph{je u snippetu \keys{\tab}, tak se aktivuje Tabem};
+ \item \emph{je u snippetu \keys{\$}, tak funguje jen v math modu}.
 \end{itemize}
 
+\textbf{Snippety mají tzv. \uv{tabstopy}, to jsou místa označená v tom
+automaticky vytvořeném textu, kam Vim skočí při zmáčknutí \keys{\tab}. Je
+důležité vždycky snippet dokončit; to znamená \uv{doTabovat} až na konec, jinak
+se vám stane, že když budete chtít odsadit, tak vám místo toho Vim skočí někam
+nahoru, aby dokončil snippet.}
 \bigskip
 
 \begin{xltabular}{\textwidth}{
-	>{\setmenukeyswin}c @{\hspace{2em}}
+	>{\setmenukeyswin}c@{\hspace{2em}}
 	>{\renewcommand\cellalign{cl}\RaggedRight\arraybackslash}r}
 
-	\multicolumn{2}{c}{\large \textbf{Kapitoly, sekce atd.}}
+ 	\multicolumn{2}{c}{\large \textbf{Sekce, kapitoly, atd.}}\\*
 	\toprule
 
-	\keys{
-\end{xltabular}
+	part | chap | sec | ssec | sssec \keys{\tab} & Snippety pro nadpisy s
+	automatickým labelem.\\*
+	\bottomrule
 
+	& \\*
+	\multicolumn{2}{c}{\large \textbf{Environments}}\\*
+	\toprule
+
+ 	mk & Inline math (\$...\$)\\*
+ 	\midrule
+ 	md & Display math (\textbackslash [ ... \textbackslash ])\\*
+ 	\midrule
+ 	beg \keys{\tab} & \makecell[r]{
+	 Obecný \textbackslash begin\{\} ... \textbackslash end\{\}.\\
+	 Název za begin se automaticky kopíruje i do end.}\\*
+	\midrule
+	 ben | bit \keys{\tab} &
+	\makecell[r]{
+	 enumerate/itemize\\
+	 Po prvním Tabu můžete psát nastavení seznamu.\\
+	 Když něco napíšete, tak se to samo hodí do [].\\
+	 Uvnitř stiskem jednoho Enter vytvoříte \textbackslash item.\\
+	 Dva stisky Enter ho zase zruší, když chcete odstavec.
+	}\\
+	\midrule
+
+	fig | tikz \keys{\tab} & Prázdná figure/figure s tikzpicture.\\
+	\midrule
+
+ 	table | tabular \keys{\tab} & Prázdná table/table s tabularx.\\
+ 	\midrule
+
+ 	eq | eq* \keys{\tab} & equation/equation*\\
+ 	\midrule
+
+ 	split \keys{\tab} & equation* se split uvnitř\\
+ 	\midrule
+
+ 	== \keys{\$} &
+ 	\makecell[r]{
+ 	 Změní se na \&= \textbackslash\textbackslash.\\
+ 	 Funguje jenom v splitu.\\
+ 	 Zarovnává dlouhé rovnosti podle =.
+ 	}\\
+ 	\midrule
+
+	\makecell{
+	 thm | prop | claim | lem\\
+	 def | cor | prob | exam\\
+	 rmrk | prf | warn | obs
+	}\keys{\tab} &
+	\makecell[r]{
+	 Všechna možná  prostředí -- theorem, lemma atd.\\
+	 První Tab je skok za název prostředí,\\
+	 když chcete napsat název.\\
+	 Druhý Tab je na label, automaticky\\
+	 vygenerovaný z názvu.
+	}\\
+	\bottomrule
+	& \\
+	&\\
+
+	\multicolumn{2}{c}{\large \textbf{Závorky}}\\
+	\toprule
+	lr( | lr[ | lr\{ | lr< \keys{\tab}\keys{\$} & Závorky, co se přizpůsobí
+ 	velikosti.\\
+ 	\midrule
+
+ 	() \keys{\$}& To samé, co lr(, akorát automatické.\\
+ 	\midrule
+
+ 	set \keys{\$} & Vytvoří závorky \{ \}.\\
+ 	\midrule
+
+ 	norm \keys{\$} & Vytvoří dvojité svislé čáry $\|\ldots\|$.\\
+ 	\midrule
+
+ 	lr| | lrn \keys{\tab}\keys{\$} & Přizpůsobivé $|\ldots|$ / $\|\ldots\|$.\\
+ 	\midrule
+
+ 	<> \keys{\$} & Špičaté závorky $\langle \ldots \rangle$.\\
+ 	\bottomrule
+
+ 	& \\
+ 	\multicolumn{2}{c}{\large \textbf{Dekorátory textu}}\\
+ 	\toprule
+
+ 	em | bf | al | tt \keys{\tab} & \textbackslash emph\{\}, \textbackslash
+ 	textbf\{\} atd.\\
+ 	\midrule
+
+ 	tt \keys{\$} & \textbackslash text\{\} v math modu.\\
+ 	\midrule
+
+	cal | bb | frak | mrm | bf | sf \keys{\$} & Prázdný \textbackslash
+ 	mathcal\{\}, \textbackslash mathbb\{\} apod.\\
+ 	\midrule
+
+ 	písmeno + cal | bb | frak | rm | bf | sf \keys{\$}&
+ 	\makecell[r]{
+ 	 \textbackslash mathcal\{\}, \textbackslash mathbb\{\} apod.\\
+ 	 s tím písmenem uvnitř.\\
+ 	 Např. z Acal se stane \textbackslash	mathcal\{A\}.
+ 	}\\
+ 	\midrule
+
+ 	vec | bar | tld | ndl | hat \keys{\$} & Prázdný \textbackslash vec\{\},
+ 	\textbackslash bar\{\} apod.\\
+ 	\midrule
+
+ 	písmeno + \textbackslash. | bar | tld | \textbackslash\_ | hat \keys{\$} &
+ 	\textbackslash vec\{\}, \textbackslash bar\{\} atd. s písmenem uvnitř.\\
+ 	\bottomrule
+
+ 	& \\
+ 	\multicolumn{2}{c}{\large \textbf{Obyčejné funkce}}\\
+ 	\toprule
+
+ 	sq \keys{\$} & \textbackslash sqrt\{\}\\
+ 	\midrule
+
+ 	nsq \keys{\$} & n-tá odmocnina \textbackslash sqrt[]\{\}\\
+ 	\midrule
+
+ 	\makecell{
+ 	 sin | cos | tan | cot | csc | sec\\
+ 	 arcsin | arccos | arctan | arccot\\
+ 	 exp | log\\
+ 	 det | deg | dim\\
+ 	 ker | img | dom | codom\\
+ 	 \#
+ 	} \keys{\$} & Před všechna se hodí automaticky \textbackslash.\\
+ 	\bottomrule
+
+	& \\
+ 	\multicolumn{2}{c}{\large \textbf{Inline math symboly}}\\
+ 	\toprule
+
+ 	... \keys{\$} & \textbackslash ldots\\
+ 	\midrule
+
+ 	nf \keys{\$} & nekonečno\\
+ 	\midrule
+
+	=> | =< \keys{\$} & implikace zleva doprava/zprava doleva.\\
+	\midrule
+
+	iff \keys{\$} & ekvivalence\\
+	\midrule
+
+	aa | vv \keys{\$} & logické a/nebo\\
+	\midrule
+
+	neg \keys{\$} & negace\\
+	\midrule
+
+	AA | EE \keys{\$} & pro všechny/existuje\\
+	\midrule
+
+	!= | <= | >= \keys{\$} & není rovno/menší nebo rovno/větší nebo rovno\\
+	\midrule
+
+ 	:= \keys{\$} & Definítko (\textbackslash coloneqq)\\
+ 	\midrule
+
+ 	<< | >> \keys{\$} & Mnohem menší/mnohem větší.\\
+ 	\midrule
+
+ 	-= | $\sim$= | $\sim\sim$ \keys{\$} & Identická rovnost/isomorfismus (bijekce)/podobnost.\\
+ 	\midrule
+
+ 	+- | -+ \keys{\$} & Plus minus/minus plus\\
+ 	\midrule
+
+	oo \keys{\$} & Složení zobrazení $ \circ $.\\
+	\midrule
+
+	xx \keys{\$} & Direktní součin $ \times $.\\
+	\midrule
+
+	** \keys{\$} & Násobení $ \cdot $.\\
+	\midrule
+
+	\textbackslash\textbackslash\textbackslash | Nn | UU \keys{\$} & Množinové
+	minus/průnik/sjednocení.\\
+	\midrule
+
+ 	-> (to) \keys{\$} & Zobrazení z ... do ... ($ \to $).\\
+ 	\midrule
+
+ 	!> \keys{\$} & Zobrazuje se na ... ($ \mapsto $).\\
+ 	\midrule
+
+ 	inn | notin \keys{\$} & Je/není prvkem ...\\
+ 	\midrule
+
+ 	cc | scc | ncc \keys{\$} &  podmnožina/vlastní podmnožina/není podmnožinou\\
+ 	\midrule
+
+ 	div | ndiv \keys{\$} & Dělí/nedělí ...\\
+ 	\midrule
+
+ 	|| \keys{\$} & Dělítko v definici množiny, třeba $\{(x,y) \in \mathbb{R}^2
+ 	\mid x^2+y^2 = 1\}$.\\
+ 	\midrule
+
+ 	sgn \keys{\$} & (-1) na něco\\
+ 	\bottomrule
+
+ 	\multicolumn{2}{c}{\large \textbf{Display math symboly}}\\
+ 	\toprule
+
+\end{xltabular}
 
 \end{document}
 
