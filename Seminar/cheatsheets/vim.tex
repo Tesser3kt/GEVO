@@ -2,6 +2,7 @@
 \usepackage{geometry}
 \geometry{a4paper,margin=1.5cm,footskip=2em}
 
+\usepackage[czech]{babel}
 \usepackage[table]{xcolor}
 
 \usepackage{pgfpages}
@@ -37,270 +38,228 @@
 \usepackage{hyperref}
 \urlstyle{same}
 
-\title{Overleaf Keyboard Shortcuts}
-\author{Overleaf}
-\date{Updated 21 Feb, 2023}
+\title{AstroNvim pár klávesových zkratek}
+\author{Adam Klepáč}
+\date{}
 
 \begin{document}
 
 \maketitle
 
-\emph{Some keyboard shortcuts in this list may not be available on non-US keyboards or in Rich Text/vim/emacs modes. For example, some input methods on the Mac may use \keys{\Alt} (equivalent of {\setmenukeyswin\keys{\Alt}}) for accented characters input instead.}
+\centering
+\emph{Bacha! Vim je case-sensitive.}
 
-\emph{Mac users may also want to refer to this list of common editor keyboard shortcuts on Mac:\\ \url{https://support.apple.com/en-us/HT201236\#text}}
+\emph{Věci s * jsou podle mě extra užitečný.}
 
 \bigskip
 
 \begin{xltabular}{\textwidth}{
 		>{\setmenukeyswin}c @{\hspace{2em}}
-		>{\setmenukeysmac}c @{\hspace{2em}}
-		>{\renewcommand\cellalign{cl}\RaggedRight\arraybackslash}X}
-	\toprule
-	\makecell{\sffamily Windows \faWindows\\\sffamily\textsc{gnu}/Linux \faLinux} & \sffamily Mac \faApple & \multicolumn{1}{c}{\sffamily Description \faComment}\\
-	\midrule
-	\endfirsthead
+		>{\renewcommand\cellalign{cl}\RaggedRight\arraybackslash}r}
 
-	\footnotesize \faChevronCircleLeft\ (from previous page)\\[1em]
+	\multicolumn{2}{c}{\textbf{\large Zkratky v normal modu}}\\
 	\toprule
-	\makecell{\sffamily Windows \faWindows\\\sffamily\textsc{gnu}/Linux \faLinux} & \sffamily Mac \faApple & \multicolumn{1}{c}{\sffamily Description \faComment}\\
-	\midrule
-	\endhead
 
-	\\[-1.5em]
-	\multicolumn{3}{r}{\footnotesize (continued next page) \faChevronCircleRight}
-	\endfoot
+	\keys{:} & Proveď příkaz.\\*
+	\midrule
+
+	\keys{Esc}* & Zpět do normal mode.\\*
+	\midrule
+
+	\keys{h | j | k | l} nebo
+	\keys{\arrowkeyleft~|~\arrowkeydown~|~\arrowkeyup~|~\arrowkeyright}* &
+	Doleva/dolu/nahoru/doprava.\\*
+	\midrule
+
+	\keys{a}* & Insert mode (za zvýrazněný symbol).\\*
+	\midrule
+
+	\keys{i}* & Insert mode (před zvýrazněný symbol).\\*
+	\midrule
+
+	\keys{v}* & Visual mode.\\*
+	\midrule
+
+	\keys{V}* & Visual mode vodorovný výběr. Označí současný řádek.\\*
+	\midrule
+
+	\keys{\ctrl + v} & Visual mode svislý výběr.\\*
+	\midrule
+
+	\keys{H~|~M~|~L} & Vršek/střed/spodek obrazovky.\\*
+	\midrule
+
+	\keys{w~|~e} &
+	\makecell[r]{Skoč na začátek/konec nejbližšího dalšího slova.\\
+	 Co je ve Vimu \uv{slovo} je u symbolů někdy trochu random.}
+	 \\*
+	\midrule
+
+	\keys{b~|~ge} & Skoč na začátek/konec nejbližšího předchozího slova.\\*
+	\midrule
+
+	\keys{0}* & Skoč na začátek řádku.\\*
+	\midrule
+
+	\keys{\^{}}* & Skoč na první symbol na řádku, co není mezera.\\*
+	\midrule
+
+	\keys{\$}* & Skoč na konec řádku.\\*
+	\midrule
+
+	\keys{g\_} & Skoč na poslední symbol řádku, co není mezera.\\*
+	\midrule
+
+	\keys{gg} & Skoč na začátek souboru.\\*
+	\midrule
+	
+	\keys{G} & Skoč na konec souboru.\\*
+	\midrule
+
+	\keys{\%}* & 
+	\makecell[r]{Skoč na druhou z páru závorek(třeba z `[' na `]').\\ Taky ze
+	 začátku bloku na konec, třeba z \textbackslash begin\{...\} na
+	\textbackslash end\{...\}}.\\*
+	\midrule
+
+	\keys{\{~|~\}} & Skoč na předchozí/další odstavec.\\*
+	\midrule
+
+	\keys{o}* & Nový řádek pod tímto + rovnou insert mode.\\*
+	\midrule
+
+	\keys{O}* & Nový řádek nad tímto + rovnou insert mode.\\*
+	\midrule
+
+	\keys{gw} & Reflow (co já vím, jak je to česky) vybraný text (opraví
+	zarovnání).\\*
+	\midrule
+
+	\keys{gwip}* & Reflow tenhle odstavec.\\*
+	\midrule
+
+	\keys{u}* & Undo.\\*
+	\midrule
+
+	\keys{U} & Undo jen poslední řádek.\\*
+	\midrule
+
+	\keys{\ctrl + r}* & Redo.\\*
+	\midrule
+
+	\keys{<<~|~>>}* & \makecell[r]{Posuň tenhle řádek o Tab doleva/doprava.\\
+	Když chcete třeba čtyři doleva, stačí \keys{4<<}.}\\*
+	\midrule
+
+	\keys{yy}* & Zkopíruj tenhle řádek.\\*
+	\midrule
+
+	\keys{p}* & Vlož za současnou pozici.\\*
+	\midrule
+
+	\keys{P}* & Vlož před současnou pozici.\\*
+	\midrule
+
+	\keys{dd}* & \makecell[r]{Smaž tenhle řádek.\\
+	 Pozor, ve Vimu je smazat vždycky \uv{vyjmout},\\
+	takže se ten text zároveň zkopíruje.}\\*
 
 	\bottomrule
-	\endlastfoot
-
-
-	%%%%%% Trigger compilation
-	\makecell{%
-		\keys{\ctrl + .}\\
-		\keys{\ctrl + S}\\
-		\keys{\ctrl + Enter}\\
-		(vim) \texttt{:w}} &
-
-	\makecell{%
-		\keys{\ctrl + .}\\
-		\keys{\cmd + S}\\
-		\keys{\cmd + Enter}\\
-		(vim) \texttt{:w}} &
-	Trigger compilation
-	\\*
-	\midrule
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	%%%%%%% Toggle comment on selected lines
-	\keys{\ctrl + /} & \keys{\cmd + /} & Toggle \texttt{\%} comment on selected line(s). May not work on some non-US keyboards.
-	\\*
-
-	\midrule
-	%%%%%%%%%%%%%%%%%%%
-
-	%%%%%%%%%% Delete line
-	\keys{\ctrl + D} & \keys{\cmd + D} & Delete current line
-	\\*
-	\midrule
-
-
-	%%%%%%%%% Auto-complete
-	\makecell{
-		\keys{\ctrl + \SPACE}
-		\\ \keys{\Alt + \SPACE}
-	} &
-	\makecell{
-		\keys{\ctrl + \SPACE}
-		\\ \keys{\Alt + \SPACE}
-	} &
-	Open auto-complete.\newline\rule{0pt}{3ex}%
-	Use \keys{\arrowkeyup} \keys{\arrowkeydown} \keys{Tab} to select candidate, and \keys{Enter} to insert.
-	\\*
-	\midrule
-	%%%%%%%%%%%%%%%%%%%%%%%%
-
-	%%%%%%%%% Advanced reference search
-	\makecell{
-		\keys{\ctrl + \SPACE}
-		\\ \keys{\Alt + \SPACE}
-	} &
-	\makecell{
-		\keys{\ctrl + \SPACE}
-		\\ \keys{\Alt + \SPACE}
-	} &
-	Advanced reference search; activated in citation commands e.g.~\texttt{\string\cite\{...\}}
-	\\*
-	\midrule
-	%%%%%%%%%%%%%%%%%%%%%%%%
-
-	%%%%% Folding
-	% Toggle fold: F2 on both Windows/Linux and macOS. (same as Ace)
-	% Unfold all: Alt-Shift-0 on Windows/Linux and Opt-Shift-0 on macOS. (same as Ace)
-	% Fold all: Alt-Shift-1 on Windows/Linux and Opt-Shift-1 on macOS.
-	\keys{F2} & \keys{F2} & Toggle fold \\
-	\midrule
-
-	\keys{\Alt + \shift + 0} & \keys{\Alt + \shift + 0} & Unfold all \\
-	\midrule
-
-	\keys{\Alt + \shift + 1} & \keys{\Alt + \shift + 1} & Fold all \\
-	\midrule
-	%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	%%%%% Indents
-	\makecell{\keys{\ctrl + [}\\
-	\keys{\shift + Tab}}
-	& \makecell{\keys{\cmd + [}\\
-	\keys{\shift + Tab}}& Indent less
-	\\*
-	\midrule
-
-	\makecell{\keys{\ctrl + ]}\\
-		\keys{Tab} (at line start)} &
-	\makecell{\keys{\cmd + ]}\\\keys{Tab} (at line start)} & Indent more
-	\\*
-	\midrule
-	%%%%%%%%%%%%%%
-
-	%%%%%%%% Change case
-	\keys{\ctrl + U} & \keys{\ctrl + U} & To uppercase\\*
-	\midrule
-
-	\keys{\ctrl + \shift + U} & \keys{\ctrl + \shift + U} & To lowercase \\*
-	\midrule
-	%%%%%%%%%%%%%%%%%%
-
-	\keys{\ctrl + B} & \keys{\cmd + B} & Bold text (\verb|\textbf|) \\*
-	\midrule
-
-	\keys{\ctrl + I} & \keys{\cmd + I} & Italicise text (\verb|\textit|) \\*
-	\midrule
-
-	\keys{\ctrl + X} & \keys{\cmd + X} & Cut selected text \\*
-	\midrule
-
-	\keys{\ctrl + C} & \keys{\cmd + C} & Copy selected text \\*
-	\midrule
-
-	\keys{\ctrl + V} & \keys{\cmd + V} & Paste copied text \\*
-	\midrule
-
-	\keys{\ctrl + \shift + D} & \keys{\cmd +\shift + D} & Duplicate selected text \\*
-	\midrule
-
-	\keys{\Alt + \shift + \arrowkeyup} & \keys{\Alt + \shift + \arrowkeyup}  & Copy lines up
-	\\*
-	\midrule
-
-	\keys{\Alt + \shift + \arrowkeydown} & \keys{\Alt + \shift + \arrowkeydown} & Copy lines down
-	\\*
-	\midrule
-
-	\keys{\Alt + \arrowkeyup} & \keys{\Alt + \arrowkeyup} & Move lines up
-	\\*
-	\midrule
-
-	\keys{\Alt + \arrowkeydown} & \keys{\Alt + \arrowkeydown} & Move lines down
-	\\*
-	\midrule
-
-	% \keys{\ctrl + \Alt + S} &  & Sort selected lines 
-	% \\*
-	% \midrule
-
-	\keys{\ctrl + Z} & \keys{\cmd + Z} & Undo \\*
-	\midrule
-
-	\makecell{\keys{\ctrl + \shift + Z}\\[3pt]\keys{\ctrl + Y}} & \makecell{\keys{\cmd + \shift + Z}\\[3pt]\keys{\cmd + Y}} & Redo \\*
-	\midrule
-
-	% \keys{\ctrl + P} & \keys{\ctrl+ P} & Go to nearest matching start/close parenthesis, brace or bracket \verb|(){}[]|
-	% \\*
-	% \midrule
-
-	% \keys{\ctrl + \shift + P} & \keys{\ctrl+ \shift + P} & Select to nearest matching \emph{close} parenthesis, brace or bracket \verb|(){}[]|
-	% \\*
-	% \midrule
-
-	% \keys{\ctrl + \shift + M} & \keys{\ctrl + \shift + M} & Expand selection to current nearest matching start/close parenthesis, brace or bracket \verb|(){}[]|
-	% \\*
-	% \midrule
-
-	\keys{\Alt + \arrowkeyleft} & \keys{\ctrl+ A} & Go to line start
-	\\*
-	\midrule
-
-	\keys{\Alt + \arrowkeyright} & \keys{\ctrl + E} & Go to line end
-	\\*
-	\midrule
-
-
-	\keys{\ctrl + Home} & \keys{\cmd + \arrowkeyup} & Go to document start
-	\\*
-	\midrule
-
-	\keys{\ctrl + End} & \keys{\cmd + \arrowkeydown} & Go to document end
-	\\*
-	\midrule
-
-	\keys{\ctrl + \shift + L} & \keys{\cmd + \shift + L} & Go to line number\ldots
-	\\*
-	\midrule
-
-	\keys{\ctrl + F}
-	% \makecell{\keys{\ctrl + F},\quad\keys{\ctrl+H}\\
-	% (emacs) \keys{\shift + \Alt +5}}
-	&
-	\keys{\cmd + F}
-	% \makecell{\keys{\cmd + F}\\
-	% \keys{\shift + \Alt +5}}
-	& Find \\*
-	\midrule
-
-	\keys{\ctrl + G}  & \keys{\cmd + G} & Find next \\*
-	\midrule
-
-	\keys{\ctrl + \shift + G} & \keys{\cmd + \shift + G} & Find previous \\*
-	\midrule
-
-	\keys{\ctrl + \Alt + K} & \keys{\cmd + \Alt + G} & Highlight all currently selected\\*
-	\midrule
-
-	\keys{\ctrl + A} & \keys{\cmd + A} & Select all
-	\\*
-	\midrule
-
-	\keys{\ctrl} {\footnotesize+} click & \keys{\cmd} {\footnotesize+} click & Multiple cursors
-	\\*
-	\midrule
-
-	\keys{\ctrl + \Alt + \arrowkeyup} & \keys{\ctrl + \Alt + \arrowkeyup} & Add cursor above (cumulative)
-	\\* \midrule
-
-	\keys{\ctrl + \Alt + \shift + \arrowkeyup} & \keys{\ctrl + \Alt + \shift + \arrowkeyup} & Add cursor above (remove previously added)
-	\\* \midrule
-
-	\keys{\ctrl + \Alt +\arrowkeydown} & \keys{\ctrl + \Alt + \arrowkeydown} & Add cursor below (cumulative)
-	\\*\midrule
-
-	\keys{\ctrl + \Alt + \shift + \arrowkeydown} & \keys{\ctrl + \Alt + \shift + \arrowkeydown} & Add cursor below (remove previously added)
-	\\*\midrule
-
-	\keys{\Alt} {\footnotesize+} drag & \keys{\Alt} {\footnotesize+} drag & Rectangular selection
-	\\*
-	\midrule
-
-	\keys{\ctrl + J} & \keys{\cmd + J} & Toggle review panel
-	\\*
-	\midrule
-
-	\keys{\ctrl + \shift + A} & \keys{\cmd + \shift + A} & Toggle track changes
-	\\*
-	\midrule
-
-	\keys{\ctrl + \shift + C} & \keys{\cmd + \shift + C} & Add comment in review panel
 \end{xltabular}
 
+\begin{xltabular}{\textwidth}{
+		>{\setmenukeyswin}c @{\hspace{2em}}
+		>{\renewcommand\cellalign{cl}\RaggedRight\arraybackslash}r}
+
+	\multicolumn{2}{c}{\textbf{\large Zkratky ve visual modu}}\\
+	\toprule
+
+	\keys{ib} & Vyber všechno uvnitř `()'.\\*
+	\midrule
+
+	\keys{iB}* & Vyber všechno uvnitř `\{\}'.\\*
+	\midrule
+
+	\keys{<~|~>}* &
+	\makecell[r]{Posuň vybrané o jeden Tab doleva/doprava.\\
+	Když potřebujete třeba o čtyři doleva, stačí zmáčknout \keys{4<}.}\\*
+	\midrule
+
+	\keys{y}* & Zkopíruj vybrané.\\*
+	\midrule
+
+	\keys{d}* & Smaž vybrané (zároveň zkopíruje).\\*
+
+	\bottomrule
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{
+		>{\setmenukeyswin}c @{\hspace{2em}}
+		>{\renewcommand\cellalign{cl}\RaggedRight\arraybackslash}r}
+
+	\multicolumn{2}{c}{\textbf{\large AstroNvim zkratky (vesměs v normal modu)}}\\
+	\toprule
+
+	\keys{\ctrl + \arrowkeyup~|~\arrowkeydown~|~\arrowkeyleft~|~\arrowkeyright} &
+	Zvětši/zmenši daným směrem aktivní okno.\\*
+	\midrule
+
+	\keys{\ctrl + k~|~j~|~h~|~l} & Přepni na okno nahoře/dole/vlevo/vpravo.\\*
+	\midrule
+
+	\keys{\ctrl + s} & Ulož soubor.\\*
+	\midrule
+
+	\keys{\ctrl + q} & Ukonči Neovim.\\*
+	\midrule
+
+	\keys{\SPACE + /}* & Odkomentuj řádek/vybrané řádky (umí poznat jazyk).\\*
+	\midrule
+
+	\keys{\SPACE + n} & Nový soubor (v otevřené složce).\\*
+	\midrule
+
+	\keys{\SPACE + c} & Zavři tenhle buffer.\\*
+	\midrule
+
+	\keys{\textbackslash} & Rozděl okno vodorovně.\\*
+	\midrule
+
+	\keys{|} & Rozděl okno svisle.\\*
+	\midrule
+
+	\keys{]t~|~[t} & Přepni na tab vpravo/vlevo.\\*
+	\midrule
+
+	\keys{]b~|~[b}* & Přepni na buffer vpravo/vlevo.\\*
+	\midrule
+
+	\keys{\SPACE + e}* & Otevři/zavři NeoTree (prohlížeč souborů).\\*
+	\midrule
+
+	\keys{\SPACE + o}* & Skoč na NeoTree (prohlížeč souborů).\\*
+	\midrule
+
+	\keys{\SPACE + fb}* & Prohledávač otevřených bufferů.\\*
+	\midrule
+
+	\keys{\SPACE + ff}* & Prohledávač souborů ve složce.\\*
+	\midrule
+
+	\keys{\SPACE + fk}* & Prohledávač klávesových zkratek.\\*
+	\midrule
+
+	\keys{\SPACE + fo}* & Prohledávač nedávných souborů.\\*
+	\midrule
+
+	\keys{\SPACE + th} & Rozdělí vodorovně okno a otevře dole terminál (jako v
+	Codu).\\*
+	\midrule
+
+	\keys{\SPACE + vc} & \makecell[r]{Spustí automatickou kompilaci LaTeXu.\\
+	Soubor se vždycky při uložení zkompiluje.}\\*
+	\bottomrule
+\end{xltabular}
 
 \end{document}
 

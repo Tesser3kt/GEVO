@@ -37,268 +37,31 @@
 \usepackage{hyperref}
 \urlstyle{same}
 
-\title{Overleaf Keyboard Shortcuts}
-\author{Overleaf}
-\date{Updated 21 Feb, 2023}
+\title{\LaTeX (asi ty nejužitečnější) snippety}
+\author{Adam Klepáč}
+\date{}
 
 \begin{document}
 
 \maketitle
 
-\emph{Some keyboard shortcuts in this list may not be available on non-US keyboards or in Rich Text/vim/emacs modes. For example, some input methods on the Mac may use \keys{\Alt} (equivalent of {\setmenukeyswin\keys{\Alt}}) for accented characters input instead.}
-
-\emph{Mac users may also want to refer to this list of common editor keyboard shortcuts on Mac:\\ \url{https://support.apple.com/en-us/HT201236\#text}}
+\emph{Některé snippety se aktivují Tabem a některé automaticky, jen co ho
+dopíšete (hlavně ty matematické). Některé fungují jen v matice. Abych to
+odlišil, když}
+\begin{itemize}
+ \item \emph{je u snippetu \keys{\tab}, tak se aktivuje Tabem};
+\end{itemize}
 
 \bigskip
 
 \begin{xltabular}{\textwidth}{
-		>{\setmenukeyswin}c @{\hspace{2em}}
-		>{\setmenukeysmac}c @{\hspace{2em}}
-		>{\renewcommand\cellalign{cl}\RaggedRight\arraybackslash}X}
+	>{\setmenukeyswin}c @{\hspace{2em}}
+	>{\renewcommand\cellalign{cl}\RaggedRight\arraybackslash}r}
+
+	\multicolumn{2}{c}{\large \textbf{Kapitoly, sekce atd.}}
 	\toprule
-	\makecell{\sffamily Windows \faWindows\\\sffamily\textsc{gnu}/Linux \faLinux} & \sffamily Mac \faApple & \multicolumn{1}{c}{\sffamily Description \faComment}\\
-	\midrule
-	\endfirsthead
 
-	\footnotesize \faChevronCircleLeft\ (from previous page)\\[1em]
-	\toprule
-	\makecell{\sffamily Windows \faWindows\\\sffamily\textsc{gnu}/Linux \faLinux} & \sffamily Mac \faApple & \multicolumn{1}{c}{\sffamily Description \faComment}\\
-	\midrule
-	\endhead
-
-	\\[-1.5em]
-	\multicolumn{3}{r}{\footnotesize (continued next page) \faChevronCircleRight}
-	\endfoot
-
-	\bottomrule
-	\endlastfoot
-
-
-	%%%%%% Trigger compilation
-	\makecell{%
-		\keys{\ctrl + .}\\
-		\keys{\ctrl + S}\\
-		\keys{\ctrl + Enter}\\
-		(vim) \texttt{:w}} &
-
-	\makecell{%
-		\keys{\ctrl + .}\\
-		\keys{\cmd + S}\\
-		\keys{\cmd + Enter}\\
-		(vim) \texttt{:w}} &
-	Trigger compilation
-	\\*
-	\midrule
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	%%%%%%% Toggle comment on selected lines
-	\keys{\ctrl + /} & \keys{\cmd + /} & Toggle \texttt{\%} comment on selected line(s). May not work on some non-US keyboards.
-	\\*
-
-	\midrule
-	%%%%%%%%%%%%%%%%%%%
-
-	%%%%%%%%%% Delete line
-	\keys{\ctrl + D} & \keys{\cmd + D} & Delete current line
-	\\*
-	\midrule
-
-
-	%%%%%%%%% Auto-complete
-	\makecell{
-		\keys{\ctrl + \SPACE}
-		\\ \keys{\Alt + \SPACE}
-	} &
-	\makecell{
-		\keys{\ctrl + \SPACE}
-		\\ \keys{\Alt + \SPACE}
-	} &
-	Open auto-complete.\newline\rule{0pt}{3ex}%
-	Use \keys{\arrowkeyup} \keys{\arrowkeydown} \keys{Tab} to select candidate, and \keys{Enter} to insert.
-	\\*
-	\midrule
-	%%%%%%%%%%%%%%%%%%%%%%%%
-
-	%%%%%%%%% Advanced reference search
-	\makecell{
-		\keys{\ctrl + \SPACE}
-		\\ \keys{\Alt + \SPACE}
-	} &
-	\makecell{
-		\keys{\ctrl + \SPACE}
-		\\ \keys{\Alt + \SPACE}
-	} &
-	Advanced reference search; activated in citation commands e.g.~\texttt{\string\cite\{...\}}
-	\\*
-	\midrule
-	%%%%%%%%%%%%%%%%%%%%%%%%
-
-	%%%%% Folding
-	% Toggle fold: F2 on both Windows/Linux and macOS. (same as Ace)
-	% Unfold all: Alt-Shift-0 on Windows/Linux and Opt-Shift-0 on macOS. (same as Ace)
-	% Fold all: Alt-Shift-1 on Windows/Linux and Opt-Shift-1 on macOS.
-	\keys{F2} & \keys{F2} & Toggle fold \\
-	\midrule
-
-	\keys{\Alt + \shift + 0} & \keys{\Alt + \shift + 0} & Unfold all \\
-	\midrule
-
-	\keys{\Alt + \shift + 1} & \keys{\Alt + \shift + 1} & Fold all \\
-	\midrule
-	%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	%%%%% Indents
-	\makecell{\keys{\ctrl + [}\\
-	\keys{\shift + Tab}}
-	& \makecell{\keys{\cmd + [}\\
-	\keys{\shift + Tab}}& Indent less
-	\\*
-	\midrule
-
-	\makecell{\keys{\ctrl + ]}\\
-		\keys{Tab} (at line start)} &
-	\makecell{\keys{\cmd + ]}\\\keys{Tab} (at line start)} & Indent more
-	\\*
-	\midrule
-	%%%%%%%%%%%%%%
-
-	%%%%%%%% Change case
-	\keys{\ctrl + U} & \keys{\ctrl + U} & To uppercase\\*
-	\midrule
-
-	\keys{\ctrl + \shift + U} & \keys{\ctrl + \shift + U} & To lowercase \\*
-	\midrule
-	%%%%%%%%%%%%%%%%%%
-
-	\keys{\ctrl + B} & \keys{\cmd + B} & Bold text (\verb|\textbf|) \\*
-	\midrule
-
-	\keys{\ctrl + I} & \keys{\cmd + I} & Italicise text (\verb|\textit|) \\*
-	\midrule
-
-	\keys{\ctrl + X} & \keys{\cmd + X} & Cut selected text \\*
-	\midrule
-
-	\keys{\ctrl + C} & \keys{\cmd + C} & Copy selected text \\*
-	\midrule
-
-	\keys{\ctrl + V} & \keys{\cmd + V} & Paste copied text \\*
-	\midrule
-
-	\keys{\ctrl + \shift + D} & \keys{\cmd +\shift + D} & Duplicate selected text \\*
-	\midrule
-
-	\keys{\Alt + \shift + \arrowkeyup} & \keys{\Alt + \shift + \arrowkeyup}  & Copy lines up
-	\\*
-	\midrule
-
-	\keys{\Alt + \shift + \arrowkeydown} & \keys{\Alt + \shift + \arrowkeydown} & Copy lines down
-	\\*
-	\midrule
-
-	\keys{\Alt + \arrowkeyup} & \keys{\Alt + \arrowkeyup} & Move lines up
-	\\*
-	\midrule
-
-	\keys{\Alt + \arrowkeydown} & \keys{\Alt + \arrowkeydown} & Move lines down
-	\\*
-	\midrule
-
-	% \keys{\ctrl + \Alt + S} &  & Sort selected lines 
-	% \\*
-	% \midrule
-
-	\keys{\ctrl + Z} & \keys{\cmd + Z} & Undo \\*
-	\midrule
-
-	\makecell{\keys{\ctrl + \shift + Z}\\[3pt]\keys{\ctrl + Y}} & \makecell{\keys{\cmd + \shift + Z}\\[3pt]\keys{\cmd + Y}} & Redo \\*
-	\midrule
-
-	% \keys{\ctrl + P} & \keys{\ctrl+ P} & Go to nearest matching start/close parenthesis, brace or bracket \verb|(){}[]|
-	% \\*
-	% \midrule
-
-	% \keys{\ctrl + \shift + P} & \keys{\ctrl+ \shift + P} & Select to nearest matching \emph{close} parenthesis, brace or bracket \verb|(){}[]|
-	% \\*
-	% \midrule
-
-	% \keys{\ctrl + \shift + M} & \keys{\ctrl + \shift + M} & Expand selection to current nearest matching start/close parenthesis, brace or bracket \verb|(){}[]|
-	% \\*
-	% \midrule
-
-	\keys{\Alt + \arrowkeyleft} & \keys{\ctrl+ A} & Go to line start
-	\\*
-	\midrule
-
-	\keys{\Alt + \arrowkeyright} & \keys{\ctrl + E} & Go to line end
-	\\*
-	\midrule
-
-
-	\keys{\ctrl + Home} & \keys{\cmd + \arrowkeyup} & Go to document start
-	\\*
-	\midrule
-
-	\keys{\ctrl + End} & \keys{\cmd + \arrowkeydown} & Go to document end
-	\\*
-	\midrule
-
-	\keys{\ctrl + \shift + L} & \keys{\cmd + \shift + L} & Go to line number\ldots
-	\\*
-	\midrule
-
-	\keys{\ctrl + F}
-	% \makecell{\keys{\ctrl + F},\quad\keys{\ctrl+H}\\
-	% (emacs) \keys{\shift + \Alt +5}}
-	&
-	\keys{\cmd + F}
-	% \makecell{\keys{\cmd + F}\\
-	% \keys{\shift + \Alt +5}}
-	& Find \\*
-	\midrule
-
-	\keys{\ctrl + G}  & \keys{\cmd + G} & Find next \\*
-	\midrule
-
-	\keys{\ctrl + \shift + G} & \keys{\cmd + \shift + G} & Find previous \\*
-	\midrule
-
-	\keys{\ctrl + \Alt + K} & \keys{\cmd + \Alt + G} & Highlight all currently selected\\*
-	\midrule
-
-	\keys{\ctrl + A} & \keys{\cmd + A} & Select all
-	\\*
-	\midrule
-
-	\keys{\ctrl} {\footnotesize+} click & \keys{\cmd} {\footnotesize+} click & Multiple cursors
-	\\*
-	\midrule
-
-	\keys{\ctrl + \Alt + \arrowkeyup} & \keys{\ctrl + \Alt + \arrowkeyup} & Add cursor above (cumulative)
-	\\* \midrule
-
-	\keys{\ctrl + \Alt + \shift + \arrowkeyup} & \keys{\ctrl + \Alt + \shift + \arrowkeyup} & Add cursor above (remove previously added)
-	\\* \midrule
-
-	\keys{\ctrl + \Alt +\arrowkeydown} & \keys{\ctrl + \Alt + \arrowkeydown} & Add cursor below (cumulative)
-	\\*\midrule
-
-	\keys{\ctrl + \Alt + \shift + \arrowkeydown} & \keys{\ctrl + \Alt + \shift + \arrowkeydown} & Add cursor below (remove previously added)
-	\\*\midrule
-
-	\keys{\Alt} {\footnotesize+} drag & \keys{\Alt} {\footnotesize+} drag & Rectangular selection
-	\\*
-	\midrule
-
-	\keys{\ctrl + J} & \keys{\cmd + J} & Toggle review panel
-	\\*
-	\midrule
-
-	\keys{\ctrl + \shift + A} & \keys{\cmd + \shift + A} & Toggle track changes
-	\\*
-	\midrule
-
-	\keys{\ctrl + \shift + C} & \keys{\cmd + \shift + C} & Add comment in review panel
+	\keys{
 \end{xltabular}
 
 
