@@ -51,7 +51,8 @@ dopíšete (hlavně ty matematické). Některé fungují jen v matice. Abych to
 odlišil, když}
 \begin{itemize}
  \item \emph{je u snippetu \keys{\tab}, tak se aktivuje Tabem};
- \item \emph{je u snippetu \keys{\$}, tak funguje jen v math modu}.
+\item \emph{je u snippetu \keys{\$}, tak funguje jen v math modu (jak display,
+ tak inline)}.
 \end{itemize}
 
 \textbf{Snippety mají tzv. \uv{tabstopy}, to jsou místa označená v tom
@@ -68,8 +69,11 @@ nahoru, aby dokončil snippet.}
  	\multicolumn{2}{c}{\large \textbf{Sekce, kapitoly, atd.}}\\*
 	\toprule
 
-	part | chap | sec | ssec | sssec \keys{\tab} & Snippety pro nadpisy s
-	automatickým labelem.\\*
+	part | chap | sec | ssec | sssec \keys{\tab} & 
+	\makecell[r]{
+	 Snippety pro nadpisy\\
+	 s automatickým labelem.
+ 	}\\*
 	\bottomrule
 
 	& \\*
@@ -82,15 +86,15 @@ nahoru, aby dokončil snippet.}
  	\midrule
  	beg \keys{\tab} & \makecell[r]{
 	 Obecný \textbackslash begin\{\} ... \textbackslash end\{\}.\\
-	 Název za begin se automaticky kopíruje i do end.}\\*
+	 Název se automaticky kopíruje i do end.}\\*
 	\midrule
 	 ben | bit \keys{\tab} &
 	\makecell[r]{
 	 enumerate/itemize\\
-	 Po prvním Tabu můžete psát nastavení seznamu.\\
-	 Když něco napíšete, tak se to samo hodí do [].\\
-	 Uvnitř stiskem jednoho Enter vytvoříte \textbackslash item.\\
-	 Dva stisky Enter ho zase zruší, když chcete odstavec.
+	 prvním \keys{\tab} = nastavení seznamu.\\
+	 Samo se hodí do [].\\
+	 Enter = automaticky \textbackslash item.\\
+	 Druhý Enter ho zruší, když chcete odstavec.
 	}\\
 	\midrule
 
@@ -120,7 +124,8 @@ nahoru, aby dokončil snippet.}
 	 rmrk | prf | warn | obs
 	}\keys{\tab} &
 	\makecell[r]{
-	 Všechna možná  prostředí -- theorem, lemma atd.\\
+	 Všechna možná  prostředí -- \\
+	 -- theorem, lemma atd.\\
 	 První Tab je skok za název prostředí,\\
 	 když chcete napsat název.\\
 	 Druhý Tab je na label, automaticky\\
@@ -194,12 +199,17 @@ nahoru, aby dokončil snippet.}
 
  	\makecell{
  	 sin | cos | tan | cot | csc | sec\\
- 	 arcsin | arccos | arctan | arccot\\
+ 	 arcsin | arctan | arccot\\
  	 exp | log\\
  	 det | deg | dim\\
  	 ker | img | dom | codom\\
  	 \#
- 	} \keys{\$} & Před všechna se hodí automaticky \textbackslash.\\
+ 	} \keys{\$} & \makecell[r]{
+ 	 Před všechna se hodí automaticky \textbackslash.\\
+ 	 Jestli vás to zajímá, arccos tam není,\\
+ 	 protože cc je snippet pro podmnožinu.\\
+ 	 Pro to zatím nemám řešení.
+ 	}\\
  	\bottomrule
 
 	& \\
@@ -227,7 +237,12 @@ nahoru, aby dokončil snippet.}
 	AA | EE \keys{\$} & pro všechny/existuje\\
 	\midrule
 
-	!= | <= | >= \keys{\$} & není rovno/menší nebo rovno/větší nebo rovno\\
+	!= | <= | >= \keys{\$} & 
+	\makecell[r]{
+	 není rovno/\\
+	 menší nebo rovno/\\
+	 větší nebo rovno
+	}\\
 	\midrule
 
  	:= \keys{\$} & Definítko (\textbackslash coloneqq)\\
@@ -236,7 +251,12 @@ nahoru, aby dokončil snippet.}
  	<< | >> \keys{\$} & Mnohem menší/mnohem větší.\\
  	\midrule
 
- 	-= | $\sim$= | $\sim\sim$ \keys{\$} & Identická rovnost/isomorfismus (bijekce)/podobnost.\\
+ 	-= | $\sim$= | $\sim\sim$ \keys{\$} & 
+ 	\makecell[r]{
+	 Identická rovnost/\\
+	 isomorfismus (bijekce)/\\
+	 podobnost.
+	}\\
  	\midrule
 
  	+- | -+ \keys{\$} & Plus minus/minus plus\\
@@ -264,23 +284,156 @@ nahoru, aby dokončil snippet.}
  	inn | notin \keys{\$} & Je/není prvkem ...\\
  	\midrule
 
- 	cc | scc | ncc \keys{\$} &  podmnožina/vlastní podmnožina/není podmnožinou\\
+ 	cc | scc | ncc \keys{\$} & 
+ 	\makecell[r]{
+ 	 podmnožina/\\
+ 	 vlastní podmnožina/\\
+ 	 není podmnožinou
+ 	}\\
  	\midrule
 
  	div | ndiv \keys{\$} & Dělí/nedělí ...\\
  	\midrule
 
- 	|| \keys{\$} & Dělítko v definici množiny, třeba $\{(x,y) \in \mathbb{R}^2
- 	\mid x^2+y^2 = 1\}$.\\
+ 	|| \keys{\$} &
+ 	\makecell[r]{
+ 	 Dělítko v definici množiny,\\
+ 	 třeba $\{(x,y) \in R^2 \mid x^2+y^2 = 1\}$.
+ 	}\\
  	\midrule
 
  	sgn \keys{\$} & (-1) na něco\\
  	\bottomrule
-
+	
+	& \\
  	\multicolumn{2}{c}{\large \textbf{Display math symboly}}\\
  	\toprule
 
+ 	// \keys{\$} & \textbackslash frac\{...\}\{...\}\\
+ 	\midrule
+
+ 	ucelený text + / \keys{\$} & \makecell[r]{
+ 	 \textbackslash frac\{ten text\}\{...\}\\
+	 Za ucelený text se považuje leccos,\\	
+	 třeba i věci jako $\arcsin^{5}(x_1^2 + x_3^3)$.
+	}\\
+	\midrule
+
+	(cokoliv) + / \keys{\$} & 
+ 	\makecell[r]{
+ 	 \textbackslash frac\{cokoliv\}\{...\}\\
+ 	 Vezme veškerý text až po první\\
+ 	 otevřenou závorku, která doplňuje\\
+ 	 počet všech uzavřených závorek.
+ 	}\\
+ 	\midrule
+
+ 	\makecell{
+ 	 binom\\
+ 	 ucelený text + bin\\
+ 	 (cokoliv) + bin
+ 	}\keys{\$} & 
+ 	\makecell[r]{
+ 	 Funguje stejně jako frac, akorát pro\\
+ 	 \textbackslash binom\{...\}\{...\}
+ 	}\\
+ 	\midrule
+
+ 	sum \keys{\$} & \makecell[r]{
+ 	 Velký součet.\\
+ 	 první \keys{\tab} = to dole\\
+	 druhý \keys{\tab} = to nahoře\\
+	 třetí \keys{\tab} = to vevnitř
+	}\\
+	\midrule
+
+	nsum \keys{\$} & Součet od i=1 do n.\\
+	\midrule
+
+	isum \keys{\$} & Součet přes indexovou množinu.\\
+	\midrule
+
+	prod | nprod | iprod \keys{\$} & To samé, akorát pro součin.\\
+	\midrule
+
+	uuu | nuu | iuu \keys{\$} & To samé, akorát pro sjednocení.\\
+	\midrule
+
+	nnn | nn1 | nni \keys{\$} & To samé, akorát pro průnik.\\
+	\midrule
+
+	int | dint \keys{\$} & 
+	\makecell[r]{
+	 Integrál bez/s dx na konci.\\
+	 Funguje stejně jako suma.
+	}\\
+	\midrule
+
+	lim | flim \keys{\$} &
+	\makecell[r]{
+	 Limita posloupnosti/funkce.\\
+	 první \keys{\tab} = proměnná\\
+	 druhý \keys{\tab} = kam
+	}\\
+	\bottomrule
+
+	& \\
+	\multicolumn{2}{c}{\large \textbf{Dolní indexy}}\\
+	\toprule
+
+ 	ucelený text (nebo závorky) + číslo \keys{\$} &
+ 	\makecell[r]{
+ 	 Automatický dolní index.\\
+ 	 Třeba z x2 se stane x\_2\\
+   a z (f + g)6 se stane (f+g)\_6.
+  }\\
+  \midrule
+
+  ucelený text / závorky + víc čísel \keys{\$} &
+  \makecell[r]{
+   To samé, akorát to navíc dá\\
+   \{\} kolem těch čísel.
+  }\\
+  \midrule
+
+  \makecell{
+   ucelený text / závorky + \\
+	 ii | jj | kk | ll | mm | nn
+	} \keys{\$} &
+ 	\makecell[r]{
+ 	 Dolní index s obvyklými písmeny.\\
+ 	 Třeba z Aii se stane A\_i.
+ 	}\\
+ 	\midrule
+
+ 	\_\_ \keys{\$} & Změní se v \_\{\}.\\
+ 	\bottomrule
+	
+	& \\
+ 	\multicolumn{2}{c}{\large \textbf{Horní indexy}}\\
+ 	\toprule
+
+ 	sr | cb | inv \keys{\$} & \^{}2 | \^{}3 | \^{}\{-1\}\\
+ 	\midrule
+
+ 	td \keys{\$} & \^\{...\}\\
+ 	\bottomrule
+
+ 	& \\
+ 	\multicolumn{2}{c}{\large \textbf{Nezařazené věci}}\\
+ 	\toprule
+
+ 	pac \keys{\tab} & \textbackslash usepackage[...]\{...\}\\
+	\midrule
+
+	url | cite | eqref | foot \keys{\tab} & Přidá \textbackslash~před a \{\} za.\\
+	\midrule
+
+	href | myref \keys{\tab} & Přidá \textbackslash~před a \{\} \{\} za.\\
+	\midrule
+
+	xref \keys{\tab} & \textbackslash hyperref[...]\{...\}.\\
+	\bottomrule
 \end{xltabular}
 
 \end{document}
-
