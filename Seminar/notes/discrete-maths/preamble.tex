@@ -461,6 +461,7 @@ shapes, snakes, decorations.markings}
 \definecolor{warning}{HTML}{ea191d}
 \definecolor{observation}{HTML}{ff00ff}
 \definecolor{remark}{HTML}{660066}
+\definecolor{problem}{HTML}{3d3846}
 
 \colorlet{definition}{mygreen!85!black}
 \colorlet{claim}{myblue!85!black}
@@ -558,6 +559,7 @@ shapes, snakes, decorations.markings}
   \createnewcoloredtheoremstyle{thmexercisebox}{exercise}{}{}
   \createnewcoloredtheoremstyle{thmobservationbox}{observation}{}{}
   \createnewcoloredtheoremstyle{thmremarkbox}{remark}{}{}
+  \createnewcoloredtheoremstyle{thmproblembox}{problem}{}{}
 
   \createnewcoloredtheoremstyle{thmproofbox}{proof}{qed=\qedsymbol}{backgroundcolor=white}
   \createnewcoloredtheoremstyle{thmexplanationbox}{example}{qed=\qedsymbol}{backgroundcolor=white}
@@ -584,6 +586,8 @@ shapes, snakes, decorations.markings}
 name=Pozorování]{observation}
 \declaretheorem[numbered=no,          style=thmremarkbox,
 name=Poznámka]{remark}
+\declaretheorem[numbered=no,          style=thmproblembox,
+name=Úloha]{problem}
 
 \makeatletter
 \let\c@claim\c@theorem
@@ -605,7 +609,6 @@ name=Poznámka]{remark}
 
 \newtheorem*{notation}{Notation}
 \newtheorem*{previouslyseen}{As previously seen}
-\newtheorem*{problem}{Problem}
 \newtheorem*{observe}{Observe}
 \newtheorem*{property}{Property}
 \newtheorem*{intuition}{Intuition}
@@ -652,3 +655,4 @@ name=Poznámka]{remark}
 
 \newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
 \AddToHook{cmd/section/before}{\clearpage}
+\AddToHook{cmd/subsection/before}{\clearpage}

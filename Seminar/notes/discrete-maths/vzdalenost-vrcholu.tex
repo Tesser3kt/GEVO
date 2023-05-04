@@ -1,0 +1,39 @@
+\subsection{Vzdálenost vrcholů}
+\label{ssec:vzdalenost-vrcholu}
+
+Sekci motivujeme úlohou \uv{jako ze života}, která ve mě budí jistou míru
+nostalgie, jelikož jsem ji řešil na konci prvního ročníku v rámci zkoušky
+z~programování.
+
+\begin{problem}[Rodinný výlet]
+ \label{prob:rodinny-vylet}
+ Je prodloužený víkend a slezská rodina Koláčků plánuje cyklistický výlet
+ oblastí Karviná. Jedou děda Koláček se svou chotí, babičkou Koláčkovou, a
+ jejich čtyři uřvaná rozmazlená vnoučata -- Matouš, Marek, Lukáš a Jan.
+
+ Z Třince do Orlové dánť jest směr a, i přes relativní nenáročnost trasy,
+ vnoučata ustavičně fňukají, že chtějí jet tou nejkratší trasou. Děda Koláček,
+ dobrodinec ten od kosti, snaží se vnoučatům vyhovět a nejkratší trasu úpěnlivě
+ hledá. Do vřavy se přidává babička Koláčková, která ví, že trasa z Třince do
+ Orlové vede přes mnoho malých vesnic, mnohože~z nich hostí aspoň jednu hospodu.
+
+ Vědouc velmi dobře, že každá hospoda zbrzdí cestu na nejméně půl hodiny, trvá
+ babička Koláčková na tom, aby se vybraná cesta z Třince do Orlové hospodám
+ vyhnula. Křik vnoučat brzy ji však přesvědčí, že délka trasy převažuje nad
+ množstvím hospod, které po cestě potkají.
+
+ Rodina Koláčková tudíž stojí před nelehkým úkolem vybrat ze všech nejkratších
+ cest z Třince do Orlové tu, která se vyhne co nejvíce hospodám.
+
+ Brzy znaven, děda Koláček posílá nezkrotná vnoučata s konečně neosedlanými
+ bicykly domů a výlet do Orlové se odkládá na příští školní prázdniny. Pomozme
+ mu jej zorganizovat předem.
+\end{problem}
+
+Úlohu si modelujeme ohodnoceným grafem $G = (V,E,w)$. Vrcholy představovují
+vesnice, případně města, mezi Třincem a Orlovou, z nichž některé jsou označeny
+vykřičníkem mínícím přítomnost jedné či více hospod.
+
+Nejprve se soustředíme na nejpodstatnější část úlohy, tou jest nalezení
+nejkratší cest mezi Třincem a Orlovou, kterážto města si v zájmu strohosti
+označíme písmeny $t,o \in V$.

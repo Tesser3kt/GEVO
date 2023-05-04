@@ -155,9 +155,9 @@ Takové grafy nazveme, přirozeně, \emph{acyklické}.
 
 \begin{definition}[Acyklický graf]
 	\label{def:acyklicky-graf}
-	Graf $G = (V,E)$ nazveme \emph{acyklický}, pokud neobsahuje cyklus o aspoň dvou
-	vrcholech (samotné vrcholy jsou totiž z \hyperref[def:cyklus]{definice} vždy
-	cykly).
+	Graf $G = (V,E)$ nazveme \emph{acyklický}, pokud neobsahuje cyklus o aspoň
+	třech vrcholech (samotné vrcholy jsou totiž z \hyperref[def:cyklus]{definice}
+	vždy cykly).
 \end{definition}
 
 \begin{definition}[Strom]
@@ -219,7 +219,7 @@ je fakt, že platí i opačná implikace.
 		      protiřečí podmínce, aby mezi každým párem vrcholů vedla přesně jedna.
 
 		      Budeme tedy předpokládat, že $G$ obsahuje cyklus $v_1v_2 \cdots v_n$ (tedy
-		      $v_n = v_1$ a $n \geq 2$). Pak ovšem pro libovolné indexy $i < j \leq n$ jsou
+		      $v_n = v_1$ a $n \geq 3$). Pak ovšem pro libovolné indexy $i < j \leq n$ jsou
 		      posloupnosti
 		      \[
 			      (v_i,v_{i+1},\ldots,v_j) \quad \text{a} \quad (v_i,v_{i-1},\ldots,v_1 =
@@ -323,6 +323,14 @@ je fakt, že platí i opačná implikace.
 		\myref{tvrzení}{claim:ekvivalentni-definice-stromu}.}
 	\label{fig:ilustrace-k-ekvivalentni-definici-stromu}
 \end{figure}
+
+\begin{exercise}
+ Dokažte, že je-li $T = (V,E)$ strom, pak $\# E = \# V - 1$.
+\end{exercise}
+
+\begin{exercise}
+ Spočtěte, kolik existuje stromů na $n$ vrcholech.
+\end{exercise}
 
 \input{minimalni-kostra}
 \input{krushkal}

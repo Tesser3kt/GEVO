@@ -358,6 +358,48 @@ $x_1x_2\cdots x_n$ pro uspořádanou $n$-tici $(x_1,\ldots,x_n)$. Kdyby hrozil
 konflikt se zápisem součinu prvků $x_1,\ldots,x_n$, samozřejmě tento úzus
 dočasně opustíme.
 
+\begin{exercise}
+ Nakreslete graf $G = (V,E)$, kde
+ \begin{itemize}
+  \item $V = \{1,\ldots,5\}, E = \{\{1,2\}, \{1,3\}, \{1,5\}, \{2,3\},
+   \{3,4\},\{4,5\}\}$.
+  \item $V = \{1,\ldots,5\}$, $E = \binom{V}{2}$.
+  \item $V = \{1,\ldots,8\}$, $E = \{e_1,\ldots,e_8\}$ a
+  \begin{itemize}
+   \item $t(e_i) = s(e_{i+1}) = i + 1$ pro všechna $i \leq 7$,
+   \item $t(e_8) = s(e_1) = 1$.
+  \end{itemize}
+ \end{itemize}
+\end{exercise}
+
+\begin{exercise}
+ Popište všechny grafy $G = (V,E)$, kde $E$ je relace na $V$, která je
+ antireflexivní, symetrická (to je součástí definice grafu) a navíc
+ \textbf{transitivní}.
+\end{exercise}
+
+\begin{exercise}
+ Ať $V$ je konečná množina a $E$ je relace na $V$, která je antireflexivní a
+ symetrická. Definujme navíc na $E$ další relaci $ \sim $ předpisem
+ \[
+  (v,v') \sim (w,w') \Leftrightarrow (v,v') = (w,w') \vee (v,v') = (w',w). 
+ \]
+ Dokažte, že pak existuje bijekce mezi $[E]_{ \sim }$ a množinou
+ \[
+  E' \coloneqq \{\{v,v'\} \mid (v,v') \in E\},
+ \]
+ čili mezi množinou tříd ekvivalence $E$ podle $ \sim $ a množinou, kterou
+ dostanu tak, že z uspořádaných dvojic v $E$ udělám neuspořádané dvojice, tj.
+ dvouprvkové podmnožiny. Pro intuici vizte poznámku pod
+ \myref{definicí}{def:graf-poprve}.
+\end{exercise}
+
+\begin{exercise}
+ Spočtěte, kolik existuje grafů na $n$ vrcholech.
+\end{exercise}
+
 \input{pohyb-v-grafu}
 \input{stromy}
 \input{jordanovo-centrum}
+\input{vzdalenost-vrcholu}
+

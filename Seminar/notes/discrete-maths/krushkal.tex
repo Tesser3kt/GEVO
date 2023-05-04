@@ -112,3 +112,36 @@ algoritmu s náhodně vygenerovaným hodnocením je k dispozici
  \emph{komponentu souvislosti}), zkrátka tím, že
  \hyperref[alg:kruskal]{Kruskalův algoritmus} spouštíme opakovaně.
 \end{remark}
+
+\begin{exercise}[Těžké ale fun]
+ Ať $V$ je množina $n$ bodů v rovině. Pro každé dva body $x,y \in V$ definujme
+ váhu hrany $xy$ jako vzdálenost bodů $x$ a $y$. Čili, pokud $x = (x_1,x_2)$ a
+ $y = (y_1,y_2)$, pak
+ \[
+  w(xy) \coloneqq \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}.
+ \]
+ Vzniklý graf označme obyčejně $G$.
+ \begin{enumerate}[label=(\alph*)]
+  \item Ukažte, že v každé minimální kostře $G$ vede z každého vrcholu maximálně
+   6 hran.
+  \item Ukažte, že existuje minimální kostra $G$, jejíž hrany se (jakožto úsečky
+   v rovině) nekříží.
+ \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+ \emph{Úplným grafem} na $n$ vrcholech myslíme graf $G = (V, \binom{V}{2})$,
+ tedy graf, mezi každým párem jehož vrcholů vede hrana. Takový graf se obvykle
+ značí $K_n$. Najděte minimální kostru $K_n$ a spočtěte její váhu (tj, součet
+ vah všech jejích hran), je-li $V = \{1,\ldots,n\}$ a
+ \begin{enumerate}[label=(\alph*)]
+  \item $w(ij) = \max(i,j)$,
+  \item $w(ij) = i + j$,
+ \end{enumerate}
+ pro všechny páry $i,j \leq n$.
+\end{exercise}
+
+\begin{exercise}
+ Dokažte, že když $w$ (tj. ohodnocení $G$) je prosté zobrazení, pak je minimální
+ kostra $G$ určena jednoznačně.
+\end{exercise}
