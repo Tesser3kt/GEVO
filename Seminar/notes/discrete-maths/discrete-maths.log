@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.12)  10 MAY 2023 12:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.12)  10 MAY 2023 20:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1641,7 +1641,7 @@ Package: thmdef-mdframed 2023/02/17 v0.75
 \c@theorem=\count491
 \c@claim=\count492
 \c@corollary=\count493
-\c@prop=\count494
+\c@proposition=\count494
 \c@lemma=\count495
 \c@exercise=\count496
 \c@definition=\count497
@@ -2363,7 +2363,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
-[35]))
+[35]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.01804pt, for example:
@@ -2372,6 +2372,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
 [36]
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 315.
+Package mdframed Info: Not enough space on this page on input line 317.
+Package mdframed Info: mdframed detected package amsthm 
+changed the theorem header of amsthm
+(mdframed)              on input line 319.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.01804pt, for example:
@@ -2379,7 +2387,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
 
-[37] (./discrete-maths.aux)
+[37]))
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[38] (./discrete-maths.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -2387,18 +2403,18 @@ Package rerunfilecheck Info: File `discrete-maths.out' has not changed.
 (rerunfilecheck)             Checksum: DB6498E21C6203358A23741F45CB860D;1348.
  ) 
 Here is how much of TeX's memory you used:
- 61237 strings out of 476025
- 1419544 string characters out of 5796532
- 1988295 words of memory out of 5000000
- 80391 multiletter control sequences out of 15000+600000
+ 61240 strings out of 476025
+ 1419702 string characters out of 5796532
+ 1988480 words of memory out of 5000000
+ 80388 multiletter control sequences out of 15000+600000
  632877 words of font info for 174 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,21n,121p,756b,1318s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Bold.pfb></usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsyb.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb>
-Output written on discrete-maths.pdf (41 pages, 308901 bytes).
+Output written on discrete-maths.pdf (42 pages, 312991 bytes).
 PDF statistics:
- 648 PDF objects out of 1000 (max. 8388607)
- 543 compressed objects within 6 object streams
- 248 named destinations out of 1000 (max. 500000)
+ 660 PDF objects out of 1000 (max. 8388607)
+ 554 compressed objects within 6 object streams
+ 254 named destinations out of 1000 (max. 500000)
  229 words of extra memory for PDF output out of 10000 (max. 10000000)
 
