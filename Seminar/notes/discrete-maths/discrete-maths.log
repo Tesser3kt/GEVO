@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.12)  4 MAY 2023 22:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.12)  10 MAY 2023 12:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1350,38 +1350,42 @@ File: tikzlibrarysnakes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 
 Package pgf Warning: Snakes have been superseded by decorations. Please use the decoration libraries instead of the snakes library on input line 14.
 
-(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.shapes.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.shapes.code.tex))) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybabel.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.shapes.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.shapes.code.tex))) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex)
+\tikz@math@for@depth=\count461
+\tikz@math@dimen=\dimen335
+\tikz@math@toks=\toks51
+) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybabel.code.tex
 File: tikzlibrarybabel.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
-\t@pgfplots@toka=\toks51
-\t@pgfplots@tokb=\toks52
-\t@pgfplots@tokc=\toks53
-\pgfplots@tmpa=\dimen335
-\c@pgfplots@coordindex=\count461
-\c@pgfplots@scanlineindex=\count462
+\t@pgfplots@toka=\toks52
+\t@pgfplots@tokb=\toks53
+\t@pgfplots@tokc=\toks54
+\pgfplots@tmpa=\dimen336
+\c@pgfplots@coordindex=\count462
+\c@pgfplots@scanlineindex=\count463
  (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
 Package pgfplots: loading complementary utilities for your pgf version...
-\t@pgf@toka=\toks54
-\t@pgf@tokb=\toks55
-\t@pgf@tokc=\toks56
+\t@pgf@toka=\toks55
+\t@pgf@tokb=\toks56
+\t@pgf@tokc=\toks57
 (/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count463
+\c@pgfplotsarray@tmp=\count464
 ) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count464
-\t@pgfplotstable@a=\toks57
+\c@pgfplotstable@counta=\count465
+\t@pgfplotstable@a=\toks58
 ) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count465
+\c@pgfplotslibrarysurf@no=\count466
  (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count466
-\pgfplots@xmin@reg=\dimen336
-\pgfplots@xmax@reg=\dimen337
-\pgfplots@ymin@reg=\dimen338
-\pgfplots@ymax@reg=\dimen339
-\pgfplots@zmin@reg=\dimen340
-\pgfplots@zmax@reg=\dimen341
+\pgfplots@numplots=\count467
+\pgfplots@xmin@reg=\dimen337
+\pgfplots@xmax@reg=\dimen338
+\pgfplots@ymin@reg=\dimen339
+\pgfplots@ymax@reg=\dimen340
+\pgfplots@zmin@reg=\dimen341
+\pgfplots@zmax@reg=\dimen342
 ) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
 File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
@@ -1392,9 +1396,9 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmargin=\skip153
 \droptitle=\skip154
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 151.
+Package hyperref Info: Option `colorlinks' set `true' on input line 158.
 \thickarrayrulewidth=\skip155
-\c@lecturecounter=\count467
+\c@lecturecounter=\count468
  (/usr/share/texmf-dist/tex/latex/xifthen/xifthen.sty
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
  (/usr/share/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
@@ -1414,28 +1418,28 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@O@orf=\skip164
 ) (/usr/share/texmf-dist/tex/latex/xargs/xargs.sty
 Package: xargs 2008/03/22 v1.1  extended macro definitions  (mpg)
-\xargs@max=\count468
-\xargs@toksa=\toks58
-\xargs@toksb=\toks59
+\xargs@max=\count469
+\xargs@toksa=\toks59
+\xargs@toksb=\toks60
 ) (/usr/share/texmf-dist/tex/latex/todonotes/todonotes.sty
 Package: todonotes 2023/01/31 v1.1.6 Todonotes source and documentation.
 Package: todonotes 2023/01/31
-\c@@todonotes@numberoftodonotes=\count469
+\c@@todonotes@numberoftodonotes=\count470
 ) (/usr/share/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box160
-\sift@deathcycles=\count470
-\@vwid@loff=\dimen342
-\@vwid@roff=\dimen343
+\sift@deathcycles=\count471
+\@vwid@loff=\dimen343
+\@vwid@roff=\dimen344
 ) (/usr/share/texmf-dist/tex/latex/thmtools/thmtools.sty
 Package: thmtools 2023/02/17 v0.75
-\thmt@toks=\toks60
-\c@thmt@dummyctr=\count471
+\thmt@toks=\toks61
+\c@thmt@dummyctr=\count472
  (/usr/share/texmf-dist/tex/latex/thmtools/thm-patch.sty
 Package: thm-patch 2023/02/17 v0.75
  (/usr/share/texmf-dist/tex/latex/thmtools/parseargs.sty
 Package: parseargs 2023/02/17 v0.75
-\@parsespec=\toks61
+\@parsespec=\toks62
 )) (/usr/share/texmf-dist/tex/latex/thmtools/thm-kv.sty
 Package: thm-kv 2023/02/17 v0.75
 Package thm-kv Info: Theorem names will be uppercased on input line 42.
@@ -1450,13 +1454,13 @@ Package: thm-listof 2023/02/17 v0.75
 Package: thm-restate 2023/02/17 v0.75
 ) (/usr/share/texmf-dist/tex/latex/thmtools/thm-amsthm.sty
 Package: thm-amsthm 2023/02/17 v0.75
-\thmt@style@headstyle=\toks62
+\thmt@style@headstyle=\toks63
 )) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2023/02/12 version 6.0.1 text color boxes
  (/usr/share/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks63
-\verbatim@line=\toks64
+\every@verbatim=\toks64
+\verbatim@line=\toks65
 \verbatim@in@stream=\read4
 ) (/usr/share/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
@@ -1467,19 +1471,19 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@upperbox=\box162
 \tcb@lowerbox=\box163
 \tcb@phantombox=\box164
-\c@tcbbreakpart=\count472
-\c@tcblayer=\count473
-\c@tcolorbox@number=\count474
+\c@tcbbreakpart=\count473
+\c@tcblayer=\count474
+\c@tcolorbox@number=\count475
 \tcb@temp=\box165
 \tcb@temp=\box166
 \tcb@temp=\box167
 \tcb@temp=\box168
  (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '6.0.1'
-\c@tcbrastercolumn=\count475
-\c@tcbrasterrow=\count476
-\c@tcbrasternum=\count477
-\c@tcbraster=\count478
+\c@tcbrastercolumn=\count476
+\c@tcbrasterrow=\count477
+\c@tcbrasternum=\count478
+\c@tcbraster=\count479
 ) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.0.1'
 (/usr/share/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -1506,31 +1510,31 @@ Library (tcolorbox): 'tcbhooks.code.tex' version '6.0.1'
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.0.1'
 ) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
 Library (tcolorbox): 'tcbfitting.code.tex' version '6.0.1'
-\tcbfitdim=\dimen344
-\tcb@lowerfitdim=\dimen345
-\tcb@upperfitdim=\dimen346
-\tcb@cur@hbadness=\count479
+\tcbfitdim=\dimen345
+\tcb@lowerfitdim=\dimen346
+\tcb@upperfitdim=\dimen347
+\tcb@cur@hbadness=\count480
 ) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
 Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.0.1'
 (/usr/share/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
 Library (tcolorbox): 'tcblistings.code.tex' version '6.0.1'
 (/usr/share/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count480
+\lst@mode=\count481
 \lst@gtempboxa=\box173
-\lst@token=\toks65
-\lst@length=\count481
-\lst@currlwidth=\dimen347
-\lst@column=\count482
-\lst@pos=\count483
-\lst@lostspace=\dimen348
-\lst@width=\dimen349
-\lst@newlines=\count484
-\lst@lineno=\count485
-\lst@maxwidth=\dimen350
+\lst@token=\toks66
+\lst@length=\count482
+\lst@currlwidth=\dimen348
+\lst@column=\count483
+\lst@pos=\count484
+\lst@lostspace=\dimen349
+\lst@width=\dimen350
+\lst@newlines=\count485
+\lst@lineno=\count486
+\lst@maxwidth=\dimen351
  (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count486
-\lst@skipnumbers=\count487
+\c@lstnumber=\count487
+\lst@skipnumbers=\count488
 \lst@framebox=\box174
 ) (/usr/share/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
@@ -1544,7 +1548,7 @@ Library (tcolorbox): 'tcbprocessing.code.tex' version '6.0.1'
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
 Package shellesc Info: Restricted shell escape enabled on input line 77.
 ))
-\c@tcblisting=\count488
+\c@tcblisting=\count489
 )) (/usr/share/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
 Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
  (/usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
@@ -1564,114 +1568,114 @@ Library (tcolorbox): 'tcbposter.code.tex' version '6.0.1'
 )) (/usr/share/texmf-dist/tex/latex/pgf-blur/tikzlibraryshadows.blur.code.tex  v1.02, 2012/12/09 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadows.code.tex
 File: tikzlibraryshadows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
-\pgfbs@fading@count=\count489
+\pgfbs@fading@count=\count490
 )
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=definition, backgroundcolor=definition!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmdefinitionbox' on input line 566.
+(thmtools)             that uses `style=thmdefinitionbox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=theorem, backgroundcolor=theorem!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmtheorembox' on input line 566.
+(thmtools)             that uses `style=thmtheorembox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=example, backgroundcolor=example!5,  rightline=true, leftline=true, topline=true, bottomline=true , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmexamplebox' on input line 566.
+(thmtools)             that uses `style=thmexamplebox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=warning, backgroundcolor=warning!5,  rightline=true, leftline=true, topline=true, bottomline=true , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmwarningbox' on input line 566.
+(thmtools)             that uses `style=thmwarningbox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=claim, backgroundcolor=claim!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmclaimbox' on input line 566.
+(thmtools)             that uses `style=thmclaimbox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=corollary, backgroundcolor=corollary!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmcorollarybox' on input line 566.
+(thmtools)             that uses `style=thmcorollarybox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=prop, backgroundcolor=prop!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmpropbox' on input line 566.
+(thmtools)             that uses `style=thmpropbox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=lemma, backgroundcolor=lemma!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmlemmabox' on input line 566.
+(thmtools)             that uses `style=thmlemmabox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=exercise, backgroundcolor=exercise!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmexercisebox' on input line 566.
+(thmtools)             that uses `style=thmexercisebox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=observation, backgroundcolor=observation!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmobservationbox' on input line 566.
+(thmtools)             that uses `style=thmobservationbox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=remark, backgroundcolor=remark!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmremarkbox' on input line 566.
+(thmtools)             that uses `style=thmremarkbox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=problem, backgroundcolor=problem!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmproblembox' on input line 566.
+(thmtools)             that uses `style=thmproblembox' on input line 573.
 Package thmtools Info: Key `qed' (with value `\qedsymbol ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmproofbox' on input line 566.
+(thmtools)             that uses `style=thmproofbox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=proof, backgroundcolor=proof!5, backgroundcolor=white, ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmproofbox' on input line 566.
+(thmtools)             that uses `style=thmproofbox' on input line 573.
 Package thmtools Info: Key `qed' (with value `\qedsymbol ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmexplanationbox' on input line 566.
+(thmtools)             that uses `style=thmexplanationbox' on input line 573.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt,innertopmargin=18pt,innerbottommargin=8pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=example, backgroundcolor=example!5, backgroundcolor=white, ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmexplanationbox' on input line 566.
-Package thmtools Info: Automatically pulling in `thmdef-mdframed' on input line 574.
+(thmtools)             that uses `style=thmexplanationbox' on input line 573.
+Package thmtools Info: Automatically pulling in `thmdef-mdframed' on input line 581.
  (/usr/share/texmf-dist/tex/latex/thmtools/thmdef-mdframed.sty
 Package: thmdef-mdframed 2023/02/17 v0.75
 )
-\c@theorem=\count490
-\c@claim=\count491
-\c@corollary=\count492
-\c@prop=\count493
-\c@lemma=\count494
-\c@exercise=\count495
-\c@definition=\count496
+\c@theorem=\count491
+\c@claim=\count492
+\c@corollary=\count493
+\c@prop=\count494
+\c@lemma=\count495
+\c@exercise=\count496
+\c@definition=\count497
 ) (/usr/share/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \ttl@box=\box175
 \beforetitleunit=\skip165
 \aftertitleunit=\skip166
-\ttl@plus=\dimen351
-\ttl@minus=\dimen352
-\ttl@toksa=\toks66
-\titlewidth=\dimen353
-\titlewidthlast=\dimen354
-\titlewidthfirst=\dimen355
+\ttl@plus=\dimen352
+\ttl@minus=\dimen353
+\ttl@toksa=\toks67
+\titlewidth=\dimen354
+\titlewidthlast=\dimen355
+\titlewidthfirst=\dimen356
 ) (/usr/share/texmf-dist/tex/latex/blindtext/blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
-\c@blindtext=\count497
-\c@Blindtext=\count498
-\c@blind@countparstart=\count499
-\blind@countxx=\count500
-\blindtext@numBlindtext=\count501
-\blind@countyy=\count502
-\c@blindlist=\count503
-\c@blindlistlevel=\count504
-\c@blindlist@level=\count505
-\blind@listitem=\count506
-\c@blind@listcount=\count507
-\c@blind@levelcount=\count508
-\blind@mathformula=\count509
-\blind@Mathformula=\count510
-\c@blind@randomcount=\count511
-\c@blind@randommax=\count512
-\c@blind@pangramcount=\count513
-\c@blind@pangrammax=\count514
+\c@blindtext=\count498
+\c@Blindtext=\count499
+\c@blind@countparstart=\count500
+\blind@countxx=\count501
+\blindtext@numBlindtext=\count502
+\blind@countyy=\count503
+\c@blindlist=\count504
+\c@blindlistlevel=\count505
+\c@blindlist@level=\count506
+\blind@listitem=\count507
+\c@blind@listcount=\count508
+\c@blind@levelcount=\count509
+\blind@mathformula=\count510
+\blind@Mathformula=\count511
+\c@blind@randomcount=\count512
+\c@blind@randommax=\count513
+\c@blind@pangramcount=\count514
+\c@blind@pangrammax=\count515
 )
 LaTeX Font Info:    Trying to load font information for T1+cantarell-TLF on input line 18.
  (/usr/share/texmf-dist/tex/latex/cantarell/T1cantarell-TLF.fd
@@ -1740,17 +1744,17 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count515
-\scratchdimen=\dimen356
+\scratchcounter=\count516
+\scratchdimen=\dimen357
 \scratchbox=\box176
-\nofMPsegments=\count516
-\nofMParguments=\count517
-\everyMPshowfont=\toks67
-\MPscratchCnt=\count518
-\MPscratchDim=\dimen357
-\MPnumerator=\count519
-\makeMPintoPDFobject=\count520
-\everyMPtoPDFconversion=\toks68
+\nofMPsegments=\count517
+\nofMParguments=\count518
+\everyMPshowfont=\toks68
+\MPscratchCnt=\count519
+\MPscratchDim=\dimen358
+\MPnumerator=\count520
+\makeMPintoPDFobject=\count521
+\everyMPtoPDFconversion=\toks69
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1774,8 +1778,8 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-\c@mv@tabular=\count521
-\c@mv@boldtabular=\count522
+\c@mv@tabular=\count522
+\c@mv@boldtabular=\count523
 Package translations Info: no dictionary file `translations-basic-dictionary-czech.trsl' found. on input line 33.
 
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.13).
@@ -1783,7 +1787,7 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 
 Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 33.
 
-\c@lstlisting=\count523
+\c@lstlisting=\count524
 LaTeX Font Info:    Font shape `T1/cantarell-TLF/m/n' will be
 (Font)              scaled to size 20.74pt on input line 36.
 LaTeX Font Info:    Font shape `T1/cantarell-TLF/m/n' will be
@@ -2322,7 +2326,10 @@ Package mdframed Info: mdframed detected package amsthm
 changed the theorem header of amsthm
 (mdframed)              on input line 8.
 Package hyperref Info: bookmark level for unknown problem defaults to 0 on input line 8.
-))
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.01804pt, for example:
@@ -2332,26 +2339,66 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [32
 
-] (./discrete-maths.aux)
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[33]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[34]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[35]))
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[36]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-3.01804pt}.
+
+[37] (./discrete-maths.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `discrete-maths.out' has not changed.
-(rerunfilecheck)             Checksum: 032536C4ED7AE34FC2C0CC1676E22087;1175.
+(rerunfilecheck)             Checksum: DB6498E21C6203358A23741F45CB860D;1348.
  ) 
 Here is how much of TeX's memory you used:
- 60950 strings out of 476025
- 1413677 string characters out of 5796532
- 1984616 words of memory out of 5000000
- 80138 multiletter control sequences out of 15000+600000
- 626769 words of font info for 168 fonts, out of 8000000 for 9000
+ 61237 strings out of 476025
+ 1419544 string characters out of 5796532
+ 1988295 words of memory out of 5000000
+ 80391 multiletter control sequences out of 15000+600000
+ 632877 words of font info for 174 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,21n,121p,756b,1316s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 114i,21n,121p,756b,1318s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Bold.pfb></usr/share/texmf-dist/fonts/type1/gnome/cantarell/Cantarell-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmite.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsyb.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb>
-Output written on discrete-maths.pdf (36 pages, 287499 bytes).
+Output written on discrete-maths.pdf (41 pages, 308901 bytes).
 PDF statistics:
- 585 PDF objects out of 1000 (max. 8388607)
- 486 compressed objects within 5 object streams
- 221 named destinations out of 1000 (max. 500000)
- 221 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 648 PDF objects out of 1000 (max. 8388607)
+ 543 compressed objects within 6 object streams
+ 248 named destinations out of 1000 (max. 500000)
+ 229 words of extra memory for PDF output out of 10000 (max. 10000000)
 

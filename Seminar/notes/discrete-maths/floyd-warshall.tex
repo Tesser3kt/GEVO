@@ -131,7 +131,7 @@ dvojicemi vrcholů. Ten fakt, že hledáme vzdálenosti mezi vskutku \textbf{vš
 dvojicemi, nám umožňuje díky závěrům v předchozích odstavcích toto dělat
 efektivně.
 
-Algoritmus vytváří zobrazení $D: V^2 \to (0,\infty]$, kterýmť si vlastně
+Algoritmus vytváří zobrazení $D: V^2 \to [0,\infty]$, kterýmť si vlastně
 \uv{pama\-tuje} váhu zatím nejkratší nalezené cesty mezi každými dvěma vrcholy.
 Na začátku algoritmu je tudíž $D(v,v) \coloneqq 0$ pro všechny $v \in V$ a
 $D(u,v) \coloneqq w(uv)$ pro všechny dvojice $(u,v) \in V^2$, mezi kterými vede
@@ -162,7 +162,7 @@ $d_G$. Konečně můžeme přikročit k samotnému pseudokódu, jenž si prohlé
  \SetKw{KwReturn}{return}
 
  \Input{souvislý ohodnocený graf $G = (V,E,w)$, kde $V = \{v_1,\ldots,v_n\}$}
- \Output{zobrazení $D:V^2 \to (0,\infty]$ takové, že $D \equiv d_G$}
+ \Output{zobrazení $D:V^2 \to [0,\infty]$ takové, že $D \equiv d_G$}
  \BlankLine
  \emph{Inicializace}\;
  \For{$i \leftarrow 1$ \KwTo $n$} {

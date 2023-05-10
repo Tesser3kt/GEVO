@@ -1,9 +1,9 @@
 \subsection{Vzdálenost vrcholů}
 \label{ssec:vzdalenost-vrcholu}
 
-Sekci motivujeme úlohou \uv{jako ze života}, která ve mě budí jistou míru
+Sekci motivujeme úlohou \uv{jako ze života}, která ve mně budí jistou míru
 nostalgie, jelikož jsem ji řešil na konci prvního ročníku v rámci zkoušky
-z~programování.
+z~programování. Dovolil jsem si ji ovšem literárně obohatit.
 
 \begin{problem}[Rodinný výlet]
  \label{prob:rodinny-vylet}
@@ -11,29 +11,300 @@ z~programování.
  oblastí Karviná. Jedou děda Koláček se svou chotí, babičkou Koláčkovou, a
  jejich čtyři uřvaná rozmazlená vnoučata -- Matouš, Marek, Lukáš a Jan.
 
- Z Třince do Orlové dánť jest směr a, i přes relativní nenáročnost trasy,
+ Z Třince do Orlové dánť jest směr a, i přes relativní nenáročnost terénu,
  vnoučata ustavičně fňukají, že chtějí jet tou nejkratší trasou. Děda Koláček,
  dobrodinec ten od kosti, snaží se vnoučatům vyhovět a nejkratší trasu úpěnlivě
  hledá. Do vřavy se přidává babička Koláčková, která ví, že trasa z Třince do
  Orlové vede přes mnoho malých vesnic, mnohože~z nich hostí aspoň jednu hospodu.
 
- Vědouc velmi dobře, že každá hospoda zbrzdí cestu na nejméně půl hodiny, trvá
- babička Koláčková na tom, aby se vybraná cesta z Třince do Orlové hospodám
- vyhnula. Křik vnoučat brzy ji však přesvědčí, že délka trasy převažuje nad
- množstvím hospod, které po cestě potkají.
+ Vědouc velmi dobře, že každá hospoda zbrzdí cestu na nejméně půl hodiny a že i
+ při mimoděčné zmínce o blízké hospodě si děda Koláček počíná mnouti pivní
+ pupek, trvá babička Koláčková na tom, aby vybraná cesta z Třince do Orlové
+ vedla přes vesnice, které jsou tak daleko od hospod, jak je to jen možné. Křik
+ vnoučat brzy ji však přesvědčí, že délka trasy převažuje nad množstvím hospod,
+ ke kterým se po cestě přiblíží.
 
- Rodina Koláčková tudíž stojí před nelehkým úkolem vybrat ze všech nejkratších
- cest z Třince do Orlové tu, která se vyhne co nejvíce hospodám.
+ Koláčkovic rodina tudíž stojí před nelehkým úkolem vybrat ze všech nejkratších
+ cest z Třince do Orlové tu, která je hospodám co nejvíce vzdálena.
 
  Brzy znaven, děda Koláček posílá nezkrotná vnoučata s konečně neosedlanými
  bicykly domů a výlet do Orlové se odkládá na příští školní prázdniny. Pomozme
  mu jej zorganizovat předem.
 \end{problem}
 
-Úlohu si modelujeme ohodnoceným grafem $G = (V,E,w)$. Vrcholy představovují
+Úlohu si modelujeme ohodnoceným grafem $G = (V,E,w)$. Vrcholy představují
 vesnice, případně města, mezi Třincem a Orlovou, z nichž některé jsou označeny
 vykřičníkem mínícím přítomnost jedné či více hospod.
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}[scale=1.5]
+  \node[vertex,myred] (t) at (0, 0) {};
+  \node[vertex,mypurple] (v11) at (1, 1) {};
+  \node[vertex] (v12) at (1, -1) {};
+  \node[vertex] (v21) at (2, 0.5) {};
+  \node[vertex,mypurple] (v22) at (2, -0.5) {};
+  \node[vertex] (v23) at (2, -2) {};
+  \node[vertex] (v31) at (3, 1.5) {};
+  \node[vertex] (v32) at (3, 0) {};
+  \node[vertex,mypurple] (v33) at (3, -1) {};
+  \node[vertex,mypurple] (v41) at (4, 2) {};
+  \node[vertex] (v42) at (4, 1) {};
+  \node[vertex] (v43) at (4, -0.5) {};
+  \node[vertex] (v44) at (4, -1.5) {};
+  \node[vertex,myblue] (o) at (5, 0) {};
+
+  \draw[thick] (t) to node[midway,draw,circle,fill=white,inner sep=1pt]
+   {\footnotesize $4$} (v11);
+  \draw[thick] (t) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $3$} (v12);
+  \draw[thick] (v11) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $2$} (v21);
+  \draw[thick] (v11) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $7$} (v22);
+  \draw[thick] (v12) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $3$} (v22);
+  \draw[thick] (v12) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $6$} (v23);
+  \draw[thick] (v23) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $11$} (v44);
+  \draw[thick] (v11) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $12$} (v31);
+  \draw[thick] (v21) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $5$} (v31);
+  \draw[thick] (v21) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $3$} (v32);
+  \draw[thick] (v22) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $4$} (v32);
+  \draw[thick] (v23) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $5$} (v33);
+  \draw[thick] (t) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $8$} (v22);
+  \draw[thick] (v22) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $6$} (v23);
+  \draw[thick] (v32) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $3$} (v33);
+  \draw[thick] (v31) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $4$} (v41);
+  \draw[thick] (v31) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $3$} (v42);
+  \draw[thick] (v32) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $5$} (v42);
+  \draw[thick] (v32) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $3$} (v43);
+  \draw[thick] (v33) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $4$} (v43);
+  \draw[thick] (v33) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $3$} (v44);
+  \draw[thick] (v21) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $7$} (v42);
+  \draw[thick] (v41) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $14$} (o);
+  \draw[thick] (v42) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $8$} (o);
+  \draw[thick] (v32) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $11$} (o);
+  \draw[thick] (v43) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $5$} (o);
+  \draw[thick] (v44) to node[midway,circle,draw,fill=white,inner sep=1pt]
+   {\footnotesize $9$} (o);
+
+  \node[below left=0mm of t,myred] (tlabel) {$t$};
+  \node[below right=0mm of o,myblue] (olabel) {$o$};
+ 
+  \node[above left=-1mm and -1mm of v11,mypurple] {$\mathbf{!}$};
+  \node[above right=-1mm and -2mm of v22,mypurple] {$\mathbf{!}$};
+  \node[above left=-3mm and -1mm of v33,mypurple] {$\mathbf{!}$};
+  \node[above right=-1mm and -1mm of v41,mypurple] {$\mathbf{!}$};
+  
+ \end{tikzpicture}
+ \caption{Graf obcí mezi \clr{Třincem} a \clb{Orlovou}.}
+ \label{fig:trinec-orlova}
+\end{figure}
 
 Nejprve se soustředíme na nejpodstatnější část úlohy, tou jest nalezení
 nejkratší cest mezi Třincem a Orlovou, kterážto města si v zájmu strohosti
 označíme písmeny $t,o \in V$.
+
+První, co by člověka mohlo napadnout je spustit
+\hyperref[alg:floyd-warshall]{Floydův-Warshallův algoritmus}. Zde je však nutno
+si uvědomit, že ten není možné modifikovat tak, aby hledal vzdálenost mezi dvěma
+konkrétními vrcholy. Totiž, z~popisu jeho průběhu plyne, že váhu nejkratší cesty
+mezi dvěma vrcholy, která vede pouze přes vrcholy z množiny
+$\{v_1,\ldots,v_k\}$, umím spočítat teprve tehdy, když znám váhy nejkratších
+cest používajících pouze vrcholy $v_1,\ldots,v_{k-1}$ mezi \textbf{všemi
+dvojicemi vrcholů} v grafu $G = (\{v_1,\ldots,v_n\}, E, w)$. Odtud plyne, že
+Floydův-Warshallův algoritmus vždy najde vzdálenosti mezi všemi dvojicemi
+vrcholů.
+
+Samozřejmě je též možné najít \textbf{všechny} cesty mezi danými dvěma vrcholy a
+z nich vybrat tu nejkratší. Tento postup je však ještě výrazně méně efektivní
+než Floydův-Warshallův algoritmus.
+
+Není však radno zoufat, bo algoritmus pro relativně efektivní nalezení
+vzdálenosti mezi určenými dvěma vrcholy v grafu existuje. Nosí jméno svého
+tvůrce, holandského informatika a programátora Edsgera W. Dijk\-stry (čteno
+\uv{dajkstry}). Není složitý, ale zcela jistě je méně přímočarý než
+\hyperref[alg:kruskal]{Kruskalův} i
+\hyperref[alg:floyd-warshall]{Floydův-Warshallův} algoritmus.
+
+Je ironické, že najít efektivní algoritmus na výpočet vzdálenosti mezi dvě\-ma
+vrcholy je výrazně obtížnější než na výpočet vzdálenosti mezi všemi dvojicemi
+vrcholů.
+
+\subsubsection{Dijkstrův algoritmus}
+\label{sssec:dijkstruv-algoritmus}
+
+Dijkstrův algoritmus má mnoho společného s
+\hyperref[alg:floyd-warshall]{Floydovým-Warshallovým algoritmem}, například
+rovněž v každém kroku zlepšuje zatím nejlepší známou vzdálenost od
+\emph{zdrojového} vrcholu k ostatním. Jeho základní myšlenka je však jiná.
+Dijkstrův algoritmus využívá tzv. \uv{průchod do šířky}, což znamená, že se
+\uv{šíří} od jednoho zvoleného \emph{zdrojového vrcholu} nejprve do jeho sousedů
+(tj. do vrcholů s ním spojených hranou). Při průchodu si u každého vrcholu
+pamatuje zatím nejlepší nalezenou cestu ze zdrojového vrcholu do něj, a kdykoli
+vstoupí do dalšího vrcholu, ověří, zda cesta, po které se do něj dostal, není
+kratší než dosavad nejlepší.
+
+Tento postup sám není nijak revoluční a průchod do šířky je asi tak starý jako
+grafy samotné. Myšlenka, se kterou Edsger Dijkstra přišel, však na svou dobu
+revoluční byla, neboť se jednalo o tehdy nejefektivnější způsob nalezení
+vzdálenosti mezi vrcholy v ohodnoceném grafu. U každého vrcholu si pamatoval
+váhu zatím nejkratší nalezené cesty od zdroje k němu. Uvědomil si, že
+\textbf{pokud vybírá vrcholy vždy od těch s minimální uloženou hodnotou}, tak v
+moment, \textbf{kdy projde všechny sousedy nějakého vrcholu}, pak už \textbf{je
+zapamatovaná hodnota v tomto vrcholu nejlepší možná}, tedy se jedná o skutečnou
+vzdálenost od zdroje k tomuto vrcholu a už se do něj nikdy nemusí znovu vracet.
+
+Důvod, proč tomu tak je, není na první pohled zřejmý a objasníme ho podrobně v
+důkazu správnosti Dijkstrova algoritmu.
+
+Ještě před slovním popisem a představením pseudokódu je dobré se zamyslet, o
+kolik více efektivní je Dijkstrův způsob oproti prostému průchodu do šířky. Pro
+úplnost:
+\begin{itemize}
+ \item Průchod do šířky vždy putuje od vrcholu ke všem jeho sousedům, od těch
+  zase k jejich sousedům (mezi nimiž je samozřejmě i onen původní vrchol) a tak
+  dále.
+ \item Dijkstrův algoritmus nahlédne z právě vybraného vrcholu do jeho sousedů,
+  ale pak nepokračuje nutně jimi. Naopak, právě vybraný vrchol již \uv{uzamkne}
+  a pokračuje nějakým s minimální uloženou zatím nejkratší cestou ze zdroje do
+  něj.
+\end{itemize}
+Kvůli tomu, že jeden ze sousedů každého vrcholu je přesně ten samý vrchol,
+projdu v naprosto nejhorším případě při běžném průchodu do šířky každý vrchol
+tolikrát, kolik přes něj vede cest.
+
+Naopak, Dijkstrův algoritmus \emph{zakazuje} vracet se do vrcholů, jejichž
+všichni sousedi již byli navštíveni. Tedy, každý vrchol je navštíven v nejhorším
+tolikrát, kolik má sousedů. Je snadné si rozmyslet, o kolik je v průměrném
+případě počet sousedů vrcholu nižší než počet cest jím procházejících.
+
+Největší časový rozdíl mezi obvyklým průchodem do šířky a Dijkstrovým algoritmem
+je vidět v tzv. \emph{úplných grafech}, tedy grafech, ve kterých je každý vrchol
+spojen s každým. V úplném grafu na $n$ vrcholech, který se často značí $K_n$,
+definuje libovolná podmnožina vrcholů cestu. Již dlouho víme, že všech podmnožin
+množiny o $n$ prvcích je $2^{n}$. Tedy, algoritmus průchodu do šířky udělá při
+hledání vzdálenosti mezi dvěma vrcholy v úplném grafu vždy $2^{n}$ kroků. Oproti
+tomu, není těžké dokázat (ale my to tu dělat nebudeme), že Dijkstrův algoritmus
+udělá v grafu na $n$ vrcholech vždy nejvýše $n^2$ kroků.
+
+Na \myref{obrázku}{fig:uplny-graf} vidíte úplný graf na $5$ vrcholech. Upřímně
+doporučuji, abyste si tvrzení předchozího odstavce vyzkoušeli v praxi.
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \node[vertex,myred] (1) at (90:2) {};
+  \node[vertex] (2) at (162:2) {};
+  \node[vertex] (3) at (234:2) {};
+  \node[vertex,myblue] (4) at (306:2) {};
+  \node[vertex] (5) at (18:2) {};
+  
+  \foreach \i in {1,2,...,5} {
+   \foreach \j in {1,2,...,5} {
+    \ifthenelse{\equal{\i}{\j}}{}{
+     \tikzmath{
+      integer \w;
+      \w = \i + \j;
+     }
+     \draw[thick] (\i) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $\w$} (\j);
+    }
+   }
+  }
+ \end{tikzpicture}
+
+ \caption{Ohodnocený úplný graf na pěti vrcholech s vyznačeným \clr{zdrojovým} a
+ \clb{cílovým} vrcholem.}
+ \label{fig:uplny-graf}
+\end{figure}
+
+Nyní přistoupíme ke slovnímu popisu Dijkstrova algoritmu. Algoritmus striktně
+vzato nepočítá vzdálenost mezi dvěma vrcholy, anobrž vzdálenost od
+\emph{zdrojového vrcholu} ke všem ostatním.
+
+Podobně jako \hyperref[alg:floyd-warshall]{Floydův-Warshallův algoritmus}, i
+Dijkstrův algoritmus vytváří postupně zobrazení $d:V \to [0,\infty]$ takové, že
+po jeho skončení platí $d(v) = d_G(s,v)$ pro všechna $v \in V$ a nějaký pevně
+zvolený zdrojový vrchol $s \in V$. Na začátku algoritmu je pročež $d(s) = 0$ a
+$d(v) = \infty$ pro všechny $s \neq v \in V$. V každém kroku algoritmu navíc
+existuje množina $X$ \uv{zakázaných} vrcholů, do kterých už není možné se dívat
+ani vracet. V moment, kdy procházím sousedy právě vybraného vrcholu, ignoruji
+ty, které již byly někdy zakázány.
+
+Jeden krok algoritmu vypadá takto:
+\begin{enumerate}
+ \item Označ jako zvolený vrchol libovolný $v \in V$ \textbf{s minimální
+  $d(v)$}.
+ \item Pro každého souseda $u$ zvoleného vrcholu $v$ porovnej zatím nejkratší
+  známou cestu z $s$ do $u$, to jest $d(u)$, s váhou zatím nejkratší cesty z $s$
+  do $u$ vedoucí přes $v$, to jest $d(v) + w(uv)$. Je-li druhá hodnota menší,
+  změň $d(u)$ na $d(v) + w(uv)$.
+ \item Vrchol $v$ označ jako zakázaný.
+ \item Pokud ještě existuje vrchol, který není zakázaný, opakuj (1).
+\end{enumerate}
+
+Jak jsme již psali -- fakt, že jako další vrchol v pořadí volíme ten s minimální
+známou nejkratší cestou z $s$, umožňuje se nikdy do vrcholů, jejichž sousedy
+projdeme, nevracet, není samozřejmý. Výklad o obecném chodu Dijkstrova algoritmu
+zakončíme prezentací jeho pseudokódu pro \textbf{souvislý} ohodnocený graf $G =
+(V,E,w)$ s pevně zvoleným zdrojovým vrcholem $s \in V$. Ihned poté dokážeme jeho
+správnost.
+
+Pro stručnost vyjádření zavedeme ještě značení
+\[
+ n(v) \coloneqq \{u \in V \mid uv \in E\},
+\]
+čili označíme výrazem $n(v)$ (od angl. \emph{\textbf{n}eighbour}), množinu všech
+sousedů vrcholu $v \in V$.
+
+\begin{algorithm}
+ \caption{Dijkstrův algoritmus}
+ \label{alg:dijkstra}
+
+ \SetKwInOut{Input}{input}
+ \SetKwInOut{Output}{output}
+ \SetKw{KwReturn}{return}
+
+ \Input{souvislý ohodnocený graf $G = (V,E,w)$ s počátečním vrcholem $s \in V$}
+ \Output{zobrazení $d:V \to [0,\infty]$ takové, že $d \equiv d_G(s,-)$}
+ \BlankLine
+ \emph{Inicializace}\;
+ $d(s) \leftarrow 0$\;
+ \For{$v \in V \setminus \{s\}$} {
+  $d(v) \leftarrow \infty$\;
+ }
+ $X \leftarrow \emptyset$\;
+ \BlankLine
+ \While{$X \neq V$} {
+  $v \leftarrow $ libovolný vrchol s minimální $d(v)$ takový, že $v \notin X$\;
+  \For{$u \in n(v) \setminus X$} {
+   \If{$d(u) > d(v) + w(uv)$} {
+    $d(u) \leftarrow d(v) + w(uv)$\;
+   }
+  }
+  $X \leftarrow X \cup \{v\}$\;
+ }
+ \KwReturn{$d$}\;
+\end{algorithm}

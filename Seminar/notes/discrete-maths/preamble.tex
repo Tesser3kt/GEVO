@@ -89,14 +89,21 @@
 \usepackage{tikzsymbols}
 
 \usetikzlibrary{graphs, intersections, angles, quotes, calc, positioning,
-shapes, snakes, decorations.markings}
+shapes, snakes, decorations.markings, math}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{babel}
 
 \tikzset{
   force/.style={thick, {Circle[length=2pt]}-stealth, shorten <=-1pt}
 }
-
+\tikzset{
+  vertex/.style = {shape=circle,fill,text=white,minimum size=9pt,inner
+  sep=1pt}
+}
+\tikzset{
+  triangle/.style = {regular polygon,regular polygon sides=3, draw, fill=white,
+  inner sep=1pt, outer sep=0mm, align=center}
+}
 %%%%%%%%%%%%%%%
 %  PGF Plots  %
 %%%%%%%%%%%%%%%
