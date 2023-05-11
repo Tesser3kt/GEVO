@@ -1,0 +1,271 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Mock Exam}\\
+ \Large\textsf{Quadratic Functions \& Equations}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+Meet Mr. Newton, the innkeeper. Mr. Newton regularly supplies his inn with high
+quality beer he can however only order in huge barrels. Every time he orders a
+batch, some litres of beer go to waste.
+
+Mr. Newton is not a maths guy. Sad that such a good beer is being wasted by his
+own inadequacy, he's started to experiment. He knows that \textbf{he needs at
+least two huge barrels} of beer a day to satisfy his thirsty customers. Of
+course, he doesn't need to order new barrels every day but to meet his quality
+standards, he mustn't keep the barrelled beer stocked for too long, either.
+
+He measured that when he ordered
+\begin{itemize}
+ \item \textbf{three barrels} of beer, \textbf{14 litres} of it went to waste;
+ \item \textbf{seven barrels} of beer, \textbf{18 litres} of it went to waste;
+ \item \textbf{nine barrels} of beer, \textbf{8 litres} of it went to waste.
+\end{itemize}
+
+Help make Mr. Newton happy by minimizing the amount of beer that go to waste,
+or, at least, tell him what's the worst possible order he could make.
+
+\begin{enumerate}
+ \item Given only three pieces of data, the best we can do is model the
+  situation using a quadratic function having as input the number of ordered
+  barrels and the losses in litres as output. We know that it should match the
+  provided data precisely. That is, our function, which we label $f$, must
+  satisfy
+  \begin{equation*}
+   \begin{split}
+    f(3) &= 14 \\
+    f(7) &= 18 \\
+    f(9) &= 8.
+   \end{split}
+  \end{equation*}
+  Determine the definition of such a quadratic function.
+ \item Mr. Newton is most afraid of losing even more litres of beer than he
+  already did. He demands you first tell him, what would be the \textbf{worst}
+  order he could make. That is, calculate the number of barrels whose order would make
+  him lose the most litres of beer.
+ \item Now that Mr. Newton has calmed down, knowing he won't lose too much beer,
+  he also asks you to help him determine how many barrels of beer he should
+  order \textbf{to lose no beer at all}. Remember, that he always needs to order
+  at least two barrels. \textbf{\uppercase{\tr{Use the Viète formulae to solve
+  this!}}}
+ \item Use the results from 3 to factor $f$ as a product of two linear
+  functions.
+ \item Mr. Newton, happy with how his inn is now coming along, opens another.
+  But, he's immediately stricken with grief, when his new inn starts wasting
+  beer like crazy. He promptly starts to measure how much beer he's losing and,
+  using the same method as in 1, you calculate that the beer losses of his
+  second inn can be modelled by the quadratic function
+  \[
+   g(x) = -x^2 + 10x - 21
+  \]
+  where $x$ is the number of ordered barrels. \textbf{How many barrels} should
+  Mr. Newton order \textbf{for both of his inns}, so that the \textbf{total
+  losses} (that is, the losses of the first inn + losses of the second inn)
+  \textbf{are as small as possible}?
+\end{enumerate}
+
+\begin{solution}
+ \hfill
+ \begin{enumerate}
+  \item Since $f$ is supposed to be a quadratic function, we know that its
+   general formula is $f(x) = ax^2 + bx + c$ for some real numbers $a,b$ and
+   $c$. Plugging the known inputs and outputs into it gives the system of linear
+   equations
+   \begin{equation*}
+    \begin{split}
+     f(3) &= a \cdot 3^2 + b \cdot 3 + c = 14\\
+     f(7) &= a \cdot 7^2 + b \cdot 7 + c = 18\\
+     f(9) &= a \cdot 9^2 + b \cdot 9 + c = 8.
+    \end{split}
+   \end{equation*}
+   If we subtract the first equation from the second and the second equation
+   from the third, we get
+   \begin{equation*}
+    \begin{split}
+     40a + 4b &= 4 \\
+     32a + 2b &= -10.
+    \end{split}
+   \end{equation*}
+   We can divide the first equation by $4$ and the second by $2$, to further get
+   \begin{equation*}
+    \begin{split}
+     10a + b &= 1 \\
+     16a + b &= -5. \\
+    \end{split}
+   \end{equation*}
+   We can then subtract the first equation from the second to arrive at an
+   equation with only one variable
+   \[
+    6a = -6,
+   \]
+   whose solution is $a = -1$. Plugging this into the first equation above gives
+   \[
+    -10 + b = 1,
+   \]
+   that is, $b = 11$. Finally, substituting $a$ and $b$ into, for example, the
+   first original equation yields
+   \[
+    -9 + 33 + c = 14,
+   \]
+   from which we calculate that $c = 10$. It follows that we can model Mr.
+   Newton's losses by the function $f(x) = -x^2 + 11x - 10$.
+  \item Since the function $f$ describes Mr. Newton's losses, the higher it is,
+   the more litres of beer he loses. Hence, to find the number of barrels which
+   causes the most number of litres of beer to go to waste, we're looking for
+   the maximal value of the function $f$. The graph of $f$ is a parabola which
+   looks like a `hill' in this case because $a = -1 < 0$. This means that $f$
+   does have a maximum at its vertex, whose first coordinate we know is $x = -b
+   / 2a$. In our case, we get that $x = -11 / (-2) = 5.5$ so Mr. Newton suffers
+   the most losses if he orders either 5 or 6 barrels of beer.
+  \item In order to compute the number of barrels whose order would cause no
+   losses to Mr. Newton, we need to solve the equation
+   \[
+    f(x) = 0.
+   \]
+   Using Viète's formulae, we know that if $x_1$ and $x_2$ are the solutions to
+   this equation, then
+   \begin{equation*}
+    \begin{split}
+     x_1 + x_2 &= -\frac{b}{a} = \frac{-11}{-1} = 11,\\
+     x_1 \cdot x_2 &= \frac{c}{a} = \frac{-10}{-1} = 10.\\
+    \end{split}
+   \end{equation*}
+   An immediate solution that comes to mind is $x_1 = 1$ and $x_2 = 10$. We know
+   that Mr. Newton needs to order at least $2$ barrels to keep his customers
+   satisfied, so the only relevant solution to his problem is the order of $10$
+   barrels.
+  \item We know that if $x_1$ and $x_2$ are the roots of a quadratic function
+   $f(x) = ax^2 + bx + c$, then this function decomposes as $f(x) = a(x -
+   x_1)(x-x_2)$. In our case, this means that
+   \[
+    f(x) = -(x - 1)(x - 10).
+   \]
+  \item As the function $f$ describes the losses of Mr. Newton's first inn and
+   $g$ describes the losses of his second inn, the total losses are given by the
+   quadratic function $f(x) + g(x)$. We want the total losses to be as close to
+   $0$ as possible, which entails solving the quadratic equation
+   \[
+    f(x) + g(x) = 0.
+   \]
+   Using the definitions of these functions, we get
+   \[
+    -x^2 + 11x - 10 - x^2 + 10x - 21 = -2x^2 + 21x - 31 = 0.
+   \]
+   This equation would not be trivial to solve using Viète's formulae, so we use
+   the general formula for the solutions to a quadratic equation instead. We get
+   \[
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-21 \pm \sqrt{441 - 248}}{-4}
+    = \frac{-21 \pm \sqrt{193}}{-4}.
+   \]
+   As $\sqrt{193}$ is approximately $14$ (because $14^2 = 196$), the two
+   solutions are approximately
+   \[
+    x_1 = \frac{-21 + 14}{-4} = \frac{7}{4} \quad \text{and} \quad x_2 =
+    \frac{-21 - 14}{-4} = \frac{35}{4}.
+   \]
+   As Mr. Newton needs to order at least 4 barrels for both of his inns
+   combined, the first solution is useless. Unfortunately, this time, Mr. Newton
+   cannot avoid losing beer completely but the number of barrels whose order
+   minimizes the number of wasted beer is $9$ because $35 / 4$ is just $1 / 4$
+   short of $9$.
+ \end{enumerate}
+\end{solution}
+\end{document}
