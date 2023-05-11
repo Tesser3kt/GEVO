@@ -268,9 +268,9 @@ Jeden krok algoritmu vypadá takto:
 Jak jsme již psali -- fakt, že jako další vrchol v pořadí volíme ten s minimální
 známou nejkratší cestou z $s$, umožňuje se nikdy do vrcholů, jejichž sousedy
 projdeme, nevracet, není samozřejmý. Výklad o obecném chodu Dijkstrova algoritmu
-zakončíme prezentací jeho \hyperref[alg:dijkstra]{pseudokódu} pro
-\textbf{souvislý} ohodnocený graf $G = (V,E,w)$ s pevně zvoleným zdrojovým
-vrcholem $s \in V$. Ihned poté dokážeme jeho správnost.
+zakončíme prezentací jeho pseudokódu pro \textbf{souvislý} ohodnocený graf $G =
+(V,E,w)$ s pevně zvoleným zdrojovým vrcholem $s \in V$. Ihned poté dokážeme jeho
+správnost.
 
 Pro stručnost vyjádření zavedeme ještě značení
 \[
@@ -308,48 +308,3 @@ sousedů vrcholu $v \in V$.
  }
  \KwReturn{$d$}\;
 \end{algorithm}
-
-\pagebreak
-
-\begin{claim}
- \label{claim:dijsktra-korektni}
- Dijkstrův algoritmus je korektní.
-\end{claim}
-\begin{proof}
- Musíme ověřit, že Dijkstrův algoritmus je konečný a počítá správně.
-
- Konečnost je zřejmá. Vrchol $v \in V$ s minimální $d(v)$ vždy existuje (i kdyby
- ta hodnota měla být $\infty$), a tedy nastane chvíle, kdy v $X$ jsou všechny
- vrcholy grafu $G$. V ten moment $X = V$, cyklus končí a algoritmus vrací
- zobrazení $d$.
- 
- Korektnost ukážeme indukcí podle počtu zakázaných vrcholů, tedy podle $\# X$.
- Naším indukčním předpokladem bude, jako tomu obvykle v důkazech indukcí bývá,
- že algoritmus funguje. To přesně znamená, že v každém kroku
- \begin{enumerate}[label=(\alph*)]
-  \item je $d(v) = d_G(s,v)$ pro všechny vrcholy $v \in X$;
-  \item je $d(u)$ váha nejkratší cesty z $s$ do $u$ vedoucí pouze přes vrcholy v
-   $X$, pro všechna $u \in V \setminus X$.
- \end{enumerate}
- Předpoklad (a) říká v lidské mluvě, že zakazování vrcholů si opravdu můžeme
- dovolit, tedy že do zakázaných vrcholů již nejde nalézt kratší cestu.
-
- Význam předpokladu (b) je těžší dekódovat. Představme si spíše, co by se stalo,
- kdyby \textbf{neplatil}. Pak by existovala nějaká kratší cesta do nezakázaného
- vrcholu $u$ přes zakázané vrcholy. Ovšem, přesně pro to, že tyto vrcholy jsou
- již zakázané, nemohu během zbytku průběhu algoritmu již nikdy tuto cestu
- objevit. Pokud by se stalo, že zrovna tato cesta je tou nejkratší, pak již
- zároveň nemohu nalézt hodnotu $d_G(s,u)$ a algoritmus selže.
-
- Počáteční případ $\# X = 1$ je snadný. V tomto stádiu jsme zrovna zakázali
- zdrojový vrchol $s$ a pro každého jeho souseda $u$ jsme položili $d(u) =
- w(su)$, jelikož $d(s) = 0$ a $d(u)$ bývala hodnota $\infty$. Tedy, zakázaný
- vrchol je jedině $s$ a $d(s) = d_G(s,s) = 0$, čímž jsme ověřili platnost (a).
- Jediné vrcholy, do nichž vede cesta přes zakázané vrcholy, tedy přes vrchol
- $s$, jsou sousedé $s$, a váha nejkratší cesty je zřejmě $w(su)$ pro každého
- souseda $u \in n(s)$. To dokazuje (b).
-
- Nyní rozebereme případ pro obecnou $\# X$ s předpokladem platnosti (a) a (b)
- pro $\# X - 1$. Nejprve si uvědomíme, že v tomto případě je výrok (b) platný
- automaticky.
-\end{proof}
