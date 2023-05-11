@@ -1,0 +1,260 @@
+\subsubsection{Pár vlastností kombinačních čísel}
+\label{sssec:par-vlastnosti-kombinacnich-cisel}
+
+Tahle sekce si neklade za cíl objevit zatím neznámý kontinent ani čtenáře naučit
+životu v afrických pralesích. Baže naopak, jedná se o prostou přílohu k již
+známému. Kombinační čísla se objevují, kdykoli člověk počítá s~podobjekty
+konečných objektů, tedy v podstatě pořád. Věnujeme chvilku času prozkoumání
+způsobů, jak s nimi zacházet.
+
+Nejprve jeden výpočetně užitečný vzoreček.
+
+\begin{lemma}
+ \label{lem:vzorec-pro-kombinacni-cislo}
+ Ať $k,n \in \N$, $k \leq n$. Platí
+ \[
+  \binom{n}{k} = \frac{n!}{k!(n-k)!}.
+ \]
+\end{lemma}
+\begin{proof}
+ Z \hyperref[def:kombinacni-cislo]{definice kombinačního čísla} máme
+ \[
+  \binom{n}{k} = \frac{\prod_{i=0}^{k-1} n-i}{k!},
+ \]
+ stačí tedy ukázat, že
+ \[
+  \prod_{i=0}^{k-1} n - i = \frac{n!}{(n-k)!}.
+ \]
+ To je však zřejmé, neboť
+ \begin{align*}
+  n! &= n(n-1) \cdots (n-k+1)(n-k)(n-k-1) \cdots 1\\
+  &= n(n-1)\cdots (n-k+1)(n-k)! = \left( \prod_{i=0}^{k-1} n-i \right)(n-k)!.
+ \end{align*}
+ Důkaz plyne z vydělení poslední rovnice číslem $(n-k)!$.
+\end{proof}
+
+Dále si povíme o tzv. \emph{Pascalově trojúhelníku}. Tím se obvykle míní
+následující struktura.
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \node at (0,0.5) {$1$};
+
+  \node at (-0.5,0) {$1$};
+  \node at (0.5,0) {$1$};
+
+  \node at (-1,-0.5) {$1$};
+  \node at (0,-0.5) {$2$};
+  \node at (1,-0.5) {$1$};
+
+  \node at (-1.5,-1) {$1$};
+  \node at (-0.5,-1) {$3$};
+  \node at (0.5,-1) {$3$};
+  \node at (1.5,-1) {$1$};
+
+  \node at (-2,-1.5) {$1$};
+  \node at (-1,-1.5) {$4$};
+  \node at (0,-1.5) {$6$};
+  \node at (1,-1.5) {$4$};
+  \node at (2,-1.5) {$1$};
+
+  \node at (-2.5,-2) {$1$};
+  \node at (-1.5,-2) {$5$};
+  \node at (-0.5,-2) {$10$};
+  \node at (0.5,-2) {$10$};
+  \node at (1.5,-2) {$5$};
+  \node at (2.5,-2) {$1$};
+
+  \node at (0, -2.5) {$\vdots$};
+ \end{tikzpicture}
+ \caption{Pascalův trojúhelník.}
+ \label{fig:pascaluv-trojuhelnik}
+\end{figure}
+
+Jde vlastně o posloupnost řad, kde na začátku a na konci každé řady je číslo $1$
+a prostřední čísla dostanu tak, že sečtu ta dvě čísla z předchozí řady těsně nad
+ním.
+
+Formálně můžeme říci, že Pascalův trojúhelník je posloupnost uspořádaných
+$n$-tic $(p_1^{n},\ldots,p_n^{n}) \in \N^{n}$ ($n$ jsou \textbf{indexy} řádků,
+nikoli mocniny), taková, že $p_i^{n} = p_{i-1}^{n-1} + p_{i}^{n-1}$ pro každé $n
+\geq 1$ a každé $1 \leq i \leq n$. Pro začátek položíme $p_1^{1} = 1$ a v každém
+řádku dodefinujeme $p_{0}^{n} = p_{n+1}^{n} = 0$.
+
+Skutečně, když $p_1^{1} = 1$, tedy první číslo prvního řádku je $1$, pak
+$p_1^{2} = p_0^{1} + p_1^{1} = 0 + 1 = 1$ a $p_2^{2} = p_1^{1} + p_2^{1} = 1 + 0
+= 1$, čili druhý řádek je dvojice $(1, 1)$. Zde vidíte důvod, proč jsme
+dodefinovali též $0$-tý a $(n+1)$-ní prvek $n$-tého řádku. Museli bychom totiž
+jinak psát speciální pravidlo pro určení prvního a posledního prvku každého
+řádku. Místo toho předstíráme, že je Pascalův trojúhelník ještě z obou stran
+obklopen nulami.
+
+Pro pořádek si ještě v tomto formálním pohledu spočteme třetí řádek, tj. trojici
+$(p_1^{3},p_2^{3},p_3^3)$. Máme
+\begin{align*}
+ p_1^3&= p_0^2+p_1^2 = 0 + 1 = 1, \\
+ p_2^3&= p_1^{2}+p_2^2 = 1 + 1 = 2, \\
+ p_3^3&= p_2^2 + p_3^2 = 1 + 0 = 1.
+\end{align*}
+Vše je, jak má být.
+
+Budeme chtít ukázat, že $n$-tý řádek Pascalova trojúhelníku tvoří přesně čísla
+$\binom{n-1}{0},\binom{n-1}{1},\ldots,\binom{n-1}{n-1}$. Pro první řádky je to
+jistě pravda, neboť $\binom{0}{0} = 1$ (neboť $0!$ se tradičně definuje jako
+$1$) a dále $\binom{1}{0} = \binom{1}{1} = 1$.
+
+Rozepíšeme si, co naše tvrzení vlastně znamená z pohledu kombinačních čísel.
+Prvky $p_i^{n+1}$ v $(n+1)$-ním řádku Pascalova trojúhelníku jsou definovány
+pomocí prvků v předchozím řádku vzorcem $p_{i+1}^{n+1} = p_{i}^{n} +
+p_{i+1}^{n}$. A my tvrdíme, že $p_{i}^{n} = \binom{n-1}{i-1}$. (Ověřte si, že to
+je \textbf{opravdu} to, co říkáme!) Přepíšeme-li tuto rovnost v kombinačních
+číslech, potřebujeme dokázat, že
+\begin{equation*}
+ \label{eq:pascal-identity}
+ \tag{$*$}
+ \binom{n}{i} = \binom{n-1}{i-1} + \binom{n-1}{i}
+\end{equation*}
+pro každé $n \geq 1$ každé $1 \leq i \leq n$.
+
+I když by to jistě nějak šlo upočítat, my zvolíme elegantnější způsob, který
+zůstává věrný tomu, co kombinační číslo vlastně \textbf{vyjadřuje}. Nezapomeňte,
+že $\binom{n}{i}$ je počet $i$-prvkových podmnožin $n$-prvkové množiny. Je
+jisté, že množina $(i-1)$-prvkových podmnožin je disjunktní (má prázdný průnik) s
+množinou $i$-prvkových podmnožin. To ovšem znamená, že
+\begin{align*}
+ \# \left( \binom{\{1,\ldots,n-1\}}{i-1} \cup \binom{\{1,\ldots,n-1\}}{i}
+ \right)
+ &= \# \binom{\{1,\ldots,n-1\}}{i-1} + \# \binom{\{1,\ldots,n-1\}}{i}\\
+ &= \binom{n-1}{i-1} + \binom{n-1}{i}.
+\end{align*}
+Řečeno selsky, když vezmu množinu obsahující všechny $i$-prvkové i
+$(i-1)$-prvkové podmnožiny, pak její velikost je počet všech $i$-prvkových
+podmnožin plus počet všech $(i-1)$-prvkových podmnožin. No shit.
+
+Čili, abychom dokázali rovnost \eqref{eq:pascal-identity}, najdeme bijekci mezi
+množinou všech $i$-prvkových a $(i-1)$-prvkových podmnožin $(n-1)$-prvkové
+množiny a množinou všech  $i$-prvkových podmnožin $n$-prvkové množiny.
+
+\begin{claim}[Pascalova rovnost]
+ \label{claim:pascalova-rovnost}
+ Ať $1 \leq i,n \in \N$ a $i \leq n$. Pak platí
+ \[
+  \binom{n}{i} = \binom{n-1}{i-1} + \binom{n-1}{i}.
+ \]
+\end{claim}
+\begin{proof}
+ Definujeme bijekci
+ \[ 
+  f: \binom{\{1,\ldots,n-1\}}{i-1} \cup \binom{\{1,\ldots,n-1\}}{i} \to
+  \binom{\{1,\ldots,n\}}{i}.
+ \]
+ Ať nejprve $A \in \binom{\{1,\ldots,n-1\}}{i}$, čili $A$ je $i$-prvková
+ podmnožina ${\{1,\ldots,n-1\}}$. Pak je $A$ též $i$-prvková podmnožina
+ $\{1,\ldots,n\}$, neboli $A \in \binom{\{1,\ldots,n\}}{i}$ a stačí definovat
+ $f(A) \coloneqq A$. Stručně řečeno, $f$ je identické zobrazení na $i$-prvkových
+ podmnožinách.
+
+ Teď ať $B \in \binom{\{1,\ldots,n-1\}}{i-1}$. Pak $B \cup \{n\}$ je $i$-prvková
+ podmnožina $\{1,\ldots,n\}$ a tedy můžeme definovat $f(B) \coloneqq B \cup
+ \{n\}$.
+
+ Je zřejmé, že $f$ je bijekce. Když $A \subseteq \{1,\ldots,n\}$ neobsahuje $n$,
+ pak je jejím vzorem při $f$ ta samá množina, tj. $A$. Když $A \subseteq
+ \{1,\ldots,n\}$ obsahuje $n$, pak je jejím vzorem množina $A \setminus
+ \{n\} \subseteq \{1,\ldots,n-1\}$.
+
+ Tím je důkaz dokončen.
+\end{proof}
+
+\hyperref[claim:pascalova-rovnost]{Předchozí tvrzení} ukazuje, že pro $n$-tý
+řádek Pascalova trojúhelníka oprav\-du platí rovnost
+\[
+ (p_1^{n},\ldots,p_n^{n}) = \left(
+ \binom{n-1}{0},\binom{n-1}{1},\ldots,\binom{n-1}{n-1} \right).
+\]
+
+Na závěr celé sekce o kombinačních číslech si ukážeme ještě poslední snadno
+dokazatelnou rovnost, která je však výpočetně též užitečná.
+
+\begin{lemma}
+ \label{lemma:stejne-doplnku}
+ Ať $k,n \in \N$ a $k \leq n$. Pak
+ \[
+  \binom{n}{k} = \binom{n}{n-k}.
+ \]
+\end{lemma}
+\begin{proof}
+ Nalezneme bijekci
+ \[
+  \binom{\{1,\ldots,n\}}{k} \to \binom{\{1,\ldots,n\}}{n-k}.
+ \]
+ Uvědomme si, že když $A \subseteq \{1,\ldots,n\}$ a $\# A = k$, pak $\#
+ (\{1,\ldots,n\} \setminus A) = n - k$. Kýžená bijekce je tudíž zobrazení $A
+ \mapsto \{1,\ldots,n\} \setminus A$.
+\end{proof}
+
+Ještě několik úloh pro bystré hlavy.
+
+\begin{exercise}
+ Dokažte, že
+ \[
+  \sum_{i=0}^{n} \binom{n}{i}^2 = \binom{2n}{n}.
+ \]
+ \textbf{Hint}: použijte
+ \hyperref[lemma:stejne-doplnku]{lemma~\ref*{lemma:stejne-doplnku}}.
+\end{exercise}
+
+\begin{exercise}
+ Dokažte vzorec
+ \[
+  \sum_{k=r}^{n} \binom{k}{r} = \binom{n+1}{r+1}
+ \]
+ pro pevné $r \in \N$ indukcí podle $n \in \N$.
+\end{exercise}
+
+\begin{exercise}[těžké]
+ Kolik existuje podmnožin $\{1,\ldots,n\}$, které neobsahují žádná dvě po sobě
+ jdoucí čísla. Formálně, určete velikost množiny
+ \[
+  \{A \subseteq \{1,\ldots,n\} \mid \{i,j\} \nsubseteq A, \text{ kdykoli }
+  |i-j|=1\}.
+ \]
+\end{exercise}
+
+\begin{exercise}[trocha teorie čísel]
+ Ať $p$ je prvočíslo a $k,n$ přirozená čísla.
+ \begin{enumerate}[label=(\alph*),topsep=0pt]
+  \item Dokažte, že pro $k<p$ je $\binom{p}{k}$ dělitelné $p$.
+  \item Dokažte, že $\binom{n}{p}$ je dělitelné $p$ právě tehdy, když $\left\lfloor n
+   / p \right\rfloor$ je dělitelné $p$, kde $\left\lfloor  \cdot \right\rfloor$ 
+   značí \emph{dolní celou část}.
+ \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+ Budeme vybírat $k$-tice předmětů z $n$ druhů předmětů. Budeme uvažovat různé
+ typy výběru podle toho, jestli vybíráme $k$-tice uspořádané, nebo neuspořádané
+ (tj. podmnožiny) a též podle toho, zda každého druhu je vždy jen jeden předmět,
+ či nikoli. Doplňte následující tabulku:
+ \begin{table}[H]
+  \centering
+  \begin{tabular}{c|c|c}
+   & Jen 1 předmět & Libovolně mnoho předmětů\\
+   & každého druhu & každého druhu\\
+   \midrule
+   Uspořádané& &\\
+   $k$-tice& &\\
+   \midrule
+   Neuspořádané & &\\
+   $k$-tice& &
+  \end{tabular}
+  \caption{Výběr $k$-tic předmětů z $n$ druhů předmětů.}
+  \label{table:vyber-k-z-n}
+ \end{table}
+\end{exercise}
+
+\begin{exercise}[těžké]
+ Kolika způsoby můžeme postavit $7$ čarodějnic a $5$ vodníků do řady tak, aby
+ $2$ vodníci nikdy nestáli vedle sebe?
+\end{exercise}

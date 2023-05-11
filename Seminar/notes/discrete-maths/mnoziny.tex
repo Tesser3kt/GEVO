@@ -1,0 +1,95 @@
+\subsection{Množiny}
+\label{ssec:mnoziny}
+
+Požaduji znalost značek $ \in,  \cap,  \cup ,  \setminus ,  \times $ a $
+\subseteq $. Pro připomenutí, jsou-li $A,B$ dvě množiny, pak
+\begin{itemize}
+ \item výrok $x \in A$ říká, že \uv{$x$ je prvkem $A$.} nebo \uv{ $x$ patří do
+  $A$.};
+ \item  $A \cap B$ je \textbf{průnik} $A$ s $B$, čili množina obsahující
+  prvky, které patří jak do $A$, tak do $B$;
+ \item $A \cup B$ je \textbf{sjednocení} $A$ s $B$, čili množina obsahující
+  prvky, které patří do $A$ nebo do $B$;
+ \item $A \setminus B$ je \textbf{rozdíl} $A$ s $B$, čili množina obsahující
+  prvky, které patří do $A$ a nepatří do $B$;
+ \item $A \times B$ je \textbf{součin} $A$ s $B$, čili množina
+  \textbf{uspořádaných} dvojic $(a,b)$, kde $a \in A$ a $b \in B$. Uspořádaná
+  dvojice zde znamená, že $(a,b) \neq (b,a)$, tedy záleží na tom, který prvek
+  je první a který druhý;
+ \item výrok $A \subseteq B$ říká, že $A$ je podmnožinou $B$, tedy, že každý
+  prvek $A$ je rovněž prvkem $B$.
+\end{itemize}
+
+Pro mnohonásobné a nekonečné verze budeme používat stejné symboly (s výjimkou
+součinu). Tedy, mám-li množiny $A_1,\ldots,A_n$, pak
+\begin{itemize}
+ \item $\bigcap_{i=1}^{n} A_i$ je jejich průnik,
+ \item $\bigcup_{i=1}^{n} A_i$ je jejich sjednocení a
+ \item $\prod_{i=1}^{n} A_i$ je jejich součin.
+\end{itemize}
+
+Když jsou počáteční a koncový index známy z kontextu, budeme je vynechávat a
+psát pouze třeba $\bigcup_{}^{} A_i$. Součin množiny se sebou samou budeme často
+zkracovat mocninným zápisem, třeba $A \times A \times A = A^3$.
+
+\begin{example}
+ Je-li $A = \{1, 3, 4\}$ a $B = \{2, 4, 5\}$, pak
+ \begin{itemize}
+  \item $A \cap B = \{4\}$,
+  \item $A \cup B = \{1, 2, 3, 4, 5\}$, 
+  \item $A \setminus B = \{1, 3\}$ a
+  \item $A \times B = \{(1, 2), (1, 4), (1, 5), (3, 2), (3, 4), (3, 5), (4, 2),
+   (4, 4), (4, 5)\}$.
+ \end{itemize}
+\end{example}
+
+\begin{definition}
+ Je-li $A$ množina, pak
+ \begin{itemize}
+  \item $\#A$ značí \textbf{počet prvků} $A$ neboli \textbf{velikost} $A$,
+  \item $2^{A}$ značí \textbf{množinu všech podmnožin} $A$, čili
+   \[
+    2^{A} \coloneqq \{B \mid B \subseteq A\}.
+   \]
+ \end{itemize}
+ Pro nekonečné množiny píšeme $\#A = \infty$.
+\end{definition}
+
+\begin{warning}
+ Pojem velikosti takto zavedený není korektně definovaný. Není totiž jasné, co
+ by měl \uv{počet} prvků znamenat. Pojem \emph{bijekce} ze
+ \hyperref[ssec:zobrazeni] {sekce o zobrazeních} tento problém vyřeší.
+\end{warning}
+
+\begin{claim}[Vlastnosti velikosti množiny]
+ \label{claim:vlastnosti-velikosti-mnoziny}
+ \hfill
+ \vspace*{-.5\parskip}
+ \begin{enumerate}
+  \item $\#A \times B = \#A\#B$.
+  \item $\#2^{A} = 2^{\# A}$.
+ \end{enumerate}
+\end{claim}
+\begin{proof}
+ \hfill
+ \vspace*{-.5\parskip}
+ \begin{enumerate}
+  \item Pro každý prvek $a \in A$ je v $A \times B$ právě $\# B$ dvojic $(a,b)$,
+   kde $b \in B$. Jelikož prvků $a \in A$ je z definice $\# A$ a každému
+   odpovídá $\# B$ dvojic $(a,b)$, je celkový počet uspořádaných dvojic v $A
+   \times B$ právě $\# A \# B$.
+  \item Pro nekonečné množiny tvrzení platí zřejmě. Předpokládejme, že $A$ je
+   konečná.
+   
+   Očíslujeme si podmnožiny $A$ binárními čísly délky $\# A$. Každá podmnožina
+   $A$ vznikne totiž tak, že procházíme postupně všech\-ny prvky $A$ a u každého
+   se rozhodujeme, zda ho do ní zařadíme či nikoliv. Kladnému rozhodnutí bude
+   odpovídat cifra $1$ a zápornému $0$. Má-li $A$ řekněme $5$ prvků, pak
+   podmnožina očíslovaná číslem $00110$ je podmnožina, která obsahuje pouze $3.$
+   a $4.$ prvek z $A$ (při libovolném, \textbf{ale fixním}, očíslování samotné
+   množiny $A$).
+
+   Odtud plyne, že $A$ má tolik podmnožin, kolik je různých binárních čísel
+   délky $\# A$. Těch je však $2^{\# A}$, jak jsme chtěli.\qedhere
+ \end{enumerate}
+\end{proof}
