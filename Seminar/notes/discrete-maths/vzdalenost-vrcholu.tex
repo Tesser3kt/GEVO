@@ -134,8 +134,8 @@ mezi dvěma vrcholy, která vede pouze přes vrcholy z množiny
 $\{v_1,\ldots,v_k\}$, umím spočítat teprve tehdy, když znám váhy nejkratších
 cest používajících pouze vrcholy $v_1,\ldots,v_{k-1}$ mezi \textbf{všemi
 dvojicemi vrcholů} v grafu $G = (\{v_1,\ldots,v_n\}, E, w)$. Odtud plyne, že
-Floydův-Warshallův algoritmus vždy najde vzdálenosti mezi všemi dvojicemi
-vrcholů.
+Floydův-Warshallův algoritmus potřebuje znát zatím nejkratší nalezenou cestu
+mezi každými dvěma vrcholy, aspoň dokud $k$ není $n$.
 
 Samozřejmě je též možné najít \textbf{všechny} cesty mezi danými dvěma vrcholy a
 z nich vybrat tu nejkratší. Tento postup je však ještě výrazně méně efektivní
@@ -148,9 +148,9 @@ tvůrce, holandského informatika a programátora Edsgera W. Dijk\-stry (čteno
 \hyperref[alg:kruskal]{Kruskalův} i
 \hyperref[alg:floyd-warshall]{Floydův-Warshallův} algoritmus.
 
-Je ironické, že najít efektivní algoritmus na výpočet vzdálenosti mezi dvě\-ma
-vrcholy je výrazně obtížnější než na výpočet vzdálenosti mezi všemi dvojicemi
-vrcholů.
+Pozastavme se na moment a oceňme tu ironii, že najít efektivní algoritmus na
+výpočet vzdálenosti mezi dvě\-ma vrcholy je výrazně obtížnější než na výpočet
+vzdálenosti mezi všemi dvojicemi vrcholů.
 
 \subsubsection{Dijkstrův algoritmus}
 \label{sssec:dijkstruv-algoritmus}
@@ -184,21 +184,23 @@ kolik více efektivní je Dijkstrův způsob oproti prostému průchodu do ší�
 úplnost:
 \begin{itemize}
  \item Průchod do šířky vždy putuje od vrcholu ke všem jeho sousedům, od těch
-  zase k jejich sousedům (mezi nimiž je samozřejmě i onen původní vrchol) a tak
-  dále.
+  zase k jejich sousedům a tak dále. Tedy se mnohokrát může (a \textbf{musí},
+  aby našel opravdu nejkratší cestu) vracet do vrcholů, které již prošel, v
+  moment, kdy do nich přes nějaké vrcholy dříve navštívené vede cesta.
  \item Dijkstrův algoritmus nahlédne z právě vybraného vrcholu do jeho sousedů,
   ale pak nepokračuje nutně jimi. Naopak, právě vybraný vrchol již \uv{uzamkne}
   a pokračuje nějakým s minimální uloženou zatím nejkratší cestou ze zdroje do
   něj.
 \end{itemize}
-Kvůli tomu, že jeden ze sousedů každého vrcholu je přesně ten samý vrchol,
-projdu v naprosto nejhorším případě při běžném průchodu do šířky každý vrchol
-tolikrát, kolik přes něj vede cest.
+Kvůli tomu, že přes sousedy každého vrcholu může zpět do něj vést nějakou
+oklikou cesta zpátky, projdu při běžném průchodu do šířky úplně všechny cesty v
+grafu $G$.
 
 Naopak, Dijkstrův algoritmus \emph{zakazuje} vracet se do vrcholů, jejichž
 všichni sousedi již byli navštíveni. Tedy, každý vrchol je navštíven v nejhorším
-tolikrát, kolik má sousedů. Je snadné si rozmyslet, o kolik je v průměrném
-případě počet sousedů vrcholu nižší než počet cest jím procházejících.
+tolikrát, kolik má sousedů. Je snadné si rozmyslet, o kolik je (řádově)
+v~průměrném případě počet sousedů vrcholu nižší než počet cest jím
+procházejících.
 
 Největší časový rozdíl mezi obvyklým průchodem do šířky a Dijkstrovým algoritmem
 je vidět v tzv. \emph{úplných grafech}, tedy grafech, ve kterých je každý vrchol
@@ -206,8 +208,9 @@ spojen s každým. V úplném grafu na $n$ vrcholech, který se často značí $
 definuje libovolná podmnožina vrcholů cestu. Již dlouho víme, že všech podmnožin
 množiny o $n$ prvcích je $2^{n}$. Tedy, algoritmus průchodu do šířky udělá při
 hledání vzdálenosti mezi dvěma vrcholy v úplném grafu vždy $2^{n}$ kroků. Oproti
-tomu, není těžké dokázat (ale my to tu dělat nebudeme), že Dijkstrův algoritmus
-udělá v grafu na $n$ vrcholech vždy nejvýše $n^2$ kroků.
+tomu, Dijkstrův algoritmus udělá v grafu na $n$ vrcholech vždy nejvýše $n(n-1)$
+kroků, protože každý vrchol má nejvýše $n$ sousedů. Už jen pro graf na $10$
+vrcholech je číslo $10 \cdot 9$ přibližně $900$krát menší než číslo $2^{10}$.
 
 Na \myref{obrázku}{fig:uplny-graf} vidíte úplný graf na $5$ vrcholech. Upřímně
 doporučuji, abyste si tvrzení předchozího odstavce vyzkoušeli v praxi.
@@ -272,6 +275,13 @@ zakončíme prezentací jeho pseudokódu pro \textbf{souvislý} ohodnocený graf
 (V,E,w)$ s pevně zvoleným zdrojovým vrcholem $s \in V$. Ihned poté dokážeme jeho
 správnost.
 
+\begin{remark}
+ Stejně jako \hyperref[alg:floyd-warshall]{Floydův-Warshallův algoritmus}, ani
+ Dijkstrův  algoritmus neselže pro nesouvislé grafy, ale všem vrcholům $v \in V$
+ nedosažitelným z $s$ zůstane hodnota $d(v) = \infty$, tedy je zcela zbytné
+ nesouvislé grafy uvažovat.
+\end{remark}
+
 Pro stručnost vyjádření zavedeme ještě značení
 \[
  n(v) \coloneqq \{u \in V \mid uv \in E\},
@@ -297,14 +307,201 @@ sousedů vrcholu $v \in V$.
  }
  $X \leftarrow \emptyset$\;
  \BlankLine
+ \emph{Pokračuj, dokud existují nezakázané vrcholy}\;
  \While{$X \neq V$} {
+  \emph{Najdi vrchol s minimální zatím nejlepší známou vzdáleností od $s$}\;
   $v \leftarrow $ libovolný vrchol s minimální $d(v)$ takový, že $v \notin X$\;
+  \emph{Projdi všechny jeho sousedy, kteří nejsou zakázáni}\;
   \For{$u \in n(v) \setminus X$} {
+   \emph{Pokud do $u$ vede přes $v$ kratší cesta, změň $d(u)$ na její váhu}\;
    \If{$d(u) > d(v) + w(uv)$} {
     $d(u) \leftarrow d(v) + w(uv)$\;
    }
   }
+  \emph{Po průchodu všech sousedů, zakaž $v$}\;
   $X \leftarrow X \cup \{v\}$\;
  }
  \KwReturn{$d$}\;
 \end{algorithm}
+
+\pagebreak
+
+\begin{remark}
+ Pokud bychom chtěli použít Dijkstrův algoritmus na nalezení vzdálenosti mezi
+ dvěma konkrétními vrcholy $s,t \in V$, pak stačí \texttt{while} cyklus v
+ \hyperref[alg:dijkstra]{pseudokódu výše} zastavit v moment, kdy $t \in X$. Pak
+ už je totiž známa hodnota $d_G(s,t)$, kterou jsme chtěli spočítat.
+
+ Povšimněte si, že v tomto případě ještě k naprosté efektivitě Dijkstro\-vě
+ algoritmu krůček schází. Totiž, cestou od $s$ do $t$ projde velmi mnoho vrcholů
+ blízkých $s$, přes které \uv{víme}, že nejkratší cesta z $s$ do $t$ vést
+ nemůže. Algoritmy používané například v GPS aplikacích staví částečně na
+ principu Dijkstrova algoritmu, ale tento nedostatek většinově odstraňují.
+ Jejich popis je však zároveň nad rámec tohoto textu.
+\end{remark}
+
+\begin{claim}
+ \label{claim:dijsktra-korektni}
+ Dijkstrův algoritmus je korektní.
+\end{claim}
+\begin{proof}
+ Musíme ověřit, že Dijkstrův algoritmus je konečný a počítá správně.
+
+ Konečnost je zřejmá. Vrchol $v \in V$ s minimální $d(v)$ vždy existuje (i kdyby
+ ta hodnota měla být $\infty$), a tedy nastane chvíle, kdy v $X$ jsou všechny
+ vrcholy grafu $G$. V ten moment $X = V$, cyklus končí a algoritmus vrací
+ zobrazení $d$.
+ 
+ Korektnost ukážeme indukcí podle počtu zakázaných vrcholů, tedy podle $\# X$.
+ Naším indukčním předpokladem bude, jako tomu obvykle v důkazech indukcí bývá,
+ že algoritmus funguje. To přesně znamená, že v každém kroku
+ \begin{enumerate}[label=(\alph*)]
+  \item je $d(v) = d_G(s,v)$ pro všechny vrcholy $v \in X$;
+  \item je $d(u)$ váha nejkratší cesty z $s$ do $u$ vedoucí pouze přes vrcholy v
+   $X$, pro všechna $u \in V \setminus X$.
+ \end{enumerate}
+ Předpoklad (a) říká v lidské mluvě, že zakazování vrcholů si opravdu můžeme
+ dovolit, tedy že do zakázaných vrcholů již nejde nalézt kratší cestu.
+
+ Význam předpokladu (b) je těžší dekódovat. Představme si spíše, co by se stalo,
+ kdyby \textbf{neplatil}. Pak by existovala nějaká kratší cesta do nezakázaného
+ vrcholu $u$ přes zakázané vrcholy. Ovšem, přesně pro to, že tyto vrcholy jsou
+ již zakázané, nemohu během zbytku průběhu algoritmu již nikdy tuto cestu
+ objevit. Pokud by se pro nějaký $u \in V$ stalo, že zrovna tato cesta je tou
+ nejkratší, pak již zároveň nemohu nalézt hodnotu $d_G(s,u)$ a algoritmus selže.
+
+ Počáteční případ $\# X = 1$ je snadný. V tomto stádiu jsme zrovna zakázali
+ zdrojový vrchol $s$ a pro každého jeho souseda $u$ jsme položili $d(u) =
+ w(su)$, jelikož $d(s) = 0$ a $d(u)$ bývala hodnota $\infty$. Tedy, zakázaný
+ vrchol je jedině $s$ a $d(s) = d_G(s,s) = 0$, čímž jsme ověřili platnost (a).
+ Jediné vrcholy, do nichž vede cesta přes zakázané vrcholy, tedy přes vrchol
+ $s$, jsou sousedé $s$, a váha nejkratší cesty je zřejmě $w(su)$ pro každého
+ souseda $u \in n(s)$. To dokazuje (b).
+
+ Nyní předpokládejme, že (a) i (b) platí pro $X$ a zakažme nějaký zatím
+ nezakázaný vrchol $u \in V \setminus X$. Dokážeme nejprve platnost (a).
+ Z~indukčního předpokladu platí (a) pro všechny vrcholy $X$ kromě nově přidaného
+ $u$, tedy stačí ukázat, že (a) platí i pro $u$.
+
+ Dokazujme tedy, že $d(u) = d_G(s,u)$. Budeme postupovat sporem. Ať tedy tato
+ rovnost neplatí. Pak existuje nenalezená nejkratší cesta $\mathcal{P}$ z $s$ do
+ $u$ a platí $w(\mathcal{P}) < d(u)$. Rozlišíme dva případy.
+ \begin{enumerate}[label=(\arabic*)]
+  \item $\mathcal{P}$ prochází nějakými nezakázanými vrcholy.
+  \item $\mathcal{P}$ neprochází žádným nezakázaným vrcholem (tedy všechny její
+   vrcholy jsou v $X$).
+ \end{enumerate}
+ Ať nastala možnost (1). Označme písmenem $w$ \textbf{první nezakázaný} vrchol
+ na cestě $\mathcal{P}$ (směrem od $s$). Z indukčního předpokladu (b) jsou
+ $d(w)$ a $d(u)$ váhy nejkratší cest z $s$ do $w$, resp. z $s$ do $u$, vedoucích
+ jen přes vrcholy z $X$. To ale znamená, že $d(u)$ je aspoň tolik, co $d(w)$ +
+ váha nejkratší cesty z~$w$ do $u$. Protože váha nejkratší cesty z $w$ do $u$ je
+ jistě kladné číslo, plyne odtud, že $d(u) > d(w)$. Ovšem, $w$ není zakázaný a
+ algoritmus prochází nezakázané vrcholy postupně od těch s~minimální váhou zatím
+ nejkratší známé cesty z $s$ do nich. Algoritmus navštívil $u$ dříve než $w$,
+ pročež $d(u) \leq d(w)$. Pak ale máme
+ \[
+  d(w) < d(u) \leq d(w),
+ \]
+ což je zřejmý spor. Vizte \myref{obrázek}{subfig:dukaz-dijkstra-pripad-1}.
+
+ Nyní ať nastala možnost (2). Ať $w$ je \textbf{předposlední} vrchol na cestě
+ $\mathcal{P}$ (tedy ten těsně před $u$). Protože $w$ je zakázaný, platí $d(w) =
+ d_G(s,w)$ z indukčního předpokladu (a). Pak ale $w(\mathcal{P}) = d(w) + w(wu)
+ < d(u)$. To je ovšem spor, protože $u$ je sousedem $w$ a $w$ byl zakázán dříve
+ než $u$, a tedy algoritmus měl při procházení sousedů $w$ nastavit hodnotu
+ $d(u)$ na $d(w) + w(wu)$. Vizte
+ \myref{obrázek}{subfig:dukaz-dijkstra-pripad-2}.
+
+ Zbývá ověřit platnost (b) pro $X \cup \{u\}$. Z indukčního předpokladu platí
+ (b) pro všechny vrcholy z $V \setminus X$ kromě sousedů $u$, protože pro ty
+ jsme přidáním $u$ žádnou novou cestu přes zakázané vrcholy nenašli. Pro sousedy
+ $u$ však platí (b) zřejmě také, protože pokud do nich existuje přes $u$ kratší
+ cesta, tak u nich algoritmus váhu zatím nejkratší známé cesty z $s$ změnil na
+ váhu této kratší cesty přes $u$.
+
+ Tím je důkaz správnosti Dijkstrova algoritmu indukcí podle $\# X$ dokončen.
+\end{proof}
+
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.47\textwidth}
+  \centering
+  \begin{tikzpicture}[scale=1.25]
+   \node[vertex,myred] (s) at (0, 0) {};
+   \node[vertex,myred] (v1) at (1, -1) {};
+   \node[vertex,myred] (v2) at (2, -1) {};
+   \node[vertex,myred] (v3) at (3,-1.5) {};
+   \node[vertex,myred] (u) at (4, 0) {};
+
+   \node[vertex,myred] (p1) at (1, 1) {};
+   \node[vertex,myred] (p2) at (2, 0.5) {};
+   \node[vertex] (w) at (3, 1.5) {};
+   
+   \node[below left=0mm and 0mm of s,myred] {$s$};
+   \node[below right=0mm and 0mm of u,myred] {$u$};
+   \node[above right=0mm and 0mm of w] {$w$};
+
+   \draw[thick] (s) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $4$} (v1);
+   \draw[thick] (v1) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $2$} (v2);
+   \draw[thick] (v2) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $1$} (v3);
+   \draw[thick] (v3) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $4$} (u);
+   
+   \draw[thick,myblue] (s) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $3$} (p1);
+   \draw[thick,myblue] (p1) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $3$} (p2);
+   \draw[thick,myblue] (p2) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $2$} (w);
+   \draw[thick,snake,myblue] (w) to node[xshift=4mm,yshift=2mm] {$>\!0$} (u);
+  \end{tikzpicture}
+  \caption{Případ (1). Cesta $\clb{\mathcal{P}}$ je značena modře. Množina
+  $\clr{X}$ červeně. Nemůže nastat, pokud algoritmus běží správně.}
+  \label{subfig:dukaz-dijkstra-pripad-1}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.47\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \node[vertex,myred] (s) at (0,0) {};
+   \node[vertex,myred] (v1) at (1,-2) {};
+   \node[vertex,myred] (v2) at (2,-1) {};
+   \node[vertex,myred] (v3) at (3,-1.5) {};
+   \node[vertex,myred] (u) at (4,0) {};
+   
+   \node[below left=0mm and 0mm of s,myred] {$s$};
+   \node[below right=0mm and 0mm of u,myred] {$u$};
+   
+   \node[vertex,myred] (p1) at (1.5,1.5) {};
+   \node[vertex,myred] (w) at (3,1) {};
+   \node[above right=0mm and 0mm of w,myred] {$w$};
+   
+
+   \draw[thick] (s) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $3$} (v1);
+   \draw[thick] (v1) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $2$} (v2);
+   \draw[thick] (v2) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $2$} (v3);
+   \draw[thick] (v3) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $5$} (u);
+
+   \draw[thick,myblue] (s) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $7$} (p1);
+   \draw[thick,myblue] (p1) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $2$} (w);
+   \draw[thick,myblue] (w) to node[midway,circle,draw,fill=white,inner sep=1pt]
+    {\footnotesize $2$} (u);
+  \end{tikzpicture}
+  \caption{Případ (2). Cesta $\clb{\mathcal{P}}$ je značena modře. Množina
+  $\clr{X}$ červeně. Nemůže nastat, pokud algoritmus běží správně.}
+  \label{subfig:dukaz-dijkstra-pripad-2}
+ \end{subfigure}
+ \caption{Obecný indukční krok v důkazu správnosti
+ \hyperref[alg:dijkstra]{Dijkstrova algoritmu}.}
+ \label{fig:dukaz-dijkstra}
+\end{figure}
