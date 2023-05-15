@@ -1,0 +1,257 @@
+\section*{Seznam cvičení}
+\label{sec:seznam-cviceni}
+
+% Add list of exercises to toc
+\addcontentsline{toc}{section}{Seznam cvičení}
+
+\subsubsection*{Úvodní pojmy}
+
+\begin{enumerate}
+ \item Dokažte \myref{Tvrzení}{claim:vlastnosti-trid-ekvivalence}.
+ \item Dokažte, že relace (ne nutně ekvivalence!) $R$ je transitivní, právě
+  tehdy když $R \circ R \subseteq R$.
+ \item Vyřešte následující úlohy rozprostřené po \myref{sekci}{ssec:zobrazeni}.
+  Konkrétně,
+  \begin{itemize}
+   \item dokažte, že mezi dvěma konečnými množinami
+   různé velikosti neexistuje žádná bijekce.
+   \item pro množinu $A$ velikosti $n$ určete počet různých bijektivních
+    zobrazení ${f:[n] \cong A}$. \item určete, jakou podmínku splňují zobrazení
+    $f:A \to B$, ke kterým existuje zobrazení inverzní.
+  \end{itemize}
+ \item Dokažte, že každá lineární funkce $f:\R \to \R$, tedy funkce daná
+  předpisem
+  \[
+   f(x) = ax + b \quad \text{pro } a,b \in \R,a \neq 0
+  \]
+  je bijektivní zobrazení.
+ \item Nechť $A$ je konečná množina. Zformulujte důkaz, že libovolné zobrazení
+  ${f:A \to A}$, které je definované pro každé $x \in A$, je \textbf{prosté,
+  právě tehdy když je na}.
+ \item Najděte příklad zobrazení $f:\N \to \N$ definovaného na celém $\N$, které
+  je
+ \begin{enumerate}
+  \item prosté, ale není na.
+  \item na, ale není prosté.
+ \end{enumerate}
+ \item Udělejte cvičení rozmístěná po \myref{sekci}{ssec:usporadani}. Konkrétně,
+  \begin{enumerate}
+   \item dokažte, že Hasseho diagram každého lineárního uspořádání má stejný
+    tvar jako diagram na \myref{obrázku}{fig:hasse-linear}.
+   \item dokažte, že relace dělitelnosti $ \mid $ je uspořádání na každé
+    podmnožině přirozených čísel.
+  \end{enumerate}
+ \item Explicitně popište všechny relace (na libovolné množině), které jsou
+  zároveň ekvivalencí a (částečným) uspořádáním.
+ \item Řekněme, že $R$ a $S$ jsou uspořádání na množině $A$. Které z
+  následujících relací jsou také uspořádáními na $A$?
+  \begin{itemize}[itemsep=0pt]
+  \item $R \cap S$ 
+  \item $R \cup S$ 
+  \item $R \setminus S$
+  \item $R \circ S$
+ \end{itemize}
+ \item Dokažte indukcí, že
+  \[
+   \sum_{i=1}^{n} i 2^{i} = (n - 1)2^{n+1} + 2.
+  \]
+ \item Tak zvaná \emph{Fibonacciho} posloupnost je definována tak, že další člen
+  dostanu jako součet dvou předchozích. Formálně, $F_0 = 0, F_1 = 1$ a $F_n =
+  F_{n - 1} + F_{n - 2}$, kde $n \in \N$. Dokažte indukcí, že
+  \[
+   F_n \leq \left( \frac{1+\sqrt{5}}{2} \right) ^{n-1}
+  \]
+  pro všechna $n \geq 0$.
+ \item Nakresleme $n$ přímek v rovině, a to tak, že
+  \begin{itemize}
+   \item žádné 2 nejsou rovnoběžné a
+   \item žádné 3 se neprotínají v jednom bodě.
+  \end{itemize}
+  Dokažte indukcí, že takhle nakreslené přímky rozdělují rovinu na $n(n+1) / 2 +
+  1$ částí.
+\end{enumerate}
+
+\subsubsection*{Počítání}
+\begin{enumerate}
+ \item  Dokažte \myref{Tvrzení}{claim:pocet-prostych-zobrazeni} indukcí podle
+  velikosti množiny $A$.
+ \item Určete počet všech uspořádaných dvojic $(A,B)$, kde $A \subseteq B
+  \subseteq \{1,\ldots,n\}$.
+ \item Spočtěte složení $\sigma\tau$ a $\tau\sigma$, když
+  \begin{enumerate}
+   \item $\sigma = (143)(26), \tau = (146)(253)$,
+   \item $\sigma = (14)(25)(36), \tau = (123456)$,
+   \item $\sigma = (145)(263), \tau = (154)(236)$.
+  \end{enumerate}
+ \item Určete řád permutace $\sigma$, kde
+  \begin{enumerate}
+   \item $\sigma = (1345)$,
+   \item $\sigma = (1346)(28)(579)$.
+  \end{enumerate}
+ \item(těžké) Určete číslo $C_n(S_X)$, kde $\# X = 100$ a $n \leq 50$, tedy
+  počet všech permutací na $100$ číslech s aspoň jedním cyklem délky menší nebo
+  rovné $50$.
+
+  Samozřejmě jich je $100! - C_{ \geq 51}(S_X)$, ale cílem úlohy je spočítat je
+  nějak chytře, aby člověk dostal hezčí vzoreček.
+ \item Ať $\sigma \in S_n$, tedy $\sigma$ je permutace množiny $\{1,\ldots,n\}$.
+  Řekneme, že $\sigma$ \emph{invertuje} dvojici $(i,j)$, kde $i,j \in
+  \{1,\ldots,n\}$, když $i<j$, ale $\sigma(i)>\sigma(j)$.
+
+  Definujme
+   \[
+    I(\sigma) \coloneqq \{(i,j) \in \{1,\ldots,n\}^2 \mid \sigma \text{ invertuje
+    } (i,j)\},
+  \]
+  čili $I(\sigma)$ je množina všech dvojic $(i,j)$, které $\sigma$ invertuje.
+  Uvědomme si, že $I(\sigma)$ je podmnožinou $\{1,\ldots,n\}^2$, čili relací na
+  $\{1,\ldots,n\}$.
+  \begin{enumerate}
+   \item Dokažte, že $I(\sigma)$ je transitivní relace na $\{1,\ldots,n\}$ pro
+    každou permutaci $\sigma \in S_n$.
+   \item (těžké) Navrhněte algoritmus, který pro danou permutaci $\sigma \in
+    S_n$ spočte $\# I(\sigma)$.
+   \item Spočtěte počet invertovaných dvojic, čili $\# I(\sigma)$, permutací
+    $\sigma = (134)(579)(26)$.
+  \end{enumerate}
+ \item Dokažte, že
+  \[
+   \sum_{i=0}^{n} \binom{n}{i}^2 = \binom{2n}{n}.
+  \]
+  \textbf{Hint}: použijte \myref{lemma}{lemma:stejne-doplnku}.
+ \item Dokažte vzorec
+  \[
+   \sum_{k=r}^{n} \binom{k}{r} = \binom{n+1}{r+1}
+  \]
+  pro pevné $r \in \N$ indukcí podle $n \in \N$.
+ \item(těžké) Kolik existuje podmnožin $\{1,\ldots,n\}$, které neobsahují žádná
+  dvě po sobě jdoucí čísla. Formálně, určete velikost množiny
+  \[
+   \{A \subseteq \{1,\ldots,n\} \mid \{i,j\} \nsubseteq A, \text{ kdykoli }
+   |i-j|=1\}.
+  \]
+ \item Ať $p$ je prvočíslo a $k,n$ přirozená čísla.
+  \begin{enumerate}
+   \item Dokažte, že pro $k<p$ je $\binom{p}{k}$ dělitelné $p$.
+   \item Dokažte, že $\binom{n}{p}$ je dělitelné $p$ právě tehdy, když
+    $\left\lfloor n / p \right\rfloor$ je dělitelné $p$, kde $\left\lfloor \cdot
+    \right\rfloor$ značí \emph{dolní celou část}.
+  \end{enumerate}
+ \item Budeme vybírat $k$-tice předmětů z $n$ druhů předmětů. Budeme uvažovat
+  různé typy výběru podle toho, jestli vybíráme $k$-tice uspořádané, nebo
+  neuspořádané (tj. podmnožiny) a též podle toho, zda každého druhu je vždy jen
+  jeden předmět, či nikoli. Doplňte následující tabulku:
+  \begin{table}[h]
+   \centering
+   \begin{tabular}{c|c|c}
+    & Jen 1 předmět & Libovolně mnoho předmětů\\
+    & každého druhu & každého druhu\\
+    \midrule
+    Uspořádané& &\\
+    $k$-tice& &\\
+    \midrule
+    Neuspořádané & &\\
+    $k$-tice& &
+   \end{tabular}
+   \caption{Výběr $k$-tic předmětů z $n$ druhů předmětů.}
+   \label{table:vyber-k-z-n-2}
+  \end{table}
+ \item Kolika způsoby můžeme postavit $7$ čarodějnic a $5$ vodníků do řady tak,
+  aby $2$ vodníci nikdy nestáli vedle sebe? \item Jeden z oblíbených a celkem
+  rychlých rozkladů čísla na prvočísla je tzv. \emph{Eratosthenovo síto}.
+ 
+  Funguje na principu vyškrtávání násobků čísel. Konkrétně, algoritmus prochází
+  seznam čísel až do nějaké hranice, a kdykoli narazí na ještě neodškrtnuté
+  číslo, odškrtne z tohoto seznamu všechny jeho násobky kromě něho samotného.
+  Sami si rozmyslete, že tímto způsobem zůstanou ve výsledném seznamu pouze
+  prvočísla.
+
+  My si tady rozmyslíme pouze zjednodušenou verzi. Spočtěte, kolik zůstane
+  čísel mezi $1$ a $1000$ potom, co vyškrtáme všechny násobky čísel $2,3,5$ a
+  $7$.
+ \item Určete počet přirozených čísel menších než $100$, které nedělí druhá
+  mocnina žádného přirozeného čísla (kromě $1$).
+ \item Kolika způsoby lze seřadit do řady 5 Čechů, 4 Maďary a 3 Rusy, aby
+  všichni příslušníci jednoho národa nikdy nestáli hned za sebou?
+\end{enumerate}
+
+\subsubsection*{Teorie grafů}
+
+\begin{enumerate}
+ \item Nakreslete graf $G = (V,E)$, kde
+  \begin{itemize}
+   \item $V = \{1,\ldots,5\}, E = \{\{1,2\}, \{1,3\}, \{1,5\}, \{2,3\},
+    \{3,4\},\{4,5\}\}$.
+   \item $V = \{1,\ldots,5\}$, $E = \binom{V}{2}$.
+   \item $V = \{1,\ldots,8\}$, $E = \{e_1,\ldots,e_8\}$ a
+   \begin{itemize}
+    \item $t(e_i) = s(e_{i+1}) = i + 1$ pro všechna $i \leq 7$,
+    \item $t(e_8) = s(e_1) = 1$.
+   \end{itemize}
+  \end{itemize}
+ \item Popište všechny grafy $G = (V,E)$, kde $E$ je relace na $V$, která je
+  antireflexivní, symetrická (to je součástí definice grafu) a navíc
+  \textbf{transitivní}.
+ \item Ať $V$ je konečná množina a $E$ je relace na $V$, která je antireflexivní
+  a symetrická. Definujme navíc na $E$ další relaci $ \sim $ předpisem
+  \[
+   (v,v') \sim (w,w') \Leftrightarrow (v,v') = (w,w') \vee (v,v') = (w',w). 
+  \]
+  Dokažte, že pak existuje bijekce mezi $[E]_{ \sim }$ a množinou
+  \[
+   E' \coloneqq \{\{v,v'\} \mid (v,v') \in E\},
+  \]
+  čili mezi množinou tříd ekvivalence $E$ podle $ \sim $ a množinou, kterou
+  dostanu tak, že z uspořádaných dvojic v $E$ udělám neuspořádané dvojice, tj.
+  dvouprvkové podmnožiny. Pro intuici vizte poznámku pod
+  \myref{definicí}{def:graf-poprve}.
+ \item Spočtěte, kolik existuje grafů na $n$ vrcholech.
+ \item Ať $\mathcal{P}_1 = e_1^{1}e_2^{1}\cdots e_n^{1}$ a $\mathcal{P}_2 =
+  e_1^2e_2^2\cdots e_n^2$ jsou cesty. Za předpokladu, že $t(e_n^{1}) = s(e_1^2)$,
+  definujeme jejich \emph{sloučení}, které zapíšeme třeba jako $\mathcal{P}_1
+  \oplus \mathcal{P}_2$, přirozeně jako posloupnost hran
+  \[
+   \mathcal{P}_1 \oplus \mathcal{P}_2 \coloneqq e_1^{1}e_2^{1}\cdots
+   e_n^{1}e_1^2e_2^2\cdots e_n^2.
+  \]
+  Určete, pro jaké cesty (v obecném grafu) $\mathcal{P}_1, \mathcal{P}_2$ platí,
+  že
+  \begin{itemize}
+   \item $\mathcal{P}_1 \oplus \mathcal{P}_2 = \mathcal{P}_2 \oplus
+    \mathcal{P}_1$;
+   \item je $\mathcal{P}_1 \oplus \mathcal{P}_2$ cesta;
+   \item je $\mathcal{P}_1 \oplus \mathcal{P}_2$ tah;
+   \item je $\mathcal{P}_1 \oplus \mathcal{P}_2$ sled;
+   \item je $\mathcal{P}_1 \oplus \mathcal{P}_2$ cyklus.
+  \end{itemize}
+ \item Dokažte, že je-li $T = (V,E)$ strom, pak $\# E = \# V - 1$.
+ \item Spočtěte, kolik existuje stromů na $n$ vrcholech.
+ \item (těžké) Ať $V$ je množina $n$ bodů v rovině. Pro každé dva body $x,y \in
+  V$ definujme váhu hrany $xy$ jako vzdálenost bodů $x$ a $y$. Čili, pokud $x =
+  (x_1,x_2)$ a $y = (y_1,y_2)$, pak
+  \[
+   w(xy) \coloneqq \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}.
+  \]
+  Vzniklý graf označme obyčejně $G$.
+  \begin{enumerate}[label=(\alph*)]
+   \item Ukažte, že v každé minimální kostře $G$ vede z každého vrcholu maximálně
+    6 hran.
+   \item Ukažte, že existuje minimální kostra $G$, jejíž hrany se (jakožto úsečky
+    v rovině) nekříží.
+  \end{enumerate}
+ \item \emph{Úplným grafem} na $n$ vrcholech myslíme graf $G = (V,
+  \binom{V}{2})$, tedy graf, mezi každým párem jehož vrcholů vede hrana. Takový
+  graf se obvykle značí $K_n$. Najděte minimální kostru $K_n$ a spočtěte její
+  váhu (tj, součet vah všech jejích hran), je-li $V = \{1,\ldots,n\}$ a
+  \begin{enumerate}[label=(\alph*)]
+   \item $w(ij) = \max(i,j)$,
+   \item $w(ij) = i + j$,
+  \end{enumerate}
+  pro všechny páry $i,j \leq n$.
+ \item Dokažte, že když $w$ (tj. ohodnocení $G$) je prosté zobrazení, pak je
+  minimální kostra $G$ určena jednoznačně.
+ \item Dokažte, že \hyperref[alg:floyd-warshall]{Floydův-Warshallův} algoritmus
+  selže, když připustíme i záporná ohodnocení hran.
+ \item Vyřešte \hyperref[prob:rodinny-vylet]{úlohu o rodinném výletu} pro graf
+  daný \myref{obrázkem}{fig:trinec-orlova}.
+\end{enumerate}

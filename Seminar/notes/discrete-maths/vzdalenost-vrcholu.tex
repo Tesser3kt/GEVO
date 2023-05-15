@@ -40,12 +40,12 @@ vykřičníkem mínícím přítomnost jedné či více hospod.
  \centering
  \begin{tikzpicture}[scale=1.5]
   \node[vertex,myred] (t) at (0, 0) {};
-  \node[vertex,mypurple] (v11) at (1, 1) {};
+  \node[vertex] (v11) at (1, 1) {};
   \node[vertex] (v12) at (1, -1) {};
   \node[vertex] (v21) at (2, 0.5) {};
   \node[vertex,mypurple] (v22) at (2, -0.5) {};
   \node[vertex] (v23) at (2, -2) {};
-  \node[vertex] (v31) at (3, 1.5) {};
+  \node[vertex,mypurple] (v31) at (3, 1.5) {};
   \node[vertex] (v32) at (3, 0) {};
   \node[vertex,mypurple] (v33) at (3, -1) {};
   \node[vertex,mypurple] (v41) at (4, 2) {};
@@ -67,7 +67,7 @@ vykřičníkem mínícím přítomnost jedné či více hospod.
   \draw[thick] (v12) to node[midway,circle,draw,fill=white,inner sep=1pt]
    {\footnotesize $6$} (v23);
   \draw[thick] (v23) to node[midway,circle,draw,fill=white,inner sep=1pt]
-   {\footnotesize $11$} (v44);
+   {\footnotesize $2$} (v44);
   \draw[thick] (v11) to node[midway,circle,draw,fill=white,inner sep=1pt]
    {\footnotesize $12$} (v31);
   \draw[thick] (v21) to node[midway,circle,draw,fill=white,inner sep=1pt]
@@ -101,7 +101,7 @@ vykřičníkem mínícím přítomnost jedné či více hospod.
   \draw[thick] (v41) to node[midway,circle,draw,fill=white,inner sep=1pt]
    {\footnotesize $14$} (o);
   \draw[thick] (v42) to node[midway,circle,draw,fill=white,inner sep=1pt]
-   {\footnotesize $8$} (o);
+   {\footnotesize $7$} (o);
   \draw[thick] (v32) to node[midway,circle,draw,fill=white,inner sep=1pt]
    {\footnotesize $11$} (o);
   \draw[thick] (v43) to node[midway,circle,draw,fill=white,inner sep=1pt]
@@ -112,8 +112,8 @@ vykřičníkem mínícím přítomnost jedné či více hospod.
   \node[below left=0mm of t,myred] (tlabel) {$t$};
   \node[below right=0mm of o,myblue] (olabel) {$o$};
  
-  \node[above left=-1mm and -1mm of v11,mypurple] {$\mathbf{!}$};
   \node[above right=-1mm and -2mm of v22,mypurple] {$\mathbf{!}$};
+  \node[above left=-1mm and -1mm of v31,mypurple] {$\mathbf{!}$};
   \node[above left=-3mm and -1mm of v33,mypurple] {$\mathbf{!}$};
   \node[above right=-1mm and -1mm of v41,mypurple] {$\mathbf{!}$};
   
@@ -548,16 +548,138 @@ Uvědomme si, že stačí definovat
 Druhá část řešení bude též spočívat ve spuštění Dijkstrova algoritmu, a\-však s
 mírnými úpravami. Zamysleme, jak bychom mohli během jednoho průchodu vrcholem
 porovnat váhu a vzdálenost od hospody v něm uložených údajů o cestě s těmi o té,
-po které jsem do něj právě přišel. To ve skutečnosti není vůbec složité. Přeci,
+po které jsme do něj právě přišli. To ve skutečnosti není vůbec složité. Přeci,
 primárně nám jde o to najít nejkratší cestu. Vzdálenost k hospodám řešíme až v
-moment, kdy by dvě různé cesty měly být stejně dlouhé. Stačí proto vždy nejprve
-porovnat váhy cest do vrcholu vedoucích a teprve, když se rovnají, porovnat též
+moment, kdy by dvě různé cesty měly být stejně dlouhé. Stačí pročež vždy nejprve
+porovnat váhy cest do vrcholu vedoucích, a teprve když se rovnají, porovnat též
 jejich vzdálenosti k hospodám.
 
 Navíc k zobrazení $d$ a množině $X$ (z popisu \hyperref[alg:dijkstra]{Dijkstrova
 algoritmu}) si u každého vrcholu musíme pamatovat cestu, po které jsme do něj
-přišli. A k těmto cestám též jejich vzdálenosti od hospod (tím samozřejmě míníme
-minimum vzdáleností k nejbližší hospodě přes všechny jejich vrcholy). 
+přišli. A k těmto cestám též jejich vzdálenosti od hospod. Pro tento účel si
+zavedeme zobrazení $P:V \to \bigcup_{i = 0}^{n} V^{i}$, čili zobrazení, které
+každému vrcholu přiřadí $m$-tici (pro nějaké $m \leq n$) vrcholů představující
+cestu, kterou jsem se do něj dostal. Na začátku máme $P(v) = \emptyset$ pro
+všechny vrcholy $v \in V$. Je-li $\mathcal{P} = v_1\cdots v_k$, pak výrazem
+$\mathcal{P} \oplus u$ myslíme cestu $v_1\cdots v_k u$; pochopitelně pouze za
+předpokladu, že $v_ku \in E$. Konečně, výrazem $h(\mathcal{P})$ budeme chápat
+vzdálenost cesty $\mathcal{P}$ k hospodám, tj. minimum přes všechny vrcholy z
+jejich vzdáleností k nejbližší hospodě. Formálně
+\[
+ h(\mathcal{P}) \coloneqq \min_{v \in \mathcal{P}} \Theta(v).
+\]
+Zobrazení $h$ budeme též v průběhu algoritmu vytvářet, neboť v opačném případě
+bychom museli při vchodu do nového vrcholu pokaždé procházet všechny vrcholy
+obou porovnávaných cest. Je-li totiž $\mathcal{P} = v_1\cdots v_k$ a $v_ku \in
+E$, pak $h(\mathcal{P} \oplus u)$ je buď $h(\mathcal{P})$, pokud je $u$ od
+hospod dál než aspoň jeden vrchol v $\mathcal{P}$. V opačném případě je
+$h(\mathcal{P} \oplus u) = \Theta(u)$. Souhrnně, vždy máme
+\[
+ h(\mathcal{P} \oplus u) = \min(h(\mathcal{P}),\Theta(u)).
+\]
+
+Přicházíme ke slovnímu popisu řešení \hyperref[prob:rodinny-vylet]{úlohy o
+rodinném výletu}. Počáteční vrchol představující město \clr{Třinec} značíme
+\clr{$t$} a koncový vrchol představující město \clb{Orlová} značíme \clb{$o$}.
+
 \begin{enumerate}
- \item 
+ \item Polož $d(\clr{t}) \coloneqq 0$ a $d(v) \coloneqq \infty$ pro všechny
+  ostatní vrcholy $v \neq \clr{t}$. Dále polož $X \coloneqq \emptyset$,
+  $P(\clr{t}) \coloneqq \clr{t}$ a $P(v) = \emptyset$ pro všechny ostatní
+  vrcholy $v \neq \clr{t}$. Konečně, polož $h(P(\clr{t})) \coloneqq
+  \Theta(\clr{t})$.
+ \item Vyber libovolný vrchol $v \in V$ s minimální $d(v)$.
+ \item Projdi všechny sousedy $u$ vrcholu $v$, které nejsou v $X$.
+ \begin{enumerate}
+  \item Je-li $d(u) > d(v) + w(uv)$ nebo
+  \item $d(u) = d(v) + w(uv)$ a zároveň $\min(h(P(u)),\Theta(v)) >
+   h(P(v))$, pak polož
+   \begin{itemize}
+    \item $d(u) \coloneqq d(v) + w(uv)$,
+    \item $P(u) \coloneqq P(v) \oplus u$,
+    \item $h(P(u)) \coloneqq \min(h(P(v)), \Theta(u))$.
+   \end{itemize}
+  \item V ostatních případech nedělej nic.
+ \end{enumerate}
+ \item Zakaž vrchol $v$, tj. přidej ho do $X$.
+ \item Pokud $\clb{o} \notin X$, opakuj bod (2).
 \end{enumerate}
+
+\begin{remark}
+ Bod (3) je jádrem popsaného algoritmu. Lidsky řečeno znamenají jeho body (a) a
+ (b) následující.
+ \begin{enumerate}[label=(\alph*)]
+  \item Do $u$ vede přes $v$ kratší cesta, než ta zatím známá.
+  \item Do $u$ vede přes $v$ stejně dlouhá cesta, jako ta zatím známá, ale navíc
+   je vzdálenost této nové cesty k hospodě větší než vzdálenost k hospodě té
+   zatím známé.
+ \end{enumerate}
+ Toto přesně znamená, že primárně nás zajímá váha cesty, sekundárně pak její
+ vzdálenost k hospodě. V obou případech (a) i (b) pak vlastně jenom přepíšeme
+ dosavadní cestu do $u$. To jest, zapamatujeme si ji samotnou ($P(v) \oplus u$),
+ její váhu ($d(v) + w(uv)$) a, konečně, její vzdálenost k hospodě; ta zůstane
+ přirozeně stejná, pokud je nějaký vrchol $P(v)$ blíž k hospodě než $u$, v
+ opačném případě se změní na $\Theta(u)$, čili na vzdálenost $u$ k nejbližší
+ hospodě.
+\end{remark}
+
+Celou sekci završíme \hyperref[alg:rodinny-vylet]{pseudokódem} řešícím trable
+dědy Koláčka.
+
+\begin{algorithm}
+  \caption{Řešení \hyperref[prob:rodinny-vylet]{úlohy o rodinném výletu}}
+  \label{alg:rodinny-vylet}
+
+  \SetKwInOut{Input}{input}
+  \SetKwInOut{Output}{output}
+  \SetKw{KwReturn}{return}
+  \SetKw{KwAnd}{and}
+  \SetKw{KwOr}{or}
+
+  \Input{Souvislý ohodnocený graf $G = (V,E,w)$, zdrojový vrchol $\clr{t}$,
+   koncový vrchol $\clb{o}$, podmnožina $\clp{H} \subseteq V$ a zobrazení
+   $\Theta:V \to [0,\infty]$ takové, že $\Theta(v) = \min_{u \in
+   \clp{H}}d_G(v,u) \; \forall v \in V$.}
+  \Output{Nejkratší cesta $P(\clb{o})$ mezi $\clr{t}$ a $\clb{o}$, její
+   váha $d(\clb{o})$ a její vzdálenost k nejbližší hospodě $h(P(\clb{o}))$.}
+  \BlankLine
+  \emph{Inicializace}\;
+  $d(\clr{t}) \leftarrow 0$\;
+  $P(\clr{t}) \leftarrow \clr{t}$\;
+  $h(P(\clr{t})) \leftarrow \Theta(\clr{t})$\;
+  \For{$v \in V \setminus \{\clr{t}\}$} {
+   $d(v) \leftarrow \infty$\;
+   $P(v) \leftarrow \emptyset$\;
+   $h(P(v)) \leftarrow 0$\;
+  }
+  $X \leftarrow \emptyset$\;
+  \BlankLine
+  \emph{Pokračuj, dokud vrchol $\clb{o}$ není zakázaný. Tedy do něj ještě
+  neznáme nejkratší cestu}\;
+  \While{$\clb{o} \notin X$} {
+   \emph{Vezmi nezakázaný vrchol s minimální známou vzdáleností}\;
+   $v \leftarrow $ vrchol takový, že $d(v) = \min_{u \in V \setminus X} d(u)$ a
+   $v \notin X$\;
+   \emph{Projdi jeho nezakázané sousedy}\;
+   \For{$u \in n(v) \setminus X$} {
+    \emph{Když současná cesta zlepšuje známou vzdálenost od $\clr{t}$ nebo ji
+    zachovává a zlepšuje vzdálenost od hospod, aktualizuj ji}\;
+    \If{$(d(u) > d(v) + w(uv))$ \KwOr\\
+    $(d(u) = d(v) + w(uv)$ \KwAnd $\min(h(P(v)),\Theta(u)) > P(u))$} {
+     $d(u) \leftarrow d(v) + w(uv)$\;
+     $P(u) \leftarrow P(v) \oplus u$\;
+     $h(P(u)) \leftarrow \min(h(P(v)),\Theta(u))$\;
+    }
+    \emph{Zakaž vrchol $v$}\;
+    $X \leftarrow X \cup \{v\}$\;
+   }
+   \KwReturn $P(\clb{o}),d(\clb{o}),h(P(\clb{o}))$\;
+  }
+\end{algorithm}
+
+\pagebreak
+
+\begin{exercise}
+ Vyřešte \hyperref[prob:rodinny-vylet]{úlohu o rodinném výletu} pro graf daný
+ \myref{obrázkem}{fig:trinec-orlova}.
+\end{exercise}
