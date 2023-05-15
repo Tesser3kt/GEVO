@@ -505,3 +505,59 @@ sousedů vrcholu $v \in V$.
  \hyperref[alg:dijkstra]{Dijkstrova algoritmu}.}
  \label{fig:dukaz-dijkstra}
 \end{figure}
+
+\subsubsection{Hurá na výlet}
+\label{sssec:hura-na-vylet}
+
+Sekci o vzdálenosti mezi vrcholy zakončíme popisem algoritmu řešícím
+\hyperref[prob:rodinny-vylet]{úlohu o rodinném výletu}. V jeho jádru je nalezení
+nejkratší cesty mezi zvolenými vrcholy, čili \hyperref[alg:dijkstra]{Dijkstrův
+algoritmus} zde zcela jistě najde své využití. Co ovšem s hospodami? Zadání
+úlohy stanovuje, že nám nestačí nalézt pouze nejkratší cestu z \clr{Třince} do
+\clb{Orlové}, nýbrž z množiny všech nejkratších cest vybrat tu, jež je tak
+daleko od hospod, jak to jen lze -- v tom smyslu, že minimum vzdáleností od
+vrcholů cesty k hospodám je největší možné.
+
+Poslední věta předchozího odstavce napovídá, že vzdálenost k hospodě máme vnímat
+jako \emph{vlastnost konkrétního vrcholu}. Zcela jistě není vhodné obě části
+úlohy (tedy nalezení nejkratší cesty a té, která se nejvíce vyhýbá hospodám)
+oddělovat. Uvažme totiž případ, kdy \textbf{všechny} cesty mezi \clr{Třincem} a
+\clb{Orlovou} jsou stejně dlouhé. Potom by postup
+\begin{enumerate}
+ \item Najdi všechny nejkratší cesty.
+ \item Vyber z nich tu nejdál od hospod.
+\end{enumerate}
+vyžadoval prozkoumání všech možných cest, čemuž se z již párkrát diskutovaných
+důvodů chceme vyhnout.
+
+Řádově rychlejší postup bude tedy cestu nejdál od hospod hledat současně s tou
+nejkratší. Abychom toto mohli udělat, musíme znát vzdálenost každého vrcholu od
+nejbližší hospody. To lze snadno zařídit spuštěním
+\hyperref[alg:dijkstra]{Dijkstrova algoritmu} vícekrát s každou hospodou jako
+zdrojovým vrcholem.
+
+Formálně, ať $H = \{h_1,\ldots,h_k\} \subseteq V$ značí množinu hospod. Pro
+každé $i \leq k$ máme z výstupu Dijkstrova algoritmu zobrazení $\theta_i:V \to
+[0,\infty]$ takové, že $\theta_i(v) = d_G(h_i,v)$ pro každý $v \in V$. Nyní již
+snadno využijeme zobrazení $\theta_i$ k definici zobrazení $\Theta:V \to
+[0,\infty]$, které značí pro každý vrchol jeho vzdálenost k nejbližší hospodě.
+Uvědomme si, že stačí definovat
+\[
+ \Theta(v) \coloneqq \min_{i \leq k} \theta_i(v) \quad \forall v \in V.
+\]
+Druhá část řešení bude též spočívat ve spuštění Dijkstrova algoritmu, a\-však s
+mírnými úpravami. Zamysleme, jak bychom mohli během jednoho průchodu vrcholem
+porovnat váhu a vzdálenost od hospody v něm uložených údajů o cestě s těmi o té,
+po které jsem do něj právě přišel. To ve skutečnosti není vůbec složité. Přeci,
+primárně nám jde o to najít nejkratší cestu. Vzdálenost k hospodám řešíme až v
+moment, kdy by dvě různé cesty měly být stejně dlouhé. Stačí proto vždy nejprve
+porovnat váhy cest do vrcholu vedoucích a teprve, když se rovnají, porovnat též
+jejich vzdálenosti k hospodám.
+
+Navíc k zobrazení $d$ a množině $X$ (z popisu \hyperref[alg:dijkstra]{Dijkstrova
+algoritmu}) si u každého vrcholu musíme pamatovat cestu, po které jsme do něj
+přišli. A k těmto cestám též jejich vzdálenosti od hospod (tím samozřejmě míníme
+minimum vzdáleností k nejbližší hospodě přes všechny jejich vrcholy). 
+\begin{enumerate}
+ \item 
+\end{enumerate}
