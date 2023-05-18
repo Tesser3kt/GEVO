@@ -1,4 +1,4 @@
-PWD /home/tesserekt/source/repos/gevo/3.AB PreIB/exam-quadratic
+PWD /home/tesserekt/source/repos/GEVO/3.AB PreIB/exam-quadratic
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT actual-exam.tex
@@ -1710,11 +1710,11 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncr8r.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncri8r.tfm
-OUTPUT actual-exam.thm
 INPUT /usr/share/texmf-dist/fonts/vf/public/fouriernc/fncsy.vf
 INPUT /usr/share/texmf-dist/fonts/tfm/public/fourier/fourier-ms.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncr8r.tfm
+OUTPUT actual-exam.thm
 INPUT actual-exam.aux
 INPUT ./actual-exam.out
 INPUT ./actual-exam.out
