@@ -1,0 +1,113 @@
+\subsubsection{Podgrafy, souvislost a metrika}
+\label{sssec:podgrafy-souvislost-a-metrika}
+
+V této relativně krátké podsekci dáme formální tvář představě, že
+\begin{enumerate}
+ \item nějaký graf je \uv{uvnitř} druhého;
+ \item graf je souvislý a rozpadá se na tzv. \emph{komponenty souvislosti}, tedy
+  maximální souvislé části;
+ \item graf je \emph{metrický} prostor, tedy prostor, ve kterém lze měřit
+  vzdálenosti.
+\end{enumerate}
+
+Začneme bodem (1), vedoucím na pojem \emph{podgrafu}. Jeho definice je opravdu
+nejjednodušší možná, požadujeme pouze, aby vrcholy a hrany podgrafu tvořili
+podmnožinu vrcholů a hran většího grafu.
+
+\begin{definition}[Podgraf]
+ \label{def:podgraf}
+ Ať $G = (V,E)$ je graf. Řekneme, že graf $H = (V',E')$ je \emph{podgrafem} $G$,
+ pokud
+ \[
+  V' \subseteq V \quad \text{a} \quad E' \subseteq E.
+ \]
+\end{definition}
+
+\begin{remark}
+ Žádáme čtenáře, aby sobě povšimli, že podgraf \textbf{nemusí zachovat} hranovou
+ strukturu svého nadgrafu. Přesněji, \hyperref[def:podgraf]{definice podgrafu}
+ neobsahuje podmínku, že mezi vrcholy $H$ musí vést hrana, pokud mezi těmi
+ samými vrcholy v $G$ hrana vedla.
+
+ Taková definice je z pohledu algebraika zhola zbytečná, bať odpudivá. Hranová
+ struktura je zásadní součástí definice grafu a měla by být dodržena. Z tohoto
+ důvodu se nehodí říkat, že by podgraf byl \emph{podstrukturou} svého nadgrafu,
+ kterakžekolivěk vágně je ono slovo vyloženo.
+\end{remark}
+
+Předchozí poznámka motivuje definici \emph{indukovaného podgrafu}, podgrafu,
+jemuž je přikázáno původní strukturu zachovat. Žargonový výraz \uv{indu\-kovaný}
+v~tomto kontextu obyčejně znamená přibližně \uv{plynoucí z}. Čili, indukovaný
+podgraf je podgraf, jehož struktura \textbf{plyne ze} struktury vyššího grafu.
+
+Tuto podmínku lze formulovat snadno. Díváme-li se na hrany jako na podmnožiny
+systému dvouprvkových podmnožin $V$, tedy jako na množinu $E \subseteq
+\binom{V}{2}$, pak požadavek, aby nějaký podgraf $H = (V',E')$ grafu $G = (V,E)$
+obsahoval spolu s každou dvojicí vrcholů i hranu mezi nimi, pokud je v~$E$, lze
+vyjádřit zkrátka tak, že nařídíme, aby $E' = E \cap \binom{V'}{2}$, tedy aby
+$E'$ byla vlastně množina $E$, ve které necháme jen ty hrany, které vedou mezi
+vrcholy z $V'$.
+
+\begin{definition}[Indukovaný podgraf]
+ \label{def:indukovany-podgraf}
+ Ať $G = (V,E)$ je graf a $H = (V',E')$ jeho podgraf. Řekneme, že $H$ je
+ \emph{indukovaný} (grafem $G$), pokud \textbf{zachovává hranovou strukturu na
+ $G$}, to jest,
+ \[
+  E' = E \cap \binom{V'}{2}.
+ \]
+\end{definition}
+
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.47\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \node[vertex] (v1) at (30:2) {};
+   \node[vertex,myred,minimum size=11pt] (v2) at (90:2) {};
+   \node[vertex,myred,minimum size=11pt] (v3) at (150:2) {};
+   \node[vertex,myred,minimum size=11pt] (v4) at (210:2) {};
+   \node[vertex,myred,minimum size=11pt] (v5) at (270:2) {};
+   \node[vertex] (v6) at (330:2) {};
+
+   \draw[thick] (v1) -- (v2);
+   \draw[thick] (v2) -- (v3);
+   \draw[ultra thick,myred] (v3) -- (v4);
+   \draw[thick] (v4) -- (v5);
+   \draw[thick] (v5) -- (v6);
+   \draw[thick] (v6) -- (v1);
+   
+   \draw[thick] (v1) -- (v4);
+   \draw[thick] (v3) -- (v6);
+   \draw[ultra thick,myred] (v2) -- (v5);
+  \end{tikzpicture}
+  \caption{\clr{Podgraf}, který není indukovaný.}
+  \label{subfig:neindukovany-podgraf}
+ \end{subfigure}
+ \begin{subfigure}{.47\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \node[vertex,myred,minimum size=11pt] (v1) at (30:2) {};
+   \node[vertex] (v2) at (90:2) {};
+   \node[vertex,myred,minimum size=11pt] (v3) at (150:2) {};
+   \node[vertex,myred,minimum size=11pt] (v4) at (210:2) {};
+   \node[vertex] (v5) at (270:2) {};
+   \node[vertex,myred,minimum size=11pt] (v6) at (330:2) {};
+   
+   \draw[thick] (v1) -- (v2);
+   \draw[thick] (v2) -- (v3);
+   \draw[ultra thick,myred] (v3) -- (v4);
+   \draw[thick] (v4) -- (v5);
+   \draw[thick] (v5) -- (v6);
+   \draw[ultra thick,myred] (v6) -- (v1);
+   
+   \draw[ultra thick,myred] (v1) -- (v4);
+   \draw[thick] (v2) -- (v5);
+   \draw[ultra thick,myred] (v3) -- (v6);
+  \end{tikzpicture}
+  \caption{\clr{Indukovaný} podgraf.}
+  \label{subfig:indukovany-podgraf}
+ \end{subfigure}
+ \caption{Rozdíl mezi podgrafem a \emph{indukovaným} podgrafem.}
+ \label{fig:indukovany-podgraf}
+\end{figure}

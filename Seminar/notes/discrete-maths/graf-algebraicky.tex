@@ -1,0 +1,101 @@
+\subsection{Graf jako algebraická struktura}
+\label{ssec:graf-jako-algebraicka-struktura}
+
+Snad poněkud tajemný název sekce v sobě skrývá jiný pohled na graf, než jsme
+chovali doposud. Mimo jejich využití v modelování systémů, které lze
+reprezentovat jako sítě uzlů a spojnic, jsou grafy též velmi užitečné ve více
+\uv{abstraktních} údech matematiky. Představují totiž v jistém smyslu
+\emph{nejvolnější} strukturu na množině, která je vůbec ještě užitečná.
+
+Abychom osvětlili, co tímto výrokem míníme, uvážíme \emph{ještě další} pohled na
+hrany grafu $G$. Záměrně jsme teď neuvedli množinu hran, neb o nich vůbec
+nechceme takto přemýšlet. Samozřejmě, stále potřebujeme mít nějakou množinu $V$,
+na níž onu strukturu stavíme; tu někdy přezdíváme \emph{bázovou}, protože
+skutečně tvoří jakýsi \uv{základ} sestrojené struktury.
+
+Intuitivně je příjemné nahlížet na množinové struktury jako na stavebnice.
+Bázová množina jsou její díly (každý máme k dispozici, kolikrát chce\-me) a
+způsob, kterým do sebe díly zapadají, je právě ona struktura.
+
+Aniž si to pravděpodobně uvědomujete, narazili jste už v matematice na celou
+řadu struktur. Jako příklad uveďme množinu celých čísel $\Z$ s operací
+násobení. Zde $\Z$ je bázová množina a operace $ \cdot $ je struktura na $\Z$.
+Definuje \emph{jeden možný způsob}, jak do sebe díly nazvané celá čísla
+zapadají. Možná jste někdy přemýšleli o tom, co vlastně znamená slovo
+\uv{operace}. V případě $ \cdot $ hovoříme o \textbf{binární} operaci, tedy o
+operaci na \textbf{dvou prvcích}. Přirozeně, nic nám nebrání definovat si
+operace na libovolném počtu celých čísel. Asi nejvíce přímočarý způsob, jak
+definovat (binární) operaci, je přes zobrazení. Čili, $ \cdot $ je zobrazení
+\[
+ \cdot :\Z \times \Z \to \Z,
+\]
+které každou dvojici $(x,y) \in \Z \times \Z$ zobrazí na $x \cdot y$.
+
+Zkusme teď podobným způsobem definovat hrany na množině $V$. Binární operace na
+$V$ by znamenala zobrazení $V \times V \to V$, tedy zobrazení, jež dvěma
+vrcholům přiřadí třetí vrchol. To asi není v tomto případě příliš směrodatné.
+Hrany však vždy existují mezi dvěma vrcholy, tedy volba množiny $V \times V$
+jako domény se zdá smysluplná. Otázkou je, co má být kodoménou. Jedna možnost by
+byla opravdu uvážit nějakou další množinu hran $E$ a směřovat zobrazení do ní.
+Tento pohled je vlastně opačný k~našemu \hyperref[def:graf-potreti]{třetímu
+pojetí grafu}. Místo toho, abychom přiřazovali dva vrcholy jedné hraně, tak
+přiřazujeme hranu páru vrcholů.
+
+Existuje však mnohem přímější způsob. Přeci, abych dal najevo, že mezi párem
+vrcholů vede hrana, nemusím vybírat žádnou \emph{konkrétní} hranu z~předem
+definované množiny. Všechny hrany jsou stejné! Stačí mi si pouze u každých dvou
+vrcholů pamatovat, jestli mezi nimi vede hrana, či nikoliv. To jest, stačí mi
+libovolná dvouprvková podmnožina, jejíž jeden prvek znamená \uv{Mezi těmito
+vrcholy nevede hrana,} a ten druhý naopak \uv{Mezi těmito vrcholy hrana vede}.
+
+Obvyklou volbou (zvláště v informatice) je množina $\{0,1\}$, kde $0$ tradičně
+značí, že hrana neexistuje, a $1$, že ano. Příznivci čisté logiky možná uvítají
+množinu $\{\bot,\top\}$, kde $\bot$ je logická konstanta \uv{lež} a $\top$ je
+logická konstanta \uv{pravda}. My se budeme držet čtenářům spíše přirozenější
+volby, $\{0,1\}$.
+
+Čili, \emph{hranami} mezi vrcholy z množiny $V$ myslíme strukturu na $V$ danou
+zobrazením
+\[
+ \varepsilon:V \times V \to \{0,1\}.
+\]
+Konečně vysvětlíme, co myslíme tím, že takováto struktura je v podstatě
+nejvolnější možná. Totiž, když pro libovolnou dvojici $v,w \in V$ změníme obraz
+$\varepsilon(v,w)$ třeba z $0$ na $1$, stále tím dostaneme validní strukturu
+hran na $V$ ve smyslu svojí definice. Čili, \textbf{úplně každé} zobrazení $V
+\times V \to \{0,1\}$ postaví strukturu na množině $V$. To je intuitivně
+ekvivalentní tomu, že každé dva díly stavebnice do sebe zapadají jakýmkoli
+způsobem. Je zřejmé, že \uv{volnější} stavebnice než taková už neexistuje.
+
+Naopak, vraťme se k příkladu celých čísel s operací násobení. Co by se stalo,
+kdybychom se ráno vzbudili a rozhodli se, že odteď $2 \cdot 3 = 5$, ale veškeré
+ostatní vlastnosti násobení (jako třeba i komutativita a asociativita) zůstanou
+beze změny? Tato jedna úprava by zcela rozbourala celou strukturu násobení na
+$\Z$, protože najednou by například nebylo možné definovat sudá a lichá čísla
+($2$ by dělila všechny násobky $5$), $6$ by byla prvočíslo (její rozklad býval
+$2 \cdot 3$), $10$ by se rovnalo $12$, jelikož
+\[
+ 10 = 2 \cdot 5 = 2 \cdot (2 \cdot 3) = (2 \cdot 2) \cdot 3 = 4 \cdot 3 = 12,
+\]
+a způsobila nekonečně mnoho dalších trhlin. Intuitivně, násobení na $\Z$ je
+stavebnice, kde do sebe každé dva díly zapadají přesně jediným způsobem.
+
+Po tomto neformálním úvodu se na chvíli ponoříme do hlubin struktury zvané
+\emph{graf}, povíme si, co znamená \uv{podstruktura}, že graf se dá též vnímat
+jako prostor, a že můžeme přes zobrazení skákat mezi různými grafy.
+
+V následujícím nemusíme hovořit o hranách jako o zobrazení $\varepsilon:V \times
+V \to \{0,1\}$ popsaném výše. Naše původní představa množiny $E$ postačuje. Není
+však špatné tuto myšlenku uchovat v hlavě, k čemuž slouží následující, extrémně
+snadné, cvičení.
+
+\begin{exercise}
+ Rozmyslete si, jak upravit zobrazení
+ \[
+  \varepsilon:V \times V \to \{0,1\}
+ \]
+ definující hranovou strukturu na množině vrcholů tak, aby zahrnovalo i všechny
+ \textbf{ohodnocené} grafy.
+\end{exercise}
+
+\input{podgrafy-souvislost-metrika}
