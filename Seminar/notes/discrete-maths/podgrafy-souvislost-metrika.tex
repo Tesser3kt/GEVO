@@ -58,6 +58,14 @@ vrcholy z $V'$.
  \]
 \end{definition}
 
+\begin{remark}
+ Je dlužno nahlédnout, že indukovaný podgraf grafu $G = (V,E)$ je jednoznačně
+ určen svoji množinou vrcholů. Totiž, vyberu-li z $V$ podmnožinu $V'$, pak mezi
+ všemi vrcholy z $V'$ musejí v indukovaném podgrafu vést všechny hrany, které
+ mezi nimi vedou i v původním grafu. Množina $E'$ je tudíž kompletně popsána
+ množinami $V'$ a $E$.
+\end{remark}
+
 \begin{figure}[h]
  \centering
  \begin{subfigure}{.47\textwidth}
@@ -103,7 +111,7 @@ vrcholy z $V'$.
    
    \draw[ultra thick,myred] (v1) -- (v4);
    \draw[thick] (v2) -- (v5);
-   \draw[ultra thick,myred] (v3) -- (v6);
+   \draw[ultra thick,myred] (v3) -- (ve);
   \end{tikzpicture}
   \caption{\clr{Indukovaný} podgraf.}
   \label{subfig:indukovany-podgraf}
@@ -111,3 +119,122 @@ vrcholy z $V'$.
  \caption{Rozdíl mezi podgrafem a \emph{indukovaným} podgrafem.}
  \label{fig:indukovany-podgraf}
 \end{figure}
+
+Každý graf se přirozeně rozkládá na své maximální souvislé indukované podgrafy,
+tzv. \emph{komponenty souvislosti}. Toto slovo jsme zde zmínili mnohokrát v
+různých kontextech, však vždy bez řádné definice. Důvodem je fakt, že samotná
+definice komponent souvislosti není zcela bez práce.
+
+Nabízejí se dva přirozené přístupy, jejichž ekvivalenci si postupně ukážeme.
+První, snad více informatický přístup, je definovat komponentu souvislosti jako
+\textbf{maximální souvislý podgraf}, tedy takový (indukovaný) podgraf, mezi
+každým párem jehož vrcholů vede cesta a je největší takový; to jest, k žádnému z
+ostatních vrcholů vyššího grafu z vrcholů tohoto podgrafu cesta nevede. Tento
+postup jsme nazvali \emph{informatickým}, neb popisuje, jak se algoritmicky
+komponenty souvislosti v grafu hledají. Zkrátka tak, že začneme v libovolném
+vrcholu, pokračujeme z něj do jeho sousedů a pak zase do jejich sousedů tak
+dlouho, dokud to lze. V moment, kdy už se nikam dál z původního vrcholu nemůžeme
+dostat, našli jsme tu \textbf{jednu} komponentu souvislosti, která obsahuje
+počáteční vrchol.
+
+Druhý přirozený přístup je ryze matematický a algoritmicky obtížně
+realizovatelný. Zase je výhodný pro svou explicitnost a snadné využití v
+důkazech. Obvyklý způsob, jak rozdělit množinu (v tomto případě množinu vrcholů,
+$V$) na podmnožiny, je užitím \hyperref[def:trida-ekvivalence]{tříd
+ekvivalence}. Protože dva vrcholy leží ve stejné komponentě souvislosti právě
+tehdy, když mezi nimi vede cesta, nabízí se pro rozkouskování množiny využít
+právě relaci \uv{býti cestou mezi vrcholy}. Jediný problém dlí v tom, že není na
+první pohled zřejmé, jedná-li se o ekvivalenci.
+
+Definujme na množině vrcholů $V$ grafu $G = (V,E)$ relaci $ \sim $ předpisem
+\[
+ u \sim v \Leftrightarrow \text{v $G$ vede cesta mezi $u$ a $v$}.
+\]
+Dokážeme si, že $ \sim $ je ekvivalence.
+
+\begin{lemma}
+ \label{lem:cesta-ekvivalence}
+ Ať $G = (V,E)$ je graf a $ \sim $ je relace na $V$ dána výše. Pak $ \sim $ je
+ ekvivalence na $V$.
+\end{lemma}
+\begin{proof}
+ Dle \hyperref[def:ekvivalence]{definice ekvivalence} potřebujeme ověřit, že $
+ \sim $ je
+ \begin{enumerate}[label=(\alph*)]
+  \item reflexivní, čili $v \sim v \; \forall v \in V$;
+  \item symetrická, čili $u \sim v \Rightarrow v \sim u \; \forall u,v \in
+   V$;
+  \item transitivní, čili $u \sim v \wedge v \sim w \Rightarrow u \sim w$ pro
+   všechny $u,v,w \in V$.
+ \end{enumerate}
+ Body (a) a (b) jsou v zásadě triviální. Pro každé $v \in V$ platí $v \sim v$,
+ protože samotný vrchol je z \hyperref[def:cesta]{definice} též cesta. To
+ dokazuje (a). Pro důkaz (b) ať $u \sim v$ a $u=v_0v_1\cdots v_n=v$ je cesta z
+ $u$ do $v$. Pak $v=v_nv_{n-1}\cdots v_1v_0=u$ je cesta z $v$ do $u$, a tedy
+ $v \sim u$.
+
+ Jediný důkaz (c) není samozřejmý. Uvědomme si, že \textbf{spojení cest není
+ vždy cesta}. Jeho princip spočívá v tom, že máme-li dánu cestu $u=u_0u_1\cdots
+ u_n=v$ z $u$ do $v$ a cestu $v=v_0v_1\cdots v_m=w$ z $v$ do $w$, pak jdeme po
+ první cestě tak dlouho, dokud nenarazíme na tu druhou. Tu pak následujeme až do
+ $w$. Formálně, ať $k \leq n$ je \textbf{nejmenší} takové, že $u_k$ leží na
+ cestě mezi $v$ a $w$. Takové $k$ musí existovat, protože zcela jistě
+ přinejmenším vrchol $v$ leží jak na cestě z $u$ do $v$, tak na cestě z $v$ do
+ $w$. Ať $j \leq m$ je index takový, že $u_k = v_j$. První cestu budeme
+ následovat až do $u_k = v_j$ a potom budeme pokračovat po cestě druhé. V
+ symbolech, kýžená cesta mezi $u$ a $w$ je v takovém případě
+ \[
+  u=u_0u_1\cdots u_{k-1}u_k=v_jv_{j+1}\cdots v_n=w.
+ \]
+ Tím je důkaz transitivity $ \sim $ hotov.
+\end{proof}
+
+Předchozí lemma opravňuje následující definici \emph{komponenty souvislosti}.
+
+\begin{definition}[Komponenta souvislosti]
+ \label{def:komponenta-souvislosti}
+ Ať $G = (V,E)$ je graf, $ \sim $ je ekvivalence na $V$ z
+ \myref{lemmatu}{lem:cesta-ekvivalence} a 
+ \[
+  V = \bigcup_{i = 1}^{n} V_i
+ \]
+ je rozklad $V$ na $n \in \N$ tříd ekvivalence $V_i$ podle $ \sim $. Indukované
+ podgrafy $G_i = (V_i, E \cap \binom{V_i}{2})$ nazýváme \emph{komponenty
+ souvislosti} grafu $G$.
+\end{definition}
+
+\begin{remark}
+ Připomínáme, že rozklad na třídy ekvivalence
+ \[
+  V = \bigcup_{i = 1}^{n} V_i
+ \]
+ znamená, že $V$ má podle $ \sim $ přesně $n$ tříd ekvivalence, pro každé $i
+ \leq n$ existuje vrchol $v_i \in V$ takový, že
+ \[
+  V_i = \{u \in V \mid u \sim v_i\},
+ \]
+ tedy $V_i$ je množina všech vrcholů, do nichž vede cesta z $v_i$, a $V_i \cap
+ V_j = \emptyset$ pro každý pár $i \neq j$, to jest z $v_i$ do $v_j$ nevede
+ žádná cesta.
+\end{remark}
+
+\begin{observation}
+ Komponenty souvislosti $G_i$ grafu $G$ z
+ \hyperref[def:komponenta-souvislosti]{definice výše} jsou právě všechny
+ maximální souvislé indukované podgrafy grafu $G$.
+\end{observation}
+\begin{proof}
+ Dokazujeme dvě implikace.
+
+ Nejprve ať $G_i$ je nějaká komponenta souvislosti $G$. Graf $G_i$ je zřejmě
+ indukovaný a souvislý z definice. Pro spor ať existuje vrchol $v \notin V_i$,
+ do kterého vede cesta z nějakého vrcholu $u \in V_i$. Spor máme okamžitě, neboť
+ $V_i$ z definice obsahuje všechny vrcholy, do nichž vede cesta z $u$. 
+
+ Naopak, ať $H = (V',E')$ je maximální indukovaný souvislý podgraf $G$. Vezměme
+ libovolný $v \in V'$. Pak je ale $H = [v]_{ \sim }$, tedy třída ekvivalence $
+ \sim $ obsahující $v$. Vskutku, z maximality $H$ platí $u \in H$, kdykoli $v
+ \sim u$. Protože sjednocení všech $V_i$ je množina vrcholů $V$ a tyto $V_i$
+ jsou po dvou disjunktní, existuje nutně přesně jedno $i \leq n$ takové, že $v
+ \in V_i$. Pak $H = V_i$.
+\end{proof}
