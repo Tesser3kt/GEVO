@@ -111,7 +111,7 @@ vrcholy z $V'$.
    
    \draw[ultra thick,myred] (v1) -- (v4);
    \draw[thick] (v2) -- (v5);
-   \draw[ultra thick,myred] (v3) -- (ve);
+   \draw[ultra thick,myred] (v3) -- (v6);
   \end{tikzpicture}
   \caption{\clr{Indukovaný} podgraf.}
   \label{subfig:indukovany-podgraf}
@@ -184,7 +184,7 @@ Dokážeme si, že $ \sim $ je ekvivalence.
  následovat až do $u_k = v_j$ a potom budeme pokračovat po cestě druhé. V
  symbolech, kýžená cesta mezi $u$ a $w$ je v takovém případě
  \[
-  u=u_0u_1\cdots u_{k-1}u_k=v_jv_{j+1}\cdots v_n=w.
+  (u=u_0)u_1\cdots u_{k-1}(u_k=v_j)v_{j+1}\cdots (v_n=w).
  \]
  Tím je důkaz transitivity $ \sim $ hotov.
 \end{proof}
@@ -226,7 +226,7 @@ Předchozí lemma opravňuje následující definici \emph{komponenty souvislost
 \begin{proof}
  Dokazujeme dvě implikace.
 
- Nejprve ať $G_i$ je nějaká komponenta souvislosti $G$. Graf $G_i$ je zřejmě
+ Nejprve ať $G_i$ je nějaká komponenta souvislosti $G$. Podgraf $G_i$ je zřejmě
  indukovaný a souvislý z definice. Pro spor ať existuje vrchol $v \notin V_i$,
  do kterého vede cesta z nějakého vrcholu $u \in V_i$. Spor máme okamžitě, neboť
  $V_i$ z definice obsahuje všechny vrcholy, do nichž vede cesta z $u$. 
@@ -238,3 +238,70 @@ Předchozí lemma opravňuje následující definici \emph{komponenty souvislost
  jsou po dvou disjunktní, existuje nutně přesně jedno $i \leq n$ takové, že $v
  \in V_i$. Pak $H = V_i$.
 \end{proof}
+
+Další zajímavou strukturální vlastností grafu je, že tvoří prostor. Než
+specifikujeme, co tím míníme, odkročíme na chvíli a rozhovoříme se o tom, čemuže
+vlastně matematik řekne \emph{prostor}.
+
+Naši intuitivní představu prostoru splňují tzv. \emph{normované vektorové
+prostory}, kde je definována velikost a směr (a tím i vzdálenost a úhel).
+Velikosti i směry se dají sčítat a velikosti navíc násobit. Můžeme také hovořit
+o jejich dimenzi. Obecně, normovaný vektorový prostor je určitě ten
+nejjednodušší typ matematického prostoru, který aproximuje vesmír.
+
+Existují však mnohem primitivnější prostory, které nemají zdaleka tolik
+\uv{přirozených} vlastností. Mezi ně patří tzv. \emph{topologické} prostory,
+které mají jen to nejzákladnější, co chceme po úplně každém typu prostoru --
+tvar. O něco málo složitější jsou prostory \emph{metrické}, kde lze měřit
+vzdálenost; nikoli však nutně velikost nebo směr. Jak si nyní povíme, grafy
+přirozeně nabývají struktury metrických prostorů. To je snadné dokázat. Výrazně
+těžší je dokázat (a dělat to nebudeme), že ve skutečnosti metrické prostory jsou
+ty nejsložitější prostory, kterými grafy mohou být. Vektorové prostory to nikdy
+nejsou, bez ohledu na zvolenou definici sčítání či násobení.
+
+Pojďme tedy provést stručnou diskusi metrických prostorů. Snad už čtenářům
+nezpůsobuje překvapení, že \uv{měření} vzdáleností v našem prostoru zajišťuje
+vhodně zvolené zobrazení. Samotný prostor je v principu libovolná množina se
+strukturou danou právě tímto zobrazením. Měření vzdáleností mezi párem jejích
+prvků probíhá přiřazením nezáporné hodnoty (klidně i $\infty$) tomuto páru. Je
+ještě nutné, aby měření splňovalo pár přirozených podmínek, které uvedeme v
+následující definici a záhy osvětlíme.
+
+\begin{definition}[Metrika]
+ \label{def:metrika}
+ Ať $X$ je množina. Zobrazení $\mu: X \times X \to [0,\infty]$ nazveme
+ \emph{metrikou} na $X$, pokud
+ \begin{enumerate}[label=(\alph*)]
+  \item $\mu(x,x) = 0 \; \forall x \in X$,
+  \item $\mu(x,y) = \mu(y,x) \; \forall x,y \in X$,
+  \item (trojúhelníková nerovnost) $\mu(x,y) + \mu(y,z) \leq \mu(x,z) \;
+   \forall x,y,z \in X$.
+ \end{enumerate}
+\end{definition}
+
+\begin{definition}[Metrický prostor]
+ \label{def:metricky-prostor}
+ Dvojici $(X,\mu)$, kde $X$ je množina a $\mu$ je metrika na $X$ nazveme
+ \emph{metrických prostorem}.
+\end{definition}
+
+\begin{remark}
+ Přeložíme podmínky (a), (b) a (c) \hyperref[def:metrika]{definice metriky} do
+ lidské řeči. O prvcích $X$ můžeme bez okolek hovořit jako o \uv{bodech} v
+ prostoru.
+
+ Podmínka (a) vyžaduje, aby žádný bod nebyl sám od sebe vzdálen. Bez ní bychom
+ měli problém intuitivně definovat vzdálenost dvou různých bodů, neboť bych se
+ mohl do počátečního bodu opakovaně vracet a zvyšovat tím vzdálenost od něj k
+ bodům ostatním.
+
+ Podmínka (b) říká, že $x$ je od $y$ stejně daleko jako $y$ od $x$. To je asi
+ přirozená podmínka i bez bližšího vysvětlení.
+
+ Konečně, podmínka (c) říká, že když jdu z $x$ do $z$, pak jakákoli
+ \uv{zachá\-zka} do bodu $y$ nemůže délku cesty zkrátit. Tato podmínka opět zní
+ velmi přirozeně a skutečně, bez ní by definice vzdálenosti opět nedávala
+ intuitivní smysl. Jak by se mohlo stát, že by úsečka nebyla nejkratší spojnicí
+ mezi dvěma body? Původ názvu \uv{trojúhelníková nerovnost} této podmínky
+ osvětluje obrázek. %TODO
+\end{remark}
