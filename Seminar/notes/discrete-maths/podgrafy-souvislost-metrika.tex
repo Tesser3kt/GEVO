@@ -173,14 +173,15 @@ Dokážeme si, že $ \sim $ je ekvivalence.
  $u$ do $v$. Pak $v=v_nv_{n-1}\cdots v_1v_0=u$ je cesta z $v$ do $u$, a tedy
  $v \sim u$.
 
- Jediný důkaz (c) není samozřejmý. Uvědomme si, že \textbf{spojení cest není
- vždy cesta}. Jeho princip spočívá v tom, že máme-li dánu cestu $u=u_0u_1\cdots
- u_n=v$ z $u$ do $v$ a cestu $v=v_0v_1\cdots v_m=w$ z $v$ do $w$, pak jdeme po
- první cestě tak dlouho, dokud nenarazíme na tu druhou. Tu pak následujeme až do
- $w$. Formálně, ať $k \leq n$ je \textbf{nejmenší} takové, že $u_k$ leží na
- cestě mezi $v$ a $w$. Takové $k$ musí existovat, protože zcela jistě
- přinejmenším vrchol $v$ leží jak na cestě z $u$ do $v$, tak na cestě z $v$ do
- $w$. Ať $j \leq m$ je index takový, že $u_k = v_j$. První cestu budeme
+ Jediný důkaz (c) není samozřejmý. Pro nabytí intuice vizte
+ \myref{obrázek}{fig:cesta-transitivni}. Uvědomme si, že \textbf{spojení cest
+ není vždy cesta}. Jeho princip spočívá v tom, že máme-li dánu cestu
+ $u=u_0u_1\cdots u_n=v$ z $u$ do $v$ a cestu $v=v_0v_1\cdots v_m=w$ z $v$ do
+ $w$, pak jdeme po první cestě tak dlouho, dokud nenarazíme na tu druhou. Tu pak
+ následujeme až do $w$. Formálně, ať $k \leq n$ je \textbf{nejmenší} takové, že
+ $u_k$ leží na cestě mezi $v$ a $w$. Takové $k$ musí existovat, protože zcela
+ jistě přinejmenším vrchol $v$ leží jak na cestě z $u$ do $v$, tak na cestě z
+ $v$ do $w$. Ať $j \leq m$ je index takový, že $u_k = v_j$. První cestu budeme
  následovat až do $u_k = v_j$ a potom budeme pokračovat po cestě druhé. V
  symbolech, kýžená cesta mezi $u$ a $w$ je v takovém případě
  \[
@@ -188,6 +189,42 @@ Dokážeme si, že $ \sim $ je ekvivalence.
  \]
  Tím je důkaz transitivity $ \sim $ hotov.
 \end{proof}
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}[scale=1.5]
+  \node[vertex,myred] (u) at (0,0) {};
+  \node[vertex] (u1) at (0,2) {};
+  \node[vertex] (u2) at (1,1) {};
+  \node[vertex,mypurple] (v) at (2,1) {};
+  \node[vertex,myblue] (w) at (1,3) {};
+  \node[vertex] (x) at (2,3) {};
+
+  \draw[thick,myred] (u) -- (u1);
+  \draw[thick,myred,transform canvas={yshift=-.75mm},shorten <=-1.5pt,
+   shorten >= 1.5pt] (u1) -- (u2);
+  \draw[thick,myred,transform canvas={yshift=-.5mm}] (u2) -- (v);
+  \draw[thick,myblue,transform canvas={yshift=.5mm}] (u2) -- (v);
+  \draw[thick,myblue,transform canvas={yshift=.75mm},shorten <=-1.5pt,
+   shorten >= 1.5pt] (u2) -- (u1);
+  \draw[thick,myblue] (u1) -- (w);
+  \draw[thick] (v) -- (w);
+  \draw[thick] (w) -- (x);
+  \draw[thick] (v) -- (x);
+
+  \node[left=0mm of u] {$\clr{u_0} = \clr{u}$};
+  \node[left=0mm of u1] {\fbox{$\clr{u_1} = \clb{v_2}$}};
+  \node[above left=-1mm and -1mm of w] {$\clb{v_3} = \clb{w}$};
+  \node[below=0mm of u2] {$\clr{u_2} = \clb{v_1}$};
+  \node[below right=-1mm and -1mm of v] {$\clp{v} = \clr{u_3} = \clb{v_0}$};
+ \end{tikzpicture}
+
+ \caption{Cesta $\clr{u_0}(\clr{u_1}=\clb{v_2})\clb{v_3}$ mezi $\clr{u}$ a
+  $\clb{w}$ sestrojená z cesty $\clr{u_0}\clr{u_1}\clr{u_2}\clr{u_3}$ mezi
+  $\clr{u}$ a $\clp{v}$ a z cesty $\clb{v_0}\clb{v_1}\clb{v_2}\clb{v_3}$ mezi
+  $\clp{v}$ a $\clb{w}$. Zde $\clr{k} = 1$ a $\clb{j} = 2$.}
+ \label{fig:cesta-transitivni}
+\end{figure}
 
 Předchozí lemma opravňuje následující definici \emph{komponenty souvislosti}.
 
@@ -303,5 +340,86 @@ následující definici a záhy osvětlíme.
  velmi přirozeně a skutečně, bez ní by definice vzdálenosti opět nedávala
  intuitivní smysl. Jak by se mohlo stát, že by úsečka nebyla nejkratší spojnicí
  mezi dvěma body? Původ názvu \uv{trojúhelníková nerovnost} této podmínky
- osvětluje obrázek. %TODO
+ osvětluje \myref{obrázek}{fig:trojuhelnikova-nerovnost}.
 \end{remark}
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \node[vertex,minimum size=6pt] (x) at (0,0) {};
+  \node[vertex,minimum size=6pt] (z) at (3,2) {};
+  \node[vertex,minimum size=6pt] (y) at (2,0.5) {};
+
+  \node[below left=-1mm and -1mm of x] {$x$};
+  \node[below right=-1mm and -1mm of y] {$y$};
+  \node[right=0mm of z] {$z$};
+  
+  \draw[thick,myblue] (x) -- (z);
+  \draw[thick,myred] (x) -- (y);
+  \draw[thick,myred] (y) -- (z);
+ \end{tikzpicture}
+
+ \caption{Trojúhelníková nerovnost}
+ \label{fig:trojuhelnikova-nerovnost}
+\end{figure}
+
+My ale přeci umíme měřit vzdálenosti v grafu! Pro dva vrcholy $u,v \in V$ jsme
+si \hyperref[def:vzdalenost-v-grafu]{definovali} vzdálenost $u$ od $v$ jako váhu
+nejkratší cesty mezi $u$ a $v$. V případě, že $G$ je neohodnocený, předpokládáme
+implicitně, že váha každé hrany je $1$, tedy váha cesta je v tomto případě
+totožná s její \emph{délkou}, počtem jejích hran.
+
+Ukážeme, že množina vrcholů $V$ grafu $G = (V,E)$ spolu se zobrazením
+\[
+ d_G:V \times V \to [0,\infty],
+\]
+které každým dvěma vrcholům přiřadí jejich vzdálenost, je metrický prostor. To
+plyne okamžitě z následujícího lemmatu.
+
+\begin{lemma}
+ \label{lem:vzdalenost-je-metrika}
+ Ať $G = (V,E)$ je graf a $d_G(u,v)$ značí vzdálenost, tj. \emph{délku}
+ nejkratší cesty, mezi $u$ a $v$ pro každé dva $u,v \in V$. Pak je $d_G$ metrika
+ na $V$.
+\end{lemma}
+\begin{proof}
+ Pro důkaz potřebujeme ověřit, že podmínky z \hyperref[def:metrika]{definice
+ metriky} platí pro $d_G$.
+
+ Podmínky (a) a (b) platí triviálně. Cesta z $v$ do $v$ obsahuje přesně jenom
+ samotný vrchol $v$, tudíž nemá žádné hrany a její délka je $0$. To znamená, že
+ $d_G(v,v) = 0$ pro každý $v \in V$. Dále, jest-li $e_1e_2\cdots e_n$ cesta z
+ $u$ do $v$, kde $e_i \in E$, pak $e_ne_{n-1}\cdots e_1$ je cesta z $v$ do $u$
+ zřejmě rovněž délky $n$. To dokazuje vztah $d_G(u,v) = d_G(v,u)$.
+
+ Pokračujme trojúhelníkovou nerovností (c). Ať $u = u_1u_2\cdots u_{n+1} = v$ je
+ cesta mezi $u$ a $v$ délky $n \in \N$ a $v = v_1v_2\cdots v_{m+1} = w$ cesta
+ mezi $v$ a $w$ délky $m \in \N$. Podle důkazu
+ \myref{lemmatu}{lem:cesta-ekvivalence} existují $j,k \in \N$ taková, že $u_k =
+ v_j$ a $u_1u_2\cdots u_kv_{j+1}v_{j+2}\cdots v_m$ je cesta mezi $u$ a $w$. To
+ ovšem znamená, že délka \textbf{nejkratší} cesty mezi $u$ a $w$ má nejvýš tolik
+ hran, kolik cesta $u_1u_2\cdots u_kv_{j+1}\cdots v_{m+1}$, která jich má přesně
+ $(k - 1) + (m - j)$. Protože $k - 1 \leq n$ a $m - j \leq m$, získáváme
+ nerovnost
+ \[
+  d_G(u,w) \leq (k - 1) + (m - j) \leq n + m = d_G(u,v) + d_G(v,w),
+ \]
+ čímž je důkaz dokončen.
+\end{proof}
+
+Podsekci uzavřeme pár cvičeními.
+
+\begin{exercise}[těžké]
+ Kolik nejvíce hran může mít graf s $n$ a $k$ komponentami souvislosti?
+\end{exercise}
+
+\begin{exercise}
+ Ať $V$ je \textbf{konečná} množina a $d:V \times V \to \{0,1,2,\ldots\}$ je
+ metrika na $V$. Dokažte, že pak existuje graf $G = (V,E)$ takový, že $d_G(u,v)
+ = d(u,v)$ pro všechny $u,v \in V$.
+\end{exercise}
+
+\begin{exercise}
+ Navrhněte efektivní algoritmus, který pro zadaný graf $G = (V,E)$ rozhodne, zda
+ je souvislý, a pokud není, najde jeho rozklad na komponenty souvislosti.
+\end{exercise}
