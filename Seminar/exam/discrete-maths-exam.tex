@@ -12,7 +12,7 @@
 \usepackage{tcolorbox}
 
 % Page Layout %
-\usepackage[margin=1.5in]{geometry}
+\usepackage[margin=1in]{geometry}
 
 % Fancy Headers %
 \usepackage{fancyhdr}
@@ -38,6 +38,10 @@
 \usetikzlibrary{cd,positioning,babel,shapes}
 \usepackage{tkz-base}
 \usepackage{tkz-euclide}
+\tikzset{
+  vertex/.style = {shape=circle,fill,text=white,minimum size=9pt,inner
+  sep=1pt}
+}
 
 % Theorems
 \usepackage[thmmarks, amsmath, thref]{ntheorem}
@@ -78,11 +82,9 @@
 \newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
 
 % Operators %
-\DeclareMathOperator{\Ker}{Ker}
-\DeclareMathOperator{\Img}{Im}
-\DeclareMathOperator{\End}{End}
-\DeclareMathOperator{\Aut}{Aut}
-\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\img}{im}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\codom}{codom}
 
 % Common operators %
 \newcommand{\R}{\mathbb{R}}
@@ -102,6 +104,9 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 
+% Table array stretch
+\renewcommand{\arraystretch}{1.5}
+
 % Document %
 \pagestyle{fancy}
 \begin{document}
@@ -110,10 +115,22 @@
    rightrule=-0.1mm,colframe=red!90!black]
   \vspace*{-2pt}
   \begin{center}
-   \textbf{VŠECHNY POJMY A DŮKAZY FORMULUJTE PEČLIVĚ S~DŮRAZEM NA FORMÁLNÍ
-   SPRÁVNOST.}
+   \textbf{NENÍ-LI ŘEČENO JINAK, VŠECHNY POJMY A DŮKAZY FORMULUJTE PEČLIVĚ
+   S~DŮRAZEM NA FORMÁLNÍ SPRÁVNOST.}
   \end{center}
  \end{tcolorbox}
+ \vspace*{\fill}
+ \begin{center}
+  \begin{tabular}{c|c}
+   \textsf{\textbf{Část}} & \textsf{\textbf{Hodnocení}}\\
+   \toprule
+   \textcolor{CornflowerBlue}{Základní definice} & 0 / 0\\
+   \textcolor{Emerald}{Lehké úlohy a důkazy} & \hspace{2ex}/ 6\\
+   \textcolor{BrickRed}{Těžké ulohy a důkazy} & \hspace{2ex} / 15
+  \end{tabular}
+ \end{center}
+ \vspace*{\fill}
+ \clearpage
  \begin{tcolorbox}[title=\textsf{Základní
    definice (0 bodů)},arc=0mm,boxsep=3mm,bottomrule=1pt,toprule=1pt,leftrule=-0.1mm,
    rightrule=-0.1mm,colframe=CornflowerBlue!80!white,
@@ -127,6 +144,110 @@
    \item Sjednocení $n \in \N$ libovolných množin $A_i$, kde $i \in
     \{1,\ldots,n\}$, užitím logických spojek a kvantifikátorů.
    \item Konečná množina a velikost konečné množiny.
+   \item Ekvivalence a třída ekvivalence (relaci není třeba definovat).
+   \item Zobrazení (opět, relaci není třeba definovat).
+   \item Kodoména a doména zobrazení. Vzor a obraz prvku při zobrazení.
+   \item Složení zobrazení.
+   \item Permutace, řád permutace. \textbf{Neformálně} cyklický zápis permutace.
+   \item Kombinační číslo.
+   \item Graf (libovolná z definic).
+   \item Sled, tah a cesta v grafu (opět, libovolné z definic).
+   \item Souvislý graf, ohodnocený graf, strom.
+   \item Vzdálenost vrcholů v grafu, EFLP a SFLP.
+  \end{enumerate}
+ \end{tcolorbox}
+ \clearpage
+
+ \begin{tcolorbox}[title=\textsf{Lehké úlohy a důkazy (6
+  bodů)},arc=0mm,boxsep=3mm,bottomrule=1pt,toprule=1pt,leftrule=-0.1mm,
+  rightrule=-0.1mm,colframe=Emerald!80!white,colback=Emerald!5!white]
+  \emph{Pojmy užité v úlohách nemusíte definovat. Používáte-li k řešení úlohy
+  nebo k důkazu předchozí tvrzení, zformulujte je.}
+  \begin{enumerate}
+   \item O zobrazení $f: A \to B$ řekneme, že je \emph{na}, když platí
+    následující výrok:
+    \[
+     \forall b \in B \; \exists a \in A: f(a) = b.
+    \]
+    Dokažte, že $f$ je \textbf{na} právě tehdy, když $\img f = \codom f$.
+   \item Ať $A,B,C$ jsou libovolné množiny. Je inkluze
+   \[
+    (A \setminus B) \setminus C \subseteq A \setminus (B \cap C)
+   \]
+   vždy platná? Pokud ano, dokažte. Pokud ne, najděte protipříklad.
+  \item Zformulujte důkaz, že pro každé dvě \textbf{konečné} množiny $A,B$ platí
+   \[
+    \# (A \times B) = \# A \cdot \# B.
+   \]
+  \item Ve třídě 4.A je 27 studentů. Rozhodli se poškádlit svého třídního a
+   náhodným losováním změnit svůj obvyklý zasedací pořádek. Spočtěte
+   pravděpodobnost, že si přesně 7 žáků vylosovalo své obvyklé místo.
+  \item Ať $G = (V,E)$ je graf. Dokažte, že v $G$ existuje \textbf{cesta} mezi
+   $u$ a $v$ právě tehdy, když v $G$ existuje \textbf{sled} mezi $u$ a $v$ pro
+   libovolné dva vrcholy $u,v \in V$.
+  \item Užitím Dijkstrova algoritmu, nalezněte vzdálenosti všech vrcholů od
+   počátečního vrcholu $\textcolor{BrickRed}{s}$ v ohodnoceném grafu určeném
+   následujícím obrázkem.
+   \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+     \node[vertex,BrickRed] (s) at (0,0) {};
+     \node[vertex] (v11) at (1,1) {};
+     \node[vertex] (v12) at (1,-1) {};
+     \node[vertex] (v21) at (2,0) {};
+     \node[vertex] (v31) at (3,1) {};
+     \node[vertex] (v32) at (3,-1) {};
+     \node[vertex] (v41) at (4,0) {};
+
+     \node[left=0mm of s,BrickRed] {\Large$s$};
+
+     \draw[thick] (s) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $2$} (v11);
+     \draw[thick] (v11) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $1$} (v31);
+     \draw[thick] (s) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $1$} (v12);
+     \draw[thick] (v11) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $2$} (v21);
+     \draw[thick] (v12) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $2$} (v21);
+     \draw[thick] (v12) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $6$} (v32);
+     \draw[thick] (v21) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $1$} (v31);
+     \draw[thick] (v21) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $3$} (v32);
+     \draw[thick] (v21) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $3$} (v41);
+     \draw[thick] (v31) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $2$} (v41);
+     \draw[thick] (v32) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $1$} (v41);
+    \end{tikzpicture}
+   \end{center}
+ \end{enumerate}
+ \end{tcolorbox}
+ \clearpage
+ \begin{tcolorbox}[title=\textsf{Těžké úlohy a důkazy (15
+  bodů)},arc=0mm,boxsep=3mm,bottomrule=1pt,toprule=1pt,leftrule=-0.1mm,
+  rightrule=-0.1mm,colframe=BrickRed!80!white,colback=BrickRed!5!white]
+  \emph{Nemusíte dokonale zformulovat svá řešení. Obecná idea rozvinutá
+  důležitými detaily postačuje.}
+  \begin{enumerate}
+   \item \emph{Krychlí} dimenze $n \in \N$ myslíme graf na $2^{n}$ vrcholech
+    číslovaných binárními čísly od $0$ do $2^{n} - 1$. Budeme předpokládat, že
+    každé binární číslo je doplněno nulami na $n$ cifer, tedy například nultý
+    vrchol krychle dimenze $5$ je binární číslo $00000$, první je $00001$ atd.
+    
+    Vzdáleností, značenou písmenem $d$, mezi binárními čísly nazveme počet míst,
+    kde se jejich cifry liší. Tedy například $d(00100, 11100) = 2$ a
+    $d(01100,10010) = 4$. Hrana vede mezi dvěma vrcholy $v$ a $w$ právě tehdy,
+    když $d(v,w) = 1$.
+   
+    Dokažte indukcí, že počet hran krychle dimenze $n$ je přesně $n \cdot
+    2^{n-1}$.
+
+    Jen pro zajímavost (tedy, stačí se zamyslet, ne dokazovat), odpovídá
+    vzdálenost binárních čísel vzdálenosti mezi příslušnými vrcholy?
   \end{enumerate}
  \end{tcolorbox}
 \end{document}
