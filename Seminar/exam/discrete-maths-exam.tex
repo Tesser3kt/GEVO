@@ -9,7 +9,7 @@
 \usepackage[dvipsnames]{xcolor}
 
 % Colored boxes %
-\usepackage{tcolorbox}
+\usepackage[many]{tcolorbox}
 
 % Page Layout %
 \usepackage[margin=1in]{geometry}
@@ -227,7 +227,7 @@
  \end{enumerate}
  \end{tcolorbox}
  \clearpage
- \begin{tcolorbox}[title=\textsf{Těžké úlohy a důkazy (15
+ \begin{tcolorbox}[breakable,title=\textsf{Těžké úlohy a důkazy (15
   bodů)},arc=0mm,boxsep=3mm,bottomrule=1pt,toprule=1pt,leftrule=-0.1mm,
   rightrule=-0.1mm,colframe=BrickRed!80!white,colback=BrickRed!5!white]
   \emph{Nemusíte dokonale zformulovat svá řešení. Obecná idea rozvinutá
@@ -248,6 +248,57 @@
 
     Jen pro zajímavost (tedy, stačí se zamyslet, ne dokazovat), odpovídá
     vzdálenost binárních čísel vzdálenosti mezi příslušnými vrcholy?
+   \item (jiný důkaz principu inkluze a exkluze) Ať $A,B$ jsou množiny a $A
+    \subseteq B$. \emph{Charakteristickou funkcí} množiny $A$ myslíme zobrazení
+    \[
+     \chi_A: B \to \{0,1\}
+    \]
+    takové, že $\chi_A(x) = 1$, když $x \in A$, a $\chi_A(x) = 0$, když $x \notin
+    A$.
+   
+    Platí (to \textbf{nedokazujte}) následující vzorec:
+    \begin{equation*}
+     \label{eq:poly-identity}
+     \tag{$*$}
+     \prod_{i=1}^n (1 + x_i) = \sum_{I \subseteq \{1,2,\ldots,n\}} \left(
+     \prod_{i \in I} x_i \right).
+    \end{equation*}
+    Ať nyní $A_i$, $i \in \{1,2,\ldots,n\}$, jsou konečné množiny a položme
+    \[
+     A \coloneqq \bigcup_{i = 1}^{n} A_i.
+    \]
+    Charakteristickou funkci množiny $A_i$ označíme jednoduše jako $\chi_i$.
+    \begin{enumerate}[label=(\alph*)]
+     \item Dokažte, že pro každé $a \in A$ platí
+      \[
+       \prod_{i=1}^n (1-\chi_i(a)) = 0.
+      \] 
+     \item Dosaďte $x_i = -\chi_i(a)$ do vzorce \eqref{eq:poly-identity} a
+      výslednou sumu napište.
+     \item Užitím výsledků z (a) a (b) dokažte, že
+      \[
+       \sum_{I \subseteq \{1,2,\ldots,n\}} (-1)^{\# I}\left( \sum_{a \in A}
+       \prod_{i \in I} \chi_i(a) \right) = 0.
+      \]
+      \textbf{Hint:} Sčítejte výsledek z (b) přes všechny prvky $a \in A$ a pak
+      prohoďte pořadí sumace.
+     \item Dokažte, že $\prod_{i \in I} \chi_i$ je charakteristická funkce
+      množiny $\bigcap_{i \in I} A_i$.
+     \item Užitím (d), dokažte, že
+      \[
+       \sum_{a \in A} \prod_{i \in I} \chi_i(a) = \# \left( \bigcap_{i \in I}
+       A_i \right).
+      \]
+     \item Speciálně, pro $I = \emptyset$ je $\prod_{i \in \emptyset}
+      \chi_i(a)$ prázdný součin, a tedy má hodnotu $1$. Pročež platí
+      \[
+       \sum_{a \in A} \prod_{i \in \emptyset} \chi_i(a) = \sum_{a \in A} 1 = \#
+       A.
+      \]
+      Dosaďte do (c) výsledek z (e) a rozložte na základě výpočtu výše vhodným
+      způsobem vzniklou sumu, abyste dokázali princip inkluze a exkluze.
+    \end{enumerate}
+   \item Zformulujte Kruskalův algoritmus a dokažte jeho správnost.
   \end{enumerate}
  \end{tcolorbox}
 \end{document}
