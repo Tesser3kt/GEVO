@@ -49,11 +49,19 @@ def najdi_uzivatele(jmeno):
     slovnik."""
 
     # nacti vsechny uzivatele
-    vsechny_uzivatele = spravce_databaze.vsichni_uzivatele()
+    vsichni_uzivatele = spravce_databaze.vsichni_uzivatele()
 
     # Projdete vsechny uzivatele a najdete uzivatele s danym jmenem.
     # Jeho udaje vratte jako slovnik s klici 'id', 'jmeno' a 'heslo'.
 
+    for uzivatel in vsichni_uzivatele:
+        if uzivatel[1] == jmeno:
+            return {
+                'id': uzivatel[0],
+                'jmeno': uzivatel[1],
+                'heslo': uzivatel[2]
+            }
+    return None
 
 def prijatelne_heslo(heslo):
     """Heslo musi mit aspon sest znaku, aspon jedno velke pismeno, jedno male
@@ -93,7 +101,10 @@ while True:
         ############### SEM VYPLNUJTE LOGIKU PRIHLASOVANI #####################
         #######################################################################
 
-
+        prihlaseny_uzivatel = najdi_uzivatele(jmeno)
+        if prihlaseny_uzivatel == None:
+            zobraz_upozorneni("Uzivatel nenalezen.")
+            continue
 
         #######################################################################
         ################### TADY KONCI LOGIKA PRIHLASOVANI ####################
