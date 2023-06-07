@@ -1,0 +1,339 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,decorations.text,
+ decorations.pathmorphing}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Math Homework -- PreIB 3.AB 2 \& 3}\\
+ \Large\textsf{Trigonometric Functions}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\section*{Review of Trig Functions}
+
+Given a right triangle
+\begin{center}
+ \begin{tikzpicture}
+  \node (a) at (0,0) {};
+  \node (b) at (4,0) {};
+  \node (c) at (4,2.31) {};
+  
+  \draw (3.6,0) -- (3.6,0.4);
+  \draw (3.6,0.4) -- (4,0.4);
+  \node[circle,inner sep=1pt,fill=black] at (3.8,0.2) {};
+
+  \draw[thick,Fuchsia] (1.5,0) arc (0:30:1.5);
+  \node[Fuchsia,yshift=3mm] (theta) at (1,0) {$\theta$};
+   
+  \draw[thick,RoyalBlue] (a.center) to node[midway,RoyalBlue,yshift=-2ex]
+   {adjacent} (b.center);
+  \draw[thick,ForestGreen] (b.center) to
+   node[midway,ForestGreen,rotate=90,yshift=-2ex] {opposite} (c.center);
+  \draw[thick,BrickRed] (a.center) to node[midway,BrickRed,yshift=2ex,rotate=30]
+   {hypotenuse} (c.center);
+ \end{tikzpicture}
+\end{center}
+we define three \textbf{trigonometric functions}
+\[
+ \sin \clm{\theta} = \frac{\text{\clg{opposite}}}{\text{\clr{hypotenuse}}},
+ \quad \cos \clm{\theta} =
+ \frac{\text{\clb{adjacent}}}{\text{\clr{hypotenuse}}}, \quad \tan \clm{\theta}
+ = \frac{\text{\clg{opposite}}}{\text{\clb{adjacent}}}.
+\]
+The \textbf{inverse} trigonometric functions to these three are naturally
+\[
+ \sin^{-1}\left( \frac{\text{\clg{opposite}}}{\text{\clr{hypotenuse}}} \right) =
+ \clm{\theta}, \quad \cos^{-1}\left(
+ \frac{\text{\clb{adjacent}}}{\text{\clr{hypotenuse}}} \right) = \clm{\theta},
+ \quad \tan^{-1}\left( \frac{\text{\clg{opposite}}}{\text{\clb{adjacent}}}
+ \right) = \clm{\theta}.
+\]
+Further, in \textbf{any} triangle
+\begin{center}
+ \begin{tikzpicture}
+  \node (a) at (0,0) {};
+  \node (b) at (4,0) {};
+  \node (c) at (2.5,3) {};
+  
+  \draw[thick,BrickRed] (1,0) arc (0:50:1);
+  \node[BrickRed,yshift=3mm] (alpha) at (0.6,0) {$\alpha$};
+  
+  \draw[thick,RoyalBlue] (3,0) arc (180:117:1);
+  \node[RoyalBlue,yshift=3mm] (beta) at (3.4,0) {$\beta$};
+  
+  \draw[thick,ForestGreen] (2.947,2.106) arc (-63:-130:1);
+  \node[ForestGreen,yshift=3mm] (gamma) at (2.45,2.1) {$\gamma$};
+  
+
+  \draw[thick] (a.center) to node[midway,yshift=-2ex] {$c$} (b.center);
+  \draw[thick] (b.center) to node[midway,xshift=2ex] {$a$} (c.center);
+  \draw[thick] (a.center) to node[midway,xshift=-1.5ex,yshift=1.5ex] {$b$}
+   (c.center);
+ \end{tikzpicture}
+\end{center}
+the \textbf{Law of Sines} holds. It says that
+\[
+ \frac{a}{\sin \clr{\alpha}} = \frac{b}{\sin \clb{\beta}} = \frac{c}{\sin
+  \clg{\gamma}}.
+\]
+We also have the \textbf{Law of Cosines} which says that
+\begin{equation*}
+ \begin{split}
+  c^2 &= a^2 + b^2 - 2ab \cdot \cos \clg{\gamma}, \\
+  b^2 &= a^2 + c^2 - 2ac \cdot \cos \clb{\beta}, \\
+  a^2 &= b^2 + c^2 - 2bc \cdot \cos \clr{\alpha}. \\
+ \end{split}
+\end{equation*}
+
+\subsection*{Exercises}
+\begin{enumerate}
+ \item Count Dolgorukov is a Russian landlord. He tends to lounge away his
+  remaining days in his enormous garden. He is also very pedantic and meticulous
+  about precision and symmetry. On one sunny noon, one of his poplar trees
+  caught his unforgiving gaze. At first glance it seemed as though it was the
+  same height as all the others but it cast a longer shadow.
+
+  Count Dolgorukov, seething with rage, gathered his gardeners and ordered the
+  tree shortened. Not knowing which it was, the gardeners had to wait until the
+  next noon for the sun to be as high in the sky as it can be, which in Russia
+  \textbf{is about 60 \%}, with 100 \% meaning right above the head, in order to
+  tell the lengths of the shadows apart.
+ 
+  The gardeners measured that all but one poplar cast a \textbf{shadow of
+  approximately 21.7 meters}. The \textbf{highest poplar} cast a \textbf{shadow
+  of approximately 22.3 meters}. How much should Count Dolgorukov's gardeners
+  shorten the poplar so that it is as high as all the others?
+ 
+  \emph{You can assume for simplicity that the Sun follows a perfect arc.}
+ 
+  \begin{center}
+   \begin{tikzpicture}[scale=1.25]
+    \node (a) at (0,0) {};
+    \node (b) at (2.17,0) {};
+    \node (c) at (2.17,3) {};
+
+    \draw[thick,RoyalBlue] (a.center) to node[midway,RoyalBlue,yshift=-2ex]
+     {shadow} (b.center);
+    \draw[thick,ForestGreen] (b.center) to
+     node[midway,ForestGreen,rotate=90,yshift=-2ex] {poplar (height ?)}
+     (c.center);
+
+    \draw[thick] (58.7:5) arc (58:90:5);
+    \node[draw,circle,fill=black,inner sep=2pt] (100) at (90:5) {};
+    \node[above=1mm of 100] {100 \%};
+
+    \draw [thick,Dandelion] (5,0) arc (0:49.3:5);
+    \node[draw,circle,Dandelion] (sun) at (54:5) {Sun};
+    \node[above right=0mm and 0mm of sun,Dandelion] {60 \%};
+
+    \draw[thick,Dandelion] (0,0) -- (sun);
+   \end{tikzpicture}
+  \end{center}
+ \item Mr. Trump is a sailor. A brutal sea storm has completely thrown him off
+  course. After a while, he's found himself approaching an unknown island. The
+  sea is still wild and it's raining making Mr. Trump unable to estimate his
+  distance to the island. Using his old astrolabe (an angle-measuring device),
+  he determines \textbf{he's viewing the island under an angle of about $\pi /
+  2$}. Thirty minutes later, he repeats the measurement and \textbf{measures an
+  angle of $2\pi / 3$}. Basing himself upon a lifetime's worth of experience,
+  Mr. Trump thinks he might have closed the distance to the island \textbf{by
+  about 5 km}.
+  
+  Using these three pieces of data, determine \textbf{how long is reaching the
+  island going to take Mr. Trump} and also \textbf{how wide the island
+  approximately is}.
+
+  \textbf{Hint:} Use the Law of Sines.
+  \begin{center}
+   \begin{tikzpicture}[scale=0.5]
+    \node[circle,fill=black,inner sep=2pt] (a) at (0,0) {};
+    
+    \node[circle,fill=black,inner sep=2pt] (b) at (0,5) {};
+    \node (c) at (0,11.83) {};
+    \node[circle,fill=black,inner sep=2pt] (d) at (-11.83,11.83) {};
+    \node[circle,fill=black,inner sep=2pt] (e) at (11.83,11.83) {};
+
+    \draw[thick,ForestGreen,dashed] (a) to node[pos=0.7,ForestGreen,xshift=4ex]
+     {5 km} (b);
+    \draw[thick] (a) -- (d);
+    \draw[thick] (a) -- (e);
+    \draw[thick] (b) -- (d);
+    \draw[thick] (b) -- (e);
+
+    \draw[thick,decorate,decoration={snake,amplitude=1},BrickRed] (d) to
+     node[midway,yshift=2ex,BrickRed] {island (width ?)} (e);
+    \draw[thick,<->,ForestGreen,dashed] (b) to
+     node[pos=0.6,ForestGreen,xshift=4ex] {? km} (c.center);
+    \draw[thick,RoyalBlue] (45:2) arc (45:135:2);
+    \node[RoyalBlue,yshift=6mm] at (0,0) {$\pi / 2$};
+    \draw[thick,RoyalBlue] (90:5) + (30:2) arc (30:150:2);
+    \node[RoyalBlue,yshift=6mm] at (0,5) {$2\pi / 3$};
+   \end{tikzpicture}
+  \end{center}
+\end{enumerate}
+
+\section*{Polar Coordinates}
+The Cartesian coordinate system, which you're all used to, determines points in
+the plane by their pair of coordinates -- $(x,y)$ -- which tells one how many
+steps to the right ($x$) and how many steps upward ($y$) you need to make to get
+to this point from the origin $(0,0)$. It's basically a grid.
+\begin{center}
+ \begin{tikzpicture}[scale=0.8]
+  \tkzInit[xmin=-4,xmax=4,ymin=-3,ymax=3]
+  \tkzDrawX \tkzDrawY
+  \tkzGrid
+  \tkzDefPoints{1/2/A,-3/1/B,2/-1/C,0/0/O}
+  \tkzDrawPoints[size=4](A,B,C,O)
+  \tkzLabelPoint[below right](A){$(1,2)$}
+  \tkzLabelPoint[below right](B){$(-3,1)$}
+  \tkzLabelPoint[below right](C){$(2,-1)$}
+  \tkzLabelPoint[below right](O){$(0,0)$}
+ \end{tikzpicture}
+\end{center}
+As you can see, the point $(1,2)$ is 1 step to the right and 2 steps upward from
+$(0,0)$, the point $(-3,1)$ is 3 steps to the left and 1 step upward and the
+point $(2,-1)$ is located 2 steps to the right and 1 step downward.
+
+There is another system how to describe points, which is more natural to humans,
+called \textbf{polar coordinates}. Besides other things, trigonometry tells us
+that every point is determined by its angle `of elevation' and distance from the
+origin. We'll write these coordinates as $(r:\theta)$ where $r$ is the distance
+and $\theta$ the angle. For example, in order to see the point $(3:\pi / 3)$ I
+have to turn my head $\pi / 3$ radians (60$^{\circ}$) from the ground and look 3
+meters ahead. The plane in these coordinates looks like a lot of concentric
+circles.
+\begin{center}
+ \begin{tikzpicture}[scale=1.5]
+  \tkzInit[xmin=-3,xmax=3,ymin=-3,ymax=3]
+  \tkzDrawX[label=] \tkzDrawY[label=]
+  \tkzDefPoint(0,0){O}
+  \tkzDefPoint(45:1){A}
+  \tkzDefPoint(150:2){B}
+  \tkzDefPoint(-60:3){C}
+  
+  \tkzDrawSegment[thick,ForestGreen](O,A)
+  \tkzDrawSegment[thick,BrickRed](O,B)
+  \tkzDrawSegment[thick,Fuchsia](O,C)
+
+  \tkzDrawPoint[size=4](O)
+  \tkzDrawPoint[color=ForestGreen,size=4](A)
+  \tkzDrawPoint[color=BrickRed,size=4](B)
+  \tkzDrawPoint[color=Fuchsia,size=4](C)
+
+  \tkzDrawCircle[thick,ForestGreen](O,A)
+  \tkzDrawCircle[thick,BrickRed](O,B)
+  \tkzDrawCircle[thick,Fuchsia](O,C)
+
+  \tkzLabelPoint[below right](O){$(0:0)$}
+  \tkzLabelPoint[right,ForestGreen](A){$(1:\frac{\pi}{4})$}
+  \tkzLabelPoint[left,BrickRed](B){$(2:\frac{5\pi}{6})$}
+  \tkzLabelPoint[below right,Fuchsia](C){$(3:-\frac{\pi}{3})$}
+ \end{tikzpicture}
+\end{center}
+To see the point $\clg{(1:\pi / 4)}$, I need to tilt my head $\pi / 4$ radians
+counter-clockwise and look 1 meter ahead and to see for instance $\clm{(3:-\pi /
+3)}$ I tilt my head $\pi / 3$ radians clockwise and look 3 meters ahead.
+
+We'll learn how to convert coordinates between Cartesian and polar coordinates.
+Let's start with the direction polar $ \to $ Cartesian. Suppose I have a point
+$(2:\pi / 4)$ in polar coordinates. Let's draw it in \textbf{Cartesian}
+coordinates instead.
+
+\end{document}
