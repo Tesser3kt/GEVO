@@ -173,7 +173,7 @@ the \textbf{Law of Sines} holds. It says that
  \frac{a}{\sin \clr{\alpha}} = \frac{b}{\sin \clb{\beta}} = \frac{c}{\sin
   \clg{\gamma}}.
 \]
-We also have the \textbf{Law of Cosines} which says that
+We also have the \textbf{Law of Cosines}, the following equalities:
 \begin{equation*}
  \begin{split}
   c^2 &= a^2 + b^2 - 2ab \cdot \cos \clg{\gamma}, \\
@@ -228,13 +228,13 @@ We also have the \textbf{Law of Cosines} which says that
   \end{center}
  \item Mr. Trump is a sailor. A brutal sea storm has completely thrown him off
   course. After a while, he's found himself approaching an unknown island. The
-  sea is still wild and it's raining making Mr. Trump unable to estimate his
+  still wild sea and bitter rain render Mr. Trump unable to estimate his
   distance to the island. Using his old astrolabe (an angle-measuring device),
   he determines \textbf{he's viewing the island under an angle of about $\pi /
   2$}. Thirty minutes later, he repeats the measurement and \textbf{measures an
   angle of $2\pi / 3$}. Basing himself upon a lifetime's worth of experience,
   Mr. Trump thinks he might have closed the distance to the island \textbf{by
-  about 5 km}.
+  about 5 km} in these last 30 minutes.
   
   Using these three pieces of data, determine \textbf{how long is reaching the
   island going to take Mr. Trump} and also \textbf{how wide the island
@@ -271,9 +271,9 @@ We also have the \textbf{Law of Cosines} which says that
 
 \section*{Polar Coordinates}
 The Cartesian coordinate system, which you're all used to, determines points in
-the plane by their pair of coordinates -- $(x,y)$ -- which tells one how many
-steps to the right ($x$) and how many steps upward ($y$) you need to make to get
-to this point from the origin $(0,0)$. It's basically a grid.
+the plane by their pair of coordinates -- $(x,y)$ -- which tell one how many
+steps to the right ($x$) and how many steps upward ($y$) he is to make to reach
+this point from the origin $(0,0)$. It's basically a grid.
 \begin{center}
  \begin{tikzpicture}[scale=0.8]
   \tkzInit[xmin=-4,xmax=4,ymin=-3,ymax=3]
@@ -291,14 +291,14 @@ As you can see, the point $(1,2)$ is 1 step to the right and 2 steps upward from
 $(0,0)$, the point $(-3,1)$ is 3 steps to the left and 1 step upward and the
 point $(2,-1)$ is located 2 steps to the right and 1 step downward.
 
-There is another system how to describe points, which is more natural to humans,
-called \textbf{polar coordinates}. Besides other things, trigonometry tells us
-that every point is determined by its angle `of elevation' and distance from the
-origin. We'll write these coordinates as $(r:\theta)$ where $r$ is the distance
-and $\theta$ the angle. For example, in order to see the point $(3:\pi / 3)$ I
-have to turn my head $\pi / 3$ radians (60$^{\circ}$) from the ground and look 3
-meters ahead. The plane in these coordinates looks like a lot of concentric
-circles.
+There exists a different system of point description, which is more natural to
+humans, called \textbf{polar coordinates}. Besides other things, trigonometry
+tells us that every point is determined by its angle `of elevation' and distance
+from the origin. We'll write these coordinates as $(r:\theta)$ where $r$ is the
+distance and $\theta$ the angle. For example, in order to see the point $(3:\pi
+/ 3)$ I have to tilt my head $\pi / 3$ radians (60$^{\circ}$) toward the sky and
+look 3 meters ahead. The plane in these coordinates resembles a bunch of
+concentric circles.
 \begin{center}
  \begin{tikzpicture}[scale=1.5]
   \tkzInit[xmin=-3,xmax=3,ymin=-3,ymax=3]
@@ -321,19 +321,179 @@ circles.
   \tkzDrawCircle[thick,BrickRed](O,B)
   \tkzDrawCircle[thick,Fuchsia](O,C)
 
-  \tkzLabelPoint[below right](O){$(0:0)$}
+  \tkzLabelPoint[below left](O){$(0:0)$}
   \tkzLabelPoint[right,ForestGreen](A){$(1:\frac{\pi}{4})$}
   \tkzLabelPoint[left,BrickRed](B){$(2:\frac{5\pi}{6})$}
   \tkzLabelPoint[below right,Fuchsia](C){$(3:-\frac{\pi}{3})$}
  \end{tikzpicture}
 \end{center}
-To see the point $\clg{(1:\pi / 4)}$, I need to tilt my head $\pi / 4$ radians
+To see the point $\clg{(1:\pi / 4)}$, I need to rotate my head $\pi / 4$ radians
 counter-clockwise and look 1 meter ahead and to see for instance $\clm{(3:-\pi /
-3)}$ I tilt my head $\pi / 3$ radians clockwise and look 3 meters ahead.
+3)}$ I rotate it $\pi / 3$ radians clockwise and look 3 meters ahead.
 
 We'll learn how to convert coordinates between Cartesian and polar coordinates.
 Let's start with the direction polar $ \to $ Cartesian. Suppose I have a point
 $(2:\pi / 4)$ in polar coordinates. Let's draw it in \textbf{Cartesian}
 coordinates instead.
+\begin{center}
+ \begin{tikzpicture}[scale=2]
+  \tkzInit[xmax=3,ymax=3]
+  \tkzDrawX[label=] \tkzDrawY[label=]
+  \tkzGrid
+  \tkzDefPoint(45:2){A}
+  \tkzDefPoint(1.414,0){X}
+  \tkzDefPoint(1.214,0){R1}
+  \tkzDefPoint(1.214,0.2){R2}
+  \tkzDefPoint(1.414,0.2){R3}
+  \tkzDefPoint(1.314,0.1){D}
+
+  \tkzDrawSegment(R1,R2)
+  \tkzDrawSegment(R2,R3)
+  \tkzDrawSegment[thick,color=BrickRed](O,X)
+  \tkzDrawSegment[thick,color=Dandelion](X,A)
+
+  \tkzLabelPoint[above right](A){$(\clg{2}:\clm{\frac{\pi}{4}})$}
+
+  \tkzDefPoint(0,0){O}
+  \tkzLabelPoint[below left](O){$(0,0)$}
+
+  \tkzDrawSegment[thick,color=ForestGreen](O,A)
+  \tkzLabelSegment[color=ForestGreen,yshift=6mm,xshift=-1mm](O,A){\Large $2$}
+  \tkzDrawArc[R,thick,color=Fuchsia](O,1)(0,45)
+
+  \tkzDefPoint(35:0.8){theta}
+  \tkzLabelPoint[color=Fuchsia](theta){\Large $\frac{\pi}{4}$}
+
+  \tkzDrawPoint[size=4](O)
+  \tkzDrawPoint[size=4](A)
+
+  \tkzLabelSegment[below,color=BrickRed](O,X){\Large $x$}
+  \tkzLabelSegment[right,color=Dandelion](X,A){\Large $y$}
+
+  \tkzDrawPoint(D)
+ \end{tikzpicture}
+\end{center}
+We \textbf{do} know how to calculate $\clr{x}$ and $\cly{y}$, don't we? Using
+the definitions of $\sin$ and $\cos$, we can compute
+\[
+ \cos \left( \clm{\frac{\pi}{4}} \right) = \frac{\clr{x}}{\clg{2}} \quad
+ \text{and} \quad \sin \left( \clm{\frac{\pi}{4}} \right) =
+ \frac{\cly{y}}{\clg{2}}.
+\]
+This means that $\clr{x} = \clg{2} \cdot \cos(\clm{\pi / 4})$ and $\cly{y} =
+\clg{2} \cdot \sin(\clm{\pi / 4})$. In this particular case, the coordinates end
+up being $\clr{x} = \sqrt{2}$ and $\cly{y} = \sqrt{2}$. In general, a point
+given in polar coordinates as $(\clg{r},\clm{\theta})$ is expressed in Cartesian
+coordinates as $(\clg{r} \cdot \cos\clm{\theta},\clg{r} \cdot \sin
+\clm{\theta})$.
+
+Let's also discuss the opposite direction -- Cartestion $ \to $ polar. What if I
+know the coordinates of a point in Cartesian coordinates and I want to know what
+they are in polar? It's actually very easy. We need to determine two variables
+-- $\clg{r}$ and $\clm{\theta}$. Looking at the triangle above, it seems that
+$\clg{r}$ can be calculated via the Pythagoras' Theorem. Indeed, we know that
+\[
+ \clg{r}^2 = \clr{x}^2 + \cly{y}^2
+\]
+and so
+\[
+ \clg{r} = \sqrt{\clr{x}^2 + \cly{y}^2}
+\]
+because $\clg{r}$ is \textbf{always positive} (remember, it's a
+\emph{distance}).
+
+To compute $\clm{\theta}$ we can use the $\tan^{-1}$ trig. function. By
+definition, we have
+\[
+ \tan \clm{\theta} = \frac{\cly{y}}{\clr{x}}
+\]
+and so
+\[
+ \clm{\theta} = \tan^{-1}\left( \frac{\cly{y}}{\clr{x}} \right).
+\]
+Hence, a point $(\clr{x},\cly{y})$ in Cartesian coordinates is actually the
+point
+\[
+ \left(\sqrt{\clr{x}^2 + \cly{y}^2}, \tan^{-1}(\cly{y}/\clr{x})\right)
+\]
+in polar. Going back to our original example, if $(\clr{x},\cly{y}) =
+(\sqrt{2},\sqrt{2})$, then
+\[
+ \clg{r} = \sqrt{\clr{x}^2 + \cly{y}^2} = \sqrt{(\sqrt{2})^2 + (\sqrt{2})^2} =
+ \sqrt{2 + 2} = \sqrt{4} = 2
+\]
+and
+\[
+ \clm{\theta} = \tan^{-1}\left( \frac{\cly{y}}{\clr{x}} \right) =
+ \tan^{-1}\left( \frac{\sqrt{2}}{\sqrt{2}} \right) = \tan^{-1}(1) =
+ \frac{\pi}{4}.
+\]
+See, everything works.
+
+\subsection*{Exercises}
+\begin{enumerate}
+ \item One of the reasons you don't hear of polar coordinates before Cartesian
+  is that they're naturally \textbf{circular} coordinates. In essence, the
+  simplest objects are curved and flat objects like straight lines are functions
+  with difficult definitions. To see this, \textbf{determine the equation of a
+  straight line in polar coordinates}.
+ 
+  \textbf{Hint}: Start with the equation of a line in Cartesian coordinates,
+  $\cly{y} = a \clr{x} + b$, convert $\clr{x}$ and $\cly{y}$ to polar
+  coordinates and isolate either $\clg{r}$ or $\clm{\theta}$.
+ \item On the other hand, circles (centred at the origin) have very simple
+  equations in polar coordinates. More specifically, the equation $\clg{r} = R$
+  describes a circle with centre $(0,0)$ and radius $R$ in polar coordinates.
+  \textbf{Use this knowledge to find the equation of a circle in Cartesian
+  coordinates}.
+ 
+  \textbf{Hint:} Just convert $\clg{r}$ to Cartesian coordinates. Notice that
+  some shapes are given by \textbf{functions} in polar coordinates that
+  \textbf{cannot be described by a function} in the Cartesian (the circle
+  \textbf{is not} a function in Cartesian coordinates, but it \textbf{is} in
+  polar).
+ \item It's early morning and the Sun and Moon are both still visible on the
+  sky. Say you're looking directly at the Moon and have to turn your head about
+  $\pi / 3$ radians to the left to look directly at the Sun. \textbf{How far
+  away are the Moon and the Sun from one another at this exact moment}?
+ 
+  \textbf{Data:} Assume the Sun is 150,000,000 km away and the Moon is 400,000
+  km away from the Earth.
+ 
+  \textbf{Hint:} Use the \textbf{Law of Cosines}.
+  \begin{center}
+   \begin{tikzpicture}
+    \tkzInit
+    \tkzDefPoint(0,0){E}
+    \tkzDefPoint(70:2){M}
+    \tkzDefPoint(130:7){S}
+    \tkzDefPoint(100:0.5){a}
+
+    \tkzDrawArc[R,thick,color=Fuchsia](E,1)(70,130)
+    \tkzLabelPoint[above,color=Fuchsia,yshift=-2mm](a){$\frac{\pi}{3}$}
+
+    \tkzDrawSegment[thick,color=RoyalBlue](E,M)
+    \tkzDrawSegment[thick,color=Dandelion](E,S)
+    \tkzDrawSegment[thick](S,M)
+
+    \tkzDrawPoint[size=6](E)
+    \tkzDrawPoint[size=4,color=RoyalBlue](M)
+    \tkzDrawPoint[size=10,color=Dandelion](S)
+
+    \tkzLabelPoint[below,yshift=-1ex](E){Earth}
+    \tkzLabelPoint[right,color=RoyalBlue,xshift=1ex](M){Moon}
+    \tkzLabelPoint[above left,color=Dandelion,yshift=1ex,xshift=-1ex](S){Sun}
+
+    \tkzLabelSegment[right,color=RoyalBlue,yshift=-1mm,xshift=1mm](E,M){400,000
+    km}
+    \tkzLabelSegment[below left,color=Dandelion](E,S){150,000,000 km}
+    \tkzLabelSegment[above right](M,S){\Large ? km}
+   \end{tikzpicture}
+  \end{center}
+ \item (\textbf{\clr{OPTIONAL}}) Can you generalize the previous problem and
+  \textbf{find a formula for the distance between two points}
+  $(\clg{r_1},\clm{\theta_1})$ and $(\clg{r_2},\clm{\theta_2})$ in
+  \textbf{polar} coordinates?
+\end{enumerate}
 
 \end{document}
