@@ -2,7 +2,11 @@
 \label{sssec:grafove-homomorfismy}
 
 Trochu času věnujeme přemýšlení o tom, co může znamenat \emph{zobrazení} mezi
-grafy. Ať tedy $G = (V_G,E_G)$ a $H = (V_H,E_H)$ jsou dva grafy. Zápis
+grafy. Tato podsekce má primárně býti jakýmsi úvodem do abstraktní algebry, kde
+zaujímají zobrazení mezi strukturami snad největšího významu. O homomorfismech
+grafů se dle názoru autora hovoří spíše okrajově a aplikací nejsou přehršle.
+
+Ať tedy $G = (V_G,E_G)$ a $H = (V_H,E_H)$ jsou dva grafy. Zápis
 $\varphi:G \to H$, tj. zobrazení z $G$ do $H$, sice smysl dává, neb $G$ a $H$
 jsou (jako všechno v teorii množin) též množiny, ale není pro rozvoj teorie
 nijak zajímavý. Takové zobrazení totiž může klidně posílat třeba hrany v $G$ na
@@ -16,8 +20,8 @@ strukturu}.
 
 V případě grafů toto znamená, že \emph{homomorfismus} $\varphi:G \to H$ je
 zobrazení $\varphi_V:V_G \to V_H$ z vrcholů $G$ do vrcholů $H$, které
-\uv{zachovává} hrany. To znamená zkrátka jen to, že když mezi vrcholy v $G$ vede
-hrana, tak mezi jejich obrazy při zobrazení $\varphi_V$ vede též hrana.
+\uv{zachovává} hrany. To je lze vyložit zkrátka tak, že když mezi vrcholy v $G$
+vede hrana, tak mezi jejich obrazy při zobrazení $\varphi_V$ vede též hrana.
 
 \begin{definition}[Grafový homomorfismus]
  \label{def:grafovy-homomorfismus}
@@ -30,9 +34,9 @@ hrana, tak mezi jejich obrazy při zobrazení $\varphi_V$ vede též hrana.
  \[
   (u,v) \in E_G \Rightarrow (\varphi_V(u),\varphi_V(v)) \in E_H.
  \]
- Obvykle ztotožňujeme homomorfismus $\varphi:G \to H$ se zobrazením
- $\varphi_V:V_G \to V_H$ mezi bázovými množinami a oboje značíme zkrátka
- $\varphi$.
+ Obvykle, bo jest tomu buřt, ztotožňujeme homomorfismus $\varphi:G \to H$ se
+ zobrazením $\varphi_V:V_G \to V_H$ mezi bázovými množinami a oboje značíme
+ zkrátka $\varphi$.
 \end{definition}
 
 S \hyperref[def:grafovy-homomorfismus]{touto definicí} je jistý problém. Uvažme
@@ -94,8 +98,8 @@ je třeba dán zobrazením $\varphi:V_G \to V_H$ takovým, že
  \end{split}
 \end{equation*}
 Pak je opravdu splněna podmínka z \myref{definice}{def:grafovy-homomorfismus},
-neboť mezi každými dvěma z vrcholů $a,b,c$ vede hrana a mezi každými dvěma z
-vrcholů $1,4,3$ rovněž vede hrana.
+neboť mezi každýma dvěma vrcholoma z $a,b,c$ vede hrana a mezi každýma dvěma
+vrcholoma z~$1,4,3$ rovněž vede hrana.
 
 Uvažme však jen trochu jiný homomorfismus $\psi: G \to H$, který je dán
 rovnostmi
@@ -121,35 +125,74 @@ Tato peripetie má několik možných katastrof. V zájmu rozvoje matematického
 myšlení drahých čtenářů si některé rozebereme.
 
 \begin{enumerate}
- \item Nic nedělat držet se původní definice a nepovažovat $\psi$ za
+ \item Nic nedělat, držet se původní definice a nepovažovat $\psi$ za
   homomorfismus. To je jistě jedno možné řešení a vyniká množstvím potřebné
   práce k jeho dosažení. Lidsky řečeno vlastně znamená, že slepovat vrcholy mohu
   jedině tehdy, když mezi nimi nevede hrana. Toto řešení je zároveň nejvíce
   omezující.
  \item Modifikovat \hyperref[def:grafovy-homomorfismus]{definici homomorfismu}
-  tak, aby ignoroval tyhle případy. Tedy, upravit podmínku zachování hran
+  tak, aby ignorovala tyto případy. Tedy, upravit podmínku zachování hran
   následovně:
   \[
    ((u,v) \in E_G \wedge \psi(u) \neq \psi(v)) \Rightarrow (\psi(u),\psi(v)) \in
    E_H.
   \]
-  Tohle řešení je \emph{extrémně nepřirozené}. Totiž, když z grafu $H$ na
+  Takové řešení je \emph{extrémně nepřirozené}. Totiž, když z grafu $H$ na
   \myref{obrázku}{subfig:graf-h} vynecháme hranu $(b,c)$ a homomorfismus $\psi$
   ponecháme beze změny, pak je v obou případech (tedy s hranou $(b,c)$ i bez ní)
-  obrazem grafu $H$ v $G$ úsečka $13$. Aby obrazy dvou různých grafů stejným
-  homomorfismem byly stejné, je algebraicky nepřijatelné.
+  obrazem grafu $H$ v $G$ úsečka $13$. Byť obrazy dvou různých grafů stejným
+  homomorfismem byly stejné, jesti algebraicky nepřijatelné.
  \item Zvolnit definici grafu tak, aby povolovala smyčky. To by znamenalo
   konkrétně odstranit z \hyperref[def:graf-poprve]{první definice grafu}
   podmínku antireflexivity relace $E$. Zůstala by tedy pouze symetrickou a
   dvojice $(v,v)$ pro $v \in V$ by byly smyčkami. Ovšem,
   \hyperref[def:graf-podruhe]{druhá definice grafů} by se stala nepoužitelnou,
-  neboť dvouprvková podmnožina $V$ nemůže obsahovat dvakrát tentýž prvek. Z
+  neboť dvouprvková podmnožina $V$ nemůže obsahovat dvakrát týž prvek. Z
   \hyperref[def:graf-potreti]{třetí definice grafu} by stačilo rovněž odstranit
   pouze podmínku (a) zakazující shodnost zdroje a cíle téže hrany.
 
-  Při adopci tohoto řešení by graf $G$ musel obsahovat smyčku $(3,3)$, aby mohla
-  definice $\psi$ zůstat beze změny. V takovém případě by obrazem grafu $H$
+  Při adopci tohoto řešení by graf $G$ musel obsahovat smyčku $(3,3)$, aby mohl
+  předpis $\psi$ zůstat beze změny. V takovém případě by obrazem grafu $H$
   \textbf{bez} hrany $(b,c)$ byla opět úsečka $13$, ale obrazem grafu $H$
   \textbf{se} hranou $(b,c)$ by byla úsečka $13$ spolu se smyčkou na vrcholu
   $3$.
 \end{enumerate}
+Obě řešení (1) i (3) jsou rozumná a v různých situacích různě užitečná. Dle naší
+zkušenosti je operace \uv{slepení} vrcholu příliš důležitá pro práci s~grafovou
+strukturou a pročež je spíše dáváno přednosti řešení (3). Ovšem, jistě existují
+aplikace, kdež mají homomorfismy své místo, ale přesto jsou smyčky nežádoucí.
+
+Podsekci kvapně zakončíme zcela bezvýznamnou definicí. Účel jeho zařazení dlí,
+podobně jako zbytku podsekce, v prezentaci a povrchovém prozkoumání pojmu
+\emph{homomorfismu}.
+
+Homomorfismy mimořádných vlastností (jako prostota, surjektivita) mají své
+vlastní názvy, které zde pro pořádek uvedeme. Reálně nás v dalším textu bude
+zajímat ovšem jedině pojem \emph{isomorfismu}, bijektivního homomorfismu.
+
+\begin{definition}
+ \label{def:morfismy}
+ Ať $\varphi:G \to H$ je homomorfismus grafů. Je-li
+ \begin{itemize}
+  \item $\varphi$ prostý, pak sluje \emph{\textbf{mono}morfismus} (z řec. mono-,
+   \uv{jeden, jediný});
+  \item $\varphi$ na, pak sluje \emph{\textbf{epi}morfismus} (z řec. epi-, \uv{nad, přes,
+   na});
+  \item $\varphi$ bijekce, pak sluje \emph{\textbf{iso}morfismus} (z řec. iso-,
+   \uv{roven});
+  \item $H = G$, pak sluje \emph{\textbf{endo}morfismus} (z řec. éndon,
+   \uv{vnitřek, vnitř\-ní});
+  \item $\varphi$ endomorfismus a isomorfismus, pak sluje
+   \emph{\textbf{auto}morfismus} (z~řec. auto-, \uv{sebe-}).
+ \end{itemize}
+\end{definition}
+
+\begin{remark}
+ Je-li $\varphi:G \to H$ isomorfismus, pak je to speciálně bijekce $V_G \to
+ V_H$, tedy $\# V_G = \# V_H$ a graf $H$ je vlastně graf $G$ s přejmenovanými
+ vrcholy.
+
+ Je-li $\varphi:G \to G$ automorfismus, pak je to speciálně permutace na $V_G$,
+ čili vlastně jen proházení vrcholů $G$.
+\end{remark}
+
