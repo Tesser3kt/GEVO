@@ -54,9 +54,9 @@
 \title{\Huge\textsf{Ústní zkouška}\\
  \Large\textsf{z Úvodu do diskrétní matematiky}\\
  \vspace*{1em}
- Verze: ez clap\\
+ Verze: R.I.P.\\
  \author{Přednášející: His Divine Benevolence Sir Adam Clypatch}
- \date{1. června 2023}
+ \date{23. června 2023}
 }
 
 % Table of Contents %
@@ -138,22 +138,24 @@
   \emph{Neznalost základních definic znamená bezpodmínečné nesložení
   zkoušky.}
   \begin{enumerate}
-   \item Logický výrok.
+   \item Implikace ($ \Rightarrow $) pomocí logických spojek \emph{a} ($ \wedge
+    $) a \emph{nebo} ($ \vee $).
    \item Sjednocení, průnik a rozdíl dvou libovolných množin $A,B$ užitím
     logických spojek a kvantifikátorů.
-   \item Sjednocení $n \in \N$ libovolných množin $A_i$, kde $i \in
+   \item Průnik $n \in \N$ libovolných množin $A_i$, kde $i \in
     \{1,\ldots,n\}$, užitím logických spojek a kvantifikátorů.
-   \item Konečná množina a velikost konečné množiny.
+   \item Podmnožina $B$ množiny $A$ a množina všech podmnožin množiny $A$.
    \item Ekvivalence a třída ekvivalence (relaci není třeba definovat).
-   \item Zobrazení (opět, relaci není třeba definovat).
+   \item \emph{Prosté} zobrazení, zobrazení \emph{na} a \emph{bijekce}
+    (zobrazení není třeba definovat).
    \item Kodoména a doména zobrazení. Vzor a obraz prvku při zobrazení.
-   \item Složení zobrazení.
+   \item \textbf{Neformálně} princip matematické indukce.
    \item Permutace, řád permutace. \textbf{Neformálně} cyklický zápis permutace.
    \item Kombinační číslo.
    \item Graf (libovolná z definic).
    \item Sled, tah a cesta v grafu (opět, libovolné z definic).
-   \item Souvislý graf, ohodnocený graf, strom.
-   \item Vzdálenost vrcholů v grafu, EFLP a SFLP.
+   \item Vzdálenost vrcholů v grafu.
+   \item Excentricita vrcholu a Jordanovo centrum.
   \end{enumerate}
  \end{tcolorbox}
  \clearpage
@@ -164,66 +166,64 @@
   \emph{Pojmy užité v úlohách nemusíte definovat. Používáte-li k řešení úlohy
   nebo k důkazu předchozí tvrzení, zformulujte je.}
   \begin{enumerate}
-   \item O zobrazení $f: A \to B$ řekneme, že je \emph{na}, když platí
-    následující výrok:
+   \item Ať $A$ je množina a $ \sim $ je \emph{ekvivalence} na $A$. Pro $x,y \in
+    A$ značíme $[x]_{ \sim }$ a $[y]_{ \sim }$ třídy ekvivalence $x$ a $y$ podle
+    $ \sim $. Dokažte, že buď $[x]_{ \sim } = [y]_{ \sim }$, nebo $[x]_{ \sim
+    } \cap [y]_{ \sim } = \emptyset$.
+   \item Ať $A,B$ jsou libovolné množiny. Najděte množinu $C$ (v závislosti na
+    $A,B$) takovou, aby platila rovnost
     \[
-     \forall b \in B \; \exists a \in A: f(a) = b.
+     (A \cap B) \cup C = (A \cup B) \cap C.
     \]
-    Dokažte, že $f$ je \textbf{na} právě tehdy, když $\img f = \codom f$.
-   \item Ať $A,B,C$ jsou libovolné množiny. Je inkluze
+  \item Zformulujte důkaz, že pro každá dvě přirozená čísla $k,n$, kde $k \leq
+   n$, platí vzorec
    \[
-    (A \setminus B) \setminus C \subseteq A \setminus (B \cap C)
+    \binom{n}{k} = \binom{n}{n-k}.
    \]
-   vždy platná? Pokud ano, dokažte. Pokud ne, najděte protipříklad.
-  \item Zformulujte důkaz, že pro každé dvě \textbf{konečné} množiny $A,B$ platí
-   \[
-    \# (A \times B) = \# A \cdot \# B.
-   \]
-  \item Ve třídě 4.A je 27 studentů. Rozhodli se poškádlit svého třídního a
-   náhodným losováním změnit svůj obvyklý zasedací pořádek. Spočtěte
-   pravděpodobnost, že si přesně 7 žáků vylosovalo své obvyklé místo.
-  \item Ať $G = (V,E)$ je graf. Dokažte, že v $G$ existuje \textbf{cesta} mezi
-   $u$ a $v$ právě tehdy, když v $G$ existuje \textbf{sled} mezi $u$ a $v$ pro
-   libovolné dva vrcholy $u,v \in V$.
-  \item Užitím Dijkstrova algoritmu, nalezněte vzdálenosti všech vrcholů od
-   počátečního vrcholu $\textcolor{BrickRed}{s}$ v ohodnoceném grafu určeném
-   následujícím obrázkem.
+  \item Učitelé základní školy U Smrťáka často berou své žáky do zoologické
+   zahrady a varují je, aby v každém případě stály tak blízko klecím, jak to jen
+   lze. Zjistivše, že fyzické metody jeví sebe ovšem neúčinnými, souhlasně
+   vydali se cestou psychického teroru. Za tímto účelem se dnešního výletu do
+   zoo účastní i učitelka matematiky. Ona zadala dětem následující hádanku:
+  
+   \uv{Tak, milánkové. Živočichy umíme rozdělit na ty, kteří žijí pod vodou, na
+    souši, a ve vzduchu. Tady v zahradě žije 30 živočichů ve vodě, 50 na souši a
+    20 ve vzduchu. Z těchto, 10 živočichů je schopno žít jak na souši, tak ve
+    vzduchu, 5 ve vodě i na souši a 2 ve vzduchu i ve vodě. Je tu dokonce jeden
+    zvlášť přizpůsobivý živočich, který umí žít v libovolném prostředí.
+
+    Tak, milánkové, kdo mi poví, kolik je tady v zahradě celkem živočichů, smí
+    si jít hrát s tygrem.}
+  \item Ať $K_n$ je úplný graf na $n$ vrcholech, čili graf, mezi každým párem
+   jehož vrcholů vede hrana. Nalezněte minimální kostru $K_n$ pro každé $n \in
+   \N$ a spočtěte její váhu za předpokladu, že množina vrcholů je $V \coloneqq
+   \{1,\ldots,n\}$ a váha každé hrany $ij \in E$ je dána funkcí $w(ij) \coloneqq
+   \max(i,j)$.
+  \item V grafu daném obrázkem níže
    \begin{center}
-    \begin{tikzpicture}[scale=1.5]
-     \node[vertex,BrickRed] (s) at (0,0) {};
-     \node[vertex] (v11) at (1,1) {};
-     \node[vertex] (v12) at (1,-1) {};
-     \node[vertex] (v21) at (2,0) {};
-     \node[vertex] (v31) at (3,1) {};
-     \node[vertex] (v32) at (3,-1) {};
-     \node[vertex] (v41) at (4,0) {};
+    \begin{tikzpicture}[scale=2]
+     \node[vertex] (v1) at (0,0) {};
+     \node[vertex] (v2) at (-30:1) {};
+     \node[vertex] (v3) at (30:1) {};
+     \node[vertex] (v4) at (30:2) {};
+     \node[vertex] (v5) at (-30:2) {};
 
-     \node[left=0mm of s,BrickRed] {\Large$s$};
-
-     \draw[thick] (s) to node[midway,circle,draw,fill=white,inner sep=1pt]
-      {\footnotesize $2$} (v11);
-     \draw[thick] (v11) to node[midway,circle,draw,fill=white,inner sep=1pt]
-      {\footnotesize $1$} (v31);
-     \draw[thick] (s) to node[midway,circle,draw,fill=white,inner sep=1pt]
-      {\footnotesize $1$} (v12);
-     \draw[thick] (v11) to node[midway,circle,draw,fill=white,inner sep=1pt]
-      {\footnotesize $2$} (v21);
-     \draw[thick] (v12) to node[midway,circle,draw,fill=white,inner sep=1pt]
-      {\footnotesize $2$} (v21);
-     \draw[thick] (v12) to node[midway,circle,draw,fill=white,inner sep=1pt]
-      {\footnotesize $6$} (v32);
-     \draw[thick] (v21) to node[midway,circle,draw,fill=white,inner sep=1pt]
-      {\footnotesize $1$} (v31);
-     \draw[thick] (v21) to node[midway,circle,draw,fill=white,inner sep=1pt]
-      {\footnotesize $3$} (v32);
-     \draw[thick] (v21) to node[midway,circle,draw,fill=white,inner sep=1pt]
-      {\footnotesize $3$} (v41);
-     \draw[thick] (v31) to node[midway,circle,draw,fill=white,inner sep=1pt]
-      {\footnotesize $2$} (v41);
-     \draw[thick] (v32) to node[midway,circle,draw,fill=white,inner sep=1pt]
-      {\footnotesize $1$} (v41);
+     \draw[thick] (v1) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $1$} (v2);
+     \draw[thick] (v1) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $1$} (v3);
+     \draw[thick] (v2) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $3$} (v3);
+     \draw[thick] (v3) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $2$} (v4);
+     \draw[thick] (v2) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $2$} (v5);
+     \draw[thick] (v4) to node[midway,circle,draw,fill=white,inner sep=1pt]
+      {\footnotesize $9$} (v5);
     \end{tikzpicture}
    \end{center}
+   nalezněte \textbf{všechna} řešení EFLP i SFLP \textbf{užitím
+   Floydova-Warshallova algoritmu}. Existuje vrchol, který je řešením obou? 
  \end{enumerate}
  \end{tcolorbox}
  \clearpage
@@ -233,72 +233,65 @@
   \emph{Nemusíte dokonale zformulovat svá řešení. Obecná idea rozvinutá
   důležitými detaily postačuje.}
   \begin{enumerate}
-   \item \emph{Krychlí} dimenze $n \in \N$ myslíme graf na $2^{n}$ vrcholech
-    číslovaných binárními čísly od $0$ do $2^{n} - 1$. Budeme předpokládat, že
-    každé binární číslo je doplněno nulami na $n$ cifer, tedy například nultý
-    vrchol krychle dimenze $5$ je binární číslo $00000$, první je $00001$ atd.
-    
-    Vzdáleností, značenou písmenem $d$, mezi binárními čísly nazveme počet míst,
-    kde se jejich cifry liší. Tedy například $d(00100, 11100) = 2$ a
-    $d(01100,10010) = 4$. Hrana vede mezi dvěma vrcholy $v$ a $w$ právě tehdy,
-    když $d(v,w) = 1$.
-   
-    Dokažte indukcí, že počet hran krychle dimenze $n$ je přesně $n \cdot
-    2^{n-1}$.
-
-    Jen pro zajímavost (tedy, stačí se zamyslet, ne dokazovat), odpovídá
-    vzdálenost binárních čísel vzdálenosti mezi příslušnými vrcholy?
-   \item (jiný důkaz principu inkluze a exkluze) Ať $A,B$ jsou množiny a $A
-    \subseteq B$. \emph{Charakteristickou funkcí} množiny $A$ myslíme zobrazení
+   \item Staří Egypťané měli zajímavý způsob zápisu zlomků. Každý zlomek byl pro
+    ně součtem zlomků s čitatelem $1$ a navzájem různými jmenovateli, například
     \[
-     \chi_A: B \to \{0,1\}
+     \frac{3}{5} = \frac{1}{2} + \frac{1}{10}, \quad \frac{4}{7} = \frac{1}{2} +
+     \frac{1}{14} \quad \text{nebo} \quad \frac{1}{2} = \frac{1}{2}.
     \]
-    takové, že $\chi_A(x) = 1$, když $x \in A$, a $\chi_A(x) = 0$, když $x \notin
-    A$.
-   
-    Platí (to \textbf{nedokazujte}) následující vzorec:
-    \begin{equation*}
-     \label{eq:poly-identity}
-     \tag{$*$}
-     \prod_{i=1}^n (1 + x_i) = \sum_{I \subseteq \{1,2,\ldots,n\}} \left(
-     \prod_{i \in I} x_i \right).
-    \end{equation*}
-    Ať nyní $A_i$, $i \in \{1,2,\ldots,n\}$, jsou konečné množiny a položme
-    \[
-     A \coloneqq \bigcup_{i = 1}^{n} A_i.
-    \]
-    Charakteristickou funkci množiny $A_i$ označíme jednoduše jako $\chi_i$.
-    \begin{enumerate}[label=(\alph*)]
-     \item Dokažte, že pro každé $a \in A$ platí
+    Algoritmus rozpisu libovolného zlomku tímto způsobem pracuje následovně. Ať
+    jsou dána dvě přirozená čísla $m,n \in \N$ taková, že $m < n$, tedy zlomek
+    $m / n$ je menší než $1$.
+    \begin{enumerate}[topsep=0pt]
+     \item Polož $m_0 \coloneqq m$, $n_0 \coloneqq n$ a $i \coloneqq 0$.
+     \item Spočti
       \[
-       \prod_{i=1}^n (1-\chi_i(a)) = 0.
-      \] 
-     \item Dosaďte $x_i = -\chi_i(a)$ do vzorce \eqref{eq:poly-identity} a
-      výslednou sumu napište.
-     \item Užitím výsledků z (a) a (b) dokažte, že
-      \[
-       \sum_{I \subseteq \{1,2,\ldots,n\}} (-1)^{\# I}\left( \sum_{a \in A}
-       \prod_{i \in I} \chi_i(a) \right) = 0.
+       z_i \coloneqq \frac{1}{\left\lceil n_i/m_i \right\rceil}.
       \]
-      \textbf{Hint:} Sčítejte výsledek z (b) přes všechny prvky $a \in A$ a pak
-      prohoďte pořadí sumace.
-     \item Dokažte, že $\prod_{i \in I} \chi_i$ je charakteristická funkce
-      množiny $\bigcap_{i \in I} A_i$.
-     \item Užitím (d), dokažte, že
+      a
       \[
-       \sum_{a \in A} \prod_{i \in I} \chi_i(a) = \# \left( \bigcap_{i \in I}
-       A_i \right).
+       \frac{m_{i+1}}{n_{i+1}} \coloneqq \frac{m_i}{n_i} - z_i.
       \]
-     \item Speciálně, pro $I = \emptyset$ je $\prod_{i \in \emptyset}
-      \chi_i(a)$ prázdný součin, a tedy má hodnotu $1$. Pročež platí
-      \[
-       \sum_{a \in A} \prod_{i \in \emptyset} \chi_i(a) = \sum_{a \in A} 1 = \#
-       A.
-      \]
-      Dosaďte do (c) výsledek z (e) a rozložte na základě výpočtu výše vhodným
-      způsobem vzniklou sumu, abyste dokázali princip inkluze a exkluze.
+     \item Je-li $m_{i+1}= 1$, polož $z_{i+1} \coloneqq m_{i+1} / n_{i+1}$ a
+      skonči. Jinak polož $i \coloneqq i + 1$ a opakuj část (b).
     \end{enumerate}
-   \item Zformulujte Kruskalův algoritmus a dokažte jeho správnost.
+    Po skončení algoritmu je rozkladem zlomku $m / n$ na
+    zlomky s různými jmenovateli a čitateli rovny $1$ právě
+    \[
+     \frac{m}{n} = z_0 + z_1 + \ldots + z_{i+1}.
+    \]
+    Dokažte indukcí, že je tento algoritmus korektní (tj. skončí a dá správný
+    výsledek).\\
+    \emph{Poznámka}: Výraz $\left\lceil n \right\rceil$ značí \textbf{horní
+    celou část} čísla $n$, tj. nejmenší přirozené číslo větší než $n$.
+   \item Dokažte, že počet všech zobrazení mezi konečnými množinami $A$ a $B$ je
+    přesně $\# B^{\# A}$.
+   \item \emph{Trojúhelníkem} myslíme graf $K_3$, tj. úplný graf na třech
+    vrcholech. Ať $G$ je libovolný graf na $n$ vrcholech. Takový graf má nejvíce
+    $\binom{n}{2}$ hran, v takovém případě je to $K_n$. Co se ovšem stane, když
+    zakážeme trojúhelníky, tedy když $G$ \textbf{nyní nesmí obsahovat} $K_3$
+    jako podgraf? Už jistě nemůže mít $\binom{n}{2}$ hran, neboť úplné grafy
+    $K_n$ pro $n \geq 3$ trojúhelníky obsahují.
+
+    Označme výrazem $T(n)$ maximální počet hran, který může mít graf bez
+    trojúhelníků na $n$ vrcholech. Platí $T(n) = \left\lfloor n^2 / 4
+    \right\rfloor$, to však není snadné dokázat. V této úloze dokážete
+    zeslabenou verzi, tj. že $T(n) \geq \left\lfloor n^2 / 4 \right\rfloor$,
+    neboli, že existují grafy bez trojúhelníků na $n$ vrcholech mající aspoň
+    $\left\lfloor n^2 / 4 \right\rfloor$ hran.
+    \begin{enumerate}
+     \item Ať $K_{a,b}$ značí úplný bipartitní graf na $a+b$ vrcholech. Tím
+      myslíme graf $K_{a,b} = (V_1 \cup V_2,E)$ takový, že $V_1$ a $V_2$ jsou
+      disjunktní množiny vrcholů, $\# V_1 = a$, $\# V_2 = b$ a z každého vrcholu
+      z $V_1$ vede hrana do každého vrcholu z $V_2$, ale mezi dvěma vrcholy ze
+      stejné množiny žádné hrany nevedou. Dokažte, že $K_{a,b}$ má přesně $a
+      \cdot b$ hran.
+     \item Dokažte, že $K_{a,b}$ neobsahuje trojúhelník.
+     \item Najděte čísla $a,b \in \N$ taková, že $a+b=n$ a $a \cdot b \geq
+     \left\lfloor n^2 / 4 \right\rfloor$.\\
+      \textbf{Hint:} Rozlište dva případy: $n$ sudé a $n$ liché.
+     \item Odůvodněte, proč z (a) až (c) už plyne původní tvrzení.
+    \end{enumerate}
   \end{enumerate}
  \end{tcolorbox}
 \end{document}
