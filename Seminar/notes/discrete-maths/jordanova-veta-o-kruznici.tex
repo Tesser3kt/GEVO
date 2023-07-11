@@ -1,0 +1,56 @@
+\subsubsection{Jordanova věta o kružnici}
+\label{sssec:jordanova-veta-o-kruznici}
+
+Zásadním nástrojem pro studium rovinných grafů -- grafů, jež lze kreslit bez
+křížení hran -- je tzv. \emph{Jordanova věta o kružnici}, dlejíc opět spíše
+v~bydle matematické analýzy. Je zdárným příkladem faktu, že matematický jazyk
+není vždy v souladu s lidskou intuicí. Jedná se totiž, čtenáři jistě budou
+souhlasit, o intuitivně zřejmé tvrzení, které není však zdaleka snadné (avšak
+ani příliš náročné) dokázat.
+
+Jordanova věta o kružnici říká zjednodušeně to, že nakreslíme-li v rovině
+kružnici a poté ji vyjmeme, rozdělíme rovinu na dvě oblastě -- jednu omezenou 
+(vnitřek kružnice) a jednu neomezenou (vnějšek kružnice). Jistá potíž skrývá
+sebe ve faktu, že zde \emph{kružnicí} nemyslíme onu krásnou buclatou pravidelně
+kulatou ... no ... kružnici, ale libovolnou souvislou čáru, která se neprotíná a
+je uzavřená, tj. začíná tam, kde končí. Takové kružnici se říká třeba
+\emph{topologická}, ale spíš jí nikdo žádné zvláštní jmě nedává. Je to vlastně
+křivka v rovině s tím rozdílem, že není zcela prostá, neboť se její koncové body
+shodují. Vypovídavše se pokračujeme již formální definicí.
+
+\begin{definition}[Topologická kružnice]
+ \label{def:topologicka-kruznice}
+ \emph{Topologickou kružnicí} nazveme libovolné \textbf{spojité} zobrazení
+ $\kappa: [0,1] \to \R^2$ takové, že
+ \begin{itemize}
+  \item $\kappa(0) = \kappa(1)$ a
+  \item $\kappa$ je prosté na $(0,1)$.
+ \end{itemize}
+\end{definition}
+
+Než trpělivé čtenáře seznámíme s formálním zněním Jordanovy věty o kružnici,
+musíme zmínit, co znamená, že nějaká podmnožina $\Omega \subseteq \R^2$ je
+\emph{oblast}. Toto adjektivum s sebou obvykle nese dvě vlastnosti:
+\begin{itemize}
+ \item otevřenost (každý bod $\Omega$ má kolem sebe okolí, tj. nekonečně mnoho
+  bodů nekonečně blízko sebe; též se dá říct, že $\Omega$ \uv{nemá hranici}),
+ \item souvislost (z každého bodu se dá po křivce dostat do každého).
+\end{itemize}
+
+Není těžké si všimnout (aspoň v případě kulaté kružnice), že hranicí jejího
+vnějšku i vnitřku je právě ona. Když ji vyjmeme, obě množiny přijdou o svou
+hranici a stanou se oblastmi.
+
+Konečně, \emph{omezenost} podmnožiny $\R^2$ znamená, že existuje horní limit na
+vzdálenost mezi dvěma jejími body.
+
+\begin{theorem}[Jordanova o kružnici]
+ \label{thm:jordanova-o-kruznici}
+ Ať $\kappa$ je topologická kružnice. Pak se $\R^2 \setminus \img \kappa$
+ rozpadá na dvě disjunktní oblasti -- jednu omezenou a jednu neomezenou.
+\end{theorem}
+
+Jak jsme již zmiňovali, důkaz \hyperref[thm:jordanova-o-kruznici]{Jordanovy
+věty} je kvítí ve vínku matematické analýzy a my je zde uvádět nebudeme. Pouze
+ji v dalším textu občas použijeme.
+

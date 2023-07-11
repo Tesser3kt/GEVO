@@ -1,0 +1,244 @@
+\subsubsection{Rovinné grafy}
+\label{sssec:rovinne-grafy}
+
+Přívlastek \uv{rovinný} jsme v kontextu kreslení grafů zmínili již několikrát a
+neformálně jsme uvedli, že grafu řekneme rovinný, když se dá nakreslit bez
+křížení hran. Formulace \uv{dá nakreslit} je zde zásadního významu. Libovolný
+graf, který má aspoň dvě hrany, lze vždy nakreslit tak, aby se tyto křížily. Nás
+však zajímá pouze, zda existuje \textbf{nějaké} nakreslení takového grafu, ve
+kterém se žádné hrany nekříží.
+
+Obecně, minimální nutný počet křížení hran v nakreslení grafu je bohatě nejvíce
+studovaná vlastnost z celé oblasti kreslení grafů. Definice křížení (nebo
+absence téhož) v nakreslení grafu není výrazně odlišná od té intuitivní.
+Zkrátka, řekneme, že dvě hrany se nekříží, když v průniku jejich obrazů leží
+pouze nakreslené vrcholy (tam se samozřejmě hrany křížit mohou a některé
+musejí).
+
+\begin{definition}[Rovinný graf]
+ \label{def:rovinny-graf}
+ Graf $G = (V,E)$ nazveme \emph{rovinným}, když existuje jeho nakreslení $(p,c)$
+ takové, že pro každé dvě různé hrany $e,e' \in E$ platí
+ \[
+  \img \gamma_e \cap \img \gamma_{e'} \subseteq \img p.
+ \]
+ Každé nakreslení rovinného grafu, které splňuje tuto podmínku, nazveme též
+ \emph{rovinným}.
+\end{definition}
+
+Ve zbytku kapitoly nás čekají jeden snadný a dva těžké úkoly.
+\begin{enumerate}
+ \item Definovat několik základních operací na vrcholech a hranách grafu, které
+  přijdou vhod v dalším textu.
+ \item Zformulovat a dokázat několik základních vlastností rovinných gra\-fů.
+ \item Dokázat Kuratowskiho větu, která dokonale klasifikuje rovinné gra\-fy,
+  tj. poskytuje konkrétní přímočaré kritérium, podle nějž lze poznat, zda je
+  graf rovinný, či nikoliv.
+\end{enumerate}
+
+Začněme bodem (1). Budeme potřebovat zavést operace přidání a odebrání vrcholů a
+hran a konečně operaci dělení hrany. Význam prvních čtyř je snad jasný z názvu,
+pátá operace vyžaduje vlastně přidání vrcholu doprostřed nějaké hrany. Dá se
+pomocí prvních čtyř vyjádřit jako
+\begin{itemize}
+ \item odebrání dlouhé hrany,
+ \item přidání vrcholu,
+ \item přidání dvou hran vedoucích z tohoto vrcholu do počátečního a koncového
+  vrcholu původní odebrané hrany.
+\end{itemize}
+
+I když intuitivně se operace pojímají snadno, formální definice není naprosto
+přímočará. Spěšně si rozmyslíme, jak se dají formalizovat.
+
+\begin{definition}[Základní grafové operace]
+ \label{def:zakladni-grafove-operace}
+ Ať $G = (V,E)$ je graf. Definujeme následující operace na množinách $V$ a $E$:
+ \begin{itemize}
+  \item operace přidání vrcholu, zapisujeme
+   \[
+    G + v \coloneqq (V \cup \{v\}, E).
+   \]
+  \item operace odebrání vrcholu (zde je třeba \textbf{odebrat i všechny hrany,
+   které do tohoto vrcholu vedou}), pro $v \in V$ zapisujeme
+   \[
+    G - v \coloneqq (V \setminus \{v\}, E \setminus \{e \in E \mid v \in e\}).
+   \]
+  \item operace přidání hrany, pro $u,v \in V$ takové, že $uv \notin E$,
+   zapisujeme
+   \[
+    G + uv \coloneqq (V, E \cup \{uv\}).
+   \]
+  \item operace odebrání hrany, pro $uv \in E$ zapisujeme
+   \[
+    G - uv \coloneqq (V, E \setminus \{uv\}).
+   \]
+  \item operace dělení hrany, pro $uv \in E$ zapisujeme
+   \begin{equation*}
+    \begin{split} 
+     G \de uv &\coloneqq (V \cup \{w\}, (E \setminus \{uv\}) \cup \{uw\} \cup
+     \{wv\})\\
+              &= (((G - uv) + w) + uw) + wv.
+    \end{split}
+   \end{equation*}
+ \end{itemize}
+\end{definition}
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}[scale=1.5]
+  \node[vertex] (u) at (0,0) {};
+  \node[vertex] (v) at (2,-1) {};
+  \node[left=0mm of u] {$u$};
+  \node[right=0mm of v] {$v$};
+  \draw[thick] (u) -- (v);
+  
+  \draw[thick,->] (3,-0.5) to node[midway,yshift=4mm] {$G \de uv$} (4,-0.5);
+  
+  \node[vertex] (u2) at (5,0) {};
+  \node[vertex] (v2) at (7,-1) {};
+  \draw[thick,myred] (u2) to node[midway,myred,vertex] (w) {} (v2);
+  \node[left=0mm of u2] {$u$};
+  \node[right=0mm of v2] {$v$};
+  \node[below left=-1mm and -1mm of w,myred] {$w$};
+  
+ \end{tikzpicture}
+
+ \caption{Operace dělení hrany $uv$.}
+ \label{fig:deleni-hrany}
+\end{figure}
+
+Pokračujeme bodem (2). Asi není příliš překvapivé, že rovinné grafy nemohou mít
+příliš mnoho hran (vzhledem k počtu vrcholů). Čím víc hran do grafu přidám, tím
+se snižuje šance, že každou další hranu zvládnu nakreslit bez křížení s
+ostatními.
+
+Nejprve objasníme, k čemu nám vlastně slouží
+\hyperref[thm:jordanova-o-kruznici]{Jordanova věta o kružnici}. Totiž, kromě
+křivek a bodů reprezentujících hrany a vrcholy, získává nakreslení
+\textbf{rovinných} grafů ještě jednu strukturu -- stěny. Lidsky řečeno, stěny
+daného nakreslení jsou oblasti roviny ohraničené hranami, přesněji cestami.
+Nahlédneme, že v důsledku \hyperref[thm:jordanova-o-kruznici]{Jordanovy věty} se
+po vynětí všech hran nakreslení daného grafu $G = (V,E)$ rozpadne roviny na
+několik omezených oblastí (tzv. \uv{vnitřní stěny}) a jednu neomezenou (tzv.
+\uv{vnější stěna}). Každou z těchto oblastí nazveme \emph{stěnou} grafu $G$ a
+množinu všech stěn označíme písmenem $F$ (z angl. \textbf{f}ace).
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \pgfdeclarelayer{background}
+  \pgfdeclarelayer{foreground}
+  \pgfsetlayers{background,main,foreground}
+  \begin{pgfonlayer}{foreground}
+   \node[vertex] (a) at (0,0) {};
+   \node[vertex] (b) at (1,2) {};
+   \node[vertex] (c) at (3,3) {};
+   \node[vertex] (d) at (2,-1) {};
+   \node[vertex] (e) at (4,2) {};
+   \node[vertex] (f) at (4,0) {};
+   
+   \node[vertex] (k) at (-0.5,2.5) {};
+   \node[vertex] (l) at (-1,1.5) {};
+   \node[vertex] (m) at (5,-0.5) {};
+   
+   \draw[thick] (a) -- (b);
+   \draw[thick] (b) -- (c);
+   \draw[thick] (c) to node[midway,vertex] {} (d);
+   \draw[thick] (d) -- (a);
+   \draw[thick] (c) -- (e);
+   \draw[thick] (e) -- (f);
+   \draw[thick] (f) -- (d);
+
+   \draw[thick] (b) -- (k);
+   \draw[thick] (k) -- (l);
+   \draw[thick] (f) -- (m);
+   
+  \end{pgfonlayer}
+  \fill[myred,opacity=0.25] (a.center) -- (b.center) -- (c.center) --
+   (d.center) -- (a.center);
+  \fill[mygreen,opacity=0.25] (c.center) -- (e.center) -- (f.center) -- (d.center)
+   -- (c.center);
+  \node[myred] (F1) at (1.5,0.8) {$\mathbf{F_1}$};
+  \node[mygreen] (F2) at (3.3,0.8) {$\mathbf{F_2}$};
+
+  \begin{pgfonlayer}{background}
+   \fill[myblue,opacity=0.25] (-4,4) -- (8,4) -- (8,-2) -- (-4,-2) -- (-4,4);
+   \node[myblue] (F3) at (6,3) {$\mathbf{F_3}$};
+  \end{pgfonlayer}
+  
+ \end{tikzpicture}
+
+ \caption{Nakreslení grafu s vnitřními stěnami $\mathbf{\clr{F_1}}$ a
+  $\mathbf{\clg{F_2}}$ a vnější stěnou $\mathbf{\clb{F_3}}$.}
+ \label{fig:steny-nakresleni}
+\end{figure}
+
+\begin{remark}
+ Všimněte si, že pojem \emph{stěny} definujeme pouze pro \textbf{rovinné} grafy.
+ To má vlastně dva důvody. Zaprvé, stěny, které mají na svých hranicích
+ průsečíky nakreslených hran neodpovídající žádným vrcholům grafu, vytvářejí
+ strukturu nezávislou na grafu $G = (V,E)$, jejž kreslíme. To je algebraicky
+ zcela nepřirozené.
+
+ Druhý důvod je více praktický. Totiž, jak jsme již zmínili, hrany můžeme
+ kreslit tak, aby vznikl libovolný počet křížení. To zároveň znamená, že můžeme
+ vytvořit libovolný počet stěn v daném nakreslení. Zásadní výsledek pro rovinné
+ grafy (který si dokážeme) říká, že počet stěn v každém jeho rovinném nakreslení
+ závisí pouze na počtu vrcholů a hran, a \textbf{nikoli na volbě samotného
+ rovinného nakreslení}. To je překvapivě velmi hluboký výsledek, neboť ukazuje,
+ že v principu geometrická struktura stěn je v případě rovinných grafů naprosto
+ kompatibilní s jeho v principu algebraickou strukturou hran.
+\end{remark}
+
+Abychom mohli tvrdit, že graf vůbec má nějaké stěny, potřebujeme si rozmyslet,
+že nakreslený cyklus je topologická kružnice. To je intuitivně zřejmé, zkrátka
+za sebe spojíme nakreslené hrany a ta poslední bude končit tam, kde ta první
+začala. Rozmyslet si tento fakt formálně je mírně složitější úloha.
+
+Potřebujeme definovat spojení dvou křivek $\gamma_1,\gamma_2$ takových, že
+$\gamma_1(1) = \gamma_2(0)$ a dokázat, že za předpokladu, že se neprotínají
+nikde jinde, se jedná rovněž o křivku v rovině. Princip definice je velmi
+přímočarý -- nová křivka $\gamma$ bude zkrátka v čase od $0$ do $1 / 2$ sledovat
+křivku $\gamma_1$ a od $1 / 2$ do $1$ sledovat křivku $\gamma_2$. Formálně lze
+toto nové zobrazení $\gamma:[0,1] \to \R^2$ definovat například následovně.
+
+\begin{definition}[Spojení křivek]
+ \label{def:spojeni-krivek}
+ Ať $\gamma_1,\gamma_2$ jsou dvě křivky v rovině, které se neprotínají, a platí
+ $\gamma_1(1) = \gamma_2(0)$. Potom definujeme jejich \emph{spojení}, zapisované
+ často zkrátka $\gamma_1\gamma_2$ předpisem
+ \[
+  \gamma_1\gamma_2(t) \coloneqq
+  \begin{cases}
+   \gamma_1(2t), &\text{pokud } t \in [0,\frac{1}{2}]\\
+   \gamma_2(2t - 1), &\text{pokud } t \in [\frac{1}{2},1].
+  \end{cases}
+ \]
+\end{definition}
+
+\begin{lemma}
+ \label{lem:spojeni-krivek}
+ Ať $\gamma_1,\gamma_2$ jsou křivky v rovině, které se neprotínají, a
+ $\gamma_1(1) = \gamma_2(0)$. Potom je spojení $\gamma_1\gamma_2$ dobře
+ definované a je to křivka v~rovině.
+\end{lemma}
+\begin{proof}
+ \uv{Dobrá definovanost} $\gamma_1\gamma_2$ zkrátka znamená, že jsme nenapsali
+ žádný nesmysl, tj. že to je opravdu \emph{zobrazení} (to je zde zřejmé) a že
+ jsme při jeho definici například neuvažovali body mimo domény zobrazení
+ $\gamma_1$ a $\gamma_2$. To je velmi snadné ověřit, neboť pro $t \in [0,1 / 2]$
+ je $2t \in [0,1]$ a pro $t \in [1 / 2,1]$ je $2t-1 \in [0,1]$. V čase spojení
+ $t = 1 / 2$ máme
+ \[
+  \gamma_1(2t) = \gamma_1(1) = \gamma_2(0) = \gamma_2(2t - 1),
+ \]
+ tedy vše funguje, jak má.
+
+ Fakt, že $\gamma_1\gamma_2$ je křivka v rovině, je též snadno vidět. Totiž,
+ zcela jistě je to zobrazení $[0,1] \to \R^2$. Dále, je spojité, ježto
+ $\gamma_1$ i $\gamma_2$ jsou spojitá a plynule na sebe navazují. Je též prosté,
+ neboť $\gamma_1$ i $\gamma_2$ jsou prostá a z~předpokladu se neprotínají.
+\end{proof}
+
+Z \hyperref[lem:spojeni-krivek]{předchozího lemmatu} triviální indukcí vyplývá,
+že j

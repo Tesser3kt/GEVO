@@ -32,4 +32,102 @@ na křivky spojující tyto body. Záměrně jsme použili slovo \uv{křivka} m�
 mnoho grafů lze nakreslit bez křížení hran, pokud tyto kreslíme jako křivky či
 oblouky, ale nikoli kreslíme-li je jako úsečky.
 
+Doufáme, že čtenáři jsou si touto dobou již dostatečně navykli na způsob
+formalizace vágních pojmů typu \emph{přenést}, \emph{vnímat jako},
+\emph{interpretovat} apod. Všechny obyčejně směřují přímo k zobrazením. Tak je
+tomu i nyní. Zkrátka množinu vrcholů $V$ grafu $G = (V,E)$ \textbf{zobrazíme} do
+roviny a množinu hran $E$ zobrazíme do jakési množiny \textbf{křivek} v rovině,
+kterýžto pojem si právě definujeme.
 
+Korektní definice křivky patří spíše do oblasti matematické analýzy, ale není
+nijak složitá a, soudíme, i velmi intuitivní. Je přímým překladem aktu
+\emph{nakreslení} libovolné souvislé neprotínající se čáry na papír do jazyka
+matematiky. Ten vyžaduje nějaký čas, řekněme pro jednoduchost 1 vteřinu, ale
+konkrétní hodnota je irelevantní. V čase 0, tedy než začneme kreslit, je tužka
+položená na papíře -- nachází se v jednom konkrétním bodě roviny. Podobně, v
+čase 1, když skončíme s kreslením, je tužka opět položená na papíře v nějakém
+jiném bodě. Tak je tomu ovšem úplně v libovolném momentu kreslení, po uplynutí
+libovolně dlouhé doby kratší než jedna vteřina. Totiž, tužka je při kreslení v
+každém momentu času na jednom konkrétním místě na papíře, neboli v jednom bodě
+roviny.
+
+O něco více formálně řečeno, křivka je zobrazení z intervalu $[0,1]$,
+představujícího čas, do roviny $\R^2$, představující papír, takové, že vzniklý
+tvar je souvislý a neprotíná se. Naprosto korektní definice následuje.
+
+\begin{definition}[Křivka v rovině]
+ \label{def:krivka-v-rovine}
+ \emph{Křivkou v rovině} nazveme libovolné zobrazení $\gamma:[0,1] \to \R^2$,
+ které je \textbf{spojité} (čára je souvislá) a \textbf{prosté} (čára se
+ neprotíná). Množinu všech křivek v rovině označíme písmenem $\Gamma$, tj.
+ \[
+  \Gamma \coloneqq \{\gamma \mid \gamma \text{ je křivka v rovině.}\}
+ \]
+\end{definition}
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}[scale=2]
+  \draw plot [smooth] coordinates { (0,0) (1,0) (0,-1) (0.5,-1.5) (2,-1) };
+  \node[vertex,myred,minimum size=6pt] (0) at (0,0) {};
+  \node[vertex,myblue,minimum size=6pt] (1) at (2,-1) {};
+  \node[above left=-1mm and -1mm of 0,myred] {$\gamma(0)$};
+  \node[below right=-1mm and -1mm of 1,myblue] {$\gamma(1)$};
+  \node[vertex,minimum size=6pt] (half) at (0,-1) {};
+  \node[left=0mm of half] {$\gamma(0.5)$};
+ \end{tikzpicture}
+
+ \caption{Křivka $\gamma$ v rovině.}
+ \label{fig:krivka-v-rovine}
+\end{figure}
+
+\begin{warning}
+ V \hyperref[def:krivka-v-rovine]{definici křivky} \textbf{není} nikde psáno, že
+ by zobrazení $\gamma$ mělo být v jakémkoli smyslu lineární, tedy, že
+ $\gamma(0.5)$ je bod přesně uprostřed nakreslené čáry. Klidně může být
+ definované třeba tak, že v~prvních 9 desetinách vteřiny se skoro nepohnu a ve
+ zbylém čase čáru dokreslím.
+
+ Definovat linearitu v tomto smyslu navíc není vůbec triviální úloha vyžadující
+ mimo jiné schopnost počítat délky křivek v rovině (integrální počet) a pojem
+ reparametrizace. Operaci normalizace křivek, která je činí jakoby \uv{lineární}
+ se v diferenciální geometrii nazývá \emph{parametrizace obloukem}.
+\end{warning}
+
+Už se blížíme finální definici \emph{nakreslení grafu}, je třeba si jen
+rozmyslet pár maličkostí. Primárně, samotným nakreslením bude dvojice zobrazení
+$(p,c)$ (z angl. \textbf{p}oints a \textbf{c}urves), kde $p$ vede z $V$ do
+$\R^2$ a $c$ z $E$ do $\Gamma$, tedy $p$ přiřazuje vrcholům body roviny a $c$
+přiřazuje hranám křivky v rovině.
+
+Požadujeme navíc, aby
+\begin{itemize}
+ \item různým vrcholům odpovídaly různé body v rovině (to je hádám celkem
+  logiš);
+ \item křivka $\gamma(uv)$ pro $uv \in E$ začíná v $u$ a končí ve $v$; 
+ \item křivky odpovídající hranám pouze začínají nebo končí ve vrcholech,
+  neprocházejí jimi (v opačném případě by bylo nemožné rozlišit třeba hranu $uw$
+  od dvojice hran $uv$ a $vw$, pokud by první procházela vrcholem $v$).
+\end{itemize}
+
+Formalizaci těchto podmínek přináší následující definice.
+\begin{definition}[Nakreslení grafu]
+ \label{def:nakresleni-grafu}
+ Ať $G = (V,E)$ je graf. Jeho \emph{nakreslením} myslíme dvojici zobrazení
+ $(p,c)$, kde $p: V \to \R^2$ a $c: E \to \Gamma$ takových, že
+ \begin{itemize}
+  \item $p$ je prosté (různým vrcholům odpovídají různé body);
+  \item pro každou $e \in E$ platí $\gamma(e)(0) = p(s(e))$ a $\gamma(e)(1) =
+   p(t(e))$ (křivky odpovídající hranám začínají a končí v obrazech příslušných
+   vrcholů);
+  \item pro každou $e \in E$ platí $\# (\img \gamma(e) \cap \img p) = 2$ (to
+   spolu s předchozí podmínkou znamená, že každá křivka prochází pouze svým
+   počátečním a koncovým vrcholem).
+ \end{itemize}
+ Jelikož značení $\gamma(e)$ a $p(v)$ jsou poněkud komplikovaná, budeme obraz
+ hrany $e$ při zobrazení $\gamma$ značit zkrátka $\gamma_e \in \Gamma$. Podobně,
+ obrazem vrcholu $v \in V$ při zobrazení $p$ bude bod $p_v \in \R^2$.
+\end{definition}
+
+\input{jordanova-veta-o-kruznici}
+\input{rovinne-grafy}
