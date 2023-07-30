@@ -3,10 +3,11 @@
 
 Čtenáře může překvapit, že \emph{kreslení} grafů je matematicky formální postup.
 Na druhou stranu to však divné není, neboť mnoho aplikací grafů plyne právě z
-přirozeného vnímání grafu jako množiny bodů v rovině spojených úsečkami.
+přirozeného vnímání této struktury jako množiny bodů v rovině spojených
+úsečkami.
 
 Naší zábavou v této závěrečné sekci bude prezentovat onen postup a po té se
-rozhovoříme o tzv. \emph{rovinných} grafech, grafech, jež lze nakreslit, aniž se
+rozhovoříme o tzv. \emph{rovinných} grafech; grafech, jež lze nakreslit, aniž se
 křivky představující úsečky v rovině kříží.
 
 Více prakticky orientované čtenáře, kterým, stejně jako i ostatním vedlejším
@@ -16,7 +17,7 @@ zajímalo, k čemu je kreslení grafů dobré.
 Jedním konkrétním příkladem ze stavby počítačů je návrh logických obvodů v
 procesorech. Je v zájmu výrobců procesorů snížit počet křížení logických obvodů
 na naprosté minimum, neboť každé křížení znamená nutnost zvýšit procesor o další
-vrstvu zlata a silikonu, což zhoršuje rychlost přenosu a zvedá cenu výroby.
+vrstvu zlata a silikonu, což zhoršuje rychlost přenosu dat a zvedá cenu výroby.
 
 Více matematické aplikace pak zahrnují mimo mnohé další například (stá\-le
 nevyřešený!)
@@ -26,23 +27,23 @@ Factory Problem} nebo též
 úlohy v teorii uzlů}.
 
 První netriviální výzvou je dojít k rozumné definici kreslení grafu. Potřebujeme
-nějakým způsobem přenést množinu vrcholů $V$ grafu $G$ na body v rovině a hrany
-na křivky spojující tyto body. Záměrně jsme použili slovo \uv{křivka} místo
-\uv{úsečka}, neboť není těžké si rozmyslet (a my to později též učiníme), že
-mnoho grafů lze nakreslit bez křížení hran, pokud tyto kreslíme jako křivky či
-oblouky, ale nikoli kreslíme-li je jako úsečky.
+nějakým způsobem přenést množinu vrcholů $V$ grafu $G$ na body v~rovině a
+množinu hran $E$ na křivky spojující tyto body. Záměrně jsme použili slovo
+\uv{křivka} místo \uv{úsečka}, neboť není těžké si rozmyslet, že mnoho grafů lze
+nakreslit bez křížení hran, pokud tyto kreslíme jako křivky či oblouky, ale
+nikoli kreslíme-li je jako úsečky.
 
 Doufáme, že čtenáři jsou si touto dobou již dostatečně navykli na způsob
 formalizace vágních pojmů typu \emph{přenést}, \emph{vnímat jako},
-\emph{interpretovat} apod. Všechny obyčejně směřují přímo k zobrazením. Tak je
-tomu i nyní. Zkrátka množinu vrcholů $V$ grafu $G = (V,E)$ \textbf{zobrazíme} do
+\emph{interpretovat} apod. Všechny obyčejně vedou k zobrazením. Tak je tomu i
+nyní. Zkrátka, množinu vrcholů $V$ grafu $G = (V,E)$ \textbf{zobrazíme} do
 roviny a množinu hran $E$ zobrazíme do jakési množiny \textbf{křivek} v rovině,
-kterýžto pojem si právě definujeme.
+kterýžto pojem se právě jmeme definovati.
 
 Korektní definice křivky patří spíše do oblasti matematické analýzy, ale není
 nijak složitá a, soudíme, i velmi intuitivní. Je přímým překladem aktu
 \emph{nakreslení} libovolné souvislé neprotínající se čáry na papír do jazyka
-matematiky. Ten vyžaduje nějaký čas, řekněme pro jednoduchost 1 vteřinu, ale
+matematiky. Tento akt vyžaduje nějaký čas, řekněme pro jednoduchost 1 vteřinu,
 konkrétní hodnota je irelevantní. V čase 0, tedy než začneme kreslit, je tužka
 položená na papíře -- nachází se v jednom konkrétním bodě roviny. Podobně, v
 čase 1, když skončíme s kreslením, je tužka opět položená na papíře v nějakém
@@ -85,8 +86,8 @@ tvar je souvislý a neprotíná se. Naprosto korektní definice následuje.
  V \hyperref[def:krivka-v-rovine]{definici křivky} \textbf{není} nikde psáno, že
  by zobrazení $\gamma$ mělo být v jakémkoli smyslu lineární, tedy, že
  $\gamma(0.5)$ je bod přesně uprostřed nakreslené čáry. Klidně může být
- definované třeba tak, že v~prvních 9 desetinách vteřiny se skoro nepohnu a ve
- zbylém čase čáru dokreslím.
+ definované třeba tak, že v~prvních 9 desetinách vteřiny tužkou skoro nepohneme
+ a ve zbylém čase čáru dokreslíme.
 
  Definovat linearitu v tomto smyslu navíc není vůbec triviální úloha vyžadující
  mimo jiné schopnost počítat délky křivek v rovině (integrální počet) a pojem
@@ -96,9 +97,9 @@ tvar je souvislý a neprotíná se. Naprosto korektní definice následuje.
 
 Už se blížíme finální definici \emph{nakreslení grafu}, je třeba si jen
 rozmyslet pár maličkostí. Primárně, samotným nakreslením bude dvojice zobrazení
-$(p,c)$ (z angl. \textbf{p}oints a \textbf{c}urves), kde $p$ vede z $V$ do
-$\R^2$ a $c$ z $E$ do $\Gamma$, tedy $p$ přiřazuje vrcholům body roviny a $c$
-přiřazuje hranám křivky v rovině.
+$D = (p,c)$ (z angl. \textbf{D}rawing, \textbf{p}oints a \textbf{c}urves), kde
+$p$ vede z $V$ do $\R^2$ a $c$ z $E$ do $\Gamma$, tedy $p$ přiřazuje vrcholům
+body roviny a $c$ přiřazuje hranám křivky v~rovině.
 
 Požadujeme navíc, aby
 \begin{itemize}
@@ -107,14 +108,14 @@ Požadujeme navíc, aby
  \item křivka $\gamma(uv)$ pro $uv \in E$ začíná v $u$ a končí ve $v$; 
  \item křivky odpovídající hranám pouze začínají nebo končí ve vrcholech,
   neprocházejí jimi (v opačném případě by bylo nemožné rozlišit třeba hranu $uw$
-  od dvojice hran $uv$ a $vw$, pokud by první procházela vrcholem $v$).
+  od dvojice hran $uv$ a $vw$, pokud by $uw$ procházela vrcholem $v$).
 \end{itemize}
 
 Formalizaci těchto podmínek přináší následující definice.
 \begin{definition}[Nakreslení grafu]
  \label{def:nakresleni-grafu}
  Ať $G = (V,E)$ je graf. Jeho \emph{nakreslením} myslíme dvojici zobrazení
- $(p,c)$, kde $p: V \to \R^2$ a $c: E \to \Gamma$ takových, že
+ $D = (p,c)$, kde $p: V \to \R^2$ a $c: E \to \Gamma$ takových, že
  \begin{itemize}
   \item $p$ je prosté (různým vrcholům odpovídají různé body);
   \item pro každou $e \in E$ platí $\gamma(e)(0) = p(s(e))$ a $\gamma(e)(1) =
@@ -131,3 +132,4 @@ Formalizaci těchto podmínek přináší následující definice.
 
 \input{jordanova-veta-o-kruznici}
 \input{rovinne-grafy}
+\input{kuratowskiho-veta}

@@ -34,6 +34,9 @@
 \usepackage[ruled,vlined,linesnumbered,czech]{algorithm2e}
 % Tables
 \usepackage{booktabs}
+% Subsubsubsections
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
 
 \usepackage{enumitem}
 \usepackage{moreenum}
@@ -103,6 +106,9 @@ shapes, snakes, decorations.markings, math}
 \tikzset{
   triangle/.style = {regular polygon,regular polygon sides=3, draw, fill=white,
   inner sep=1pt, outer sep=0mm, align=center}
+}
+\tikzset{
+  snake it/.style={decorate, decoration=snake}
 }
 %%%%%%%%%%%%%%%
 %  PGF Plots  %
@@ -203,6 +209,7 @@ shapes, snakes, decorations.markings, math}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcounter{lecturecounter}
+\newcounter{auxilprop}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Helpful New Commands  %
@@ -222,6 +229,7 @@ shapes, snakes, decorations.markings, math}
   \setcounter{corollary}{0}
   \setcounter{lemma}{0}
   \setcounter{exercise}{0}
+  \setcounter{auxilprop}{0}
 
   \@ifclasswith\class{nocolor}{
     \setcounter{definition}{0}
@@ -570,6 +578,7 @@ shapes, snakes, decorations.markings, math}
 
   \createnewcoloredtheoremstyle{thmproofbox}{proof}{qed=\qedsymbol}{backgroundcolor=white}
   \createnewcoloredtheoremstyle{thmexplanationbox}{example}{qed=\qedsymbol}{backgroundcolor=white}
+  \createnewcoloredtheoremstyle{thmauxilpropbox}{auxilprop}{black}{linewidth=0pt,backgroundcolor=white,leftmargin=0pt,innerleftmargin=0pt,innertopmargin=\parskip,innerbottommargin=0pt}
 }
 \makeatother
 
@@ -595,6 +604,7 @@ name=Pozorování]{observation}
 name=Poznámka]{remark}
 \declaretheorem[numbered=no,          style=thmproblembox,
 name=Úloha]{problem}
+\declaretheorem[style=thmauxilpropbox, name=Pomocné tvrzení]{auxilprop}
 
 \makeatletter
 \let\c@claim\c@theorem

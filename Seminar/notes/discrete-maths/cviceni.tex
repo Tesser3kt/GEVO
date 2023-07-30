@@ -268,4 +268,118 @@
  \item Navrhněte efektivní algoritmus, který pro zadaný graf $G = (V,E)$
   rozhodne, zda je souvislý, a pokud není, najde jeho rozklad na komponenty
   souvislosti.
+ \item Najděte rovinný graf, jehož všechny vrcholy mají stupeň 5 (vizte
+  \myref{definici}{def:stupen-vrcholu}).
+ \item Ukažte, že odhad $\# E \leq 2\# V - 4$ pro rovinný graf $G = (V,E)$ bez
+  trojúhelníků je nejlepší možný. To jest, pro libovolné $n \in \N$ zkonstruujte
+  rovinný graf s $n$ vrcholy a $2n - 4$ hranami.
+ \item Hra \uv{sprouts} vynalezená J. H. Conwayem a M. S. Patersonem má následující
+  pravidla:
+  \begin{itemize}
+   \item Na papíře je nakresleno $n \in \N$ puntíků.
+   \item Hráči se střídají po tazích, a kdo nemůže táhnout, prohrává.
+   \item V každém tahu spojí hráč dva existující puntíky obloukem a někam na
+    tento oblouk nakreslí nový puntík.
+   \item Puntík je možné použít jako jeden z konců nového oblouku jedině tehdy,
+    když v něm končí nanejvýš dva již nakreslené oblouky.
+  \end{itemize}
+  Na \myref{obrázku}{fig:priklad-sprouts-dole} vizte příklad 4 prvních tahů pro
+  $n = 2$.
+  \begin{figure}[H]
+   \tikzset{
+     vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner
+     sep=1pt}
+   }
+   \centering
+   \begin{subfigure}[b]{.19\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=0.5]
+     \node[vertex] (a) at (180:1) {};
+     \node[vertex] (b) at (0:1) {};
+    \end{tikzpicture}
+    \caption{Start.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.19\textwidth}
+    \centering
+    \pgfdeclarelayer{background}
+    \pgfsetlayers{background,main}
+    \begin{tikzpicture}[scale=0.5]
+     \node[vertex] (a) at (180:1) {};
+     \node[vertex] (b) at (0:1) {};
+     \node[vertex,myred] (c) at (90:1) {};
+
+     \begin{pgfonlayer}{background}
+      \draw[thick,myred] plot [smooth,tension=2] coordinates {(a) (c) (b)};
+     \end{pgfonlayer}
+    \end{tikzpicture}
+    \caption{Tah 1.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.19\textwidth}
+    \centering
+    \pgfdeclarelayer{background}
+    \pgfsetlayers{background,main}
+    \begin{tikzpicture}[scale=0.5]
+     \node[vertex] (a) at (180:1) {};
+     \node[vertex] (b) at (0:1) {};
+     \node[vertex] (c) at (90:1) {};
+     \node[vertex,myred] (d) at (-90:2) {};
+     
+     \begin{pgfonlayer}{background}
+      \draw[thick] plot [smooth,tension=2] coordinates {(a) (c) (b)};
+      \draw[thick,myred] plot [smooth,tension=2.5] coordinates {(a) (d) (b)};
+     \end{pgfonlayer}
+    \end{tikzpicture}
+    \caption{Tah 2.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.19\textwidth}
+    \centering
+    \pgfdeclarelayer{background}
+    \pgfsetlayers{background,main}
+    \begin{tikzpicture}[scale=0.5]
+     \node[vertex] (a) at (180:1) {};
+     \node[vertex] (b) at (0:1) {};
+     \node[vertex] (c) at (90:1) {};
+     \node[vertex] (d) at (-90:2) {};
+     \node[vertex,myred] (e) at (0,0) {};
+     
+     \begin{pgfonlayer}{background}
+      \draw[thick] plot [smooth,tension=2] coordinates {(a) (c) (b)};
+      \draw[thick] plot [smooth,tension=2.5] coordinates {(a) (d) (b)};
+      \draw[thick,myred] (a) -- (e);
+      \draw[thick,myred] (e) -- (b);
+     \end{pgfonlayer}
+    \end{tikzpicture}
+    \caption{Tah 3.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.19\textwidth}
+    \centering
+    \pgfdeclarelayer{background}
+    \pgfsetlayers{background,main}
+    \begin{tikzpicture}[scale=0.5]
+     \node[vertex] (a) at (180:1) {};
+     \node[vertex] (b) at (0:1) {};
+     \node[vertex] (c) at (90:1) {};
+     \node[vertex] (d) at (-90:2) {};
+     \node[vertex] (e) at (0,0) {};
+     \node[vertex,myred] (f) at (2,-0.5) {};
+  
+     \begin{pgfonlayer}{background}
+      \draw[thick] plot [smooth,tension=2] coordinates {(a) (c) (b)};
+      \draw[thick] plot [smooth,tension=2.5] coordinates {(a) (d) (b)};
+      \draw[thick] (a) -- (e);
+      \draw[thick] (e) -- (b);
+      \draw[thick,myred] (c) arc (106.35:-106.35:1.562);
+     \end{pgfonlayer}
+    \end{tikzpicture}
+    \caption{Tah 3.}
+   \end{subfigure}
+   \caption{Příklad prvních čtyř tahů hry \emph{sprouts} pro $n = 2$.}
+   \label{fig:priklad-sprouts-dole}
+  \end{figure}
+  Dokažte, že
+  \begin{enumerate}[label=(\alph*)]
+   \item pro $n$ počátečních puntíků má tato hra maximálně $3n - 1$ tahů;
+   \item (těžké) pro $n$ počátečních puntíků má tato hra \textbf{nejméně} $2n$
+    tahů (bez ohledu na strategii hráčů).
+  \end{enumerate}
 \end{enumerate}

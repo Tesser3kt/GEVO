@@ -17,8 +17,8 @@ musejí).
 
 \begin{definition}[Rovinný graf]
  \label{def:rovinny-graf}
- Graf $G = (V,E)$ nazveme \emph{rovinným}, když existuje jeho nakreslení $(p,c)$
- takové, že pro každé dvě různé hrany $e,e' \in E$ platí
+ Graf $G = (V,E)$ nazveme \emph{rovinným}, když existuje jeho nakreslení $D =
+ (p,c)$ takové, že pro každé dvě různé hrany $e,e' \in E$ platí
  \[
   \img \gamma_e \cap \img \gamma_{e'} \subseteq \img p.
  \]
@@ -38,7 +38,7 @@ Ve zbytku kapitoly nás čekají jeden snadný a dva těžké úkoly.
 
 Začněme bodem (1). Budeme potřebovat zavést operace přidání a odebrání vrcholů a
 hran a konečně operaci dělení hrany. Význam prvních čtyř je snad jasný z názvu,
-pátá operace vyžaduje vlastně přidání vrcholu doprostřed nějaké hrany. Dá se
+pátá operace způsobuje vlastně přidání vrcholu doprostřed nějaké hrany. Dá se
 pomocí prvních čtyř vyjádřit jako
 \begin{itemize}
  \item odebrání dlouhé hrany,
@@ -48,7 +48,7 @@ pomocí prvních čtyř vyjádřit jako
 \end{itemize}
 
 I když intuitivně se operace pojímají snadno, formální definice není naprosto
-přímočará. Spěšně si rozmyslíme, jak se dají formalizovat.
+přímočará. Spěšně si ji sepíšeme.
 
 \begin{definition}[Základní grafové operace]
  \label{def:zakladni-grafove-operace}
@@ -118,7 +118,7 @@ křivek a bodů reprezentujících hrany a vrcholy, získává nakreslení
 \textbf{rovinných} grafů ještě jednu strukturu -- stěny. Lidsky řečeno, stěny
 daného nakreslení jsou oblasti roviny ohraničené hranami, přesněji cestami.
 Nahlédneme, že v důsledku \hyperref[thm:jordanova-o-kruznici]{Jordanovy věty} se
-po vynětí všech hran nakreslení daného grafu $G = (V,E)$ rozpadne roviny na
+po vynětí všech hran nakreslení daného grafu $G = (V,E)$ rozpadne rovina na
 několik omezených oblastí (tzv. \uv{vnitřní stěny}) a jednu neomezenou (tzv.
 \uv{vnější stěna}). Každou z těchto oblastí nazveme \emph{stěnou} grafu $G$ a
 množinu všech stěn označíme písmenem $F$ (z angl. \textbf{f}ace).
@@ -158,27 +158,27 @@ množinu všech stěn označíme písmenem $F$ (z angl. \textbf{f}ace).
    (d.center) -- (a.center);
   \fill[mygreen,opacity=0.25] (c.center) -- (e.center) -- (f.center) -- (d.center)
    -- (c.center);
-  \node[myred] (F1) at (1.5,0.8) {$\mathbf{F_1}$};
-  \node[mygreen] (F2) at (3.3,0.8) {$\mathbf{F_2}$};
+  \node[myred] (F1) at (1.5,0.8) {$\mathbf{f_1}$};
+  \node[mygreen] (F2) at (3.3,0.8) {$\mathbf{f_2}$};
 
   \begin{pgfonlayer}{background}
    \fill[myblue,opacity=0.25] (-4,4) -- (8,4) -- (8,-2) -- (-4,-2) -- (-4,4);
-   \node[myblue] (F3) at (6,3) {$\mathbf{F_3}$};
+   \node[myblue] (F3) at (6,3) {$\mathbf{f_3}$};
   \end{pgfonlayer}
   
  \end{tikzpicture}
 
- \caption{Nakreslení grafu s vnitřními stěnami $\mathbf{\clr{F_1}}$ a
-  $\mathbf{\clg{F_2}}$ a vnější stěnou $\mathbf{\clb{F_3}}$.}
+ \caption{Nakreslení grafu s vnitřními stěnami $\mathbf{\clr{f_1}}$ a
+  $\mathbf{\clg{f_2}}$ a vnější stěnou $\mathbf{\clb{f_3}}$.}
  \label{fig:steny-nakresleni}
 \end{figure}
 
 \begin{remark}
  Všimněte si, že pojem \emph{stěny} definujeme pouze pro \textbf{rovinné} grafy.
  To má vlastně dva důvody. Zaprvé, stěny, které mají na svých hranicích
- průsečíky nakreslených hran neodpovídající žádným vrcholům grafu, vytvářejí
- strukturu nezávislou na grafu $G = (V,E)$, jejž kreslíme. To je algebraicky
- zcela nepřirozené.
+ průsečíky nakreslených hran neodpovídající žádným vrcholům, vytvářejí strukturu
+ nezávislou na grafu $G = (V,E)$, jejž kreslíme. To je algebraicky zcela
+ nepřirozené.
 
  Druhý důvod je více praktický. Totiž, jak jsme již zmínili, hrany můžeme
  kreslit tak, aby vznikl libovolný počet křížení. To zároveň znamená, že můžeme
@@ -186,14 +186,15 @@ množinu všech stěn označíme písmenem $F$ (z angl. \textbf{f}ace).
  grafy (který si dokážeme) říká, že počet stěn v každém jeho rovinném nakreslení
  závisí pouze na počtu vrcholů a hran, a \textbf{nikoli na volbě samotného
  rovinného nakreslení}. To je překvapivě velmi hluboký výsledek, neboť ukazuje,
- že v principu geometrická struktura stěn je v případě rovinných grafů naprosto
- kompatibilní s jeho v principu algebraickou strukturou hran.
+ že -- v principu geometrická -- struktura stěn je v případě rovinných grafů
+ naprosto kompatibilní s jeho -- v principu algebraickou -- strukturou hran.
 \end{remark}
 
-Abychom mohli tvrdit, že graf vůbec má nějaké stěny, potřebujeme si rozmyslet,
-že nakreslený cyklus je topologická kružnice. To je intuitivně zřejmé, zkrátka
-za sebe spojíme nakreslené hrany a ta poslední bude končit tam, kde ta první
-začala. Rozmyslet si tento fakt formálně je mírně složitější úloha.
+Abychom směli tvrdit, že graf vůbec \emph{má} nějaké stěny, potřebujeme si
+rozmyslet, že nakreslený cyklus je topologická kružnice. To je intuitivně
+zřej\-mé, zkrátka na sebe postupně napojíme nakreslené hrany a ta poslední bude
+končit tam, kde ta první začala. Rozmyslet si tento fakt formálně je mírně
+složitější úloha.
 
 Potřebujeme definovat spojení dvou křivek $\gamma_1,\gamma_2$ takových, že
 $\gamma_1(1) = \gamma_2(0)$ a dokázat, že za předpokladu, že se neprotínají
@@ -206,7 +207,7 @@ toto nové zobrazení $\gamma:[0,1] \to \R^2$ definovat například následovně
  \label{def:spojeni-krivek}
  Ať $\gamma_1,\gamma_2$ jsou dvě křivky v rovině, které se neprotínají, a platí
  $\gamma_1(1) = \gamma_2(0)$. Potom definujeme jejich \emph{spojení}, zapisované
- často zkrátka $\gamma_1\gamma_2$ předpisem
+ často zkrátka $\gamma_1\gamma_2$, předpisem
  \[
   \gamma_1\gamma_2(t) \coloneqq
   \begin{cases}
@@ -241,4 +242,459 @@ toto nové zobrazení $\gamma:[0,1] \to \R^2$ definovat například následovně
 \end{proof}
 
 Z \hyperref[lem:spojeni-krivek]{předchozího lemmatu} triviální indukcí vyplývá,
+<<<<<<< Updated upstream
 že je-li 
+=======
+že jsou-li $\gamma_1,\gamma_2,\ldots,\gamma_n$ křivky v rovině takové, že
+$\gamma_i(1) = \gamma_{i+1}(0) \; \forall i$ a žádné dvě křivky se vzájemně
+neprotínají, pak $\gamma_1\gamma_2\cdots \gamma_n$ je též křivka v~rovině. Tento
+fakt již přirozeně vede k využití \hyperref[thm:jordanova-o-kruznici]{Jordanovy
+věty} pro rovinná nakreslení. Máme-li totiž posloupnost
+$\gamma_1,\ldots,\gamma_n$ jako výše se stejnými podmínkami až na jedinou
+výjimku, že $\gamma_n(1) = \gamma_1(0)$, pak je tato topologickou kružnicí.
+Všimněme si též, že uvažovaná posloupnost je vždy nakreslením nějakého cyklu.
+
+Nyní již konečně můžeme přikročit k formální definici \emph{stěny} rovinného
+nakreslení grafu.
+
+\begin{definition}[Stěna rovinného nakreslení]
+ \label{def:stena-rovinneho-nakresleni}
+ Ať $G = (V,E)$ je rovinný graf a $D = (p,c)$ nějaké jeho rovinné nakreslení.
+ Označme písmenem $\mathcal{C}$ množinu všech cyklů grafu $G$. Každému cyklu
+ $e_1\cdots e_n \in \mathcal{C}$ odpovídá topologická kružnice $\gamma_1\cdots
+ \gamma_n$, neboť uvažované nakreslení je rovinné, a tedy se $\gamma_i$ navzájem
+ neprotínají.
+
+ Ať $\kappa_{C}$ značí topologickou kružnici vzniklou nakreslením cyklu $C \in
+ \mathcal{C}$. Dle \hyperref[thm:jordanova-o-kruznici]{Jordanovy věty}
+ rozděluje $\kappa_{C}$ rovinu na dvě oblasti. Každou oblast množiny
+ \[
+  \R^2 \setminus \bigcup_{C \in \mathcal{C}} \img \kappa_C
+ \]
+ nazýváme \emph{stěnou} nakreslení $D$. Množinu všech stěn daného nakreslení $D$
+ značíme $F_D$.
+\end{definition}
+
+Vlastnosti rovinných nakreslení grafů je obecně obtížné kvantifikovat.
+E\-xistuje vlastně jen jeden obecný vzorec, pomocí kterého se pak dokazuje řada
+dalších tvrzení. Ujal se pro něj název \uv{Eulerův vztah}.
+
+\begin{claim}[Eulerův vztah]
+ \label{claim:euleruv-vztah}
+ Ať $G = (V,E)$ je rovinný graf s $k \in \N$ komponentami souvislosti a $D$
+ nějaké jeho rovinné nakreslení. Pak platí
+ \[
+  \# V - \# E + \# F_D = k + 1.
+ \]
+\end{claim}
+\begin{proof}
+ Nejprve budeme předpokládat, že $G$ je souvislý, tj. $k = 1$ a dokážeme, že
+ \[
+  \# V - \# E + \# F_D = 2.
+ \]
+ Je-li $G$ navíc strom, pak $\# V = \# E + 1$ a $\# F_D = 1$, ježto $G$
+ neobsahuje cyklus. Odtud dostaneme
+ \[
+  \# V - \# E + \# F_D = \# E + 1 - \# E + 1 = 2.
+ \]
+ Ať $G$ nyní naopak obsahuje cyklus. Postupujme indukcí podle počtu hran, $\#
+ E$. Prvním smysluplným případem je $\# E = 3$, neboť cyklus musí mít aspoň tři
+ hrany. Pak $G = K_3$, tj. trojúhelník (úplný graf na třech vrcholech), a vzorec
+ platí. Dále ať $e \in E$ je hrana obsažená v nějakém cyklu. Z indukčního
+ předpokladu vzorec platí pro graf $G - e$. Nakreslení hrany $e$ vytvoří cyklus,
+ a tudíž z \hyperref[thm:jordanova-o-kruznici]{Jordanovy věty} rozdělí
+ existující stěnu na dvě nové. Protože počet hran stoupne o 1, počet stěn rovněž
+ a počet vrcholů zůstane nezměněn, platí vzorec i pro $G$.
+
+ Ať nyní $G$ není nutně souvislý graf s $k$ komponentami souvislosti značenými
+ $G_i = (V_i,E_i)$, $i \leq k$. Zřejmě platí
+ \[
+  \# V = \sum_{i = 1}^{k} \# V_i \quad \text{a} \quad \# E = \sum_{i=1}^{k} \#
+  E_i,
+ \]
+ neboť komponenty grafu z definice nesdílejí hrany ani vrcholy.
+
+ Označme $D_i$ nakreslení $i$-té komponenty. Každá komponenta přispívá do
+ celkového počtu stěn $G$ všemi svými vnitřními (tedy omezenými) stěnami, avšak
+ všechny komponenty sdílejí vnější neomezenou stěnu. Sečteme-li tedy velikosti
+ $\# F_{D_i}$ přes všechna $i$, pak onu vnější stěnu započteme $k$-krát. Pročež,
+ abychom dostali skutečnou velikost $\# F_D$, musíme tuto $(k-1)$-krát odečíst.
+ Z tohoto pozorování již snadno plyne, že
+ \begin{equation}
+  \label{eq:steny-komponent}
+  \tag{$*$}
+  \sum_{i=1}^{k} \# F_{D_i} = \# F_D + k - 1.
+ \end{equation}
+ Konečně, pro každou komponentu platí z předchozího vzorec
+ \[
+  \# V_i - \# E_i + \# F_{D_i} = 2.
+ \]
+ Sečtením přes všechny komponenty souvislosti dostaneme
+ \[
+  \sum_{i = 1}^{k} \# V_i - \sum_{i = 1}^{k} \# E_i + \sum_{i = 1}^{k} \#
+  F_{D_i} = \sum_{i = 1}^{k} 2 = 2k.
+ \]
+ Dosazením \eqref{eq:steny-komponent} dostaneme
+ \[
+  \# V - \# E + \# F_D + k - 1 = 2k,
+ \]
+ z čehož pouhou úpravou
+ \[
+  \# V - \# E + \# F_D = k + 1,
+ \]
+ což zakončuje důkaz.
+\end{proof}
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}[scale=1.5]
+  \pgfdeclarelayer{background}
+  \pgfdeclarelayer{foreground}
+  \pgfsetlayers{background,main,foreground}
+
+  \begin{pgfonlayer}{foreground}
+   \node[vertex] (a) at (0,0) {};
+   \node[vertex] (b) at (1,1.5) {};
+   \node[vertex] (c) at (1,-1.5) {};
+   \node[vertex] (d) at (2,0) {};
+   \node[vertex] (e) at (1,0.5) {};
+   \node[vertex] (f) at (1,-0.5) {};
+
+   \draw[thick] (a) -- (b);
+   \draw[thick] (a) -- (c);
+   \draw[thick] (b) -- (d);
+   \draw[thick] (c) -- (d);
+   \draw[thick] (b) -- (e);
+   \draw[thick] (c) -- (f);
+  \end{pgfonlayer}
+  \begin{pgfonlayer}{main}
+   \draw[thick,->] (2.5,0) to node[midway,myred,yshift=3mm] {$+e$} (3.5,0);
+  \end{pgfonlayer}
+  \begin{pgfonlayer}{foreground}
+   \node[vertex] (a1) at (4,0) {};
+   \node[vertex] (b1) at (5,1.5) {};
+   \node[vertex] (c1) at (5,-1.5) {};
+   \node[vertex] (d1) at (6,0) {};
+   \node[vertex] (e1) at (5,0.5) {};
+   \node[vertex] (f1) at (5,-0.5) {};
+
+   \draw[thick] (a1) -- (b1);
+   \draw[thick] (a1) -- (c1);
+   \draw[thick] (b1) -- (d1);
+   \draw[thick] (c1) -- (d1);
+   \draw[thick] (b1) -- (e1);
+   \draw[thick] (c1) -- (f1);
+   \draw[thick,myred] (e1) to node[midway,myred,xshift=2mm] {$e$} (f1);
+  \end{pgfonlayer}
+  \begin{pgfonlayer}{background}
+   \fill[myblue,opacity=0.25] (a.center) -- (b.center) -- (d.center) --
+    (c.center) -- (a.center);
+   \node[myblue] at (1,0) {$\mathbf{f_1}$};
+   \fill[myblue,opacity=0.25] (a1.center) -- (b1.center) -- (c1.center) --
+    (a1.center);
+   \fill[mygreen,opacity=0.25] (b1.center) -- (d1.center) -- (c1.center) --
+    (b1.center);
+   \node[myblue] at (4.5,0) {$\mathbf{f_1}$};
+   \node[mygreen] at (5.5,0) {$\mathbf{f_1'}$};
+  \end{pgfonlayer}
+ \end{tikzpicture}
+
+ \caption{Indukční krok v důkazu \myref{tvrzení}{claim:euleruv-vztah}.}
+ \label{fig:eulerova-veta}
+\end{figure}
+
+\begin{remark}
+ Důsledkem \hyperref[claim:euleruv-vztah]{Eulerova vztahu} je, že počet stěn
+ rovinného grafu je \textbf{nezávislý na volbě nakreslení}. Přestože stěny
+ samotné nemusejí být napříč nakresleními totožné, odpustíme sobě lehký
+ prohřešek vůči rigorositě a budeme množinu stěn rovinného grafu $G$ značit
+ obecně písmenem $F$, nedbajíce volby rovinného nakreslení. Máme-li totiž dvě
+ rovinná nakreslení $D,D'$, pak mezi $F_D$ a $F_{D'}$ existuje bijekce. Prosté
+ značení $F$ je tedy korektní \uv{až na bijekci}.
+\end{remark}
+
+Připomeňme problém tří domů a tří studní ze
+\myref{sekce}{ssec:problem-tri-domu-a-tri-studni}. Na jejím závěru tvrdíme, že
+nemá řešení, tedy, že neexistuje způsob, jak každý z tří domů spojit cestou s
+každou ze tří studní tak, aby se cesty nekřížily. Nyní již tento problém umíme
+matematicky zformulovat -- tvrdíme, že graf $K_{3,3}$ není rovinný.
+
+Než toto tvrzení dokážeme, připomeneme rovněž, že zápisem $K_n$ myslíme úplný
+graf na $n \in \N$ vrcholech, tj. graf, v němž je každý pár vrcholů spojen
+hranou. Dále, zápis $K_{m,n}$ značí tzv. \emph{úplný bipartitní graf} na $m + n$
+vrcholech. To je graf, jehož množinu vrcholů $V$ lze rozdělit na dvě disjunktní
+podmnožiny $V_1$ a $V_2$ velikostí $m$ a $n$, respektive, takové, že mezi každým
+párem vrcholů $v_1,v_2$, kde $v_1 \in V_1$ a $v_2 \in V_2$, vede hrana, ale mezi
+dvěma vrcholy ze stejné množiny hrana nevede.
+
+Snad nejdůležitější tvrzení teorie kreslení grafů,
+\hyperref[thm:kuratowskiho]{Kuratowskiho věta}, tvrdí, že $K_5$ a $K_{3,3}$ jsou
+\textbf{jediné dva nerovinné grafy} v tom smyslu, že každý nerovinný graf musí
+jeden z nich obsahovat.
+
+Tuto sekci zakončíme tím, že z \hyperref[claim:euleruv-vztah]{Eulerova vztahu}
+odvodíme omezení na počet hran (v~závislosti na počtu vrcholů) rovinných grafů,
+které $K_{3,3}$ ani $K_5$ nesplňují, což bude znamenat, že nejsou rovinné. Důkaz
+opačné implikace, že každý nerovinný graf jeden z těchto grafů obsahuje je
+mnohem těžší a je mu věnována \hyperref[sssec:kuratowskiho-veta]{následující
+sekce}.
+
+\begin{lemma}
+ \label{lem:hrany-rovinnych-grafu}
+ Ať $G = (V,E)$ je rovinný graf. Pak platí
+ \begin{enumerate}[label=(\alph*)]
+  \item $\# E \leq 3\# V - 6$;
+  \item neobsahuje-li navíc $G$ trojúhelník (tj. $K_3$) jako podgraf, pak $\#
+   E \leq 2\# V - 4$.
+ \end{enumerate}
+\end{lemma}
+\begin{proof}
+ Začneme důkazem části (a), část (b) se z něj pak snadnou modifikací odvodí.
+
+ Nejprve uvážíme případ, kdy $G$ neobsahuje cyklus. Pak máme $\# F = 1$ a $\# E
+ = \# V - k$ (buď z \hyperref[claim:euleruv-vztah]{Eulerova vztahu} nebo prostou
+ úvahou). Nerovnost
+ \[
+  \# E = \# V - k \leq 3\# V - 6,
+ \]
+ platí právě tehdy, když $\# V \geq (6-k) / 2$. Jelikož $\# V$ i $k$ jsou
+ přirozená čísla, tento vztah automaticky platí, kdykoli $\# V \geq 3$. To nám
+ stačí, neboť všechny grafy na dvou a méně vrcholech jsou zřejmě rovinné.
+
+ Nyní ať $G$ obsahuje cyklus. To zároveň znamená, že má aspoň dvě stěny. Vezměme
+ libovolnou z nich a označme ji $f \in F$. Dále označme $E_f \subseteq E$
+ množinu těch hran, které leží na hranici $f$ (tj. těch, které ji oddělují od
+ ostatních stěn). Uvažme podgraf $G_f = (V,E_f)$. Ten je samozřejmě stále
+ rovinný, neboť vznikl z $G$ odebráním nějakého počtu hran. Všimněme si dále, že
+ $f$ je stále stěnou v $G_f$, bo hrany tvořící její hranici zůstaly nedotčeny, a
+ tedy se nemohla $f$ zvětšit ani zmenšit. Protože nakreslení $G$ mělo aspoň dvě
+ stěny, má nakreslení $G_f$ rovněž aspoň dvě stěny, a tudíž obsahuje cyklus.
+ Tento cyklus je podmnožinou $E_f$, z čehož plyne, že $\# E_f \geq 3$, neboť
+ cyklus má aspoň 3 hrany.
+
+ Když nerovnost z předchozího odstavce sečteme přes všechny stěny $f \in F$,
+ dostaneme
+ \[
+  \sum_{f \in F} \# E_f \geq \sum_{f \in F} 3 = 3 \# F.
+ \]
+ Zároveň, každá hrana je buď uvnitř stěny, nebo na její hranici, tj. náleží buď
+ jedné nebo dvěma stěnám. Odtud máme další nerovnost,
+ \[
+  \sum_{f \in F} \# E_f \leq 2\# E.
+ \]
+ Sloučením obou nerovností obdržíme $3\# F \leq 2\# E$, neboli $\# F \leq 2\# E
+ / 3$. Dosazením do \hyperref[claim:euleruv-vztah]{Eulerova vztahu} dostaneme
+ \[
+  \# E = \# V + \# F - k - 1 \leq \# V + \frac{2\# E}{3} - k - 1.
+ \]
+ Prostou úpravou pak
+ \[
+  \# E \leq 3\# V - 3k - 3.
+ \]
+ Protože $G$ má aspoň jednu komponentu ($k \geq 1$), plyne odtud
+ \[
+  \# E \leq 3\# V - 6,
+ \]
+ což dokazuje část (a). 
+
+ Část (b) lze dokázat zcela obdobným způsobem. Stačí si pouze uvědomit, že
+ neobsahuje-li $G$ trojúhelníky, pak každý cyklus má aspoň 4 hrany, a tudíž máme
+ pro každou $f \in F$ nerovnost $\# E_f \geq 4$. Identická posloupnost úprav pak
+ dá kýžený závěr.
+\end{proof}
+
+\begin{figure}[h]
+ \centering
+ \begin{tikzpicture}
+  \pgfdeclarelayer{background}
+  \pgfsetlayers{background,main}
+
+  \node[vertex] (1) at (0,0) {};
+  \node[vertex] (2) at (1,1) {};
+  \node[vertex] (3) at (3,0) {};
+  \node[vertex] (4) at (1,-1) {};
+  \node[vertex] (5) at (2,0) {};
+  \node[vertex] (6) at (2,1.5) {};
+  \node[vertex] (7) at (3,1.2) {};
+
+  \draw[ultra thick,myred] (1) -- (2);
+  \draw[ultra thick,myred] (2) -- (3);
+  \draw[ultra thick,myred] (3) -- (4);
+  \draw[ultra thick,myred] (4) -- (1);
+  \draw[thick] (3) -- (5);
+  \draw[thick] (2) -- (5);
+  \draw[thick] (2) -- (6);
+  \draw[thick] (6) -- (7);
+
+  \node[vertex] (11) at (-1,0) {};
+  \node[vertex] (22) at (-1,2) {};
+  \node[vertex] (33) at (2,3) {};
+  \node[vertex] (44) at (3,3) {};
+  \node[vertex] (55) at (4,1) {};
+  \node[vertex] (66) at (5,0) {};
+  \node[vertex] (77) at (3,-2) {};
+  \node[vertex] (88) at (0.5,-2.5) {};
+  
+  \draw[ultra thick,myred] (11) -- (22);
+  \draw[ultra thick,myred] (22) -- (33);
+  \draw[ultra thick,myred] (33) -- (44);
+  \draw[ultra thick,myred] (44) -- (55);
+  \draw[ultra thick,myred] (55) -- (66);
+  \draw[ultra thick,myred] (66) -- (77);
+  \draw[ultra thick,myred] (77) -- (88);
+  \draw[ultra thick,myred] (88) -- (11);
+
+  \node[vertex] (r1) at (-2,3) {};
+  \node[vertex] (r2) at (-2,4) {};
+  \node[vertex] (r3) at (-3,3.5) {};
+  
+  \draw[thick] (22) -- (r1);
+  \draw[thick] (r1) -- (r2);
+  \draw[thick] (r2) -- (r3);
+  \draw[thick] (r3) -- (r1);
+  
+  \node[vertex] (r4) at (-0.5,1.5) {};
+  \draw[thick] (33) -- (r4);
+  
+  \node[vertex] (r5) at (4,3) {};
+  \draw[thick] (44) -- (r5);
+  \draw[thick] (r5) -- (55);
+  
+  \begin{pgfonlayer}{background}
+  \fill[myblue,opacity=0.25] (11.center) -- (22.center) -- (33.center) --
+   (44.center) -- (55.center) -- (66.center) -- (77.center) -- (88.center) --
+   (11.center);
+  \fill[white] (1.center) -- (2.center) -- (3.center) -- (4.center) --
+   (1.center);
+  \node[myblue] at (2.5,-1.2) {\Large $f$};
+  \end{pgfonlayer}
+ \end{tikzpicture}
+
+ \caption{\clr{Množina $E_f$} v důkazu
+ \myref{lemmatu}{lem:hrany-rovinnych-grafu}.}
+ \label{fig:hrany-rovinnych-grafu}
+\end{figure}
+
+\begin{exercise}
+ Najděte rovinný graf, jehož všechny vrcholy mají stupeň 5 (vizte
+ \myref{definici}{def:stupen-vrcholu}).
+\end{exercise}
+
+\begin{exercise}
+ Ukažte, že odhad $\# E \leq 2\# V - 4$ pro rovinný graf $G = (V,E)$ bez
+ trojúhelníků je nejlepší možný. To jest, pro libovolné $n \in \N$ zkonstruujte
+ rovinný graf s $n$ vrcholy a $2n - 4$ hranami.
+\end{exercise}
+
+\begin{exercise}
+ Hra \uv{sprouts} vynalezená J. H. Conwayem a M. S. Patersonem má následující
+ pravidla:
+ \begin{itemize}
+  \item Na papíře je nakresleno $n \in \N$ puntíků.
+  \item Hráči se střídají po tazích, a kdo nemůže táhnout, prohrává.
+  \item V každém tahu spojí hráč dva existující puntíky obloukem a někam na
+   tento oblouk nakreslí nový puntík.
+  \item Puntík je možné použít jako jeden z konců nového oblouku jedině tehdy,
+   když v něm končí nanejvýš dva již nakreslené oblouky.
+ \end{itemize}
+ Na \myref{obrázku}{fig:priklad-sprouts} vizte příklad 4 prvních tahů pro $n =
+ 2$.
+ \begin{figure}[H]
+  \tikzset{
+    vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner
+    sep=1pt}
+  }
+  \centering
+  \begin{subfigure}[b]{.19\textwidth}
+   \centering
+   \begin{tikzpicture}[scale=0.5]
+    \node[vertex] (a) at (180:1) {};
+    \node[vertex] (b) at (0:1) {};
+   \end{tikzpicture}
+   \caption{Start.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.19\textwidth}
+   \centering
+   \pgfdeclarelayer{background}
+   \pgfsetlayers{background,main}
+   \begin{tikzpicture}[scale=0.5]
+    \node[vertex] (a) at (180:1) {};
+    \node[vertex] (b) at (0:1) {};
+    \node[vertex,myred] (c) at (90:1) {};
+
+    \begin{pgfonlayer}{background}
+     \draw[thick,myred] plot [smooth,tension=2] coordinates {(a) (c) (b)};
+    \end{pgfonlayer}
+   \end{tikzpicture}
+   \caption{Tah 1.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.19\textwidth}
+   \centering
+   \pgfdeclarelayer{background}
+   \pgfsetlayers{background,main}
+   \begin{tikzpicture}[scale=0.5]
+    \node[vertex] (a) at (180:1) {};
+    \node[vertex] (b) at (0:1) {};
+    \node[vertex] (c) at (90:1) {};
+    \node[vertex,myred] (d) at (-90:2) {};
+    
+    \begin{pgfonlayer}{background}
+     \draw[thick] plot [smooth,tension=2] coordinates {(a) (c) (b)};
+     \draw[thick,myred] plot [smooth,tension=2.5] coordinates {(a) (d) (b)};
+    \end{pgfonlayer}
+   \end{tikzpicture}
+   \caption{Tah 2.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.19\textwidth}
+   \centering
+   \pgfdeclarelayer{background}
+   \pgfsetlayers{background,main}
+   \begin{tikzpicture}[scale=0.5]
+    \node[vertex] (a) at (180:1) {};
+    \node[vertex] (b) at (0:1) {};
+    \node[vertex] (c) at (90:1) {};
+    \node[vertex] (d) at (-90:2) {};
+    \node[vertex,myred] (e) at (0,0) {};
+    
+    \begin{pgfonlayer}{background}
+     \draw[thick] plot [smooth,tension=2] coordinates {(a) (c) (b)};
+     \draw[thick] plot [smooth,tension=2.5] coordinates {(a) (d) (b)};
+     \draw[thick,myred] (a) -- (e);
+     \draw[thick,myred] (e) -- (b);
+    \end{pgfonlayer}
+   \end{tikzpicture}
+   \caption{Tah 3.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.19\textwidth}
+   \centering
+   \pgfdeclarelayer{background}
+   \pgfsetlayers{background,main}
+   \begin{tikzpicture}[scale=0.5]
+    \node[vertex] (a) at (180:1) {};
+    \node[vertex] (b) at (0:1) {};
+    \node[vertex] (c) at (90:1) {};
+    \node[vertex] (d) at (-90:2) {};
+    \node[vertex] (e) at (0,0) {};
+    \node[vertex,myred] (f) at (2,-0.5) {};
+ 
+    \begin{pgfonlayer}{background}
+     \draw[thick] plot [smooth,tension=2] coordinates {(a) (c) (b)};
+     \draw[thick] plot [smooth,tension=2.5] coordinates {(a) (d) (b)};
+     \draw[thick] (a) -- (e);
+     \draw[thick] (e) -- (b);
+     \draw[thick,myred] (c) arc (106.35:-106.35:1.562);
+    \end{pgfonlayer}
+   \end{tikzpicture}
+   \caption{Tah 3.}
+  \end{subfigure}
+  \caption{Příklad prvních čtyř tahů hry \emph{sprouts} pro $n = 2$.}
+  \label{fig:priklad-sprouts}
+ \end{figure}
+ Dokažte, že
+ \begin{enumerate}[label=(\alph*)]
+  \item pro $n$ počátečních puntíků má tato hra maximálně $3n - 1$ tahů;
+  \item (těžké) pro $n$ počátečních puntíků má tato hra \textbf{nejméně} $2n$
+   tahů (bez ohledu na strategii hráčů).
+ \end{enumerate}
+\end{exercise}
+>>>>>>> Stashed changes
