@@ -1,0 +1,113 @@
+\subsection{Kartézský součin a uspořádané n-tice}
+\label{ssec:kartezsky-soucin-a-usporadane-n-tice}
+
+Anobrž holý pojem množiny neobsahuje v žádném smyslu koncept \emph{pořadí}
+prvku, je tento však pochopitelně užitečný, a proto si jej definujeme.
+
+Zápisem $(x,y)$ myslíme tzv. \emph{uspořádanou dvojici} prvků $x$ a $y$. V této
+dvojici je $x$ prvním prvkem a $y$ druhým. Je proto odlišná od množiny
+$\{x,y\}$, protože $\{x,y\} = \{y,x\}$, ale $(x,y) \neq (y,x)$. V úvodu do této
+kapitoly jsme tvrdili, že teorie množin tvoří svět matematiky. Pojem
+\emph{dvojice}, který není shodný s pojmem \emph{množiny} tudíž musel bedlivé
+čtenáře vylekat. Darmo se však lekati, uspořádané dvojice jsou rovněž množiny.
+Než jej odhalíme, vybízíme čtenáře, aby našli způsob, kterak definovat
+uspořádanou dvojici jako množinu.
+
+Běžně užívaná definice (prve formulována Kazimierzem Kuratowskim) je
+\[
+ (x,y) \coloneqq \{\{x\},\{x,y\}\}.
+\]
+Ta říká, že uspořádaná dvojice $(x,y)$ je vlastně množina obsahující množinu s
+jediným prvkem $x$ a množinu $\{x,y\}$. Ta je pak rozdílná od dvojice $(y,x)$,
+což je množina $\{\{y\},\{x,y\}\}$. Tato definice je z~formálního hlediska
+nutná, protože vytvářet matematické objekty nedefinovatelné v teorii množin rodí
+chaos, ale intuitivně zcela nepoužitelná. Představme si dva lidi za sebou ve
+frontě vnímat jako skupinu, v níž je skupina jenom s tím prvním a pak ještě
+skupina obou. Tvrdíme, že je dobré udržet si pročež představu uspořádané dvojice
+jakožto množiny, ve které mají navíc prvky svá pořadí.
+
+Definice uspořádané dvojice se rekurzivně rozšíří na libovolný počet prvků.
+Kupříkladu, uspořádanou trojici definujeme předpisem
+\[
+ (x,y,z) \coloneqq (x,(y,z)),
+\]
+to jest jako uspořádanou dvojici obsahující prvek $x$ a uspořádanou dvojici
+$(y,z)$. Zápis pomocí množin se s rostoucím počtem prvků velmi rychle
+komplikuje. Všimněte si, že už v drobném případě tří prvků dostaneme
+\[
+ (x,y,z) = (x,(y,z)) = (x,\{\{y\},\{y,z\}\}) = \{\{x\},\{x,
+ \{\{y\},\{y,z\}\}\}\}.
+\]
+Máme-li $n$ prvků $x_1,\ldots,x_n$, pak jejich uspořádanou $n$-tici zapisujeme
+$(x_1,\ldots,x_n)$.
+
+Existence uspořádaných $n$-tic dává vzniknout jedné další množinové operaci --
+kartézskému součinu. Kartézský součin dvou množin $A,B$, zapsaný $A \times B$,
+definujeme jako množinu všech uspořádaných dvojic $(a,b)$, kde $a \in A$ a $b
+\in B$. Název \emph{kartézský} (po Reném Descartesovi) ona nese pro zřejmou
+souvislost se stejnojmenným systémem souřadnic. Totiž, souřadnice v rovině jsou
+přesně dvojice $(x,y) \in \R \times \R$, kde $\R$ značí množinu reálných čísel.
+
+Rovina skýtá navíc užitečný způsob přemýšlení o kartézském součinu jako o
+\uv{dimenz\-ní} operaci. Má-li totiž $A$ dimenzi (v intuitivním slova smyslu)
+$n$ a $B$ dimenzi $m$, pak $A \times B$ má dimenzi $n + m$. Například, je-li $A$
+čtverec o délce strany $1$, pak $A^2 = A \times A$ je krychle o délce strany
+$1$.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}[3d view,perspective,scale=1.5]
+  \node (a11) at (0,0,0) {};
+  \node (a12) at (0,-2,0) {};
+  \node (a13) at (-2,-2,0) {};
+  \node (a14) at (-2,0,0) {};
+  
+  \path [draw,BrickRed,thick,fill opacity=0.25,pattern=north east lines,pattern
+   color=BrickRed] (a11.center) to (a12.center) to (a13.center) to (a14.center)
+   to (a11.center);
+  \node[circle,fill=white,inner sep=2pt] (a1label) at (-1,-1,0) {$\clr{A}$};
+
+  \node (a21) at (0,0,0) {};
+  \node (a22) at (0,-2,0) {};
+  \node (a23) at (0,-2,2) {};
+  \node (a24) at (0,0,2) {};
+  
+  \path [draw,RoyalBlue,thick,fill opacity=0.25,pattern=north east lines,pattern
+   color=RoyalBlue] (a21.center) to (a22.center) to (a23.center) to (a24.center)
+   to (a21.center);
+  \node[circle,fill=white,inner sep=2pt] (a2label) at (0,-1,1) {$\clb{A}$};
+
+  \node[vertex,BrickRed] (v1) at (-1,-0.5,0) {};
+  
+  \node[vertex,RoyalBlue] (v2) at (0,-0.5,1) {};
+  \node[vertex,minimum size=9pt] (x) at (-1,-0.5,1) {};
+
+  \draw[thick,dashed,BrickRed] (v1) -- (x);
+  \draw[thick,dashed,RoyalBlue] (v2) -- (x);
+  \node[left=1mm of x] {$(\clr{a_1},\clb{a_2})$};
+  
+ \end{tikzpicture}
+
+ \caption{Vizualizace kartézského součinu $\clr{A} \times \clb{A}$.}
+ \label{fig:kartezsky-soucin}
+\end{figure}
+
+Jakož tomu bylo i v případě sjednocení a průniku, lze definovat kartézský součin
+více množin než dvou. Zde je však dlužen zřetel -- u kartézského součinu rovněž
+(jako u rozdílu) záleží na pořadí násobení množin. Není možné definovat
+kartézský součin množin $A_i$ pro libovolnou množinu indexů $I$, ale pouze pro
+množinu \emph{uspořádanou} (tento pojem rovněž posléze připomeneme). Pro teď
+budeme předpokládat, že $I = \{1,\ldots,n\}$ a zápisem
+\[
+ \prod_{i=1}^n A_i
+\]
+myslet množinu uspořádaných $n$-tic $(a_1,\ldots,a_n)$, kde $a_i \in A_i$ pro
+každé $i \in \{1,\ldots,n\}$. Kartézský součin nekonečného množství množin lze
+též definovat, ano akt to není přímočarý a naší věci zatím zbytečný.
+
+Jsou-li všechny $A_i$, $i \in \{1,\ldots,n\}$, vskutku jednou množinou, $A$,
+ujalo se -- poněkud přirozeně -- pro jejich kartézský součin mocninné značení.
+To jest,
+\[
+ A^{n} \coloneqq \prod_{i = 1}^{n} A.
+\]

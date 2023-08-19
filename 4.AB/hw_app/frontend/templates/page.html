@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block header %}
+    <div class="header-container">
+        <div class="header-logo-container">
+            <img height="48"
+                 width="91"
+                 src="{{ url_for('static', filename='imgs/gevo-logo.png') }}"
+                 alt="logo"
+                 class="header-logo" />
+        </div>
+        <div class="navbar-container">
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item {{ 'active' if active_page == 'dashboard' }}">
+                        <a href="{{ url_for("pages.dashboard") }}" class="navbar-link">Dashboard</a>
+                    </li>
+                    <li class="navbar-item {{ 'active' if active_page == 'finished' }}">
+                        <a href="{{ url_for("pages.finished") }}" class="navbar-link">Dokončené</a>
+                    </li>
+                    <li class="navbar-item {{ 'active' if active_page == 'not_finished' }}">
+                        <a href="{{ url_for("pages.not_finished") }}" class="navbar-link">Nedokončené</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="user-container">
+            <div class="username-container">
+                <p class="username">{{ user_name }}</p>
+            </div>
+            <div class="logout-container">
+                <a href="{{ url_for("pages.logout") }}" class="logout-button">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.5"
+                         stroke="currentColor"
+                         class="w-9 h-9">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}
+    <div class="footer-container">
+        <div class="footer-copy-container">
+            <p class="footer-copy">IVT HW © 2023</p>
+        </div>
+        <div class="footer-contact-container">
+            <p class="footer-contact">Adam Klepáč | adam.klepac@gevo.cz</p>
+        </div>
+    </div>
+{% endblock %}

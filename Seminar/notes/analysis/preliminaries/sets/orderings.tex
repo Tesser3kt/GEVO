@@ -1,0 +1,41 @@
+\subsection{Relace uspořádání}
+\label{ssec:relace-usporadani}
+
+V úvodu do \hyperref[sec:zakladni-pojmy-z-teorie-mnozin]{této sekce} jsme
+zdůraznili fakt, že množiny \textbf{nejsou} v žádném smyslu uspořádané, tedy
+nelze o jejich prvcích tvrdit, který jde první a poslední. Ovšem, čtenáři jsou
+si jistě vědomi, že kupříkladu přirozená čísla uspořádána \emph{jsou} -- číslo
+$1$ je menší než číslo $5$, $8$ větší než $3$. Tento výrok je však mírně
+nepřesný. Samotná množina přirozených čísel uspořádaná \emph{není}, lze na ní
+však definovat jistý všudypřítomný typ relace (v tomto případě $ \leq $) zvaný
+\emph{uspořádání}. Definujeme si, které vlastnosti musí relace uspořádání na
+množině mít.
+
+\begin{definition}{Relace uspořádání}{relace-usporadani}
+ Ať $A$ je množina a $R \subseteq A \times A$ je relace na $A$. Řekneme, že $R$
+ je \emph{uspořádání} (někdy též nesoucí přívlastek \emph{neostré}), když je
+ \begin{itemize}
+  \item reflexivní (tj. $ \forall x \in A:xRx$),
+  \item slabě antisymetrické (tj. $ \forall x,y \in A:(xRy \wedge yRx)
+   \Rightarrow (x=y))$,
+  \item transitivní (tj. $ \forall x,y,z \in A:(xRy \wedge yRz) \Rightarrow
+   xRz)$.
+ \end{itemize}
+ Je-li naopak $R$ (silně) antisymetrické (tj. $ \forall x,y \in A:xRy
+ \Rightarrow (y,x) \notin R$), a tudíž antireflexivní (tj. $ \forall x \in
+ A:(x,x) \notin R$), řekneme, že je $R$ \emph{\textbf{ostré} uspořádání}.
+
+ Je-li $A$ množina a $R$ (ostré) uspořádání na $A$, říkáme, že dvojice $(A,R)$ je
+ \emph{(ostře) uspořádaná množina} (podle $R$).
+\end{definition}
+
+Zcela nejobyčejnější příklady (neostrých) uspořádání jsou relace $ \leq $ a $
+\geq $ v číselných oborech. Vskut\-ku, každý prvek je menší/větší nebo roven sám
+sobě, z každé dvojice prvek je buď jeden menší/větší než ten druhý, nebo jsou
+stejné, a když je prvek $x$ menší/větší než prvek $y$ a ten zas menší/větší než
+prvek $z$, pak je $x$ menší/větší než $z$.
+
+Příkladem \emph{ostrých} uspořádání jsou relace $<$ a $>$, které se liší tím, že
+žádný prvek není ostře menší/větší než on sám.
+
+

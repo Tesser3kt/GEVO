@@ -1,0 +1,179 @@
+\subsection{Relace}
+\label{ssec:relace}
+
+Relace, jak jejich název snad napovídá, jsou množiny, které kódují \emph{vztahy}
+mezi prvky dvou různých množin. Jejich matematické pojetí je přímočaré a
+elegantní, ano trochu neintuitivní. Totiž, relace (či \uv{vztah}) je zkrátka jen
+výpis prvků, které v něm jsou, nikoli žádný nezávislý popis jeho vlastností.
+Musíme-li načrtnout sociální rovnoběžku, můžeme si představit, že význam vztahu
+přátelství je přesně určen seznamem všech párů přátel. I když ona rovnoběžka
+vzbudila v mnohých čtenářích jistě značnou nedůvěru, taková definice vztahu v
+matematice je jednoduchá a téměř nesrovnatelně užitečná.
+
+\begin{definition}{Relace}{relace}
+ Ať $A,B$ jsou množiny. \emph{Relací} $R$ mezi $A$ a $B$ míníme kteroukoli
+ podmnožinu $R \subseteq A \times B$.
+\end{definition}
+
+Milí čtenáři se již jistě s několika relacemi setkali. Například samotný vztah
+rovnosti ($=$) je relací. Podobně, vztahy \uv{býti menší nebo rovno} ($ \leq $)
+či \uv{býti ostře větší} ($>$) jsou relacemi ve všech číselných oborech. Jak
+tyto příklady naznačují, historicky se symboly relací píšou obvykle \emph{mezi}
+prvky v oné relaci jsoucí. Tohoto úzu se držíme i my a pro relaci $R \subseteq A
+\times B$ píšeme $aRb$, kdykoli $(a,b) \in R$. Jelikož je však zápis
+$a\cancel{R}b$ poněkud neuhlazený a nadevše obtížně rozpoznatelný od svého
+pozitivního protipólu, používáme množinové značení $(a,b) \notin R$, kdykoli
+prvek $a$ není v relaci $R$ s prvkem $b$.
+
+Máme-li k dispozici výčty prvků množin $A$ a $B$, je pro představu dobré kreslit
+relace $R \subseteq A \times B$ do tzv. mříží. Ty tvoříme tak, že nakreslíme
+doslovnou mříž teček s $\# A$ sloupci, resp. $\# B$ řádky, pro každý prvek
+množiny $A$, resp. množiny $B$, a tečky na pozicích odpovídající párům $(a,b)
+\in A \times B$, které rovněž leží v $R$, například kroužkujeme. Zvolíme-li
+třeba
+\[
+ \clr{A} = \clr{\{1,2,3,4\}}, \clb{B} = \clb{\{a,b,c\}}
+\]
+a mezi nimi relaci
+\[
+ \clg{R} = \clg{\{(1,a),(1,b),(2,b),(3,a),(3,b),(3,c),(4,a)\}},
+\]
+bude jejím vyobrazením mříž na \myref{obrázku}{fig:mriz-relace}.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \foreach \x in {1,2,3,4} {
+   \foreach \y in {-1,-2,-3} {
+    \node[vertex] at (\x,\y) {};
+   }
+  }
+  \node (one) at (1,-0.5) {$\clr{1}$};
+  \node (two) at (2,-0.5) {$\clr{2}$};
+  \node (three) at (3,-0.5) {$\clr{3}$};
+  \node (four) at (4,-0.5) {$\clr{4}$};
+  \node (a) at (0.5,-1) {$\clb{a}$};
+  \node (b) at (0.5,-2) {$\clb{b}$};
+  \node (c) at (0.5,-3) {$\clb{c}$};
+  
+  \draw[ForestGreen,thick] (1,-1) circle (2mm);
+  \draw[ForestGreen,thick] (1,-2) circle (2mm);
+  \draw[ForestGreen,thick] (2,-2) circle (2mm);
+  \draw[ForestGreen,thick] (3,-1) circle (2mm);
+  \draw[ForestGreen,thick] (3,-2) circle (2mm);
+  \draw[ForestGreen,thick] (3,-3) circle (2mm);
+  \draw[ForestGreen,thick] (4,-1) circle (2mm);
+ \end{tikzpicture}
+
+ \caption{Mříž relace $\clg{R} \subseteq \clr{A} \times \clb{B}$.}
+ \label{fig:mriz-relace}
+\end{figure}
+
+Relace zvláště zásadního významu jsou ty mezi dvěma totožnými množinami. Je-li
+$R$ relace mezi $A$ a $A$ říkáme, výrazně lidštěji, že $R$ je relace \emph{na}
+$A$. U relací na množině stavíme na piedestal ty s~jistými speciálními
+vlastnostmi. Konkrétně, řekneme, že relace $R \subseteq A \times A$ je
+\begin{itemize}
+ \item \emph{reflexivní}, když je každý prvek v relaci $R$ sám se sebou, tj. $
+  \forall x \in A:xRx$;
+ \item \emph{antireflexivní}, když žádný prvek není v relaci $R$ sám se sebou,
+  tj. $ \forall x:(x,x) \notin R$;
+ \item \emph{symetrická}, když s každým párem prvků obsahuje i ten obrácený, tj.
+  $ \forall x,y \in A:xRy \Rightarrow yRx$;
+ \item \emph{antisymetrická}, když z každého páru dvojic $(x,y)$ a $(y,x)$ je v
+  $R$ vždy jen jedna, tj. $ \forall x,y \in A: xRy \Rightarrow (y,x) \notin R$
+  (všimněme si, že antisymetrická relace je automaticky antireflexivní);
+ \item \emph{\textbf{slabě} antisymetrická}, když z každého páru dvojic $(x,y)$
+  a $(y,x)$ je v $R$ vždy jen jedna za předpokladu, že $x$ a $y$ jsou od sebe
+  různé, tj. $ \forall x,y \in A: (xRy \wedge yRx) \Rightarrow (x = y)$;
+ \item \emph{transitivní}, když se přirozeně \uv{přenáší} přes prostřední prvek,
+  tj. $ \forall x,y,z \in A:(xRy \wedge yRz) \Rightarrow xRz$.
+\end{itemize}
+
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}{.3\textwidth}
+  \centering
+  \begin{tikzpicture}[scale=0.75]
+   \foreach \x in {1,2,3,4} {
+    \foreach \y in {-1,-2,-3,-4} {
+     \node[vertex] at (\x,\y) {};
+    }
+   }
+   \foreach \x in {1,2,3,4} {
+    \node at (\x,-0.25) {$\clr{\x}$};
+   }
+   \foreach \y in {1,2,3,4} {
+    \node at (0.25,-\y) {$\clr{\y}$};
+   }
+
+   \foreach \x in {1,2,3,4} {
+    \draw[ForestGreen,thick] (\x,-\x) circle (2.5mm);
+   }
+   \draw[ForestGreen,thick] (1,-3) circle (2.5mm);
+   \draw[ForestGreen,thick] (2,-1) circle (2.5mm);
+   \draw[ForestGreen,thick] (4,-2) circle (2.5mm);
+   \draw[ForestGreen,thick] (3,-4) circle (2.5mm);
+  \end{tikzpicture}
+  \caption{Reflexivní a slabě antisymetrická, nikoli transitivní.}
+  \label{subfig:relace-na-mnozine-a}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.3\textwidth}
+  \centering
+  \begin{tikzpicture}[scale=0.75]
+   \foreach \x in {1,2,3,4} {
+    \foreach \y in {-1,-2,-3,-4} {
+     \node[vertex] at (\x,\y) {};
+    }
+   }
+   \foreach \x in {1,2,3,4} {
+    \node at (\x,-0.25) {$\clr{\x}$};
+   }
+   \foreach \y in {1,2,3,4} {
+    \node at (0.25,-\y) {$\clr{\y}$};
+   }
+
+   \draw[ForestGreen,thick] (1,-2) circle (2.5mm);
+   \draw[ForestGreen,thick] (2,-1) circle (2.5mm);
+   \draw[ForestGreen,thick] (1,-4) circle (2.5mm);
+   \draw[ForestGreen,thick] (4,-1) circle (2.5mm);
+   \draw[ForestGreen,thick] (2,-4) circle (2.5mm);
+   \draw[ForestGreen,thick] (4,-2) circle (2.5mm);
+  \end{tikzpicture}
+  \caption{Antireflexivní, symetrická a transitivní.}
+  \label{subfig:relace-na-mnozine-b}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.3\textwidth}
+  \centering
+  \begin{tikzpicture}[scale=0.75]
+   \foreach \x in {1,2,3,4} {
+    \foreach \y in {-1,-2,-3,-4} {
+     \node[vertex] at (\x,\y) {};
+    }
+   }
+   \foreach \x in {1,2,3,4} {
+    \node at (\x,-0.25) {$\clr{\x}$};
+   }
+   \foreach \y in {1,2,3,4} {
+    \node at (0.25,-\y) {$\clr{\y}$};
+   }
+
+   \draw[ForestGreen,thick] (1,-2) circle (2.5mm);
+   \draw[ForestGreen,thick] (1,-3) circle (2.5mm);
+   \draw[ForestGreen,thick] (1,-4) circle (2.5mm);
+   \draw[ForestGreen,thick] (2,-3) circle (2.5mm);
+   \draw[ForestGreen,thick] (2,-4) circle (2.5mm);
+   \draw[ForestGreen,thick] (3,-4) circle (2.5mm);
+  \end{tikzpicture}
+  \caption{Antisymetrická a transitivní (též \emph{ostré uspořádání}, zde $<$).}
+  \label{subfig:relace-na-mnozine-c}
+ \end{subfigure}
+ \caption{Příklady relací $\clg{R}$ na množině $\clr{A} = \clr{\{1,2,3,4\}}$.}
+ \label{fig:relace-na-mnozine}
+\end{figure}
+
+Naprosto klíčovými typy relací pro rozvoj další teorie jsou \emph{ekvivalence},
+\emph{uspořádání} a \emph{zobrazení}. Každému typu je věnována jedna z
+následujících sekcí.

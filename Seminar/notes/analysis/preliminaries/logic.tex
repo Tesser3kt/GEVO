@@ -1,0 +1,137 @@
+\section{Základní pojmy z logiky}
+\label{sec:zakladni-pojmy-z-logiky}
+
+Obyčejnou podobou matematické logiky je jazyk o
+\begin{itemize}
+ \item dvou konstantách:
+  \begin{itemize}
+   \item $0$ (též $\bot$) -- \textbf{lež},
+   \item $1$ (též $\top$) -- \textbf{pravda};
+  \end{itemize}
+ \item dvou binárních operátorech $ \wedge $ (\textbf{a}, též
+  \textbf{konjunkce}) a $ \vee $ (\textbf{nebo}, též \textbf{disjunkce})
+  definovaných rovnostmi
+  \begin{itemize}
+   \item $(0 \wedge 0 = 0 \wedge 1 = 1 \wedge 0 = 0)$ a $(1 \wedge 1 = 1)$,
+   \item $(0 \vee 0 = 0)$ a $(0 \vee 1 = 1 \vee 0 = 1 \vee 1 = 1)$.
+  \end{itemize}
+ \item unárním operátoru $\neg $ (\textbf{ne} či \textbf{negace}) definovaném
+  rovnostmi $(\neg 1 = 0)$ a $(\neg 0 = 1)$;
+ \item proměnných;
+ \item dvou kvantifikátorech $ \forall $ (\textbf{pro všechny}, též
+  \textbf{universální}) a $ \exists $ (\textbf{existuje}, též
+  \textbf{existenční}).
+\end{itemize}
+
+K množině binárních operátorů se často též pro praktické účely přidávají $
+\Rightarrow $ (\textbf{impli\-kace}, \textbf{když ..., tak ...}) a $
+\Leftrightarrow $ (\textbf{ekvivalence}, \textbf{... právě tehdy, když ...})
+definované rovnostmi
+\[
+ (x \Rightarrow y) = (\neg x \vee y) \quad \text{a} \quad (x \Leftrightarrow y)
+ = ((x \Rightarrow y) \wedge (y \Rightarrow x)).
+\]
+Užitím konstant $0$ a $1$ by implikace byla definována rovnostmi
+\[
+ (0 \Rightarrow 0 = 0 \Rightarrow 1 = 1 \Rightarrow 1 = 1) \quad \text{a} \quad
+ (1 \Rightarrow 0 = 0),
+\]
+zatímco ekvivalence rovnostmi
+\[
+ (0 \Leftrightarrow 0 = 1 \Leftrightarrow 1 = 1) \quad \text{a} \quad (0
+ \Leftrightarrow 1 = 1 \Leftrightarrow 0 = 0).
+\]
+
+K matematické logice se též váže pojem \emph{výroku}. Výrokem nepřesně řečeno
+míníme jakoukoli větu, o které lze tvrdit, že platí, nebo neplatí. Formálně se
+výrok definuje poněkud obtížněji a význam natolik abstraktní definice pro účely
+tohoto textu je přinejmenším sporný. Pochopitelně, výraz vzniklý z kratších
+výroků užitím logických operátorů a kvantifikátorů je rovněž výrokem.
+
+\begin{example}{}{vyroky}
+ Ať $x$ je výrok \uv{Mám hlad.} a $y$ je \uv{Jdu do hospody.} Pak
+ \begin{itemize}
+  \item výrok $x \wedge y$ zní \uv{Mám hlad a jdu do hospody.}
+  \item výrok $x \vee y$ zní \uv{Mám hlad nebo jdu do hospody.}
+  \item výrok $\neg x$ zní \uv{Nemám hlad.} a $\neg y$ zní \uv{Nejdu do
+   hospody.}
+  \item výrok $x \Rightarrow y$ zní \uv{Když mám hlad, tak jdu do hospody.}
+  \item výrok $x \Leftrightarrow y$ zní \uv{Mám hlad právě tehdy, když jdu do
+   hospody.}
+ \end{itemize}
+ Sémantická hodnota uvedených výroků se pochopitelně liší.
+\end{example}
+\begin{warning}{}{nebo-implikace}
+ \vspace{-\parskip}
+ \begin{itemize}
+  \item Operátor $ \vee $ \textbf{není} výlučný. To jest, výrok $x \vee y$ je
+   pravdivý i v případě, že $x$ je pravdivý a $y$ je pravdivý.
+  \item Jazykové vyjádření výroku $x \Rightarrow y$ je v mírném rozporu s běžnou
+   intuicí. Totiž, $x \Rightarrow y$ je pravdivý, kdykoli $x$ je lživý, neboť na
+   základě lži nelze rozhodnout o pravdivosti žádného výroku. To znamená, že
+   výrok \uv{Když mám hlad, tak jdu do hospody.} je pravdivý i tehdy, když nemám
+   hlad, a přesto do hospody jdu.
+ \end{itemize}
+\end{warning}
+
+Při zjišťování pravdivosti výroků na základě pravdivosti \uv{elementárních
+výroků} (tedy výroků, které již nelze více dělit), které je tvoří, je užitečná
+tzv. \emph{pravdivostní tabulka}. Jde o tabulku, která ve sloupcích obsahuje
+stále složitější spojení elementárních výroků, a v posledním onen původní výrok.
+V řádcích pak obsahuje pravdivostní hodnoty. Není obtížné si rozmyslet, že je-li
+výrok složen z $n$ elementárních výroků spojených logickými operátory, pak má
+jeho pravdivostní tabulka $2^{n}$ řádků -- každý pro jedno možné přiřazení $n$
+pravdivostních hodnot (tj. 0 nebo 1) jeho elementárním výrokům.
+
+Pro práci s výroky je užitečné si pamatovat (a není ani těžké si rozmyslet), že
+negace výroku způsobí nahrazení každého elementárního výroku jeho negací,
+prohození všech operátorů $ \wedge $ a $ \vee $ a rovněž prohození
+kvantifikátorů $ \exists $ a $ \forall $. Například
+\[
+ \neg ( \exists x:(x \vee y \wedge \neg z)) = ( \forall x:(\neg x \wedge \neg y
+ \vee z)).
+\]
+V případě implikace $( \Rightarrow )$ pracujeme zkrátka s definicí a dostaneme
+\[
+ \neg (x \Rightarrow y) = (x \wedge \neg y).
+\]
+Negovat ekvivalenci je mírně složitější, bo je konjunkcí dvou implikací.
+Výpočtem dostaneme
+\begin{equation*}
+ \begin{split} 
+  \neg (x \Leftrightarrow y) &= \neg ((x \Rightarrow y) \wedge (y \Rightarrow
+  x))\\
+                             &= (\neg (x \Rightarrow y) \vee \neg (y \Rightarrow
+  x))\\
+                             &= ((x \wedge \neg y) \vee (y \wedge \neg x)).
+ \end{split}
+\end{equation*}
+
+Ověříme si pravdivostní tabulkou na příkladě ekvivalence, že tento \uv{selský}
+přístup k~negování výroků funguje (to samozřejmě \textbf{není} důkaz, že funguje
+obecně).
+
+Ekvivalence $x \Leftrightarrow y$ je pravdivá tehdy, když $x$ má stejnou hodnotu
+jako $y$. Její negace je tudíž pravdivá, když $x$ a $y$ nabývají hodnot
+opačných. Sestrojíme pravdivostní tabulku pro výrok $(x \wedge \neg y) \vee (y
+\wedge \neg x)$.
+
+\begin{table}[h]
+ \centering
+ \begin{tabular}{c|c|c|c|c|c|c}
+  $x$ & $y$ & $\neg x$ & $\neg y$ & $x \wedge \neg y$ & $y \wedge \neg x$ & $(x
+  \wedge \neg y) \vee (y \wedge \neg x)$\\
+  \toprule
+  0 & 0 & 1 & 1 & 0 & 0 & 0\\
+  0 & 1 & 1 & 0 & 0 & 1 & 1\\
+  1 & 0 & 0 & 1 & 1 & 0 & 1\\
+  1 & 1 & 0 & 0 & 0 & 0 & 0
+ \end{tabular}
+ \caption{Pravdivostní tabulka výroku $(x \wedge \neg y) \vee (y \wedge \neg
+ x)$.}
+ \label{table:negace-ekvivalence}
+\end{table}
+
+Vidíme, že $(x \wedge \neg y) \vee (y \wedge \neg x)$ je skutečně negací
+ekvivalence, neboť je pravdivý přesně ve chvíli, kdy $x$ a $y$ mají navzájem
+opačné pravdivostní hodnoty.

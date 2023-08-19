@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply grid;
+  @apply font-body text-my-dark;
+  @apply bg-my-light;
+  @apply min-h-screen min-w-full;
+  @apply pb-8;
+}
+
+h1 {
+  @apply font-display font-bold text-4xl;
+  @apply text-my-dark;
+}
+
+h2 {
+  @apply font-display font-bold text-3xl;
+  @apply text-my-dark;
+}
+
+.body-bg-container {
+  @apply absolute inset-0 w-full h-full;
+  background-image: url("./imgs/body-bg.jpg");
+  @apply bg-cover bg-center -z-10;
+  @apply opacity-40;
+}
+
+.login-wrapper {
+  @apply flex flex-col w-screen h-screen items-center justify-center;
+  @apply p-0 m-0;
+
+  .login-container {
+    @apply flex flex-col items-center justify-center;
+
+    .google-login-button {
+      @apply flex items-center justify-center;
+      @apply w-64 h-14;
+      @apply bg-my-light rounded-md;
+      @apply shadow-md;
+      @apply cursor-pointer;
+      @apply font-medium text-lg;
+      @apply border border-my-light-100;
+
+      &:hover {
+        @apply bg-my-light-100 transition;
+      }
+      img {
+        @apply mr-4;
+      }
+    }
+  }
+
+  .gevo-logo-container {
+    @apply flex flex-col items-center justify-center;
+    @apply w-64 h-auto;
+  }
+
+  .app-title-container {
+    @apply grid gap-0 grid-cols-3 grid-rows-1 items-center;
+    grid-template-columns: 1fr 8rem 1fr;
+    @apply mt-4 mb-8;
+
+    .app-title-text {
+      @apply flex flex-col items-center justify-center;
+      @apply pt-6 pb-6;
+
+      .app-title {
+        @apply text-6xl;
+      }
+      .app-subtitle {
+        @apply text-2xl font-normal text-my-light-600;
+      }
+    }
+
+    .app-title-bracket {
+      height: 112px;
+      width: 29px;
+      @apply fill-my-yellow;
+      @apply flex items-center;
+      @apply p-0 m-0;
+
+      svg {
+        @apply stroke-my-light-100;
+      }
+    }
+    .app-title-bracket-right {
+      @apply transform rotate-180;
+    }
+    .app-title-bracket-left {
+      @apply justify-self-end;
+    }
+  }
+}
+
+header.header {
+  .header-container {
+    @apply grid gap-0 grid-rows-1 items-center;
+    grid-template-columns: 1fr 2fr 1fr;
+    @apply h-16 w-full;
+    @apply bg-my-light border-b border-my-light-100;
+    @apply px-6;
+  }
+
+  nav.navbar {
+    .navbar-list {
+      @apply flex flex-row items-center justify-evenly;
+      .navbar-link {
+        @apply font-medium text-lg;
+        @apply cursor-pointer;
+        @apply hover:text-my-light-500;
+        @apply transition;
+        &.active {
+          @apply border-b-2 border-my-yellow;
+        }
+      }
+    }
+  }
+
+  .user-container {
+    @apply flex items-center justify-end;
+    .username {
+      @apply text-lg;
+      @apply mr-4;
+    }
+    .logout-button {
+      svg {
+        @apply stroke-my-dark bg-my-light-100;
+        @apply rounded-full;
+        @apply p-1.5;
+        &:hover {
+          @apply bg-my-light-200;
+          @apply transition;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  @apply w-full h-full;
+}
+
+footer.footer {
+  @apply h-8 w-full;
+  @apply absolute bottom-0;
+
+  .footer-container {
+    @apply flex flex-row items-center justify-between;
+    @apply bg-my-light border-t border-my-light-100;
+    @apply h-full w-full;
+    @apply px-6;
+    .footer-copy,
+    .footer-contact {
+      @apply text-my-light-600;
+      @apply text-sm;
+    }
+  }
+}

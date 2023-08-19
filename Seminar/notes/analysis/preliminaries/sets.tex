@@ -1,0 +1,70 @@
+\section{Základní pojmy z teorie množin}
+\label{sec:zakladni-pojmy-z-teorie-mnozin}
+
+Teorie množin tvoří společně s logikou základ moderní matematiky. Jedno možné
+přirovnání je, že množiny tvoří svět, který lze zkoumat pomocí logiky. Pojem
+\uv{množina} (podobně jako i \uv{pravda} a \uv{lež} v logice) není možné v
+teorii množin definovat, poněvadž je její základní stavební jednotkou. Stejně
+jako všechny teorie současné matematiky je i teorie množin definována
+\emph{axiomaticky}. Axiomy jsou logické výroky, které v dané teorii nelze
+dokázat, a jsou a priori označeny za pravdivé. Jsou vlastně jakousi matematickou
+verzí zázraku. Přestože znalost a porozumění axiomům teorie množin se považuje
+za základ matematického vzdělání, jejich podoba je tomuto textu irelevantní a
+zmiňovat je nebudeme. Snad kromě toho prvního, asi nejpřirozenějšího možného --
+\uv{Existuje množina}.
+
+Intuitivně asi každý matematik přemýšlí o množinách jako o souborech prvků,
+které spolu nějakým způsobem souvisejí. Fakt, že prvek $x$ je součástí množiny
+$A$, zapisujeme jako $x \in A$ a čteme \uv{$x$ náleží/je prvkem $A$} (symbol $
+\in $ je pochroumané $e$ v angl. slově \textbf{e}lement). Když $B$ je množina,
+jejíž každý prvek leží rovněž v $A$, pak píšeme $B \subseteq A$ a čteme tento
+výrok jako \uv{$B$ je podmnožinou $A$} (případně \uv{$A$ je nadmnožinou $B$}).
+Pomocí symbolu náležení ($ \in $) lze tento vztah též logicky vyjádřit jako
+\[
+ (B \subseteq A) \Leftrightarrow (x \in B \Rightarrow x \in A),
+\]
+tedy výrokem \uv{Když $x$ je prvkem $B$, pak $x$ je prvkem $A$.}
+
+Naopak, fakt, že $y$ \emph{není} prvkem $A$, nezapisujeme krkolomně $\neg (y \in
+A)$, nýbrž zkrátka $y \notin A$, a fakt, že $C$ \emph{není} podmnožinou $A$,
+nepřekvapivě jako $C \nsubseteq A$. Potřebujeme-li zdůraznit, že $C$ je
+podmnožinou $A$, ale není celou množinou $A$, píšeme $C \subsetneq A$.
+\begin{warning}{}{mnozina-bez-poradi}
+ Mnoho začínajících matematiků pěstuje slabě nepřesnou intuici o pojmu množiny.
+ Totiž, množinu lze vnímat jako soubor prvků; není však radno chovat představu,
+ že tyto prvky mají uvnitř množiny nějaké \uv{umístění} či \uv{pořadí} nebo
+ \uv{četnost} či \uv{počet výskytů}. Že řada lidí z~počátku přisuzuje množinám a
+ jejich prvkům tyto vlastnosti, je vrub na úsudku velmi přirozený.
+
+ Množina jako taková je koncept, který nemá přesný ekvivalent ve světě vnímaném
+ smysly. Na kupce sena vždy dokážeme říct, které stéblo je nahoře a které dole;
+ rozlišujeme, zda máme v lednici deset pivo nebo jedno. V množině nikolivěk.
+\end{warning}
+Existuje speciální množina, $\emptyset$, jíž říkáme \emph{prázdná}, nemajíc z
+definice žádný prvek. Jako názorný příklad užití universálního kvantifikátoru
+lze za definici prázdné množiny považovat výrok
+\[
+ \forall x: x \notin \emptyset.
+\]
+Je dobré si povšimnout, že $\emptyset$ je z definice podmnožinou každé množiny.
+Totiž, $x \in \emptyset$ je výrok vždy lživý a, pamatujte, ze lži plyne (aspoň v
+matematické logice) jak lež, tak pravda. Tedy, výrok $x \in \emptyset
+\Rightarrow x \in A$ je vždy pravdivý. Filosofickou otázku, zda dává smysl, že
+\uv{nic} je vždy součástí \uv{něčeho}, s lehkým srdcem přenecháváme kroužkům
+nadšených bakalantů teologické fakulty.
+
+Podobně, množina je též vždy svojí vlastní podmnožinou, neboť výrok $x \in A
+\Rightarrow x \in A$ je rovněž vždy pravdivý. Speciálně, každá množina kromě
+prázdné má přinejmenším dvě podmnožiny -- prázdnou množinu a sebe samu. Snad
+pichlavější otázku, zda dává smysl, že každá věc je svou vlastní součástí, s
+lehkým srdcem přenecháváme doktorandům teologické fakulty.
+
+Konečně, \emph{velikostí} množiny $A$ myslíme (v intuitivním smyslu) počet
+jejích prvků a zapisujeme ji $\# A$. Je-li $A$ nekonečná, píšeme výmluvně $\# A
+= \infty$.
+ 
+\input{preliminaries/sets/operations}
+\input{preliminaries/sets/tuples}
+\input{preliminaries/sets/relations}
+\input{preliminaries/sets/equivalence}
+\input{preliminaries/sets/orderings}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="login-wrapper">
+        <div class="container gevo-logo-container">
+            <img width="256"
+                 height="192"
+                 src="{{ url_for('static', filename='imgs/gevo-logo.png') }}"
+                 alt="Gevo logo" />
+        </div>
+        <div class="container app-title-container">
+            <div class="container app-title-bracket app-title-bracket-left">
+                <svg width="29"
+                     height="112"
+                     viewBox="0 0 48 184"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 8v168h36a4 4 0 0 1 0 8H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h40a4 4 0 0 1 0 8zm172-8h-40a4 4 0 0 0 0 8h36v168h-36a4 4 0 0 0 0 8h40a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4z" />
+                </svg>
+            </div>
+            <div class="container app-title-text">
+                <h1 class="app-title">IVT</h1>
+                <h2 class="app-subtitle">úkolník</h2>
+            </div>
+            <div class="container app-title-bracket app-title-bracket-right">
+                <svg width="29"
+                     height="112"
+                     viewBox="0 0 48 184"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 8v168h36a4 4 0 0 1 0 8H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h40a4 4 0 0 1 0 8zm172-8h-40a4 4 0 0 0 0 8h36v168h-36a4 4 0 0 0 0 8h40a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4z" />
+                </svg>
+            </div>
+        </div>
+        <div class="container login-container">
+            <a href="{{ url_for("auth.google") }}" class="google-login-button">
+                <img width="32"
+                     height="32"
+                     src="{{ url_for('static', filename='imgs/google-logo.png') }}"
+                     alt="Google logo" />
+                Přihlásit se přes Google
+            </a>
+        </div>
+    </div>
+{% endblock %}

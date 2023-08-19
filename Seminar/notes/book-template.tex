@@ -1,0 +1,254 @@
+\documentclass[a4paper,11pt,dvipsnames,twoside]{book}
+
+% Language %
+\usepackage[czech,english]{babel}
+
+% Encoding %
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Header & Footer TODO %
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\textit{\nouppercase{\leftmark}}}
+\fancyhead[LO]{\textit{\nouppercase{\rightmark}}}
+\fancypagestyle{plain}{%
+ \fancyhf{}
+ \renewcommand{\headrulewidth}{0pt}
+}
+\setlength{\headheight}{16pt}
+
+% AMS LaTeX %
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{dsfont}
+
+% Fonts %
+\usepackage[libertine,theoremfont]{newtx}
+
+% Make Titles sans-serif %
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}
+
+% Graphics %
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata,positioning}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% Hyperlinks %
+\usepackage{hyperref}
+
+% Figures %
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Itemize and Enumerate %
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+\setlist[enumerate,1]{label=(\arabic*).}
+\setlist[enumerate,2]{label=(\alph*)}
+
+% Patch for hyphens and amsthm/mdframed %
+\usepackage{regexpatch}
+
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\makeatletter
+\AtBeginDocument{%
+\@ifpackageloaded{amsthm}%
+ {%
+  \renewrobustcmd\mdf@patchamsthm{%
+   \chardef\kludge@catcode@hyphen=\catcode`\-
+   \catcode`\-=12
+   \let\mdf@deferred@thm@head\deferred@thm@head
+   \pretocmd{\deferred@thm@head}{\@inlabelfalse}%
+      {\mdf@PackageInfo{mdframed detected package amsthm ^^J%
+                        changed the theorem header of amsthm\MessageBreak}%
+      }{%
+       \mdf@PackageError{mdframed detected package amsthm ^^J%
+                         changed the theorem header of amsthm
+                         failed\MessageBreak}%
+       }%
+   \catcode`\-=\kludge@catcode@hyphen
+     }%
+ }{}%
+}
+\makeatother
+
+% Math Operators %
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\img}{im}
+\DeclareMathOperator{\id}{\mathds{1}}
+
+% Number Sets %
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+ 
+% Colors %
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{Royalblue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Theorem definitions %
+\usepackage[xcolor,framemethod=tikz,ntheorem]{mdframed}
+
+%% General Theorem Style %%
+\mdfdefinestyle{mythmstyle}{%
+ topline=false,
+ leftline=false,
+ rightline=false,
+ bottomline=true,
+ frametitlefont=\sffamily\bfseries,
+ frametitlerule=false,
+ linewidth=1pt,
+ frametitleaboveskip=6pt,
+ theoremtitlefont=\normalfont\sffamily,
+ font=\itshape,
+ theoremseparator={ ---},
+ innertopmargin=9pt,
+ innerbottommargin=8pt
+}
+\mdfdefinestyle{mydefstyle}{%
+ topline=false,
+ leftline=false,
+ rightline=false,
+ bottomline=true,
+ frametitlefont=\sffamily\bfseries,
+ frametitlerule=false,
+ linewidth=1pt,
+ frametitleaboveskip=6pt,
+ theoremtitlefont=\normalfont\sffamily,
+ theoremseparator={ ---},
+ innertopmargin=9pt,
+ innerbottommargin=8pt
+}
+\mdfdefinestyle{myprfstyle}{%
+ topline=false,
+ leftline=true,
+ rightline=false,
+ bottomline=true,
+ frametitlefont=\bfseries,
+ frametitlerule=false,
+ linewidth=1pt,
+ frametitleaboveskip=0pt,
+ frametitlebelowskip=0pt,
+ skipabove=0pt,
+ theoremtitlefont=\normalfont\sffamily,
+ theoremseparator={},
+ innertopmargin=9pt,
+ innerbottommargin=8pt
+}
+
+% Theorems %
+\mdtheorem[%
+ style=mythmstyle,
+ linecolor=Orange,
+ frametitlebackgroundcolor=Orange!70,
+ backgroundcolor=Orange!10
+]{theorem}{Věta}[section]
+\mdtheorem[%
+ style=mythmstyle,
+ linecolor=RoyalBlue,
+ frametitlebackgroundcolor=RoyalBlue!50,
+ backgroundcolor=RoyalBlue!10
+]{proposition}[theorem]{Tvrzení}
+\mdtheorem[%
+ style=mythmstyle,
+ linecolor=ForestGreen,
+ frametitlebackgroundcolor=ForestGreen!60,
+ backgroundcolor=ForestGreen!10
+]{lemma}[theorem]{Lemma}
+\mdtheorem[%
+ style=mythmstyle,
+ linecolor=YellowGreen,
+ frametitlebackgroundcolor=YellowGreen!70,
+ backgroundcolor=YellowGreen!10
+]{observation}[theorem]{Pozorování}
+\mdtheorem[%
+ style=mythmstyle,
+ linecolor=RoyalPurple,
+ frametitlebackgroundcolor=RoyalPurple!50,
+ backgroundcolor=RoyalPurple!10
+]{corollary}[theorem]{Důsledek}
+
+% Definition-like stuff %
+\mdtheorem[%
+ style=mydefstyle,
+ linecolor=Aquamarine,
+ frametitlebackgroundcolor=Aquamarine!50,
+ backgroundcolor=Aquamarine!10
+]{definition}[theorem]{Definice}
+\mdtheorem[%
+ style=mydefstyle,
+ linecolor=VioletRed,
+ frametitlebackgroundcolor=VioletRed!50,
+ backgroundcolor=VioletRed!10
+]{example}[theorem]{Příklad}
+\mdtheorem[%
+ style=mydefstyle,
+ linecolor=Mahogany,
+ frametitlebackgroundcolor=Mahogany!40,
+ backgroundcolor=Mahogany!10
+]{remark}[theorem]{Poznámka}
+\mdtheorem[%
+ style=mydefstyle,
+ linecolor=Red,
+ frametitlebackgroundcolor=Red!80,
+ backgroundcolor=Red!10
+]{warning}[theorem]{Výstraha}
+\mdtheorem[%
+ style=mydefstyle,
+ linecolor=Gray,
+ frametitlebackgroundcolor=Gray!50,
+ backgroundcolor=Gray!10
+]{exercise}[theorem]{Cvičení}
+
+% Proofs, each for different color %
+% New qed with hfill %
+\renewcommand{\qed}{\hfill\ensuremath{\blacksquare}}
+\mdtheorem[%
+ style=myprfstyle,
+ linecolor=Orange
+]{thmproof}{Důkaz}[section]
+\mdtheorem[%
+ style=myprfstyle,
+ linecolor=RoyalBlue
+]{propproof}{Důkaz}[section]
+\mdtheorem[%
+ style=myprfstyle,
+ linecolor=ForestGreen
+]{lemmaproof}{Důkaz}[section]
+\mdtheorem[%
+ style=myprfstyle,
+ linecolor=YellowGreen
+]{corproof}{Důkaz}[section]
+\mdtheorem[%
+ style=myprfstyle,
+ linecolor=Aquamarine
+]{defproof}{Důkaz}[section]

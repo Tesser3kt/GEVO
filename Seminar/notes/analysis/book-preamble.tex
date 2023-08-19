@@ -1,0 +1,231 @@
+% Language %
+\usepackage[english,czech]{babel}
+
+% Encoding %
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Layout %
+\usepackage[%
+ bmargin=1.25in,
+ tmargin=1.25in,
+ inner margin=1.25in,
+ outer margin=1in
+]{geometry}
+
+% Header & Footer TODO %
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\textit{\nouppercase{\leftmark}}}
+\fancyhead[LO]{\textit{\nouppercase{\rightmark}}}
+\fancypagestyle{plain}{%
+ \fancyhf{}
+ \renewcommand{\headrulewidth}{0pt}
+}
+\setlength{\headheight}{16pt}
+
+% AMS LaTeX %
+\usepackage{amsmath,mathtools}
+\usepackage{dsfont}
+\usepackage[thmmarks,amsmath]{ntheorem}
+
+% Fonts %
+\usepackage[libertine]{newtx}
+\usepackage[makeroom]{cancel} % crossing out stuff
+
+% Use AMS fonts for mathbb %
+\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
+
+% Make Titles sans-serif %
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}
+
+% Graphics %
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{%
+ arrows,
+ positioning,
+ intersections,
+ perspective,
+ patterns
+}
+\tikzset{
+  vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner sep=1pt}
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% Hyperlinks %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linkcolor=RoyalBlue,
+ filecolor=Magenta,
+ urlcolor=Aquamarine
+}
+
+% Figures %
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Itemize and Enumerate %
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+\setlist[enumerate,1]{label=(\arabic*).}
+\setlist[enumerate,2]{label=(\alph*)}
+
+% Patch for hyphens %
+\usepackage{regexpatch}
+
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+% Math Operators %
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\img}{im}
+\DeclareMathOperator{\id}{\mathds{1}}
+
+% Number Sets %
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+ 
+% Colors %
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Theorem definitions %
+\usepackage[theorems,breakable,most]{tcolorbox}
+
+%% General Theorem Style %%
+\tcbset{%
+ thmbox/.style = {
+  enhanced,
+  breakable,
+  frame hidden,
+  parbox=false,
+  colbacktitle=black!5,
+  coltitle=#1,
+  fonttitle=\bfseries\sffamily,
+  colback=white,
+  borderline west={0.5mm}{0mm}{#1},
+  toprule=0pt,
+  bottomrule=0pt,
+  rightrule=0pt,
+  leftrule=0pt,
+  titlerule=0.2mm,
+  titlerule style={shorten >=.5\textwidth,#1},
+  left=1ex,
+  sharp corners,
+  toptitle=1mm,
+  bottomtitle=1mm,
+  bottom=1mm,
+  description delimiters parenthesis,
+  separator sign none,
+  description font=\normalfont\sffamily,
+  fontupper=\itshape,
+  graphical environment=tikzpicture
+ }
+}
+\tcbset{%
+ defbox/.style = {
+  thmbox={#1},
+  fontupper=\normalfont
+ }
+}
+\tcbset{%
+ prfbox/.style = {
+  parbox=false,
+  top=0mm,
+  bottom=0mm,
+  left=1ex,
+  boxrule=0pt,
+  leftrule=0pt,
+  toprule=0pt,
+  titlerule=0pt,
+  rightrule=0pt,
+  bottomrule=0pt,
+  borderline west={0.5mm}{0mm}{#1},
+  frame hidden,
+  enhanced,
+  colback=white,
+  sharp corners
+ }
+}
+
+% Theorems %
+\newtcbtheorem[number within=section]{theorem}{Věta}{thmbox=Orange}{thm}
+\newtcbtheorem[use counter
+from=theorem]{proposition}{Tvrzení}{thmbox=RoyalBlue}{prop}
+\newtcbtheorem[use counter
+from=theorem]{lemma}{Lemma}{thmbox=ForestGreen}{lem}
+\newtcbtheorem[use counter
+from=theorem]{observation}{Pozorování}{thmbox=YellowGreen}{obs}
+\newtcbtheorem[use counter
+from=theorem]{corollary}{Důsledek}{thmbox=RoyalPurple}{cor}
+\newtcbtheorem[use counter
+from=theorem]{definition}{Definice}{defbox=Aquamarine}{def}
+\newtcbtheorem[use counter
+from=theorem]{example}{Příklad}{defbox=VioletRed}{exam}
+\newtcbtheorem[use counter
+from=theorem]{remark}{Poznámka}{defbox=Mahogany}{rmrk}
+\newtcbtheorem[use counter
+from=theorem]{warning}{Varování}{defbox=Red}{warn}
+\newtcbtheorem[use counter
+from=theorem]{exercise}{Cvičení}{defbox=Gray!50}{exer}
+
+% Proofs, each for different color %
+\theoremstyle{nonumberplain}
+\theoremseparator{.\smallskip}
+\theorembodyfont{\upshape}
+\theoremheaderfont{\scshape}
+
+% Theorem Proof %
+\theoremsymbol{\ensuremath{\color{Orange}\blacksquare}}
+\newtheorem{thmproof}{Důkaz}
+\tcolorboxenvironment{thmproof}{prfbox=Orange}
+
+% Proposition Proof %
+\theoremsymbol{\ensuremath{\color{RoyalBlue}\blacksquare}}
+\newtheorem{propproof}{Důkaz}
+\tcolorboxenvironment{propproof}{prfbox=RoyalBlue}
+
+% Lemma Proof %
+\theoremsymbol{\ensuremath{\color{ForestGreen}\blacksquare}}
+\newtheorem{lemproof}{Důkaz}
+\tcolorboxenvironment{lemproof}{prfbox=ForestGreen}
+
+% Observation Proof %
+\theoremsymbol{\ensuremath{\color{YellowGreen}\blacksquare}}
+\newtheorem{obsproof}{Důkaz}
+\tcolorboxenvironment{obsproof}{prfbox=YellowGreen}
+
+% Corollary Proof %
+\theoremsymbol{\ensuremath{\color{RoyalPurple}\blacksquare}}
+\newtheorem{corproof}{Důkaz}
+\tcolorboxenvironment{corproof}{prfbox=RoyalPurple}
+
+% Extra custom commands %
+\newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
