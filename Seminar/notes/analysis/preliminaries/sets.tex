@@ -59,9 +59,61 @@ prázdné má přinejmenším dvě podmnožiny -- prázdnou množinu a sebe samu
 pichlavější otázku, zda dává smysl, že každá věc je svou vlastní součástí, s
 lehkým srdcem přenecháváme doktorandům teologické fakulty.
 
-Konečně, \emph{velikostí} množiny $A$ myslíme (v intuitivním smyslu) počet
-jejích prvků a zapisujeme ji $\# A$. Je-li $A$ nekonečná, píšeme výmluvně $\# A
-= \infty$.
+\emph{Velikostí} množiny $A$ myslíme (v intuitivním smyslu) počet jejích prvků a
+zapisujeme ji $\# A$. Je-li $A$ nekonečná, píšeme výmluvně $\# A = \infty$.
+Často je též užitečné přemýšlet o všech podmnožinách dané množiny rovněž jako o
+množině. Značíme ji jako $2^{A}$. Za původem tohoto značení stojí fakt, že má-li
+$A$ $n$ prvků, pak má $2^{n}$ podmnožin. Totiž, představme si například všechny
+prvky $A$ seřazené nějak náhodně za sebou. Libovolnou podmnožinu $A$ získám tak,
+že začnu s prázdnou \uv{krabicí} a u každého prvku se postupně rozhodnu, zda jej
+do ní \uv{hodím}, či ne. Pro každý prvek mám $2$ možnosti, proto celkově pro $n$
+prvků mám
+\[
+ \underbrace{2 \cdot 2 \cdot \ldots \cdot 2}_{n-\text{krát}}
+\]
+možností, jak vyrobit unikátní podmnožinu. Symbolicky můžeme psát $\# 2^{A}
+= 2^{\# A}$.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \node[vertex,BrickRed] (v1) at (1,0) {};
+  \node[vertex] (v2) at (2,0) {};
+  \node[vertex] (v3) at (3,0) {};
+  \node[vertex,BrickRed] (v4) at (4,0) {};
+  \node[vertex,BrickRed] (v5) at (5,0) {};
+  \node[vertex,BrickRed] (v6) at (6,0) {};
+  \node[vertex] (v7) at (7,0) {};
+  
+  \node[above=1mm of v1,BrickRed] {$1$};
+  \node[above=1mm of v2] {$2$};
+  \node[above=1mm of v3] {$3$};
+  \node[above=1mm of v4,BrickRed] {$4$};
+  \node[above=1mm of v5,BrickRed] {$5$};
+  \node[above=1mm of v6,BrickRed] {$6$};
+  \node[above=1mm of v7] {$7$};
+  
+  \node[below=1 of v1,BrickRed] (l1) {ano};
+  \node[below=1 of v2] (l2) {ne};
+  \node[below=1 of v3] (l3) {ne};
+  \node[below=1 of v4,BrickRed] (l4) {ano};
+  \node[below=1 of v5,BrickRed] (l5) {ano};
+  \node[below=1 of v6,BrickRed] (l6) {ano};
+  \node[below=1 of v7] (l7) {ne};
+
+  \draw[thick,<-,BrickRed,shorten > =2pt] (l1) -- (v1);
+  \draw[thick,<-,shorten > =2pt] (l2) -- (v2);
+  \draw[thick,<-,shorten > =2pt] (l3) -- (v3);
+  \draw[thick,<-,BrickRed,shorten > =2pt] (l4) -- (v4);
+  \draw[thick,<-,BrickRed,shorten > =2pt] (l5) -- (v5);
+  \draw[thick,<-,BrickRed,shorten > =2pt] (l6) -- (v6);
+  \draw[thick,<-,shorten > =2pt] (l7) -- (v7);
+  
+ \end{tikzpicture}
+
+ \caption{Výběr podmnožiny $\clr{\{1,4,5,6\}}$ z množiny $\{1,2,3,4,5,6,7\}$.}
+ \label{fig:mnozina-vsech-podmnozin}
+\end{figure}
  
 \input{preliminaries/sets/operations}
 \input{preliminaries/sets/tuples}

@@ -33,9 +33,107 @@ Zcela nejobyčejnější příklady (neostrých) uspořádání jsou relace $ \l
 \geq $ v číselných oborech. Vskut\-ku, každý prvek je menší/větší nebo roven sám
 sobě, z každé dvojice prvek je buď jeden menší/větší než ten druhý, nebo jsou
 stejné, a když je prvek $x$ menší/větší než prvek $y$ a ten zas menší/větší než
-prvek $z$, pak je $x$ menší/větší než $z$.
+prvek $z$, pak je $x$ menší/větší než $z$. Speciálně, $(\N, \leq )$ a $(\N, \geq
+)$ jsou uspořádané množiny.
 
 Příkladem \emph{ostrých} uspořádání jsou relace $<$ a $>$, které se liší tím, že
 žádný prvek není ostře menší/větší než on sám.
 
+\begin{warning}{}{linearni-usporadani}
+ Součástí definice uspořádání \textbf{není} podmínka, že \textbf{každé} dva
+ prvky lze spolu porovnat. Pročež, v uspořádaných množinách obecně existují
+ dvojice prvků, kde první není ani menší ani větší než ten druhý.
 
+ Uspořádáním (ať už ostrým či neostrým) naopak \emph{splňujícím} onu podmínku
+ říkáme \emph{lineární}.
+\end{warning}
+
+Za definicí uspořádání samozřejmě stojí myšlenka, že taková relace určuje
+\emph{pořadí} prvků na množině. Z toho důvodu se obvykle uspořádání nekreslí
+jako obecné relace do mříží, ale do tzv. Hasseho (po číselném teoretiku Helmutu
+Hassem) diagramů, které získáme tím způsobem, že prvky nakreslíme jako puntíky a
+každé dva puntíky prvků, které jsou v daném uspořádání porovnatelné, spojíme
+úsečkou (nejsou-li již spojeny přes nějaký další puntík) a větší z nich
+nakreslíme nad menší. Chováme na vědomí, že kreslit obrázky je více
+uspokojující, než je popisovat, a tedy si závěrem této krátké sekce nakreslíme
+(Hasseho diagramy) tři takřkouce \uv{učebnicové} příklady uspořádání.
+
+\begin{example}{}{usporadani}
+ \vspace{-\parskip}
+ \begin{enumerate}
+  \item Uvažme jednoduchý příklad uspořádané množiny $(\N, \leq )$. Už jsme si
+   rozmysleli, že $ \leq $ je na $\N$ skutečně uspořádáním. Je triviální
+   nahlédnout, že je rovněž lineární, neboť z~každých dvou přirozených čísel lze
+   vybrat to menší.
+  
+   Lineární uspořádání mají velmi nezajímavý Hasseho diagram -- řetěz prvků,
+   který může končit nahoře nebo dole. V tomto případě je nejmenším prvkem $0$ a
+   nejvyšší neexistuje, tedy řetěz pokračuje nekonečně dlouho směrem nahoru.
+   \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+     \foreach \y in {0,1,2,3} {
+      \node[vertex] (v\y) at (0,\y) {};
+      \node[right=1mm of v\y] {$\y$};
+     }
+     \foreach \y in {0,1,2} {
+      \draw[thick] (0,\y) -- (0,\y+1);
+     }
+     \draw[thick] (0,3) -- (0,3.5);
+     
+     \node[above=5mm of v3] {$\vdots$};
+    \end{tikzpicture}
+
+    \caption{Hasseho diagram uspořádané množiny $(\N, \leq )$.}
+    \label{fig:hasseho-diagram-N}
+   \end{figure}
+  \item O něco komplikovanější příklad je uspořádání inkluzí $ \subseteq $. Pro
+   libovolnou množinu $A$ můžeme uvážit uspořádanou množinu $(2^{A}, \subseteq
+   )$. Je téměř samozřejmé, že $ \subseteq $ je skutečně (neostré) uspořádání,
+   které však \textbf{není} lineární. Vizme příklad.
+  
+   Ať $A \coloneqq \{1,2,3\}$. Pak jsou její podmnožiny $\{1,2\}$ a $\{2,3\}$
+   neporovnatelné pomocí $ \subseteq $ -- ani jedna není podmnožinou té druhé.
+   Zajímavým geometrickým faktem je, že Hasseho diagramem $(2^{A}, \subseteq )$
+   pro $n$-prvkovou množinu $A$ je síť vrcholů krychle dimenze $n$.
+   \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1.5]
+     \node[vertex] (v0) at (0,0) {};
+     \node[vertex] (v1) at (-1,1) {};
+     \node[vertex] (v2) at (0,1) {};
+     \node[vertex] (v3) at (1,1) {};
+     \node[vertex] (v12) at (-1,2) {};
+     \node[vertex] (v13) at (0,2) {};
+     \node[vertex] (v23) at (1,2) {};
+     \node[vertex] (v123) at (0,3) {};
+
+     \draw[thick] (v0) -- (v1);
+     \draw[thick] (v0) -- (v2);
+     \draw[thick] (v0) -- (v3);
+     \draw[thick] (v1) -- (v12);
+     \draw[thick] (v1) -- (v13);
+     \draw[thick] (v2) -- (v12);
+     \draw[thick] (v2) -- (v23);
+     \draw[thick] (v3) -- (v13);
+     \draw[thick] (v3) -- (v23);
+     \draw[thick] (v12) -- (v123);
+     \draw[thick] (v13) -- (v123);
+     \draw[thick] (v23) -- (v123);
+
+     \node[below=0mm of v0] {$\emptyset$};
+     \node[above=0mm of v123] {$\{1,2,3\}$};
+     \node[below left=-1mm and -1mm of v1] {$\{1\}$};
+     \node[below left=-1mm and -1mm of v2] {$\{2\}$};
+     \node[below right=-1mm and -1mm of v3] {$\{3\}$};
+     \node[above left=-1mm and -1mm of v12] {$\{1,2\}$};
+     \node[above left=-1mm and -1mm of v13] {$\{1,3\}$};
+     \node[above right=-1mm and -1mm of v23] {$\{2,3\}$};
+    \end{tikzpicture}
+
+    \caption{Hasseho diagram uspořádané množiny $(2^{A}, \subseteq )$ pro $A =
+    \{1,2,3\}$.}
+    \label{fig:hasseho-diagram-power-set}
+   \end{figure}
+ \end{enumerate}
+\end{example}

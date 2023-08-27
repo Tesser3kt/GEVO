@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.15)  18 AUG 2023 21:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.26)  26 AUG 2023 23:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -228,8 +228,8 @@ Package ntheorem Info: option `amsmath' handling for `thmmarks' loaded on input 
 \thm@amstmpdepth=\dimen173
 \tagwidth=\dimen174
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/newtx/newtx.sty
-Package: newtx 2023/07/30 v1.723(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
- `newtx'v1.723, 2023/07/30 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
+Package: newtx 2023/08/20 v1.724(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
+ `newtx'v1.724, 2023/08/20 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/fontaxes/fontaxes.sty
 Package: fontaxes 2020/07/21 v1.0e Font selection axes
@@ -247,10 +247,10 @@ LaTeX Info: Redefining \textulc on input line 49.
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count284
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/local/texlive/2023/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count285
-\decimalpart=\count286
+\xs_counta=\count285
+\xs_countb=\count286
 )
-Package: xstring 2023/01/14 v1.85 String manipulations (CT)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkvutils.tex
@@ -814,20 +814,27 @@ Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count331
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count332
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count333
+\float@exts=\toks61
+\float@box=\box65
+\@float@everytoks=\toks62
+\@floatcapt=\box66
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip78
 \enit@outerparindent=\dimen324
-\enit@toks=\toks61
-\enit@inbox=\box65
-\enit@count@id=\count333
-\enitdp@description=\count334
+\enit@toks=\toks63
+\enit@inbox=\box67
+\enit@count@id=\count334
+\enitdp@description=\count335
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/regexpatch/regexpatch.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2023-08-11 L3 programming layer (loader) 
  (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count335
-\l__pdf_internal_box=\box66
+\l__color_backend_stack_int=\count336
+\l__pdf_internal_box=\box68
 ))
 Package: regexpatch 2021/03/21 v0.2f Extending etoolbox patching commands
  (/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
@@ -836,26 +843,27 @@ Package: xparse 2023-02-02 L3 Experimental document command parser
 Package: tcolorbox 2023/06/19 version 6.0.4 text color boxes
  (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks62
-\verbatim@line=\toks63
+\every@verbatim=\toks64
+\verbatim@line=\toks65
 \verbatim@in@stream=\read5
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
  (/usr/local/texlive/2023/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box67
-\tcb@upperbox=\box68
-\tcb@lowerbox=\box69
-\tcb@phantombox=\box70
-\c@tcbbreakpart=\count336
-\c@tcblayer=\count337
-\c@tcolorbox@number=\count338
-\tcb@temp=\box71
-\tcb@temp=\box72
+\tcb@titlebox=\box69
+\tcb@upperbox=\box70
+\tcb@lowerbox=\box71
+\tcb@phantombox=\box72
+\c@tcbbreakpart=\count337
+\c@tcblayer=\count338
+\c@tcolorbox@number=\count339
 \tcb@temp=\box73
 \tcb@temp=\box74
- (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
+\tcb@temp=\box75
+\tcb@temp=\box76
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.0.4'
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
 Library (tcolorbox): 'tcbbreakable.code.tex' version '6.0.4'
@@ -863,15 +871,15 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '6.0.4'
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box75
-\tcb@totalupperbox=\box76
-\tcb@totallowerbox=\box77
+\tcb@testbox=\box77
+\tcb@totalupperbox=\box78
+\tcb@totallowerbox=\box79
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '6.0.4'
-\c@tcbrastercolumn=\count339
-\c@tcbrasterrow=\count340
-\c@tcbrasternum=\count341
-\c@tcbraster=\count342
+\c@tcbrastercolumn=\count340
+\c@tcbrasterrow=\count341
+\c@tcbrasternum=\count342
+\c@tcbraster=\count343
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.0.4'
 (/usr/local/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -880,7 +888,7 @@ Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
 Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box78
+\l__tikzfill_img_box=\box80
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.0.4'
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
@@ -890,29 +898,29 @@ Library (tcolorbox): 'tcbfitting.code.tex' version '6.0.4'
 \tcbfitdim=\dimen325
 \tcb@lowerfitdim=\dimen326
 \tcb@upperfitdim=\dimen327
-\tcb@cur@hbadness=\count343
+\tcb@cur@hbadness=\count344
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
 Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.0.4'
 (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
 Library (tcolorbox): 'tcblistings.code.tex' version '6.0.4'
 (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count344
-\lst@gtempboxa=\box79
-\lst@token=\toks64
-\lst@length=\count345
+\lst@mode=\count345
+\lst@gtempboxa=\box81
+\lst@token=\toks66
+\lst@length=\count346
 \lst@currlwidth=\dimen328
-\lst@column=\count346
-\lst@pos=\count347
+\lst@column=\count347
+\lst@pos=\count348
 \lst@lostspace=\dimen329
 \lst@width=\dimen330
-\lst@newlines=\count348
-\lst@lineno=\count349
+\lst@newlines=\count349
+\lst@lineno=\count350
 \lst@maxwidth=\dimen331
  (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count350
-\lst@skipnumbers=\count351
-\lst@framebox=\box80
+\c@lstnumber=\count351
+\lst@skipnumbers=\count352
+\lst@framebox=\box82
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
@@ -925,7 +933,7 @@ Library (tcolorbox): 'tcbprocessing.code.tex' version '6.0.4'
 Package: shellesc 2023/04/15 v1.0d unified shell escape interface for LaTeX
 Package shellesc Info: Restricted shell escape enabled on input line 77.
 ))
-\c@tcblisting=\count352
+\c@tcblisting=\count353
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
 Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/stringenc/stringenc.sty
@@ -943,22 +951,22 @@ File: pgflibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '6.0.4'
 ))
-\c@tcb@cnt@theorem=\count353
-\c@currthmproofctr=\count354
-\c@endthmproofctr=\count355
-\c@thmproof=\count356
-\c@currpropproofctr=\count357
-\c@endpropproofctr=\count358
-\c@propproof=\count359
-\c@currlemproofctr=\count360
-\c@endlemproofctr=\count361
-\c@lemproof=\count362
-\c@currobsproofctr=\count363
-\c@endobsproofctr=\count364
-\c@obsproof=\count365
-\c@currcorproofctr=\count366
-\c@endcorproofctr=\count367
-\c@corproof=\count368
+\c@tcb@cnt@theorem=\count354
+\c@currthmproofctr=\count355
+\c@endthmproofctr=\count356
+\c@thmproof=\count357
+\c@currpropproofctr=\count358
+\c@endpropproofctr=\count359
+\c@propproof=\count360
+\c@currlemproofctr=\count361
+\c@endlemproofctr=\count362
+\c@lemproof=\count363
+\c@currobsproofctr=\count364
+\c@endobsproofctr=\count365
+\c@obsproof=\count366
+\c@currcorproofctr=\count367
+\c@endcorproofctr=\count368
+\c@corproof=\count369
 )
 LaTeX Font Info:    Trying to load font information for T1+LinuxLibertineT-TLF on input line 4.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/libertine/T1LinuxLibertineT-TLF.fd
@@ -1044,21 +1052,21 @@ LaTeX Font Info:    ... okay on input line 4.
 
 LaTeX Info: Command `\dddot' is already robust on input line 4.
 LaTeX Info: Command `\ddddot' is already robust on input line 4.
-\c@mv@tabular=\count369
-\c@mv@boldtabular=\count370
+\c@mv@tabular=\count370
+\c@mv@boldtabular=\count371
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count371
+\scratchcounter=\count372
 \scratchdimen=\dimen332
-\scratchbox=\box81
-\nofMPsegments=\count372
-\nofMParguments=\count373
-\everyMPshowfont=\toks65
-\MPscratchCnt=\count374
+\scratchbox=\box83
+\nofMPsegments=\count373
+\nofMParguments=\count374
+\everyMPshowfont=\toks67
+\MPscratchCnt=\count375
 \MPscratchDim=\dimen333
-\MPnumerator=\count375
-\makeMPintoPDFobject=\count376
-\everyMPtoPDFconversion=\toks66
+\MPnumerator=\count376
+\makeMPintoPDFobject=\count377
+\everyMPtoPDFconversion=\toks68
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1071,9 +1079,10 @@ Package hyperref Info: Link coloring ON on input line 4.
 \openout4 = `main.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count377
+\c@lstlisting=\count378
  (./titlepage.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 6.
@@ -1149,7 +1158,7 @@ LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
 (Font)              scaled to size 6.1pt on input line 3.
 LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 3.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/newtx/untxsym.fd
-File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
+File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
 (Font)              scaled to size 10.95pt on input line 3.
@@ -1208,6 +1217,10 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 1.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 1.
+
+Underfull \vbox (badness 2671) has occurred while \output is active []
+
+ [10]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 27.
 LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
@@ -1258,16 +1271,16 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 7.3pt on input line 27.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 5.5pt on input line 27.
- [10] [11]) (./preliminaries/sets/tuples.tex [12]
+ [11]) (./preliminaries/sets/tuples.tex [12]
 LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) (./preliminaries/sets/relations.tex [13]
+) [13]) (./preliminaries/sets/relations.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 10.95pt on input line 13.
+ [14]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/it' will be
 (Font)              scaled to size 10.95pt on input line 86.
- [14]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 10.0pt on input line 170.
 ) (./preliminaries/sets/equivalence.tex [15{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_ki75ao.enc}]
@@ -1275,14 +1288,11 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 8.0pt on input line 62.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 6.1pt on input line 62.
-) (./preliminaries/sets/orderings.tex
-Underfull \vbox (badness 6428) has occurred while \output is active []
-
- [16])))
+ [16]) (./preliminaries/sets/orderings.tex [17] [18])))
 \tf@thm=\write6
 \openout6 = `main.thm'.
 
- [17] (./main.aux)
+ [19] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2021/03/21>
@@ -1291,18 +1301,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: AC50BF00BB74A7F2738842114E77B862;1342.
  ) 
 Here is how much of TeX's memory you used:
- 38005 strings out of 475189
- 744946 string characters out of 5763838
- 1961254 words of memory out of 5000000
- 58528 multiletter control sequences out of 15000+600000
- 753286 words of font info for 163 fonts, out of 8000000 for 9000
+ 38230 strings out of 475189
+ 748354 string characters out of 5763838
+ 1966254 words of memory out of 5000000
+ 58738 multiletter control sequences out of 15000+600000
+ 753879 words of font info for 165 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,15n,120p,853b,1048s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (17 pages, 979187 bytes).
+ 89i,15n,120p,853b,1199s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on main.pdf (19 pages, 991555 bytes).
 PDF statistics:
- 297 PDF objects out of 1000 (max. 8388607)
- 212 compressed objects within 3 object streams
- 44 named destinations out of 1000 (max. 500000)
+ 319 PDF objects out of 1000 (max. 8388607)
+ 230 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
  230 words of extra memory for PDF output out of 10000 (max. 10000000)
 
