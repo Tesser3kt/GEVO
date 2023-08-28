@@ -1,0 +1,127 @@
+\subsection{Relace zobrazení}
+\label{ssec:relace-zobrazeni}
+
+Přišel na řadu poslední klíčový typ relace, a pro algebraika snad nejdůležitější
+myšlenka matematiky vůbec. Na rozdíl od relací uspořádání a ekvivalence, není
+zobrazení nutně relace na téže množině. Jak název napovídá, zobrazení má něco
+někam ... \uv{zobrazovat}. Matematik zřídkakdy přemýšlí o zobrazení jako o
+relaci, nýbrž o popisu způsobu, kterak se prvky jedné množiny \uv{přetvářejí v}
+či \uv{zobrazují na} prvky množiny druhé.
+
+Zobrazení je dáno vlastně jednou přímočarou podmínkou -- každý prvek první
+množiny se může zobrazit na maximálně jeden prvek množiny druhé. Lidově řečeno,
+není prvku povoleno, aby se rozdvojil, roztřetil, rozčtvrtil, rozpětil,
+rozšestil, rozsedmil, rozosmil, rozdevítil a indukcí dále.
+
+Ať tedy $R$ je relace mezi $A$ a $B$. Elegantním logickým zápisem podmínky, aby
+byl každý prvek $a \in A$ v relaci $R$ s \emph{maximálně jedním} prvkem $b \in
+B$, je výrok, že jsou-li dva prvky z $A$ v relaci s týmž prvkem z $B$, pak se
+vskutku jedná o jediný prvek. Formální definice následuje.
+
+\begin{definition}{Zobrazení}{zobrazeni}
+ Ať $R \subseteq A \times B$ je relace mezi $A$ a $B$. Nazveme $R$
+ \emph{zobrazením} (z $A$ do $B$), pokud splňuje
+ \[
+  \forall a_1,a_2 \in A \; \forall b \in B: a_1Rb \wedge a_2Rb \Rightarrow a_1 =
+  a_2.
+ \]
+ Zobrazení mezi množinami obvykle zapisujeme malými písmeny latinské abecedy
+ počínaje písmenem $f$ (od \textbf{f}unkce, jak se některým speciálním typům
+ zobrazení často říká). Fakt, že $f$ je zobrazení z $A$ do $B$, symbolizujeme
+ zápisem $f:A \to B$ nebo též $A \overset{f}{ \longrightarrow } B$.
+
+ Když $(a,b) \in f$, nepíšeme $afb$ jako u obecné relace, ale spíše $f(a) = b$
+ či $f:a \mapsto b$.
+\end{definition}
+
+Stejně jako uspořádání, i zobrazení se kreslí svým osobitým způsobem, který v
+sobě nese jejich mimořádnou povahu. Protože, opakujeme, bývají zobrazení vnímána
+vlastně jako \uv{šipky} mezi množinami nesoucí prvky z první do té druhé, i se
+tak kreslí. Konkrétně, zobrazení $f:A \to B$ nakreslíme například tak, že si
+prvky $A$ postavíme nalevo, prvky $B$ napravo, a pro každý vztah $f(a) = b$
+nakreslíme šipku z $a$ do $b$. Z definici zobrazení povede z každého $a \in A$
+nejvýše jedna šipka. Vizte \myref{obrázek}{fig:priklady-zobrazeni}.
+
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}[t]{.45\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \foreach \y in {1,2,3} {
+    \node[vertex,BrickRed] (a\y) at (0,-\y) {};
+    \node[left=0mm of a\y,BrickRed] {$\y$};
+    
+    \node[vertex,RoyalBlue] (b\y) at (2,-\y) {};
+   }
+   \node[vertex,BrickRed] (a4) at (0,-4) {};
+   \node[left=0mm of a4,BrickRed] {$4$};
+
+   \node[right=0mm of b1,RoyalBlue] {$a$};
+   \node[right=0mm of b2,RoyalBlue] {$b$};
+   \node[right=0mm of b3,RoyalBlue] {$c$};
+
+   \draw[thick,ForestGreen,->,shorten <=2pt,shorten >=2pt] (a1) -- (b2);
+   \draw[thick,ForestGreen,->,shorten <=2pt,shorten >=2pt] (a2) -- (b1);
+   \draw[thick,ForestGreen,->,shorten <=2pt,shorten >=2pt] (a3) -- (b2);
+   \draw[thick,ForestGreen,->,shorten <=2pt,shorten >=2pt] (a4) -- (b2);
+  \end{tikzpicture}
+  \caption{Zobrazení $\clg{f} =
+  \{(\clr{1},\clb{b}),(\clr{2},\clb{a}),(\clr{3},\clb{b}),(\clr{4},\clb{b})\}$.}
+  \label{subfig:priklady-zobrazeni-1}
+ \end{subfigure}
+ \begin{subfigure}[t]{.45\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \foreach \y in {1,2,3,4} {
+    \node[vertex,BrickRed] (a\y) at (0,-\y) {};
+    \node[vertex,BrickRed] (b\y) at (2,-\y) {};
+    \node[left=0mm of a\y,BrickRed] {$\y$};
+    \node[right=0mm of b\y,BrickRed] {$\y$};
+   }
+
+   \draw[thick,ForestGreen,->,shorten <=2pt,shorten >=2pt] (a1) -- (b2);
+   \draw[thick,ForestGreen,->,shorten <=2pt,shorten >=2pt] (a2) -- (b3);
+   \draw[thick,ForestGreen,->,shorten <=2pt,shorten >=2pt] (a3) -- (b1);
+   \draw[thick,ForestGreen,->,shorten <=2pt,shorten >=2pt] (a4) -- (b4);
+  \end{tikzpicture}
+  \caption{Zobrazení $\clg{g} =
+  \{(\clr{1},\clr{2}),(\clr{2},\clr{3}),(\clr{3},\clr{1}),(\clr{4},\clr{4})\}$.
+ Zobrazením \uv{prohazujícím} prvky na množině se říká \emph{permutace}.}
+  \label{subfig:priklady-zobrazeni-2}
+ \end{subfigure}
+ \caption{Příklady zobrazení.}
+ \label{fig:priklady-zobrazeni}
+\end{figure}
+
+K zobrazením se tokem historie navázaly přehoušle názvosloví. Zopakujeme je zde,
+bo pěstujeme zámysl je v dalším textu bez výstrah dštíti.
+
+Ať $f$ do konce sekce značí zobrazení $A \to B$. Množinu $A$ nazýváme
+\emph{doménou} zobrazení $f$, značíme $\dom f$, a množinu $B$ jeho
+\emph{kodoménou}, značíme $\codom f$. Množinu všech prvků z $B$, na které se
+zobrazuje nějaký prvek z $A$, nazýváme \emph{obrazem} $f$, značíme $\img f$.
+Formálně
+\[
+ \img f \coloneqq \{b \in B \mid \exists a \in A: f(a) = b\}.
+\]
+Triviálně platí $\img f \subseteq \codom f$, ale tyto množiny nemusejí být
+stejné. Například, zobrazení $\clg{f}$
+z~\myref{obrázku}{subfig:priklady-zobrazeni-1} má obraz $\{\clb{a},\clb{b}\}$,
+ale kodoménu celou množinu $\{\clb{a},\clb{b},\clb{c}\}$.
+
+Pro každý prvek $b \in \codom f$ definujeme jeho \emph{vzor} (při zobrazení
+$f$), značíme $f^{-1}(b)$, jako množinu \textbf{všech} prvků z $A$, které se na
+něj zobrazují. Formálně, pro $b \in \codom f$
+\[
+ f^{-1}(b) \coloneqq \{a \in A \mid f(a) = b\}.
+\]
+Triviálně $f^{-1}(b) \subseteq \dom f$ pro každé $b \in \codom f$, ale tyto
+množiny jistě mohou být různé. Pro zobrazení $\clg{f}$ z
+\myref{obrázku}{subfig:priklady-zobrazeni-1} platí $\clg{f}^{-1}(\clb{b}) =
+\{\clr{1},\clr{2},\clr{4}\}$ a $\clg{f}^{-1}(\clb{c})=\emptyset$ a pro zobrazení
+$\clg{g}$ z \myref{obrázku}{subfig:priklady-zobrazeni-2} platí
+$\clg{g}^{-1}(\clr{2}) = \{\clr{1}\}$. Přestože je vzor prvku při zobrazení
+oficiálně \textbf{množina}, budeme v případech jako byl tento poslední, kdy je
+vzorem množina jednoprvková, psát většinou $\clg{g}^{-1}(\clr{2}) = \clr{1}$ a
+tvrdit, že prvek $\clr{1}$ je \emph{vzorem} prvku $\clr{2}$ při zobrazení
+$\clg{g}$.

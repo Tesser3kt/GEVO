@@ -1,4 +1,4 @@
-PWD /home/tesserekt/source/repos/GEVO/Seminar/notes/analysis
+PWD /home/tesserekt/source/repos/gevo/Seminar/notes/analysis
 INPUT /usr/local/texlive/2023/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -655,6 +655,17 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/public/newtx/nxlmi5.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/newtx/LibertineMathMI5.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/newtx/NewTXMI5.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/newtx/stxscr.tfm
+INPUT ./preliminaries/sets/maps.tex
+INPUT ./preliminaries/sets/maps.tex
+INPUT ./preliminaries/sets/maps.tex
+INPUT ./preliminaries/sets/maps.tex
+INPUT preliminaries/sets/maps.tex
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/public/newtx/nxlmia.vf
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/newtx/LibertineMathRM.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/newtx/txmiaSTbb.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/newtx/txmiaX.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/public/libertinus-type1/LibertinusSerif-Regular-tlf-t1.vf
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/libertinus-type1/LibertinusSerif-Regular-tlf-t1--base.tfm
 OUTPUT main.thm
 INPUT main.aux
 INPUT ./main.out

@@ -135,5 +135,90 @@ uspokojující, než je popisovat, a tedy si závěrem této krátké sekce nakr
     \{1,2,3\}$.}
     \label{fig:hasseho-diagram-power-set}
    \end{figure}
+  \item Poněkud méně pravidelný příklad než oba předchozí je uspořádání na
+   přirozených číslech \emph{dělitelností}. Dělitelnost jednoho přirozeného
+   čísla jiným se definuje samozřejmě. Řekneme, že $n$ \emph{dělí} $m$, píšeme
+   $n \mid m$, když existuje přirozené číslo $k$ splňující $m = kn$. Kupříkladu
+   $3 \mid 6$, protože existuje přirozené číslo -- konkrétně $2$ -- takové, že
+   $6 = 2 \cdot 3$.
+
+   Nyní, povšimněme sobě, že $ \mid $ je uspořádání na $\N$. Vskutku, zřejmě
+   každé číslo dělí samo sebe. Když $n$ dělí $m$ a $m$ dělí $n$, pak jde nutně o
+   téže číslo. Konečně, když $n$ dělí $m$ a $m$ dělí $l$, pak v podstatě
+   triviálně $n$ dělí $l$. Nejde však jistě o uspořádání lineární, neboť
+   například číslo $3$ nedělí číslo $10$ ani obráceně.
+  
+   Uspořádání dělitelností na $\N$ má Hasseho diagram, který je nekonečný jak do
+   šířky, tak do výšky. Totiž, žádné prvočíslo není dělitelné žádným číslem,
+   které šlo před ním (pouze $1$), a tedy je musíme umístit do druhé řady (nad
+   $1$) vedle ostatních prvočísel. Do výšky stoupá nekonečně pro to, že když
+   spolu vynásobíme dvě čísla $k$-té úrovně, dostaneme číslo úrovně $(k+1)$-ní.
+  
+   Pro jednoduchost se spokojíme s Hasseho diagramem množiny přirozených čísel
+   od $1$ do $15$ uspořádané relací dělitelnosti.
+   \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[xscale=2,yscale=1.5]
+     \node[vertex] (v1) at (0,0) {};
+     \node[vertex] (v2) at (-2.5,1) {};
+     \node[vertex] (v3) at (-1.5,1) {};
+     \node[vertex] (v5) at (-0.5,1) {};
+     \node[vertex] (v7) at (0.5,1) {};
+     \node[vertex] (v11) at (1.5,1) {};
+     \node[vertex] (v13) at (2.5,1) {};
+     
+     \node[vertex] (v4) at (-2.5,2) {};
+     \node[vertex] (v8) at (-2.5,3) {};
+
+     \node[vertex] (v9) at (-1.5,2) {};
+
+     \node[vertex] (v6) at (-2,1.5) {};
+     \node[vertex] (v10) at (-1,1.5) {};
+     \node[vertex] (v15) at (0,2) {};
+     \node[vertex] (v14) at (-1,2) {};
+
+     \foreach \n in {2,3,5,7,11,13} {
+      \draw[thick] (v1) -- (v\n);
+     }
+
+     \draw[thick] (v2) -- (v4);
+     \draw[thick] (v4) -- (v8);
+     \draw[thick] (v3) -- (v9);
+     
+     \draw[thick] (v2) -- (v6);
+     \draw[thick] (v3) -- (v6);
+     
+     \draw[thick] (v2) -- (v10);
+     \draw[thick] (v5) -- (v10);
+     
+     \draw[thick] (v3) -- (v15);
+     \draw[thick] (v5) -- (v15);
+     
+     \draw[thick] (v2) -- (v14);
+     \draw[thick] (v7) -- (v14);
+     
+     \node[below=0mm of v1] {$1$};
+     \node[below left=-1mm and -1mm of v2] {$2$};
+     \node[below left=-1mm and -1mm of v3] {$3$};
+     \node[below left=-1mm and -1mm of v5] {$5$};
+     \node[below right=-1mm and -1mm of v7] {$7$};
+     \node[below right=-1mm and -1mm of v11] {$11$};
+     \node[below right=-1mm and -1mm of v13] {$13$};
+     
+     \node[left=0mm of v4] {$4$};
+     \node[left=0mm of v8] {$8$};
+     
+     \node[above=0mm of v9] {$9$};
+     \node[above=0mm of v6] {$6$};
+     \node[above=0mm of v14] {$14$};
+     
+     \node[above right=-1mm and -1mm of v10] {$10$};
+     \node[above right=-1mm and -1mm of v15] {$15$};
+     
+    \end{tikzpicture}
+
+    \caption{Hasseho diagram uspořádané množiny $(\{1,2,\ldots,15\}, \mid )$.}
+    \label{fig:hasse-delitelnost}
+   \end{figure}
  \end{enumerate}
 \end{example}
