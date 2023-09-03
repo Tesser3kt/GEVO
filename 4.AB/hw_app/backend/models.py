@@ -37,6 +37,9 @@ class User(db.Model):
     assignments = db.relationship('Assignment', backref='user', lazy=True)
     comments = db.relationship('Comment', backref='user', lazy=True)
 
+    def __repr__(self):
+        return f'<User {self.name} | {self.role.value}>'
+
 
 class Homework(db.Model):
     """
@@ -54,6 +57,9 @@ class Homework(db.Model):
     max_points = db.Column(db.Integer, nullable=False)
     max_tries = db.Column(db.Integer, nullable=False)
     assignments = db.relationship('Assignment', backref='homework', lazy=True)
+
+    def __repr__(self):
+        return f'<Homework {self.title}>'
 
 
 class Assignment(db.Model):
@@ -78,6 +84,10 @@ class Assignment(db.Model):
     status = db.Column(db.Enum(AssignmentStatus), nullable=False)
     comments = db.relationship('Comment', backref='assignment', lazy=True)
 
+    def __repr__(self):
+        return (f'<Assignment of {self.homework} to {self.user}. Deadline: '
+                f'{self.deadline}>')
+
 
 class Comment(db.Model):
     """
@@ -94,3 +104,7 @@ class Comment(db.Model):
                               nullable=False)
     comment = db.Column(db.Text, nullable=False)
     date_created = db.Column(db.DateTime, nullable=False)
+
+    def __repr__(self):
+        return (f'<Comment by {self.user} on {self.assignment}. Created on: '
+                f'{self.date_created}>')

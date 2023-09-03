@@ -1,10 +1,10 @@
 """ HW app main file. """
 
-from .config import STATIC_FOLDER, TEMPLATE_FOLDER
-from .models import db
-from .pages import pages
-from .auth import auth, oauth
-from flask import Flask
+from backend.config import STATIC_FOLDER, TEMPLATE_FOLDER
+from backend.models import db
+from backend.pages import pages
+from backend.auth import auth, oauth
+from flask import Flask, send_from_directory
 from flask_session import Session
 import datetime
 
@@ -26,6 +26,15 @@ oauth.init_app(app)
 
 # init session
 Session(app)
+
+# special route for preline UI
+
+
+@app.route('/preline.js')
+def serve_preline_js():
+    return send_from_directory('../frontend/node_modules/preline/dist',
+                               'preline.js')
+
 
 # run app
 if __name__ == '__main__':

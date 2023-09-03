@@ -125,3 +125,41 @@ oficiálně \textbf{množina}, budeme v případech jako byl tento poslední, kd
 vzorem množina jednoprvková, psát většinou $\clg{g}^{-1}(\clr{2}) = \clr{1}$ a
 tvrdit, že prvek $\clr{1}$ je \emph{vzorem} prvku $\clr{2}$ při zobrazení
 $\clg{g}$.
+
+Sekci završíme zopakováním speciálních typů zobrazení. Říkáme, že zobrazení
+$f:A \to B$ je
+\begin{itemize}
+ \item \emph{prosté} (či \emph{injektivní}), když na každý prvek $B$ zobrazuje
+  nejvýše jeden prvek $A$. Formálně lze psát, že
+  \[
+   \forall a_1,a_2 \in A: f(a_1) = f(a_2) \Rightarrow a_1 = a_2.
+  \]
+  Ekvivalentně můžeme tvrdit, že zobrazení je prosté, když $f^{-1}(b)$ má
+  nejvýš jeden prvek pro každé $b \in B$ a, \textbf{je-li $A$ konečná}, pak je
+  prostota $f$ vyjádřena též v podmínce $\# \img f = \# A$. Nabádáme čtenáře,
+  aby si ekvivalenci těchto výroků rozmysleli. Symbolicky budeme občas zapisovat
+  prostá zobrazení jako $f:A \hookrightarrow B$.
+ \item \emph{na} (či \emph{surjektivní}), když na každý prvek $B$ zobrazuje
+  nějaký prvek $A$. Formálně lze psát, že
+  \[
+   \forall b \in B \; \exists a \in A: f(a) = b.
+  \]
+  Ekvivalentně je $f$ na, když $f^{-1}(b)$ není prázdná pro žádný prvek $b \in
+  B$ anebo, \textbf{ať už je $B$ konečná či ne}, když $\img f = B$. Opět
+  nabádáme čtenáře k ověření této ekvivalence. Symbolicky budeme občas zapisovat
+  surjektivní zobrazení jako $f:A \twoheadrightarrow B$.
+ \item \emph{vzájemně jednoznačné} (též \emph{bijektivní}), když je prosté i na.
+  Množiny, mezi kterými existuje bijektivní zobrazení, lze v mnoha situacích
+  považovat za stejné, neboť mají vlastně tytéž prvky, akorát pod jinými
+  \uv{jmény}. Z ekvivalentních definic prostých a surjektivních zobrazení plyne,
+  že zobrazení je bijektivní, právě když $f^{-1}(b)$ je jednoprvková pro každý
+  prvek $b \in B$ a též, \textbf{jsou-li $A$ i $B$ konečné}, když $\# \img f =
+  \# A = \# B$. Symbolicky budeme občas zapisovat bijektivní zobrazení jako $f:A
+  \leftrightarrow B$.
+\end{itemize}
+
+Pojmu bijekce se používá při formální definici velikosti množiny. Pro libovolnou
+množinu $X$ je její \emph{velikost} definována jako takové přirozené číslo $n
+\in \N$, že existuje bijekce $\{1,\ldots,n\} \leftrightarrow X$. Píšeme $\# X =
+n$. Neexistuje-li takové přirozené číslo, říkáme, že $X$ je nekonečná, a píšeme
+$\# X = \infty$.

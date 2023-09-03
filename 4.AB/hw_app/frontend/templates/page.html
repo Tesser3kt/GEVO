@@ -20,12 +20,17 @@
                     <li class="navbar-item {{ 'active' if active_page == 'not_finished' }}">
                         <a href="{{ url_for("pages.not_finished") }}" class="navbar-link">Nedokončené</a>
                     </li>
+                    {% if user.role == 'admin' %}
+                        <li class="navbar-item {{ 'active' if active_page == 'admin' }}">
+                            <a href="{{ url_for("pages.admin") }}" class="navbar-link">Správa</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
         <div class="user-container">
             <div class="username-container">
-                <p class="username">{{ user_name }}</p>
+                <p class="username">{{ user.name }}</p>
             </div>
             <div class="logout-container">
                 <a href="{{ url_for("pages.logout") }}" class="logout-button">

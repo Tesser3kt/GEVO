@@ -30,7 +30,9 @@
             </div>
         </div>
         <div class="container login-container">
-            <a href="{{ url_for("auth.google") }}" class="google-login-button">
+            <a type="button"
+               href="{{ url_for("auth.google") }}"
+               class="google-login-button">
                 <img width="32"
                      height="32"
                      src="{{ url_for('static', filename='imgs/google-logo.png') }}"

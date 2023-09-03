@@ -1,9 +1,8 @@
 from functools import wraps
 from flask import redirect, url_for, Blueprint, current_app, session
-from .models import User, UserRole
+from backend.models import User, UserRole
+from backend.auxil import get_from_db, create_in_db
 from authlib.integrations.flask_client import OAuth
-
-from .auxil import get_from_db, create_in_db
 
 auth = Blueprint('auth', __name__)
 
@@ -75,3 +74,15 @@ def login_required(redirect_url):
             return f(*args, **kwargs)
         return decorated_function
     return login_wrapper
+
+
+def admin_required(f):
+    """ Decorator for routes that require admin role. """
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if session['user_role'] != UserRole.ADMIN.value:
+            print('User not admin.')
+            # TODO redirect to error page
+            return redirect(url_for('pages.login'))
+        return f(*args, **kwargs)
+    return decorated_function

@@ -1,6 +1,7 @@
 """ HW app pages routes. """
 
-from .auth import login_required
+from backend.auth import login_required, admin_required
+from backend.auxil import get_user_from_session
 from flask import render_template, redirect, url_for, Blueprint, session
 
 pages = Blueprint('pages', __name__)
@@ -22,8 +23,12 @@ def login():
 @pages.route('/testpage')
 @login_required(redirect_url='/testpage')
 def testpage():
-    return render_template('page.html', title="Testpage",
-                           user_name=session['user_name'])
+    user = get_user_from_session()
+    return render_template(
+        'page.html',
+        title="Testpage",
+        user=user
+    )
 
 
 @pages.route('/dashboard')
@@ -42,6 +47,18 @@ def finished():
 @login_required(redirect_url='/not_finished')
 def not_finished():
     return render_template('not_finished.html', title="Not Finished")
+
+
+@pages.route('/admin')
+@login_required(redirect_url='/admin')
+@admin_required
+def admin():
+    user = get_user_from_session()
+    return render_template(
+        'admin.html',
+        title="Admin",
+        user=user
+    )
 
 
 @pages.route('/logout')

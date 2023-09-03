@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}", "./templates/**/*.{html,js}"],
+  content: [
+    "./src/**/*.{html,js}",
+    "./templates/**/*.{html,js}",
+    "node_modules/preline/dist/*.js"
+  ],
   theme: {
     fontFamily: {
       display: ['"Exo 2"', "sans-serif"],
@@ -58,5 +62,7 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('preline/plugin')
+  ],
 };

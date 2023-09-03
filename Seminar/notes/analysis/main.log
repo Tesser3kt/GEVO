@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.15)  28 AUG 2023 22:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.26)  1 SEP 2023 12:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -228,8 +228,8 @@ Package ntheorem Info: option `amsmath' handling for `thmmarks' loaded on input 
 \thm@amstmpdepth=\dimen173
 \tagwidth=\dimen174
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/newtx/newtx.sty
-Package: newtx 2023/07/30 v1.723(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
- `newtx'v1.723, 2023/07/30 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
+Package: newtx 2023/08/20 v1.724(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
+ `newtx'v1.724, 2023/08/20 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/fontaxes/fontaxes.sty
 Package: fontaxes 2020/07/21 v1.0e Font selection axes
@@ -247,10 +247,10 @@ LaTeX Info: Redefining \textulc on input line 49.
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count284
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/local/texlive/2023/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count285
-\decimalpart=\count286
+\xs_counta=\count285
+\xs_countb=\count286
 )
-Package: xstring 2023/01/14 v1.85 String manipulations (CT)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkvutils.tex
@@ -1158,7 +1158,7 @@ LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
 (Font)              scaled to size 6.1pt on input line 3.
 LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 3.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/newtx/untxsym.fd
-File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
+File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
 (Font)              scaled to size 10.95pt on input line 3.
@@ -1291,7 +1291,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
  [16]) (./preliminaries/sets/orderings.tex [17] [18]) (./preliminaries/sets/maps.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [19] [20])))
+ [19] [20]))) (./exercises.tex)
 \tf@thm=\write6
 \openout6 = `main.thm'.
 
@@ -1304,15 +1304,15 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: ADAEB39141D21D383E90CE1FBBFA57B8;1489.
  ) 
 Here is how much of TeX's memory you used:
- 38356 strings out of 475189
- 750278 string characters out of 5763838
+ 38371 strings out of 475189
+ 750496 string characters out of 5763838
  1967254 words of memory out of 5000000
- 58850 multiletter control sequences out of 15000+600000
+ 58862 multiletter control sequences out of 15000+600000
  755074 words of font info for 169 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,15n,120p,853b,1199s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (21 pages, 1007864 bytes).
+Output written on main.pdf (21 pages, 1010609 bytes).
 PDF statistics:
  341 PDF objects out of 1000 (max. 8388607)
  250 compressed objects within 3 object streams

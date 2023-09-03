@@ -1,6 +1,7 @@
 """ Module for auxiliary functions """
 
-from .app import db
+from backend.app import db
+from flask import session
 
 
 def get_from_db(model, **kwargs):
@@ -14,3 +15,11 @@ def create_in_db(model, **kwargs):
     db.session.add(obj)
     db.session.commit()
     return obj
+
+
+def get_user_from_session():
+    return {
+        'name': session.get('user_name'),
+        'email': session.get('user_email'),
+        'role': session.get('user_role')
+    }
