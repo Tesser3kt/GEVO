@@ -1,0 +1,48 @@
+\begin{titlepage}
+ % Whole titlepage in sans-serif.
+ \sffamily
+
+ \begin{tikzpicture}[overlay,remember picture]
+  \tikzset{
+   textnode/.style={
+    align=center,
+    text width=\textwidth
+   },
+   titlenode/.style={
+    textnode,
+    execute at begin node=\setlength{\baselineskip}{3em}
+   }
+  }
+
+  \coordinate (N) at (current page.north);
+  \node[textnode,below=2.5cm of N] (school) {%
+   \LARGE Gymnázium Evolution Jižní Město
+  };
+  \node[below=.5cm of school] (logo) {%
+   \includegraphics[height=6cm]{figs/logo.png}
+  };
+
+  \coordinate(C) at (current page.center);
+  \node[titlenode] (title) at (C) {%
+   \huge\bfseries \title
+  };
+  \node[above=1cm of title] (author) {%
+   \LARGE\bfseries \author
+  };
+  \node[below=2.5cm of title] (thesis) {%
+   \LARGE Ročníková práce
+  };
+  
+  \coordinate(S) at (current page.south);
+  \node[textnode,above=2.5cm of S] (year) {%
+   \large Školní rok: \academicyear
+  };
+  \node[textnode,above=1cm of year] (supervisor) {%
+   \large \supervisor
+  };
+  \node[textnode,above=.25\baselineskip of supervisor] (supervisor name) {%
+   \large Školitel práce:
+  };
+  
+ \end{tikzpicture}
+\end{titlepage}

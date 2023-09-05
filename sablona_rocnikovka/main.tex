@@ -1,0 +1,50 @@
+\documentclass[a4paper,12pt,twoside]{book}
+\input{preamble}
+\input{data}
+
+\begin{document}
+\pagestyle{empty}
+
+% Titulní strana %
+\input{titlepage}
+
+% Poděkování %
+\input{acknowledgement}
+\clearpage
+
+% Prohlášení %
+\input{declaration}
+\clearpage
+
+% Český abstrakt 
+\input{abstractcz}
+\clearpage
+
+% Anglický abstrakt %
+\input{abstracten}
+\clearpage
+
+% Obsah %
+\tableofcontents
+\pagestyle{fancy}
+
+% Úvod %
+\input{introduction}
+
+% Sem vkládejte své části. Teoretická a praktická část by měly být \part. Každá
+% část by měla být složky, kde jsou složky (samozrejme bez diakritiky a misto
+% mezer podtrzitka) odpovídající kapitolám a až v nich soubory odpovídající
+% sekcím. Vše musí být napsáno v main.tex.latexmain ve formě část.tex,
+% část/kapitola.tex a část/kapitola/sekce.tex.
+
+\input{teoreticka_cast}
+
+\input{prakticka_cast}
+
+% Závěr %
+\input{conclusion}
+
+% Zdroje %
+\printbibliography[title=Literatura]
+
+\end{document}
