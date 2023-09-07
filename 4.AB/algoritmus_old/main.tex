@@ -1,79 +1,57 @@
-\documentclass[aspectratio=169,11pt,svgnames]{beamer}
+% Modelo de slides para projetos de disciplinas do Abel
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usetheme[%
+ sectionpage=none,%
+ subsectionpage=progressbar%
+ ]{metropolis}
 
 \usepackage[czech]{babel}
-\usepackage[czech=quotes]{csquotes}
 \usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage{mathtools}
-\usepackage{float}
-\usepackage{tikz}
-
-% Flowchart stuff
-\usetikzlibrary{shapes.geometric, arrows}
-\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum
-height=1cm,text centered, draw=black, fill=Red!30]
-\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
-minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=Blue!30]
-\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text
-centered, draw=black, fill=Orange!30]
-\tikzstyle{decision} = [diamond, aspect=2, minimum width=3cm, minimum height=.5cm, text
-centered, draw=black, fill=Green!30]
-\tikzstyle{connector} = [draw, -latex']
-
-\usepackage{pgfopts}
-\usepackage{xcolor}
 \usepackage{tcolorbox}
 
-\usetheme[
- titlestyle=style2,
- titleformat=smallcaps,
- sectionstyle=plain,
- slidestyle=cyber,
- headingcolor=theme,
- block=transparent
-]{trigon}
+\tcbset{%
+ sharp corners=all,%
+ boxsep=7pt,%
+ fonttitle=\bfseries,%
+ colback=gray!30!white,%
+ colframe=mDarkTeal,%
+ boxrule=1pt%
+}
 
-\title{Algoritmus}
+\title{ALGORITMUS}
 \date{\today}
 \author{Adam Klepáč}
 \institute[GEVO]{Gymnázium Evolution Jižní Město}
-\biglogo[width=.2\textwidth]{logo}
-\smalllogo[width=.1\textwidth]{logo}
-\titlegraphic{\includegraphics[height=\paperheight]{title.jpg}}
-
-\def\subsectionname{}
 
 % enumerate global settings
 \setlist[enumerate,1]{label=\arabic*.}
 \setlist[enumerate,2]{label=\alph*)}
 
-% custom colors %
-\definecolor{SomeRandomRed}{HTML}{B22028}
-\colorlet{tPrim}{LightSeaGreen}
-
-\tcbset{
- boxsep=7pt,
- fonttitle=\sc,
- colframe=tGreyBg,
- colframe=tTheme,
- boxrule=1pt
-}
-
 \begin{document}
-\titleframe
+
+\begin{frame}
+ \begin{columns}
+  \begin{column}{.45\textwidth}
+   \maketitle
+  \end{column}
+  \begin{column}{.45\textwidth}
+   \includegraphics[width=\textwidth]{intro-meme}
+  \end{column}
+ \end{columns}
+\end{frame}
 
 \begin{frame}
  \frametitle{Obsah}
  \tableofcontents
 \end{frame}
 
-\section{Co je algoritmus?}
-\subsection{Příklady}
+\section[Co je algoritmus?]{Co je algoritmus?}
 
-\begin{frame}
- \subsectionpage
-\end{frame}
+\subsection[Příklady]{Příklady}
 
 \begin{frame}
  \frametitle{Recept na mramorovou bábovku}
@@ -124,11 +102,7 @@ centered, draw=black, fill=Green!30]
  \end{block}
 \end{frame}
 
-\subsection{Protipříklady}
-
-\begin{frame}
- \subsectionpage
-\end{frame}
+\subsection[Protipříklady]{Protipříklady}
 
 \begin{frame}
  \frametitle{Já věřím, že poletím!}
@@ -176,10 +150,7 @@ centered, draw=black, fill=Green!30]
  \end{block}
 \end{frame}
 
-\subsection{Neformální popis}
-\begin{frame}
- \subsectionpage
-\end{frame}
+\subsection[Neformální popis]{Neformální popis}
 
 \begin{frame}
  \frametitle{Popis pomocí vlastností}
@@ -209,79 +180,8 @@ centered, draw=black, fill=Green!30]
  \end{tcolorbox}
 \end{frame}
 
-\section{Flowchart (vývojový diagram)}
-
-\subsection{Popis}
-
 \begin{frame}
- \subsectionpage
-\end{frame}
-
-\begin{frame}
- \frametitle{Části algoritmu}
- \begin{enumerate}
-  \item<2-> Začátek/konec (start/end). Ve flowchartu obvykle
-   \tikz[baseline=-0.5ex]{\draw[rounded corners] (-0.9,-0.4) rectangle (0.9,0.4)
-   {};}
-  \item<3-> Vstup/výstup (input/output). Ve flowchartu obvykle 
-   \tikz[baseline=-0.5ex,xslant=0.5]{\draw (-0.9,-0.4) rectangle (0.9,0.4) {};}
-  \item<4-> Úkon (process). Ve flowchartu obvykle 
-   \tikz[baseline=-0.5ex]{\draw (-0.9,-0.4) rectangle (0.9,0.4) {};}
-  \item<5-> Rozhodnutí (decision). Ve flowchartu obvykle
-   \tikz[baseline=-0.5ex]{\node[draw,diamond,minimum width=1.8cm,minimum
-   height=0.8cm] {};}
- \end{enumerate}
-\end{frame}
-
-\begin{frame}
- \frametitle{Co je f\mbox{}lowchart?}
- \begin{tcolorbox}[title=Flowchart,width=.8\textwidth,center]
-  Flowchart je znázornění průběhu algoritmu jako jeho částí spojených šipkami.
- \end{tcolorbox}
-\end{frame}
-
-\subsection{Příklady}
-\begin{frame}
- \subsectionpage
-\end{frame}
-
-\begin{frame}
- \frametitle{Přihlášení uživatele}
- \begin{figure}[H]
-  \centering
-  \begin{tikzpicture}[node distance=2cm, scale=0.5, every node/.style={transform
-   shape}]
-   \node[startstop] (start) at (0,0) {zobrazení přihlašovacího okna};
-   \node[io, below of=start] (creds) {uživatelské jméno, heslo};
-   \node[decision, below of=creds, yshift=-.5cm] (userexists) {Existuje uživatel?};
-   \node[process, right of=userexists,xshift=5cm] (usernotexists) {Oznam
-    \enquote{Neplatné uživatelské jméno}.};
-   \node[decision, below of=creds, yshift=-3.5cm] (passok) {Správné heslo?};
-   \node[process, right of=passok, xshift=5cm] (passnotok) {Oznam
-    \enquote{Chybné heslo}.};
-   \node[process, below of=passok,yshift=-.5cm] (loguser) {Přihlaš uživatele.};
-   \node[startstop,below of=loguser] (nextpage) {jiná stránka};
-  
-   \path[connector] (start) -- (creds);
-   \path[connector] (creds) -- (userexists);
-   \path[connector] (userexists) -- node[anchor=south] {ne}
-   (usernotexists);
-   \path[connector] (userexists) -- node[anchor=east] {ano} (passok);
-   \path[connector] (passok) -- node[anchor=south] {ne} (passnotok);
-   \path[connector] (passok) -- node[anchor=east] {ano} (loguser);
-   \path[connector] (loguser) -- (nextpage);
-
-   \draw[latex'-] (start) -| (usernotexists);
-   \draw[latex'-] (start) --|- (passnotok);
-   
-  \end{tikzpicture}
- \end{figure}
-\end{frame}
-
-\begin{frame}
- \vfill
- \centering\Huge\sc Díky za pozornost.
- \vfill
+ \centering\Huge Díky za pozornost.
 \end{frame}
 
 \end{document}
