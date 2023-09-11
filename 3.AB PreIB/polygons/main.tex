@@ -7,7 +7,7 @@
 \usepackage{mathtools}
 \usepackage{float}
 \usepackage{tikz}
-\usetikzlibrary{patterns}
+\usetikzlibrary{patterns,arrows.meta}
 \usepackage{tkz-euclide}
 \tikzset{point style/.style = {%
   draw = black,
@@ -617,7 +617,9 @@
   A \alert{regular polygon} is a convex polygon whose sides all have the same
   length and whose internal angles all have the same size.
  \end{tcolorbox}
+ \pause
  \begin{figure}[H]
+  \captionsetup{justification=centering}
   \centering
   \begin{subfigure}[t]{.24\textwidth}
    \centering
@@ -644,6 +646,267 @@
    \end{tikzpicture}
    \caption*{Square (regular tetragon)}
   \end{subfigure}
+  \begin{subfigure}[t]{.24\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \tkzDefPoint(-54:1){A}
+    \tkzDefPoint(18:1){B}
+    \tkzDefPoint(90:1){C}
+    \tkzDefPoint(162:1){D}
+    \tkzDefPoint(234:1){E}
+     
+    \tkzDrawPolygon(A,B,C,D,E)
+    \tkzDrawPoints(A,B,C,D,E)
+   \end{tikzpicture}
+   \caption*{Regular pentagon}
+  \end{subfigure}
+  \begin{subfigure}[t]{.24\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \tkzDefPoint(0:1){A}
+    \tkzDefPoint(60:1){B}
+    \tkzDefPoint(120:1){C}
+    \tkzDefPoint(180:1){D}
+    \tkzDefPoint(240:1){E}
+    \tkzDefPoint(300:1){F}
+     
+    \tkzDrawPolygon(A,B,C,D,E,F)
+    \tkzDrawPoints(A,B,C,D,E,F)
+   \end{tikzpicture}
+   \caption*{Regular hexagon}
+  \end{subfigure}
+ \end{figure}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Review -- Plane Transformations}
+ \begin{tcolorbox}[title=Rotation]
+  \alert{Rotation} of a polygon consists of well ... rotating each of
+  its points by a fixed angle around a fixed point (called \emph{anchor}).
+ \end{tcolorbox}
+ \pause
+ \begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{.3\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \foreach \angle/\name in {-54/A,18/B,90/C,162/D,234/E} {
+     \tkzDefPoint(\angle:1){\name}
+    }
+    \tkzDrawPolygon(A,B,C,D,E)
+    \tkzDrawPoints(A,D,C,E)
+    \tkzDefPointsBy[rotation=center B angle 60](A,B,C,D,E){A',B',C',D',E'}
+    \tkzDrawPolygon[color=PolygonOrange](A',B',C',D',E')
+    \tkzDrawPoints[color=PolygonOrange](A',C',D',E')
+    \tkzDrawPoint[color=PolygonCyan](B)
+    \tkzMarkAngle[color=PolygonCyan,size=0.9](C,B,C')
+   \tkzLabelAngle[pos=0.5,color=PolygonCyan](C,B,C'){\footnotesize $60^{\circ}$}
+   \end{tikzpicture}
+  \end{subfigure}
+  \begin{subfigure}[t]{.3\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \foreach \angle/\name in {-54/A,18/B,90/C,162/D,234/E} {
+     \tkzDefPoint(\angle:1){\name}
+    }
+    \tkzDefPoint(0,0){O}
+    \tkzDrawPolygon(A,B,C,D,E)
+    \tkzDrawPoints(A,B,D,C,E)
+    \tkzDrawPoint[color=PolygonCyan](O)
+    \tkzDefPointsBy[rotation=center O angle -45](A,B,C,D,E){A',B',C',D',E'}
+    \tkzDrawSegments[color=PolygonCyan](O,C O,C')
+    \tkzDrawPoint(C)
+    \tkzDrawPolygon[color=PolygonOrange](A',B',C',D',E')
+    \tkzDrawPoints[color=PolygonOrange](A',B',C',D',E')
+    \tkzMarkAngle[color=PolygonCyan,size=0.7](C',O,C)
+    \tkzLabelAngle[color=PolygonCyan,pos=0.5,xshift=0.5mm](C',O,C){\tiny $45^{ \circ
+    }$}
+   \end{tikzpicture}
+  \end{subfigure}
+  \caption*{Examples of rotations.}
+ \end{figure}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Review -- Plane Transformations}
+ \begin{tcolorbox}[title=Ref~\hspace*{-.4ex}lection]
+  \alert{Reflection} of a polygon consists of `mirroring' each of its points
+  through a given line (called \emph{axis of reflection}).
+ \end{tcolorbox}
+ \pause
+ \begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{.3\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \foreach \angle/\name in {-54/A,18/B,90/C,162/D,234/E} {
+     \tkzDefPoint(\angle:1){\name}
+    }
+    \tkzDrawPolygon(A,B,C,D,E)
+    \tkzDrawPoints(A,B,C,D,E)
+    \tkzDefPoints{0.7/1/O,0.7/-1/P}
+    \tkzDrawLine[thick,color=PolygonCyan](O,P)
+    \tkzDefPointsBy[reflection=over O--P](A,B,C,D,E){A',B',C',D',E'}
+    \tkzDrawPolygon[color=PolygonOrange](A',B',C',D',E')
+    \tkzDrawPoints[color=PolygonOrange](A',B',C',D',E')
+   \end{tikzpicture}
+  \end{subfigure}
+  \begin{subfigure}[t]{.3\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \clip (-1.1,-1.1) rectangle (1.1,1.5);
+    \foreach \angle/\name in {-54/A,18/B,90/C,162/D,234/E} {
+     \tkzDefPoint(\angle:1){\name}
+    }
+    \tkzDrawPolygon(A,B,C,D,E)
+    \tkzDrawPoints(A,B,C,D,E)
+    \tkzDefPoints{-1/1.75/O,0.5/-1/P}
+    \tkzDrawLine[thick,color=PolygonCyan,add=-0.2 and 0.2](O,P)
+    \tkzDefPointsBy[reflection=over O--P](A,B,C,D,E){A',B',C',D',E'}
+    \tkzDrawPolygon[color=PolygonOrange](A',B',C',D',E')
+    \tkzDrawPoints[color=PolygonOrange](A',B',C',D',E')
+   \end{tikzpicture}
+  \end{subfigure}
+  \caption*{Examples of reflections.}
+ \end{figure}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Review -- Plane Transformations}
+ \begin{tcolorbox}[title=Point Symmetry]
+  \alert{Point symmetry} of a polygon consists of `mirroring' each of its points
+  through a given point (called \emph{center of symmetry}).
+ \end{tcolorbox}
+ \pause
+ \begin{figure}[H]
+ \centering
+ \begin{subfigure}[t]{.3\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \foreach \angle/\name in {-54/A,18/B,90/C,162/D,234/E} {
+    \tkzDefPoint(\angle:1){\name}
+   }
+   \tkzDrawPolygon(A,B,C,D,E)
+   \tkzDrawPoints(A,B,C,D,E)
+   \tkzDefPoint(-0.5,0.25){O}
+   \tkzDrawPoint[color=PolygonCyan](O)
+
+   \tkzDefPointsBy[symmetry=center O](A,B,C,D,E){A',B',C',D',E'}
+   \tkzDrawPolygon[color=PolygonOrange](A',B',C',D',E')
+   \tkzDrawPoints[color=PolygonOrange](A',B',C',D',E')
+  \end{tikzpicture}
+ \end{subfigure}
+ \begin{subfigure}[t]{.3\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \foreach \angle/\name in {-54/A,18/B,90/C,162/D,234/E} {
+    \tkzDefPoint(\angle:1){\name}
+   }
+   \tkzDrawPolygon(A,B,C,D,E)
+   \tkzDrawPoints(A,C,D,E)
+
+   \tkzDefPointsBy[symmetry=center B](A,B,C,D,E){A',B',C',D',E'}
+   \tkzDrawPolygon[color=PolygonOrange](A',B',C',D',E')
+   \tkzDrawPoints[color=PolygonOrange](A',C',D',E')
+   \tkzDrawPoint[color=PolygonCyan](B)
+  \end{tikzpicture}
+ \end{subfigure}
+ \caption*{Examples of point symmetries.}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Symmetries of Regular Polygons}
+ \textbf{Question:} What are the transformations that don't change regular
+ polygons in any way?
+ \pause
+ \begin{itemize}[label=\textbullet]
+  \item<1-> rotational symmetries
+  \begin{itemize}[label=$\circ$]
+   \item<2-> rotation by $\frac{360^{ \circ }}{n}$
+  \end{itemize}
+ \item<3-> reflection (line) symmetries
+  \begin{itemize}[label=$\circ$]
+   \item<4-> for $n$ even reflections over lines passing through centres of opposite
+    sides
+   \item<4-> for $n$ even over lines passing through opposite vertices
+   \item<4-> for $n$ odd over lines passing through the centre of a side and an
+    opposite vertex
+  \end{itemize}
+ \item<5-> point symmetries
+ \begin{itemize}[label=$\circ$]
+  \item<6-> only through the `centre' -- the point where its axes of symmetry
+   intersect -- in case $n$ is even
+ \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Symmetries of Regular Polygons}
+ \begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \foreach \angle/\name in {-30/A,90/B,210/C} {
+     \tkzDefPoint(\angle:1){\name}
+    }
+    \tkzDefPoint(0,0){O}
+    \tkzDrawPolygon(A,B,C)
+    \tkzDrawPoints(A,B)
+    \tkzDrawPoint[color=PolygonCyan](C)
+    \tkzDrawArc[color=PolygonCyan,thick,<-,delta=-10](O,B)(C)
+    \tkzLabelArc[PolygonCyan,xshift=-4mm](O,B,C){$120^{ \circ }$}
+    \tkzDrawArc[color=PolygonCyan,thick,<-,delta=-10](O,A)(B)
+    \tkzLabelArc[PolygonCyan,xshift=5mm](O,A,B){$240^{ \circ }$}
+    \tkzDrawArc[color=PolygonCyan,thick,<-,delta=-10](O,C)(A)
+    \tkzLabelArc[PolygonCyan,yshift=-3mm,xshift=1mm](O,C,A){$360^{ \circ }$}
+   \end{tikzpicture}
+  \end{subfigure}
+  \pause
+  \begin{subfigure}[b]{.45\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \foreach \angle/\name in {-45/A,45/B,135/C,225/D} {
+     \tkzDefPoint(\angle:1){\name}
+    }
+    \foreach \p/\q in {A/B,B/C,C/D,D/A} {
+     \tkzDefMidPoint(\p,\q)
+     \tkzGetPoint{S_\p\q}
+    }
+    \tkzDefPoint(0,0){O}
+    \tkzDrawPolygon(A,B,C,D)
+    \tkzDrawLine[thick,color=PolygonCyan,dashed](S_AB,S_CD)
+    \tkzDrawLine[thick,color=PolygonCyan,dashed](S_BC,S_DA)
+    \tkzDrawLine[thick,color=PolygonOrange,dotted](A,C)
+    \tkzDrawLine[thick,color=PolygonOrange,dotted](B,D)
+    \tkzDrawPoints(A,B,C,D)
+    \tkzDrawPoint[minimum size=9pt,fill=none,draw=ForestGreen,ultra thick](O)
+   \end{tikzpicture}
+  \end{subfigure}
+  \pause
+  \begin{subfigure}[b]{.45\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \foreach \angle/\name in {-54/A,18/B,90/C,162/D,234/E} {
+     \tkzDefPoint(\angle:1){\name}
+    }
+    \foreach \p/\q in {A/B,B/C,C/D,D/E,E/A} {
+     \tkzDefMidPoint(\p,\q)
+     \tkzGetPoint{S_\p\q}
+    }
+    \tkzDefPoint(0,0){O}
+    \tkzDrawPolygon(A,B,C,D,E)
+    \tkzDrawLine[thick,color=PolygonCyan,dashed](S_EA,C)
+    \tkzDrawLine[thick,color=PolygonCyan,dashed](S_AB,D)
+    \tkzDrawLine[thick,color=PolygonCyan,dashed](S_BC,E)
+    \tkzDrawLine[thick,color=PolygonCyan,dashed](S_CD,A)
+    \tkzDrawLine[thick,color=PolygonCyan,dashed](S_DE,B)
+    \tkzDrawPoints(A,B,C,D,E)
+   \end{tikzpicture}
+  \end{subfigure}
+
+  \caption*{Examples of regular polygon symmetries}
  \end{figure}
 \end{frame}
 
