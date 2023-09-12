@@ -27,9 +27,8 @@ oauth.init_app(app)
 # init session
 Session(app)
 
+
 # special route for preline UI
-
-
 @app.route('/preline.js')
 def serve_preline_js():
     return send_from_directory('../frontend/node_modules/preline/dist',

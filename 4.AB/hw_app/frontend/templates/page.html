@@ -21,8 +21,25 @@
                         <a href="{{ url_for("pages.not_finished") }}" class="navbar-link">Nedokončené</a>
                     </li>
                     {% if user.role == 'admin' %}
-                        <li class="navbar-item {{ 'active' if active_page == 'admin' }}">
-                            <a href="{{ url_for("pages.admin") }}" class="navbar-link">Správa</a>
+                        <li class="inline-flex items-center justify-center relative hs-dropdown navbar-item">
+                            <a id="hs-dropdown-admin"
+                               type="button"
+                               class="navbar-link hs-dropdown-toggle">Správa</a>
+                            <svg class="hs-dropdown-open:rotate-180 w-4 h-4 ml-1"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                            <div class="drop-shadow rounded-sm p-2 border border-my-light-100 min-w-[10rem] bg-my-light hs-dropdown-menu relative transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden z-10 flex flex-col mt-2 gap-y-2"
+                                 aria-labelledby="hs-dropdown-admin">
+                                <a class="navbar-link" href="{{ url_for("pages.admin_users") }}">Uživatelé</a>
+                                <a class="navbar-link" href="{{ url_for("pages.admin_groups") }}">Skupiny</a>
+                                <a class="navbar-link" href="{{ url_for("pages.admin_homeworks") }}">Úkoly</a>
+                                <a class="navbar-link" href="{{ url_for("pages.admin_assignments") }}">Zadání</a>
+                            </div>
                         </li>
                     {% endif %}
                 </ul>

@@ -2,6 +2,7 @@
 
 from backend.auth import login_required, admin_required
 from backend.auxil import get_user_from_session
+from backend.models import User, Group, UserRole
 from flask import render_template, redirect, url_for, Blueprint, session
 
 pages = Blueprint('pages', __name__)
@@ -49,14 +50,71 @@ def not_finished():
     return render_template('not_finished.html', title="Not Finished")
 
 
-@pages.route('/admin')
-@login_required(redirect_url='/admin')
+@pages.route('/admin/users')
+@login_required(redirect_url='/admin/users')
 @admin_required
-def admin():
+def admin_users():
+    user = get_user_from_session()
+    all_users = User.query.all()
+    all_groups = Group.query.all()
+
+    users_data = [
+        {
+            'id': user.id,
+            'name': user.name,
+            'email': user.email,
+            'role': user.role.value,
+            'group': user.group.name if user.group else None
+        }
+        for user in all_users
+    ]
+    group_names = [group.name for group in all_groups]
+    return render_template(
+        'admin_users.html',
+        title="Uživatelé",
+        user=user,
+        students=[user for user in users_data if user['role']
+                  == UserRole.STUDENT.value],
+        teachers=[user for user in users_data if user['role']
+                  == UserRole.TEACHER.value],
+        admins=[user for user in users_data if user['role']
+                == UserRole.ADMIN.value],
+        groups=group_names
+    )
+
+
+@pages.route('/admin/groups')
+@login_required(redirect_url='/admin/groups')
+@admin_required
+def admin_groups():
     user = get_user_from_session()
     return render_template(
-        'admin.html',
-        title="Admin",
+        'admin_groups.html',
+        title="Skupiny",
+        user=user
+    )
+
+
+@pages.route('/admin/homeworks')
+@login_required(redirect_url='/admin/homeworks')
+@admin_required
+def admin_homeworks():
+    user = get_user_from_session()
+    return render_template(
+        'admin_homeworks.html',
+        title="Úkoly",
+        user=user
+    )
+
+
+@pages.route('/admin/assignments')
+@login_required(redirect_url='/admin/assignments')
+@admin_required
+def admin_assignments():
+    user = get_user_from_session()
+    return render_template(
+        'admin_assignments.html',
+        title="Zadání",
         user=user
     )
 

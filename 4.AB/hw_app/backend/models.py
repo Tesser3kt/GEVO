@@ -31,6 +31,8 @@ class User(db.Model):
     """
 
     id = db.Column(db.Integer, primary_key=True)
+    group_id = db.Column(db.Integer, db.ForeignKey('group.id'), nullable=True)
+
     name = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(80), nullable=False)
     role = db.Column(db.Enum(UserRole), nullable=False)
@@ -39,6 +41,22 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User {self.name} | {self.role.value}>'
+
+
+class Group(db.Model):
+    """ Group database model. Contains:
+        - name
+        - users
+        - assignments
+    """
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), unique=True, nullable=False)
+    users = db.relationship('User', backref='group', lazy=True)
+    assignments = db.relationship('Assignment', backref='group', lazy=True)
+
+    def __repr__(self):
+        return f'<Group {self.name}>'
 
 
 class Homework(db.Model):
@@ -75,7 +93,8 @@ class Assignment(db.Model):
     """
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
+    group_id = db.Column(db.Integer, db.ForeignKey('group.id'), nullable=True)
     homework_id = db.Column(db.Integer, db.ForeignKey('homework.id'),
                             nullable=False)
     points = db.Column(db.Integer, nullable=False)

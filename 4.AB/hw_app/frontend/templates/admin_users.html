@@ -1,0 +1,39 @@
+{% extends 'page.html' %}
+{% block content %}
+    <div class="mx-auto container users-container w-full grid grid-cols-3 gap-4">
+        <div class="students-container grid grid-cols-1 gap-4">
+            {% for student in students %}
+                <div class="flex flex-col bg-my-light border shadow-sm rounded-xl p-4">
+                    <span class="text-xl font-bold">{{ student.name }}</span>
+                    <span class="text-lg">{{ student.email }}</span>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="teachers-container grid grid-cols-1 gap-4"></div>
+        <div class="admins-container grid grid-cols-1 gap-4">
+            <h2 class="mx-16 pb-2 text-center mb-4 border-b-4 border-my-yellow-100">Administrátoři</h2>
+            {% for admin in admins %}
+                <div class="user-card-container flex flex-row justify-between items-center bg-my-light drop-shadow rounded-xl p-4">
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold">{{ admin.name }}
+                            {% if admin.group %}| {{ admin.group }}{% endif %}
+                        </span>
+                        <span class="text-lg">{{ admin.email }}</span>
+                    </div>
+                    <button type="button"
+                            class="h-9 rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="w-4 h-4 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                        </svg>
+                        Upravit
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -4,6 +4,7 @@
 
 body {
   @apply grid;
+  grid-template-rows: auto 1fr;
   @apply font-body text-my-dark;
   @apply bg-my-light;
   @apply min-h-screen min-w-full;
@@ -140,6 +141,11 @@ header.header {
 
 .content {
   @apply w-full h-full;
+  @apply p-16;
+
+  .user-card-container {
+    grid-template-cols: 1fr auto;
+  }
 }
 
 footer.footer {
