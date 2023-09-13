@@ -1,0 +1,250 @@
+%%
+%% This is file `beamerfontthemetrigon.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% beamerfontthemetrigon.dtx  (with options: `package')
+%% ---------------------------------------------------------------------------
+%% Copyright (C) 2021 Thomas Lambert <trigon@thl.ovh>
+%% Other contributors to this theme are listed here:
+%%     https://gitlab.com/thlamb/beamertheme-trigon/-/graphs/master
+%% 
+%% The original template was heavily inspired by Metropolis from Matthias
+%% Vogelgesang.
+%% 
+%% License CC-BY-SA 4.0
+%% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+%% International License (https://creativecommons.org/licenses/by-sa/4.0/)
+%% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerfontthemetrigon}[2023/02/20 v0.7.0 Trigon font theme]
+\RequirePackage{pgfopts}
+\pgfkeys{
+  /trigon/font/titleformat title/.cd,
+  .is choice,
+  regular/.code={%
+    \let\trigon@titleformat\@empty%
+    \setbeamerfont{title}{shape=\normalfont}%
+  },
+  smallcaps/.code={%
+    \let\trigon@titleformat\@empty%
+    \setbeamerfont{title}{shape=\scshape}%
+  },
+  allsmallcaps/.code={%
+    \let\trigon@titleformat\lowercase%
+    \setbeamerfont{title}{shape=\scshape}%
+    \PackageWarning{beamerthemetrigon}{%
+      Be aware that titleformat title=allsmallcaps can lead to problems%
+    }
+  },
+  allcaps/.code={%
+    \let\trigon@titleformat\uppercase%
+    \setbeamerfont{title}{shape=\normalfont}%
+    \PackageWarning{beamerthemetrigon}{%
+      Be aware that titleformat title=allcaps can lead to problems%
+    }
+  },
+}
+\pgfkeys{
+  /trigon/font/titleformat subtitle/.cd,
+  .is choice,
+  regular/.code={%
+    \let\trigon@subtitleformat\@empty%
+    \setbeamerfont{subtitle}{shape=\normalfont}%
+  },
+  smallcaps/.code={%
+    \let\trigon@subtitleformat\@empty%
+    \setbeamerfont{subtitle}{shape=\scshape}%
+  },
+  allsmallcaps/.code={%
+    \let\trigon@subtitleformat\lowercase%
+    \setbeamerfont{subtitle}{shape=\scshape}%
+    \PackageWarning{beamerthemetrigon}{%
+      Be aware that titleformat subtitle=allsmallcaps can lead to problems%
+    }
+  },
+  allcaps/.code={%
+    \let\trigon@subtitleformat\uppercase%
+    \setbeamerfont{subtitle}{shape=\normalfont}%
+    \PackageWarning{beamerthemetrigon}{%
+      Be aware that titleformat subtitle=allcaps can lead to problems%
+    }
+  },
+}
+\pgfkeys{
+  /trigon/font/titleformat section/.cd,
+  .is choice,
+  regular/.code={%
+    \let\trigon@sectiontitleformat\@empty%
+    \setbeamerfont{section title}{shape=\normalfont}%
+  },
+  smallcaps/.code={%
+    \let\trigon@sectiontitleformat\@empty%
+    \setbeamerfont{section title}{shape=\scshape}%
+  },
+  allsmallcaps/.code={%
+    \let\trigon@sectiontitleformat\MakeLowercase%
+    \setbeamerfont{section title}{shape=\scshape}%
+    \PackageWarning{beamerthemetrigon}{%
+      Be aware that titleformat section=allsmallcaps can lead to problems%
+    }
+  },
+  allcaps/.code={%
+    \let\trigon@sectiontitleformat\MakeUppercase%
+    \setbeamerfont{section title}{shape=\normalfont}%
+    \PackageWarning{beamerthemetrigon}{%
+      Be aware that titleformat section=allcaps can lead to problems%
+    }
+  },
+}
+\pgfkeys{
+  /trigon/font/titleformat frame/.cd,
+  .is choice,
+  regular/.code={%
+    \let\trigon@frametitleformat\@empty%
+    \setbeamerfont{frametitle}{shape=\normalfont}%
+  },
+  smallcaps/.code={%
+    \let\trigon@frametitleformat\@empty%
+    \setbeamerfont{frametitle}{shape=\scshape}%
+  },
+  allsmallcaps/.code={%
+    \let\trigon@frametitleformat\MakeLowercase%
+    \setbeamerfont{frametitle}{shape=\scshape}%
+    \PackageWarning{beamerthemetrigon}{%
+      Be aware that titleformat frame=allsmallcaps can lead to problems%
+    }
+  },
+  allcaps/.code={%
+    \let\trigon@frametitleformat\MakeUppercase%
+    \setbeamerfont{frametitle}{shape=\normalfont}
+    \PackageWarning{beamerthemetrigon}{%
+      Be aware that titleformat frame=allcaps can lead to problems%
+    }
+  },
+}
+\pgfkeys{
+  /trigon/font/.cd,
+  titleformattitle/.code=\pgfkeysalso{titleformat title=#1},
+  titleformatsubtitle/.code=\pgfkeysalso{titleformat subtitle=#1},
+  titleformatsection/.code=\pgfkeysalso{titleformat section=#1},
+  titleformatframe/.code=\pgfkeysalso{titleformat frame=#1},
+}
+\newcommand{\trigon@font@setdefaults}{
+  \pgfkeys{/trigon/font/.cd,
+    titleformat title=regular,
+    titleformat subtitle=regular,
+    titleformat section=regular,
+    titleformat frame=regular,
+  }
+}
+\def\trigon@titleformat#1{#1}
+\def\trigon@subtitleformat#1{#1}
+\def\trigon@sectiontitleformat#1{#1}
+\def\trigon@frametitleformat#1{#1}
+\patchcmd{\beamer@title}%
+{\def\inserttitle{#2}}%
+{\def\inserttitle{\trigon@titleformat{#2}}}%
+{}%
+{\PackageError{beamerfontthemetrigon}{Patching title failed}\@ehc}
+\patchcmd{\beamer@subtitle}%
+{\def\insertsubtitle{#2}}%
+{\def\insertsubtitle{\trigon@subtitleformat{#2}}}%
+{}%
+{\PackageError{beamerfontthemetrigon}{Patching subtitle failed}\@ehc}
+\patchcmd{\sectionentry}
+{\def\insertsectionhead{#2}}
+{\def\insertsectionhead{\trigon@sectiontitleformat{#2}}}
+{}
+{\PackageError{beamerfontthemetrigon}{Patching section title failed}\@ehc}
+\@tempswafalse
+\patchcmd{\beamer@section}
+{\edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{\unexpanded{#1}}}}
+{\edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
+\noexpand\trigon@sectiontitleformat{\unexpanded{#1}}}}}
+{\@tempswatrue}
+{}
+\patchcmd{\beamer@section}
+{\def\insertsectionhead{\hyperlink{Navigation\the\c@page}{#1}}}
+{\def\insertsectionhead{\hyperlink{Navigation\the\c@page}{%
+\trigon@sectiontitleformat{#1}}}}
+{\@tempswatrue}
+{}
+\patchcmd{\beamer@section}
+{\protected@edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{#1}}}
+{\protected@edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
+\noexpand\trigon@sectiontitleformat{#1}}}}
+{\@tempswatrue}
+{}
+\if@tempswa\else
+  \PackageError{beamerfontthemetrigon}{Patching section title failed}\@ehc
+\fi
+\@tempswafalse
+\patchcmd{\beamer@subsection}
+{\edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{\unexpanded{#1}}}}
+{\edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
+\noexpand\trigon@sectiontitleformat{\unexpanded{#1}}}}}
+{\@tempswatrue}
+{}
+\patchcmd{\beamer@subsection}
+{\def\insertsubsectionhead{\hyperlink{Navigation\the\c@page}{#1}}}
+{\def\insertsubsectionhead{\hyperlink{Navigation\the\c@page}{%
+\trigon@sectiontitleformat{#1}}}}
+{\@tempswatrue}
+{}
+\patchcmd{\beamer@subsection}
+{\protected@edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{#1}}}
+{\protected@edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
+\noexpand\trigon@sectiontitleformat{#1}}}}
+{\@tempswatrue}
+{}
+\if@tempswa\else
+  \PackageError{beamerfontthemetrigon}{Patching section title failed}\@ehc
+\fi
+\providecommand{\beamer@insertframetitlecontinuation}{
+  \usebeamertemplate*{frametitle continuation}
+}
+\patchcmd{\beamer@@frametitle}
+  {\gdef\insertframetitle{{%
+      #2%
+      \ifnum\beamer@autobreakcount>0
+        \relax{}\space%
+        \beamer@insertframetitlecontinuation%
+      \fi%
+    }}%
+  }
+  {\gdef\insertframetitle{{%
+      \trigon@frametitleformat{#2}%
+      \ifnum\beamer@autobreakcount>0
+        \relax{}\space%
+        \beamer@insertframetitlecontinuation%
+      \fi%
+    }}%
+  }
+{}
+{\PackageWarning{beamerfontthemetrigon}{Patching frame title failed}\@ehc}
+\setbeamerfont{author}       {size=\normalsize}
+\setbeamerfont{title}        {size=\LARGE,series=\bfseries}
+\setbeamerfont{section title}{size=\LARGE,series=\mdseries}
+\setbeamerfont{date}         {size=\small}
+\setbeamerfont*{subtitle}     {size=\Large}
+\setbeamerfont{frametitle}   {size=\LARGE}
+\setbeamerfont{framesubtitle}{size=\large}
+
+\setbeamerfont{alerted text} {size=\normalsize,series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize,series=\bfseries}
+\setbeamerfont{block title alerted}{size=\normalsize,series=\bfseries}
+
+\setbeamerfont{section in toc}{size=\Large}
+\setbeamerfont{subsection in toc}{size=\large}
+\setbeamerfont{page number in head/foot}{size=\scriptsize}
+
+\setbeamerfont{description item}{series=\bfseries}
+\setbeamerfont{caption}{size=\small}
+\setbeamerfont{caption name}{series=\bfseries}
+\trigon@font@setdefaults
+\ProcessPgfPackageOptions{/trigon/font}
+\endinput
+%%
+%% End of file `beamerfontthemetrigon.sty'.

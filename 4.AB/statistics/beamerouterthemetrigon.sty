@@ -1,0 +1,93 @@
+%%
+%% This is file `beamerouterthemetrigon.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% beamerouterthemetrigon.dtx  (with options: `package')
+%% ---------------------------------------------------------------------------
+%% Copyright (C) 2021 Thomas Lambert <trigon@thl.ovh>
+%% Other contributors to this theme are listed here:
+%%     https://gitlab.com/thlamb/beamertheme-trigon/-/graphs/master
+%% 
+%% The original template was heavily inspired by Metropolis from Matthias
+%% Vogelgesang.
+%% 
+%% License CC-BY-SA 4.0
+%% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+%% International License (https://creativecommons.org/licenses/by-sa/4.0/)
+%% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerouterthemetrigon}[2023/02/20 v0.7.0 Trigon outer theme]
+\RequirePackage{pgfopts}
+\def\logsmall{}
+\newcommand*\smalllogo[2][width=20pt]{
+\ifx#2\@empty\else
+  \edef\logsmall{\includegraphics[#1]{#2}}
+\fi
+}
+\pgfkeys{
+  /trigon/outer/numbering/.cd,
+  .is choice,
+  none/.code=\setbeamertemplate{frame numbering}[none],
+  counter/.code=\setbeamertemplate{frame numbering}[counter],
+  fraction/.code=\setbeamertemplate{frame numbering}[fraction]
+}
+\newcommand{\trigon@outer@setdefaults}{
+  \pgfkeys{/trigon/outer/.cd,
+    numbering=counter
+  }
+}
+\defbeamertemplate*{frametitle}{trigon}
+{
+  \vspace{-1pt}
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.05\paperwidth]{frametitle}
+    \vskip.4cm
+    \ifx\insertframesubtitle\@empty%
+      {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle}%
+    \else%
+      {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle}\\[-.25cm]
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}%
+    \fi
+    \vskip.3cm
+  \end{beamercolorbox}
+}
+\defbeamertemplate{headline}{none}{}
+\defbeamertemplate*{headline}{logo}{
+  \ifx\logsmall\@empty\else
+    \hfill\logsmall\hspace{20pt}\vspace{-40pt}
+  \fi
+}
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate{frame footer}{none}{}
+\defbeamertemplate{frame footer}{custom}[1]{ #1 }
+\defbeamertemplate{frame numbering}{none}{}
+\defbeamertemplate{frame numbering}{counter}{\insertframenumber}
+\defbeamertemplate{frame numbering}{fraction}{
+  \insertframenumber/\inserttotalframenumber
+}
+
+\defbeamertemplate{footline}{plain}{%
+  \begin{beamercolorbox}[wd=\textwidth, sep=10pt]{page number in head/foot}%
+    \usebeamerfont{page number in head/foot}%
+    \usebeamercolor[fg]{page number in head/foot}%
+    \usebeamertemplate*{frame footer}
+    \hfill%
+    \usebeamertemplate*{frame numbering}
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}[plain]
+\AtBeginDocument{%
+  \apptocmd{\appendix}{%
+    \pgfkeys{%
+      /trigon/outer/.cd,
+    numbering=none}
+  }{}{}
+}
+\trigon@outer@setdefaults
+\ProcessPgfPackageOptions{/trigon/outer}
+\endinput
+%%
+%% End of file `beamerouterthemetrigon.sty'.
