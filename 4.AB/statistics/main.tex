@@ -129,4 +129,81 @@
  \end{tcolorbox}
 \end{frame}
 
+\begin{frame}
+ \frametitle{Example -- Junctions}
+ For a year, we keep track of the number of traffic accidents per day on road
+ junctions across the city to determine which should be first replaced by
+ roundabouts.\\
+ \pause
+ An \alert{input} is a day in a year.\\
+ \pause
+ An \alert{output} is the number of traffic accidents in a given day.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Example -- First Baby}
+ We study the age that women bear children for the first time across Europe.\\
+ \pause
+ An \alert{input} would be a name of a European country.\\
+ An \alert{output} is the average age of a first-time mother in that country.
+\end{frame}
+
+\subsection{Types of Data}
+
+\begin{frame}
+ \subsectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Discrete Data vs. Continuous Data}
+ \begin{tcolorbox}[title=Discrete Data]
+  We call a data \alert{discrete} if the set of \emph{inputs} (and therefore also
+  that of \emph{outputs}) is \alert{countable}.
+ \end{tcolorbox}
+ \pause
+ Both previous examples feature \alert{discrete} data.
+ \begin{itemize}[label=\textbullet]
+  \item There are only \emph{finitely many} junctions in a city.
+  \pause
+  \item There are only \emph{finitely many} countries on a continent.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Discrete Data vs. Continuous Data}
+ \begin{tcolorbox}[title=Continuous Data]
+  We call a data \alert{continuous} if the set of inputs is \alert{uncountable}.
+  In this case, the data is actually a \alert{function}: set of inputs $ \to $
+  set of outputs.
+ \end{tcolorbox}
+ \pause
+ More often than not, the inputs in a continuous data are \alert{moments in
+ time} or \alert{coordinates in space}.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Continuous Data -- Examples}
+ \begin{itemize}[label=\textbullet]
+  \item We study the number of trains in a railway station at any given time.
+  \pause
+  \begin{itemize}[label=\textminus]
+   \item Input: time (of day);
+   \pause
+   \item Output: number of trains in the station.
+   \pause
+   \item The data is a function $f:[0,24] \to \mathbb{N}$.
+  \end{itemize}
+ \pause
+ \item Another example is the density of air per cubic meter.
+ \pause
+ \begin{itemize}[label=\textminus] 
+  \item Input: Coordinates of a unit cube in space.
+  \pause
+  \item Output: The combined weight of air molecules.
+  \pause
+  \item The data is a function $f:\mathbb{R}^3 \to \mathbb{R}$. 
+ \end{itemize}
+ \end{itemize}
+\end{frame}
+
 \end{document}
