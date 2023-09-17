@@ -48,12 +48,14 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{tkz-euclide}
 \usetikzlibrary{%
- arrows,
+ arrows.meta,
  positioning,
  intersections,
  perspective,
- patterns
+ patterns,
+ calc
 }
 \tikzset{
   vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner sep=1pt}
@@ -82,15 +84,6 @@
 \setlist{topsep=0pt}
 \setlist[enumerate,1]{label=(\arabic*)}
 \setlist[enumerate,2]{label=(\alph*)}
-
-% Patch for hyphens %
-\usepackage{regexpatch}
-
-\makeatletter
-% Change the `-` delimiter to an active character
-\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
-\xpatchparametertext\@cline{-}{\cA-}{}{}
-\makeatother
 
 % Math Operators %
 \DeclareMathOperator{\dom}{dom}

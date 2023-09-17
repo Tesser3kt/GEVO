@@ -1,0 +1,84 @@
+%%
+%% This is file `beamerthemetrigon.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% beamerthemetrigon.dtx  (with options: `package')
+%% ---------------------------------------------------------------------------
+%% Copyright (C) 2021 Thomas Lambert <trigon@thl.ovh>
+%% Other contributors to this theme are listed here:
+%%     https://gitlab.com/thlamb/beamertheme-trigon/-/graphs/master
+%% 
+%% The original template was heavily inspired by Metropolis from Matthias
+%% Vogelgesang.
+%% 
+%% License CC-BY-SA 4.0
+%% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+%% International License (https://creativecommons.org/licenses/by-sa/4.0/)
+%% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemetrigon}[2023/02/20 v0.7.0 Trigon Beamer theme]
+\RequirePackage{pgfopts}
+\RequirePackage{tikz}
+\pgfkeys{/trigon/.cd,
+  .search also={
+    /trigon/inner,
+    /trigon/outer,
+    /trigon/color,
+    /trigon/font
+  }
+}
+\pgfkeys{
+  /trigon/titleformat plain/.cd,
+  .is choice,
+  regular/.code={%
+    \let\trigon@plaintitleformat\@empty%
+    \setbeamerfont{standout}{shape=\normalfont}%
+  },
+  smallcaps/.code={%
+    \let\trigon@plaintitleformat\@empty%
+    \setbeamerfont{standout}{shape=\scshape}%
+  },
+  allsmallcaps/.code={%
+    \let\trigon@plaintitleformat\MakeLowercase%
+    \setbeamerfont{standout}{shape=\scshape}%
+    \PackageWarning{beamerthemetrigon}{%
+      Be aware that titleformat plain=allsmallcaps can lead to problems%
+    }
+  },
+  allcaps/.code={%
+    \let\trigon@plaintitleformat\MakeUppercase%
+    \setbeamerfont{standout}{shape=\normalfont}%
+    \PackageWarning{beamerthemetrigon}{%
+      Be aware that titleformat plain=allcaps can lead to problems%
+    }
+  },
+}
+\pgfkeys{
+  /trigon/titleformat/.code=\pgfkeysalso{
+    font/titleformat title=#1,
+    font/titleformat subtitle=#1,
+    font/titleformat section=#1,
+    font/titleformat frame=#1,
+    titleformat plain=#1,
+  }
+}
+\newif\if@trigon@usesourcefonts
+\pgfkeys{/trigon/.cd,
+  usesourcefonts/.is if=@trigon@usesourcefonts,
+  usesourcefonts=true,
+}
+\useinnertheme{trigon}
+\useoutertheme{trigon}
+\usecolortheme{trigon}
+\usefonttheme{trigon}
+\newcommand{\trigonset}[1]{\pgfkeys{/trigon/.cd,#1}}
+\ProcessOptionsBeamer
+\ProcessPgfOptions{/trigon}
+\if@trigon@usesourcefonts%
+  \RequirePackage[default,t1,semibold]{sourcesanspro}
+\fi
+\endinput
+%%
+%% End of file `beamerthemetrigon.sty'.

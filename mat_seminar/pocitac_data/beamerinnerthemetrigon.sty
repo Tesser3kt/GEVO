@@ -1,0 +1,423 @@
+%%
+%% This is file `beamerinnerthemetrigon.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% beamerinnerthemetrigon.dtx  (with options: `package')
+%% ---------------------------------------------------------------------------
+%% Copyright (C) 2021 Thomas Lambert <trigon@thl.ovh>
+%% Other contributors to this theme are listed here:
+%%     https://gitlab.com/thlamb/beamertheme-trigon/-/graphs/master
+%% 
+%% The original template was heavily inspired by Metropolis from Matthias
+%% Vogelgesang.
+%% 
+%% License CC-BY-SA 4.0
+%% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+%% International License (https://creativecommons.org/licenses/by-sa/4.0/)
+%% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerinnerthemetrigon}[2023/02/20 v0.7.0 Trigon inner theme]
+\RequirePackage{pgfopts}
+\RequirePackage{tikz}
+\usetikzlibrary{calc,3d}
+\def\logbig{}
+\newcommand*\biglogo[2][width=0.28\textwidth]{
+  \ifx#2\@empty\else
+    \edef\logbig{\includegraphics[#1]{#2}}
+  \fi
+}
+\pgfkeys{
+  /trigon/inner/sectionpage/.cd,
+  .is choice,
+  none/.code=\trigon@disablesectionpage,
+  simple/.code=\trigon@enablesectionpage
+}
+\def\slidestyle{}
+\pgfkeys{
+  /trigon/inner/slidestyle/.cd,
+  .is choice,
+  blank/.code=\def\slidestyle{blank}
+  \setbeamertemplate{background}[\slidestyle],
+  style1/.code=\def\slidestyle{smallcornertriangle}
+  \setbeamertemplate{background}[\slidestyle],
+  cyber/.code=\def\slidestyle{cyberbottom}
+  \setbeamertemplate{background}[\slidestyle]
+}
+\def\titlestyle{}
+\pgfkeys{
+  /trigon/inner/titlestyle/.cd,
+  .is choice,
+  plain/.code=\def\titlestyle{bottomtrianglescolor},
+  style1/.code=\def\titlestyle{titlesmallimage},
+  style2/.code=\def\titlestyle{titlebigimage}
+}
+\def\sectionstyle{}
+\pgfkeys{
+  /trigon/inner/sectionstyle/.cd,
+  .is choice,
+  plain/.code=\def\sectionstyle{bottomtrianglescolor},
+  style1/.code=\def\sectionstyle{bigtriangles},
+  style2/.code=\def\sectionstyle{lefttriangles},
+  style3/.code=\def\sectionstyle{bottomtrianglesbw}
+}
+\newcommand{\trigon@inner@setdefaults}{
+  \pgfkeys{/trigon/inner/.cd,
+    sectionpage=simple,
+    slidestyle=blank,
+    titlestyle=style2,
+    sectionstyle=plain
+  }
+}
+\newcommand{\leftTriangle}[2]{
+  (#1,#2)
+  -- (0,{#2 + tan(30)*#1} )
+  -- (0,{#2 - tan(30)*#1} )
+  -- cycle;
+}
+\newcommand{\rightTriangle}[2]{
+  (#1,#2)
+  -- (\the\paperwidth,{#2 + tan(30)*(\the\paperwidth-#1)} )
+  -- (\the\paperwidth,{#2 - tan(30)*(\the\paperwidth-#1)} )
+  -- cycle;
+}
+\newcommand{\topTriangle}[2]{
+  (#1,#2)
+  -- ({#1 - tan(60)*#2},0)
+  -- ({#1 + tan(60)*#2},0)
+  -- cycle;
+}
+\newcommand{\leftColorTriangle}[3]{
+  \clip(0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \path[fill=#3]
+  \leftTriangle{#1}{#2}
+}
+\newcommand{\rightColorTriangle}[3]{
+  \clip(0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \path[fill=#3]
+  \rightTriangle{#1}{#2}
+}
+\newcommand{\topColorTriangle}[3]{
+  \clip(0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \path[fill=#3]
+  \topTriangle{#1}{#2}
+}
+\defbeamertemplate{background}{blank}{}
+\defbeamertemplate{background}{smallcornertriangle}{
+  \begin{tikzpicture}[blend group=multiply]
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \leftColorTriangle{0.62\paperwidth}{0}{tGrey!30!tBg}
+  \end{tikzpicture}
+}
+\defbeamertemplate{background}{cyberbottom}{
+  \tikzstyle{cyberVertex}=[scale=1,draw=tGreyBg,circle,fill=tBg]
+  \tikzstyle{cyberVertex2}=[scale=0.5,draw=tGreyBg,circle,fill=tGreyBg]
+  \tikzstyle{cyberEdge} = [draw,color=tGreyBg]
+  \begin{tikzpicture}%[blend group=multiply]
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \foreach \pos/\name in {
+      {(-0.05\paperwidth,0.75\paperheight)/0},
+      {(0.02\paperwidth,0.53\paperheight)/1},
+      {(-0.04\paperwidth,0.38\paperheight)/2},
+      {(0.08\paperwidth,0.40\paperheight)/3},
+      {(0.052\paperwidth,0.21\paperheight)/5},
+      {(0.24\paperwidth,0.26\paperheight)/6},
+      {(-0.08\paperwidth,-0.06\paperheight)/7},
+      {(0.12\paperwidth,0.07\paperheight)/8},
+      {(0.2\paperwidth,0.-0.08\paperheight)/9},
+      {(0.38\paperwidth,0.06\paperheight)/10},
+    {(0.56\paperwidth,-0.08\paperheight)/11}}
+    \node[cyberVertex] (\name) at \pos {};
+    \foreach \pos/\name in {
+      {(-0.05\paperwidth,0.75\paperheight)/0},
+      {(0.02\paperwidth,0.53\paperheight)/1},
+      {(-0.04\paperwidth,0.38\paperheight)/2},
+      {(0.08\paperwidth,0.40\paperheight)/3},
+      {(0.052\paperwidth,0.21\paperheight)/5},
+      {(0.24\paperwidth,0.26\paperheight)/6},
+      {(-0.08\paperwidth,-0.06\paperheight)/7},
+      {(0.12\paperwidth,0.07\paperheight)/8},
+      {(0.2\paperwidth,0.-0.08\paperheight)/9},
+      {(0.38\paperwidth,0.06\paperheight)/10},
+    {(0.56\paperwidth,-0.08\paperheight)/11}}
+    \node[cyberVertex2] (\name_2) at \pos {};
+    \foreach \source/ \dest in
+    {0/1,1/2,1/3,2/3,2/5,3/5,3/6,5/6,5/7,7/8,5/8,8/6,8/9,6/9,9/10,10/6,10/11}
+    \path[cyberEdge] (\source) --  (\dest);
+  \end{tikzpicture}
+}
+\defbeamertemplate{background}{titlebigimage}{
+  \begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \begin{scope}[blend group=multiply]
+      \clip(0,0) rectangle(\the\paperwidth,\the\paperheight);
+      \path[fill=tTheme]\leftTriangle{0.5\paperwidth}{0}
+      \topColorTriangle{0.73\paperwidth}{0.70\paperheight}{tGrey!30!tBg}
+      \ifx\inserttitlegraphic\@empty
+        \leftColorTriangle{0.73\paperwidth}{0.70\paperheight}{tTheme}
+      \else
+        \path[clip]\leftTriangle{0.73\paperwidth}{0.70\paperheight}
+        \node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,\the\paperheight) {\inserttitlegraphic};
+      \fi
+    \end{scope}
+    \clip(0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \path[fill=tBg]\rightTriangle{0.45\paperwidth}{\the\paperheight}
+    \ifx\logbig\@empty \else
+      \node[anchor=north east,inner sep=0mm] at
+        (.96*\the\paperwidth,.96*\the\paperheight) {\logbig};
+    \fi
+  \end{tikzpicture}
+}
+\defbeamertemplate{background}{titlesmallimage}{
+  \begin{tikzpicture}[blend group=multiply]
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \leftColorTriangle{0.58\paperwidth}{0}{tGrey!30!tBg}
+    \ifx\logbig\@empty \else
+      \node[anchor=north east,inner sep=0mm] at
+      (.94*\the\paperwidth,.94*\the\paperheight) {\logbig};
+    \fi
+    \ifx\inserttitlegraphic\@empty
+      \leftColorTriangle{0.58\paperwidth}{\the\paperheight}{tTheme}
+    \else
+      \path[clip]\leftTriangle{0.58\paperwidth}{\the\paperheight}
+      \node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,\the\paperheight) {\inserttitlegraphic};
+    \fi
+  \end{tikzpicture}
+}
+\defbeamertemplate{background}{bottomtrianglescolor}{
+  \begin{tikzpicture}[blend group=multiply]
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \leftColorTriangle{0.62\paperwidth}{0}{tTheme}
+    \rightColorTriangle{0.38\paperwidth}{0}{tSec}
+  \end{tikzpicture}
+}
+\defbeamertemplate{background}{bottomtrianglesbw}{
+  \begin{tikzpicture}[blend group=multiply]
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \leftColorTriangle{0.62\paperwidth}{0}{tTheme}
+    \rightColorTriangle{0.38\paperwidth}{0}{tGrey!30!tBg}
+  \end{tikzpicture}
+}
+\defbeamertemplate{background}{bigtriangles}{
+  \begin{tikzpicture}[blend group=multiply]
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \leftColorTriangle{0.80\paperwidth}{0.62\paperheight}{tTheme}
+    \rightColorTriangle{0.68\paperwidth}{0.58\paperheight}{tGrey!30!tBg}
+  \end{tikzpicture}
+}
+\defbeamertemplate{background}{lefttriangles}{
+  \begin{tikzpicture}[blend group=multiply]
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \leftColorTriangle{0.52\paperwidth}{\the\paperheight}{tTheme}
+    \leftColorTriangle{0.775\paperwidth}{0}{tGrey!30!tBg}
+  \end{tikzpicture}
+}
+\setbeamertemplate{background}[\slidestyle]
+\newcommand{\titleframe}{
+  \setbeamertemplate{title page}[\titlestyle]
+  \setbeamertemplate{background}[\titlestyle]
+  \frame[plain,noframenumbering]{\titlepage}
+  \setbeamertemplate{background}[\slidestyle]
+}
+\newcommand{\sectionframe}{
+  \setbeamertemplate{section page}[\sectionstyle]
+  \setbeamertemplate{background}[\sectionstyle]
+  \frame[plain,noframenumbering]{\sectionpage}
+  \setbeamertemplate{background}[\slidestyle]
+}
+\newcommand{\trigon@disablesectionpage}{
+  \AtBeginSection{
+    % intentionally empty
+  }
+}
+\newcommand{\trigon@enablesectionpage}{
+  \AtBeginSection{
+    \sectionframe
+  }
+}
+\defbeamertemplate{title page}{titlebigimage}
+{
+  \vskip135pt
+  \begin{flushright}
+    \begin{minipage}[t][][c]{0.5\textwidth}%
+      \centering
+      \usebeamerfont{title}\usebeamercolor[fg]{title}
+      \inserttitle\par
+    \end{minipage}
+    \ifx \insertsubtitle\@empty
+  \else
+    \vskip15pt
+    \begin{minipage}[t][][c]{0.5\textwidth}%
+      \centering
+      \usebeamerfont{subtitle}\insertsubtitle\par%
+    \end{minipage}
+  \fi
+  \vskip13pt
+  \begin{minipage}[t][][c]{0.5\textwidth}%
+    \centering
+    \usebeamerfont{author}\insertauthor%
+    \vskip5pt
+    \usebeamerfont{date}\insertdate%
+  \end{minipage}
+\end{flushright}
+\vfill
+}
+\defbeamertemplate{title page}{titlesmallimage}
+{
+  \vskip140pt%
+  \begin{beamercolorbox}[wd=\textwidth,sep=4pt]{title page header}
+    \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par%
+  \end{beamercolorbox}%
+  \ifx \insertsubtitle\@empty
+\else
+  \vskip8pt
+  \begin{beamercolorbox}[wd=\textwidth,sep=4pt]{subtitle page header}
+    \usebeamerfont{subtitle}\insertsubtitle\par%
+  \end{beamercolorbox}%
+\fi
+\vskip10pt
+\begin{beamercolorbox}[wd=\textwidth,sep=4pt]{author}
+  \usebeamerfont{author}\insertauthor%
+\end{beamercolorbox}
+\vskip2pt%
+\begin{beamercolorbox}[wd=\textwidth,sep=4pt]{date}
+  \usebeamerfont{date}\insertdate%
+\end{beamercolorbox}
+\vfill
+}
+\defbeamertemplate{title page}{bottomtrianglescolor}
+{
+  \vskip0pt
+  \begin{center}
+    \begin{minipage}[t][][t]{\textwidth}
+      \centering%
+      \ifx\logbig\@empty \else
+        \logbig
+      \fi
+    \end{minipage}
+    \vskip15pt
+    \begin{minipage}[t][][c]{\textwidth}%
+      \centering
+      \usebeamerfont{title}\usebeamercolor[fg]{title}
+      \inserttitle\par
+    \end{minipage}
+    \ifx \insertsubtitle\@empty
+  \else
+    \vskip15pt
+    \begin{minipage}[t][][c]{\textwidth}%
+      \centering
+      \usebeamerfont{subtitle}\insertsubtitle\par%
+    \end{minipage}
+  \fi
+  \vskip20pt
+  \begin{minipage}[t][][c]{0.5\textwidth}%
+    \centering
+    \usebeamerfont{author}\insertauthor\\[0.3cm]%
+    \usebeamerfont{date}\insertdate
+  \end{minipage}
+\end{center}
+\vfill
+}
+\defbeamertemplate{section page}{bottomtrianglescolor}
+{
+  \vskip40pt
+  \begin{center}
+    \begin{minipage}[t][][c]{\textwidth}%
+      \centering
+      \usebeamerfont{section title}\usebeamercolor[fg]{title}
+      \insertsectionhead\par
+    \end{minipage}
+  \end{center}
+  \vfill
+}
+\defbeamertemplate{section page}{bottomtrianglesbw}
+{
+  \vskip40pt
+  \begin{center}
+    \begin{minipage}[t][][c]{\textwidth}%
+      \centering
+      \usebeamerfont{section title}\usebeamercolor[fg]{title}
+      \insertsectionhead\par
+    \end{minipage}
+  \end{center}
+  \vfill
+}
+\defbeamertemplate{section page}{bigtriangles}
+{
+  \vskip200pt
+  \begin{flushright}
+    \begin{minipage}[t]{0.62\textwidth}%7
+      \usebeamerfont{section title}\usebeamercolor[fg]{title}
+      \raggedleft
+      \insertsectionhead\par
+    \end{minipage}
+  \end{flushright}
+  \vfill
+}
+\defbeamertemplate{section page}{lefttriangles}
+{
+  \vskip25pt
+  \begin{beamercolorbox}[wd=\textwidth,leftskip=100pt,sep=4pt]{section page header}
+    \usebeamerfont{section title}\usebeamercolor[fg]{title}
+    \insertsectionhead\par
+  \end{beamercolorbox}%
+  \vfill
+}
+\newlength{\trigon@blocksep}
+\newlength{\trigon@blockadjust}
+\setlength{\trigon@blocksep}{0.75ex}
+\setlength{\trigon@blockadjust}{0.25ex}
+\providecommand{\trigon@strut}{%
+  \vphantom{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz()}%
+}
+\newcommand{\trigon@block}[1]{
+  \par\vskip\medskipamount%
+  \setlength{\parskip}{0pt}
+  \ifbeamercolorempty[bg]{block title#1}{%
+    \begin{beamercolorbox}[rightskip=0pt plus 4em]{block title#1}}{%
+  \ifbeamercolorempty[bg]{block title}{%
+  \begin{beamercolorbox}[rightskip=0pt plus 4em]{block title#1}%
+  }%
+  {%
+    \begin{beamercolorbox}[
+      sep=\dimexpr\trigon@blocksep-\trigon@blockadjust\relax,
+      leftskip=\trigon@blockadjust,
+      rightskip=\dimexpr\trigon@blockadjust plus 4em\relax
+      ]{block title#1}%
+  }}%
+      \usebeamerfont*{block title#1}%
+      \trigon@strut%
+      \insertblocktitle%
+      \trigon@strut%
+  \end{beamercolorbox}%
+  \nointerlineskip%
+  \ifbeamercolorempty[bg]{block body#1}{%
+    \begin{beamercolorbox}[vmode]{block body#1}}{
+  \ifbeamercolorempty[bg]{block body}{%
+    \begin{beamercolorbox}[vmode]{block body#1}%
+  }{%
+    \begin{beamercolorbox}[sep=\trigon@blocksep, vmode]{block body#1}%
+    \vspace{-\trigon@parskip}
+  }}%
+    \usebeamerfont{block body#1}%
+    \setlength{\parskip}{\trigon@parskip}%
+}
+\setbeamertemplate{block begin}{\trigon@block{}}
+\setbeamertemplate{block alerted begin}{\trigon@block{ alerted}}
+\setbeamertemplate{block example begin}{\trigon@block{ example}}
+\setbeamertemplate{block end}{\end{beamercolorbox}\vspace*{0.2ex}}
+\setbeamertemplate{block alerted end}{\end{beamercolorbox}\vspace*{0.2ex}}
+\setbeamertemplate{block example end}{\end{beamercolorbox}\vspace*{0.2ex}}
+\setbeamertemplate{caption label separator}{: }
+\setbeamertemplate{caption}[numbered]
+\newlength{\trigon@parskip}
+\setlength{\trigon@parskip}{0.5em}
+\setlength{\parskip}{\trigon@parskip}
+\linespread{1.15}
+\setbeamersize{text margin left=.05\paperwidth, text margin right=.05\paperwidth}
+\trigon@inner@setdefaults
+\ProcessPgfPackageOptions{/trigon/inner}
+\endinput
+%%
+%% End of file `beamerinnerthemetrigon.sty'.

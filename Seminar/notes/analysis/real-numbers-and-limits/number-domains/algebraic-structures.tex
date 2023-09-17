@@ -1,0 +1,224 @@
+\section{Základní algebraické struktury}
+\label{sec:zakladni-algebraicke-struktury}
+
+První algebraické struktury počali lidé objevovat koncem 19. století, kdy jsme
+si všimli, že se mnoho skupin jevů -- geometrických, fyzikálních, ... --
+\uv{chová} podobně jako čísla. Dnes bychom řekli, že \uv{vykazují silnou
+symetrii}. Například, podobně jako můžeme přirozená čísla násobit, lze zobrazení
+\emph{skládat} či křivky v rovině na sebe \emph{napojovat}. Přirozená čísla
+\uv{obracíme}, dávajíce vzniknout číslům celým. Po křivce umíme kráčet opačným
+směrem.
+
+Taková pozorování vedla na pojem \emph{grupy} -- ve své podstatě množině všech
+symetrií nějakého objektu. \emph{Symetrie} v tomto smyslu značí
+transformace/proměny tohoto objektu, které jej nemění. Dnes má samozřejmě grupa
+svou elegantní formální definici, z níž nelze vůbec poznat, o jakou strukturu
+vlastně jde. Uvedeme si ji.
+
+\begin{definition}{Grupa}{grupa}
+ Ať $G$ je libovolná neprázdná množina. Platí-li, že
+ \begin{itemize}
+  \item existuje binární operace $ \cdot :G \times G \to G$, která je
+  \textbf{asociativní} (tj. $(g \cdot h) \cdot k = g \cdot (h \cdot k))$,
+ \item pro každý prvek $g \in G$ existuje prvek $g^{-1} \in G$ splňující
+  $g \cdot g^{-1} = g^{-1} \cdot g = 1$, zvaný \emph{inverz}, a
+ \item existuje prvek $1 \in G$ splňující pro každé $g \in G$ rovnost $g \cdot 1
+  = 1 \cdot g = g$, zvaný \emph{neutrální},
+ \end{itemize}
+ pak nazveme čtveřici $\mathbf{G} = (G, \cdot ,^{-1},1)$ \emph{grupou}.
+\end{definition}
+
+Tato definice si zaslouží několik poznámek, varování a příkladů. Součástí
+definice grupy \textbf{není} komutativita její binární operace. Obecně, v grupě
+$\mathbf{G}$ není prvek $g \cdot h$ tentýž jako $h \cdot g$. Mezi algebraiky
+platí nepsaná dohoda, že grupy, které jsou \emph{komutativní} (též
+\emph{abelovské}) -- tj. ty, kde $g \cdot h = h \cdot g$ opravdu pro všechny
+dvojice prvků $g,h \in G$ -- se zapisují jako (tzv. \emph{aditivní}) $\mathbf{G}
+= (G,+,-,0)$. Naopak, grupy, které komutativní nutně nejsou, se obvykle píší
+stylem z~\myref{definice}{def:grupa}.
+
+Zadruhé, není vůbec zřejmé, proč by taková struktura měla jakýmkoli způsobem
+odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
+
+\begin{example}{Dihedrální grupa}{dihedralni-grupa}
+ Ať $P$ je pravidelný šestiúhelník v $\R^2$. Uvažme zobrazení $r:\R^2 \to \R^2$,
+ které rotuje body v $\R^2$ o $60^{ \circ }$ podle středu jeho uhlopříček, a
+ zobrazení $s:\R^2 \to \R^2$, které reflektuje body v $\R^2$ podle kterékoli
+ (ale fixní) jeho uhlopříčky.
+
+ Není těžké nahlédnout, že $r(P) = P$ a $s(P) = P$, čili tato zobrazení
+ zachovávají $P$. Tvrdíme, že každé jejich složení je rovněž zobrazení, které
+ zachovává $P$. Jinak řečeno, množina všech možných složení zobrazení $r$ se
+ zobrazením $s$ tvoří \emph{grupu}, kde binární operací je \emph{složení}
+ zobrazení, inverzem je \emph{inverzní zobrazení} (uvědomme si, že $r$ i $s$ jsou
+ \textbf{bijekce}) a neutrálním prvkem je \emph{identické zobrazení} na $\R^2$.
+
+ Po chvíli přemýšlení zjistíme, že rotace o $60,120,180,240,300$ a $360$ stupňů
+ zachovávají $P$. Všechny můžeme dostat jako složení $r$ se sebou samým
+ vícekrát. Například $r \circ r \circ r = r^3$ je rotace o $180^{ \circ }$.
+ Přirozeně, rotace o $360^{ \circ }$ je identické zobrazení, což lze vyjádřit
+ rovností $r^{6} = \mathds{1}_{\R^2}$.
+
+ S reflexemi je to mírně složitější. Jelikož $s$ je reflexe, složení $s \circ s$
+ je identické zobrazení. Reflexi podle ostatních dvou uhlopříček dostaneme jeho
+ složením s $r$. Například reflexi podle uhlopříčky, která svírá s $s$ úhel
+ $60^{ \circ }$ (proti směru hodinových ručiček) je rovna složení $r^2 \circ s$.
+ Konečně, šestiúhelník $P$ rovněž zachovávají reflexe podle os stran. Reflexi
+ podle osy stran, která svírá s~$s$ úhel $90^{ \circ }$ dostanu složením $s
+ \circ r^3$.
+
+ Ponecháváme čtenáře, aby si rozmysleli, že různých zobrazení, která mohu dostat
+ složením $r$ a $s$ je celkem $12$, všechna jsou bijektivní a zachovávají $P$.
+ Označíme-li jejich množinu $D_{12}$ (jako \textbf{d}ihedrální grupa o $12$
+ prvcích), pak je $(D_{12}, \circ ,^{-1},\mathds{1}_{\R^2})$
+ \textbf{nekomutativní} grupa.
+
+ \begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \foreach \an/\name in {0/A,60/B,120/C,180/D,240/E,300/F} {
+     \tkzDefPoint(\an:1){\name}
+    }
+    \tkzDrawPolygon(A,B,C,D,E,F)
+
+    \tkzDrawLine[add=.5 and .5,dashed,RoyalBlue,thick](B,E)
+    \tkzDrawPoints[size=6](A,B,C,D,E,F)
+    \tkzLabelPoint[right](A){$1$}
+    \tkzLabelPoint[above right](B){$2$}
+    \tkzLabelPoint[above left](C){$3$}
+    \tkzLabelPoint[left](D){$4$}
+    \tkzLabelPoint[below left](E){$5$}
+    \tkzLabelPoint[below right](F){$6$}
+
+    \draw[->,bend left=30,RoyalBlue] ($(A.center) + (0,0.5)$) to
+     node[midway,yshift=2mm]
+     {$\clb{s}$} ($(A.center) + (2,0.5)$);
+
+    \tkzDefPoint(0:5){A1}
+    \tkzDefPointsBy[translation=from A to A1](B,C,D,E,F){B1,C1,D1,E1,F1}
+    \tkzDrawPolygon(A1,B1,C1,D1,E1,F1)
+
+    \tkzLabelPoint[right](A1){$3$}
+    \tkzLabelPoint[above right](B1){$2$}
+    \tkzLabelPoint[above left](C1){$1$}
+    \tkzLabelPoint[left](D1){$6$}
+    \tkzLabelPoint[below left](E1){$5$}
+    \tkzLabelPoint[below right](F1){$4$}
+    \tkzDrawPoints[size=6](A1,B1,C1,D1,E1,F1)
+    
+    \tkzDefPoint(0:4){O}
+    \tkzDrawPoint[size=4,fill=none,draw=BrickRed](O)
+    \tkzDrawArc[R,dashed,BrickRed,-latex](O,0.5)(0,120)
+
+    \draw[->,bend left=30,BrickRed] ($(A1.center) + (0,0.5)$) to
+     node[midway,yshift=3mm]
+     {$\clr{r}^2$} ($(A1.center) + (2,0.5)$);
+
+    \tkzDefPoint(0:9){A2}
+    \tkzDefPointsBy[translation=from A1 to A2](B1,C1,D1,E1,F1){B2,C2,D2,E2,F2}
+    \tkzDrawPolygon(A2,B2,C2,D2,E2,F2)
+
+    \tkzLabelPoint[right](A2){$5$}
+    \tkzLabelPoint[above right](B2){$4$}
+    \tkzLabelPoint[above left](C2){$3$}
+    \tkzLabelPoint[left](D2){$2$}
+    \tkzLabelPoint[below left](E2){$1$}
+    \tkzLabelPoint[below right](F2){$6$}
+
+    \tkzDrawLine[thick,dotted,ForestGreen,add=.5 and .5](F2,C2)
+    \tkzLabelLine[ForestGreen,pos=1.5,right](F2,C2){$o$}
+    \tkzDrawPoints[size=6](A2,B2,C2,D2,E2,F2)
+   \end{tikzpicture}
+   \caption{Složení $\clr{r}^2 \circ \clb{s} = \text{reflexe podle } \clg{o}$.}
+   \label{subfig:slozeni-symetrii-1}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+   \vspace{1em}
+   \centering
+   \begin{tikzpicture}
+    \foreach \an/\name in {0/A,60/B,120/C,180/D,240/E,300/F} {
+     \tkzDefPoint(\an:1){\name}
+    }
+    \tkzDrawPolygon(A,B,C,D,E,F)
+
+    \tkzDrawPoints[size=6](A,B,C,D,E,F)
+    \tkzLabelPoint[right](A){$1$}
+    \tkzLabelPoint[above right](B){$2$}
+    \tkzLabelPoint[above left](C){$3$}
+    \tkzLabelPoint[left](D){$4$}
+    \tkzLabelPoint[below left](E){$5$}
+    \tkzLabelPoint[below right](F){$6$}
+
+    \tkzDefPoint(0,0){O}
+    \tkzDrawPoint[size=4,fill=none,draw=BrickRed](O)
+    \tkzDrawArc[R,dashed,BrickRed,-latex](O,0.5)(0,180)
+    \draw[->,bend left=30,BrickRed] ($(A.center) + (0,0.5)$) to
+     node[midway,yshift=3mm]
+     {$\clr{r}^3$} ($(A.center) + (2,0.5)$);
+
+    \tkzDefPoint(0:5){A1}
+    \tkzDefPointsBy[translation=from A to A1](B,C,D,E,F){B1,C1,D1,E1,F1}
+    \tkzDrawPolygon(A1,B1,C1,D1,E1,F1)
+
+    \tkzLabelPoint[right](A1){$4$}
+    \tkzLabelPoint[above right](B1){$5$}
+    \tkzLabelPoint[above left](C1){$6$}
+    \tkzLabelPoint[left](D1){$1$}
+    \tkzLabelPoint[below left](E1){$2$}
+    \tkzLabelPoint[below right](F1){$3$}
+
+    \tkzDrawLine[add=.5 and .5,dashed,RoyalBlue,thick](E1,B1)
+    \tkzDrawPoints[size=6](A1,B1,C1,D1,E1,F1)
+
+    \draw[->,bend left=30,RoyalBlue] ($(A1.center) + (0,0.5)$) to
+     node[midway,yshift=3mm]
+     {$\clb{s}$} ($(A1.center) + (2,0.5)$);
+
+    \tkzDefPoint(0:9){A2}
+    \tkzDefPointsBy[translation=from A1 to A2](B1,C1,D1,E1,F1){B2,C2,D2,E2,F2}
+    \tkzDrawPolygon(A2,B2,C2,D2,E2,F2)
+
+    \tkzLabelPoint[right](A2){$6$}
+    \tkzLabelPoint[above right](B2){$5$}
+    \tkzLabelPoint[above left](C2){$4$}
+    \tkzLabelPoint[left](D2){$3$}
+    \tkzLabelPoint[below left](E2){$2$}
+    \tkzLabelPoint[below right](F2){$1$}
+
+    \tkzDefMidPoint(A2,F2) \tkzGetPoint{M1}
+    \tkzDefMidPoint(D2,C2) \tkzGetPoint{M2}
+    \tkzDrawLine[thick,dotted,ForestGreen,add=.5 and .5](M1,M2)
+    \tkzLabelLine[ForestGreen,pos=-0.4,above right](M1,M2){$o$}
+    \tkzDrawPoints[size=6](A2,B2,C2,D2,E2,F2)
+   \end{tikzpicture}
+   \caption{Složení $\clb{s} \circ \clr{r}^3 = \text{reflexe podle }\clg{o}$.}
+   \label{subfig:slozeni-symetrii-2}
+  \end{subfigure}
+  \caption{Příklady složení zobrazení $\clr{r}$ a $\clb{s}$.}
+  \label{fig:slozeni-symetrii}
+ \end{figure}
+\end{example}
+
+\begin{example}{Permutační grupa}{permutacni-grupa}
+ Ať $X$ je libovolná konečná množina velikosti $n \in \N$. Pak množina všech
+ permutací na $X$ (tj. bijekcí $X \leftrightarrow X$) tvoří spolu s operací
+ skládání a invertování funkcí \textbf{nekomutativní} grupu. Skutečně, skládání
+ funkcí je zřejmě \emph{asociativní}, ke každé bijekci existuje \emph{inverz} a
+ \emph{neutrálním} prvkem je $\mathds{1}_{X}$. Z diskrétní matematiky víme, že
+ permutací na $n$-prvkové množině je $n!$; označíme-li jejich množinu jako $S_X$
+ (ze zaběhlého názvu \textbf{s}ymetrická grupa), pak je $(S_X,
+ \circ,^{-1},\mathds{1}_{X})$ nekomutativní grupa o $n!$ prvcích. Můžeme se na
+ ni dívat jako na množinu všech transformací, které zachovávají množinu $X$.
+
+ Zajímavou otázkou je, kolik potřebujeme nejméně permutací, abychom jejich
+ skládáním dostali všechny ostatní. V případě dihedrální grupy pravidelného
+ šestiúhelníku (\myref{příklad}{exam:dihedralni-grupa}) to byla zobrazení dvě.
+ Ukazuje se, a není příliš obtížné to dokázat, že nám stačí všechny transpozice
+ $(x \; y)$, kde $x \in X$ je nějaký fixní prvek a $y$ probíhá všechny ostatní
+ prvky $X$. Pokud by $X = \{1,\ldots,n\}$, pak by to byly třeba právě
+ transpozice $(1 \; 2), (1 \; 3),\ldots,(1 \; n)$. Tento fakt souvisí přímo s
+ pozorováním z diskrétní matematiky, že každou permutaci lze rozložit na
+ transpozice. 
+\end{example}
