@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,svgnames]{beamer}
+\documentclass[aspectratio=169,11pt,svgnames,draft]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -17,6 +17,10 @@
   fill = black
  }
 }
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgf-pie}
+
 \usepackage{enumitem}
 
 \usepackage{caption}
@@ -69,141 +73,203 @@
  boxrule=1pt
 }
 
+\newcommand{\clt}{\textcolor{MyTeal}}
+\newcommand{\cln}{\textcolor{MyNavy}}
+\newcommand{\clb}{\textcolor{MyBlue}}
+\newcommand{\clw}{\textcolor{MyWhite}}
+
 \begin{document}
 \titleframe
 
+% \begin{frame}
+%  \frametitle{What Even Is Statistics?}
+%  \begin{tcolorbox}[title=Statistics]
+%   \alert{Statistics} is a mathematical discipline concerned with predicting
+%   future state of a system based \emph{solely} on its past behaviour.
+%  \end{tcolorbox}
+%  \pause
+%  The collective information about a system's past state is called
+%  \alert{data}.\\
+%  \pause
+%  It assigns \alert{probabilities} to each possible future state of system based
+%  on data.\\
+%  \pause
+%  It also assigns probabilities to the \alert{possibility of wrong prediction}.
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Example -- Biased Coin?}
+%  We throw a coin 10 times with the following outcome:
+%  \[
+%   \{H,H,H,T,H,T,H,H,H,T\},
+%  \]
+%  $H$ for `heads', $T$ for `tails'.
+%  \pause
+%  We can ask two questions:
+%  \pause
+%  \begin{itemize}[label=\textbullet]
+%   \item<3-> What is the probability that the \alert{next toss} will come out
+%    `heads'/`tails'?
+%   \begin{itemize}[label=\textminus]
+%    \item<5-> We got $7$ heads out of $10$ tosses, so the probability for the next toss
+%     being heads is $7 / 10$.
+%   \end{itemize}
+%   \item<4-> Is this coin is \alert{biased towards} `heads'/`tails' with
+%    \emph{allowed probability of error} $\alpha$?
+%    \begin{itemize}[label=\textminus]
+%     \item<6-> \alert{No}, for $\alpha = 0.05$.
+%     \item<6-> \alert{Yes}, for $\alpha = 0.2$.
+%    \end{itemize}
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Contents}
+%  \tableofcontents
+% \end{frame}
+%
+% \section{Data}
+%
+% \begin{frame}
+%  \frametitle{What Do We Mean By Data?}
+%  \begin{tcolorbox}[title=Data]
+%   \alert{Two sets} (called \emph{inputs} and \emph{outputs}) describing the
+%   studied system.
+%  \end{tcolorbox}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Example -- Junctions}
+%  For a year, we keep track of the number of traffic accidents per day on road
+%  junctions across the city to determine which should be first replaced by
+%  roundabouts.\\
+%  \pause
+%  An \alert{input} is a day in a year.\\
+%  \pause
+%  An \alert{output} is the number of traffic accidents in a given day.
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Example -- First Baby}
+%  We study the age that women bear children for the first time across Europe.\\
+%  \pause
+%  An \alert{input} would be a name of a European country.\\
+%  An \alert{output} is the average age of a first-time mother in that country.
+% \end{frame}
+%
+% \subsection{Types of Data}
+%
+% \begin{frame}
+%  \subsectionpage
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Discrete Data vs. Continuous Data}
+%  \begin{tcolorbox}[title=Discrete Data]
+%   We call a data \alert{discrete} if the set of \emph{inputs} (and therefore also
+%   that of \emph{outputs}) is \alert{countable}.
+%  \end{tcolorbox}
+%  \pause
+%  Both previous examples feature \alert{discrete} data.
+%  \begin{itemize}[label=\textbullet]
+%   \item There are only \emph{finitely many} junctions in a city.
+%   \pause
+%   \item There are only \emph{finitely many} countries on a continent.
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Discrete Data vs. Continuous Data}
+%  \begin{tcolorbox}[title=Continuous Data]
+%   We call a data \alert{continuous} if the set of inputs is \alert{uncountable}.
+%   In this case, the data is actually a \alert{function}: set of inputs $ \to $
+%   set of outputs.
+%  \end{tcolorbox}
+%  \pause
+%  More often than not, the inputs in a continuous data are \alert{moments in
+%  time} or \alert{coordinates in space}.
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Continuous Data -- Examples}
+%  \begin{itemize}[label=\textbullet]
+%   \item We study the number of trains in a railway station at any given time.
+%   \pause
+%   \begin{itemize}[label=\textminus]
+%    \item Input: time (of day);
+%    \pause
+%    \item Output: number of trains in the station.
+%    \pause
+%    \item The data is a function $f:[0,24] \to \mathbb{N}$.
+%   \end{itemize}
+%  \pause
+%  \item Another example is the density of air per cubic meter.
+%  \pause
+%  \begin{itemize}[label=\textminus] 
+%   \item Input: Coordinates of a unit cube in space.
+%   \pause
+%   \item Output: The combined weight of air molecules.
+%   \pause
+%   \item The data is a function $f:\mathbb{R}^3 \to \mathbb{R}$. 
+%  \end{itemize}
+%  \end{itemize}
+% \end{frame}
+
+\section{Visualizing Discrete Data}
+
 \begin{frame}
- \frametitle{What Even Is Statistics?}
- \begin{tcolorbox}[title=Statistics]
-  \alert{Statistics} is a mathematical discipline concerned with predicting
-  future state of a system based \emph{solely} on its past behaviour.
- \end{tcolorbox}
+ \frametitle{Pie Chart}
+ Only usable if your outputs \alert{total a predetermined number}, typically
+ \emph{percentages}.\\
  \pause
- The collective information about a system's past state is called
- \alert{data}.\\
+ Suppose we have three inputs --
+ $\textcolor{VioletRed}{I_1},\textcolor{Aqua}{I_2}$ and
+ $\textcolor{ForestGreen}{I_3}$ -- with three outputs --
+ $\textcolor{VioletRed}{30 \%}, \textcolor{Aqua}{10 \%}$ and
+ $\textcolor{ForestGreen}{60 \%}$.\\
  \pause
- It assigns \alert{probabilities} to each possible future state of system based
- on data.\\
- \pause
- It also assigns probabilities to the \alert{possibility of wrong prediction}.
+ Pie chart of this data looks like this
+ \begin{center}
+  \begin{tikzpicture}[scale=0.75]
+   \pie[color={VioletRed,Aqua,ForestGreen},text=legend]{
+    30/$I_1$,
+    10/$I_2$,
+    60/$I_3$
+   }
+  \end{tikzpicture}
+ \end{center}
 \end{frame}
 
 \begin{frame}
- \frametitle{Example -- Biased Coin?}
- We throw a coin 10 times with the following outcome:
- \[
-  \{H,H,H,T,H,T,H,H,H,T\},
- \]
- $H$ for `heads', $T$ for `tails'.
+ \frametitle{Pie Chart -- Examples}
+ Pie charts are frequently used to represent compositions of chemicals.\\
  \pause
- We can ask two questions:
- \pause
- \begin{itemize}[label=\textbullet]
-  \item<3-> What is the probability that the \alert{next toss} will come out
-   `heads'/`tails'?
-  \begin{itemize}[label=\textminus]
-   \item<5-> We got $7$ heads out of $10$ tosses, so the probability for the next toss
-    being heads is $7 / 10$.
-  \end{itemize}
-  \item<4-> Is this coin is \alert{biased towards} `heads'/`tails' with
-   \emph{allowed probability of error} $\alpha$?
-   \begin{itemize}[label=\textminus]
-    \item<6-> \alert{No}, for $\alpha = 0.05$.
-    \item<6-> \alert{Yes}, for $\alpha = 0.2$.
-   \end{itemize}
- \end{itemize}
+ For instance, here is a pie chart of the composition of \emph{air}.
+ \begin{center}
+  \begin{tikzpicture}
+   \pie[hide number,radius=2]{
+    78.09/Nitrogen,
+    20.95/Oxygen,
+    0.93/Argon
+   }
+  \end{tikzpicture}
+ \end{center}
 \end{frame}
 
 \begin{frame}
- \frametitle{Contents}
- \tableofcontents
-\end{frame}
-
-\section{Data}
-
-\begin{frame}
- \frametitle{What Do We Mean By Data?}
- \begin{tcolorbox}[title=Data]
-  \alert{Two sets} (called \emph{inputs} and \emph{outputs}) describing the
-  studied system.
- \end{tcolorbox}
-\end{frame}
-
-\begin{frame}
- \frametitle{Example -- Junctions}
- For a year, we keep track of the number of traffic accidents per day on road
- junctions across the city to determine which should be first replaced by
- roundabouts.\\
- \pause
- An \alert{input} is a day in a year.\\
- \pause
- An \alert{output} is the number of traffic accidents in a given day.
-\end{frame}
-
-\begin{frame}
- \frametitle{Example -- First Baby}
- We study the age that women bear children for the first time across Europe.\\
- \pause
- An \alert{input} would be a name of a European country.\\
- An \alert{output} is the average age of a first-time mother in that country.
-\end{frame}
-
-\subsection{Types of Data}
-
-\begin{frame}
- \subsectionpage
-\end{frame}
-
-\begin{frame}
- \frametitle{Discrete Data vs. Continuous Data}
- \begin{tcolorbox}[title=Discrete Data]
-  We call a data \alert{discrete} if the set of \emph{inputs} (and therefore also
-  that of \emph{outputs}) is \alert{countable}.
- \end{tcolorbox}
- \pause
- Both previous examples feature \alert{discrete} data.
- \begin{itemize}[label=\textbullet]
-  \item There are only \emph{finitely many} junctions in a city.
-  \pause
-  \item There are only \emph{finitely many} countries on a continent.
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Discrete Data vs. Continuous Data}
- \begin{tcolorbox}[title=Continuous Data]
-  We call a data \alert{continuous} if the set of inputs is \alert{uncountable}.
-  In this case, the data is actually a \alert{function}: set of inputs $ \to $
-  set of outputs.
- \end{tcolorbox}
- \pause
- More often than not, the inputs in a continuous data are \alert{moments in
- time} or \alert{coordinates in space}.
-\end{frame}
-
-\begin{frame}
- \frametitle{Continuous Data -- Examples}
- \begin{itemize}[label=\textbullet]
-  \item We study the number of trains in a railway station at any given time.
-  \pause
-  \begin{itemize}[label=\textminus]
-   \item Input: time (of day);
-   \pause
-   \item Output: number of trains in the station.
-   \pause
-   \item The data is a function $f:[0,24] \to \mathbb{N}$.
-  \end{itemize}
- \pause
- \item Another example is the density of air per cubic meter.
- \pause
- \begin{itemize}[label=\textminus] 
-  \item Input: Coordinates of a unit cube in space.
-  \pause
-  \item Output: The combined weight of air molecules.
-  \pause
-  \item The data is a function $f:\mathbb{R}^3 \to \mathbb{R}$. 
- \end{itemize}
- \end{itemize}
+ \frametitle{Pie Chart -- Examples}
+ Favourite type of movie as determined by a survey.
+ \begin{center}
+  \begin{tikzpicture}
+   \pie[radius=2,text=legend,before number=,after number=,sum=20]{
+    1/Drama,
+    4/SciFi,
+    4/Comedy,
+    6/Romance,
+    5/Action
+   }
+  \end{tikzpicture}
+ \end{center}
 \end{frame}
 
 \end{document}
