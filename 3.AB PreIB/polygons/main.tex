@@ -7,7 +7,7 @@
 \usepackage{mathtools}
 \usepackage{float}
 \usepackage{tikz}
-\usetikzlibrary{patterns,arrows.meta}
+\usetikzlibrary{patterns,arrows.meta,calc}
 \usepackage{tkz-euclide}
 \tikzset{point style/.style = {%
   draw = black,
@@ -908,6 +908,120 @@
 
   \caption*{Examples of regular polygon symmetries}
  \end{figure}
+\end{frame}
+
+\section{Cryptography on Regular Polygons}
+
+\begin{frame}
+ \frametitle{Chaining Symmetries}
+ Given two symmetries, $s_1$ and $s_2$ of a regular polygon, one can apply them
+ one after the other (`compose' them, like functions).\\
+ \pause
+ We'll denote this composition simply by $s_1s_2$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Chaining Symmetries -- Example}
+ \begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \foreach \an/\name in {0/a,60/b,120/c,180/d,240/e,300/f} {
+     \tkzDefPoint(\an:1){\name}
+    }
+    \tkzDrawPolygon(a,b,c,d,e,f)
+    \tkzLabelPoint[right](a){$1$}
+    \tkzLabelPoint[above right](b){$2$}
+    \tkzLabelPoint[above left](c){$3$}
+    \tkzLabelPoint[left](d){$4$}
+    \tkzLabelPoint[below left](e){$5$}
+    \tkzLabelPoint[below right](f){$6$}
+
+    \tkzDrawLine[dashed,thick,PolygonCyan,add=.5 and .5](c,f)
+    \tkzDrawPoints(a,b,c,d,e,f)
+
+    \coordinate (h1) at ($(a) + (0.5,0.5)$);
+    \coordinate (h2) at ($(h1) + (2,0)$);
+    
+    \pause
+    \draw[PolygonCyan,-Latex,bend left=30] (h1) to
+     node[midway,PolygonCyan,yshift=2mm] {$s_1$} (h2);
+
+    \tkzDefPoint(6,0){a1}
+    \tkzDefPointsBy[translation=from a to a1](b,c,d,e,f){b1,c1,d1,e1,f1}
+    \tkzDrawPolygon(a1,b1,c1,d1,e1,f1)
+    \tkzLabelPoint[right](a1){$5$}
+    \tkzLabelPoint[above right](b1){$4$}
+    \tkzLabelPoint[above left](c1){$3$}
+    \tkzLabelPoint[left](d1){$2$}
+    \tkzLabelPoint[below left](e1){$1$}
+    \tkzLabelPoint[below right](f1){$6$}
+    \tkzDrawPoints(a1,b1,c1,d1,e1,f1)
+
+    \tkzDefPoint(5,0){o}
+    \tkzDrawPoint[fill=none,PolygonOrange,thick](o)
+    \tkzDrawArc[R,thick,PolygonOrange,->](o,0.5)(0,120)
+
+    \coordinate (g1) at ($(a1) + (0.5,0.5)$);
+    \coordinate (g2) at ($(g1) + (2,0)$);
+
+    \pause
+    \draw[PolygonOrange,-Latex,bend left=30] (g1) to
+     node[midway,PolygonOrange,yshift=2mm] {$s_2$} (g2);
+
+    \tkzDefPoint(11,0){a2}
+    \tkzDefPointsBy[translation=from a1 to a2](b1,c1,d1,e1,f1){b2,c2,d2,e2,f2}
+    \tkzDrawPolygon(a2,b2,c2,d2,e2,f2)
+    \tkzLabelPoint[right](a2){$1$}
+    \tkzLabelPoint[above right](b2){$6$}
+    \tkzLabelPoint[above left](c2){$5$}
+    \tkzLabelPoint[left](d2){$4$}
+    \tkzLabelPoint[below left](e2){$3$}
+    \tkzLabelPoint[below right](f2){$2$}
+    \tkzDrawPoints(a2,b2,c2,d2,e2,f2)
+
+    \pause
+    \tkzDrawLine[thick,dotted,add=.5 and .5,Red](a2,d2)
+    \tkzLabelLine[pos=-0.3,Red,yshift=3mm](a2,d2){\LARGE $?$}
+    \tkzDrawPoints(a2,b2,c2,d2,e2,f2)
+   \end{tikzpicture}
+  \end{subfigure}
+  \caption*{Example of chains of symmetries.}
+ \end{figure}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Chaining Symmetries -- How Many Do We Need?}
+ Discounting point symmetry, an $n$-gon has \alert{$2n$} symmetries.\\
+ \pause
+ Two symmetries can `combine' to create a different symmetry.\\
+ \pause
+ \textbf{Natural question:} How many (and which) symmetries of a regular polygon
+  do I need to get all the others?\\
+  \pause
+  For example,
+  \begin{itemize}[label=\textbullet,topsep=0pt]
+   \item if $s_1$ is any line symmetry and $s_2$ is a rotation by $60^{ \circ }$
+    counter-clockwise, then $s_2^3s_1$ ($s_2^3$ means $s_2s_2s_2$) reflects a
+    hexagon through a line perpendicular to the line of $s_1$.
+   \pause
+   \item if $s_1$ is a rotation by $120^{ \circ }$ clockwise and $s_2$ is a
+    reflection through a vertical line passing through the top vertex, then
+    $s_1s_2$ is a reflection through the line given by the rotation of the line
+    of $s_2$ $60^{ \circ }$ clockwise.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Chaining Symmetries -- How Many Do We Need?}
+ Actually, for a general $n$-gon, we need only \alert{two}:
+ \pause
+ \begin{itemize}[label=\textbullet,topsep=0pt]
+  \item rotation by $360^{ \circ } / n$ in any direction (we'll denote it $r$),
+  \pause
+  \item any reflection (we'll denote it $s$).
+ \end{itemize}
 \end{frame}
 
 \end{document}
