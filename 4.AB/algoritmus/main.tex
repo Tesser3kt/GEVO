@@ -288,8 +288,33 @@ centered, draw=black, fill=Green!30]
     \node[startstop] (start) at (0,0) {start};
     \node[io,below of=start] (input) {dvě stejně dlouhá čísla};
     \node[decision,below of=input,yshift=-1cm] (digitexists) {Zbývají ještě nějaké číslice?};
-    \node[process,below of=digitexists,yshift=-1cm] (sum) {Sečti poslední číslice zprava.};
+    \node[process,right of= start,xshift=7cm] (sum) {Sečti poslední číslice zprava.};
+    \node[decision,below of=sum,yshift=-1cm] (greaterthan10) {Je výsledek
+     větší než 10?};
+    \node[process,below left of=greaterthan10,yshift=-1.5cm,xshift=-1cm] (no) {Nastav přebytek na $0$.};
+    \node[process,below right of=greaterthan10,yshift=-1.5cm,xshift=1cm] (yes) {Nastav přebytek na $1$.};
+    \node[process,below of=yes,xshift=-2cm] (lastdigit) {Zapiš poslední číslici
+     výsledku.};
+    \node[process,below of=digitexists,yshift=-1cm] (carry) {Dopiš přebytek.};
+    \node[io,below of=carry] (finalsum) {výsledný součet};
     
+    \node[startstop,below of=finalsum] (stop) {konec};
+
+    \path[connector] (start) -- (input);
+    \path[connector] (input) -- (digitexists);
+    \draw (digitexists.east) to ++(2,0);
+    \draw ($(digitexists.east) + (2,0)$) to node[midway,xshift=-4mm] {ano}
+     (5,0);
+    \draw[latex'-] (sum.west) to (5,0);
+    \path[connector] (sum) -- (greaterthan10);
+    \path[connector] (greaterthan10) -- node[anchor=east] {ne} (no);
+    \path[connector] (greaterthan10) -- node[anchor=west] {ano} (yes);
+    \path[connector] (no) -- (lastdigit);
+    \path[connector] (yes) -- (lastdigit);
+    \path[connector] (lastdigit.west) -- (digitexists);
+    \path[connector] (digitexists) -- node[anchor=east] {ne} (carry);
+    \path[connector] (carry) -- (finalsum);
+    \path[connector] (finalsum) -- (stop);
   \end{tikzpicture}
  \end{figure}
 \end{frame}
