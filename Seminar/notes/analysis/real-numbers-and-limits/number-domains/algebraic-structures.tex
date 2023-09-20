@@ -27,7 +27,6 @@ vlastně jde. Uvedeme si ji.
  \end{itemize}
  pak nazveme čtveřici $\mathbf{G} = (G, \cdot ,^{-1},1)$ \emph{grupou}.
 \end{definition}
-
 Tato definice si zaslouží několik poznámek, varování a příkladů. Součástí
 definice grupy \textbf{není} komutativita její binární operace. Obecně, v grupě
 $\mathbf{G}$ není prvek $g \cdot h$ tentýž jako $h \cdot g$. Mezi algebraiky
@@ -39,7 +38,6 @@ stylem z~\myref{definice}{def:grupa}.
 
 Zadruhé, není vůbec zřejmé, proč by taková struktura měla jakýmkoli způsobem
 odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
-
 \begin{example}{Dihedrální grupa}{dihedralni-grupa}
  Ať $P$ je pravidelný šestiúhelník v $\R^2$. Uvažme zobrazení $r:\R^2 \to \R^2$,
  které rotuje body v $\R^2$ o $60^{ \circ }$ podle středu jeho uhlopříček, a
@@ -222,3 +220,170 @@ odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
  pozorováním z diskrétní matematiky, že každou permutaci lze rozložit na
  transpozice. 
 \end{example}
+
+\begin{example}{Odmocniny jednotky}{odmocniny-jednotky}
+ V komplexních číslech má každé číslo přesně $n$ $n$-tých odmocnin. Zapíšeme-li
+ si komplexní číslo $z \in \C$ v tzv. \uv{goniometrickém} tvaru, pak je můžeme
+ snadno najít. Totiž, je-li $z = r \cdot (\cos\theta + i \sin\theta)$, kde $r
+ \in \R^{+}$ je jeho vzdálenost od počátku, $\theta$ úhel, který svírá s reálnou
+ (typicky vodorovnou) osou, a $i$ imaginární jednotka, pak je
+ \[
+  \left\{\sqrt[n]{r} \cdot \left(\cos\left(\frac{k \cdot \theta}{n}\right) + i
+  \cdot \sin\left(\frac{k \cdot \theta}{n}\right)\right) \mid k \in
+  \{1,\ldots,n\} \right\}
+ \]
+ množina všech jeho $n$-tých odmocnin.
+
+ Tato množina obecně \textbf{není} grupa, neboť tím, že vynásobím dvě odmocniny
+ komplexního čísla, nedostanu jeho jinou odmocninu -- s jednou výjimkou, a tou
+ je číslo $1$. Totiž, $1 = \cos(2\pi) + i \cdot \sin(2\pi)$, a tedy všechny jeho
+ třeba čtvrté odmocniny jsou
+ \[
+  \left\{ \cos\left(\frac{\pi}{4}\right)+i \sin \left( \frac{\pi}{4}
+  \right), \cos \left( \frac{\pi}{2} \right) + i \sin \left( \frac{\pi}{2}
+  \right), \cos\left(\frac{3\pi}{2}\right)+i\sin \left( \frac{3\pi}{2}
+  \right), \cos \left( 2\pi \right) + i\sin \left( 2\pi \right) \right\}.
+ \]
+ Důležité pozorování k pochopení tohoto příkladu je, že když spolu násobím dvě
+ komplexní čísla, jejich vzdálenosti od počátku ($r$) se násobí a jejich úhly
+ svírané s reálnou osou ($\theta$), se sčítají. Z toho plyne, že vzdálenost
+ každé odmocniny z $1$ od počátku je vždy $1$ a že vynásobením dvou odmocnin z
+ $1$ dostanu další odmocninu z $1$. Vskutku, jsou-li $\cos (k\pi / n) +
+ i\sin(k\pi / n)$ a $\cos(l\pi / n) + i\sin(l\pi / n)$ dvě odmocniny z jedné,
+ pak je jejich součin roven
+ \[
+  \left( \cos \left( \frac{k\pi}{n} \right) + i\sin \left( \frac{k\pi}{n}
+   \right) \right) \left( \cos \left( \frac{l\pi}{n} \right) + i\sin \left(
+   \frac{l\pi}{n} \right)\right) = \cos \left( \frac{(k+l)\pi}{n} \right) +
+   i\sin \left( \frac{(k+l)\pi}{n} \right),
+ \]
+ což je opět odmocnina z $1$. Označíme-li $\Omega(n)$ množinu všech $n$-tých
+ odmocnin z $1$, pak je čtveřice $(\Omega(n), \cdot ,^{-1},1)$
+ \textbf{komutativní} grupa, kde $ \cdot $ značí běžné násobení komplexních
+ čísel.
+ \begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{.3\textwidth}
+   \centering
+   \begin{tikzpicture}[scale=1.4]
+    \tkzInit[xmin=-1.2,xmax=1,ymin=-1.2,ymax=1]
+    \tkzDrawX[label=] \tkzDrawY[label=]
+    \tkzDefPoint(0,0){o}
+    \tkzDefPoint(0:1){a}
+    \tkzDrawCircle(o,a)
+
+    \tkzDefPoint(72:1){w1}
+    \tkzDrawPoint[size=4,BrickRed](w1)
+    \tkzLabelPoint[above right,BrickRed](w1){$\omega_1$}
+    \tkzDrawLine[BrickRed,add=0 and 0](o,w1)
+    \tkzLabelAngle[pos=0.4,BrickRed](a,o,w1){$\frac{2\pi}{5}$}
+    \tkzMarkAngle[size=0.7,BrickRed](a,o,w1)
+
+    \tkzDefPoint(0,1){i}
+    \tkzDrawPoints[size=2](a,i)
+    \tkzLabelPoint[below right](a){$1$}
+    \tkzLabelPoint[above left](i){$i$}
+   \end{tikzpicture}
+   \label{subfig:odmocniny-z-jedne-1}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{.3\textwidth}
+   \centering
+   \begin{tikzpicture}[scale=1.4]
+    \tkzInit[xmin=-1.2,xmax=1,ymin=-1.2,ymax=1]
+    \tkzDrawX[label=] \tkzDrawY[label=]
+    \tkzDefPoint(0,0){o}
+    \tkzDefPoint(0:1){a}
+    \tkzDrawCircle(o,a)
+
+    \tkzDefPoint(144:1){w2}
+    \tkzDrawPoint[size=4,RoyalBlue](w2)
+    \tkzLabelPoint[above left,RoyalBlue](w2){$\omega_2$}
+    \tkzDrawLine[RoyalBlue,add=0 and 0](o,w2)
+    \tkzLabelAngle[pos=0.35,RoyalBlue](a,o,w2){$\frac{4\pi}{5}$}
+    \tkzMarkAngle[size=0.7,RoyalBlue](a,o,w2)
+
+    \tkzDefPoint(0,1){i}
+    \tkzDrawPoints[size=2](a,i)
+    \tkzLabelPoint[below right](a){$1$}
+    \tkzLabelPoint[above left](i){$i$}
+   \end{tikzpicture}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{.3\textwidth}
+   \centering
+   \begin{tikzpicture}[scale=1.4]
+    \tkzInit[xmin=-1.2,xmax=1,ymin=-1.2,ymax=1]
+    \tkzDrawX[label=] \tkzDrawY[label=]
+    \tkzDefPoint(0,0){o}
+    \tkzDefPoint(0:1){a}
+    \tkzDrawCircle(o,a)
+
+    \tkzDefPoint(216:1){w3}
+    \tkzDrawPoint[size=4,ForestGreen](w3)
+    \tkzLabelPoint[below left,ForestGreen](w3){$\omega_1\omega_2$}
+    \tkzDrawLine[ForestGreen,add=0 and 0](o,w3)
+    \tkzLabelAngle[pos=0.35,ForestGreen](a,o,w3){$\frac{6\pi}{5}$}
+    \tkzMarkAngle[size=0.7,ForestGreen](a,o,w3)
+
+    \tkzDefPoint(0,1){i}
+    \tkzDrawPoints[size=2](a,i)
+    \tkzLabelPoint[below right](a){$1$}
+    \tkzLabelPoint[above left](i){$i$}
+   \end{tikzpicture}
+  \end{subfigure}
+  \caption{Komplexní čísla $\clr{\omega_1},\clb{\omega_2} \in \Omega(5)$ a
+   jejich součin $\clg{\omega_1\omega_2}$.}
+  \label{fig:odmocniny-z-jedne}
+ \end{figure}
+\end{example}
+
+Doufáme, že se nám podařilo vnímavé čtenáře přesvědčit, že grupy jsou přirozené
+struktury v~různém smyslu reprezentující symetrie objektů spolu s jejich
+vzájemnými souvislostmi.
+
+Avšak, grupy nezachycují \emph{všechny} transformace, pouze ty, které lze
+zvrátit -- tento požadavek je zachycen v podmínce existence inverzu ke každému
+prvku grupy. Není přehnané domnívat se, že tímto přístupem přicházíme o řád
+informací o studovaných jevech. Vskutku, matematici 19. století souhlasí a
+vymýšlejí strukturu \emph{monoidu}, v podstatě jen grupy, u které nepožadujeme,
+aby se každý prvek dal invertovat. Monoidy jsou tudíž algebraické struktury
+objímající \textbf{všechny} transformace -- jak symetrie, tak deformace.
+
+\begin{definition}{Monoid}{monoid}
+ Ať $M$ je libovolná neprázdná množina. Platí-li, že
+ \begin{itemize}
+  \item existuje binární operace $ \cdot :M \times M \to M$, která je
+   \textbf{asociativní} a
+  \item existuje prvek $1 \in M$ takový, že $1 \cdot m = m \cdot 1 = m$ pro
+   každé $m \in M$,
+ \end{itemize}
+ pak nazýváme trojici $(M, \cdot ,1)$ \emph{monoidem}.
+\end{definition}
+
+Přirozeně, pokud má každý prvek monoid inverz, je tento monoid grupou. Některé
+příklady grup se dají zobecnit tak, aby se staly příklady monoidů, které však
+nejsou grupami. Vezměme \myref{příklad}{exam:permutacni-grupa}. Uvážíme-li místo
+pouhých permutací na $X$ (tj. bijekcí $X \to X$) \textbf{všechna} zobrazení $X
+\to X$, pak dostaneme monoid. Vskutku, jak jsme již zmiňovali, skládání
+zobrazení je asociativní a máme k dispozici identické zobrazení $\mathds{1}_X$,
+čili je trojice
+\[
+ (\{f \mid f \text{ je zobrazení } X \to X\}, \circ ,\mathds{1}_X)
+\]
+monoidem. Tento příklad též ukazuje, že monoidy jsou v jistém smyslu \uv{větší}
+než grupy. Je-li $X$ konečná množina velikosti $n$, pak je tento smysl dokonce
+absolutní. Všech permutací na $X$ je totiž $n!$, zatímco všech zobrazení $X \to
+X$ je $n^{n}$.
+
+Příklady \ref{exam:dihedralni-grupa} a \ref{exam:odmocniny-jednotky} žádných
+přirozených zobecnění nenabízejí. Přidáme-li k dihedrální grupě transformace
+rotace a reflexe, které nemusejí daný mnohoúhelník zachovat, pak už můžeme
+rovnou uvážit úplně všechny rovinné rotace a reflexe. Je sice pravdou, že
+množina všech rotací a reflexí dvoudimenzionálního prostoru tvoří monoid, ale
+již nikterak nesouvisí s mnohoúhelníky. Podobně, když se nebudeme soustředit na
+komplexní odmocniny z $1$, ale na komplexní odmocniny libovolného komplexního
+čísla, nedostaneme tak ani monoid. Neboť, jak jsme uvedli, součin dvou $n$-tých
+odmocnin komplexního čísla obecně není $n$-tá odmocnina téhož čísla.
+
+
