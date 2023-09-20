@@ -501,6 +501,8 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-show.
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-protractor.tex
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-protractor.tex
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-protractor.tex
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/booktabs/booktabs.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex
@@ -676,7 +678,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourcesanspro/SourceSans
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-Regular-tlf-t1--base.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourcesanspro/SourceSansPro-Regular-tlf-sc-t1.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-Regular-tlf-sc-t1--base.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-Semibold-tlf-t1.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-It-tlf-t1.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
@@ -703,11 +704,12 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-It-tlf-t1.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-It-tlf-t1.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-Semibold-tlf-t1.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-Regular-tlf-t1.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourcesanspro/SourceSansPro-Semibold-tlf-t1.vf
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-Semibold-tlf-t1--base.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourcesanspro/SourceSansPro-It-tlf-t1.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-It-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourcesanspro/SourceSansPro-Semibold-tlf-t1.vf
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-Semibold-tlf-t1--base.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourcesanspro/SourceSansPro-Regular-tlf-t1.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourcesanspro/SourceSansPro-Regular-tlf-t1--base.tfm
 OUTPUT main.nav
