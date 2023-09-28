@@ -82,341 +82,341 @@
 \begin{document}
 \titleframe
 
-% \begin{frame}
-%  \frametitle{What Even Is Statistics?}
-%  \begin{tcolorbox}[title=Statistics]
-%   \alert{Statistics} is a mathematical discipline concerned with predicting
-%   future state of a system based \emph{solely} on its past behaviour.
-%  \end{tcolorbox}
-%  \pause
-%  The collective information about a system's past state is called
-%  \alert{data}.\\
-%  \pause
-%  It assigns \alert{probabilities} to each possible future state of system based
-%  on data.\\
-%  \pause
-%  It also assigns probabilities to the \alert{possibility of wrong prediction}.
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Example -- Biased Coin?}
-%  We throw a coin 10 times with the following outcome:
-%  \[
-%   \{H,H,H,T,H,T,H,H,H,T\},
-%  \]
-%  $H$ for `heads', $T$ for `tails'.
-%  \pause
-%  We can ask two questions:
-%  \pause
-%  \begin{itemize}[label=\textbullet]
-%   \item<3-> What is the probability that the \alert{next toss} will come out
-%    `heads'/`tails'?
-%   \begin{itemize}[label=\textminus]
-%    \item<5-> We got $7$ heads out of $10$ tosses, so the probability for the next toss
-%     being heads is $7 / 10$.
-%   \end{itemize}
-%   \item<4-> Is this coin is \alert{biased towards} `heads'/`tails' with
-%    \emph{allowed probability of error} $\alpha$?
-%    \begin{itemize}[label=\textminus]
-%     \item<6-> \alert{No}, for $\alpha = 0.05$.
-%     \item<6-> \alert{Yes}, for $\alpha = 0.2$.
-%    \end{itemize}
-%  \end{itemize}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Contents}
-%  \tableofcontents
-% \end{frame}
-%
-% \section{Data}
-%
-% \begin{frame}
-%  \frametitle{What Do We Mean By Data?}
-%  \begin{tcolorbox}[title=Data]
-%   \alert{Two sets} (called \emph{inputs} and \emph{outputs}) describing the
-%   studied system.
-%  \end{tcolorbox}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Example -- Junctions}
-%  For a year, we keep track of the number of traffic accidents per day on road
-%  junctions across the city to determine which should be first replaced by
-%  roundabouts.\\
-%  \pause
-%  An \alert{input} is a day in a year.\\
-%  \pause
-%  An \alert{output} is the number of traffic accidents in a given day.
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Example -- First Baby}
-%  We study the age that women bear children for the first time across Europe.\\
-%  \pause
-%  An \alert{input} would be a name of a European country.\\
-%  An \alert{output} is the average age of a first-time mother in that country.
-% \end{frame}
-%
-% \subsection{Types of Data}
-%
-% \begin{frame}
-%  \subsectionpage
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Discrete Data vs. Continuous Data}
-%  \begin{tcolorbox}[title=Discrete Data]
-%   We call a data \alert{discrete} if the set of \emph{inputs} (and therefore also
-%   that of \emph{outputs}) is \alert{countable}.
-%  \end{tcolorbox}
-%  \pause
-%  Both previous examples feature \alert{discrete} data.
-%  \begin{itemize}[label=\textbullet]
-%   \item There are only \emph{finitely many} junctions in a city.
-%   \pause
-%   \item There are only \emph{finitely many} countries on a continent.
-%  \end{itemize}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Discrete Data vs. Continuous Data}
-%  \begin{tcolorbox}[title=Continuous Data]
-%   We call a data \alert{continuous} if the set of inputs is \alert{uncountable}.
-%   In this case, the data is actually a \alert{function}: set of inputs $ \to $
-%   set of outputs.
-%  \end{tcolorbox}
-%  \pause
-%  More often than not, the inputs in a continuous data are \alert{moments in
-%  time} or \alert{coordinates in space}.
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Continuous Data -- Examples}
-%  \begin{itemize}[label=\textbullet]
-%   \item We study the number of trains in a railway station at any given time.
-%   \pause
-%   \begin{itemize}[label=\textminus]
-%    \item Input: time (of day);
-%    \pause
-%    \item Output: number of trains in the station.
-%    \pause
-%    \item The data is a function $f:[0,24] \to \mathbb{N}$.
-%   \end{itemize}
-%  \pause
-%  \item Another example is the density of air per cubic meter.
-%  \pause
-%  \begin{itemize}[label=\textminus] 
-%   \item Input: Coordinates of a unit cube in space.
-%   \pause
-%   \item Output: The combined weight of air molecules.
-%   \pause
-%   \item The data is a function $f:\mathbb{R}^3 \to \mathbb{R}$. 
-%  \end{itemize}
-%  \end{itemize}
-% \end{frame}
-%
-% \section{Visualizing Discrete Data}
-%
-% \begin{frame}
-%  \frametitle{Tables}
-%  The simplest possible visualization.\\
-%  \pause
-%  You simply write \emph{inputs} into one row/column and \emph{outputs} into the
-%  other.\\
-%  \pause
-%  For example, suppose you measure the height of $10$ random people. You can
-%  visualize your experiment like this:
-%  \pause
-%  \begin{center}
-%   \begin{tabular}{c|cccccccccc}
-%    \textbf{Input} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
-%    \midrule
-%    \textbf{Output} & 180 & 169 & 191 & 177 & 175 & 181 & 171 & 153 & 180 & 183
-%   \end{tabular}
-%  \end{center}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Pie Chart}
-%  Only usable if your outputs \alert{total a predetermined number}, typically
-%  \emph{percentages}.\\
-%  \pause
-%  Suppose we have three inputs --
-%  $\textcolor{VioletRed}{I_1},\textcolor{Aqua}{I_2}$ and
-%  $\textcolor{ForestGreen}{I_3}$ -- with three outputs --
-%  $\textcolor{VioletRed}{30 \%}, \textcolor{Aqua}{10 \%}$ and
-%  $\textcolor{ForestGreen}{60 \%}$.\\
-%  \pause
-%  Pie chart of this data looks like this
-%  \begin{center}
-%   \begin{tikzpicture}[scale=0.75]
-%    \pie[color={VioletRed,Aqua,ForestGreen},text=legend]{
-%     30/$I_1$,
-%     10/$I_2$,
-%     60/$I_3$
-%    }
-%   \end{tikzpicture}
-%  \end{center}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Pie Chart -- Examples}
-%  Pie charts are frequently used to represent compositions of chemicals.\\
-%  \pause
-%  For instance, here is a pie chart of the composition of \emph{air}.
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \pie[hide number,radius=2]{
-%     78.09/Nitrogen,
-%     20.95/Oxygen,
-%     0.93/Argon
-%    }
-%   \end{tikzpicture}
-%  \end{center}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Pie Chart -- Examples}
-%  Favourite type of movie as determined by a survey.
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \pie[radius=2,text=legend,before number=,after number=,sum=20]{
-%     1/Drama,
-%     4/SciFi,
-%     4/Comedy,
-%     6/Romance,
-%     5/Action
-%    }
-%   \end{tikzpicture}
-%  \end{center}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Bar Chart}
-%  Usable basically for any data.\\
-%  \pause
-%  Especially useful when your inputs are ordered and when you expect the data to
-%  follow a certain trend -- it can be easily approximated by a polygonal curve.\\
-%  \pause
-%  Also very good for comparing more outputs for the same inputs.\\
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Bar Chart -- Example}
-%  Suppose we count the number of customers in our shop over each hour. If we're
-%  open from 8 AM to 5 PM, a bar chart of such an experiment can look like this:
-%  \pause
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \begin{axis}[ybar,height=5cm,width=8cm,xmin=8,xmax=16,
-%     ylabel=Customers,xlabel=Hour,enlarge y limits=0.2,
-%     enlarge x limits=0.1,nodes near coords,xtick distance=1]
-%     \addplot coordinates {
-%       (8,20) (9,25) (10,15) (11,20)
-%       (12,30) (13,35) (14,33) (15,26) (16,20)
-%      };
-%    \end{axis}
-%   \end{tikzpicture}
-%  \end{center}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Bar Chart -- Example}
-%  Let's say we open another shop and want to compare how the two shops are doing
-%  at each hour.\\
-%  \pause
-%  We can show both outputs in the same bar chart:\\
-%  \pause
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \begin{axis}[ybar=0pt,height=5cm,width=13cm,xmin=8,xmax=16,
-%     ylabel=Customers,xlabel=Hour,enlarge y limits=0.2,
-%     enlarge x limits=0.1,nodes near coords,xtick distance=1,
-%     bar width=0.4]
-%     \addplot coordinates {
-%       (8,20) (9,25) (10,15) (11,20)
-%       (12,30) (13,35) (14,33) (15,26) (16,20)
-%      };
-%     \addplot coordinates {
-%       (8,17) (9,20) (10,20) (11,25)
-%       (12,26) (13,27) (14,30) (15,23) (16,11)
-%      };
-%     \legend{Shop 1, Shop 2}
-%    \end{axis}
-%   \end{tikzpicture}
-%  \end{center}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Bar Chart -- Example}
-%  You can also use bar chart to stack outputs on top of each other.\\
-%  \pause
-%  For example, if I wanted to know the \textbf{total} number of customers in both
-%  my shops, I could draw a chart like this:
-%  \pause
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \begin{axis}[height=5cm,width=10cm,xmin=8,xmax=16,
-%     ylabel=Customers,xlabel=Hour,enlarge y limits=0.2,
-%     enlarge x limits=0.1,xtick distance=1,
-%     bar width=0.8,ybar stacked]
-%     \addplot coordinates {
-%       (8,20) (9,25) (10,15) (11,20)
-%       (12,30) (13,35) (14,33) (15,26) (16,20)
-%      };
-%     \addplot +[nodes near coords,point meta=y] coordinates {
-%       (8,17) (9,20) (10,20) (11,25)
-%       (12,26) (13,27) (14,30) (15,23) (16,11)
-%      };
-%     \legend{Shop 1, Shop 2}
-%    \end{axis}
-%   \end{tikzpicture}
-%  \end{center}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Scatter Plot}
-%  Scatter plots are useful when studying `random' data.\\
-%  \pause
-%  Something like the position of an air molecule in a box over time.\\
-%  \pause
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \begin{axis}[height=6cm,width=6cm,enlargelimits=0.1,
-%     xmin=0,xmax=1]
-%     \addplot+ [
-%      only marks,
-%      samples=400
-%     ] {0.5*(rand + 1)};
-%    \end{axis}
-%   \end{tikzpicture}
-%  \end{center}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Scatter Plot -- Example}
-%  Of course, you can also display multiple outputs with the same inputs in a
-%  scatter plot.\\
-%  \pause
-%  Let's add another air molecule.\\
-%  \pause
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \begin{axis}[height=6cm,width=6cm,enlargelimits=0.1,
-%     xmin=0,xmax=1]
-%     \addplot+ [
-%      only marks,
-%      samples=1000
-%     ] {0.5*(rand + 1)};
-%     \addplot+ [
-%      only marks,
-%      samples=1000
-%     ] {0.5*(rand + 1)};
-%    \end{axis}
-%   \end{tikzpicture}
-%  \end{center}
-% \end{frame}
+\begin{frame}
+ \frametitle{What Even Is Statistics?}
+ \begin{tcolorbox}[title=Statistics]
+  \alert{Statistics} is a mathematical discipline concerned with predicting
+  future state of a system based \emph{solely} on its past behaviour.
+ \end{tcolorbox}
+ \pause
+ The collective information about a system's past state is called
+ \alert{data}.\\
+ \pause
+ It assigns \alert{probabilities} to each possible future state of system based
+ on data.\\
+ \pause
+ It also assigns probabilities to the \alert{possibility of wrong prediction}.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Example -- Biased Coin?}
+ We throw a coin 10 times with the following outcome:
+ \[
+  \{H,H,H,T,H,T,H,H,H,T\},
+ \]
+ $H$ for `heads', $T$ for `tails'.
+ \pause
+ We can ask two questions:
+ \pause
+ \begin{itemize}[label=\textbullet]
+  \item<3-> What is the probability that the \alert{next toss} will come out
+   `heads'/`tails'?
+  \begin{itemize}[label=\textminus]
+   \item<5-> We got $7$ heads out of $10$ tosses, so the probability for the next toss
+    being heads is $7 / 10$.
+  \end{itemize}
+  \item<4-> Is this coin is \alert{biased towards} `heads'/`tails' with
+   \emph{allowed probability of error} $\alpha$?
+   \begin{itemize}[label=\textminus]
+    \item<6-> \alert{No}, for $\alpha = 0.05$.
+    \item<6-> \alert{Yes}, for $\alpha = 0.2$.
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Contents}
+ \tableofcontents
+\end{frame}
+
+\section{Data}
+
+\begin{frame}
+ \frametitle{What Do We Mean By Data?}
+ \begin{tcolorbox}[title=Data]
+  \alert{Two sets} (called \emph{inputs} and \emph{outputs}) describing the
+  studied system.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Example -- Junctions}
+ For a year, we keep track of the number of traffic accidents per day on road
+ junctions across the city to determine which should be first replaced by
+ roundabouts.\\
+ \pause
+ An \alert{input} is a day in a year.\\
+ \pause
+ An \alert{output} is the number of traffic accidents in a given day.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Example -- First Baby}
+ We study the age that women bear children for the first time across Europe.\\
+ \pause
+ An \alert{input} would be a name of a European country.\\
+ An \alert{output} is the average age of a first-time mother in that country.
+\end{frame}
+
+\subsection{Types of Data}
+
+\begin{frame}
+ \subsectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Discrete Data vs. Continuous Data}
+ \begin{tcolorbox}[title=Discrete Data]
+  We call a data \alert{discrete} if the set of \emph{inputs} (and therefore also
+  that of \emph{outputs}) is \alert{countable}.
+ \end{tcolorbox}
+ \pause
+ Both previous examples feature \alert{discrete} data.
+ \begin{itemize}[label=\textbullet]
+  \item There are only \emph{finitely many} junctions in a city.
+  \pause
+  \item There are only \emph{finitely many} countries on a continent.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Discrete Data vs. Continuous Data}
+ \begin{tcolorbox}[title=Continuous Data]
+  We call a data \alert{continuous} if the set of inputs is \alert{uncountable}.
+  In this case, the data is actually a \alert{function}: set of inputs $ \to $
+  set of outputs.
+ \end{tcolorbox}
+ \pause
+ More often than not, the inputs in a continuous data are \alert{moments in
+ time} or \alert{coordinates in space}.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Continuous Data -- Examples}
+ \begin{itemize}[label=\textbullet]
+  \item We study the number of trains in a railway station at any given time.
+  \pause
+  \begin{itemize}[label=\textminus]
+   \item Input: time (of day);
+   \pause
+   \item Output: number of trains in the station.
+   \pause
+   \item The data is a function $f:[0,24] \to \mathbb{N}$.
+  \end{itemize}
+ \pause
+ \item Another example is the density of air per cubic meter.
+ \pause
+ \begin{itemize}[label=\textminus] 
+  \item Input: Coordinates of a unit cube in space.
+  \pause
+  \item Output: The combined weight of air molecules.
+  \pause
+  \item The data is a function $f:\mathbb{R}^3 \to \mathbb{R}$. 
+ \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Visualizing Discrete Data}
+
+\begin{frame}
+ \frametitle{Tables}
+ The simplest possible visualization.\\
+ \pause
+ You simply write \emph{inputs} into one row/column and \emph{outputs} into the
+ other.\\
+ \pause
+ For example, suppose you measure the height of $10$ random people. You can
+ visualize your experiment like this:
+ \pause
+ \begin{center}
+  \begin{tabular}{c|cccccccccc}
+   \textbf{Input} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+   \midrule
+   \textbf{Output} & 180 & 169 & 191 & 177 & 175 & 181 & 171 & 153 & 180 & 183
+  \end{tabular}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Pie Chart}
+ Only usable if your outputs \alert{total a predetermined number}, typically
+ \emph{percentages}.\\
+ \pause
+ Suppose we have three inputs --
+ $\textcolor{VioletRed}{I_1},\textcolor{Aqua}{I_2}$ and
+ $\textcolor{ForestGreen}{I_3}$ -- with three outputs --
+ $\textcolor{VioletRed}{30 \%}, \textcolor{Aqua}{10 \%}$ and
+ $\textcolor{ForestGreen}{60 \%}$.\\
+ \pause
+ Pie chart of this data looks like this
+ \begin{center}
+  \begin{tikzpicture}[scale=0.75]
+   \pie[color={VioletRed,Aqua,ForestGreen},text=legend]{
+    30/$I_1$,
+    10/$I_2$,
+    60/$I_3$
+   }
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Pie Chart -- Examples}
+ Pie charts are frequently used to represent compositions of chemicals.\\
+ \pause
+ For instance, here is a pie chart of the composition of \emph{air}.
+ \begin{center}
+  \begin{tikzpicture}
+   \pie[hide number,radius=2]{
+    78.09/Nitrogen,
+    20.95/Oxygen,
+    0.93/Argon
+   }
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Pie Chart -- Examples}
+ Favourite type of movie as determined by a survey.
+ \begin{center}
+  \begin{tikzpicture}
+   \pie[radius=2,text=legend,before number=,after number=,sum=20]{
+    1/Drama,
+    4/SciFi,
+    4/Comedy,
+    6/Romance,
+    5/Action
+   }
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Bar Chart}
+ Usable basically for any data.\\
+ \pause
+ Especially useful when your inputs are ordered and when you expect the data to
+ follow a certain trend -- it can be easily approximated by a polygonal curve.\\
+ \pause
+ Also very good for comparing more outputs for the same inputs.\\
+\end{frame}
+
+\begin{frame}
+ \frametitle{Bar Chart -- Example}
+ Suppose we count the number of customers in our shop over each hour. If we're
+ open from 8 AM to 5 PM, a bar chart of such an experiment can look like this:
+ \pause
+ \begin{center}
+  \begin{tikzpicture}
+   \begin{axis}[ybar,height=5cm,width=8cm,xmin=8,xmax=16,
+    ylabel=Customers,xlabel=Hour,enlarge y limits=0.2,
+    enlarge x limits=0.1,nodes near coords,xtick distance=1]
+    \addplot coordinates {
+      (8,20) (9,25) (10,15) (11,20)
+      (12,30) (13,35) (14,33) (15,26) (16,20)
+     };
+   \end{axis}
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Bar Chart -- Example}
+ Let's say we open another shop and want to compare how the two shops are doing
+ at each hour.\\
+ \pause
+ We can show both outputs in the same bar chart:\\
+ \pause
+ \begin{center}
+  \begin{tikzpicture}
+   \begin{axis}[ybar=0pt,height=5cm,width=13cm,xmin=8,xmax=16,
+    ylabel=Customers,xlabel=Hour,enlarge y limits=0.2,
+    enlarge x limits=0.1,nodes near coords,xtick distance=1,
+    bar width=0.4]
+    \addplot coordinates {
+      (8,20) (9,25) (10,15) (11,20)
+      (12,30) (13,35) (14,33) (15,26) (16,20)
+     };
+    \addplot coordinates {
+      (8,17) (9,20) (10,20) (11,25)
+      (12,26) (13,27) (14,30) (15,23) (16,11)
+     };
+    \legend{Shop 1, Shop 2}
+   \end{axis}
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Bar Chart -- Example}
+ You can also use bar chart to stack outputs on top of each other.\\
+ \pause
+ For example, if I wanted to know the \textbf{total} number of customers in both
+ my shops, I could draw a chart like this:
+ \pause
+ \begin{center}
+  \begin{tikzpicture}
+   \begin{axis}[height=5cm,width=10cm,xmin=8,xmax=16,
+    ylabel=Customers,xlabel=Hour,enlarge y limits=0.2,
+    enlarge x limits=0.1,xtick distance=1,
+    bar width=0.8,ybar stacked]
+    \addplot coordinates {
+      (8,20) (9,25) (10,15) (11,20)
+      (12,30) (13,35) (14,33) (15,26) (16,20)
+     };
+    \addplot +[nodes near coords,point meta=y] coordinates {
+      (8,17) (9,20) (10,20) (11,25)
+      (12,26) (13,27) (14,30) (15,23) (16,11)
+     };
+    \legend{Shop 1, Shop 2}
+   \end{axis}
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Scatter Plot}
+ Scatter plots are useful when studying `random' data.\\
+ \pause
+ Something like the position of an air molecule in a box over time.\\
+ \pause
+ \begin{center}
+  \begin{tikzpicture}
+   \begin{axis}[height=6cm,width=6cm,enlargelimits=0.1,
+    xmin=0,xmax=1]
+    \addplot+ [
+     only marks,
+     samples=400
+    ] {0.5*(rand + 1)};
+   \end{axis}
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Scatter Plot -- Example}
+ Of course, you can also display multiple outputs with the same inputs in a
+ scatter plot.\\
+ \pause
+ Let's add another air molecule.\\
+ \pause
+ \begin{center}
+  \begin{tikzpicture}
+   \begin{axis}[height=6cm,width=6cm,enlargelimits=0.1,
+    xmin=0,xmax=1]
+    \addplot+ [
+     only marks,
+     samples=1000
+    ] {0.5*(rand + 1)};
+    \addplot+ [
+     only marks,
+     samples=1000
+    ] {0.5*(rand + 1)};
+   \end{axis}
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
 
 \section{Mean -- Median -- Deviation -- Correlation}
 
@@ -712,6 +712,86 @@
  \pause
  meaning that the measured heights differ on average by 3.2 cm from the
  calculated arithmetic mean.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Correlation}
+ \begin{tcolorbox}[title=Correlation]
+  \alert{Correlation} or \alert{dependence} is a relationship between two
+  outputs of a dataset. A `correlation' in many cases means some type of
+  association.
+ \end{tcolorbox}
+ \pause
+ Correlation is an number between $-1$ and $1$.
+ \pause
+ Intuitively, a
+ \begin{itemize}[label=\textbullet]
+  \item negative correlation means that the two series of outputs
+   \alert{contradict} each other;
+  \pause
+  \item zero correlation means that the two series of outputs are
+   \alert{unrelated};
+  \pause
+  \item positive correlation means that the two series of outputs
+   \alert{influence} each other.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Computing Correlation}
+ \begin{tcolorbox}[title=Correlation Formula]
+  If $x_1,\ldots,x_n$ and $y_1,\ldots,y_n$ are two series of outputs for the
+  same inputs with means $\bar{x}$ and $\bar{y}$, their correlation is
+  \[
+   \mathrm{cor}(x,y) \coloneqq \frac{(x_1-\bar{x})(x_2-\bar{x})\cdots
+   (x_n-\bar{x})(y_1-\bar{y})(y_2-\bar{y})\cdots
+  (y_n-\bar{y})}{\sqrt{(x_1-\bar{x})^2(x_2-\bar{x})^2\cdots
+ (x_n-\bar{x})^2(y_1-\bar{y})^2(y_2-\bar{y})^2\cdots (y_n-\bar{y})^2}}.
+  \]
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Interpreting Correlation -- Table}
+ A crude interpretation of correlation is given in the following table:
+ \begin{center}
+  \begin{tabular}{ccc}
+   \textbf{Coefficient} & \textbf{Strength} & \textbf{Type} \\
+   \toprule
+   -0.7 to -1 & Very strong & Negative\\
+   -0.5 to -0.7 & Strong & Negative\\
+   -0.3 to -0.5 & Moderate & Negative\\
+   0 to -0.3 & Weak & Negative\\
+   0 to 0.3 & Weak & Positive\\
+   0.3 to 0.5 & Moderate & Positive\\
+   0.5 to 0.7 & Strong & Positive\\
+   0.7 to 1 & Very strong & Positive
+  \end{tabular}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Interpreting Correlation -- Chart}
+ You can use a scatter plot to visualize two sets of outputs with the same
+ inputs.
+ \pause
+ Correlation tells you \alert{how well you can approximate} this scatter plot by
+ a straight line.
+ \pause
+ For example, imagine you measure the height and weight of a sample of people
+ and want to see if they correlate. You might get a scatter plot like this:
+ \pause
+ \begin{center}
+  \begin{tikzpicture}
+   \begin{axis}[height=5cm,width=6cm]
+    \addplot+[
+     only marks,
+     scatter]
+     table[meta=height]
+     {correlation.dat};
+   \end{axis}
+  \end{tikzpicture}
+ \end{center}
 \end{frame}
 
 \end{document}

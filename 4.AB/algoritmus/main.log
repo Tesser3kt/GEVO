@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.19)  20 SEP 2023 14:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.19)  22 SEP 2023 12:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1046,7 +1046,7 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 63.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 (Font)              scaled to size 8.0pt on input line 63.
-<logo.png, id=17, 218.31563pt x 153.57375pt>
+<logo.png, id=37, 218.31563pt x 153.57375pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 63.
@@ -1071,7 +1071,7 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 64.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 (Font)              scaled to size 10.0pt on input line 64.
-<title.jpg, id=19, 192.72pt x 128.3997pt>
+<title.jpg, id=39, 192.72pt x 128.3997pt>
 File: title.jpg Graphic file (type jpg)
 <use title.jpg>
 Package pdftex.def Info: title.jpg  used on input line 64.
@@ -1091,7 +1091,11 @@ Package pdftex.def Info: logo.png  used on input line 69.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 2.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 12.0pt on input line 2.
+(Font)              scaled to size 14.4pt on input line 2.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 3.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
+(Font)              scaled to size 12.0pt on input line 3.
 )
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 69.
@@ -1164,75 +1168,53 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 125.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-
-
-LaTeX Warning: Reference `item:sum-1' on page 7 undefined on input line 125.
-
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 125.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[7
+ [7
 
 ]
-
-LaTeX Warning: Reference `item:sum-1' on page 8 undefined on input line 125.
-
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 125.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[8
+ [8
 
 ]
-
-LaTeX Warning: Reference `item:sum-1' on page 9 undefined on input line 125.
-
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 125.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[9
+ [9
 
 ]
-
-LaTeX Warning: Reference `item:sum-1' on page 10 undefined on input line 125.
-
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 125.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[10
+ [10
 
 ]
-
-LaTeX Warning: Reference `item:sum-1' on page 11 undefined on input line 125.
-
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 125.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[11
+ [11
 
 ]
-
-LaTeX Warning: Reference `item:sum-1' on page 12 undefined on input line 125.
-
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 125.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[12
+ [12
 
 ]
-
-LaTeX Warning: Reference `item:sum-1' on page 13 undefined on input line 125.
-
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 125.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[13
+ [13
 
 ]
 File: logo.png Graphic file (type png)
@@ -1794,36 +1776,27 @@ L3 programming layer <2023-06-16>
  ***********
 
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
 Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 0796F4FFEE650CEB9DB62303A8FCA99E;93
+(rerunfilecheck)             Before: 8148CA4FA48DD8DEAEA4E7C808AD9FD8;797
 (rerunfilecheck)             After:  5E189CD84DC278D7801DAC6D0B6F5CC5;901.
  ) 
 Here is how much of TeX's memory you used:
- 32498 strings out of 475724
- 660624 string characters out of 5781876
+ 32561 strings out of 475724
+ 661392 string characters out of 5781876
  1877755 words of memory out of 5000000
- 52546 multiletter control sequences out of 15000+600000
- 680270 words of font info for 84 fonts, out of 8000000 for 9000
+ 52609 multiletter control sequences out of 15000+600000
+ 690029 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,1879b,986s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Outline0.0.1.3} has been referenced but does not exist, replaced by a fixed one
-
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Semibold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb>
-Output written on main.pdf (34 pages, 402696 bytes).
+Output written on main.pdf (34 pages, 403180 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 220 compressed objects within 3 object streams
- 78 named destinations out of 1000 (max. 500000)
- 79 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 302 PDF objects out of 1000 (max. 8388607)
+ 240 compressed objects within 3 object streams
+ 77 named destinations out of 1000 (max. 500000)
+ 119 words of extra memory for PDF output out of 10000 (max. 10000000)
 
