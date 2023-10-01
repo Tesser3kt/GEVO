@@ -1,0 +1,422 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Homework -- PreIB 3.AB 3}\\
+ \Large\textsf{Triangulations and Symmetries of Regular Polygons}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+ \hrule
+ \textbf{\clr{DON'T FORGET TO EXPLAIN EVERYTHING EVEN IF YOU THINK IT'S
+ OBVIOUS!}}
+ \vspace{2ex}
+ \hrule
+\end{center}
+ 
+\section*{Triangulations}
+
+Recall that a \textbf{triangulation} of a regular (or generally convex) polygon
+is its division into triangles by non-intersecting diagonals. For example, here
+is a triangulation of a regular hexagon intro triangles $\clr{T_1,T_2,T_3}$ and
+$\clr{T_4}$.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \foreach \n/\an in {a/0,b/60,c/120,d/180,e/240,f/300} {
+   \tkzDefPoint(\an:1.5){\n}
+  }
+  \tkzDrawPolygon(a,b,c,d,e,f)
+
+  \tkzDrawLine[color=blue,add=0 and 0](a,c)
+  \tkzDrawLine[color=blue,add=0 and 0](a,d)
+  \tkzDrawLine[color=blue,add=0 and 0](d,f)
+
+  \tkzDefBarycentricPoint(a=1,b=1,c=1) \tkzGetPoint{t1}
+  \tkzDefBarycentricPoint(a=1,c=1,d=1) \tkzGetPoint{t2}
+  \tkzDefBarycentricPoint(a=1,d=1,f=1) \tkzGetPoint{t3}
+  \tkzDefBarycentricPoint(d=1,e=1,f=1) \tkzGetPoint{t4}
+ 
+  \node[yshift=1mm,red] at (t1.center) {$T_1$};
+  \node[xshift=-1mm,yshift=1mm,red] at (t2.center) {$T_2$};
+  \node[red] at (t3.center) {$T_3$};
+  \node[yshift=-1mm,red] at (t4.center) {$T_4$};
+  \tkzDrawPoints[size=4](a,b,c,d,e,f)
+ \end{tikzpicture}
+\end{figure}
+
+Two triangulations of a regular polygon are related by a \textbf{flip} if you
+can get one from the other by deleting one edge and replacing it by the other
+diagonal in the resulting quadrilateral. See the picture below.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \foreach \n/\an in {a/0,b/60,c/120,d/180,e/240,f/300} {
+   \tkzDefPoint(\an:1){\n}
+  }
+  \tkzDrawPolygon(a,b,c,d,e,f)
+
+  \tkzDrawLine[color=blue,add=0 and 0](a,c)
+  \tkzDrawLine[color=red,add=0 and 0](a,d)
+  \tkzDrawLine[color=blue,add=0 and 0](d,f)
+  \tkzLabelLine[above](a,d){$\clr{e}$}
+
+  \tkzDrawPoints[size=4](a,b,c,d,e,f)
+
+  \draw[->] (1.25,0) to node[midway,yshift=2.5mm] {\footnotesize delete $\clr{e}$}
+   (2.5,0);
+
+  \tkzDefPoint(4.75,0){a1}
+  \tkzDefPointsBy[translation= from a to a1](b,c,d,e,f){b1,c1,d1,e1,f1}
+  \tkzDrawPolygon(a1,b1,c1,d1,e1,f1)
+
+  \tkzDrawPolygon[thick,green](a1,c1,d1,f1)
+  \tkzDrawPoints[size=4](a1,b1,c1,d1,e1,f1)
+
+  \draw[->] (5,0) to node[midway,yshift=4mm,align=center,execute at begin
+  node=\setlength{\baselineskip}{10pt}] {\footnotesize draw the other diagonal \\
+  \footnotesize of the \clg{quadrilateral}} (8,0);
+
+  \tkzDefPoint(10.25,0){a2}
+  \tkzDefPointsBy[translation= from a1 to a2](b1,c1,d1,e1,f1){b2,c2,d2,e2,f2}
+  \tkzDrawPolygon(a2,b2,c2,d2,e2,f2)
+
+  \tkzDrawLine[color=blue,add=0 and 0](a2,c2)
+  \tkzDrawLine[color=blue,add=0 and 0](d2,f2)
+  \tkzDrawLine[color=blue,add=0 and 0](c2,f2)
+
+  \tkzDrawPoints[size=4](a2,b2,c2,d2,e2,f2)
+ \end{tikzpicture}
+ \caption*{Flip of a \clb{triangulation}.}
+\end{figure}
+
+Actually, any triangulation of a regular polygon can be transformed into any
+other triangulation just by flipping (often more than once). We can draw a graph
+where we connect two different triangulations of a regular polygon if they are
+related by a single flip.
+
+The pentagon has 5 different triangulations. Their graph can look like this:
+\begin{figure}[ht]
+ \centering
+  \begin{tikzpicture}
+   \tkzDefPoint(0,0){o}
+   \foreach \n/\an in {a/18,b/90,c/162,d/234,e/306} {
+    \tkzDefPoint(\an:1){\n}
+   }
+   \foreach \n/\an in {A/18,B/90,C/162,D/234,E/306} {
+    \tkzDefPoint(\an:3){\n}
+   }
+   \tkzDefPointsBy[translation= from o to A](a,b,c,d,e){a1,b1,c1,d1,e1}
+   \tkzDrawPolygon(a1,b1,c1,d1,e1)
+   \tkzDrawSegment[blue](a1,c1)
+   \tkzDrawSegment[blue](a1,d1)
+   \tkzDrawPoints[size=4](a1,b1,c1,d1,e1)
+
+   \tkzDefPointsBy[translation= from o to B](a,b,c,d,e){a2,b2,c2,d2,e2}
+   \tkzDrawPolygon(a2,b2,c2,d2,e2)
+   \tkzDrawSegment[blue](a2,c2)
+   \tkzDrawSegment[blue](c2,e2)
+   \tkzDrawPoints[size=4](a2,b2,c2,d2,e2)
+
+   \tkzDefPointsBy[translation= from o to C](a,b,c,d,e){a3,b3,c3,d3,e3}
+   \tkzDrawPolygon(a3,b3,c3,d3,e3)
+   \tkzDrawSegment[blue](b3,e3)
+   \tkzDrawSegment[blue](c3,e3)
+   \tkzDrawPoints[size=4](a3,b3,c3,d3,e3)
+
+   \tkzDefPointsBy[translation= from o to D](a,b,c,d,e){a4,b4,c4,d4,e4}
+   \tkzDrawPolygon(a4,b4,c4,d4,e4)
+   \tkzDrawSegment[blue](b4,e4)
+   \tkzDrawSegment[blue](b4,d4)
+   \tkzDrawPoints[size=4](a4,b4,c4,d4,e4)
+
+   \tkzDefPointsBy[translation= from o to E](a,b,c,d,e){a5,b5,c5,d5,e5}
+   \tkzDrawPolygon(a5,b5,c5,d5,e5)
+   \tkzDrawSegment[blue](a5,d5)
+   \tkzDrawSegment[blue](b5,d5)
+   \tkzDrawPoints[size=4](a5,b5,c5,d5,e5)
+
+   \tkzDrawLine[thick,red,dashed,add=-1cm and -1cm](A,B)
+   \tkzDrawLine[thick,red,dashed,add=-1cm and -1cm](B,C)
+   \tkzDrawLine[thick,red,dashed,add=-1cm and -1cm](C,D)
+   \tkzDrawLine[thick,red,dashed,add=-1cm and -1cm](D,E)
+   \tkzDrawLine[thick,red,dashed,add=-1cm and -1cm](E,A)
+  \end{tikzpicture}
+ \caption*{Triangulations of the pentagon. \clb{Blue} segments are diagonals in
+ a triangulation and \clr{red} lines are flips.}
+\end{figure}
+
+\subsection*{Problems}
+
+\begin{enumerate}
+ \item In the graph above, each triangulation is \clr{connected} to two other by
+  a flip because a triangulation of a pentagon has two \clb{diagonals}. If we
+  drew the same graph of triangulations for the hexagon, how many other
+  triangulations would a fixed triangulation be \clr{connected} to? Why?
+ \item A regular hexagon has 14 distinct triangulations. Draw its graph of
+  triangulations. It's going to take you a while...
+ \item Using the graph find the \emph{smallest} possible number of flips to get
+  from the triangulation on the left to the triangulation on the right.
+  \begin{center}
+   \begin{tikzpicture}
+    \tkzDefPoint(0,0){o}
+    \foreach \n/\an in {a/0,b/60,c/120,d/180,e/240,f/300} {
+     \tkzDefPoint(\an:1){\n}
+    }
+    \tkzDrawPolygon(a,b,c,d,e,f)
+    \tkzDrawSegment[blue](a,c)
+    \tkzDrawSegment[blue](c,e)
+    \tkzDrawSegment[blue](e,a)
+    \tkzDrawPoints[size=4](a,b,c,d,e,f)
+
+    \tkzDefPoint(5,0){p2}
+    \tkzDefPointsBy[translation= from o to p2](a,b,c,d,e,f){a1,b1,c1,d1,e1,f1}
+    \tkzDrawPolygon(a1,b1,c1,d1,e1,f1)
+    \tkzDrawSegment[blue](b1,d1)
+    \tkzDrawSegment[blue](d1,f1)
+    \tkzDrawSegment[blue](f1,b1)
+    \tkzDrawPoints[size=4](a1,b1,c1,d1,e1,f1)
+
+    \draw[->] ($(o.center) + (1.2,0)$) to node[midway,yshift=3mm] {\footnotesize
+     How many flips?} ($(p2.center) - (1.2,0)$);
+   \end{tikzpicture}
+  \end{center}
+ \item Find at least three other ways how to get from the left triangulation to
+  the right one using the same number of flips.
+ \item (\clr{\textbf{OPTIONAL}}) How many ways are there using the same number
+  of flips?
+ \item Can flips be achieved using symmetries of regular polygons (meaning
+  rotations and reflections)? If yes, show how on the triangulation graph of the
+  pentagon. If not, explain why.
+\end{enumerate}
+
+\section*{Symmetries}
+
+Recall the each regular $n$-gon has $n$ rotational symmetries and $n$
+reflectional symmetries. The rotational symmetries are rotations by $k \cdot
+360^{ \circ } / n$ where $k$ ranges from $1$ to $n$. If $n$ is odd, then all the
+reflectional symmetries are given by lines passing through one vertex and the
+midpoint of the opposite side. If $n$ is even, then $n / 2$ reflectional
+symmetries are over lines connecting opposite vertices and the other $n / 2$
+over lines passing through midpoints of opposite sides.
+
+We saw that we can apply symmetries one after another to get new symmetries. We
+also determined which types of symmetries we need to create all the other
+symmetries. It was the rotation by $k \cdot 360^{ \circ } / n$ if $k / n$ cannot
+be simplified and any reflection.
+
+But, not all polygons are created equal. For example, in the pentagon one can
+create all symmetries just by using two reflections. Take $\clr{s_1}$ and
+$\clb{s_2}$ from the picture below.
+
+\begin{center}
+ \begin{tikzpicture}
+  \foreach \n/\an in {a/18,b/90,c/162,d/234,e/306} {
+   \tkzDefPoint(\an:1){\n}
+  }
+  \tkzDrawPolygon(a,b,c,d,e)
+  \tkzDefMidPoint(d,e) \tkzGetPoint{sde}
+  \tkzDefMidPoint(a,e) \tkzGetPoint{sae}
+
+  \tkzDrawLine[red,dashed](b,sde)
+  \tkzDrawLine[blue,dashed](c,sae)
+ \end{tikzpicture}
+\end{center}
+
+We'll denote rotation by $n^{ \circ }$ in the counter-clockwise direction as
+$\circlearrowleft n^{ \circ }$. You can check that $\clr{s_1}\clb{s_2} =
+\circlearrowleft 144^{ \circ }$. But, $144 = 2 \cdot 360 / 5$ and $2 / 5$ can't
+be simplified! This means that we can get all other rotations and reflections
+using just $\clr{s_1}$ and $\clb{s_2}$.
+
+Finally, I want you to think about $s_1s_2$ as `multiplication' of symmetries
+and of
+\begin{equation}
+ \label{eq:symmetries}
+ \tag{$*$}
+ s_1s_2 = \circlearrowleft 144^{ \circ }
+\end{equation}
+as an `equation'. You can multiply both sides by any symmetry and it's still
+going to hold true. But careful! Symmetries \textbf{do not commute}, so it
+matters if you multiply from the left or from the right. The angle from
+$\clb{s_2}$ to $\clr{s_1}$ is $72^{ \circ }$ in the clockwise direction. Which
+means that to get $\clr{s_1}$ from $\clb{s_2}$, we need to rotate by $144^{
+\circ }$ counter-clockwise and then use $\clb{s_2}$. Indeed, look what happens
+if we multiply~\eqref{eq:symmetries} by $\clb{s_2}$ \textbf{from the right}. We
+get
+\[
+ s_1s_2s_2 = \circlearrowleft 144^{ \circ }s_2.
+\]
+But $s_2s_2$ does nothing because it's the same reflection repeated twice. In
+the end, we get
+\[
+ s_1 = \circlearrowleft 144^{ \circ }s_2.
+\]
+Which is precisely what we just said. Rotate by $144^{ \circ }$
+counter-clockwise and use $\clb{s_2}$.
+
+\subsection*{Problems}
+\begin{enumerate}
+ \item In the heptagon
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \n/\an in
+   {a/90,b/141.43,c/192.86,d/244.289,e/295.719,f/347.149,g/38.579} {
+    \tkzDefPoint(\an:1){\n}
+   }
+   \tkzDrawPolygon(a,b,c,d,e,f,g)
+   \tkzDefMidPoint(b,c) \tkzGetPoint{sbc}
+   \tkzDrawLine[blue,thick,dashed,add=1cm and 1cm](f,sbc)
+   \tkzLabelLine[pos=-0.5,above](f,sbc){$\clb{s}$}
+   \tkzDrawPoints[size=4](a,b,c,d,e,f,g)
+   \tkzLabelPoint[above](a){$A$}
+   \tkzLabelPoint[above left](b){$B$}
+   \tkzLabelPoint[left](c){$C$}
+   \tkzLabelPoint[below left](d){$D$}
+   \tkzLabelPoint[below right](e){$E$}
+   \tkzLabelPoint[right](f){$F$}
+   \tkzLabelPoint[above right](g){$G$}
+  \end{tikzpicture}
+ \end{center}
+ you're given the reflection $\clb{s}$ and the rotation $\clr{r} =
+ \circlearrowleft 3 \cdot 360^{ \circ } / 7$.
+ \begin{enumerate}
+  \item Is it possible to construct all other symmetries of the regular heptagon
+   using only $\clr{r}$ and $\clb{s}$? Why?
+  \item Using only $\clr{r}$ and $\clb{s}$ find
+  \begin{enumerate}
+   \item the rotation $\circlearrowleft 4 \cdot 360^{ \circ } / 7$;
+   \item the rotation $\circlearrowright 360^{ \circ } / 7$, where
+    $\circlearrowright$ means `rotate clockwise';
+   \item the reflection over the line passing through $B$ and the midpoint of
+    $EF$.
+  \end{enumerate}
+ \end{enumerate}
+ \item In a decagon ($10$ vertices), you're given the reflections $\clr{s_1},
+  \clb{s_2}$ and $\clg{s_3}$.
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \n/\an in {a/90,b/126,c/162,d/198,e/234,f/270,g/306,h/342,i/18,j/54}
+   {
+    \tkzDefPoint(\an:1.5){\n}
+   }
+   \tkzDrawPolygon(a,b,c,d,e,f,g,h,i,j)
+   \tkzDrawLine[red,thick,dashed](a,f)
+   \tkzLabelLine[pos=-0.1,left](a,f){$\clr{s_1}$}
+   \tkzDefMidPoint(i,j) \tkzGetPoint{sij}
+   \tkzDefMidPoint(d,e) \tkzGetPoint{sde}
+   \tkzDrawLine[blue,thick,dashed](sij,sde)
+   \tkzLabelLine[pos=-0.1,below right](sij,sde){$\clb{s_2}$}
+   \tkzDrawLine[green,thick,dashed](c,h)
+   \tkzLabelLine[pos=-0.1,below left](c,h){$\clg{s_3}$}
+   \tkzDrawPoints[size=4](a,b,c,d,e,f,g,h,i,j)
+  \end{tikzpicture}
+ \end{center}
+ \begin{enumerate}
+  \item Can you generate all the symmetries of the regular decagon using only
+   $\clr{s_1}$ and $\clb{s_2}$? Explain.
+  \item How about using only $\clr{s_1}$ and $\clg{s_3}$? Explain again.
+ \end{enumerate}
+\end{enumerate}
+
+\end{document}

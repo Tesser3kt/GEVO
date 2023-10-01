@@ -20,14 +20,14 @@ vlastně jde. Uvedeme si ji.
  \begin{itemize}
   \item existuje binární operace $ \cdot :G \times G \to G$, která je
   \textbf{asociativní} (tj. $(g \cdot h) \cdot k = g \cdot (h \cdot k))$,
- \item pro každý prvek $g \in G$ existuje prvek $g^{-1} \in G$ splňující
-  $g \cdot g^{-1} = g^{-1} \cdot g = 1$, zvaný \emph{inverz}, a
  \item existuje prvek $1 \in G$ splňující pro každé $g \in G$ rovnost $g \cdot 1
-  = 1 \cdot g = g$, zvaný \emph{neutrální},
+  = 1 \cdot g = g$, zvaný \emph{neutrální}, a
+ \item pro každý prvek $g \in G$ existuje prvek $g^{-1} \in G$ splňující
+  $g \cdot g^{-1} = g^{-1} \cdot g = 1$, zvaný \emph{inverz},
  \end{itemize}
  pak nazveme čtveřici $\mathbf{G} = (G, \cdot ,^{-1},1)$ \emph{grupou}.
 \end{definition}
-Tato definice si zaslouží několik poznámek, varování a příkladů. Součástí
+Tato definice si zaslouží několika poznámek, varování a příkladů. Součástí
 definice grupy \textbf{není} komutativita její binární operace. Obecně, v grupě
 $\mathbf{G}$ není prvek $g \cdot h$ tentýž jako $h \cdot g$. Mezi algebraiky
 platí nepsaná dohoda, že grupy, které jsou \emph{komutativní} (též
@@ -37,19 +37,22 @@ dvojice prvků $g,h \in G$ -- se zapisují jako (tzv. \emph{aditivní}) $\mathbf
 stylem z~\myref{definice}{def:grupa}.
 
 Zadruhé, není vůbec zřejmé, proč by taková struktura měla jakýmkoli způsobem
-odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
+zrcadlit koncept \emph{symetrie}. Ono \uv{zrcadlo} zde sestrojíme.
+
 \begin{example}{Dihedrální grupa}{dihedralni-grupa}
  Ať $P$ je pravidelný šestiúhelník v $\R^2$. Uvažme zobrazení $r:\R^2 \to \R^2$,
- které rotuje body v $\R^2$ o $60^{ \circ }$ podle středu jeho uhlopříček, a
- zobrazení $s:\R^2 \to \R^2$, které reflektuje body v $\R^2$ podle kterékoli
- (ale fixní) jeho uhlopříčky.
+ které rotuje body v $\R^2$ o $60^{ \circ }$ (v kladném směru -- proti směru
+ hodinových ručiček) podle středu jeho uhlopříček, a zobrazení $s:\R^2 \to
+ \R^2$, které reflektuje body v $\R^2$ podle kterékoli (ale fixní) jeho
+ uhlopříčky.
 
  Není těžké nahlédnout, že $r(P) = P$ a $s(P) = P$, čili tato zobrazení
  zachovávají $P$. Tvrdíme, že každé jejich složení je rovněž zobrazení, které
  zachovává $P$. Jinak řečeno, množina všech možných složení zobrazení $r$ se
  zobrazením $s$ tvoří \emph{grupu}, kde binární operací je \emph{složení}
- zobrazení, inverzem je \emph{inverzní zobrazení} (uvědomme si, že $r$ i $s$ jsou
- \textbf{bijekce}) a neutrálním prvkem je \emph{identické zobrazení} na $\R^2$.
+ zobrazení, inverzem je \emph{inverzní zobrazení} (pozřeme, že $r$ i $s$ jsou
+ \textbf{bijekce}) a neutrálním prvkem je $\mathds{1}_{\R^2}$ -- \emph{identické
+ zobrazení} na $\R^2$.
 
  Po chvíli přemýšlení zjistíme, že rotace o $60,120,180,240,300$ a $360$ stupňů
  zachovávají $P$. Všechny můžeme dostat jako složení $r$ se sebou samým
@@ -62,8 +65,8 @@ odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
  složením s $r$. Například reflexi podle uhlopříčky, která svírá s $s$ úhel
  $60^{ \circ }$ (proti směru hodinových ručiček) je rovna složení $r^2 \circ s$.
  Konečně, šestiúhelník $P$ rovněž zachovávají reflexe podle os stran. Reflexi
- podle osy stran, která svírá s~$s$ úhel $90^{ \circ }$ dostanu složením $s
- \circ r^3$.
+ podle osy stran, která svírá s~$s$ úhel $90^{ \circ }$ dostanu (třeba) složením
+ $s \circ r^3$.
 
  Ponecháváme čtenáře, aby si rozmysleli, že různých zobrazení, která mohu dostat
  složením $r$ a $s$ je celkem $12$, všechna jsou bijektivní a zachovávají $P$.
@@ -194,7 +197,7 @@ odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
    \caption{Složení $\clb{s} \circ \clr{r}^3 = \text{reflexe podle }\clg{o}$.}
    \label{subfig:slozeni-symetrii-2}
   \end{subfigure}
-  \caption{Příklady složení zobrazení $\clr{r}$ a $\clb{s}$.}
+  \caption{Příklady složení \clb{reflexí} a \clr{rotací}.}
   \label{fig:slozeni-symetrii}
  \end{figure}
 \end{example}
@@ -206,12 +209,12 @@ odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
  funkcí je zřejmě \emph{asociativní}, ke každé bijekci existuje \emph{inverz} a
  \emph{neutrálním} prvkem je $\mathds{1}_{X}$. Z diskrétní matematiky víme, že
  permutací na $n$-prvkové množině je $n!$; označíme-li jejich množinu jako $S_X$
- (ze zaběhlého názvu \textbf{s}ymetrická grupa), pak je $(S_X,
+ (ze zaběhlého a zcestného názvu \textbf{s}ymetrická grupa), pak je $(S_X,
  \circ,^{-1},\mathds{1}_{X})$ nekomutativní grupa o $n!$ prvcích. Můžeme se na
  ni dívat jako na množinu všech transformací, které zachovávají množinu $X$.
 
  Zajímavou otázkou je, kolik potřebujeme nejméně permutací, abychom jejich
- skládáním dostali všechny ostatní. V případě dihedrální grupy pravidelného
+ skládáním vyrobili všechny ostatní. V případě dihedrální grupy pravidelného
  šestiúhelníku (\myref{příklad}{exam:dihedralni-grupa}) to byla zobrazení dvě.
  Ukazuje se, a není příliš obtížné to dokázat, že nám stačí všechny transpozice
  $(x \; y)$, kde $x \in X$ je nějaký fixní prvek a $y$ probíhá všechny ostatní
@@ -222,11 +225,11 @@ odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
 \end{example}
 
 \begin{example}{Odmocniny jednotky}{odmocniny-jednotky}
- V komplexních číslech má každé číslo přesně $n$ $n$-tých odmocnin. Zapíšeme-li
- si komplexní číslo $z \in \C$ v tzv. \uv{goniometrickém} tvaru, pak je můžeme
- snadno najít. Totiž, je-li $z = r \cdot (\cos\theta + i \sin\theta)$, kde $r
- \in \R^{+}$ je jeho vzdálenost od počátku, $\theta$ úhel, který svírá s reálnou
- (typicky vodorovnou) osou, a $i$ imaginární jednotka, pak je
+ Každé komplexní číslo má přesně $n$ $n$-tých odmocnin. Zapíšeme-li si komplexní
+ číslo $z \in \C$ v~tzv. \uv{goniometrickém} tvaru, pak je můžeme snadno najít.
+ Totiž, je-li $z = r \cdot (\cos\theta + i \sin\theta)$, kde $r \in \R^{+}$ je
+ jeho vzdálenost od počátku, $\theta$ úhel, který svírá s reálnou (typicky
+ vodorovnou) osou, a $i$ imaginární jednotka (z definice $i^2=-1$), pak je
  \[
   \left\{\sqrt[n]{r} \cdot \left(\cos\left(\frac{\theta + 2\pi k}{n}\right) + i
   \cdot \sin\left(\frac{\theta + 2\pi k}{n}\right)\right) \mid k \in
@@ -236,14 +239,15 @@ odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
 
  Tato množina obecně \textbf{není} grupa, neboť tím, že vynásobím dvě odmocniny
  komplexního čísla, nedostanu jeho jinou odmocninu -- s jednou výjimkou, a tou
- je číslo $1$. Totiž, $1 = \cos(2\pi) + i \cdot \sin(2\pi)$, a tedy všechny jeho
- třeba čtvrté odmocniny jsou
- \[
-  \left\{ \cos\left(\frac{\pi}{2}\right)+i \sin \left( \frac{\pi}{2} \right),
+ je číslo $1$. Totiž, $1 = \cos(2\pi) + {i \cdot \sin(2\pi)}$, a tedy všechny
+ jeho třeba čtvrté odmocniny jsou
+ \begin{align*}
+  &\left\{ \cos\left(\frac{\pi}{2}\right)+i \sin \left( \frac{\pi}{2} \right),
   \cos \left( \pi \right) + i \sin \left( \pi \right),
   \cos\left(\frac{3\pi}{2}\right)+i\sin \left( \frac{3\pi}{2} \right), \cos
-  \left( 2\pi \right) + i\sin \left( 2\pi \right) \right\}.
- \]
+  \left( 2\pi \right) + i\sin \left( 2\pi \right) \right\}\\
+  &= \{i, -1, -i, 1\}.
+ \end{align*}
  Důležité pozorování k pochopení tohoto příkladu je, že když spolu násobím dvě
  komplexní čísla, jejich vzdálenosti od počátku ($r$) se násobí a jejich úhly
  svírané s reálnou osou ($\theta$), se sčítají. Z toho plyne, že vzdálenost
@@ -258,13 +262,13 @@ odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
    i\sin \left( \frac{2(k+l)\pi}{n} \right),
  \]
  což je opět odmocnina z $1$ (za předpokladu, že ztotožňujeme \uv{přetočené
- úhly} v tom smyslu, že třeba $7\pi / 3 = /pi / 3$). Označíme-li $\Omega(n)$
+ úhly} v tom smyslu, že třeba $7\pi / 3 = \pi / 3$). Označíme-li $\Omega(n)$
  množinu všech $n$-tých odmocnin z $1$, pak je čtveřice $(\Omega(n), \cdot
  ,^{-1},1)$ \textbf{komutativní} grupa, kde $ \cdot $ značí běžné násobení
  komplexních čísel.
  \begin{figure}[H]
   \centering
-  \begin{subfigure}[t]{.3\textwidth}
+  \begin{subfigure}[t]{.31\textwidth}
    \centering
    \begin{tikzpicture}[scale=1.4]
     \tkzInit[xmin=-1.2,xmax=1,ymin=-1.2,ymax=1]
@@ -288,7 +292,7 @@ odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
    \label{subfig:odmocniny-z-jedne-1}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[t]{.3\textwidth}
+  \begin{subfigure}[t]{.31\textwidth}
    \centering
    \begin{tikzpicture}[scale=1.4]
     \tkzInit[xmin=-1.2,xmax=1,ymin=-1.2,ymax=1]
@@ -311,7 +315,7 @@ odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
    \end{tikzpicture}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[t]{.3\textwidth}
+  \begin{subfigure}[t]{.31\textwidth}
    \centering
    \begin{tikzpicture}[scale=1.4]
     \tkzInit[xmin=-1.2,xmax=1,ymin=-1.2,ymax=1]
@@ -339,16 +343,16 @@ odrážet koncept \emph{symetrie}. Uvedeme si několik příkladů.
  \end{figure}
 \end{example}
 
-Doufáme, že se nám podařilo vnímavé čtenáře přesvědčit, že grupy jsou přirozené
-struktury v~různém smyslu reprezentující symetrie objektů spolu s jejich
-vzájemnými souvislostmi.
+Doufáme, že jsme uspěli ve snaze vnímavé čtenáře přesvědčit, že grupy jsou
+přirozené struktury v~různém smyslu reprezentující symetrie objektů spolu s
+jejich vzájemnými souvislostmi.
 
 Avšak, grupy nezachycují \emph{všechny} transformace, pouze ty, které lze
 zvrátit -- tento požadavek je zachycen v podmínce existence inverzu ke každému
 prvku grupy. Není přehnané domnívat se, že tímto přístupem přicházíme o řád
 informací o studovaných jevech. Vskutku, matematici 19. století souhlasí a
 vymýšlejí strukturu \emph{monoidu}, v podstatě jen grupy, u které nepožadujeme,
-aby se každý prvek dal invertovat. Monoidy jsou tudíž algebraické struktury
+aby každý prvek bylo lze invertovat. Monoidy jsou tudíž algebraické struktury
 objímající \textbf{všechny} transformace -- jak symetrie, tak deformace.
 
 \begin{definition}{Monoid}{monoid}
@@ -362,35 +366,35 @@ objímající \textbf{všechny} transformace -- jak symetrie, tak deformace.
  pak nazýváme trojici $(M, \cdot ,1)$ \emph{monoidem}.
 \end{definition}
 
-Přirozeně, pokud má každý prvek monoid inverz, je tento monoid grupou. Některé
+Přirozeně, pokud má každý prvek monoidu inverz, je tento monoid grupou. Některé
 příklady grup se dají zobecnit tak, aby se staly příklady monoidů, které však
 nejsou grupami. Vezměme \myref{příklad}{exam:permutacni-grupa}. Uvážíme-li místo
-pouhých permutací na $X$ (tj. bijekcí $X \to X$) \textbf{všechna} zobrazení $X
-\to X$, pak dostaneme monoid. Vskutku, jak jsme již zmiňovali, skládání
-zobrazení je asociativní a máme k~dispozici identické zobrazení $\mathds{1}_X$,
-čili je trojice
+pouhých permutací na $X$ (tj. bijekcí $X \leftrightarrow X$) \textbf{všechna}
+zobrazení $X \to X$, pak dostaneme monoid. Vskutku, jak jsme již zmiňovali,
+skládání zobrazení je asociativní a máme k~dispozici identické zobrazení
+$\mathds{1}_X$, čili je trojice
 \[
  (\{f \mid f \text{ je zobrazení } X \to X\}, \circ ,\mathds{1}_X)
 \]
 monoidem. Tento příklad též ukazuje, že monoidy jsou v jistém smyslu \uv{větší}
 než grupy. Je-li $X$ konečná množina velikosti $n$, pak je tento smysl dokonce
-absolutní. Všech permutací na $X$ je totiž $n!$, zatímco všech zobrazení $X \to
-X$ je $n^{n}$.
+absolutní. Všech permutací na $X$ je totiž $n!$, zatímco všechna zobrazení $X
+\to X$ čítají $n^{n}$.
 
 Příklady \ref{exam:dihedralni-grupa} a \ref{exam:odmocniny-jednotky} žádných
-přirozených zobecnění nenabízejí. Přidáme-li k dihedrální grupě transformace
-rotace a reflexe, které nemusejí daný mnohoúhelník zachovat, pak už můžeme
-rovnou uvážit úplně všechny rovinné rotace a reflexe. Je sice pravdou, že
-množina všech rotací a reflexí dvoudimenzionálního prostoru tvoří monoid, ale
-již nikterak nesouvisí s mnohoúhelníky. Podobně, když se nebudeme soustředit na
-komplexní odmocniny z $1$, ale na komplexní odmocniny libovolného komplexního
-čísla, nedostaneme tak ani monoid. Neboť, jak jsme uvedli, součin dvou $n$-tých
-odmocnin komplexního čísla obecně není $n$-tá odmocnina téhož čísla.
+přirozených zobecnění nenabízejí. Přidáme-li k dihedrální grupě rotace a
+reflexe, které nemusejí daný mnohoúhelník zachovat, pak už můžeme rovnou uvážit
+úplně všechny rovinné rotace a reflexe. Je sice pravdou, že množina všech rotací
+a reflexí dvoudimenzionálního prostoru tvoří monoid, ale již nikterak nesouvisí
+s mnohoúhelníky. Podobně, když se nebudeme soustředit na komplexní odmocniny z
+$1$, ale na komplexní odmocniny libovolného komplexního čísla, nedostaneme tak
+ani monoid -- jak jsme uvedli, součin dvou $n$-tých odmocnin komplexního čísla
+obecně není $n$-tá odmocnina téhož čísla.
 
 Předpokládáme, že čtenáři stále nevidí spojitost mezi grupy a monoidy a
 číselnými obory. Jedním (pravda zásadním) rozdílem je existence operací součtu a
 součinu v každém číselném oboru. Grupy a monoidy z definice dovolují jen jednu
-operaci. Vskutku, číselné obory jsou jakýmsi přirozeným \uv{sloučením} monoidu a
+operaci. Pravdať, číselné obory jsou jakýmsi přirozeným \uv{sloučením} monoidu a
 grupy, které sluje \emph{okruh}.
 
 Okruhy jsou již vcelku komplikované struktury, jež v sobě mísí symetrie s
@@ -434,7 +438,7 @@ transformací objektu.
    Našemu pojmu okruhu se v takovém případě říká \emph{okruh s jednotkou}. Možná
    překvapivě je teorie okruhů s jednotkou výrazně odlišná od teorie okruhů bez
    jednotky.
-  \item Rovnice \eqref{eq:distributivita} je onou \uv{vynucenou} domluvou mezi
+  \item Rovnice \eqref{eq:distributivita} jsou onou \uv{vynucenou} domluvou mezi
    symetrickou operací $+$ a libovolnou transformací $ \cdot $, říkáme jí
    \emph{distributivita}. Je třeba specifikovat distributivitu jak zleva, tak
    zprava, protože $ \cdot $ nemusí být komutativní.
@@ -442,7 +446,7 @@ transformací objektu.
 \end{remark}
 
 Jednoduchých příkladů okruhů není mnoho a všechny vyžadují snad nepřirozené
-konstrukce. Ty přirozené vyplynou samovolně, až se jmeme vytvářeti číselných
+konstrukce. Ty přirozené vyplynou samovolně, až se jmeme tvořiti číselných
 oborů, v následující kapitole. S cílem představit jeden velmi naučný
 příklad/varování však tyto konstrukce dočasně přeskočíme a budeme předpokládat,
 že množina přirozených čísel $\N$ je čtenářům již plně známa.
@@ -481,3 +485,50 @@ příklad/varování však tyto konstrukce dočasně přeskočíme a budeme pře
  čili by operace $\odot$ \textbf{nemohla být asociativní}! To by byl už
  kompletní binec.
 \end{warning}
+
+Nepřítomnost takového problému v číselných oborech napovídá, že struktura okruhu
+stále ještě není dostatečně striktní, abychom jejím prvkům mohli přezdít
+\uv{čísla}. Ukazuje se, že ale stačí zakázat součinu dvou nenulových prvků býti
+nulou, abychom se k číslům dostali. Taková struktura slove \emph{obor
+integrity}; jmě, jež vrhá světlo na ustálené spojení \emph{číselné obory}.
+
+\begin{definition}{Obor integrity}{obor-integrity}
+ Okruh $(R,+,-,0, \cdot ,1)$ nazveme \emph{oborem integrity}, pokud pro každé
+ dva $r,s \in R$ platí
+ \[
+  r \cdot s = 0 \Rightarrow r = 0 \vee s = 0.
+ \]
+\end{definition}
+
+Čtenáři dobře učiní, vejmou-li, že tato vlastnost číselných oborů je hojně
+využívána řekněme při řešení polynomiálních rovnic. Dokáži-li totiž rozložit
+polynom na součin jeho lineárních činitelů, pak vím, že řešení rovnice
+\[
+ (x-a)(x-b)(x-c) = 0
+\]
+jsou právě čísla $a,b$ a $c$. \textbf{To však není pravda v obecném okruhu!}
+Pouze struktura oboru integrity umožňuje činit takový závěr.
+
+V oborech integrity lze \uv{sčítat}, \uv{odčítat} a \uv{násobit}. Nelze v nich
+však \uv{dělit}. Součástí definice oboru integrity není existence inverzu k
+operaci násobení. Struktury, které toto splňují, se jmenují \emph{tělesa} a
+tvoří základ moderní geometrie. Nezamýšlejíce formalizovat zmíníme, že z každého
+oboru integrity lze vyrobit těleso vlastně hrubým přidáním inverzů ke všem
+prvkům. Tomuto procesu se říká \emph{lokalizace} a výsledné struktuře
+\emph{podílové těleso}; lokalizace je způsobem, kterým se mimo jiné tvoří
+racionální čísla z čísel celých.
+
+\begin{definition}{Těleso}{teleso}
+ Okruh $(F,+,-,0, \cdot ,1)$ (z angl. názvu pro těleso -- \textbf{f}ield)
+ nazveme \emph{tělesem}, existuje-li ke každému prvku $f \in F$ inverz vzhledem
+ k $ \cdot $, tj. prvek $f^{-1} \in F$ takový, že $f \cdot f^{-1} = f^{-1} \cdot
+ f = 1$.
+\end{definition}
+
+Pozorní čtenáři jistě sobě povšimli, že v \hyperref[def:teleso]{definici tělesa}
+\emph{nepožadujeme}, aby byl výchozí okruh oborem integrity. Existence inverzů
+již tuto podmínku implikuje. Důkaz ponecháváme jako cvičení.
+
+\begin{exercise}{}{okruh-inverz-obor}
+ Dokažte, že každé těleso je oborem integrity.
+\end{exercise}
