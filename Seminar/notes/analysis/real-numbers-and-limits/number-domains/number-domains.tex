@@ -118,10 +118,10 @@ Uvažme například zobrazení na \myref{obrázku}{fig:zobrazeni-axiom-rekurze}.
 
   \tkzLabelPoint[above,yshift=3mm](a2){$X$}
 
-  \draw[-Latex,red,thick,shorten <= 4pt,shorten >= 4pt] (a1) -- (b2);
-  \draw[-Latex,red,thick,shorten <= 4pt,shorten >= 4pt] (b1) -- (b2);
-  \draw[-Latex,red,thick,shorten <= 4pt,shorten >= 4pt] (c1) -- (a2);
-  \draw[-Latex,red,thick,shorten <= 4pt,shorten >= 4pt] (d1) -- (d2);
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt] (a1) -- (b2);
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt] (b1) -- (b2);
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt] (c1) -- (a2);
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt] (d1) -- (d2);
   
  \end{tikzpicture}
 
@@ -133,6 +133,95 @@ Zde $X = \{a,b,c,d\}$ a za počáteční prvek zvolme třeba $c$. Podle
 \myref{tvrzení}{prop:axiom-rekurze} existuje zobrazení $F:\N \to X$ začínající v
 $c$ (tj. $F(0) = c$), které zobrazuje číslo $1$ na prvek, na který $f$ zobrazuje
 $c$; číslo $2$ na prvek, na který $f$ zobrazuje ten prvek, na který zobrazuje
-$c$, atd.
+$c$, atd. Snad lepší představu poskytne
+\myref{obrázek}{fig:axiom-rekurze-cislovac}.
 
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \foreach \n/\h in {a1/3,b1/2,c1/1,d1/0} {
+   \tkzDefPoint(0,\h){\n}
+  }
+  \tkzDrawPoints[size=4](a1,b1,d1)
+  \tkzDrawPoint[size=4,RoyalBlue](c1)
+  \tkzLabelPoint[left,xshift=-1mm](a1){$a$}
+  \tkzLabelPoint[left,xshift=-1mm](b1){$b$}
+  \tkzLabelPoint[left,xshift=-1mm](c1){$\clb{F(0)} = c$}
+  \tkzLabelPoint[left,xshift=-1mm](d1){$d$}
+
+  \tkzDefPoint(3,3){a2}
+  \tkzDefPointsBy[translation= from a1 to a2](b1,c1,d1){b2,c2,d2}
+  \tkzDrawPoints[size=4](b2,c2,d2)
+  \tkzDrawPoint[size=4,RoyalBlue](a2)
+
+  \tkzLabelPoint[above](a2){$a = \clb{F(1)} = \clr{f(c)}$}
+  \tkzLabelPoint[above](b2){$b$}
+  \tkzLabelPoint[above](c2){$c$}
+  \tkzLabelPoint[above](d2){$d$}
+
+  \tkzDefPoint(6,3){a3}
+  \tkzDefPointsBy[translation= from a2 to a3](b2,c2,d2){b3,c3,d3}
+  \tkzDrawPoints[size=4](a3,c3,d3)
+  \tkzDrawPoint[size=4,RoyalBlue](b3)
+
+  \tkzLabelPoint[above](a3){$a$}
+  \tkzLabelPoint[below,yshift=-1mm](b3){$b = \clb{F(2)} = \clr{f(a)}$}
+  \tkzLabelPoint[above](c3){$c$}
+  \tkzLabelPoint[above](d3){$d$}
+
+  \tkzDefPoint(9,3){a4}
+  \tkzDefPointsBy[translation= from a3 to a4](b3,c3,d3){b4,c4,d4}
+  \tkzDrawPoints[size=4](a4,c4,d4)
+  \tkzDrawPoint[size=4,RoyalBlue](b4)
+
+  \tkzLabelPoint[above](a4){$a$}
+  \tkzLabelPoint[below,yshift=-1mm](b4){$b = \clb{F(3)} = \clr{f(b)}$}
+  \tkzLabelPoint[above](c4){$c$}
+  \tkzLabelPoint[above](d4){$d$}
+
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt,opacity=0.3] (a1) -- (b2);
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt,opacity=0.3] (b1) -- (b2);
+  \draw[-Latex,RoyalBlue,thick,shorten <= 4pt,shorten >= 4pt] (c1) -- (a2);
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt,opacity=0.3] (d1) -- (d2);
+
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt,opacity=0.3] (b2) -- (b3);
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt,opacity=0.3] (c2) -- (a3);
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt,opacity=0.3] (d2) -- (d3);
+  \draw[-Latex,RoyalBlue,thick,shorten <= 4pt,shorten >= 4pt] (a2) -- (b3);
+
+  \draw[-Latex,RoyalBlue,thick,shorten <= 4pt,shorten >= 4pt] (b3) -- (b4);
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt,opacity=0.3] (c3) -- (a4);
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt,opacity=0.3] (d3) -- (d4);
+  \draw[-Latex,BrickRed,thick,shorten <= 4pt,shorten >= 4pt,opacity=0.3] (a3) -- (b4);
+
+  \draw[-Latex,RoyalBlue,thick,shorten <= 4pt,shorten >= 4pt] (b4) -- ($(b4) +
+   (3,0)$);
+  \node[right=2.9cm of b4] {\Large $\ldots$};
+  
+ \end{tikzpicture}
+
+ \caption{Zobrazení $\clb{F}$ jako \uv{rekurzor} zobrazení $\clr{f}$ s
+ počátečním bodem $\clb{F(0)} = c$.}
+ \label{fig:axiom-rekurze-cislovac}
+\end{figure}
+
+Vybaveni \hyperref[prop:axiom-rekurze]{axiomem rekurze}, můžeme nyní definovat
+operaci $+:\N \times \N \to \N$. Začneme tím, že definujeme zobrazení \uv{přičti
+$n$}. Zvolme za zobrazení $f$ v \hyperref[prop:axiom-rekurze]{axiomu rekurze}
+funkci následníka ${s:\N \to \N}$ definovanou $s(n) = n \cup \{n\}$. Je zřejmé,
+že zobrazení \uv{přičti $n$}, pracovně označené $+_n$, musí číslo $0$ zobrazit
+na $n$. Podle \hyperref[prop:axiom-rekurze]{axiomu rekurze} však existuje pouze
+jediné zobrazení $+_n:\N \to \N$ splňující
+\begin{align*}
+ +_n(0) &= n,\\
+ +_n(s(m)) &= s(+_n(m)) \; \forall m \in \N.
+\end{align*}
+Uvědomme si, že druhá rovnost je též velmi přirozeným požadavkem pro operaci
+sčítání. Říká totiž, že následník čísla $m + n$ je tentýž jako následník čísla
+$m$ sečtený s $n$.
+
+Konečně, na $\N$ definujeme operaci $+$ předpisem
+\[
+ m + n \coloneqq +_n(m).
+\]
 

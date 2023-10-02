@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,svgnames]{beamer}
+\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -134,8 +134,9 @@
 \begin{frame}
  \frametitle{What Do We Mean By Data?}
  \begin{tcolorbox}[title=Data]
-  \alert{Two sets} (called \emph{inputs} and \emph{outputs}) describing the
-  studied system.
+  \alert{Sets} (called \emph{inputs} and \emph{outputs}) describing the studied
+  system. There is typically only one set of inputs and possibly multiple sets
+  of outputs.
  \end{tcolorbox}
 \end{frame}
 
@@ -145,9 +146,11 @@
  junctions across the city to determine which should be first replaced by
  roundabouts.\\
  \pause
- An \alert{input} is a day in a year.\\
+ An \alert{input} is a day in a year coupled with the location of the
+ junction.\\
  \pause
- An \alert{output} is the number of traffic accidents in a given day.
+ An \alert{output} is the number of traffic accidents in the given day on the
+ given junction.
 \end{frame}
 
 \begin{frame}
@@ -173,7 +176,8 @@
  \pause
  Both previous examples feature \alert{discrete} data.
  \begin{itemize}[label=\textbullet]
-  \item There are only \emph{finitely many} junctions in a city.
+  \item There are only \emph{finitely many} junctions in a city and days in a
+   year.
   \pause
   \item There are only \emph{finitely many} countries on a continent.
  \end{itemize}
@@ -211,7 +215,7 @@
   \pause
   \item Output: The combined weight of air molecules.
   \pause
-  \item The data is a function $f:\mathbb{R}^3 \to \mathbb{R}$. 
+  \item The data is a function $f:\mathbb{R}^3 \to [0,\infty)$. 
  \end{itemize}
  \end{itemize}
 \end{frame}
@@ -294,7 +298,7 @@
 
 \begin{frame}
  \frametitle{Bar Chart}
- Usable basically for any data.\\
+ Usable basically for any discrete data.\\
  \pause
  Especially useful when your inputs are ordered and when you expect the data to
  follow a certain trend -- it can be easily approximated by a polygonal curve.\\
@@ -383,15 +387,18 @@
  \pause
  \begin{center}
   \begin{tikzpicture}
-   \begin{axis}[height=6cm,width=6cm,enlargelimits=0.1,
-    xmin=0,xmax=1]
+   \begin{axis}[height=5cm,width=5cm,enlargelimits=0.1,
+    xmin=0,xmax=1,ymin=0,ymax=5]
     \addplot+ [
      only marks,
      samples=400
-    ] {0.5*(rand + 1)};
+    ] {2.5*(rand + 1)};
    \end{axis}
   \end{tikzpicture}
  \end{center}
+ \vspace*{-1em}
+ Here, the $x$-axis represents time (0 to 1s) and the $y$-axis represents one
+ coordinate of the molecule (say the box is a 5x5x5 cube).
 \end{frame}
 
 \begin{frame}
@@ -408,11 +415,11 @@
     \addplot+ [
      only marks,
      samples=1000
-    ] {0.5*(rand + 1)};
+    ] {2.5*(rand + 1)};
     \addplot+ [
      only marks,
      samples=1000
-    ] {0.5*(rand + 1)};
+    ] {2.5*(rand + 1)};
    \end{axis}
   \end{tikzpicture}
  \end{center}
@@ -433,8 +440,8 @@
   \item the `middle' value of the outputs regardless of proportion (the
    \alert{median}),
   \pause
-  \item the expected measure of difference of observed values from the mean (the
-   \alert{deviation}),
+  \item the expected/observed measure of difference of observed values from the
+   mean (the \alert{deviation}),
   \pause
   \item dependence on any other data (the \alert{correlation}).
  \end{itemize}
@@ -448,7 +455,7 @@
 
 \begin{frame}
  \frametitle{Types of Mean}
- The \alert{mean} in some sense `the most probable' next output based on the
+ The \alert{mean} in some sense is `the most probable' next output based on the
  received data.\\
  \pause
  What is `the most probable' output however depends heavily on the type of
@@ -519,7 +526,7 @@
  year 2000.\\
  \pause
  When comparing two populations, we don't really care \emph{by how much} they
- differ \emph{how many times} is one larger than the other.\\
+ differ, but \emph{how many times} is one larger than the other.\\
  \pause
  If this is our data
  \begin{center}
@@ -529,8 +536,7 @@
    \textbf{Output} & 1.328 & 1.118 & 0.991 & 1.100 & 1.366 & 1.078
   \end{tabular}
  \end{center}
- This means that the expected increase in population in a randomly chosen Asian
- country is
+ then the expected increase in population in a randomly chosen Asian country is
  \[
   \sqrt[6]{(1.328 \cdot 1.118 \cdot 0.991 \cdot 1.100 \cdot 1.366 \cdot 1.078)}
   = 1.156.
@@ -566,7 +572,7 @@
    \textbf{Output} & 65 km/h & 52 km/h & 71 km/h & 60 km/h & 62 km/h & 53 km/h,
   \end{tabular}
  \end{center}
- then the average speed of the train across the whole track is
+ then the average speed of the train over the whole track is
  \[
   \frac{6}{\frac{1}{65} + \frac{1}{52} + \frac{1}{71} + \frac{1}{60} +
   \frac{1}{62} + \frac{1}{53}} = 59.78 \text{ km/h}.
@@ -579,12 +585,19 @@
  total time, you would get the \textbf{harmonic mean!}
 \end{frame}
 
+\subsection{The Median}
+\begin{frame}
+ \frametitle{}
+ \subsectionpage
+\end{frame}
+
 \begin{frame}
  \frametitle{The Median}
  \begin{tcolorbox}[title=Median]
   The \alert{median} is the value which lies exactly in the middle of a dataset.
   It is essentially the value separating the lower and upper half of outputs. If
-  $x_1,\ldots,x_n$ are the outputs, the median is
+  $x_1,\ldots,x_n$ are the outputs \alert{ordered from least to greatest}, the
+  median is
   \[
    \mathrm{median}(x) \coloneqq 
    \begin{cases}
@@ -597,7 +610,7 @@
 
 \begin{frame}
  \frametitle{The Median -- Example}
- The median is useful when we deal with data featuring radical extremes.\\
+ The median is useful when dealing with data manifesting radical extremes.\\
  \pause
  It is very often used in relationship to \alert{location}.\\
  \pause
@@ -621,6 +634,12 @@
  approximation of the mean.
 \end{frame}
 
+\subsection{The Deviation}
+\begin{frame}
+ \frametitle{}
+ \subsectionpage
+\end{frame}
+
 \begin{frame}
  \frametitle{Deviation}
  \begin{tcolorbox}[title=Deviation]
@@ -630,7 +649,7 @@
  \pause
  There are many types of deviations, we'll focus on two of them:
  \pause
- \begin{itemize}
+ \begin{itemize}[label=\textbullet]
   \item the \alert{standard deviation} (a measure of `dispersion'),
   \pause
   \item the \alert{average absolute deviation} (a measure of actual
@@ -712,6 +731,12 @@
  \pause
  meaning that the measured heights differ on average by 3.2 cm from the
  calculated arithmetic mean.
+\end{frame}
+
+\subsection{Correlation}
+\begin{frame}
+ \frametitle{}
+ \subsectionpage
 \end{frame}
 
 \begin{frame}
