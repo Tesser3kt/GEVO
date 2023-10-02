@@ -11,15 +11,15 @@ trvalé zapomnění.
 
 \begin{warning}{}{minus-na-N}
  Nezasvěcený, zmatený a zcela pomýlený čtenář by snad měl odvahu tvrdit, že
- přeci mohu číslo $3$ mohu od čísla $5$ \textbf{\clr{odečíst}} a získat tím zpět
- číslo $2$. Jistě, takové tvrzení by se mohlo stát předmětem vášnivých diskusí v
- anarchistických kroužcích velebitelů teorie polomnožin, v kterékoli algebraické
- teorii však nemá nižádné místo.
+ přeci mohu číslo $3$ od čísla $5$ \textbf{\clr{odečíst}} a získat tím zpět
+ číslo $2$. Jistě, takové tvrzení by se kvapně stalo předmětem vášnivých diskusí
+ v anarchistických kroužcích velebitelů teorie polomnožin, v~kterékoli
+ algebraické teorii však nemá nižádné místo.
 
- Vyzýváme čtenáře, aby uvážili, že definovat \uv{operaci} $-$ na množině
+ Vyzýváme čtenáře, aby uvážili, že definovat \uv{operaci minus} na množině
  přirozených čísel, která vlastně není formálně operací, neboť funguje pouze
  tehdy, když je pravý argument větší nebo roven levému, není komutativní a není
- \textbf{ani asociativní} byl by čin vskutku ohyzdný.
+ \textbf{ani asociativní}, byl by čin vskutku ohyzdný.
 
  Znak $-$ bude mít své místo až v celých číslech, kde však rovněž nebude operací
  (stále není asociativní), bude pouze značit inverz vzhledem k operaci $+$.
@@ -33,20 +33,28 @@ ze součinu $-2 \cdot 3$ zpět na číslo $-2$ je nemožné.
 
 Algebraicky nejdokonalejší jsou pak čísla racionální, která jsou již dokonale
 symetrickou strukturou -- komutativním tělesem. Obě operace $+$ i $ \cdot $ jsou
-již dokonale symetrické, zvratné prostřednictvím $-$ a $^{-1}$. Pozor -- podobně
-jako odčítání, ani dělení \textbf{není operace}. Výraz $p / q$ je pohodlným
-zápisem formálně korektního $pq^{-1}$ vyjadřujícího součin čísla $p$ s inverzem
-k číslu $q$.
+symetrické, zvratné prostřednictvím $-$ a $^{-1}$. Pozor! Podobně jako odčítání,
+ani dělení \textbf{není operace}. Výraz $p / q$ je pohodlným zápisem formálně
+korektního $pq^{-1}$ vyjadřujícího součin čísla $p$ s inverzem k číslu $q$.
 
-Nyní přikročíme ke konstrukcím číselných oborů. Naší první výzvou je konstrukce
-množiny přirozených čísel $\N$. Stavebními kameny jsou množiny, tudíž přirozená
-čísla sama musejí být rovněž množiny. Existuje mnoho axiomatických systémů (z
-nich snad nejoblíbenější tzv.
+Racionální čísla však stále mají, nikoli z algebraického, nýbrž z analytického
+pohledu, jednu podstatnou neduhu. Totiž, nerozumějí si dobře s pojmem
+\emph{nekonečna}. Ukazuje se, že racionální čísla mají mezi sebou \uv{nekonečně
+malé} díry nejsouce pročež vhodná při modelování fyzického světa, který jsme si
+lidé zvykli vnímat jako \emph{souvislý}. Tuto neduhu lze odstranit, a to
+konstrukcí čísel \emph{reálných}. Ta však nebude zdaleka tak jednoduchá jako
+konstrukce ostatních číselných oborů, neboť z principu věci dožaduje aparátu pro
+práci s nekonečně malými vzdálenostmi.
+
+Nyní k samotným konstrukcím. Naší první výzvou je konstrukce množiny přirozených
+čísel $\N$. Stavebními kameny jsou množiny, tudíž přirozená čísla sama musejí
+být rovněž množiny. Existuje mnoho axiomatických systémů (z nich snad
+nejoblíbenější tzv.
 \href{https://cs.wikipedia.org/wiki/Peanova_aritmetika}{Peanova aritmetika})
 popisujících přirozená čísla, avšak, jako je tomu u axiomů vždy, nepodávají
 žádnou představu o výsledné struktuře.
 
-My ukážeme jednu konstruktivní definici, jejíž korektnost vyplývá z axiomů
+My předvedeme jednu konstruktivní definici, jejíž korektnost vyplývá z axiomů
 teorie množin (speciálně z axiomu nekonečna), které zde však uvádět nechceme;
 žádáme pročež čtenáře o jistou míru tolerance.
 
@@ -57,37 +65,74 @@ teorie množin (speciálně z axiomu nekonečna), které zde však uvádět nech
  iterativně jako
  \begin{align*}
   0 &\coloneqq \emptyset,\\
-  1 & \coloneqq 0 \cup \{0\} = \{\emptyset\} = \{0\},\\
-  2 & \coloneqq 1 \cup \{1\} = \{\emptyset,\{\emptyset\}\} = \{0,1\},\\
-  3 & \coloneqq 2 \cup \{2\} =
+  1 & \coloneqq s(0) = 0 \cup \{0\} = \{\emptyset\} = \{0\},\\
+  2 & \coloneqq s(1) = 1 \cup \{1\} = \{\emptyset,\{\emptyset\}\} = \{0,1\},\\
+  3 & \coloneqq s(2) = 2 \cup \{2\} =
   \{\emptyset,\{\emptyset\},\{\emptyset,\{\emptyset\}\}\} = \{0,1,2\},\\
   \vdots
  \end{align*}
 \end{definition}
 
-Na přirozených číslech lze definovat operace $+$ a $ \cdot $. Ukážeme si jak.
+Na přirozených číslech lze definovat operace $+$ a $ \cdot $. Ukážeme si zběžně
+jak.
 
-\begin{definition}{Sčítání}{scitani}
-Definujme operaci $+:\N \times \N \to \N$ induktivně předpisy (připomínáme, že
-$s(n) \coloneqq n \cup \{n\}$)
- \begin{equation}
-  \label{eq:natural-numbers-addition}
-  \begin{split}
-   n + m &= m + n,\\
-   (n + m) + l &= n + (m + l),\\
-   n + 0 &= n,\\
-   s(n) + m &= s(n + m)
-  \end{split}
- \end{equation}
- pro všechna $n,m,l \in \N$.
-\end{definition}
+Přirozená čísla splňují tzv. axiom rekurze, který se obvykle zavádí v
+axiomatické definici přirozených čísel. V rámci našeho konstruktivního přístupu
+je třeba ho dokázat. My si ho zde však pouze uvedeme, neboť onen důkaz je silně
+logický a zdlouhavý.
 
-Bohužel, definovat $+$ na přirozených číslech pomocí přímočaré množinové
-konstrukce není úplně možné; museli jsme se tudíž uchýlit k částečně axiomatické
-definici. První dvě rovnosti v~\eqref{eq:natural-numbers-addition} říkají, že
-sčítání je komutativní a asociativní. Další dva pak popisují způsob, jak
-spočítat součet $n + m$ pro libovolná dvě $n,m \in \N$. Totiž, všimněme si, že
-\[
- n + m = 
-\]
+\begin{proposition}{Axiom rekurze}{axiom-rekurze}
+ Ať $X$ je neprázdná množina a $x \in X$. Pak pro každé zobrazení $f:X \to X$
+ existuje jednoznačně určené zobrazení $F:\N \to X$ takové, že $F(0) = x$ a
+ $F(s(n)) = f(F(n)) \; \forall n \in \N$.
+\end{proposition}
+
+Lidsky řečeno, axiom rekurze říká, že přirozenými čísly je možné \uv{číslovat}
+opakované (\emph{rekurzivní}) aplikace zobrazení $f$ na prvky množiny $X$
+počínaje nějak pevně zvoleným prvkem. Vlastně vyrábíme nekonečný řetěz šipek
+zobrazení $f$.
+
+Uvažme například zobrazení na \myref{obrázku}{fig:zobrazeni-axiom-rekurze}.
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}[scale=0.75]
+  \foreach \n/\h in {a1/3,b1/2,c1/1,d1/0} {
+   \tkzDefPoint(0,\h){\n}
+  }
+  \tkzDrawPoints[size=4](a1,b1,c1,d1)
+  \tkzLabelPoint[left,xshift=-1mm](a1){$a$}
+  \tkzLabelPoint[left,xshift=-1mm](b1){$b$}
+  \tkzLabelPoint[left,xshift=-1mm](c1){$c$}
+  \tkzLabelPoint[left,xshift=-1mm](d1){$d$}
+
+  \tkzLabelPoint[above,yshift=3mm](a1){$X$}
+
+  \tkzDefPoint(3,3){a2}
+  \tkzDefPointsBy[translation= from a1 to a2](b1,c1,d1){b2,c2,d2}
+  \tkzDrawPoints[size=4](a2,b2,c2,d2)
+
+  \tkzLabelPoint[right,xshift=1mm](a2){$a$}
+  \tkzLabelPoint[right,xshift=1mm](b2){$b$}
+  \tkzLabelPoint[right,xshift=1mm](c2){$c$}
+  \tkzLabelPoint[right,xshift=1mm](d2){$d$}
+
+  \tkzLabelPoint[above,yshift=3mm](a2){$X$}
+
+  \draw[-Latex,red,thick,shorten <= 4pt,shorten >= 4pt] (a1) -- (b2);
+  \draw[-Latex,red,thick,shorten <= 4pt,shorten >= 4pt] (b1) -- (b2);
+  \draw[-Latex,red,thick,shorten <= 4pt,shorten >= 4pt] (c1) -- (a2);
+  \draw[-Latex,red,thick,shorten <= 4pt,shorten >= 4pt] (d1) -- (d2);
+  
+ \end{tikzpicture}
+
+ \caption{Zobrazení $\clr{f}$ z \hyperref[prop:axiom-rekurze]{axiomu rekurze}.}
+ \label{fig:zobrazeni-axiom-rekurze}
+\end{figure}
+
+Zde $X = \{a,b,c,d\}$ a za počáteční prvek zvolme třeba $c$. Podle
+\myref{tvrzení}{prop:axiom-rekurze} existuje zobrazení $F:\N \to X$ začínající v
+$c$ (tj. $F(0) = c$), které zobrazuje číslo $1$ na prvek, na který $f$ zobrazuje
+$c$; číslo $2$ na prvek, na který $f$ zobrazuje ten prvek, na který zobrazuje
+$c$, atd.
+
 
