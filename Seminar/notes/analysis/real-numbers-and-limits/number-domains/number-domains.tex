@@ -89,7 +89,7 @@ logický a zdlouhavý.
 
 Lidsky řečeno, axiom rekurze říká, že přirozenými čísly je možné \uv{číslovat}
 opakované (\emph{rekurzivní}) aplikace zobrazení $f$ na prvky množiny $X$
-počínaje nějak pevně zvoleným prvkem. Vlastně vyrábíme nekonečný řetěz šipek
+počínaje jakýmsi pevně zvoleným prvkem. Vlastně vyrábíme nekonečný řetěz šipek
 zobrazení $f$.
 
 Uvažme například zobrazení na \myref{obrázku}{fig:zobrazeni-axiom-rekurze}.
@@ -133,8 +133,9 @@ Zde $X = \{a,b,c,d\}$ a za počáteční prvek zvolme třeba $c$. Podle
 \myref{tvrzení}{prop:axiom-rekurze} existuje zobrazení $F:\N \to X$ začínající v
 $c$ (tj. $F(0) = c$), které zobrazuje číslo $1$ na prvek, na který $f$ zobrazuje
 $c$; číslo $2$ na prvek, na který $f$ zobrazuje ten prvek, na který zobrazuje
-$c$, atd. Snad lepší představu poskytne
-\myref{obrázek}{fig:axiom-rekurze-cislovac}.
+$c$; číslo $3$ na prvek, na který $f$ zobrazuje ten prvek, na který zobrazuje
+ten prvek, na který zobrazuje $c$; číslo $4$ ... radši nic ... Snad lepší
+představu poskytne \myref{obrázek}{fig:axiom-rekurze-cislovac}.
 
 \begin{figure}[ht]
  \centering
@@ -224,4 +225,97 @@ Konečně, na $\N$ definujeme operaci $+$ předpisem
 \[
  m + n \coloneqq +_n(m).
 \]
+V každé učebnici základů teorie množin a matematické logiky dá nyní nějakou
+práci osvětlit, že takto definovaná operace $+$ je komutativní a asociativní a
+že se obdobným způsobem dá definovat operace násobení. Naštěstí! Tento text není
+výkladem ani jedné z pokulhávajících disciplín, a tedy těchto několik malých
+kroků pro člověka a stejně tak malých kroků pro matematiku přeskočíme a věnovati
+sebe dalším oborům číselným budeme.
+
+Zcela striktně vzato, $\N$ ještě nejsou \emph{oborem}. Nejsou vlastně ani
+okruhem. Přestože $(\N, \cdot ,1)$ je komutativní monoid, $(\N,+,0)$ zcela jistě
+není komutativní grupa, ano rovněž pouze komutativní monoid. Takovým strukturám
+se často říká (snad jen proto, aby se jim prostě nějak říkalo, ačkoliv nikoho
+zvlášť nezajímají) \emph{polookruhy}. Situaci vylepšují čísla celá.
+
+Podobně jako čísla přirozená, i čísla celá lze definovat mnoha způsoby. Uvedeme
+si jeden. Na množině $\N \times \N$ dvojic přirozených čísel definujme relaci
+$ \sim _{\Z}$ předpisem
+\[
+ (a,b) \sim _{\Z} (c,d) \overset{\text{def}}{ \iff } a + d = b +
+ c.
+\]
+Třídám ekvivalence dvojic přirozených čísel podle $ \sim _{\Z}$ budeme říkat
+\emph{celá čísla}.
+
+\begin{definition}{Celá čísla}{cela-cisla}
+ Množinu celých čísel $\Z$ definujeme jako
+ \[
+  \Z \coloneqq \{[(a,b)]_{ \sim _{\Z}} \mid (a,b) \in \N \times \N\}.
+ \]
+ Operace $+$ a $ \cdot $ na $\N$ indukují operace na $\Z$, které budeme
+ označovat stejnými symboly. Konkrétně, definujme
+ \begin{align*}
+  [(a,b)]_{ \sim _{\Z}} + [(c,d)]_{ \sim \Z} &\coloneqq [(a+c,b+d)]_{ \sim
+  \Z},\\
+   [(a,b)]_{ \sim _{\Z}} \cdot [(c,d)]_{ \sim _{\Z}} & \coloneqq [(a \cdot c +
+   b \cdot d,a \cdot d + b \cdot c)]_{ \sim _{\Z}}.
+ \end{align*}
+ Pro všechna $a,b \in \N$ navíc platí
+ \[
+  [(a,b)]_{ \sim _{\Z}} + [(b,a)]_{ \sim _{\Z}} = [(a+b,b+a)]_{ \sim _{\Z}} =
+  [(0,0)]_{ \sim _{\Z}},
+ \]
+ kde předposlední rovnost platí, protože $+$ je komutativní. Čili, prvek
+ $[(b,a)]_{ \sim _{\Z}}$ je inverzní k~prvku $[(a,b)]_{ \sim _{\Z}}$ vzhledem k
+ $+$. Značíme ho $-[(a,b)]_{ \sim _{\Z}}$. Odtud plyne, že $(\Z,+,-,[(0,0)]_{
+ \sim _{\Z}})$ je komutativní grupa, pročež je
+ \[
+  (\Z,+,-,[(0,0)]_{ \sim _{\Z}}, \cdot ,[(1,0)]_{ \sim_{\Z}})
+ \]
+ komutativní okruh. Je snadné si uvědomit, že je to rovněž obor integrity.
+\end{definition}
+
+Čtenáře snad povaha množiny $\Z$ z \hyperref[def:cela-cisla]{předchozí definice}
+zaráží. Zcela jistě to není ta \uv{obvyklá}. Ovšem, přechod od této verze celých
+čísel k té běžně užívané je zcela bezbolestný. Stačí se totiž dívat na třídy
+ekvivalence $[(a,b)]_{ \sim _{\Z}}$ jako na \uv{čísla} $a-b$. Ponecháváme na
+čtenáři, aby ověřil, že definice operací $+$ a $-$ v naší verzi $\Z$ odpovídají
+těm na celých číslech v jejich obvyklé podobě. My budeme této korespondence drze
+využívat bez varování a mluvit o oboru integrity $(\Z,+,-,0, \cdot ,1)$.
+
+\begin{exercise}{Hrátky s celými čísly}{hratky-s-celymi-cisly}
+ Množinou $\Z$ zde myslíme tu z \myref{definice}{def:cela-cisla}. Ověřte, že
+ \begin{enumerate}
+  \item relace $ \sim _{\Z}$ je skutečně ekvivalence;
+  \item operace $+$ a $ \cdot $ jsou dobře definované. To znamená, že nezávisí
+   na volbě konkrétního reprezentanta z každé třídy ekvivalence. Ještě
+   konkrétněji, dobrá definovanost zde značí fakt, že
+   \begin{align*}
+    [(a,b)]_{ \sim_{\Z}} + [(c,d)]_{ \sim _{\Z}} &= [(a',b')]_{ \sim _{\Z}} +
+    [(c',d')]_{ \sim _{\Z}},\\
+    [(a,b)]_{ \sim_{\Z}} \cdot [(c,d)]_{ \sim _{\Z}} &= [(a',b')]_{ \sim _{\Z}}
+    \cdot [(c',d')]_{ \sim _{\Z}},
+   \end{align*}
+   kdykoli $(a,b) \sim _{\Z} (a',b')$ a $(c,d) \sim _{\Z} (c',d')$;
+  \item operace $+$, $-$ a inverz $-$ podle naší definice souhlasí s operacemi
+   danými stejnými symboly na \uv{běžné} verzi celých čísel při korespondenci
+   \[
+    [(a,b)]_{ \sim_{\Z}} \leftrightarrow a - b.
+   \]
+   Konkrétně, pro operaci $+$ toto znamená, že platí korespondence
+   \[
+    [(a,b)]_{ \sim_{\Z}} + [(c,d)]_{ \sim _{\Z}} \leftrightarrow (a - b) + (c -
+    d)
+   \]
+   a nezávisí na výběru reprezentanta z tříd ekvivalence $[(a,b)]_{ \sim _{\Z}}$
+   a $[(c,d)]_{ \sim_{\Z}}$.
+ \end{enumerate}
+\end{exercise}
+
+Přechod od celých čísel k racionálním znamená definovat na celých číslech
+\uv{dělení} -- v algebraické hantýrce definovat inverz k operaci $ \cdot $ a
+učiniti tímť z oboru $(\Z,+,-,0, \cdot ,1)$ těleso. Ten je překvapivě snadný
+úkol a proces \uv{racionalizace}, nazývaný oficiálně \emph{lokalizace}, lze v
+podstatě krok po kroku replikovat pro libovolný obor integrity.
 
