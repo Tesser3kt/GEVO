@@ -319,3 +319,63 @@ učiniti tímť z oboru $(\Z,+,-,0, \cdot ,1)$ těleso. Ten je překvapivě snad
 úkol a proces \uv{racionalizace}, nazývaný oficiálně \emph{lokalizace}, lze v
 podstatě krok po kroku replikovat pro libovolný obor integrity.
 
+Snad není překvapením, že racionální čísla budou třídy ekvivalence dvojic
+$(a,b)$ celých čísel (s~$b \neq 0$), které budeme ovšem zapisovat tradičně $a /
+b$. Princip za konstrukcí racionálních čísel z čísel celých není nepodobný tomu
+za konstrukcí celých čísel z čísel přirozených. Totiž, \emph{zlomky} pro nás
+budou rovněž třídy ekvivalence. Čtenář dobře učiní, přesvědčí-li sebe, že se
+zlomky jako s třídami ekvivalence vlastně zachází od doby, kdy mu byly
+představeny. Totiž, mám-li $a,b \in \Z$ obě dělitelná číslem $n \in \Z$, řekněme
+$a = nk$ a $b = nl$ pro vhodná $k,l \in \Z$, pak píšeme
+\[
+ \frac{a}{b} = \frac{nk}{nl} = \frac{k}{l},
+\]
+ačkoli ve skutečnosti $a \neq k$ a $b \neq l$, čili rovnost výše nelze vejmout
+absolutně. Zlomek $a / b$ jsme totiž zvyklí vnímat jako třídu ekvivalence
+představující nějakou část celku. Tento pohled je snadné formalizovat.
+
+\begin{definition}{Racionální čísla}{racionalni-cisla}
+ Definujme ekvivalenci $ \sim _{\Q}$ na dvojicích $\Z \times (\Z \setminus
+ \{0\})$ předpisem
+ \[
+  (a,b) \sim _{\Q}(c,d) \overset{\text{def}}{\iff} a \cdot d = b
+  \cdot c.
+ \]
+ Třídu ekvivalence $[(a,b)]_{ \sim _{\Q}}$ budeme zapisovat $a / b$ a položíme
+ \[
+  \Q \coloneqq \left\{ \frac{a}{b} \mid a,b \in \Z \times (\Z \setminus \{0\})
+  \right\}.
+ \]
+ Operace $+$ a $-$ indukují operace na $\Q$, jež budeme značit stejně.
+ Konkrétně,
+ \begin{align*}
+  \frac{a}{b} + \frac{c}{d} &\coloneqq \frac{a \cdot d+b \cdot c}{b \cdot d},\\
+  \frac{a}{b} \cdot \frac{c}{d} & \coloneqq \frac{a \cdot c}{b \cdot d}.
+ \end{align*}
+ Navíc, prvek $b / a$ je inverzní k prvku $a / b$ vzhledem k $ \cdot $, pokud
+ $a \neq 0$. Budeme ho značit $(a / b)^{-1}$. Snadno se ověří, že
+ \[
+  (\Q,+,-,0, \cdot,^{-1},1)
+ \]
+ je těleso, kde jsme ztotožnili prvek $a / 1 \in \Q$ s prvkem $a \in \Z$.
+\end{definition}
+
+\begin{exercise}{Hrátky s racionálními čísly}{hratky-s-racionalnimi-cisly}
+ Ověřte, že $ \sim _{\Q}$ je skutečně ekvivalence a že operace $+$ a $ \cdot $
+ na $\Q$ jsou dobře definované (nezávisejí na výběru reprezentanta) a odpovídají
+ \uv{obvyklým} operacím zlomků.
+\end{exercise}
+
+Konstrukce reálných čísel z racionálních je zcela jistě nejnáročnější úkol a
+nelze ho docílit čistě algebraicky. Potíž dlí už v samotné intuici. Totiž, jak
+jsme již zmiňovali, racionální čísla mají mezi sebou \uv{díry}. Formalizovat
+tento pojem však není přímočaré. Zatím nejlepší představu, kterou jsme schopni
+nastínit, je ta, že \uv{racionální úsečka} je \uv{tečkovaná} -- každému jejímu
+bodu mohu přiřadit nějaké přirozené číslo. To znamená, že každé její dva body
+jsou od sebe vzdáleny, neboť je dokáži od sebe rozlišit dost na to, abych jim
+přiřadil dvě různá čísla. Naopak, s \uv{reálnou úsečkou} toto učinit nemohu.
+Jednotlivé body do sebe splývají a vytvářejí \uv{plynulý} obraz.
+
+Přenosu této intuitivní představy do praxe brání fakt, že dvě racionální čísla
+jsou od sebe sice vzdálena, ale \uv{nekonečně málo}. Další kapitola je věnována
+rigoróznímu pohledu na tuto problematiku a konstrukci reálných čísel.
