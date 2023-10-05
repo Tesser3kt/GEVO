@@ -52,13 +52,14 @@ posloupnost. Jestliže se pravidelně odkláníme, k místu nikdy nedorazíme a
 posloupnost vzdáleností je pak \emph{divergentní} (tj.
 \textbf{ne}konvergentní).
 
-Do jazyka matematiky se věta \uv{s každým dalším krokem zmenšuje} překládá
+Do jazyka matematiky se věta \uv{vzdálenosti postupně zmenšují} překládá
 obtížně. Jeden ne příliš elegantní, ale výpočetně užitečný a celkově oblíbený
-způsob je následující: řeknu, že se k~cíli \emph{blížím}, když pro jakoukoli
-vzdálenost vždy dokáži najít krok, od kterého dál jsem již k cíli blíž než tato
-daná vzdálenost. Důrazně vyzýváme čtenáře, aby předchozí větu přečítali tak
-dlouho, dokud jim nedává dobrý smysl. Podobné formulace se totiž vinou
-matematickou analýzou a jsou základem uvažování o nekonečnu.
+způsob je následující: řekneme, že prvky posloupnosti jsou k sobě stále blíž,
+když pro jakoukoli vzdálenost vždy dokážeme najít krok, od kterého dál jsou již
+k sobě dva libovolné prvky u sebe blíž než tato daná vzdálenost. Důrazně
+vyzýváme čtenáře, aby předchozí větu přečítali tak dlouho, dokud jim nedává
+dobrý smysl. Podobné formulace se totiž vinou matematickou analýzou a jsou
+základem uvažování o nekonečnu.
 
 \begin{definition}{Konvergentní posloupnost}{konvergentni-posloupnost}
  Řekneme, že posloupnost $a:\N \to \Q$ je \emph{konvergentní}, když platí výrok
@@ -69,7 +70,7 @@ matematickou analýzou a jsou základem uvažování o nekonečnu.
 \end{definition}
 
 \begin{remark}{}{konvergence}
- Aplikujeme intuitivní vysvětlení \emph{blížení se} z odstavce nad
+ Aplikujeme intuitivní vysvětlení \emph{zmenšování vzdálenosti} z odstavce nad
  \myref{definicí}{def:konvergentni-posloupnost} na jeho skutečnou definici.
 
  Výrok
@@ -78,10 +79,45 @@ matematickou analýzou a jsou základem uvažování o nekonečnu.
   \geq n_0: |a_m - a_n| < \varepsilon
  \]
  říká, že pro jakoukoli vzdálenost ($\varepsilon$) dokáži najít krok ($n_0$)
- takový, že mezi libovolnými dvěma následujícími kroky ($m,n$) už jsem cíli blíž
- než daná vzdálenost ($|a_n -a_m|<\varepsilon$).
+ takový, že vzdálenost dvou prvků v~libovolných dvou následujících krocích
+ ($m,n$) už je menší než daná vzdálenost ($|a_n -a_m|<\varepsilon$).
 
- Slovo \uv{krok} je zde třeba vnímat volně. Totiž, pokud s každým doslovným
- krokem urazím stejnou vzdálenost, pak by posloupnost 
+ Slovo \uv{krok} je třeba vnímat volně -- myslíme pochopitelně \emph{pořadí} či
+ \emph{indexy} prvků v posloupnosti. Pohled na racionální posloupnosti jako na
+ \uv{kroky} činěné v racionálních číslech může být ovšem užitečný.
 \end{remark}
+
+Pojem \emph{limity}, představuje jakýsi bod, k němuž se posloupnost s každým
+dalším krokem přibližuje, je vyjádřen výrazem podobného charakteru. Zde však
+přichází na řadu ona \emph{děravost} racionálních čísel. Může se totiž stát, a
+příklady zde uvedeme, že limita racionální posloupnosti není racionální číslo.
+
+Učiňmež tedy dočasný obchvat a před samotnou definicí limity vyrobme reálná
+čísla jednou z~přehoušlí možných cest. 
+
+Ať $\mathcal{C}(\Q)$ značí množinu všech \textbf{konvergentních }racionálních
+posloupností. Uvažme ekvivalenci $ \simeq $ na $\mathcal{C}(\Q)$ danou
+\[
+ a \simeq b \overset{\text{def}}{\iff} \forall \varepsilon>0 \; \exists n_0 \in \N
+ \; \forall n \geq n_0: |a_n - b_n| < \varepsilon.
+\]
+Přeloženo do člověčtiny, $a \simeq b$, právě když se rozdíl mezi prvky těchto
+posloupností se stejným pořadím neustále zmenšuje -- řekli bychom, že se
+\emph{blíží k nule}. V rámci naší (zatím intuitivní) představy, že konvergentní
+posloupnosti se blíží k nějakému bodu, dává smysl ztotožňovat posloupnosti,
+které se blíží k bodu \emph{stejnému} -- stav, který vyjadřujeme tak, že se
+jejich rozdíl blíží k nule.
+
+Ve výsledku budeme definovat reálná čísla jako limity všech možných
+konvergentních racionálních posloupností. Ježto však pozbýváme aparátu, abychom
+koncepty limity a konvergence stmelili v jeden, jsme nuceni učinit mezikrok.
+
+\begin{definition}{Reálná čísla}{realna-cisla}
+ Množinu \emph{reálných čísel} tvoří všechny třídy ekvivalence konvergentních
+ racionálních posloupností podle $ \simeq $. Symbolicky,
+ \[
+  \R \coloneqq \{[a]_{ \simeq } \mid a \in \mathcal{C}(\Q)\}.
+ \]
+\end{definition}
+
 
