@@ -1,0 +1,481 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Logic Circuits
+\usepackage{circuitikz}
+\ctikzset{
+ logic ports=ieee,
+}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\section*{CPU}
+
+CPU (\textbf{C}entral \textbf{P}rocessing \textbf{U}nit) je elektrický obvod,
+který vykonává instrukce uložené ve vnitřní paměti. Vykonání \textbf{jedné}
+instrukce spočívá ve třech krocích
+\[
+ \text{Fetch} \to \text{Decode} \to \text{Execute}
+\]
+\begin{itemize}
+ \item \textbf{Fetch} je vyzvednutí instrukce z vnitřní paměti. CPU zkrátka
+  přečte tolik bitů z paměti, kolik je délka jeho instrukce (mezi různými CPU se
+  liší), z~toho místa, odkud četl naposledy.
+ \item \textbf{Decode} přeloží vyzvednutou instrukci. Opět, každý procesor má
+  svoje specifikace, co se kódování instrukcí týče. Pro jedno CPU může třeba
+  10001111 znamenat \uv{sečti}, pro jiný \uv{načti vstup z klávesnice}.
+ \item \textbf{Execute} vykoná přeloženou instrukci. Vykonání obvykle spočívá v
+  delegaci instrukce jedné z jednotek CPU (popsány níže).
+\end{itemize}
+
+CPU má v sobě ukazatel (tzv. \emph{counter} nebo \emph{čítač}), pomocí něhož si
+pamatuje, na kterém místě v paměti zrovna je. Po každém vykonání instrukce
+posune čítač na následující místo v paměti. Slovo \uv{místo} zde může znamenat
+různý počet bitů, v~závislosti na architektuře CPU. 
+
+Několik základních instrukcí, které CPU může z paměti přečíst, je:
+\begin{itemize}
+ \item \textbf{LOAD} -- načti číslo z paměti do CPU,
+ \item \textbf{ADD} -- sečti dvě čísla, která v paměti následují (CPU
+  implementuje ostatní operace jako odčítání, násobení a dělení pomocí sčítání),
+ \item \textbf{STORE} -- ulož číslo do paměti,
+ \item \textbf{COMPARE} -- porovnej dvě čísla, která v paměti následují,
+ \item \textbf{JUMP} -- přesuň čítač na místo v paměti určené následujícím
+  číslem,
+ \item \textbf{JUMP if podmínka} -- přesuň čítač na místo v paměti určené
+  následujícím číslem, pokud byla splněna \textbf{podmínka},
+ \item \textbf{OUT} -- předej výstup nějakému zařízení (třeba monitor,
+  reproduktor apod.),
+ \item \textbf{IN} -- získej vstup od nějakého zařízení (třeba myš, klávesnice
+  apod.).
+\end{itemize}
+
+Původní CPU vykonávaly vždy jednu instrukci za jeden úder \emph{vnitřních
+hodin}. Počet úderů za vteřinu značí, jak rychle je CPU schopen vykonávat
+instrukce. Moderní CPU mají frekvenci vnitřních hodin měřenou v gigahertzích
+(tj. v miliardách úderů za vteřinu). Navíc mají obvykle více \emph{virtuálních
+jednotek} (též \emph{jader}) a jsou schopny během jednoho úderu vykonat souběžně
+více instrukcí. Konkrétně, CPU, který vykoná jednu instrukci za jeden úder a
+frekvenci úderů má 1 Ghz, vykoná přesně miliardu instrukcí za vteřinu.
+
+CPU bývá obvykle rozdělen do několika menších jednotek, z nichž nezanedbatelné
+jsou
+\begin{itemize}
+ \item \textbf{Control Unit} (\uv{řídící jednotka}), která obdrží instrukce z
+  vnitřní paměti a poté je rozešle ostatním jednotkám v závislosti na povaze
+  instrukce;
+ \item \textbf{Arithmetic Logic Unit} (\uv{jednotka výpočetní logiky}), která
+  vykonává instrukce (obdržené od Control Unit) představující aritmetické
+  ($+$, $-$, $*$, $/$, ...), logické (ne, a, nebo,...) nebo srovnávací ($<$,
+  $>$, $=$) operace.
+\end{itemize}
+
+Mnoho moderních CPU má navíc ještě \textbf{Memory Management Unit} (\uv{jednotku
+správy paměti}), která obstarává instrukce typu \textbf{STORE} nebo
+\textbf{JUMP} -- obecně instrukce související s pamětí.
+
+\subsection*{Logické obvody}
+
+Samotné CPU je složeno z pospojovaných logických obvodů, které jsou zase složeny
+z logických bran. \textbf{Logická brána} je prostě jen elektrický obvod, který
+je schopný \uv{vykonat} logickou operaci. Třeba AND brána vykonávající logickou
+operaci \uv{a} se kreslí takhle:
+\begin{figure}[ht]
+ \centering
+ \begin{circuitikz}
+  \node[and port] (AND) at (0,0) {};
+
+  \node[ocirc] (i1) at ($(AND.in 1) - (1,0)$) {};
+  \node[ocirc] (i2) at ($(AND.in 2) - (1,0)$) {};
+
+  \draw (i1.east) to node[midway,above] {\clb{$i_1$}} (AND.in 1);
+  \draw (i2.east) to node[midway,below] {\clb{$i_2$}} (AND.in 2);
+
+  \node[ocirc] (o) at ($(AND.out) + (2,0)$) {};
+  \draw (AND.out) to node[midway,above] {$\clr{o} = \clb{i_1} \wedge \clb{i_2}$}
+  (o.west);
+ \end{circuitikz}
+ \caption*{AND brána. Výstupem $\clr{o}$ prochází proud, jedině když jak vstupem
+ $\clb{i_1}$, tak $\clb{i_2}$, prochází proud. To odpovídá logické operaci
+ \uv{a}. Totiž, když $\clb{i_1} = \clb{i_2} = 1$, pak $\clb{i_1} \wedge \clb{i_2}
+ = 1$. Ve všech ostatních případech (tj, $0,1$; $1,0$ a $0,0$) je $\clb{i_1}
+ \wedge \clb{i_2} = 0$.}
+\end{figure}
+
+Snadný způsob, jak postavit AND bránu je prostě vzít drát se zdrojem a po jeho
+délce kamkoli umístit dva transistory. Transistory jsou zařízení, která zesilují
+elektrický proud. Tedy, pokud oba transistory budou zapnuté, pak poteče drátem
+silný proud, který reprezentuje číslo $1$. Pokud je byť i jeden z nich vypnutý,
+bude proud dostatečně slabý, aby byl interpretován jako $0$. Pro jednoduchost si
+lze transistory v logických branách představovat tak, že když jsou zapnuté, tak
+\uv{pouštějí} proud, jinak ho \uv{zastavují}.
+
+\begin{figure}[ht]
+ \centering
+ \begin{circuitikz}[scale=0.8,transform shape]
+  \draw (0,0) node[npn] (Q) {};
+  \draw ($(Q.E) + (0,-0.4)$) node[npn] (P) {};
+
+  \node[ocirc] (i1) at ($(Q.B) - (.5,0)$) {};
+  \node[ocirc] (i2) at ($(P.B) - (.5,0)$) {};
+
+  \draw (i1.east) to node[midway,above] {$\clb{i_1}$} (Q.B);
+  \draw (i2.east) to node[midway,above] {$\clb{i_2}$} (P.B);
+  \node[yshift=-2mm] at (P.E) {$\clr{o}$};
+  
+ \end{circuitikz}
+ \caption*{AND brána jako dvojice transistorů.}
+\end{figure}
+
+Další brána, kterou si musíme představit, je NOT brána. Ta odpovídá logické
+negaci. Vychází z ní proud, když do ní nepřichází, a naopak z ní nevychází, když
+do ní přichází. Kreslí se takhle:
+
+\begin{figure}[ht]
+ \centering
+ \begin{circuitikz}
+  \node[not port] (NOT) at (0,0) {};
+
+  \node[ocirc] (i) at ($(NOT.in) - (1,0)$) {};
+
+  \draw (i.east) to node[midway,above] {\clb{$i_1$}} (NOT.in);
+
+  \node[ocirc] (o) at ($(NOT.out) + (2,0)$) {};
+  \draw (NOT.out) to node[midway,above] {$\clr{o} = \neg \clb{i}$}
+  (o.west);
+ \end{circuitikz}
+ \caption*{NOT brána. Výstupem $\clr{o}$ prochází proud, jedině když vstupem
+ $\clb{i}$ proud neprochází. Odpovídá logickému \uv{ne}. Totiž, $\neg 0 = 1$ a
+ $\neg 1 = 0$.}
+\end{figure}
+
+Jednoduchou NOT bránu lze postavit jako drát se zdrojem a jedním rezistorem.
+Rezistor si lze v logických obvodech představovat jako zařízení, které
+\uv{pouští} proud, když je \textbf{vypnuté} a \uv{nepouští} proud, když je
+\textbf{zapnuté}.
+
+Ve skutečnosti, logický obvod vykonávající libovolnou logickou operaci lze
+postavit pouze použitím tzv. NAND bran, což jsou jen brány vzniklé spojením AND
+a NOT brány. Kreslí se takhle:
+
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}[b]{.99\textwidth}
+  \centering
+  \begin{circuitikz}
+   \node[and port] (AND) at (0,0) {};
+
+   \node[ocirc] (i1) at ($(AND.in 1) - (1,0)$) {};
+   \node[ocirc] (i2) at ($(AND.in 2) - (1,0)$) {};
+
+   \draw (i1.east) to node[midway,above] {\clb{$i_1$}} (AND.in 1);
+   \draw (i2.east) to node[midway,below] {\clb{$i_2$}} (AND.in 2);
+
+   \node[not port] (NOT) at (3,0) {};
+
+   \draw (AND.out) to node[midway,above] {$\clb{i_1} \wedge \clb{i_2}$}
+   (NOT.in);
+   \node[ocirc] (o) at ($(NOT.out) + (2.3,0)$) {};
+   \draw (NOT.out) to node[midway,above] {$\clr{o} = \neg (\clb{i_1} \wedge
+   \clb{i_2})$} (o.west);
+  \end{circuitikz}
+  \caption*{NAND brána jako spojení AND a NOT brány.}
+ \end{subfigure}
+ \begin{subfigure}[b]{.99\textwidth}
+  \centering
+  \begin{circuitikz}
+   \node[nand port] (NAND) at (0,0) {};
+
+   \node[ocirc] (i1) at ($(NAND.in 1) - (1,0)$) {};
+   \node[ocirc] (i2) at ($(NAND.in 2) - (1,0)$) {};
+
+   \draw (i1.east) to node[midway,above] {\clb{$i_1$}} (NAND.in 1);
+   \draw (i2.east) to node[midway,below] {\clb{$i_2$}} (NAND.in 2);
+
+   \node[ocirc] (o) at ($(NAND.out) + (2.3,0)$) {};
+   \draw (NAND.out) to node[midway,above] {$\clr{o} = \neg (\clb{i_1} \wedge
+   \clb{i_2})$}
+   (o.west);
+  \end{circuitikz}
+  \caption*{NAND brána zjednodušeně.}
+ \end{subfigure}
+ 
+ \caption*{NAND brána. Odpovídá logickému výrazu $\neg (\clb{i_1} \wedge
+ \clb{i_2})$. Tedy, NAND bránou \textbf{neprochází} proud jedině, když oběma
+ vstupy $\clb{i_1}$ i $\clb{i_2}$ proud \textbf{prochází}.}
+\end{figure}
+
+Jako ukázku toho, že se každý logický obvod dá postavit pouze z NAND bran,
+z~nich postavíme OR bránu, tj. logickou bránu implementující logické \uv{nebo}.
+
+\begin{figure}[ht]
+ \centering
+ \begin{circuitikz}
+  \node[nand port] (nand1) at (0,1) {};
+  \node[nand port] (nand2) at (0,-1) {};
+  \node[circ] (div1) at (-1.5,1) {};
+  \node[circ] (div2) at (-1.5,-1) {};
+
+  \node[ocirc] (i1) at (-2.5,1) {};
+  \node[ocirc] (i2) at (-2.5,-1) {};
+
+  \draw (i1.east) to node[midway,above] {\clb{$i_1$}} (div1.west);
+  \draw (i2.east) to node[midway,above] {\clb{$i_2$}} (div2.west);
+
+  \draw (div1.north) |- (nand1.in 1);
+  \draw (div1.south) |- (nand1.in 2);
+  \draw (div2.north) |- (nand2.in 1);
+  \draw (div2.south) |- (nand2.in 2);
+
+  \node[nand port] (nand3) at (3,0) {};
+
+  \draw (nand1.out) |- (nand3.in 1);
+  \draw (nand2.out) |- (nand3.in 2);
+
+  \node[ocirc] (o) at ($(nand3.out) + (2.3,0)$) {};
+  \draw (nand3.out) to node[midway,above] {$\clr{o} = \clb{i_1} \vee \clb{i_2}$}
+  (o.west);
+ \end{circuitikz}
+ \caption*{Obvod implementující logickou OR bránu. OR bránou \textbf{neprochází}
+ proud jedině, když ani jedním ze vstupu proud rovněž \textbf{neprochází}. Ve
+ všech ostatních případech jí proud prochází. Symbol~\textbullet~tady značí
+ \emph{rozbočovač}; zkrátka zařízení, které rozpůlí proud, jenž jím prochází.}
+\end{figure}
+
+Abychom ověřili, že obvod nahoře je opravdu logické nebo, museli bychom zkusit
+za $\clb{i_1}$ a $\clb{i_2}$ dosadit všechny možnosti $0,0; 0,1; 1,0; 1,1$, kde
+$0$ (zase) znamená, že vstupem proud neprochází a $1$, že ano.
+
+Zkusíme například $\clb{i_1} = 0$ a $\clb{i_2} = 1$, pro které by měl OR bránou
+proud projít. Jednoduchý způsob, jak sledovat průchod proudu logickým obvodem,
+je zkrátka kreslit $1$ nebo $0$ nad každý kus drátu. Například takhle:
+
+\begin{figure}[ht]
+ \centering
+ \begin{circuitikz}
+  \node[nand port] (nand1) at (0,1) {};
+  \node[nand port] (nand2) at (0,-1) {};
+  \node[circ] (div1) at (-1.5,1) {};
+  \node[circ] (div2) at (-1.5,-1) {};
+
+  \node[ocirc] (i1) at (-2.5,1) {};
+  \node[ocirc] (i2) at (-2.5,-1) {};
+
+  \draw (i1.east) to node[midway,above] {0} (div1.west);
+  \draw (i2.east) to node[midway,above] {1} (div2.west);
+
+  \draw (div1.north) |- (nand1.in 1) node[midway,above right,xshift=1mm] {0};
+  \draw (div1.south) |- (nand1.in 2) node[midway,below right,xshift=1mm] {0};
+  \draw (div2.north) |- (nand2.in 1) node[midway,above right,xshift=1mm] {1};
+  \draw (div2.south) |- (nand2.in 2) node[midway,below right,xshift=1mm] {1};
+
+  \node[nand port] (nand3) at (3,0) {};
+
+  \draw (nand1.out) |- (nand3.in 1) node[midway,above right,xshift=3mm] {1};
+  \draw (nand2.out) |- (nand3.in 2) node[midway,below right,xshift=3mm] {0};
+
+  \node[ocirc] (o) at ($(nand3.out) + (2.3,0)$) {};
+  \draw (nand3.out) to node[midway,above] {1}
+  (o.west);
+ \end{circuitikz}
+ \caption*{Příklad průchodu proudu OR bránou.}
+\end{figure}
+
+\section*{Vnitřní paměť}
+
+Vnitřní paměť (tou se myslí paměť, ve které má CPU uloženy instrukce) přichází
+ve dvou chutích -- volatilní a nevolatilní (angl. volatile a non-volatile, asi
+to překládám blbě...). Volatilní paměť ztrácí veškerá data po vypojení z proudu,
+zatímco nevolatilní nikoliv.
+
+Moderní počítače používají jako vnitřní paměť téměř výhradně \textbf{volatilní},
+neboť je levnější na výrobu a taky je mnohem kompaktnější. Vlastně jedinou stále
+používanou volatilní pamětí je RAM (\textbf{R}andom \textbf{A}ccess
+\textbf{M}emory). Výraz \uv{random access} značí, že se jedná o paměť, která umí
+zpřístupnit svůj obsah okamžitě, bez ohledu na to, v kterém místě je uložen. To
+právě umožňuje operaci \textbf{JUMP} vykonat ihned, stačí znát cílové místo v
+paměti (to není ten případ u externích pamětí, které je potřeba obvykle
+procházet skoro od začátku).
+
+RAM se používá ve dvou formách:
+\begin{itemize}
+ \item SRAM nebo (\textbf{S}tatic RAM) je typ volatilní paměti, ve které se data
+  za běhu neposouvají, tj. za neustálého přísunu proudu je schopna udržet
+  uložené údaje teoreticky nekonečně dlouho. Používá se hlavně pro vnitřní paměť
+  samotného CPU (tzv. cache), protože je velmi rychlá díky tomu, že nepotřebuje
+  žádnou správu -- uložená data jsou vždy tam, kam byla uložena.
+ \item DRAM nebo (\textbf{D}ynamic RAM) je ten druhý typ RAMky, kde se data s
+  postupem času ztrácejí (i když do ní stále jde proud). Proto je v ní třeba
+  důležitá data (třeba ta nutná pro běh OS) neustále obnovovat. Tato potřeba se
+  u DRAMek, jejichž velikost se měří v GB, stala natolik častou, že se pro tyto
+  účely začaly vyrábět CPU s jednotkou správy paměti (Memory Management Unit).
+  DRAM je nejvíc používaná vnitřní paměť.
+\end{itemize}
+
+Z nevolatilních typů pamětí si zmíníme dva:
+\begin{itemize}
+ \item NVRAM (neboli \textbf{N}on-\textbf{V}olatile RAM) je přesně to, co si
+  myslíte, že je. Je to RAMka (buď statická nebo dynamická), která uchovává data
+  i po odpojení od proudu. Jako vnitřní paměť počítače se nepoužívá hlavně z
+  toho důvodu, že potřebuje baterii, která se tudíž musí časem měnit, a obrovská
+  zátěž, kterou CPU klade na RAM, by ji vyčerpala v řádu dní. Největší využití
+  zaznamenala jako úložiště BIOSu (jakoby operačního systému základní desky) a
+  jako \emph{flash} paměť v SSD discích.
+ \item ROM (\textbf{R}ead-\textbf{O}nly \textbf{M}emory) je typ paměti, do které
+  nelze ukládat data, ale pouze je z ní číst. Používá se hlavně jako úložiště
+  firmwaru v různých typech externích zařízení (myši, klávesnice, tiskárny,
+  ...). Firmware je vlastně takový malý operační systém, přes který posílá dané
+  zařízení signály do CPU připojeného počítače.
+\end{itemize}
+
+Primárním smyslem RAM je být úložištěm pro CPU instrukce. Představíme-li si RAM
+jako jeden dlouhý sloupec, kde v řádcích jsou postupně instrukce, může jeden
+uložený počítačový program vypadat třeba takhle:
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \node[draw,rectangle,minimum width=2cm,minimum height=6mm] at (0,0) {JUMP};
+  \node at (-1.5,0) {\clr{0010}};
+  \node[draw,rectangle,minimum width=2cm,minimum height=6mm] at (0,-0.6) {1001};
+  \node at (0,-1.2) {$\vdots$};
+  \node at (-1.5,-0.6) {\clr{0011}};
+  
+  \node at (4,0.2) {$\vdots$};
+  \node at (2.5,-0.6) {\clr{1001}};
+  \node at (2.5,-1.2) {\clr{1010}};
+  \node at (2.5,-1.8) {\clr{1011}};
+  \node at (2.5,-2.4) {\clr{1100}};
+  \node[draw,rectangle,minimum width=2cm,minimum height=6mm] at (4,-0.6) {ADD};
+  \draw[->] (1,-0.6) -- (2,-0.6);
+  \node[draw,rectangle,minimum width=2cm,minimum height=6mm] at (4,-1.2) {0100};
+  \node[draw,rectangle,minimum width=2cm,minimum height=6mm] at (4,-1.8) {1010};
+  \node[draw,rectangle,minimum width=2cm,minimum height=6mm] at (4,-2.4) {STORE};
+  \node at (4,-3.1) {$\vdots$};
+ \end{tikzpicture}
+ \caption*{Příklad programu v RAM. \clr{Červená čísla} představují \emph{adresy}
+  v paměti -- prostě jenom říkají, kolikátá (v dvojkové soustavě) pozice v
+  paměti to je. Po instrukci JUMP přečte CPU další řádek, kde je uloženo, na
+  které místo v paměti má skočit. Tam najde instrukci ADD, po které očekává dvě
+  čísla, která má sečíst. Nakonec narazí na instrukci STORE a výsledek
+  předchozího součtu na následující místo v~paměti uloží.}
+\end{figure}
+
+\section*{Základní deska}
+
+Základní deska (angl. motherboard) je zase jen elektrický obvod, který spojuje
+všechny komponenty počítače. Obvykle se dělí na dva kusy -- severní (North
+Bri\-dge) a jižní (South Bridge).
+\begin{itemize}
+ \item North Bridge obsahuje sloty pro CPU a RAM a často taky porty pro
+  propojení s I/O zařízeními (myšmi, klávesnicemi, tiskárnami, monitorem,...).
+ \item South Bridge má sloty pro externí paměti a grafické/zvukové karty a také
+  je v něm umístěna NVRAM s BIOSem a její baterkou. BIOS (\textbf{B}asic
+  \textbf{I}nput/\textbf{O}ut\-put \textbf{S}ystem) je software zajišťující přenos
+  dat mezi komponenty a CPU.
+\end{itemize}
+
+\section*{GPU}
+
+GPU (\textbf{G}raphics \textbf{P}rocessing \textbf{U}nit) je vlastně CPU ořezané
+o většinu svých funkcí. Primárním účelem GPU je provádět co nejvíce výpočtů
+najednou co největší rychlostí. CPU mívá až 32 výpočetních \emph{jader}
+(jednotek schopných provádět výpočty najednou během jednoho úderu vnitřních
+hodin); moderní GPU mají výpočetních jader tisíce. Často umožňují posílat výstup
+přímo do monitoru a mají v sobě též vlastní RAMku, kam ukládají mezivýsledky,
+které není potřeba posílat zpět do CPU.
+
+\end{document}
