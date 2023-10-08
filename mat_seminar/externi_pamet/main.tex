@@ -155,7 +155,67 @@ centered, draw=black, fill=Green!30]
 \begin{frame}
  \frametitle{HDD -- schéma komponent}
  \begin{center}
-  \includegraphics[width=.6\textwidth]{hdd_big.webp}
+  \includegraphics[width=.5\textwidth]{hdd_big}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{HDD -- sektory}
+ \begin{center}
+  \includegraphics[width=.5\textwidth]{hdd_sector}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{HDD -- zápis a čtení}
+ \begin{center}
+  \includegraphics[width=.8\textwidth]{hdd_reading}
+ \end{center}
+\end{frame}
+
+\section{Optická úložiště}
+
+\begin{frame}
+ \frametitle{CD, DVD, Blu-ray}
+ CD (\textbf{C}ompact \textbf{D}isc), DVD (\textbf{D}igital \textbf{V}ersatile
+ \textbf{D}isc) i Blu-ray pracují na témže principu, liší se pouze rychlostí
+ čtení a velikostí.\\
+ \pause
+ Čtení z optických úložišť i zápis na ně je pomalejší než třeba na HDD.
+ \pause
+ Všechny tři typy disků mají tři varianty:
+ \begin{itemize}[label=\textbullet]
+  \item ROM (Read-Only Memory) -- z disků lze pouze číst;
+  \item R (Recordable) -- disk je původně prázdný a lze na něj \textbf{jednou}
+   zapsat data;
+  \item RW (Re-Writable) -- na disk lze opakovaně zapisovat. Optická úložiště se
+   ale velmi rychle ničí častým přepisem. Průměrný maximální počet přepisů je
+   1000.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Optická úložiště -- jak fungují}
+ Optické disky mají jednu stranu tvořenou extrémně reflexivním materiálem.\\
+ \pause
+ Data jsou na této straně disku zapsána jako \uv{prohlubně} a čtena jsou
+ laserem.\\
+ \pause
+ Když laser narazí na prohlubeň, světlo se neodrazí zpátky, což počítač
+ interpretuje jako číslo $0$. Když se naopak laser odrazí od disku mimo
+ prohlubeň, je tento signál interpretován jako $1$.\\
+ \pause
+ Kapacita disku záleží pouze na typu laseru, který je použit k jeho čtení. Čím
+ menší jeho vlnová délka, tím blíž (a menší) u sebe prohlubně mohou být.\\
+ \pause
+ Když jsou data na disku přepsána, je třeba vždy strhnout celou jednu vrstvu
+ materiálu, aby se nejdřív povrch vyrovnal, a pak znovu vyhloubit díry.
+\end{frame}
+
+\begin{frame}
+ \frametitle{CD -- příklad čtení}
+ \begin{center}
+  \includegraphics[width=.8\textwidth]{cd_reading}
  \end{center}
 \end{frame}
 

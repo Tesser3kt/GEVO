@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.26)  8 OCT 2023 16:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.6)  8 OCT 2023 20:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,7 +6,7 @@ entering extended mode
 **main.tex
 (./main.tex
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-11>
+L3 programming layer <2023-08-29>
 (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2023/05/15 v3.70 A class for typesetting presentations
 (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerbasemodes.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -543,7 +543,7 @@ Package: amsthm 2020/05/29 v2.20.6
 \beamer@dima=\dimen292
 \beamer@dimb=\dimen293
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (/usr/local/texlive/2023/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2023/07/15 v3.92 The Babel package
+Package: babel 2023/08/29 v3.93 The Babel package
 \babel@savecnt=\count334
 \U@D=\dimen294
 \l@unhyphenated=\language87
@@ -1068,7 +1068,7 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 75.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 (Font)              scaled to size 8.0pt on input line 75.
-<logo.png, id=21, 218.31563pt x 153.57375pt>
+<logo.png, id=25, 218.31563pt x 153.57375pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 75.
@@ -1101,7 +1101,7 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 76.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 (Font)              scaled to size 10.0pt on input line 76.
-<title.jpg, id=23, 147.4308pt x 98.2872pt>
+<title.jpg, id=27, 147.4308pt x 98.2872pt>
 File: title.jpg Graphic file (type jpg)
 <use title.jpg>
 Package pdftex.def Info: title.jpg  used on input line 76.
@@ -1196,7 +1196,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 126.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<floppy.png, id=77, 963.6pt x 882.29625pt>
+<floppy.png, id=83, 963.6pt x 882.29625pt>
 File: floppy.png Graphic file (type png)
 <use floppy.png>
 Package pdftex.def Info: floppy.png  used on input line 126.
@@ -1258,18 +1258,14 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 160.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+<hdd_big.png, id=100, 1606.0pt x 1339.0025pt>
+File: hdd_big.png Graphic file (type png)
+<use hdd_big.png>
+Package pdftex.def Info: hdd_big.png  used on input line 160.
+(pdftex.def)             Requested size: 204.85846pt x 170.78696pt.
 
-
-./main.tex:160: LaTeX Error: Unknown graphics extension: .webp.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.160 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Overfull \vbox (1.20168pt too high) detected at line 160
+ []
 
 File: logo.png Graphic file (type png)
 <use logo.png>
@@ -1277,7 +1273,96 @@ Package pdftex.def Info: logo.png  used on input line 160.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
 [11
 
+ <./hdd_big.png>]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 167.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+<hdd_sector.png, id=106, 372.39125pt x 331.2375pt>
+File: hdd_sector.png Graphic file (type png)
+<use hdd_sector.png>
+Package pdftex.def Info: hdd_sector.png  used on input line 167.
+(pdftex.def)             Requested size: 204.85846pt x 182.2216pt.
+
+Overfull \vbox (12.63632pt too high) detected at line 167
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 167.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[12
+
+ <./hdd_sector.png>]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 174.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+<hdd_reading.jpeg, id=113, 1927.2pt x 1084.05pt>
+File: hdd_reading.jpeg Graphic file (type jpg)
+<use hdd_reading.jpeg>
+Package pdftex.def Info: hdd_reading.jpeg  used on input line 174.
+(pdftex.def)             Requested size: 327.77478pt x 184.36876pt.
+
+Overfull \vbox (14.78348pt too high) detected at line 174
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 174.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[13
+
+ <./hdd_reading.jpeg>]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 176.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [14
+
 ]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 195.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 195.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [15
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 213.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 213.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [16
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 220.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+<cd_reading.jpeg, id=137, 1927.2pt x 1084.05pt>
+File: cd_reading.jpeg Graphic file (type jpg)
+<use cd_reading.jpeg>
+Package pdftex.def Info: cd_reading.jpeg  used on input line 220.
+(pdftex.def)             Requested size: 327.77478pt x 184.36876pt.
+
+Overfull \vbox (14.78348pt too high) detected at line 220
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 220.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[17
+
+ <./cd_reading.jpeg>]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1290,24 +1375,24 @@ Package pdftex.def Info: logo.png  used on input line 160.
  (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-11>
+L3 programming layer <2023-08-29>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8A1E5E6D1E8C9C9EEE844DCE4ABE05D2;319.
+(rerunfilecheck)             Checksum: EE7BD15DF2CA924BD97BE9D27CDC929E;460.
  ) 
 Here is how much of TeX's memory you used:
- 32089 strings out of 475189
- 651317 string characters out of 5763838
- 1934254 words of memory out of 5000000
- 52721 multiletter control sequences out of 15000+600000
+ 32143 strings out of 474934
+ 651994 string characters out of 5759818
+ 1935807 words of memory out of 5000000
+ 53017 multiletter control sequences out of 15000+600000
  705527 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,1879b,987s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Semibold.pfb>
-Output written on main.pdf (11 pages, 291849 bytes).
+Output written on main.pdf (17 pages, 1892920 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
- 25 named destinations out of 1000 (max. 500000)
- 92 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 176 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
