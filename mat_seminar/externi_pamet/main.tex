@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
+\documentclass[aspectratio=169,11pt,svgnames]{beamer}
 
 \usepackage[czech]{babel}
 \usepackage[czech=quotes]{csquotes}
@@ -216,6 +216,89 @@ centered, draw=black, fill=Green!30]
  \frametitle{CD -- příklad čtení}
  \begin{center}
   \includegraphics[width=.8\textwidth]{cd_reading}
+ \end{center}
+\end{frame}
+
+\section{Flash paměti}
+
+\begin{frame}
+ \frametitle{Flash paměti}
+ Flash paměti vynikají svou kompaktností i rychlostí zápisy a vytlačují všechny
+ ostatní typy úložišť.\\
+ \pause
+ Používají se hlavně tři typy:
+ \begin{itemize}[label=\textbullet]
+  \item SD (\textbf{S}ecure \textbf{D}igital) karty -- miniaturní karty s
+   kapacitou dnes už do 256 GB s rozumnou rychlostí čtení (průměrně 150 MB/s,
+   asi jako HDD); používají se hlavně v přenosných zařízeních jako doplnění
+   integrované externí paměti;
+  \pause
+ \item USB (\textbf{U}niversal \textbf{S}erial \textbf{B}us) disky -- zkrátka
+  jen flash paměť s integrovaným USB portem. Jejich hlavní předností je
+  přenosnost a snadné připojení k počítači. Velikostí se podobají SD kartám, ale
+  zápis a čtení je poněkud pomalejší (obvykle kolem 60 MB/s);
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Flash paměti}
+ Flash paměti vynikají svou kompaktností i rychlostí zápisy a vytlačují všechny
+ ostatní typy úložišť.\\
+ Používají se hlavně tři typy:
+ \begin{itemize}[label=\textbullet]
+  \item SSD (\textbf{S}olid \textbf{S}tate \textbf{D}rive) -- několik čipů flash
+   paměti spojených \emph{ovladačem}. Ovladač primárně zajišťuje komunikaci se
+   CPU (aby mohl vnímat SSD jako \uv{jedno} úložiště) a má mnoho funkcí
+   zvyšujících výkon SSD. 
+   \pause
+   Například
+   \begin{itemize}[label=\textemdash]
+    \item odhalování špatných (nezapisovatelných) sektorů,
+    \item cachování často přepisovaných nebo čtených sektorů,
+    \item šifrování,
+    \item detekce a oprava chyb,
+    \item garbage collection.
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{SD karta -- diagram}
+ \begin{center}
+  \includegraphics[width=.4\textwidth,angle=-90,origin=c]{sd}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{USB disk -- diagram}
+ \begin{center}
+  \includegraphics[width=\textwidth]{usb}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{SSD -- diagram}
+ \begin{center}
+  \includegraphics[width=.4\textwidth]{ssd}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Flash paměť -- jak funguje}
+ Flash paměť je složená z buněk zvaných CTF (\textbf{C}harge \textbf{T}rap
+ \textbf{F}lash Memory Cell).\\
+ \pause
+ Jedna CTF se skládá ze tří částí oddělených dielektrických materiálem: brány,
+ kanálu, lapače náboje (charge trap).\\
+ \pause
+ Jedna buňka je schopna uložit 3 bity podle síly záporného elektrického náboje v
+ lapači.
+\end{frame}
+
+\begin{frame}
+ \frametitle{CTF -- obrázek}
+ \begin{center}
+  \includegraphics[width=.8\textwidth]{ctf}
  \end{center}
 \end{frame}
 
