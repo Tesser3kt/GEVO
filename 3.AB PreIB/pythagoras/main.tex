@@ -1,0 +1,280 @@
+\documentclass[aspectratio=169,11pt,svgnames]{beamer}
+
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{patterns,arrows.meta,calc}
+\usepackage{tkz-euclide}
+\tikzset{point style/.style = {%
+  draw = black,
+  inner sep = 0pt,
+  shape = circle,
+  minimum size = 5pt,
+  fill = black
+ }
+}
+\usepackage{enumitem}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Flowchart stuff
+
+\usepackage{pgfopts}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+\usetheme[
+ titlestyle=style2,
+ titleformat=smallcaps,
+ sectionstyle=plain,
+ slidestyle=cyber,
+ headingcolor=theme,
+ block=transparent
+]{trigon}
+
+\title{Pythagorean Theorem}
+\date{\today}
+\author{Adam Klepáč}
+\institute[GEVO]{Gymnázium Evolution Jižní Město}
+\biglogo[width=.2\textwidth]{logo}
+\smalllogo[width=.1\textwidth]{logo}
+\titlegraphic{\includegraphics[height=\paperheight]{title.jpg}}
+
+\def\subsectionname{}
+
+% enumerate global settings
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=\alph*)}
+
+% custom colors %
+\definecolor{PolygonYellow}{HTML}{f6e01a}
+\definecolor{PolygonCyan}{HTML}{11cdef}
+\definecolor{PolygonOrange}{HTML}{b25c10}
+\definecolor{PolygonBlue}{HTML}{0a2a66}
+\colorlet{tPrim}{PolygonBlue}
+\colorlet{tTheme}{PolygonYellow}
+\colorlet{tSec}{PolygonCyan}
+\colorlet{tAccent}{PolygonCyan}
+
+\newcommand{\clc}{\textcolor{PolygonCyan}}
+\newcommand{\clb}{\textcolor{PolygonBlue}}
+\newcommand{\clo}{\textcolor{PolygonOrange}}
+
+\tcbset{
+ boxsep=7pt,
+ fonttitle=\sc,
+ colframe=tGreyBg,
+ colframe=tPrim,
+ boxrule=1pt
+}
+
+\begin{document}
+\titleframe
+
+\begin{frame}
+ \frametitle{Contents}
+ \tableofcontents
+\end{frame}
+
+\begin{frame}
+ \frametitle{Right Triangle}
+ A triangle is called \alert{right}, if one of its angles is a right angle
+ ($90^{ \circ }$).\\
+ \pause
+ Right triangles have been of special import in many fields and so their sides
+ have unique names:
+ \begin{center}
+  \begin{tikzpicture}[scale=0.8,transform shape]
+   \tkzDefPoints{0/0/a,0/3/b,2/0/c}
+
+   \tkzLabelPoint[below left](a){$A$}
+   \tkzLabelPoint[above](b){$B$}
+   \tkzLabelPoint[below right](c){$C$}
+
+   \tkzLabelSegment[PolygonOrange,pos=0.5,left](a,b){$c$}
+   \tkzLabelSegment[PolygonOrange,pos=0.5,below](a,c){$b$}
+   \tkzLabelSegment[PolygonCyan,pos=0.5,above right](b,c){$a$}
+
+   \tkzMarkRightAngle[size=.4,fill=Gray!20](c,a,b)
+
+   \tkzDrawSegment[thick,PolygonOrange](a,b)
+   \tkzDrawSegment[thick,PolygonOrange](a,c)
+   \tkzDrawSegment[thick,PolygonCyan](b,c)
+  \end{tikzpicture}
+ \end{center}
+
+ The \clo{short sides} are called \emph{catheti} and the \clb{long side} is
+ called \emph{hypothenuse}.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Right Triangle}
+ \begin{center}
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/a,0/3/b,2/0/c}
+
+   \tkzLabelPoint[below left](a){$A$}
+   \tkzLabelPoint[above](b){$B$}
+   \tkzLabelPoint[below right](c){$C$}
+
+   \tkzLabelSegment[PolygonBlue,pos=0.5,left](a,b){$c$}
+   \tkzLabelSegment[PolygonOrange,pos=0.5,below](a,c){$b$}
+   \tkzLabelSegment[pos=0.5,above right](b,c){$a$}
+
+   \tkzMarkRightAngle[size=.4,fill=Gray!20](c,a,b)
+   \tkzMarkAngle[size=1](b,c,a)
+   \tkzLabelAngle[pos=0.7](b,c,a){$\gamma$}
+
+   \tkzDrawSegment[thick,PolygonBlue](a,b)
+   \tkzDrawSegment[thick,PolygonOrange](a,c)
+   \tkzDrawSegment[thick](b,c)
+  \end{tikzpicture}
+ \end{center}
+ With respect to a chosen angle $\gamma$, the side $\clb{c}$ is called
+ \emph{opposite} and $\clo{b}$ is called \emph{adjacent}.
+\end{frame}
+
+\section{Pythagorean Theorem}
+
+\begin{frame}
+ \frametitle{Pythagorean Theorem}
+ \begin{center}
+  \begin{tikzpicture}[scale=0.8,transform shape]
+   \tkzDefPoints{0/0/a,0/3/b,2/0/c}
+
+   \tkzLabelPoint[below left](a){$A$}
+   \tkzLabelPoint[above](b){$B$}
+   \tkzLabelPoint[below right](c){$C$}
+
+   \tkzLabelSegment[PolygonOrange,pos=0.5,left](a,b){$c$}
+   \tkzLabelSegment[PolygonOrange,pos=0.5,below](a,c){$b$}
+   \tkzLabelSegment[PolygonCyan,pos=0.5,above right](b,c){$a$}
+
+   \tkzMarkRightAngle[size=.4,fill=Gray!20](c,a,b)
+
+   \tkzDrawSegment[thick,PolygonOrange](a,b)
+   \tkzDrawSegment[thick,PolygonOrange](a,c)
+   \tkzDrawSegment[thick,PolygonCyan](b,c)
+  \end{tikzpicture}
+ \end{center}
+ Given a right triangle, the \alert{Pythagorean Theorem} says that
+ \[
+  \clc{a^2} = \clo{b^2} + \clo{c^2}.
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{Pythagorean Theorem -- Proof}
+ \begin{minipage}[t]{.49\textwidth}
+  \begin{center}
+   \begin{tikzpicture}
+    \tkzDefPoints{0/0/a1,0/1/b1,2/0/c1}
+    \tkzDefPoints{0/3/a2,1/3/b2,0/1/c2}
+    \tkzDefPoints{3/3/a3,3/2/b3,1/3/c3}
+    \tkzDefPoints{3/0/a4,2/0/b4,3/2/c4}
+
+    \tkzDrawPolygon[fill=Red,draw=none](a1,b1,c1)
+    \tkzDrawPolygon[fill=Blue,draw=none](a2,b2,c2)
+    \tkzDrawPolygon[fill=Green,draw=none](a3,b3,c3)
+    \tkzDrawPolygon[fill=Violet,draw=none](a4,b4,c4)
+
+    \tkzLabelSegment[Red,left](a1,b1){$a$}
+    \tkzLabelSegment[Red,below](a1,c1){$b$}
+    \tkzLabelSegment[Red,above](b1,c1){$c$}
+
+    \tkzLabelSegment[Blue,above](a2,b2){$a$}
+    \tkzLabelSegment[Blue,left](a2,c2){$b$}
+    \tkzLabelSegment[Blue,right](b2,c2){$c$}
+
+    \tkzLabelSegment[Green,right](a3,b3){$a$}
+    \tkzLabelSegment[Green,above](a3,c3){$b$}
+    \tkzLabelSegment[Green,below](b3,c3){$c$}
+
+    \tkzLabelSegment[Violet,below](a4,b4){$a$}
+    \tkzLabelSegment[Violet,right](a4,c4){$b$}
+    \tkzLabelSegment[Violet,left](b4,c4){$c$}
+
+    \node (c) at (1.5,1.5) {\Large $c^2$};
+   \end{tikzpicture}
+  \end{center}
+ \end{minipage}
+ \pause
+ \frametitle{Pythagorean Theorem -- Proof}
+ \begin{minipage}[t]{.49\textwidth}
+  \begin{center}
+   \begin{tikzpicture}
+    \tkzDefPoints{0/3/a1,0/1/b1,1/3/c1,1/1/d1}
+    \tkzDefPoints{1/0/a2,1/1/b2,3/0/c2,3/1/d2}
+
+    \tkzDrawPolygon[fill=Blue,draw=none](a1,b1,c1)
+    \tkzDrawPolygon[fill=Violet,draw=none](b1,c1,d1)
+    \tkzDrawPolygon[fill=Red,draw=none](a2,b2,c2)
+    \tkzDrawPolygon[fill=Green,draw=none](b2,c2,d2)
+
+    \tkzLabelSegment[Blue,left](a1,b1){$b$}
+    \tkzLabelSegment[Blue,above](a1,c1){$a$}
+    \tkzLabelSegment[Violet,below](b1,d1){$a$}
+    \tkzLabelSegment[Violet,right](c1,d1){$b$}
+
+    \tkzLabelSegment[Red,left](a2,b2){$a$}
+    \tkzLabelSegment[Red,below](a2,c2){$b$}
+    \tkzLabelSegment[Green,above](b2,d2){$b$}
+    \tkzLabelSegment[Green,right](c2,d2){$a$}
+
+    \draw (c1.east) -- (3,3) -- (d2.north);
+    \draw (b1.south) -- (0,0) -- (a2.west);
+
+    \node (a^2) at (0.3,0.3) {\Large $a^2$};
+    \node (b^2) at (2,2) {\Large $b^2$};
+   \end{tikzpicture}
+  \end{center}
+ \end{minipage}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Pythagorean Theorem -- Problem 1}
+ What is the length of the hypotenuse in a right triangle if the catheti are $5$
+ and $12$?\\
+ \pause
+ We simply calculate ($h$ means hypotenuse)
+ \begin{align*}
+  h^2 &= 5^2 + 12^2 = 169\\
+  h &= \sqrt{169} = 13.
+ \end{align*}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Pythagorean Theorem -- Problem 2}
+ Find the height of the following isosceles triangle:
+ \begin{center}
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/mab,-1/0/a,1/0/b,0/2/c}
+   \tkzMarkRightAngle[fill=gray!20,size=0.3](b,mab,c)
+   \tkzDrawPolygon(a,b,c)
+   \tkzLabelSegment(a,b){$17$}
+   \tkzLabelSegment[left](a,c){$20$}
+   \tkzLabelSegment[right](b,c){$20$}
+
+   \tkzDrawSegment[thick,dashed,PolygonOrange](c,mab)
+   \tkzLabelSegment[left,PolygonOrange,pos=0.8](c,mab){$h$}
+  \end{tikzpicture}
+  \vspace*{-1em}
+ \end{center}
+ \pause
+ We have two right triangles next to each other -- each one with hypotenuse of
+ length $20$ and one cathetus of length $17 / 2 = 8.5$.
+ \pause
+ So, we know that
+ \[
+  20^2 = 8.5^2 + \clo{h}^2,
+ \]
+ and thus $\clo{h}^2 = 20^2 - 8.5^2 = 327.75$ and $\clo{h} = \sqrt{327.75} =
+ 18.1$.
+\end{frame}
+
+\end{document}
