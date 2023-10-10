@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.19)  22 SEP 2023 12:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.2)  10 OCT 2023 12:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
-LaTeX2e <2023-06-01>
-L3 programming layer <2023-06-16>
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-29>
 (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2023/05/15 v3.70 A class for typesetting presentations
 (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerbasemodes.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -275,7 +275,7 @@ Package: xxcolor 2003/10/24 ver 0.1
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2023-05-16 v7.00y Hypertext links for LaTeX
+Package: hyperref 2023-07-08 v7.01b Hypertext links for LaTeX
  (/usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
@@ -300,7 +300,7 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2023-05-16 v2.51 Cross-referencing by name of section
+Package: nameref 2023-08-07 v2.53 Cross-referencing by name of section
  (/usr/local/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
@@ -314,7 +314,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 \Hy@linkcounter=\count299
 \Hy@pagecounter=\count300
  (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2023-05-16 v7.00y Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2023-07-08 v7.01b Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -322,7 +322,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count301
  (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2023-05-16 v7.00y Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2023-07-08 v7.01b Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -366,7 +366,7 @@ Package hyperref Message: Stopped early.
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2023-05-16 v7.00y Hyperref driver for pdfTeX
+File: hpdftex.def 2023-07-08 v7.01b Hyperref driver for pdfTeX
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -392,11 +392,11 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
 Package: sansmathaccent 2020/01/31
  (/usr/local/texlive/2023/texmf-dist/tex/latex/koma-script/scrlfile.sty
-Package: scrlfile 2023/04/24 v3.40 KOMA-Script package (file load hooks)
+Package: scrlfile 2023/07/07 v3.41 KOMA-Script package (file load hooks)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
-Package: scrlfile-hook 2023/04/24 v3.40 KOMA-Script package (using LaTeX hooks)
+Package: scrlfile-hook 2023/07/07 v3.41 KOMA-Script package (using LaTeX hooks)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/koma-script/scrlogo.sty
-Package: scrlogo 2023/04/24 v3.40 KOMA-Script package (logo)
+Package: scrlogo 2023/07/07 v3.41 KOMA-Script package (logo)
 ))))) (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator.sty
 Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerbasemisc.sty) (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty) (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
@@ -543,13 +543,13 @@ Package: amsthm 2020/05/29 v2.20.6
 \beamer@dima=\dimen292
 \beamer@dimb=\dimen293
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (/usr/local/texlive/2023/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2023/05/11 v3.89 The Babel package
+Package: babel 2023/09/29 v3.95 The Babel package
 \babel@savecnt=\count334
 \U@D=\dimen294
 \l@unhyphenated=\language87
  (/usr/local/texlive/2023/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
-LaTeX Info: Redefining \textlatin on input line 3921.
+LaTeX Info: Redefining \textlatin on input line 3947.
 \bbl@dirlevel=\count335
  (/usr/local/texlive/2023/texmf-dist/tex/generic/babel-czech/czech.ldf
 Language: czech 2008/07/06 v3.1a Czech support from the babel system
@@ -688,7 +688,7 @@ Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 \pgfopts@list@add@a@toks=\toks52
 \pgfopts@list@add@b@toks=\toks53
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2023/03/17 version 6.0.3 text color boxes
+Package: tcolorbox 2023/09/26 version 6.1.0 text color boxes
  (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks54
@@ -1046,7 +1046,7 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 63.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 (Font)              scaled to size 8.0pt on input line 63.
-<logo.png, id=37, 218.31563pt x 153.57375pt>
+<logo.png, id=41, 218.31563pt x 153.57375pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 63.
@@ -1071,7 +1071,7 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 64.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 (Font)              scaled to size 10.0pt on input line 64.
-<title.jpg, id=39, 192.72pt x 128.3997pt>
+<title.jpg, id=43, 192.72pt x 128.3997pt>
 File: title.jpg Graphic file (type jpg)
 <use title.jpg>
 Package pdftex.def Info: title.jpg  used on input line 64.
@@ -1177,77 +1177,35 @@ Package pdftex.def Info: logo.png  used on input line 125.
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 125.
+Package pdftex.def Info: logo.png  used on input line 131.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 131.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [8
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 125.
+Package pdftex.def Info: logo.png  used on input line 146.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 146.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [9
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 125.
+Package pdftex.def Info: logo.png  used on input line 161.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 161.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [10
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 125.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [11
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 125.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [12
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 125.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [13
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 131.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 131.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [14
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 146.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 146.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [15
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 161.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 161.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [16
 
 ]
 File: logo.png Graphic file (type png)
@@ -1278,7 +1236,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 177.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [17
+ [11
 
 ]
 File: logo.png Graphic file (type png)
@@ -1289,7 +1247,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 182.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [18
+ [12
 
 ]
 File: logo.png Graphic file (type png)
@@ -1304,14 +1262,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 192.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [19
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 192.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [20
+ [13
 
 ]
 File: logo.png Graphic file (type png)
@@ -1322,7 +1273,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 201.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [21
+ [14
 
 ]
 File: logo.png Graphic file (type png)
@@ -1333,14 +1284,14 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 210.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [22
+ [15
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 212.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [23
+ [16
 
 ]
 File: logo.png Graphic file (type png)
@@ -1351,7 +1302,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 218.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [24
+ [17
 
 ]
 File: logo.png Graphic file (type png)
@@ -1399,179 +1350,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 234.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[25
-
-]
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 234.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[26
-
-]
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 234.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[27
-
-]
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 234.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[28
-
-]
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./main.tex:234: Missing number, treated as zero.
-<to be read again> 
-                   p
-l.234 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 234.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[29
+[18
 
 ]
 File: logo.png Graphic file (type png)
@@ -1582,7 +1361,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 241.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [30
+ [19
 
 ]
 File: logo.png Graphic file (type png)
@@ -1593,7 +1372,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 246.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [31
+ [20
 
 ]
 File: logo.png Graphic file (type png)
@@ -1650,7 +1429,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 280.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[32
+[21
 
 ]
 File: logo.png Graphic file (type png)
@@ -1738,26 +1517,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 327.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[33
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 333.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 333.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 24.88pt on input line 333.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/sc' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/sc' on input line 333.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/sc' will be
-(Font)              scaled to size 24.88pt on input line 333.
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 333.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [34
+[22
 
 ]
 \tf@nav=\write6
@@ -1771,32 +1531,25 @@ Package pdftex.def Info: logo.png  used on input line 333.
 
  (./main.aux)
  ***********
-LaTeX2e <2023-06-01>
-L3 programming layer <2023-06-16>
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-29>
  ***********
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 8148CA4FA48DD8DEAEA4E7C808AD9FD8;797
-(rerunfilecheck)             After:  5E189CD84DC278D7801DAC6D0B6F5CC5;901.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 8E5D6BAC47A59FB924950C1E54EFEFA9;900.
  ) 
 Here is how much of TeX's memory you used:
- 32561 strings out of 475724
- 661392 string characters out of 5781876
- 1877755 words of memory out of 5000000
- 52609 multiletter control sequences out of 15000+600000
- 690029 words of font info for 86 fonts, out of 8000000 for 9000
+ 32546 strings out of 474934
+ 661267 string characters out of 5759817
+ 1943791 words of memory out of 5000000
+ 53409 multiletter control sequences out of 15000+600000
+ 715317 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,1879b,986s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Semibold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb>
-Output written on main.pdf (34 pages, 403180 bytes).
+Output written on main.pdf (22 pages, 360333 bytes).
 PDF statistics:
- 302 PDF objects out of 1000 (max. 8388607)
- 240 compressed objects within 3 object streams
- 77 named destinations out of 1000 (max. 500000)
- 119 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 231 PDF objects out of 1000 (max. 8388607)
+ 182 compressed objects within 2 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 127 words of extra memory for PDF output out of 10000 (max. 10000000)
 

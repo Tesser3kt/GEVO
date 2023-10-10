@@ -1,8 +1,10 @@
-\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
+\documentclass[aspectratio=169,11pt,svgnames]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{enumitem}
+\setlist[itemize,1]{label=\textbullet}
+\setlist[itemize,2]{label=$\circ$}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{float}
@@ -890,7 +892,193 @@
 \end{frame}
 
 \begin{frame}
+ \frametitle{Ungrouped Frequency Data -- Table}
+ \begin{enumerate}
+  \item Create a table with one column for inputs and as many columns as there
+   are output with a row for each input.
+   \pause
+   \begin{itemize}
+    \item For \alert{ordinal} variables, the values should be ordered from
+     smallest to largest.
+    \pause
+    \item For \alert{nominal} variables, the rows can be ordered arbitrarily.
+   \end{itemize}
+  \item Count the \alert{frequencies}.
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}
  \frametitle{Ungrouped Frequency Data -- Example 1}
+ A gardener sets up a bird feeder in his backyard. He wishes to know which type
+ of bird species visit the feeder the most.
+ \pause
+ His observations are in the following table:
+ \begin{center}
+  \begin{tabular}{c|c}
+   \textbf{Species} & \textbf{Frequency}\\
+   \toprule
+   Chickadee & 3\\
+   Dove & 1\\
+   Finch & 4\\
+   Grackle & 2\\
+   Sparrow & 4\\
+   Starling & 2
+  \end{tabular}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Ungrouped Frequency Data -- Example 2}
+ We observe how many times a specific type of tram (based on age) stops at a
+ chosen station each day.\\
+ \pause
+ This experiment may yield a table like this:
+ \begin{center}
+  \begin{tabular}{c|c}
+   \textbf{Type} & \textbf{Frequency}\\
+   \toprule
+   1990 & 6\\
+   1996 & 11\\
+   2005 & 3\\
+   2017 & 5
+  \end{tabular}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Grouped Frequency Data -- Table}
+ \begin{enumerate}
+  \item Divide the variables into \alert{class intervals}. There's no `best
+   choice' for the width of a class interval. Different choices convey different
+   meanings.
+   \pause
+   \begin{itemize}
+    \item Calculate the \alert{range} = $\text{highest value} - \text{lowest
+     value}$.
+    \pause
+    \item Decide on the \alert{class interval width}. \textbf{ALWAYS THINK}
+     about that the best width should be! But, if you can't decide, a rule of
+     thumb is the width
+     \[
+      \text{width} = \frac{\text{range}}{\sqrt{\text{number of inputs}}}.
+     \]
+     It is typically beneficial to round this value to an integer.
+    \pause
+    \item Calculate the \alert{class intervals}. Each interval is of the form
+     $[\text{lower limit}, \text{lower limit} + \text{width})$. Simply divide
+     the outputs into these intervals.
+   \end{itemize}
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Grouped Frequency Data -- Table}
+ \begin{enumerate}
+  \setcounter{enumi}{1}
+  \item Create a \alert{table} with columns for inputs and each output and as
+   many rows as there are class intervals.
+  \pause
+  \item Count the \alert{frequencies}.
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Grouped Frequency Data -- Example}
+ In sociological surveys, you typically want to find the distribution of
+ respondents by age.\\
+ \pause
+ Let's say a survey had 20 respondents. Their ages go like this:
+ \[
+  52, 34, 32, 29, 63, 40, 46, 54, 36, 36, 24, 19, 45, 20, 28, 29, 38, 33, 49,
+  37.
+ \]
+ \pause
+ We calculate the range as $\text{highest} - \text{lowest} = 63 - 19 = 44$.\\
+ We calculate the interval width as
+ \[
+  \text{width} = \frac{\text{range}}{\sqrt{\text{sample size}}} =
+  \frac{44}{\sqrt{20}} = 9.84,
+ \]
+ and round it up to $10$.\\
+ \pause
+ Therefore, we have the following intervals
+ \[
+  [19, 29), [29, 39), [39, 49), [49, 59), [59, 69).
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{Grouped Frequency Data -- Example}
+ Counting the numbers of outputs falling into each of those intervals gives the
+ table:
+ \begin{center}
+  \begin{tabular}{c|c}
+   \textbf{Age} & \textbf{Frequency}\\
+   \toprule
+   19 -- 28 & 4\\
+   29 -- 38 & 9\\
+   39 -- 48 & 3\\
+   49 -- 58 & 3\\
+   59 -- 68 & 1
+  \end{tabular}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Relative Frequency Data -- Table}
+ \begin{enumerate}
+  \item Simply create a grouped or ungrouped frequency table.
+  \pause
+  \item To each output add another column to represent \alert{relative
+   frequencies}.
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Relative Frequency Data -- Example}
+ In our gardener example, the relative frequency table would look like this:
+ \begin{center}
+  \begin{tabular}{c|c|c}
+   \textbf{Species} & \textbf{Frequency} & \textbf{Relative Frequency}\\
+   \toprule
+   Chickadee & 3 & $\frac{3}{3 + 1 + 4 + 2 + 4 + 2} = 0.19$\\
+   Dove & 1 & 0.06\\
+   Finch & 4 & 0.25\\
+   Grackle & 2 & 0.13\\
+   Sparrow & 4 & 0.25\\
+   Starling & 2 & 0.13
+  \end{tabular}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Cumulative Frequency Data -- Table}
+ \begin{enumerate}
+  \item Create an ungrouped or grouped frequency table for \alert{an ordinal or
+   quantitative variable}. Cumulative frequencies make no sense for nominal
+   variables because they're not ordered.
+  \pause
+  \item Add another column for each output with \alert{cumulative frequency}.
+   The cumulative frequency is the number of observations less than or equal to
+   a certain value or class interval.
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Cumulative Frequency Data -- Example}
+ Going back to our example of a sociological survey. The cumulative frequency
+ table of the age of survey participants would look like this:
+ \begin{center}
+  \begin{tabular}{c|c|c}
+   \textbf{Age} & \textbf{Frequency} & \textbf{Cumulative Frequency}\\
+   \toprule
+   19 -- 28 & 4 & 4 \\
+   29 -- 38 & 9 & 9 + 4 = 13 \\
+   39 -- 48 & 3 & 9 + 4 + 3 = 16 \\
+   49 -- 58 & 3 & 19 \\
+   59 -- 68 & 1 & 20
+  \end{tabular}
+ \end{center}
 \end{frame}
 
 \end{document}

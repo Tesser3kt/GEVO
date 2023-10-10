@@ -53,107 +53,107 @@
 
 \maketitle
 
-\part[Předmluva]{Předmluva}
-
-\begin{frame}
- \partpage
-\end{frame}
-
-\begin{frame}
- \frametitle{Obsah}
- \tableofcontents
-\end{frame}
-
-\section[Program]{Počítačový program}
-\subsection[CPU]{CPU}
-
-\begin{frame}
- \frametitle{Co je CPU?}
- \begin{columns}
-  \begin{column}{.3\textwidth}
-   \includegraphics[width=\textwidth]{cpu}
-  \end{column}
-  \begin{column}{.7\textwidth}
-   \begin{tcolorbox}
-    CPU (\textbf{C}entral \textbf{P}rocessing \textbf{U}nit) je elektrický
-    obvod, který vykonává \alert{instrukce} tvořící \alert{počítačový program}.
-   \end{tcolorbox}
-  \end{column}
- \end{columns}
-\end{frame}
-
-\subsection[Operace]{Operace}
-
-\begin{frame}
- \frametitle{Fetch}
- \begin{tcolorbox}[title=Fetch,center,width=.95\textwidth]
-  CPU \alert{vyzvedne} instrukci z programu.
- \end{tcolorbox}
- \begin{itemize}
-  \item Instrukce je v programu uložena jako posloupnost nul a jedniček.
-  \item Poloha (adresa) instrukce je dána čítačem (program counter). Postaru se
-   mu někdy říká `hlava'.
-  \item Čítač uchovává adresu poslední instrukce a po přečtení se posune o délku
-   (v~bitech) zpracovávané instrukce.
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Decode}
- \begin{tcolorbox}[title=Decode,center,width=.95\textwidth]
-  CPU \alert{přeloží} načtenou instrukci.
- \end{tcolorbox}
- \begin{itemize}
-  \item Prvních pár bitů v instrukci obvykle značí operaci, která se má provést.
-  \item Zbývající bity jsou pak například adresy operandů v paměti.
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Execute}
- \begin{tcolorbox}[title=Execute,center,width=.95\textwidth]
-  CPU \alert{provede} přeloženou instrukci.
- \end{tcolorbox}
- \begin{itemize}
-  \item V závislosti na architektuře CPU, instrukce obsahují buď jedinou akci
-   nebo posloupnost akcí.
-  \item Výsledek je uložen ve vnitřní paměti CPU. Uložení do vnější paměti
-   (třeba RAM nebo disk) musí být obsahem nějaké další instrukce.
- \end{itemize}
-\end{frame}
-
-\subsection[Instrukce]{Typy instrukcí}
-
-\begin{frame}
- \frametitle{Paměťové operace}
- \begin{itemize}
-  \item<1-> \alert{SET}: Nastav blok vnitřní paměti na danou hodnotu.
-  \item<2-> \alert{COPY}: Zkopíruj hodnotu z bloku vnitřní paměti do jiného bloku.
-  \item<3-> \alert{READ/WRITE}: Zapisuj data nebo je čti z připojených zařízení.
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Početní a logické operace}
- \begin{itemize}
-  \item<1-> \alert{Sečti/odečti/vynásob/vyděl} spolu hodnoty ve dvou blocích
-   paměti.
-  \item<2-> \alert{Konjunkce/disjunkce} dvou uložených hodnot.
-  \item<3-> \alert{Porovnej} spolu dvě uložené hodnoty.
-  \item<4-> Operace na desetinných číslech (\alert{floating point} arithmetic).
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Řídící (control flow) operace}
- \begin{itemize}
-  \item<1-> \alert{Odboč} na jiné místo v programu a vykonej tamější instrukce.
-  \item<2-> \alert{Podmínečně odboč} na jiné místo v programu a vykonej tamější
-   instrukce.
-  \item<3-> \alert{Zavolej} jiný blok kódu, uchovav následující instrukci jako
-   místo návratu.
- \end{itemize}
-\end{frame}
+% \part[Předmluva]{Předmluva}
+%
+% \begin{frame}
+%  \partpage
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Obsah}
+%  \tableofcontents
+% \end{frame}
+%
+% \section[Program]{Počítačový program}
+% \subsection[CPU]{CPU}
+%
+% \begin{frame}
+%  \frametitle{Co je CPU?}
+%  \begin{columns}
+%   \begin{column}{.3\textwidth}
+%    \includegraphics[width=\textwidth]{cpu}
+%   \end{column}
+%   \begin{column}{.7\textwidth}
+%    \begin{tcolorbox}
+%     CPU (\textbf{C}entral \textbf{P}rocessing \textbf{U}nit) je elektrický
+%     obvod, který vykonává \alert{instrukce} tvořící \alert{počítačový program}.
+%    \end{tcolorbox}
+%   \end{column}
+%  \end{columns}
+% \end{frame}
+%
+% \subsection[Operace]{Operace}
+%
+% \begin{frame}
+%  \frametitle{Fetch}
+%  \begin{tcolorbox}[title=Fetch,center,width=.95\textwidth]
+%   CPU \alert{vyzvedne} instrukci z programu.
+%  \end{tcolorbox}
+%  \begin{itemize}
+%   \item Instrukce je v programu uložena jako posloupnost nul a jedniček.
+%   \item Poloha (adresa) instrukce je dána čítačem (program counter). Postaru se
+%    mu někdy říká `hlava'.
+%   \item Čítač uchovává adresu poslední instrukce a po přečtení se posune o délku
+%    (v~bitech) zpracovávané instrukce.
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Decode}
+%  \begin{tcolorbox}[title=Decode,center,width=.95\textwidth]
+%   CPU \alert{přeloží} načtenou instrukci.
+%  \end{tcolorbox}
+%  \begin{itemize}
+%   \item Prvních pár bitů v instrukci obvykle značí operaci, která se má provést.
+%   \item Zbývající bity jsou pak například adresy operandů v paměti.
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Execute}
+%  \begin{tcolorbox}[title=Execute,center,width=.95\textwidth]
+%   CPU \alert{provede} přeloženou instrukci.
+%  \end{tcolorbox}
+%  \begin{itemize}
+%   \item V závislosti na architektuře CPU, instrukce obsahují buď jedinou akci
+%    nebo posloupnost akcí.
+%   \item Výsledek je uložen ve vnitřní paměti CPU. Uložení do vnější paměti
+%    (třeba RAM nebo disk) musí být obsahem nějaké další instrukce.
+%  \end{itemize}
+% \end{frame}
+%
+% \subsection[Instrukce]{Typy instrukcí}
+%
+% \begin{frame}
+%  \frametitle{Paměťové operace}
+%  \begin{itemize}
+%   \item<1-> \alert{SET}: Nastav blok vnitřní paměti na danou hodnotu.
+%   \item<2-> \alert{COPY}: Zkopíruj hodnotu z bloku vnitřní paměti do jiného bloku.
+%   \item<3-> \alert{READ/WRITE}: Zapisuj data nebo je čti z připojených zařízení.
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Početní a logické operace}
+%  \begin{itemize}
+%   \item<1-> \alert{Sečti/odečti/vynásob/vyděl} spolu hodnoty ve dvou blocích
+%    paměti.
+%   \item<2-> \alert{Konjunkce/disjunkce} dvou uložených hodnot.
+%   \item<3-> \alert{Porovnej} spolu dvě uložené hodnoty.
+%   \item<4-> Operace na desetinných číslech (\alert{floating point} arithmetic).
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Řídící (control flow) operace}
+%  \begin{itemize}
+%   \item<1-> \alert{Odboč} na jiné místo v programu a vykonej tamější instrukce.
+%   \item<2-> \alert{Podmínečně odboč} na jiné místo v programu a vykonej tamější
+%    instrukce.
+%   \item<3-> \alert{Zavolej} jiný blok kódu, uchovav následující instrukci jako
+%    místo návratu.
+%  \end{itemize}
+% \end{frame}
 
 \part[Pseudokód]{Pseudokód}
 
@@ -173,71 +173,6 @@
  \begin{tcolorbox}[title=Pseudokód,center,width=.95\textwidth]
   Pseudokód je \alert{neformální} zápis počítačového programu/algoritmu.
  \end{tcolorbox}
-\end{frame}
-
-\subsection[Příklady]{Příklady}
-
-\begin{frame}
- \frametitle{Sčítání pod sebou}
- \centering
- \begin{minipage}{.8\textwidth}
-  \scalebox{0.6}{
-  \begin{algorithm}[H]
-   \DontPrintSemicolon
-   \SetKwData{X}{x}\SetKwData{Y}{y}\SetKwData{C}{c}\SetKwData{N}{i}
-   \SetKwData{R}{r}
-   \SetKw{KwAnd}{and}
-
-   \Input{$A,B \in \mathbb{N}$\tcp*[f]{$A,B$ mají stejný počet číslic}}
-   \Output{$A + B$}
-   \BlankLine
-
-   \C$\leftarrow 0$\;
-   \N$\leftarrow 0$\;
-   \R$\leftarrow 0$\;
-   \While{$A > 0$ \KwAnd  $B > 0$}{
-    \X$\leftarrow A \bmod 10$\;
-    \Y$\leftarrow B \bmod 10$\;
-    $\R\leftarrow \R + (\X + \Y + \C \bmod 10) \cdot 10^{\N}$\;
-    \If{$\X + \Y + \C \geq 10$}{
-     $\C\leftarrow 1$
-    }
-    \Else{
-     $\C\leftarrow 0$
-    }
-    $A \leftarrow \left\lfloor A / 10 \right\rfloor$\;
-    $B \leftarrow \left\lfloor B / 10 \right\rfloor$\;
-    $\N\leftarrow \N + 1$
-   }
-   \KwReturn \R
-  \end{algorithm}
- }
- \end{minipage}
-\end{frame}
-
-\begin{frame}
- \frametitle{Přihlášení uživatele}
- \centering
- \begin{minipage}{.8\textwidth}
-  \scalebox{0.8}{
-   \begin{algorithm}[H]
-    \DontPrintSemicolon
-    \Input{user, pass\hspace{2em}\tcp*[l]{uživatelské jméno, heslo}}
-    \Output{true/false\hspace{2em}\tcp*[l]{přihlášení úspěšné/neúspěšné}}
-    \SetKwData{User}{user}
-    \SetKwData{Pass}{pass}
-    \BlankLine
-
-    \If{\User není uložen v databázi}{
-     \KwReturn false
-    }
-    \If{\Pass neodpovídá heslu uloženému pod \User v databázi}{
-     \KwReturn false
-    }
-    \KwReturn true
-   \end{algorithm}
-  }
- \end{minipage}
 \end{frame}
 
 \section[Základní koncepty]{Základní koncepty}
@@ -519,6 +454,71 @@
     pošli(\Email, \Subj, \Body)
    }
   \end{algorithm}
+ \end{minipage}
+\end{frame}
+
+\subsection[Příklady]{Příklady}
+
+\begin{frame}
+ \frametitle{Sčítání pod sebou}
+ \centering
+ \begin{minipage}{.8\textwidth}
+  \scalebox{0.6}{
+  \begin{algorithm}[H]
+   \DontPrintSemicolon
+   \SetKwData{X}{x}\SetKwData{Y}{y}\SetKwData{C}{c}\SetKwData{N}{i}
+   \SetKwData{R}{r}
+   \SetKw{KwAnd}{and}
+
+   \Input{$A,B \in \mathbb{N}$\tcp*[f]{$A,B$ mají stejný počet číslic}}
+   \Output{$A + B$}
+   \BlankLine
+
+   \C$\leftarrow 0$\;
+   \N$\leftarrow 0$\;
+   \R$\leftarrow 0$\;
+   \While{$A > 0$ \KwAnd  $B > 0$}{
+    \X$\leftarrow A \bmod 10$\;
+    \Y$\leftarrow B \bmod 10$\;
+    $\R\leftarrow \R + (\X + \Y + \C \bmod 10) \cdot 10^{\N}$\;
+    \If{$\X + \Y + \C \geq 10$}{
+     $\C\leftarrow 1$
+    }
+    \Else{
+     $\C\leftarrow 0$
+    }
+    $A \leftarrow \left\lfloor A / 10 \right\rfloor$\;
+    $B \leftarrow \left\lfloor B / 10 \right\rfloor$\;
+    $\N\leftarrow \N + 1$
+   }
+   \KwReturn \R
+  \end{algorithm}
+ }
+ \end{minipage}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Přihlášení uživatele}
+ \centering
+ \begin{minipage}{.8\textwidth}
+  \scalebox{0.8}{
+   \begin{algorithm}[H]
+    \DontPrintSemicolon
+    \Input{user, pass\hspace{2em}\tcp*[l]{uživatelské jméno, heslo}}
+    \Output{true/false\hspace{2em}\tcp*[l]{přihlášení úspěšné/neúspěšné}}
+    \SetKwData{User}{user}
+    \SetKwData{Pass}{pass}
+    \BlankLine
+
+    \If{\User není uložen v databázi}{
+     \KwReturn false
+    }
+    \If{\Pass neodpovídá heslu uloženému pod \User v databázi}{
+     \KwReturn false
+    }
+    \KwReturn true
+   \end{algorithm}
+  }
  \end{minipage}
 \end{frame}
 
