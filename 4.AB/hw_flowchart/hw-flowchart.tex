@@ -122,7 +122,7 @@ libovolné kreslící appce...
   čísla a pak sčítat, odčítat, násobit, dělit a poznat, jestli jedno číslo dělí
   druhé.
  \item Nakreslete algoritmus, který vypíše $n$-té Fibonacciho číslo. Fibonacciho
-  čísla $f_n$ jsou definována tak, že $f_1 = 0$, $f_1 = 1$ a potom $f_n =
+  čísla $f_n$ jsou definována tak, že $f_1 = 0$, $f_2 = 1$ a potom $f_n =
   f_{n-1} + f_{n-2}$, tj. každé další číslo je součtem dvou předchozích.
   Počítejte s tím, že vykonavatel algoritmu umí jenom pamatovat si čísla,
   sčítat, odčítat, násobit a dělit.
@@ -133,12 +133,33 @@ libovolné kreslící appce...
   pamatovat si časové údaje a místa, sčítat a odčítat časové údaje a číst
   dopravní řád -- tj. zjistit, kdy a odkud který spoj vyjíždí a kdy a kam
   přijíždí. Pochopitelně, mezi každou dvojicí míst může vést víc než jeden přímý
-  spoj. \textbf{Nezapomeňte přičítat i čas, který musím na zastávkách čekat!}
+  spoj. \textbf{Nezapomeňte přičítat i čas, který musíte na zastávkách čekat!}
  \item Nakreslete algoritmus, který seřadí seznam jmen podle abecedy. Jediné, co
   vykonavatel algoritmu umí, je pamatovat si jména a čísla, prohazovat jména v
   seznamu a rozhodnout, které jméno je lexikograficky menší (jakoby dřív v~
   abecedě).
- \item Nakreslete algoritmus, který 
+ \item Nakreslete algoritmus, který počítá tržby v dané skupině poboček během
+  jedné otevírací doby. Pro každou pobočku má za úkol
+  \begin{itemize}
+   \item zjistit celkový počet zákazníků na pobočce během otevírací doby
+    (vykonavatel algoritmu umí poznat, když zákazník vstoupí do obchodu);
+   \item spočítat celkovou tržbu za všechny zakoupené produkty (vykonavatel
+    algoritmu ví, kolik stojí každý produkt, a umí poznat, když si ho zákazník
+    koupí);
+   \item spočítat průměrný zisk každé pobočky (jako tržba / počet zákazníků);
+   \item určit pobočku s největší návštěvností (je-li jich víc, tak libovolnou
+    z~nich).
+  \end{itemize}
+ Kromě schopností popsaných výše umí algoritmus pouze základní operace na
+ číslech (aritmetické operace + porovnávání) a pamatovat si čísla. \textbf{Nelze
+ si pamatovat tržby nebo počty zákazníků poboček pro každou pobočku}, tedy je
+ třeba všechny údaje počítat souběžně.
+\item Nakreslete algoritmus, který obdrží slovo a rozhodne, jestli je to
+ \emph{palindrom} -- čte se pozpátku stejně jako dopředu. Vykonavatel algoritmu
+ umí poznat, kolik má slovo písmen, umí rozhodnout, zda jsou dvě slova stejná, a
+ umí slovo číst písmeno po písmeně. Umí také spojit dvě slova dohromady,
+ speciálně umí přidat písmeno ke slovu, a to jak zepředu tak zezadu.
+ \textbf{Neumí otáčet slova!} Samozřejmě si umí slova a písmena též pamatovat.
 \end{enumerate}
 
 \end{document}

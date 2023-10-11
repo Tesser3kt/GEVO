@@ -585,7 +585,10 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-OUTPUT hw-flowchart.thm
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fouriernc/ts1fnc.fd
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fouriernc/ts1fnc.fd
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/fouriernc/ts1fnc.fd
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncr8c.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/ncntrsbk/pncr8t.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncr8r.tfm
 INPUT /usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
@@ -612,6 +615,11 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/public/fouriernc/fncsy.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/fourier/fourier-ms.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncr8r.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/ncntrsbk/pncr8c.vf
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncri8t.tfm
+OUTPUT hw-flowchart.thm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/ncntrsbk/pncri8t.vf
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncri8r.tfm
 INPUT hw-flowchart.aux
 INPUT ./hw-flowchart.out
 INPUT ./hw-flowchart.out

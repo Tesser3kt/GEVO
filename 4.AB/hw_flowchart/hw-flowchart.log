@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.2)  10 OCT 2023 14:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.6)  10 OCT 2023 20:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -24,7 +24,7 @@ File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2023/09/29 v3.95 The Babel package
+Package: babel 2023/08/29 v3.93 The Babel package
 \babel@savecnt=\count193
 \U@D=\dimen141
 \l@unhyphenated=\language87
@@ -1272,12 +1272,26 @@ Overfull \hbox (0.20255pt too wide) in paragraph at lines 124--129
 []\T1/fnc/m/n/10.95 Nakreslete al-go-rit-mus, který vy-pí²e $\FML/fncmi/m/it/10.95 n$\T1/fnc/m/n/10.95 -té Fi-bo-nacciho £íslo. Fi-bo-nacciho £ísla
  []
 
-\tf@thm=\write5
-\openout5 = `hw-flowchart.thm'.
+LaTeX Font Info:    Trying to load font information for TS1+fnc on input line 144.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/fouriernc/ts1fnc.fd
+File: ts1fnc.fd 2005/12/13 font definitions for TS1/fnc.
+)
+LaTeX Font Info:    Font shape `TS1/fnc/m/n' will be
+(Font)              scaled to size 10.18341pt on input line 144.
+
+Overfull \hbox (6.09367pt too wide) in paragraph at lines 150--152
+[]\T1/fnc/m/n/10.95 ur£it po-bo£ku s nej-v¥t²í ná-v²t¥v-ností (je-li jich víc, tak li-bo-vol-nou z nich). 
+ []
 
 [1
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}] (./hw-flowchart.aux)
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
+(Font)              scaled to size 10.18341pt on input line 158.
+\tf@thm=\write5
+\openout5 = `hw-flowchart.thm'.
+
+ [2] (./hw-flowchart.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2021/03/21>
@@ -1286,18 +1300,18 @@ Package rerunfilecheck Info: File `hw-flowchart.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 35078 strings out of 474934
- 715488 string characters out of 5759817
- 1930791 words of memory out of 5000000
- 55813 multiletter control sequences out of 15000+600000
- 583981 words of font info for 80 fonts, out of 8000000 for 9000
+ 35110 strings out of 474934
+ 716026 string characters out of 5759818
+ 1933807 words of memory out of 5000000
+ 55837 multiletter control sequences out of 15000+600000
+ 586796 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,11n,107p,861b,455s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,11n,107p,861b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncb8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
-Output written on hw-flowchart.pdf (1 page, 44358 bytes).
+Output written on hw-flowchart.pdf (2 pages, 49087 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
+ 73 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

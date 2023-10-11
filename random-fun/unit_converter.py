@@ -330,8 +330,8 @@ class UnitConverter:
         return self.conversion_functions[conversion_data[-1]](conversion_data)
 
     def get_unit_type(self):
-        answer = input(('Enter unit type, "L" to see list of available unit ' +
-                        'types, "P" to change maximum precision or leave ' +
+        answer = input(('Enter unit type,\n"L" to see list of available unit ' +
+                        'types,\n"P" to change maximum precision\nor leave ' +
                         'blank to exit: '))
         if answer == '':
             self.exit = True
@@ -355,10 +355,10 @@ class UnitConverter:
         self.unit_type = answer
 
     def get_conversion_data(self):
-        print(('Enter desired conversion as "quantity unit_from unit_to" ' +
-               '(like "100 m km") or leave blank to exit.'))
+        print(('Enter desired conversion\nas "quantity unit_from unit_to"\n' +
+               '(like "100 m km")\nor leave blank to exit.'))
 
-        answer = input('Enter conversion: ')
+        answer = input('Enter conversion:\n')
         if answer == '':
             self.exit = True
             return None
@@ -420,10 +420,13 @@ while not uc.exit:
         continue
 
     if uc.unit_type == 'n':
-        print('Result: {}'.format(result))
+        print('Result:\n{}'.format(result))
         continue
 
     if len(str(result)) > uc.max_digits:
-        print('Result: {:.{prec}e}'.format(result, prec=uc.precision))
+        print('Result:\n{:.{prec}e}'.format(result, prec=uc.precision))
     else:
-        print('Result: {}'.format(round(result, uc.precision)))
+        print('Result:\n{}'.format(round(result, uc.precision)))
+
+    print("Press Enter to continue.")
+    input()
