@@ -1,0 +1,48 @@
+\section{Limity konvergentních posloupností}
+\label{sec:limity-konvergentnich-posloupnosti}
+
+V této sekci dokážeme, že konvergentní posloupnosti mají limitu. Opačná
+implikace, tj. že posloupnosti majíce limitu konvergují, je téměř triviální.
+Potřebujeme dokázat jen jednu vlastnost absolutní hodnoty.
+
+\begin{lemma}{Trojúhelníková nerovnost}{trojuhelnikova-nerovnost}
+ Ať $x,y \in \Q$. Pak
+ \[
+  |x + y| \leq |x| + |y|.
+ \]
+\end{lemma}
+\begin{lemproof}
+ Absolutní hodnota $|x+y|$ je rovna buď $x + y$ (když $x+y \geq 0$) nebo $-x-y$
+ (když $x+y<0$). Zřejmě $x \leq |x|$ a $-x \leq |x|$, podobně $y \leq |y|$ a
+ $-y \leq |y|$.
+
+ Pak je ale $x + y \leq |x| + |y|$ a též $-x+(-y) \leq |x| + |y|$. Tím je důkaz
+ hotov.
+\end{lemproof}
+
+Ježto bychom však rádi dokazovali všechna tvrzení již pro reálná čísla, ukažme
+si nejprve, jak se dají sčítat a násobit. Dokážeme rovněž, že $\R$ -- stejně
+jako $\Q$ -- tvoří těleso. Začneme tím, že se naučíme sčítat a násobit
+konvergentní posloupnosti.
+
+Ať $x,y \in \mathcal{C}(\Q)$ jsou dvě konvergentní racionální posloupností.
+Operace $+$ a $ \cdot $ na $\mathcal{C}(\Q)$ definujeme velmi přirozeně.
+Zkrátka, $(x+y)(n) = x(n) + y(n)$ a $(x \cdot y)(n) = x(n) \cdot y(n)$, tj.
+prvek na místě $n$ posloupnosti $x+y$ je součet prvků na místech $n$
+posloupností $x$ a $y$. Abychom ovšem získali skutečně operace na
+$\mathcal{C}(\Q)$, musíme ověřit, že $x+y$ i $x \cdot y$ jsou konvergentní.
+
+Ať tedy máme dána dvě kladná čísla $\varepsilon_x$ a $\varepsilon_y$. K nim
+najdeme $n_x,n_y \in \N$ taková, že pro všechna $m,n \geq n_x$ platí $|x_n -
+x_m|<\varepsilon_x$ a pro všechna $m,n \geq n_y$ zase $|y_n - y_m| <
+\varepsilon_y$. Když zvolíme $n_0 \coloneqq \max(n_x,n_y)$ a $\varepsilon
+\coloneqq \varepsilon_x + \varepsilon_y$, pak pro všechna $m,n \geq n_0$ je jak
+$|x_n - x_m|<\varepsilon$, tak $|y_n - y_m|<\varepsilon$.
+
+Předchozí odstavec se může snadno zdát šílenou směsicí symbolů. Ve skutečnosti
+však formálně vykládá triviální úvahu. Řekněme, že máme vzdálenosti
+$\varepsilon_x$ a $\varepsilon_y$. Z
+\hyperref[def:konvergentni-posloupnost]{definice konvergence} existuje krok
+$n_x$, od kterého jsou již od sebe dva prvky posloupnosti $x$ blíže než
+$\varepsilon_x$, a též krok $n_y$, od kterého jsou již od sebe prvky posloupnosti
+$y$ blíže než $\varepsilon_y.$

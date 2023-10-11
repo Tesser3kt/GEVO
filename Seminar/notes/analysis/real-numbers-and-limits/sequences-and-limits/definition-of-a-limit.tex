@@ -3,9 +3,9 @@
 
 Koncept posloupnosti je, na rozdíl od limity, velmi triviální. Je to vlastně
 \uv{očíslovaná množina čísel}. Z každé množiny lze vyrobit posloupnost jejích
-prvků tím, že každému přiřkneme nějaké pořadí. Toto \emph{přiřknutí} se
-nejsnadněji definuje jako zobrazení z přirozených čísel -- to totiž přesně na
-každý prvek kodomény zobrazí jeho pořadí.
+prvků tím, že jim přiřkneme nějaké pořadí. Toto \emph{přiřčení} se nejsnadněji
+definuje jako zobrazení z přirozených čísel -- to totiž přesně na každý prvek
+kodomény zobrazí jeho pořadí.
 
 \begin{definition}{Posloupnost}{posloupnost}
  Ať $X$ je množina. \emph{Posloupností} prvků z $X$ nazveme libovolné zobrazení
@@ -38,7 +38,7 @@ Rozmyslíme si nyní dva pojmy pevně spjaté s posloupnostmi -- \emph{konvergen
 a \emph{limita}. Brzo si též ukážeme, že tyto dva pojmy jsou záměnné, ale zatím
 je vnímáme odděleně. Navíc, budeme se odteď soustředit speciálně na posloupnosti
 racionálních čísel, tj. zobrazení $\N \to \Q$, neboť jsou oním klíčem k
-sestrojení reálných čísel.
+sestrojení své reálné bratří.
 
 Ze všech posloupností $\N \to \Q$ nás zajímá jeden konkrétní typ --
 posloupnosti, vzdálenosti mezi jejichž prvky se postupně zmenšují. Tyto
@@ -110,7 +110,7 @@ jejich rozdíl blíží k nule.
 
 Ve výsledku budeme definovat reálná čísla jako limity všech možných
 konvergentních racionálních posloupností. Ježto však pozbýváme aparátu, abychom
-koncepty limity a konvergence stmelili v jeden, jsme nuceni učinit mezikrok.
+koncepty limity a konvergence stmelili v~jeden, jsme nuceni učinit mezikrok.
 
 \begin{definition}{Reálná čísla}{realna-cisla}
  Množinu \emph{reálných čísel} tvoří všechny třídy ekvivalence konvergentních
@@ -120,4 +120,16 @@ koncepty limity a konvergence stmelili v jeden, jsme nuceni učinit mezikrok.
  \]
 \end{definition}
 
+Nyní definujeme pojem limity. Nemělo by snad být příliš překvapivé, že se od
+\hyperref[def:konvergentni-posloupnost]{definice konvergence} příliš neliší.
+Významný rozdíl odpočívá pouze v předpokladu existence \emph{cílového bodu}.
 
+\begin{definition}{Limita posloupnosti}{limita-posloupnosti}
+ Ať $a:\N \to \Q$ je posloupnost. Řekneme, že $a$ \emph{má limitu} $L \in \R$,
+ když
+ \[
+  \forall \varepsilon \in \Q,\varepsilon>0 \; \exists n_0 \in \N \; \forall n
+  \geq n_0: |a_n - L|<\varepsilon,
+ \]
+ neboli, když jsou prvky $a_n$ bodu $L$ s každým krokem stále blíž.
+\end{definition}
