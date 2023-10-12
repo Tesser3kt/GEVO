@@ -33,42 +33,42 @@ si nejprve, jak se dají sčítat a násobit. Dokážeme rovněž, že $\R$ -- s
 jako $\Q$ -- tvoří těleso. Začneme tím, že se naučíme sčítat a násobit
 konvergentní posloupnosti.
 
-Ať $x,y \in \mathcal{C}(\Q)$ jsou dvě konvergentní racionální posloupností.
+Ať $a,b \in \mathcal{C}(\Q)$ jsou dvě konvergentní racionální posloupností.
 Operace $+$ a $ \cdot $ na $\mathcal{C}(\Q)$ definujeme velmi přirozeně.
-Zkrátka, $(x+y)(n) \coloneqq x(n) + y(n)$ a $(x \cdot y)(n) \coloneqq x(n) \cdot
-y(n)$, tj. prvek na místě $n$ posloupnosti $x+y$ je součet prvků na místech $n$
-posloupností $x$ a $y$. Abychom ovšem získali skutečně operace na
-$\mathcal{C}(\Q)$, musíme ověřit, že $x+y$ i $x \cdot y$ jsou konvergentní.
+Zkrátka, $(a+b)(n) \coloneqq a(n) + b(n)$ a $(a \cdot b)(n) \coloneqq a(n) \cdot
+b(n)$, tj. prvek na místě $n$ posloupnosti $a+b$ je součet prvků na místech $n$
+posloupností $a$ a $b$. Abychom ovšem získali skutečně operace na
+$\mathcal{C}(\Q)$, musíme ověřit, že $a+b$ i $a \cdot b$ jsou konvergentní.
 
 Nechť dáno jest $\varepsilon>0$. Chceme ukázat, že umíme najít $n_0 \in \N$, aby
 \[
- |(x_n + y_n) - (x_m + y_m)| < \varepsilon,
+ |(a_n + b_n) - (a_m + b_m)| < \varepsilon,
 \]
-kdykoli $m,n \geq n_0$. Protože jak $x$ tak $y$ konverguje, již umíme pro
-libovolná $\varepsilon_x,\varepsilon_y>0$ najít $n_x$ a $n_y$ taková, že $|x_n -
-x_m| < \varepsilon_x$, kdykoli $m,n \geq n_x$, a podobně $|y_n -
-y_m|<\varepsilon_y$, kdykoli $m,n \geq n_y$. Položme tedy $\varepsilon_x =
-\varepsilon_y \coloneqq \varepsilon / 2$ a $n_0 \coloneqq \max(n_x,n_y)$. Potom
+kdykoli $m,n \geq n_0$. Protože jak $a$ tak $b$ konverguje, již umíme pro
+libovolná $\varepsilon_a,\varepsilon_b>0$ najít $n_a$ a $n_b$ taková, že $|a_n -
+a_m| < \varepsilon_a$, kdykoli $m,n \geq n_a$, a podobně $|b_n -
+b_m|<\varepsilon_b$, kdykoli $m,n \geq n_b$. Položme tedy $\varepsilon_a =
+\varepsilon_b \coloneqq \varepsilon / 2$ a $n_0 \coloneqq \max(n_a,n_b)$. Potom
 můžeme užitím \hyperref[lem:trojuhelnikova-nerovnost]{trojúhelníkové nerovnosti}
-odhadnout
+pro $m,n \geq n_0$ odhadnout
 \[
- |(x_n + y_n) - (x_m + y_m)| = |(x_n - x_m) + (y_n - y_m)| \leq |x_n - x_m| +
- |y_n - y_m| < \varepsilon_x + \varepsilon_y = \varepsilon,
+ |(a_n + b_n) - (a_m + b_m)| = |(a_n - a_m) + (b_n - b_m)| \leq |a_n - a_m| +
+ |b_n - b_m| < \varepsilon_a + \varepsilon_b = \varepsilon,
 \]
-čili $x + y$ konverguje.
+čili $a + b$ konverguje.
 
 Předchozí odstavec se může snadno zdát šílenou směsicí symbolů. Ve skutečnosti
 však formálně vykládá triviální úvahu. Máme najít pořadí, od kterého jsou prvky
-součtu $x + y$ u sebe blíž než nějaká daná vzdálenost. Poněvadž $x$ i $y$
-konvergují, stačí přeci vzít větší z pořadí, od kterých je jak rozdíl prvků $x$,
-tak rozdíl prvků $y$ menší než polovina dané vzdálenosti.
+součtu $a + b$ u sebe blíž než nějaká daná vzdálenost. Poněvadž $a$ i $b$
+konvergují, stačí přeci vzít větší z pořadí, od kterých je jak rozdíl prvků $a$,
+tak rozdíl prvků $b$, menší než polovina dané vzdálenosti.
 
-Velmi obdobnou manipulaci lze provést k důkazu konvergence $x \cdot y$.
+Velmi obdobnou manipulaci lze provést k důkazu konvergence $a \cdot b$.
 Ponecháváme jej čtenářům jako (ne zcela snadné) cvičení.
 
 \begin{exercise}{}{}
- Dokažte, že jsou-li $x,y$ konvergentní posloupnosti racionálních čísel, pak je
- posloupnost $x \cdot y$ rovněž konvergentní.
+ Dokažte, že jsou-li $a,b$ konvergentní posloupnosti racionálních čísel, pak je
+ posloupnost $a \cdot b$ rovněž konvergentní.
 \end{exercise}
 
 Racionální čísla jsou přirozeně součástí reálných prostřednictvím zobrazení
@@ -79,8 +79,8 @@ Racionální čísla jsou přirozeně součástí reálných prostřednictvím z
   q &\mapsto [(q)],
  \end{split}
 \end{equation}
-kde $(q)$ značí posloupnost $n \mapsto q$ pro všechna $n \in \N$ a $[(q)]$ její
-třídu ekvivalence podle $ \simeq $.
+kde $(q)$ značí posloupnost $a: n \mapsto q$ pro všechna $n \in \N$ a $[(q)]$
+její třídu ekvivalence podle $ \simeq $.
 
 \begin{warning}{}{}
  Tvrdíme pouze, že $\Q$ jsou \emph{součástí} $\R$, kde slovu \emph{součást}
@@ -109,51 +109,51 @@ budeme číslem $0 \in \R$ značit třídu ekvivalence posloupnosti samých nul 
 číslem $1 \in \R$ třídu ekvivalence posloupnosti samých jednotek. Ověříme, že se
 skutečně jedná o neutrální prvky ke sčítání a násobení.
 
-Je třeba si rozmyslet, že pro každou posloupnost $x \in \mathcal{C}(\Q)$ platí
-$x + 0 = x$ a $x \cdot 1 = x$, kde, opět, čísla $0$ a $1$ ve skutečnosti
+Je třeba si rozmyslet, že pro každou posloupnost $a \in \mathcal{C}(\Q)$ platí
+$a + 0 = a$ a $a \cdot 1 = a$, kde, opět, čísla $0$ a $1$ ve skutečnosti
 znamenají nekonečné posloupnosti těchto čísel. Obě rovnosti jsou však zřejmé z
-definice, neboť $(x+0)(n) = x_n + 0 = x_n = x(n)$ a $(x \cdot 1)(n) = x_n \cdot
-1 = x_n = x(n)$ pro všechna $n \in \N$.
+definice, neboť $(a+0)(n) = a_n + 0 = a_n = a(n)$ a $(a \cdot 1)(n) = a_n \cdot
+1 = a_n = a(n)$ pro všechna $n \in \N$.
 
 Konečně, rozšíříme rovněž $-$ a $^{-1}$ na $\R$. Pro libovolnou posloupnost $x
-\in \mathcal{C}(\Q)$ definujeme zkrátka $(-x)(n) \coloneqq -x(n)$. S $^{-1}$ je
+\in \mathcal{C}(\Q)$ definujeme zkrátka $(-a)(n) \coloneqq -a(n)$. S $^{-1}$ je
 situace lehce komplikovanější. Totiž, pouze \textbf{nenulová} racionální čísla
 mají svůj inverz k násobení. Zde je třeba zpozorovat, že \textbf{konvergentní}
 posloupnost, která by však měla nekonečně mnoho prvků nulových, už musí mít od
 nějakého kroku \textbf{všechny} prvky nulové, jinak by totiž nemohla
-konvergovat. Vskutku, představme si, že $x$ je posloupnost taková, že $x_n = 0$
+konvergovat. Vskutku, představme si, že $a$ je posloupnost taková, že $a_n = 0$
 pro nekonečně mnoho přirozených čísel $n \in \N$. Pak ale ať zvolím $n_0 \in \N$
-jakkoliv, vždy existuje $m \geq n_0$ takové, že $x_m = 0$. Vezměme $n \geq n_0$
-libovolné. Pokud $x_n \neq 0$, pak můžeme vzít třeba $\varepsilon \coloneqq
-|x_n| / 2$ a bude platit, že $|x_n - x_m| > \varepsilon$, což je dokonalý zápor
+jakkoliv, vždy existuje $m \geq n_0$ takové, že $a_m = 0$. Vezměme $n \geq n_0$
+libovolné. Pokud $a_n \neq 0$, pak můžeme vzít třeba $\varepsilon \coloneqq
+|a_n| / 2$ a bude platit, že $|a_n - a_m| > \varepsilon$, což je dokonalý zápor
 \hyperref[def:konvergentni-posloupnost]{definice konvergence}. Z toho plyne, že
-$x_n$ musí být $0$ pro $n \geq n_0$ a odtud dále, že $x \simeq 0$. Čili, pouze
+$a_n$ musí být $0$ pro $n \geq n_0$ a odtud dále, že $a \simeq 0$. Čili, pouze
 nulové posloupnosti v $\R$ nemají inverz vzhledem k $ \cdot $.
 
-Právě provedená úvaha nám umožňuje definovat $^{-1}$ pro posloupnosti $x \in
-\mathcal{C}(\Q)$ takové, že $x \not\simeq 0$, následovně:
+Právě provedená úvaha nám umožňuje definovat $^{-1}$ pro posloupnosti $a \in
+\mathcal{C}(\Q)$ takové, že $a \not\simeq 0$, následovně:
 \[
- (x^{-1})(n) \coloneqq \begin{cases}
-  x(n)^{-1},& \text{když } x(n) \neq 0,\\
-  0, &\text{když } x(n) = 0.
+ (a^{-1})(n) \coloneqq \begin{cases}
+  a(n)^{-1},& \text{když } a(n) \neq 0,\\
+  0, &\text{když } a(n) = 0.
  \end{cases}
 \]
  
-Je snadné uvidět, že $-x$ je inverzem k $x$ vzhledem k $+$ a $x^{-1}$ je
-inverzem k $x \neq 0$ vzhledem k $ \cdot $. Vskutku, máme
+Je snadné uvidět, že $-a$ je inverzem k $a$ vzhledem k $+$ a $a^{-1}$ je
+inverzem k $a \neq 0$ vzhledem k $ \cdot $. Vskutku, máme
 \[
- (x + (-x))(n) = x_n + (-x_n) = 0,
+ (a + (-a))(n) = a_n + (-a_n) = 0,
 \]
-tedy v tomto případě je $(x + (-x))$ přímo \textbf{rovna} nulové posloupnosti. V
-případě $^{-1}$ dostáváme pro $x \not\simeq 0$
+tedy v tomto případě je $(a + (-a))$ přímo \textbf{rovna} nulové posloupnosti. V
+případě $^{-1}$ dostáváme pro $a \not\simeq 0$
 \[
- (x \cdot x^{-1})(n) = \begin{cases}
-  x_n \cdot x_n^{-1} = 1,& \text{když } x_n \neq 0,\\
-  x_n \cdot 0 = 0,& \text{když } x_n = 0.
+ (a \cdot a^{-1})(n) = \begin{cases}
+  a_n \cdot a_n^{-1} = 1,& \text{když } a_n \neq 0,\\
+  a_n \cdot 0 = 0,& \text{když } a_n = 0.
  \end{cases}
 \]
-Ergo, $x \cdot x^{-1}$ je rovna posloupnosti samých jedniček až na konečně mnoho
-nul, protože, jak jsme si již rozmysleli, $x$ nemůže mít nekonečně $0$ a zároveň
+Ergo, $a \cdot a^{-1}$ je rovna posloupnosti samých jedniček až na konečně mnoho
+nul, protože, jak jsme si již rozmysleli, $a$ nemůže mít nekonečně $0$ a zároveň
 nebýt v relaci $ \simeq $ s nulovou posloupností, jinak by nebyla konvergentní.
 
 Shrneme-li řád předchozích úvah, získáme oprávnění tvrdit, že
@@ -206,18 +206,166 @@ jsou třídy ekvivalence konvergentních racionálních posloupností.
 
 Abychom směli hovořit o konvergentních \emph{reálných} posloupnostech, rozšíříme
 absolutní hodnotu $| \cdot |$ z $\Q$ na $\R$ zkrátka předpisem $|[(x_n)]|
-\coloneqq [(|x_n|)]$. Napíšeme-li tedy $|x| \leq K$ pro reálná čísla $x,K \in
-\R$, pak tím doslova myslíme $[(|x_n|)] \leq [(K_n)]$, tj. $|x_n| \leq K_n$ pro
-všechna $n \in \N$, kde $x_n,K_n$ jsou nyní již čísla ryze rozumná čili
-racionální.
+\coloneqq [(|x_n|)]$ pro $(x_n) \in \mathcal{C}(\Q)$. Napíšeme-li tedy $|x| \leq
+K$ pro reálná čísla $x,K \in \R$, pak tím doslova myslíme $[(|x_n|)] \leq
+[(K_n)]$, což ale \textbf{neznamená} $|x_n| \leq K_n$ pro všechna $n \in \N$,
+kde $x_n,K_n$ jsou nyní již čísla ryze rozumná čili racionální, anobrž $|x_n| >
+K_n$ jen pro \textbf{konečně mnoho} $n \in \N$.
+
+\begin{warning}{}{}
+ Důležitá myšlenka, již je dlužno snovat v srdci při práci s třídami ekvivalence
+ konvergentních posloupností, je ta, že při porovnávání dvou tříd nás nezajímá
+ libovolný \textbf{konečný počet} jejich prvních prvků.
+
+ Konkrétně, vztah $x = y$ pro $x,y \in \R$ znamená, že $x_n = y_n$ pro každé $n
+ \in \N$ až na libovolný konečný počet prvních přirozených čísel. To se lépe
+ vyjadřuje pomocí negace. Je snazší říct, že $x = y$, když $x_n \neq y_n$ pro
+ jenom konečně mnoho $n \in \N$.
+\end{warning}
 
 Rozepíšeme-li si tedy podrobně, co znamená, že je posloupnost $x:\N \to \R$
 konvergentní, dostaneme pro dané $\varepsilon>0$, vhodné $n_0 \in \N$ a $m,n
 \geq n_0$ nerovnost $|x_n - x_m| < \varepsilon$. Ovšem, $x_n$ i $x_m$ jsou samy
-o sobě \textbf{posloupnosti} racionálních čísel, tedy poslední nerovnost plně
-rozepsána dí
+o sobě třídy ekvivalence konvergentních \textbf{posloupností} racionálních
+čísel, tedy poslední nerovnost plně rozepsána dí
 \[
- |(x_n)_{k} - (x_m)_{k}| < \varepsilon \; \forall k \in \N.
+ |[((x_n)_{k} - (x_m)_{k})_{k=0}^{\infty}]| < \varepsilon \; \forall k \in \N,
 \]
+což lze rovněž vyjádřit tak, že
+\[
+ |(x_n)_k - (x_m)_k| \geq \varepsilon
+\]
+jen pro konečně mnoho $k \in \N$.
 
+Nepřináší však žádný hmotný užitek nad konvergencí reálných posloupností
+uvažovat takto složitě. Čtenáři dobře učiní, uvědomí-li si plný význam
+předchozího odstavce, ovšem zůstanou věrni intuitivnímu vnímání výrazu $|x - y|$
+jako \uv{vzdálenosti} čísel $x$ a $y$.
 
+\begin{definition}{Omezená posloupnost}{omezena-posloupnost}
+ Řekneme, že posloupnost $x:\N \to \R$ je \emph{omezená}, když existuje $K \in
+ \R$ takové, že $|x_n| \leq K$ pro všechna $n \in \N$.
+\end{definition}
+
+\begin{lemma}{}{}
+ Každá konvergentní posloupnost $x:\N \to \R$ je omezená.
+\end{lemma}
+\begin{lemproof}
+ Ať je $\varepsilon>0$ dáno. Z \hyperref[def:konvergentni-posloupnost]{definice
+ konvergence} nalezneme $n_0 \in \N$ takové, že pro každé $m,n \geq n_0$ je
+ $|x_m - x_n| < \varepsilon$. Speciálně tedy pro každé $n \geq n_0$ platí
+ \[
+  |x_n| = |x_n - x_{n_0} + x_{n_0}| \leq |x_n - x_{n_0}| + |x_{n_0}| <
+  \varepsilon + |x_{n_0}|,
+ \]
+ tudíž všechny členy posloupnosti s pořadím větším než $n_0$ jsou omezeny číslem
+ $\varepsilon + |x_{n_0}|$. Ovšem, členů posloupnosti s pořadím menším než $n_0$
+ je konečně mnoho, a tedy z nich můžeme vzít ten největší -- nazvěme ho $s$.
+ Položíme-li $K \coloneqq \max(s,\varepsilon + |x_{n_0}|)$, pak $|x_n| \leq K$
+ pro každé $n \in \N$, čili $x$ je omezená číslem $K$.
+\end{lemproof}
+
+\begin{proposition}{Hustota $\Q$ v $\R$}{hustota-q-v-r}
+ Množina racionálních čísel $\Q$ je hustá v $\R$, tj. ke každému $x \in \R$ a
+ každému $\varepsilon>0$ existuje $r \in \Q$ takové, že $|x-r|<\varepsilon$.
+\end{proposition}
+\begin{propproof}
+ Ať $\varepsilon>0$ je dáno a označme $x \coloneqq [(x_n)]$, $(x_n) \in
+ \mathcal{C}(\Q)$. Najdeme $n_0 \in \N$ takové, že $ \forall m,n \geq n_0$ je
+ $|x_m - x_n|<\varepsilon$. Zvolme $r \coloneqq x_{n_0} \in \Q$. Pak ovšem máme
+ \[
+  |x_n - r| = |x_n - x_{n_0}| < \varepsilon
+ \]
+ pro všechna $n \geq n_0$. To přesně znamená, že $|x - r| < \varepsilon$.
+\end{propproof}
+
+\begin{lemma}{}{limita-racionalni-posloupnosti}
+ Ať $a:\N \to \Q$ je konvergentní posloupnost racionálních čísel. Pak $\lim a =
+ [(a)]$.
+\end{lemma}
+\begin{lemproof}
+ Položme $x \coloneqq [(a)]$. Ať je dáno $\varepsilon>0$. Protože $a$ je
+ konvergentní, nalezneme $n_0 \in \N$, že $|a_m - a_n|<\varepsilon$ pro všechna
+ $m,n \geq n_0$. Potom ale $|a_n - x|<\varepsilon$ pro všechna $n \geq n_0$, což
+ z~\hyperref[def:limita-posloupnosti]{definice} znamená, že $\lim_{} a = x$.
+\end{lemproof}
+
+\begin{corollary}{$\R$ jsou úplná}{r-jsou-uplna}
+ Každá konvergentní reálná posloupnost $x:\N \to \R$ má limitu v $\R$.
+\end{corollary}
+\begin{corproof}
+ Ať $a:\N \to \Q$ je racionální posloupnost taková, že $|x_n - a_n|<1/n$ pro
+ všechna $n \in \N$. Tu nalezneme opakovaným použitím
+ \myref{tvrzení}{prop:hustota-q-v-r} pro $\varepsilon \coloneqq 1 / n$ a $x
+ \coloneqq x_n$. Ukážeme nejprve, že $a$ je konvergentní. Ať je dáno
+ $\varepsilon>0$. Zvolme $n_1$ takové, že $ \forall m,n \geq n_1$ platí $1 / m +
+ 1 / n < \varepsilon$. Dále, $x$ je konvergentní z předpokladu. Čili, pro každé
+ $\varepsilon_x>0$ nalezneme $n_2 \in \N$ takové, že $ \forall m,n \geq n_2$
+ máme $|x_n - x_m|<\varepsilon_x$. Volme tedy speciálně
+ \[
+  \varepsilon_x \coloneqq \varepsilon - \frac{1}{m} - \frac{1}{n}.
+ \]
+ a $n_0 \coloneqq \max(n_1,n_2)$. Potom pro všechna $m,n \geq n_0$ platí
+ nerovnosti
+ \begin{align*}
+  |a_n - a_m| &= |a_n - a_m - x_n + x_n| \leq |a_n - x_n| + |x_n - a_m| = |a_n -
+  x_n| + |x_n - a_m - x_m + x_m| \\
+              & \leq |a_n - x_n| + |x_n - x_m| + |x_m - a_m| < \frac{1}{n} +
+              \varepsilon_x + \frac{1}{m} = \varepsilon,
+ \end{align*}
+ tedy $a$ konverguje.
+
+ Jistě platí $\lim_{} x - a = 0$, neboť pro každé $\varepsilon>0$ lze najít
+ $n \in \N$ takové, že $1 / n < \varepsilon$. Odtud plyne, že $x$ má limitu
+ právě tehdy, když $a$ má limitu. Ovšem, podle
+ \myref{lemmatu}{lem:limita-racionalni-posloupnosti} má $a$ limitu $[(a)] \in
+ \R$. Tím je důkaz hotov.
+\end{corproof}
+
+\begin{corollary}{}{}
+ Platí
+ \[
+  \R \cong \{\lim_{} a \mid a \in \mathcal{C}(\Q)\},
+ \]
+ čili reálná čísla jsou přesně limity všech konvergentních racionálních
+ posloupností.
+\end{corollary}
+\begin{corproof}
+ Zkonstruujeme bijekci $f: \R \to \{\lim_{} a \mid a \in \mathcal{C}(\Q)\}$.
+ Vezměme $x \in \R$. Pak z definice existuje konvergentní racionální posloupnost
+ $a \in \mathcal{C}(\Q)$ taková, že $x = [a]$. Podle
+ \myref{lemmatu}{lem:limita-racionalni-posloupnosti} má $a$ limitu v $\R$.
+ Definujme tedy $f(x) \coloneqq \lim_{} a$.
+
+ Ověříme, že je $f$ dobře definované, prosté a na.
+
+ Nejprve musíme ukázat, že $f(x)$ nezávisí na volbě konkrétní posloupnosti $a$ z
+ třídy ekvivalence $[a]$. Ať tedy $b \simeq a$ a označme $L_a \coloneqq \lim_{}
+ a, L_b \coloneqq \lim_{} b$. Pak pro každé $\varepsilon>0$ existuje $n_0 \in
+ \N$ takové, že $ \forall n \geq n_0$ platí tři nerovnosti:
+ \[
+  |a_n-b_n|<\varepsilon, \quad |a_n-L_a|<\varepsilon, \quad
+  |b_n-L_b|<\varepsilon.
+ \]
+ Velmi obdobnou úpravou jako v důkaze \myref{důsledku}{cor:r-jsou-uplna}
+ dostaneme,
+ že
+ \[
+  |L_a - L_b| \leq |L_a - a_n| + |a_n - b_n| + |b_n - L_b| < 3\varepsilon,
+ \]
+ odkud $L_a = L_b$, neboť $L_a,L_b$ jsou třídy ekvivalence konvergentních
+ posloupností. Společně s faktem, že každá konvergentní posloupnost má přesně
+ jednu limitu (\myref{cvičení}{exer:jednoznacnost-limity}), plyne z~předchozí
+ úvahy, že $f$ je dobře definováno.
+
+ Dokážeme, že $f$ je prosté. To je snadné, neboť pokud $[a] = [b]$, neboli $a
+ \simeq b$, potom $\lim_{} a = \lim_{} b$, což jsme již vlastně dokázali v
+ odstavci výše.
+
+ Nakonec zbývá ověřit, že $f$ je na. Ať tedy $L \coloneqq \lim a$ pro nějakou $a
+ \in \mathcal{C}(\Q)$. Potom ovšem $[(a)] \in \R$ a podle
+ \myref{lemmatu}{lem:limita-racionalni-posloupnosti} platí $\lim a = [(a)]$. To
+ ovšem přesně znamená, že $f([(a)]) = L$.
+
+ Tím je důkaz hotov.
+\end{corproof}

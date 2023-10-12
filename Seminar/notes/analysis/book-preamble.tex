@@ -144,7 +144,8 @@
   separator sign none,
   description font=\normalfont\sffamily,
   fontupper=\itshape,
-  graphical environment=tikzpicture
+  graphical environment=tikzpicture,
+  breakable
  }
 }
 \tcbset{%
@@ -156,7 +157,7 @@
 \tcbset{%
  prfbox/.style = {
   parbox=false,
-  top=-\parskip,
+  top=-16pt,
   bottom=0mm,
   left=1ex,
   boxrule=0pt,
@@ -170,6 +171,8 @@
   enhanced,
   colback=white,
   sharp corners,
+  breakable,
+  graphical environment=tikzpicture,
  }
 }
 

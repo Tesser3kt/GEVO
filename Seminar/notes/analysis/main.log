@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.6)  12 OCT 2023 11:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.6)  12 OCT 2023 18:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1503,20 +1503,23 @@ Kapitola 2.
 Underfull \vbox (badness 4084) has occurred while \output is active []
 
  [22]) (./real-numbers-and-limits/sequences-and-limits/limits-of-convergent.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 7522) has occurred while \output is active []
 
  [23]
 Package hyperref Info: bookmark level for unknown lemproof defaults to 0 on input line 15.
  [24] [25]
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 190.
- [26]))) (./exercises.tex [27] [28
+ [26] [27]
+Package hyperref Info: bookmark level for unknown propproof defaults to 0 on input line 273.
+Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 297.
+ [28]))) (./exercises.tex [29] [30
 
-] [29])
+] [31])
 \tf@thm=\write6
 \openout6 = `main.thm'.
 
- [30] (./main.aux)
+ [32] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1525,18 +1528,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 11892A6A30D807621C20A7DCA993E63C;1661.
  ) 
 Here is how much of TeX's memory you used:
- 42466 strings out of 474934
- 865559 string characters out of 5759818
+ 42505 strings out of 474934
+ 866302 string characters out of 5759818
  1995807 words of memory out of 5000000
- 62992 multiletter control sequences out of 15000+600000
+ 63017 multiletter control sequences out of 15000+600000
  814546 words of font info for 216 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,16n,143p,1190b,1851s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (30 pages, 1092576 bytes).
+Output written on main.pdf (32 pages, 1105156 bytes).
 PDF statistics:
- 452 PDF objects out of 1000 (max. 8388607)
- 347 compressed objects within 4 object streams
- 96 named destinations out of 1000 (max. 500000)
+ 486 PDF objects out of 1000 (max. 8388607)
+ 379 compressed objects within 4 object streams
+ 110 named destinations out of 1000 (max. 500000)
  234 words of extra memory for PDF output out of 10000 (max. 10000000)
 
