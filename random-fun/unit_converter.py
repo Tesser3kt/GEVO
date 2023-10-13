@@ -145,7 +145,8 @@ class UnitConverter:
             '': self.__typical_convert,
             's': self.__speed_convert,
             'n': self.__number_base_convert,
-            't': self.__temperature_convert
+            't': self.__temperature_convert,
+            'f': self.__fraction_convert
         }
         self.precision = 5
         self.max_digits = 9
@@ -163,6 +164,9 @@ class UnitConverter:
         prefix2_quantity = base2_quantity / self.prefixes[prefix2]
 
         return prefix2_quantity
+
+    def __fraction_convert(self, conversion_data):
+        ...
 
     def __speed_convert(self, conversion_data):
         quantity, prefix_l1, base_l1, base_t1, prefix_l2, base_l2, base_t2 = (
@@ -249,6 +253,15 @@ class UnitConverter:
         prefix_l, base_l = self.split_unit(unit_l)
         return (prefix_l, base_l, base_t)
 
+    def split_fraction_unit(self, unit):
+        if '/' not in unit:
+            return ('', '', '', '')
+
+        unit_l, unit_t = unit.split('/')
+        prefix_l, base_l = self.split_unit(unit_l)
+        prefix_t, base_t = self.split_unit(unit_t)
+        return (prefix_l, base_l, prefix_t, base_t)
+
     def typical_conversion(self, quantity, unit1, unit2):
         conversion_data = quantity,
         for unit in unit1, unit2:
@@ -270,6 +283,15 @@ class UnitConverter:
         if self.unit_type == 't':
             return conversion_data + ('t',)
         return conversion_data + ('',)
+
+    def fraction_conversion(self, quantity, unit1, unit2):
+        conversion_data = quantity,
+        for unit in unit1, unit2:
+            prefix_l, base_l, prefix_t, base_t = self.split_fraction_unit(unit)
+            if (prefix_l == '' and base_l == '' and
+                    prefix_t == '' and base_t == ''):
+                print('Invalid fraction unit. Possibly a missing "/"?')
+                return None
 
     def speed_conversion(self, quantity, unit1, unit2):
         conversion_data = quantity,
