@@ -7,7 +7,7 @@
 \usepackage{mathtools}
 \usepackage{float}
 \usepackage{tikz}
-\usetikzlibrary{patterns,arrows.meta,calc}
+\usetikzlibrary{patterns,arrows.meta,calc,3d,angles}
 \usepackage{tkz-euclide}
 \tikzset{point style/.style = {%
   draw = black,
@@ -275,6 +275,183 @@
  \]
  and thus $\clo{h}^2 = 20^2 - 8.5^2 = 327.75$ and $\clo{h} = \sqrt{327.75} =
  18.1$.
+\end{frame}
+
+\section{Applications}
+
+\begin{frame}
+ \frametitle{Architecture \& Construction}
+ When constructing a roof, you typically only know the \clc{height} and
+ \clo{width}.\\
+ \pause 
+ Using Pythagorean Theorem, you can also calculate the length of the diagonal
+ slope and its area to cut out supporting beams.\\
+ \pause
+ For example, if the \clc{height} of the roof is 3 meters and its \clo{width} is
+ 6 meters,
+ \begin{center}
+  \begin{tikzpicture}[scale=0.75,transform shape]
+   \tkzDefPoints{0/0/a,6/0/b,3/3/c}
+   \tkzDrawSegment[PolygonCyan](a,b)
+   \tkzLabelSegment[below,PolygonCyan](a,b){$w$}
+   \tkzDefMidPoint(a,b) \tkzGetPoint{sab}
+   \tkzDrawSegment[dashed,PolygonOrange](c,sab)
+   \tkzLabelSegment[PolygonOrange,left](c,sab){$h$}
+   \tkzDrawSegment(b,c)
+   \tkzDrawSegment(a,c)
+   \tkzLabelSegment[above right](b,c){$x$}
+   \tkzLabelSegment[above left](a,c){$x$}
+  \end{tikzpicture}
+ \end{center}
+ the length of the slope can be calculated as $x^2 = h^2 + (w / 2)^2 = 9 + 9 =
+ 18$ and taking the square root to get $x = 4.24$ meters.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Architecture \& Construction}
+ A triangle with side lengths $a,b,c$ is a right triangle if and only if the
+ Pythagorean Theorem $a^2 + b^2 = c^2$ holds.\\
+ \pause
+ This can be used to efficiently measure right angles. If we know, for instance,
+ that a triangle with side lengths $3,4$ and $5$ is right, we can set out a
+ triangle made of strings of these lengths to lay out a foundation or construct
+ a corner between walls.\\
+ \pause
+ For example, one can make sure that the triangles of side lengths $5,12,13$ and
+ $20,21,29$ are right because
+ \begin{align*}
+  5^2 + 12^2 &= 25 + 144 = 169 = 13^2,\\
+  20^2 + 21^2 &= 400 + 441 = 841 = 29^2.
+ \end{align*}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Navigation}
+ The Pythagorean Theorem is useful when calculating distances between points in
+ the plane or in space.\\
+ For example, to calculate the distance between $(1,2)$ and $(3,5)$, one sets up
+ a right triangle like this:
+ \begin{center}
+  \begin{tikzpicture}[scale=0.75,transform shape]
+   \tkzInit[xmin=0,xmax=4,ymin=1,ymax=6]
+   \tkzGrid
+   \tkzDefPoints{1/2/x,3/5/y,3/2/z}
+   \tkzDrawSegment[thick,PolygonCyan](x,y)
+   \tkzMarkRightAngle[size=.4,fill=Gray!20](y,z,x)
+   \tkzLabelPoint[above left](x){$(1,2)$}
+   \tkzLabelPoint[below right](y){$(3,5)$}
+   \tkzLabelSegment[PolygonCyan,above left](x,y){$\mathbf{r}$}
+   \tkzDrawSegment[thick,dashed,PolygonOrange](y,z)
+   \tkzDrawSegment[thick,dashed,PolygonOrange](x,z)
+   \tkzLabelSegment[PolygonOrange,right](y,z){$\mathbf{3}$}
+   \tkzLabelSegment[PolygonOrange,below](x,z){$\mathbf{2}$}
+   \tkzDrawPoints(x,y)
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Navigation}
+ \begin{center}
+  \begin{tikzpicture}[scale=0.75,transform shape]
+   \tkzInit[xmin=0,xmax=4,ymin=1,ymax=6]
+   \tkzGrid
+   \tkzDefPoints{1/2/x,3/5/y,3/2/z}
+   \tkzDrawSegment[thick,PolygonCyan](x,y)
+   \tkzMarkRightAngle[size=.4,fill=Gray!20](y,z,x)
+   \tkzLabelPoint[above left](x){$(1,2)$}
+   \tkzLabelPoint[below right](y){$(3,5)$}
+   \tkzLabelSegment[PolygonCyan,above left](x,y){$\mathbf{r}$}
+   \tkzDrawSegment[thick,dashed,PolygonOrange](y,z)
+   \tkzDrawSegment[thick,dashed,PolygonOrange](x,z)
+   \tkzLabelSegment[PolygonOrange,right](y,z){$\mathbf{3}$}
+   \tkzLabelSegment[PolygonOrange,below](x,z){$\mathbf{2}$}
+   \tkzDrawPoints(x,y)
+  \end{tikzpicture}
+ \end{center}
+ So, the distance from $(1,2)$ to $(3,5)$ satisfies
+ \begin{align*}
+  \clc{r}^2 &= 2^2 + 3^2,\\
+  \clc{r} &= \sqrt{13}.
+ \end{align*}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Navigation}
+ Distances in 3D are measured the same way, one just has to set up two right
+ triangles.\\
+ \pause
+ For example, let's measure the distance from $(1,0,2)$ to $(3,3,3)$. We set up
+ our right triangles:
+ \begin{center}
+  \begin{tikzpicture}[scale=1.25,transform shape]
+   \node[circle,fill,inner sep=2pt] (x) at (1,0,2) {};
+   \node[circle,fill,inner sep=2pt] (y) at (3,3,3){};
+   \node[circle,fill,inner sep=1pt,PolygonOrange] (z1) at (3,0,2) {};
+   \node[circle,fill,inner sep=1pt,PolygonOrange] (z2) at (3,0,3) {};
+
+   \node[left=0mm of x] {\footnotesize $(1,0,2)$};
+   \node[right=0mm of y] {\footnotesize $(3,3,3)$};
+
+   \node[below=0mm of z2,PolygonOrange] {\tiny $(3,0,3)$};
+   \node[right=0mm of z1,PolygonOrange] {\tiny $(3,0,2)$};
+   
+   \pic [draw=PolygonOrange,angle radius=3mm] {angle = z1--z2--x};
+   \pic [draw=black,angle radius=6mm] {angle = y--z2--x};
+   \node[circle,fill,inner sep=.5pt,PolygonOrange] at ($(z2) + (100:0.15)$) {};
+   \node[circle,fill,inner sep=.5pt] at ($(z2) + (130:0.3)$) {};
+
+   \draw (x) to node[midway,xshift=-1mm,yshift=-2mm]{\footnotesize $\mathbf{x}$}
+    (z2);
+   \draw (z2) to node[midway,xshift=2mm]{\footnotesize $\mathbf{3}$} (y);
+   \draw[dashed,PolygonOrange] (x) to
+    node[midway,PolygonOrange,yshift=2mm]{\footnotesize $\mathbf{2}$} (z1);
+   \draw[dashed,PolygonOrange] (z1) to
+    node[midway,PolygonOrange,xshift=1mm,yshift=-1mm]{\footnotesize $\mathbf{1}$} (z2);
+   \draw[thick,PolygonCyan] (x) to
+    node[midway,PolygonCyan,xshift=-1mm,yshift=1mm]{\clc{\textbf{r}}} (y);
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Navigation}
+ \begin{center}
+  \begin{tikzpicture}[scale=1.25,transform shape]
+   \node[circle,fill,inner sep=2pt] (x) at (1,0,2) {};
+   \node[circle,fill,inner sep=2pt] (y) at (3,3,3){};
+   \node[circle,fill,inner sep=1pt,PolygonOrange] (z1) at (3,0,2) {};
+   \node[circle,fill,inner sep=1pt,PolygonOrange] (z2) at (3,0,3) {};
+
+   \node[left=0mm of x] {\footnotesize $(1,0,2)$};
+   \node[right=0mm of y] {\footnotesize $(3,3,3)$};
+
+   \node[below=0mm of z2,PolygonOrange] {\tiny $(3,0,3)$};
+   \node[right=0mm of z1,PolygonOrange] {\tiny $(3,0,2)$};
+
+   \pic [draw=PolygonOrange,angle radius=3mm] {angle = z1--z2--x};
+   \pic [draw=black,angle radius=6mm] {angle = y--z2--x};
+   \node[circle,fill,inner sep=.5pt,PolygonOrange] at ($(z2) + (100:0.15)$) {};
+   \node[circle,fill,inner sep=.5pt] at ($(z2) + (130:0.3)$) {};
+
+   \draw (x) to node[midway,xshift=-1mm,yshift=-2mm]{\footnotesize $\mathbf{x}$}
+    (z2);
+   \draw (z2) to node[midway,xshift=2mm]{\footnotesize $\mathbf{3}$} (y);
+   \draw[dashed,PolygonOrange] (x) to
+    node[midway,PolygonOrange,yshift=2mm]{\footnotesize $\mathbf{2}$} (z1);
+   \draw[dashed,PolygonOrange] (z1) to
+    node[midway,PolygonOrange,xshift=1mm,yshift=-1mm]{\footnotesize $\mathbf{1}$} (z2);
+   \draw[thick,PolygonCyan] (x) to
+    node[midway,PolygonCyan,xshift=-1mm,yshift=1mm]{\clc{\textbf{r}}} (y);
+   
+  \end{tikzpicture}
+ \end{center}
+ \vspace*{-1em}
+ From this, we can calculate
+ \[
+  x = \sqrt{1^2 + 2^2} = \sqrt{5}, \quad 
+  \clc{r} = \sqrt{3^2 + (\sqrt{5})^2} = \sqrt{9 + 5} = \sqrt{14}.
+ \]
 \end{frame}
 
 \end{document}
