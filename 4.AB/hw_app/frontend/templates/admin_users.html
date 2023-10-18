@@ -1,191 +1,136 @@
-{% extends 'page.html' %} {% block content %}
-<div
-  class="mx-auto container users-container pt-16 px-8 w-full grid grid-cols-3 grid-rows-1 gap-8"
->
-  <div class="students-container">
-    <h2 class="mx-16 pb-2 text-center mb-4 border-b-4 border-my-yellow-100">
-      Studenti
-    </h2>
-    <div class="grid grid-cols-1 gap-4">
-      {% for student in students %}
-      <div
-        class="user-card-container flex flex-row justify-between items-center bg-my-light drop-shadow rounded-xl p-4"
-      >
-        <div class="flex flex-col">
-          <span class="text-xl font-bold"
-            >{{ student.name }} {% if student.group %} | {{ student.group }}{%
-            endif %}
-          </span>
-          <span class="text-lg">{{ student.email }}</span>
+{% extends 'page.html' %}
+{% block content %}
+    <div class="mx-auto container users-container pt-16 px-8 grid grid-cols-3 grid-rows-1 gap-8">
+        <div class="students-container">
+            <h2 class="mx-16 pb-2 text-center mb-4 border-b-4 border-my-yellow-100">Studenti</h2>
+            <div class="grid grid-cols-1 gap-4">
+                {% for student in students %}
+                    <div class="user-card-container flex flex-row justify-between items-center bg-my-light drop-shadow rounded-xl p-4">
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold">{{ student.name }}
+                                {% if student.group %}
+                                    | {{ student.group }}{%
+                                    endif %}
+                                </span>
+                                <span class="text-lg">{{ student.email }}</span>
+                            </div>
+                            <button type="button"
+                                    class="h-9 rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     fill="none"
+                                     viewBox="0 0 24 24"
+                                     stroke-width="1.5"
+                                     stroke="currentColor"
+                                     class="w-4 h-4 mr-2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                                </svg>
+                                Upravit
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="add-button-container text-center mt-4">
+                    <button type="button"
+                            class="h-9 add-button rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="w-5 h-5 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                        </svg>
+                        Přidat
+                    </button>
+                </div>
+            </div>
+            <div class="teachers-container">
+                <h2 class="mx-16 pb-2 text-center mb-4 border-b-4 border-my-yellow-100">Učitelé</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    {% for teacher in teachers %}
+                        <div class="user-card-container flex flex-row justify-between items-center bg-my-light drop-shadow rounded-xl p-4">
+                            <div class="flex flex-col">
+                                <span class="text-xl font-bold">{{ teacher.name }}
+                                    {% if teacher.group %}
+                                        | {{ teacher.group }} {%
+                                        endif %}
+                                    </span>
+                                    <span class="text-lg">{{ teacher.email }}</span>
+                                </div>
+                                <button type="button"
+                                        class="h-9 rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke-width="1.5"
+                                         stroke="currentColor"
+                                         class="w-4 h-4 mr-2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                                    </svg>
+                                    Upravit
+                                </button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="add-button-container text-center mt-4">
+                        <button type="button"
+                                class="h-9 add-button rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="w-5 h-5 mr-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                            </svg>
+                            Přidat
+                        </button>
+                    </div>
+                </div>
+                <div class="admins-container">
+                    <h2 class="mx-16 pb-2 text-center mb-4 border-b-4 border-my-yellow-100">Administrátoři</h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        {% for admin in admins %}
+                            <div class="user-card-container flex flex-row justify-between items-center bg-my-light drop-shadow rounded-xl p-4">
+                                <div class="flex flex-col">
+                                    <span class="text-xl font-bold">{{ admin.name }}
+                                        {% if admin.group %}| {{ admin.group }}{% endif %}
+                                    </span>
+                                    <span class="text-lg">{{ admin.email }}</span>
+                                </div>
+                                <a href="/admin/users/{{ admin.id }}">
+                                    <button type="button"
+                                            class="h-9 rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             fill="none"
+                                             viewBox="0 0 24 24"
+                                             stroke-width="1.5"
+                                             stroke="currentColor"
+                                             class="w-4 h-4 mr-2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                                        </svg>
+                                        Upravit
+                                    </button>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="add-button-container text-center mt-4">
+                        <button type="button"
+                                class="h-9 add-button rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="w-5 h-5 mr-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                            </svg>
+                            Přidat
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button
-          type="button"
-          class="h-9 rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-4 h-4 mr-2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
-            />
-          </svg>
-          Upravit
-        </button>
-      </div>
-      {% endfor %}
     </div>
-    <div class="add-button-container text-center mt-4">
-      <button
-        type="button"
-        class="h-9 add-button rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-5 h-5 mr-2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"
-          />
-        </svg>
-        Přidat
-      </button>
-    </div>
-  </div>
-  <div class="teachers-container">
-    <h2 class="mx-16 pb-2 text-center mb-4 border-b-4 border-my-yellow-100">
-      Učitelé
-    </h2>
-    <div class="grid grid-cols-1 gap-4">
-      {% for teacher in teachers %}
-      <div
-        class="user-card-container flex flex-row justify-between items-center bg-my-light drop-shadow rounded-xl p-4"
-      >
-        <div class="flex flex-col">
-          <span class="text-xl font-bold"
-            >{{ teacher.name }} {% if teacher.group %} | {{ teacher.group }} {%
-            endif %}
-          </span>
-          <span class="text-lg">{{ teacher.email }}</span>
-        </div>
-        <button
-          type="button"
-          class="h-9 rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-4 h-4 mr-2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
-            />
-          </svg>
-          Upravit
-        </button>
-      </div>
-      {% endfor %}
-    </div>
-    <div class="add-button-container text-center mt-4">
-      <button
-        type="button"
-        class="h-9 add-button rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-5 h-5 mr-2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"
-          />
-        </svg>
-        Přidat
-      </button>
-    </div>
-  </div>
-  <div class="admins-container">
-    <h2 class="mx-16 pb-2 text-center mb-4 border-b-4 border-my-yellow-100">
-      Administrátoři
-    </h2>
-    <div class="grid grid-cols-1 gap-4">
-      {% for admin in admins %}
-      <div
-        class="user-card-container flex flex-row justify-between items-center bg-my-light drop-shadow rounded-xl p-4"
-      >
-        <div class="flex flex-col">
-          <span class="text-xl font-bold"
-            >{{ admin.name }} {% if admin.group %}| {{ admin.group }}{% endif %}
-          </span>
-          <span class="text-lg">{{ admin.email }}</span>
-        </div>
-        <button
-          type="button"
-          class="h-9 rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-4 h-4 mr-2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
-            />
-          </svg>
-          Upravit
-        </button>
-      </div>
-      {% endfor %}
-    </div>
-    <div class="add-button-container text-center mt-4">
-      <button
-        type="button"
-        class="h-9 add-button rounded-md outline outline-my-light-100 text-xl px-3 inline-flex items-center justify-center edit-button hover:bg-my-light-100 transition-colors duration"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-5 h-5 mr-2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"
-          />
-        </svg>
-        Přidat
-      </button>
-    </div>
-  </div>
-</div>
 {% endblock %}

@@ -4,6 +4,7 @@ from backend.config import STATIC_FOLDER, TEMPLATE_FOLDER
 from backend.models import db
 from backend.pages import pages
 from backend.auth import auth, oauth
+from backend.admin import admin
 from flask import Flask, send_from_directory
 from flask_session import Session
 import datetime
@@ -17,6 +18,7 @@ app.config['SESSION_SQLALCHEMY'] = db
 # register auth and pages blueprints
 app.register_blueprint(pages)
 app.register_blueprint(auth)
+app.register_blueprint(admin)
 
 # init db
 db.init_app(app)

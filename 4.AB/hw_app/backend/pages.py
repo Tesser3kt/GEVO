@@ -86,6 +86,21 @@ def admin_users():
     )
 
 
+@pages.route('/admin/users/<int:user_id>')
+@login_required(redirect_url='/admin/users')
+@admin_required
+def admin_user(user_id):
+    user = get_user_from_session()
+    edited_user = User.query.get(user_id)
+    return render_template(
+        'admin_users_form.html',
+        title="Uživatel",
+        user=user,
+        edited_user=edited_user,
+        form_title="Úprava uživatele"
+    )
+
+
 @pages.route('/admin/groups')
 @login_required(redirect_url='/admin/groups')
 @admin_required
