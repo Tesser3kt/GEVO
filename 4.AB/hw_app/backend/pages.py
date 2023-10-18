@@ -69,16 +69,19 @@ def admin_users():
         for user in all_users
     ]
     group_names = [group.name for group in all_groups]
+    students = [user for user in users_data if user['role']
+                == UserRole.STUDENT.value]
+    teachers = [user for user in users_data if user['role']
+                == UserRole.TEACHER.value]
+    admins = [user for user in users_data if user['role']
+              == UserRole.ADMIN.value]
     return render_template(
         'admin_users.html',
         title="Uživatelé",
         user=user,
-        students=[user for user in users_data if user['role']
-                  == UserRole.STUDENT.value],
-        teachers=[user for user in users_data if user['role']
-                  == UserRole.TEACHER.value],
-        admins=[user for user in users_data if user['role']
-                == UserRole.ADMIN.value],
+        students=students,
+        teachers=teachers,
+        admins=admins,
         groups=group_names
     )
 

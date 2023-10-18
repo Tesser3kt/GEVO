@@ -8,7 +8,6 @@ body {
   @apply font-body text-my-dark;
   @apply bg-my-light;
   @apply min-h-screen min-w-full;
-  @apply pb-8;
 }
 
 h1 {
@@ -141,7 +140,6 @@ header.header {
 
 .content {
   @apply w-full h-full;
-  @apply p-16;
 
   .user-card-container {
     grid-template-cols: 1fr auto;
