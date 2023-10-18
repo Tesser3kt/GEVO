@@ -1,0 +1,169 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Intro To Statistics}\\
+ \Large\textsf{Exam}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow} 
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+ \hrule
+ \textbf{\clr{\uppercase{Don't just cite the content of my presentation when
+ explaining. Always apply your analysis to the experiment at hand.}}}
+ \vspace{2ex}
+ \hrule
+\end{center}
+ 
+We've conducted a small experimental comparison of the minimal required level of
+education and average annual salary between multiple jobs (in different fields).
+The results are as follows:
+\begin{table}[ht]
+ \centering
+ \begin{tabular}{c|c|c}
+  \textbf{Job} & \textbf{Required Education} & \textbf{Annual Salary}\\
+  \toprule
+  \multirow{2}*{Janitor} & Elementary School & \multirow{2}*{\$40,517} \\
+                         & (at least 7 years) & \\
+  \midrule
+  \multirow{2}*{Police Officer} & High School Diploma + Training &
+  \multirow{2}*{\$61,986} \\
+                                & (at least 13.5 years) & \\
+  \midrule
+  \multirow{2}*{Registered Nurse} & BSN or ADN degree &
+  \multirow{2}*{\$101,841}\\
+                                  & (at least 15 years) & \\
+  \midrule
+  \multirow{2}*{Software Developer} & Bachelor's Degree + Internship &
+  \multirow{2}*{\$117,509}\\
+                                    & (at least 18 years) \\
+  \midrule                                  
+  \multirow{2}*{Theoretical Mathematician} & Ph.D. + postdoctorate &
+  \multirow{2}*{\$101,080}\\
+                                           & (at least 25 years) &
+ \end{tabular}
+ \caption*{Experiment Data}
+\end{table}
+\begin{enumerate}
+ \item We provide three ways to quantify education:
+  \begin{enumerate}
+   \item the fewest number of years to achieve it.
+   \item earning a degree (or some sort of training) means $+1$. That is, for
+    instance, a \emph{high school diploma} is $2$ because it requires finishing
+    two levels of education (elementary + high). In the same vein, \emph{Ph.D. +
+    postdoc} would be the number $6$ (elementary + high + bachelor + master +
+    Ph.D. + postdoc).
+   \item relative length -- meaning, say, elementary school equals $1$ and high
+    school + training equals $13.5 / 7$ because it is that many times longer than
+    elementary school.
+  \end{enumerate}
+  Choose one and fill it into the table. \textbf{Explain why you think it is the
+  best statistical predictor}.
+ \item Calculate the mean required education and the mean annual salary.
+  \textbf{Explain what type of mean you use for each output and why}.
+ \item Determine \textbf{the median} of the annual salary. Is it very different
+  (relatively speaking) from the mean? Why is it so?
+ \item Calculate the standard deviation for both outputs. What information does
+  it give us? \textbf{Explain in the context of this experiment}.
+ \item Calculate the correlation of required education and average salary. How
+  strongly do they correlate and what can you deduce from it?
+\end{enumerate}
+\end{document}
