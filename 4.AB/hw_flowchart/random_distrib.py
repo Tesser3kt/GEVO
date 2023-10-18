@@ -1,10 +1,10 @@
 from random import randint
 from collections import defaultdict
 
-STUDENTS = 12
+STUDENTS = 14
 PROBLEMS = 6
 PROBLEMS_PER_STUDENT = 2
-MAX_DISTRIB = 4
+MAX_DISTRIB = 5
 
 distributed = defaultdict(int)
 problems = [set() for _ in range(STUDENTS)]
