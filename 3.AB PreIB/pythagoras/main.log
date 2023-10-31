@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.26)  14 OCT 2023 12:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.2)  31 OCT 2023 09:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,7 +6,7 @@ entering extended mode
 **main.tex
 (./main.tex
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-11>
+L3 programming layer <2023-08-29>
 (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2023/05/15 v3.70 A class for typesetting presentations
 (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerbasemodes.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -543,13 +543,13 @@ Package: amsthm 2020/05/29 v2.20.6
 \beamer@dima=\dimen292
 \beamer@dimb=\dimen293
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (/usr/local/texlive/2023/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2023/07/15 v3.92 The Babel package
+Package: babel 2023/09/29 v3.95 The Babel package
 \babel@savecnt=\count334
 \U@D=\dimen294
 \l@unhyphenated=\language87
  (/usr/local/texlive/2023/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
-LaTeX Info: Redefining \textlatin on input line 3944.
+LaTeX Info: Redefining \textlatin on input line 3947.
 \bbl@dirlevel=\count335
  (/usr/local/texlive/2023/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
@@ -722,17 +722,17 @@ File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarythrough.code.tex
 File: tikzlibrarythrough.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xfp/xfp.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2023-08-11 L3 programming layer (loader) 
+Package: expl3 2023-08-29 L3 programming layer (loader) 
  (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count355
 \l__pdf_internal_box=\box90
 ))
-Package: xfp 2023-02-02 L3 Floating point unit
+Package: xfp 2023-08-29 L3 Floating point unit
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/xpatch/xpatch.sty
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
  (/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2023-02-02 L3 Experimental document command parser
+Package: xparse 2023-08-29 L3 Experimental document command parser
 ))
 \tkzRadius=\dimen332
 \tkzLength=\dimen333
@@ -847,7 +847,7 @@ Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 \pgfopts@list@add@a@toks=\toks52
 \pgfopts@list@add@b@toks=\toks53
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2023/06/19 version 6.0.4 text color boxes
+Package: tcolorbox 2023/09/26 version 6.1.0 text color boxes
  (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks54
@@ -1291,38 +1291,31 @@ Package pdftex.def Info: logo.png  used on input line 113.
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 113.
+Package pdftex.def Info: logo.png  used on input line 140.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 140.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [4
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 140.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 140.
+Package pdftex.def Info: logo.png  used on input line 142.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [5
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 142.
+Package pdftex.def Info: logo.png  used on input line 169.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 169.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [6
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 169.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 169.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [7
 
 ]
 File: logo.png Graphic file (type png)
@@ -1349,230 +1342,158 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 237.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [7
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 249.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 249.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [8
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 237.
+Package pdftex.def Info: logo.png  used on input line 278.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 278.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [9
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 249.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 249.
+Package pdftex.def Info: logo.png  used on input line 280.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [10
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 249.
+Package pdftex.def Info: logo.png  used on input line 308.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [11
+
+Overfull \vbox (13.83383pt too high) detected at line 308
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 308.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[11
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 278.
+Package pdftex.def Info: logo.png  used on input line 326.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 278.
+Package pdftex.def Info: logo.png  used on input line 326.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [12
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 278.
+Package pdftex.def Info: logo.png  used on input line 352.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [13
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 352.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
+(Font)              scaled to size 10.95pt on input line 352.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 352.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
+(Font)              scaled to size 8.0pt on input line 352.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 352.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
+(Font)              scaled to size 6.0pt on input line 352.
 
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 278.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [14
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 280.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [15
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 308.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-
-Overfull \vbox (13.83383pt too high) detected at line 308
+Overfull \vbox (8.01093pt too high) detected at line 352
  []
 
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 308.
+Package pdftex.def Info: logo.png  used on input line 352.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[13
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 378.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+
+Overfull \vbox (7.5033pt too high) detected at line 378
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 378.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[14
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 416.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 416.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
+(Font)              scaled to size 9.0pt on input line 416.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 416.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
+(Font)              scaled to size 9.0pt on input line 416.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 416.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
+(Font)              scaled to size 5.0pt on input line 416.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 416.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
+(Font)              scaled to size 5.0pt on input line 416.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 416.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
+(Font)              scaled to size 9.0pt on input line 416.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
+(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 416.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
+(Font)              scaled to size 5.0pt on input line 416.
+
+Overfull \vbox (20.95424pt too high) detected at line 416
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 416.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[15
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 457.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+
+Overfull \vbox (9.39917pt too high) detected at line 457
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 457.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
 [16
-
-]
-Overfull \vbox (13.83383pt too high) detected at line 308
- []
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 308.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[17
-
-]
-Overfull \vbox (13.83383pt too high) detected at line 308
- []
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 308.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[18
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 326.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 326.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [19
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 326.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [20
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 326.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
- [21
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 351.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 351.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 10.95pt on input line 351.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 351.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 8.0pt on input line 351.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 351.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 6.0pt on input line 351.
-
-Overfull \vbox (8.01093pt too high) detected at line 351
- []
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 351.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[22
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 377.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-
-Overfull \vbox (7.5033pt too high) detected at line 377
- []
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 377.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[23
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 415.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 415.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 9.0pt on input line 415.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 415.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 9.0pt on input line 415.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/bold/n' on input line 415.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to size 5.0pt on input line 415.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 415.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 5.0pt on input line 415.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 415.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 9.0pt on input line 415.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/it' on input line 415.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
-(Font)              scaled to size 5.0pt on input line 415.
-
-Overfull \vbox (20.95424pt too high) detected at line 415
- []
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 415.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[24
-
-]
-Overfull \vbox (20.95424pt too high) detected at line 415
- []
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 415.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[25
-
-]
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 455.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-
-Overfull \vbox (9.39917pt too high) detected at line 455
- []
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 455.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[26
 
 ]
 \tf@nav=\write6
@@ -1593,18 +1514,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: BE33A5D1450E1C3F6E7A8EB061DCC139;244.
  ) 
 Here is how much of TeX's memory you used:
- 37581 strings out of 475189
- 796625 string characters out of 5763838
- 1954254 words of memory out of 5000000
- 57979 multiletter control sequences out of 15000+600000
+ 37575 strings out of 474934
+ 796734 string characters out of 5759817
+ 1955791 words of memory out of 5000000
+ 58248 multiletter control sequences out of 15000+600000
  807732 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,132p,1879b,1175s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Semibold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (26 pages, 706445 bytes).
+Output written on main.pdf (16 pages, 666123 bytes).
 PDF statistics:
- 262 PDF objects out of 1000 (max. 8388607)
- 192 compressed objects within 2 object streams
- 55 named destinations out of 1000 (max. 500000)
+ 204 PDF objects out of 1000 (max. 8388607)
+ 144 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
  87 words of extra memory for PDF output out of 10000 (max. 10000000)
 

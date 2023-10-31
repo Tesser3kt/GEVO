@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,svgnames]{beamer}
+\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -329,6 +329,7 @@
  \frametitle{Navigation}
  The Pythagorean Theorem is useful when calculating distances between points in
  the plane or in space.\\
+ \pause
  For example, to calculate the distance between $(1,2)$ and $(3,5)$, one sets up
  a right triangle like this:
  \begin{center}
@@ -396,9 +397,9 @@
    \node[below=0mm of z2,PolygonOrange] {\tiny $(3,0,3)$};
    \node[right=0mm of z1,PolygonOrange] {\tiny $(3,0,2)$};
    
-   \pic [draw=PolygonOrange,angle radius=3mm] {angle = z1--z2--x};
+   \pic [draw=PolygonOrange,angle radius=3.6mm] {angle = x--z1--z2};
    \pic [draw=black,angle radius=6mm] {angle = y--z2--x};
-   \node[circle,fill,inner sep=.5pt,PolygonOrange] at ($(z2) + (100:0.15)$) {};
+   \node[circle,fill,inner sep=.5pt,PolygonOrange] at ($(z1) + (200:0.2)$) {};
    \node[circle,fill,inner sep=.5pt] at ($(z2) + (130:0.3)$) {};
 
    \draw (x) to node[midway,xshift=-1mm,yshift=-2mm]{\footnotesize $\mathbf{x}$}
@@ -429,9 +430,9 @@
    \node[below=0mm of z2,PolygonOrange] {\tiny $(3,0,3)$};
    \node[right=0mm of z1,PolygonOrange] {\tiny $(3,0,2)$};
 
-   \pic [draw=PolygonOrange,angle radius=3mm] {angle = z1--z2--x};
+   \pic [draw=PolygonOrange,angle radius=3.6mm] {angle = x--z1--z2};
    \pic [draw=black,angle radius=6mm] {angle = y--z2--x};
-   \node[circle,fill,inner sep=.5pt,PolygonOrange] at ($(z2) + (100:0.15)$) {};
+   \node[circle,fill,inner sep=.5pt,PolygonOrange] at ($(z1) + (200:0.2)$) {};
    \node[circle,fill,inner sep=.5pt] at ($(z2) + (130:0.3)$) {};
 
    \draw (x) to node[midway,xshift=-1mm,yshift=-2mm]{\footnotesize $\mathbf{x}$}
@@ -440,7 +441,8 @@
    \draw[dashed,PolygonOrange] (x) to
     node[midway,PolygonOrange,yshift=2mm]{\footnotesize $\mathbf{2}$} (z1);
    \draw[dashed,PolygonOrange] (z1) to
-    node[midway,PolygonOrange,xshift=1mm,yshift=-1mm]{\footnotesize $\mathbf{1}$} (z2);
+    node[midway,PolygonOrange,xshift=1mm,yshift=-1mm]{\footnotesize
+    $\mathbf{1}$} (z2);
    \draw[thick,PolygonCyan] (x) to
     node[midway,PolygonCyan,xshift=-1mm,yshift=1mm]{\clc{\textbf{r}}} (y);
    
