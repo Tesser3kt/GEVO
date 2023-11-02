@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.2)  31 OCT 2023 10:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.6)  2 NOV 2023 21:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -543,13 +543,13 @@ Package: amsthm 2020/05/29 v2.20.6
 \beamer@dima=\dimen292
 \beamer@dimb=\dimen293
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (/usr/local/texlive/2023/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2023/09/29 v3.95 The Babel package
+Package: babel 2023/08/29 v3.93 The Babel package
 \babel@savecnt=\count334
 \U@D=\dimen294
 \l@unhyphenated=\language87
  (/usr/local/texlive/2023/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
-LaTeX Info: Redefining \textlatin on input line 3947.
+LaTeX Info: Redefining \textlatin on input line 3944.
 \bbl@dirlevel=\count335
  (/usr/local/texlive/2023/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
@@ -901,7 +901,7 @@ Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 \pgfopts@list@add@a@toks=\toks59
 \pgfopts@list@add@b@toks=\toks60
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2023/09/26 version 6.1.0 text color boxes
+Package: tcolorbox 2023/06/19 version 6.0.4 text color boxes
  (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks61
@@ -1698,42 +1698,96 @@ Package pdftex.def Info: logo.png  used on input line 1109.
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 1118.
+Package pdftex.def Info: logo.png  used on input line 1117.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<gardener_pie.png, id=257, 770.88pt x 501.875pt>
+<gardener_pie.png, id=257, 558.58687pt x 511.9125pt>
 File: gardener_pie.png Graphic file (type png)
 <use gardener_pie.png>
-Package pdftex.def Info: gardener_pie.png  used on input line 1118.
-(pdftex.def)             Requested size: 368.74272pt x 240.06253pt.
+Package pdftex.def Info: gardener_pie.png  used on input line 1117.
+(pdftex.def)             Requested size: 163.88426pt x 150.18489pt.
 
-Overfull \vbox (83.10591pt too high) detected at line 1118
+Overfull \vbox (4.17827pt too high) detected at line 1117
  []
 
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 1118.
+Package pdftex.def Info: logo.png  used on input line 1117.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
 [43
 
  <./gardener_pie.png>]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 1127.
+Package pdftex.def Info: logo.png  used on input line 1138.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 1127.
+Package pdftex.def Info: logo.png  used on input line 1138.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [44
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 1127.
+Package pdftex.def Info: logo.png  used on input line 1138.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
  [45
 
 ]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1146.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+<gardener_bar.png, id=275, 645.91313pt x 304.13625pt>
+File: gardener_bar.png Graphic file (type png)
+<use gardener_bar.png>
+Package pdftex.def Info: gardener_bar.png  used on input line 1146.
+(pdftex.def)             Requested size: 286.80058pt x 135.04086pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1146.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [46
+
+ <./gardener_bar.png>]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1166.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1166.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [47
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1166.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [48
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1174.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+<survey_hist.png, id=293, 1156.32pt x 650.43pt>
+File: survey_hist.png Graphic file (type png)
+<use survey_hist.png>
+Package pdftex.def Info: survey_hist.png  used on input line 1174.
+(pdftex.def)             Requested size: 286.80058pt x 161.31688pt.
+
+Overfull \vbox (15.21426pt too high) detected at line 1174
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1174.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[49
+
+ <./survey_hist.png>]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1752,18 +1806,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CE898D77C7923EE1C31F757CF2B126C6;380.
  ) 
 Here is how much of TeX's memory you used:
- 46551 strings out of 474934
- 1106398 string characters out of 5759817
- 1937791 words of memory out of 5000000
- 67054 multiletter control sequences out of 15000+600000
+ 46575 strings out of 474934
+ 1106731 string characters out of 5759818
+ 1937807 words of memory out of 5000000
+ 67070 multiletter control sequences out of 15000+600000
  695403 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,1879b,996s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Semibold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (45 pages, 403965 bytes).
+Output written on main.pdf (49 pages, 469053 bytes).
 PDF statistics:
- 344 PDF objects out of 1000 (max. 8388607)
- 264 compressed objects within 3 object streams
- 93 named destinations out of 1000 (max. 500000)
- 75 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 370 PDF objects out of 1000 (max. 8388607)
+ 282 compressed objects within 3 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 85 words of extra memory for PDF output out of 10000 (max. 10000000)
 
