@@ -1,8 +1,9 @@
-\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
+\documentclass[aspectratio=169,11pt,svgnames]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{enumitem}
+\setlist[itemize,1]{label=\textbullet}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{float}
@@ -149,7 +150,7 @@
   \pause
   \item The number $0$ is not the successor of any natural number.
   \pause
-  \item If $s(x) = s(y)$, then $x = y$.
+  \item If $s(n) = s(m)$, then $n = m$.
   \pause
   \item (Induction Axiom) If a statement is true for $0$ and it being true for
    $n$ also implies that it is true for $n + 1$, then it is true for all natural
@@ -169,7 +170,7 @@
   \Large There exists the natural number $0$.\\
   \pause
   \vspace{\parskip}
-  \normalsize\textcolor{gray!70}{Hopefully obvious.}
+  \normalsize\textcolor{Gray}{Hopefully obvious.}
  \end{center}
 \end{frame}
 
@@ -179,7 +180,7 @@
   \Large Every natural number has a successor which is also natural.\\
   \pause
   \vspace{\parskip}
-  \normalsize\textcolor{gray!70}{Basically means that the natural numbers are an
+  \normalsize\textcolor{Gray}{Basically means that the natural numbers are an
   infinite set. You can add another block atop any collection of blocks.}
  \end{center}
 \end{frame}
@@ -190,7 +191,7 @@
   \Large The number $0$ is not the successor of any natural number.\\
   \pause
   \vspace{\parskip}
-  \normalsize\textcolor{gray!70}{Basically means that the natural numbers are
+  \normalsize\textcolor{Gray}{Basically means that the natural numbers are
   infinite only `in one direction'. There is a \textbf{first} natural number.}
  \end{center}
 \end{frame}
@@ -198,10 +199,10 @@
 \begin{frame}
  \frametitle{Natural Numbers -- Axiom 4}
  \begin{center}
-  \Large If $s(x) = s(y)$, then $x = y$.\\
+  \Large If $s(n) = s(m)$, then $n = m$.\\
   \pause
   \vspace{\parskip}
-  \normalsize\textcolor{gray!70}{This means that the successor function is
+  \normalsize\textcolor{Gray}{This means that the successor function is
   \textbf{injective} -- each natural number has a different successor.}
  \end{center}
 \end{frame}
@@ -214,7 +215,7 @@
    numbers.\\
   \pause
   \vspace{\parskip}
-  \normalsize\textcolor{gray!70}{This means that any feature of the natural
+  \normalsize\textcolor{Gray}{This means that any feature of the natural
    numbers `propagates' via the successor function. Basically, if something is
    true for $0$ and we know that it is true for the next natural number if it is
    true for the previous one, then it is true for $1$ as well. Because it true
@@ -237,7 +238,7 @@
  natural numbers and produce \alert{one}.\\
  \pause
  We don't often see them as functions because we don't write them as such. We
- write $a + b$ instead of $+(a,b)$ and $a \cdot b$ instead of $ \cdot (a,b)$.\\
+ write $n + m$ instead of $+(n,m)$ and $n \cdot m$ instead of $ \cdot (n,m)$.\\
  \pause
  In this sense, subtraction and division \alert{are not operations}! They take
  two natural numbers but they \alert{do not produce a natural number}.
@@ -304,14 +305,14 @@
    \end{subfigure}
   \end{figure}
   \pause
-  Using the formula $n + s(m) = s(n + m)$, one calculates $a + b$ by taking the
-  successor of $a$ $b$ times.
+  Using the formula $n + s(m) = s(n + m)$, one calculates $n + m$ by taking the
+  successor of $n$, $m$ times.
   \pause
   Like this:
   \begin{align*}
-   a + 0 &= a,\\
-   a + 1 &= a + s(0) = s(a + 0) = s(a),\\
-   a + 2 &= a + s(1) = s(a + 1) = s(a + s(0)) = s(s(a + 0)) = s(s(a)),\\
+   n + 0 &= n,\\
+   n + 1 &= n + s(0) = s(n + 0) = s(n),\\
+   n + 2 &= n + s(1) = s(n + 1) = s(n + s(0)) = s(s(n + 0)) = s(s(n)),\\
    \vdots&
   \end{align*}
 \end{frame}
@@ -322,20 +323,20 @@
  \begin{itemize}[label=\textbullet]
   \item \alert{Commutativity}:
   \[
-   a + b = b + a.
+   n + m = m + n.
   \]
  \pause
  \item \alert{Associativity}:
  \[
-  a + (b + c) = (a + b) + c.
+  n + (m + k) = (n + m) + k.
  \]
  \end{itemize}
 \end{frame}
 
 \begin{frame}
  \frametitle{Addition -- Properties}
- Using blocks, \alert{commutativity} just means that putting $a$ blocks next to
- $b$ blocks is the same as putting $b$ blocks next to $a$ blocks.
+ Using blocks, \alert{commutativity} just means that putting $n$ blocks next to
+ $m$ blocks is the same as putting $m$ blocks next to $n$ blocks.
  \pause
  \begin{figure}[ht]
   \centering
@@ -367,9 +368,9 @@
 
 \begin{frame}
  \frametitle{Addition -- Properties}
- Using blocks, \alert{associativity} just means that putting $b$ blocks next to
- $c$ blocks and then $a$ more blocks next to those is the same as putting $b$
- blocks next to $a$ blocks and then $c$ more blocks next to those.
+ Using blocks, \alert{associativity} just means that putting $m$ blocks next to
+ $k$ blocks and then $n$ more blocks next to those is the same as putting $m$
+ blocks next to $n$ blocks and then $k$ more blocks next to those.
  \begin{figure}[ht]
   \centering
   \begin{subfigure}[b]{.2\textwidth}
@@ -406,6 +407,112 @@
    \end{tikzpicture}
   \end{subfigure}
  \end{figure}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Multiplication}
+ We define \alert{multiplication} on natural numbers by the following formulae:
+ \begin{itemize}
+  \item $m \cdot 1 = m$,
+  \pause
+  \item $m \cdot s(n) = m \cdot n + n$. 
+ \end{itemize}
+ \pause
+ We can imagine multiplication $m \cdot n$ by adding a collections of $n$ blocks
+ for every one block in the collection of $m$ blocks.\\
+ \pause
+ If we write $s(n) = n + 1$, then the second formula just means that
+ \[
+  m \cdot s(n) = m \cdot (n+1) = m \cdot n + n.
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{Multiplication}
+ \begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{.25\textwidth}
+   \begin{tikzpicture}
+    \node[Tiber] at (0,-0.3) {$2$};
+    \draw[draw=PictonBlue,thick,fill=Tiber] (-0.15,0) rectangle ++(.3,.3);
+    \draw[draw=PictonBlue,thick,fill=Tiber] (-0.15,0.4) rectangle ++(.3,.3);
+
+    \node[PictonBlue] at (0.7,-0.3) {$3$};
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.55,0) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.55,0.4) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.55,0.8) rectangle ++(.3,.3);
+   \end{tikzpicture}
+  \end{subfigure}
+  \pause
+  \begin{subfigure}[b]{.25\textwidth}
+   \begin{tikzpicture}
+    \draw[draw=PictonBlue,thick,fill=Tiber] (-0.15,0) rectangle ++(.3,.3);
+    \draw[draw=PictonBlue,thick,fill=Tiber] (-0.15,0.4) rectangle ++(.3,.3);
+
+    \node at (0.55,-0.4) {$\clt{2} \cdot s(\clp{3})$};
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0.4) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0.8) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,1.2) rectangle ++(.3,.3);
+
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.85,0) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.85,0.4) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.85,0.8) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.85,1.2) rectangle ++(.3,.3);
+   \end{tikzpicture}
+  \end{subfigure}
+  \pause
+  \begin{subfigure}[b]{.25\textwidth}
+   \begin{tikzpicture}
+    \draw[draw=PictonBlue,thick,fill=Tiber] (-0.15,0) rectangle ++(.3,.3);
+    \draw[draw=PictonBlue,thick,fill=Tiber] (-0.15,0.4) rectangle ++(.3,.3);
+
+    \node at (0.75,-0.4) {$\clt{2} \cdot \clp{3} + \clt{2}$};
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0.4) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0.8) rectangle ++(.3,.3);
+
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.85,0) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.85,0.4) rectangle ++(.3,.3);
+    \draw[draw=Tiber,thick,fill=PictonBlue] (0.85,0.8) rectangle ++(.3,.3);
+
+    \draw[draw=PictonBlue,thick,fill=Tiber] (1.35,0) rectangle ++(.3,.3);
+    \draw[draw=PictonBlue,thick,fill=Tiber] (1.35,0.4) rectangle ++(.3,.3);
+   \end{tikzpicture}
+  \end{subfigure}
+ \end{figure}
+ \pause
+ The formula $m \cdot s(n) = m \cdot n + n$ allows us to compute $m \cdot n$ by
+ applying it $n$ times.
+ \pause
+ More precisely,
+ \begin{align*}
+  m \cdot 1 &= m\\
+  m \cdot 2 &= m \cdot s(1) = m \cdot 1 + m = m + m\\
+  m \cdot 3 &= m \cdot s(2) = m \cdot 2 + m = m \cdot s(1) + m = m \cdot 1 + m +
+  m = m + m + m\\
+  \vdots&
+ \end{align*}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Multiplication -- Properties}
+ \begin{itemize}
+  \item \alert{Commutativity}:
+  \[
+   m \cdot n = n \cdot m.
+  \]
+ \pause
+ \item \alert{Associativity}:
+  \[
+   m \cdot (n \cdot k) = (m \cdot n) \cdot k.
+  \]
+ \pause
+ \item \alert{Distributivity}:
+  \[
+   m \cdot (n + k) = m \cdot n + m \cdot k.
+  \]
+ \end{itemize}
 \end{frame}
 
 \end{document}
