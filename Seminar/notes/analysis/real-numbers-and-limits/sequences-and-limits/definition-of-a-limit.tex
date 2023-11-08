@@ -3,7 +3,7 @@
 
 Koncept posloupnosti je, na rozdíl od limity, velmi triviální. Je to vlastně
 \uv{očíslovaná množina čísel}. Z každé množiny lze vyrobit posloupnost jejích
-prvků tím, že jim přiřkneme nějaké pořadí. Toto \emph{přiřčení} se nejsnadněji
+prvků tím, že jim přiřkneme nějaké pořadí. Tento \emph{přírok} se nejsnadněji
 definuje jako zobrazení z přirozených čísel -- to totiž přesně na každý prvek
 kodomény zobrazí jeho pořadí.
 
@@ -69,6 +69,75 @@ základem uvažování o nekonečnu.
  \]
 \end{definition}
 
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=0,xmax=10,ymin=0,ymax=3]
+  \foreach \n in {0,1,...,18} {
+   \tkzDefPoint(0.5 * (\n + 1),0){x\n}
+   \tkzDrawPoint[shape=cross](x\n)
+   \tkzLabelPoint[below,color=RoyalBlue](x\n){$\n$}
+  }
+  \foreach \y in {1,2,3,4,5,6} {
+   \tkzDefPoint(0,0.5 * \y){y\y}
+   \tkzDrawPoint[shape=cross](y\y)
+   \tkzLabelPoint[left,color=ForestGreen](y\y){$\y$}
+  }
+  \tkzDefPoint(0.5,2.8){a0}
+  \tkzDefPoint(1,0.9){a1}
+  \tkzDefPoint(1.5,2.3){a2}
+  \tkzDefPoint(2,1){a3}
+  \tkzDefPoint(2.5,1.1){a4}
+  \tkzDefPoint(3,0.3){a5}
+  \tkzDefPoint(3.5,2.4){a6}
+  \tkzDefPoint(4,1.2){a7}
+  \tkzDefPoint(4.5,3.2){a8}
+  \tkzDefPoint(5,2.6){a9}
+  \tkzDefPoint(5.5,1.9){a10}
+  \tkzDefPoint(6,2.4){a11}
+  \tkzDefPoint(6.5,2.2){a12}
+  \tkzDefPoint(7,1.9){a13}
+  \tkzDefPoint(7.5,2){a14}
+  \tkzDefPoint(8,1.8){a15}
+  \tkzDefPoint(8.5,2.05){a16}
+  \tkzDefPoint(9,1.95){a17}
+  \tkzDefPoint(9.5,1.85){a18}
+
+  \tkzDefPoint(0,1.9){O}
+  \tkzDefPoint(0,2.1){O1}
+  \tkzDefPoint(0,1.7){O2}
+  \tkzDefPoint(10.5,2.1){O3}
+  \tkzDefPoint(10.5,1.7){O4}
+  \tkzDrawPolygon[draw=none,fill=Fuchsia!10](O1,O3,O4,O2)
+  \tkzDrawX[>=latex,label={$\clb{n}$}]
+  \tkzDrawY[>=latex,label={$\clg{a_n}$}]
+
+  \tkzDrawLine[add=0 and 0.5,dashed,color=Fuchsia](O,a13)
+  \tkzDrawLine[add=0 and 0,color=Fuchsia](O1,O3)
+  \tkzDrawLine[add=0 and 0,color=Fuchsia](O2,O4)
+  \tkzDrawPoints[color=ForestGreen](a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18)
+
+  \draw [decorate,decoration={brace,amplitude=5pt},color=Fuchsia]
+   (O3) -- (O4) node [color=Fuchsia,midway,xshift=12pt] {$2\varepsilon$};
+  \tkzDefPoint(7,0.5){n0}
+  \tkzLabelPoint[below,color=BrickRed](n0){$n_0$}
+  \tkzDrawSegment[dashed,color=BrickRed](n0,a13)
+ \end{tikzpicture}
+
+ \caption{Konvergentní posloupnost. Zde pro $\clm{\varepsilon} = 0.1$ lze volit
+  například $\clr{n_0} = 13$. Vodorovná přímka procházející bodem
+  $a_{\clr{n_0}}$ je vlastně \uv{středem} pruhu o šíři $\clm{2\varepsilon}$, ve
+  kterém se nacházejí všechny členy posloupnosti s pořadím vyšším než $13$.}
+ \label{fig:konvergentni-posloupnost}
+\end{figure}
+
+\begin{remark}{}{absolutni-hodnota}
+ Radíme, aby se čtenáři sžili s intuitivním (přesto velmi přesným) ponětím
+ absolutní hodnoty $|x - y|$ jako \emph{vzdálenosti} mezi čísly $x$ a $y$. V
+ tomto smyslu je pak $|x| = |x - 0|$ vzdálenost čísla $x$ od čísla $0$, což
+ cele odpovídá definici tohoto symbolu.
+\end{remark}
+
 \begin{remark}{}{konvergence}
  Aplikujeme intuitivní vysvětlení \emph{zmenšování vzdálenosti} z odstavce nad
  \myref{definicí}{def:konvergentni-posloupnost} na jeho skutečnou definici.
@@ -102,7 +171,7 @@ přichází na řadu ona \emph{děravost} racionálních čísel. Může se toti
 příklady zde uvedeme, že limita racionální posloupnosti není racionální číslo.
 
 Učiňmež tedy dočasný obchvat a před samotnou definicí limity vyrobme reálná
-čísla jednou z~přehoušlí možných cest. 
+čísla jednou z~přehoušlí možných cest.
 
 Ať $\mathcal{C}(\Q)$ značí množinu všech \textbf{konvergentních }racionálních
 posloupností. Uvažme ekvivalenci $ \simeq $ na $\mathcal{C}(\Q)$ danou

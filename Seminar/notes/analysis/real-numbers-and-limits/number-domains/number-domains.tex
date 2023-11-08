@@ -18,24 +18,25 @@ trvalé zapomnění.
 
  Vyzýváme čtenáře, aby uvážili, že definovat \uv{operaci minus} na množině
  přirozených čísel, která vlastně není formálně operací, neboť funguje pouze
- tehdy, když je pravý argument větší nebo roven levému, není komutativní a není
+ tehdy, když je levý argument větší nebo roven pravému, není komutativní a není
  \textbf{ani asociativní}, byl by čin vskutku ohyzdný.
 
  Znak $-$ bude mít své místo až v celých číslech, kde však rovněž nebude operací
  (stále není asociativní), bude pouze značit inverz vzhledem k operaci $+$.
 \end{warning}
 
-Tuto situaci vylepšují čísla celá, která přidávají inverzy k operaci $+$ a
-tím tuto operaci symetrizují. Ovšem, operace $ \cdot $ si stále drží svůj
-deformační charakter. Podobně jako tomu bylo u přirozených čísel s operacemi $+$
-a $ \cdot $, v celých číslech operace $ \cdot $ rovněž není zvratná. Dostat se
-ze součinu $-2 \cdot 3$ zpět na číslo $-2$ je nemožné.
+Tuto situaci vylepšují čísla celá, která přidávají inverzy k operaci $+$ a tím
+ji symetrizují. Ovšem, operace $ \cdot $ si stále drží svůj deformační
+charakter. Podobně jako tomu bylo u přirozených čísel s~operacemi $+$ a $ \cdot
+$, v celých číslech operace $ \cdot $ rovněž není zvratná. Dostat se ze součinu
+$-2 \cdot 3$ zpět na číslo $-2$ je nemožné.
 
-Algebraicky nejdokonalejší jsou pak čísla racionální, která jsou již dokonale
+Algebraicky nejdokonalejší jsou pak čísla racionální, která jsou již cele
 symetrickou strukturou -- komutativním tělesem. Obě operace $+$ i $ \cdot $ jsou
 symetrické, zvratné prostřednictvím $-$ a $^{-1}$. Pozor! Podobně jako odčítání,
 ani dělení \textbf{není operace}. Výraz $p / q$ je pohodlným zápisem formálně
-korektního $pq^{-1}$ vyjadřujícího součin čísla $p$ s inverzem k číslu $q$.
+korektního $pq^{-1}$ vyjadřujícího součin čísla $p$ s multiplikativním inverzem
+k číslu $q$.
 
 Racionální čísla však stále mají, nikoli z algebraického, nýbrž z analytického
 pohledu, jednu podstatnou neduhu. Totiž, nerozumějí si dobře s pojmem
@@ -43,10 +44,28 @@ pohledu, jednu podstatnou neduhu. Totiž, nerozumějí si dobře s pojmem
 malé} díry nejsouce pročež vhodná při modelování fyzického světa, který jsme si
 lidé zvykli vnímat jako \emph{souvislý}. Tuto neduhu lze odstranit, a to
 konstrukcí čísel \emph{reálných}. Ta však nebude zdaleka tak jednoduchá jako
-konstrukce ostatních číselných oborů, neboť z principu věci dožaduje aparátu pro
-práci s nekonečně malými vzdálenostmi.
+konstrukce ostatních číselných oborů, neboť z principu věci dožaduje sobě
+aparátu pro práci s nekonečně malými vzdálenostmi.
 
-Nyní k samotným konstrukcím. Naší první výzvou je konstrukce množiny přirozených
+Vlastnosti číselných oborů (nebo korektněji, množin) shrnuje
+\myref{tabulka}{table:vlastnosti-ciselnych-mnozin}.
+
+\begin{table}[ht]
+ \centering
+ \begin{tabular}{cccc}
+  \textbf{Množina} & \textbf{Struktura} & \textbf{Operace (symetrická?)} &
+  \textbf{Díry}\\
+  \toprule
+  $\N$ & polookruh & $+$(ne), $ \cdot $(ne) & konstantní velikosti\\
+  $\Z$ & obor integrity & $+$(ano), $ \cdot $(ne) & konstantní velikosti\\
+  $\Q$ & komutativní těleso & $+$(ano), $ \cdot $(ano) & nekonečně malé\\
+  $\R$ & komutativní těleso & $+$(ano), $ \cdot $(ano) & pouze dvě ($-\infty$ a
+  $\infty$)
+ \end{tabular}
+ \caption{Vlastnosti číselných množin.}
+ \label{table:vlastnosti-ciselnych-mnozin}
+\end{table}
+Nyní k samotným konstrukcím. První výzvou je konstrukce množiny přirozených
 čísel $\N$. Stavebními kameny jsou množiny, tudíž přirozená čísla sama musejí
 být rovněž množiny. Existuje mnoho axiomatických systémů (z nich snad
 nejoblíbenější tzv.
@@ -71,6 +90,8 @@ teorie množin (speciálně z axiomu nekonečna), které zde však uvádět nech
   \{\emptyset,\{\emptyset\},\{\emptyset,\{\emptyset\}\}\} = \{0,1,2\},\\
   \vdots
  \end{align*}
+ Intuitivně pojato, číslo $n$ je definováno jako množina všech přirozených čísel
+ menších než ono samo, tedy $\{0,\ldots,n-1\}$.
 \end{definition}
 
 Na přirozených číslech lze definovat operace $+$ a $ \cdot $. Ukážeme si zběžně
@@ -266,7 +287,7 @@ Třídám ekvivalence dvojic přirozených čísel podle $ \sim _{\Z}$ budeme ř
   [(a,b)]_{ \sim _{\Z}} + [(b,a)]_{ \sim _{\Z}} = [(a+b,b+a)]_{ \sim _{\Z}} =
   [(0,0)]_{ \sim _{\Z}},
  \]
- kde předposlední rovnost platí, protože $+$ je komutativní. Čili, prvek
+ kde poslední rovnost platí, protože $+$ je komutativní. Čili, prvek
  $[(b,a)]_{ \sim _{\Z}}$ je inverzní k~prvku $[(a,b)]_{ \sim _{\Z}}$ vzhledem k
  $+$. Značíme ho $-[(a,b)]_{ \sim _{\Z}}$. Odtud plyne, že $(\Z,+,-,[(0,0)]_{
  \sim _{\Z}})$ je komutativní grupa, pročež je
@@ -281,8 +302,8 @@ zaráží. Zcela jistě to není ta \uv{obvyklá}. Ovšem, přechod od této ver
 čísel k té běžně užívané je zcela bezbolestný. Stačí se totiž dívat na třídy
 ekvivalence $[(a,b)]_{ \sim _{\Z}}$ jako na \uv{čísla} $a-b$. Ponecháváme na
 čtenáři, aby ověřil, že definice operací $+$ a $-$ v naší verzi $\Z$ odpovídají
-těm na celých číslech v jejich obvyklé podobě. My budeme této korespondence drze
-využívat bez varování a mluvit o oboru integrity $(\Z,+,-,0, \cdot ,1)$.
+těm na celých číslech v jejich zvyk ctící podobě. My budeme této korespondence
+drze využívat bez varování a mluvit o oboru integrity $(\Z,+,-,0, \cdot ,1)$.
 
 \begin{exercise}{Hrátky s celými čísly}{hratky-s-celymi-cisly}
  Množinou $\Z$ zde myslíme tu z \myref{definice}{def:cela-cisla}. Ověřte, že
@@ -313,7 +334,7 @@ využívat bez varování a mluvit o oboru integrity $(\Z,+,-,0, \cdot ,1)$.
  \end{enumerate}
 \end{exercise}
 
-Přechod od celých čísel k racionálním znamená definovat na celých číslech
+Přechod od celých čísel k racionálním obnáší definovat na celých číslech
 \uv{dělení} -- v algebraické hantýrce definovat inverz k operaci $ \cdot $ a
 učiniti tímť z oboru $(\Z,+,-,0, \cdot ,1)$ těleso. Ten je překvapivě snadný
 úkol a proces \uv{racionalizace}, nazývaný oficiálně \emph{lokalizace}, lze v
@@ -330,9 +351,10 @@ $a = nk$ a $b = nl$ pro vhodná $k,l \in \Z$, pak píšeme
 \[
  \frac{a}{b} = \frac{nk}{nl} = \frac{k}{l},
 \]
-ačkoli ve skutečnosti $a \neq k$ a $b \neq l$, čili rovnost výše nelze vejmout
-absolutně. Zlomek $a / b$ jsme totiž zvyklí vnímat jako třídu ekvivalence
-představující nějakou část celku. Tento pohled je snadné formalizovat.
+ačkoli ve skutečnosti $a \neq k$ a $b \neq l$, čili rovnost výše dlužno
+nevejmouti absolutně. Zlomek $a / b$ jsme totiž zvyklí vnímat jako třídu
+ekvivalence představující nějakou část celku. Tento pohled je snadné
+formalizovat.
 
 \begin{definition}{Racionální čísla}{racionalni-cisla}
  Definujme ekvivalenci $ \sim _{\Q}$ na dvojicích $\Z \times (\Z \setminus
@@ -357,7 +379,7 @@ představující nějakou část celku. Tento pohled je snadné formalizovat.
  \[
   (\Q,+,-,0, \cdot,^{-1},1)
  \]
- je těleso, kde jsme ztotožnili prvek $a / 1 \in \Q$ s prvkem $a \in \Z$.
+ je těleso, kde jsme ztotožnili prvky $a / 1 \in \Q$ s prvky $a \in \Z$.
 \end{definition}
 
 \begin{exercise}{Hrátky s racionálními čísly}{hratky-s-racionalnimi-cisly}
@@ -368,8 +390,8 @@ představující nějakou část celku. Tento pohled je snadné formalizovat.
 
 Konstrukce reálných čísel z racionálních je zcela jistě nejnáročnější úkol a
 nelze ho docílit čistě algebraicky. Potíž dlí už v samotné intuici. Totiž, jak
-jsme již zmiňovali, racionální čísla mají mezi sebou \uv{díry}. Formalizovat
-tento pojem však není přímočaré. Zatím nejlepší představu, kterou jsme schopni
+již zminiechom, racionální čísla mají mezi sebou \uv{díry}. Formalizovat tento
+pojem však není přímočaré. Zatím nejlepší představu, kterou jsme schopni
 nastínit, je ta, že \uv{racionální úsečka} je \uv{tečkovaná} -- každému jejímu
 bodu mohu přiřadit nějaké přirozené číslo. To znamená, že každé její dva body
 jsou od sebe vzdáleny, neboť je dokáži od sebe rozlišit dost na to, abych jim
