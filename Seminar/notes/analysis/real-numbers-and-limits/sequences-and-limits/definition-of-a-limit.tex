@@ -124,7 +124,7 @@ základem uvažování o nekonečnu.
   \tkzDrawSegment[dashed,color=BrickRed](n0,a13)
  \end{tikzpicture}
 
- \caption{Konvergentní posloupnost. Zde pro $\clm{\varepsilon} = 0.1$ lze volit
+ \caption{Konvergentní posloupnost. Zde pro $\clm{\varepsilon} = 0.2$ lze volit
   například $\clr{n_0} = 13$. Vodorovná přímka procházející bodem
   $a_{\clr{n_0}}$ je vlastně \uv{středem} pruhu o šíři $\clm{2\varepsilon}$, ve
   kterém se nacházejí všechny členy posloupnosti s pořadím vyšším než $13$.}
@@ -173,7 +173,7 @@ příklady zde uvedeme, že limita racionální posloupnosti není racionální 
 Učiňmež tedy dočasný obchvat a před samotnou definicí limity vyrobme reálná
 čísla jednou z~přehoušlí možných cest.
 
-Ať $\mathcal{C}(\Q)$ značí množinu všech \textbf{konvergentních }racionálních
+Ať $\mathcal{C}(\Q)$ značí množinu všech \textbf{konvergentních} racionálních
 posloupností. Uvažme ekvivalenci $ \simeq $ na $\mathcal{C}(\Q)$ danou
 \[
  a \simeq b \overset{\text{def}}{\iff} \forall \varepsilon>0 \; \exists n_0 \in \N
@@ -181,13 +181,13 @@ posloupností. Uvažme ekvivalenci $ \simeq $ na $\mathcal{C}(\Q)$ danou
 \]
 Přeloženo do člověčtiny, $a \simeq b$, právě když se rozdíl mezi prvky těchto
 posloupností se stejným pořadím neustále zmenšuje -- řekli bychom, že se
-\emph{blíží k nule}. V rámci naší (zatím intuitivní) představy, že konvergentní
+\emph{blíží k nule}. V rámci (zatím intuitivní) představy, že konvergentní
 posloupnosti se blíží k nějakému bodu, dává smysl ztotožňovat posloupnosti,
 které se blíží k bodu \emph{stejnému} -- stav, který vyjadřujeme tak, že se
 jejich rozdíl blíží k nule.
 
 Ve výsledku budeme definovat reálná čísla jako limity všech možných
-konvergentních racionálních posloupností. Ježto však pozbýváme aparátu, abychom
+konvergentních racionálních posloupností. Pozbývajíce leč aparátu, bychom
 koncepty limity a konvergence stmelili v~jeden, jsme nuceni učinit mezikrok.
 
 \begin{definition}{Reálná čísla}{realna-cisla}
@@ -213,3 +213,68 @@ Významný rozdíl odpočívá pouze v předpokladu existence \emph{cílového b
 
  Fakt, že $L \in \R$ je limitou $a$ značíme jako $\lim_{} a = L$.
 \end{definition}
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=0,xmax=10,ymin=0,ymax=3]
+  \foreach \n in {0,1,...,18} {
+   \tkzDefPoint(0.5 * (\n + 1),0){x\n}
+   \tkzDrawPoint[shape=cross](x\n)
+   \tkzLabelPoint[below,color=RoyalBlue](x\n){$\n$}
+  }
+  \foreach \y in {1,2,3,4,5,6} {
+   \tkzDefPoint(0,0.5 * \y){y\y}
+   \tkzDrawPoint[shape=cross](y\y)
+   \tkzLabelPoint[left,color=ForestGreen](y\y){$\y$}
+  }
+  \tkzDefPoint(0.5,2.8){a0}
+  \tkzDefPoint(1,0.9){a1}
+  \tkzDefPoint(1.5,2.3){a2}
+  \tkzDefPoint(2,1){a3}
+  \tkzDefPoint(2.5,1.1){a4}
+  \tkzDefPoint(3,0.3){a5}
+  \tkzDefPoint(3.5,2.4){a6}
+  \tkzDefPoint(4,1.2){a7}
+  \tkzDefPoint(4.5,3.2){a8}
+  \tkzDefPoint(5,2.6){a9}
+  \tkzDefPoint(5.5,1.9){a10}
+  \tkzDefPoint(6,2.4){a11}
+  \tkzDefPoint(6.5,2.2){a12}
+  \tkzDefPoint(7,1.9){a13}
+  \tkzDefPoint(7.5,2){a14}
+  \tkzDefPoint(8,1.8){a15}
+  \tkzDefPoint(8.5,2.05){a16}
+  \tkzDefPoint(9,1.95){a17}
+  \tkzDefPoint(9.5,1.85){a18}
+
+  \tkzDefPoint(0,1.9){O}
+  \tkzDefPoint(0.5,1.9){P}
+  \tkzDefPoint(0,2.3){O1}
+  \tkzDefPoint(0,1.5){O2}
+  \tkzDefPoint(10.5,2.3){O3}
+  \tkzDefPoint(10.5,1.5){O4}
+  \tkzDrawPolygon[draw=none,fill=Fuchsia!10](O1,O3,O4,O2)
+  \tkzDrawX[>=latex,label={$\clb{n}$}]
+  \tkzDrawY[>=latex,label={$\clg{a_n}$}]
+
+  \tkzDrawLine[add=0 and 0.55,dashed,color=Red,thick](P,a13)
+  \tkzDrawLine[add=0 and 0,color=Fuchsia](O1,O3)
+  \tkzDrawLine[add=0 and 0,color=Fuchsia](O2,O4)
+  \tkzDrawPoints[color=ForestGreen](a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18)
+  \tkzDrawPoint[size=4,color=BrickRed](O)
+  \tkzLabelPoint[right,color=BrickRed](O){$L$}
+
+  \draw [decorate,decoration={brace,amplitude=5pt},color=Fuchsia]
+   (O3) -- (O4) node [color=Fuchsia,midway,xshift=12pt] {$2\varepsilon$};
+  \tkzDefPoint(5.5,0.5){n0}
+  \tkzLabelPoint[below,color=BrickRed](n0){$n_0$}
+  \tkzDrawSegment[dashed,color=BrickRed](n0,a10)
+ \end{tikzpicture}
+
+ \caption{Posloupnost s limitou $\clr{L}$. Zde pro $\clm{\varepsilon} = 0.4$ lze
+  volit například $\clr{n_0} = 10$. Vodorovná přímka procházející bodem
+  $\clr{L}$ je vlastně \uv{středem} pruhu o šíři $\clm{2\varepsilon}$, ve kterém
+  se nacházejí všechny členy posloupnosti s pořadím vyšším než $10$.}
+ \label{fig:konvergentni-posloupnost}
+\end{figure}
