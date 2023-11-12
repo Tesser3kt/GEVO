@@ -1,0 +1,87 @@
+\section{Poznatky o limitách posloupností}
+\label{sec:poznatky-o-limitach-posloupnosti}
+
+Účelem této sekce je shrnout základní poznatky o limitách posloupností, jež
+umožní čtenářům limity konkrétních posloupností efektivně počítat a navíc
+široké jejich použití v následujících kapitolách.
+
+Začneme jedním z nejdůležitějších a dle našeho názoru též nejkrásnějších
+výsledků -- tzv. Bolzano\-vou-Weierstraßovou větou. Ta tvrdí v podstatě toto:
+mám-li omezenou posloupnost, pak z ní již umím vybrat nekonečně mnoho prvků,
+které tvoří posloupnost \emph{konvergentní}.
+
+Ona krása takového tvrzení spočívá v principu, kterým se podrobně zabývá
+kombinatorická disciplína zvaná
+\href{https://en.wikipedia.org/wiki/Ramsey_theory}{Ramseyho teorie}; v principu,
+že v téměř libovolně chaotické struktuře lze nalézt řád, jakmile jest tato
+dostatečně velká. Nejedná se jistě o čistě matematický princip, nýbrž dost možná
+o princip vzniku vesmíru a života, popsaný již starým Aristotelem ve výmluvném
+výroku, \uv{Celek je více než součet svých částí.} V mnoha zpytech se tomuto
+jevu přezdívá
+\href{https://www.sciencedirect.com/topics/computer-science/emergent-behavior}{Emergent
+Behavior} a představuje stav, kdy chování systému nelze plně popsat pouze
+studiem jeho jednotlivých prvků.
+
+\subsection{Bolzanova-Weierstraßova věta a rozšířená reálná osa}
+\label{ssec:bolzanova-weierstrassova-veta}
+
+Pro důkaz Bolzanovy-Weierstraßovy věty potřebujeme jedné pomocné konstrukce,
+tzv. \emph{systému vnořených intervalů}. Nejprve si však pořádně definujeme
+samotný pojem \emph{intervalu}. K tomu se nám bude hodit rozšířit množinu
+reálných čísel o prvky $-\infty$ a $\infty$.
+
+\begin{definition}{Rozšířená reálná osa}{rozsirena-realna-osa}
+ Definujme množinu $\R^{*} \coloneqq \R \cup \{-\infty,\infty\}$, kde $\infty$,
+ resp. $-\infty$, je z definice prvek takový, že $\infty \geq x$, resp.
+ $-\infty \leq x$, pro každé $x \in \R$. Množině $\R^{*}$ budeme někdy říkat
+ \emph{rozšířená reálná osa}. Rozšíříme rovněž operace $+$ a $ \cdot $ na prvky
+ $\infty$ a $-\infty$ následovně.
+ \begin{align*}
+  \infty + a = a + \infty = \infty,& \quad \text{pro }a \in \R \cup
+  \{\infty\},\\
+  -\infty + a = a + (-\infty) = -\infty,& \quad \text{pro }a \in \R \cup
+  \{-\infty\},\\
+  \infty \cdot a = a \cdot \infty = \infty,& \quad \text{pro }a > 0 \text{ nebo
+  }a = \infty,\\
+  \infty \cdot a = a \cdot \infty = -\infty,& \quad \text{pro }a < 0 \text{ nebo
+  }a = -\infty,\\
+  -\infty \cdot a = a \cdot (-\infty) = -\infty,& \quad \text{pro }a > 0 \text{
+  nebo }a = \infty,\\
+  -\infty \cdot a = a \cdot (-\infty) = \infty,& \quad \text{pro }a < 0 \text{
+  nebo }a = -\infty,\\
+  a \cdot \infty^{-1} = a \cdot (-\infty)^{-1} = 0,& \quad \text{pro }a \in \R.
+ \end{align*}
+\end{definition}
+
+\begin{warning}{}{pocitacni-s-nekonecnem}
+ \myref{Definice}{def:rozsirena-realna-osa} stručně řečeno říká, že se s prvky
+ $\infty$ a $-\infty$ zachází podobně jako s ostatními reálnými čísly. Ovšem,
+ následující operace zůstávají nedefinovány.
+ \[
+  \infty + (-\infty), -\infty + \infty, \pm \infty \cdot 0, 0 \cdot ( \pm
+  \infty), ( \pm \infty) \cdot ( \pm \infty)^{-1}.
+ \]
+\end{warning}
+
+Čtenáři možná zpozorovali, že jsme při své
+\hyperref[def:limita-posloupnosti]{definici limity} nerozlišili mezi
+posloupnostmi, které nemají limitu, protože jejich prvky \uv{skáčou sem a tam},
+a posloupnostmi, které ji nemají naopak pro to, že \uv{stále klesají či
+stoupají}. Pro další studium záhodno se tohoto nedostatku zlišit.
+
+\begin{definition}{Limita v nekonečnu}{limita-v-nekonecnu}
+ Ať $x:\N \to \R$ je reálná posloupnost. Řekneme, že $x$ má limitu $\infty$,
+ resp. $-\infty$, když pro každé $K > 0, K \in \R$, existuje $n_0 \in \N$
+ takové, že pro všechna $n \geq n_0$ platí $x_n > K$, resp. $x_n < -K$. Píšeme
+ $\lim_{} x = \infty$, resp. $\lim_{} x = -\infty$.
+\end{definition}
+
+\begin{definition}{Maximum a minimum}{maximum-a-minimum}
+ Ať $X \subseteq \R$ je množina. Řekneme, že prvek $M \in X$, resp. $m \in X$,
+ je \emph{maximem}, resp. \emph{minimem}, množiny $X$, když pro každé $x \in X$
+ platí $x \leq M$, resp. $x \geq m$. Píšeme $M = \max X$, resp. $m = \min X$.
+\end{definition}
+
+\begin{definition}{Horní a dolní závora}{horni-a-dolni-zavora}
+ Ať $X \subseteq \R$ je množina. 
+\end{definition}

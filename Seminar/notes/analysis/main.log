@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.11)  12 NOV 2023 16:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.9)  12 NOV 2023 21:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -228,8 +228,8 @@ Package ntheorem Info: option `amsmath' handling for `thmmarks' loaded on input 
 \thm@amstmpdepth=\dimen173
 \tagwidth=\dimen174
 ) (/opt/texlive/2023/texmf-dist/tex/latex/newtx/newtx.sty
-Package: newtx 2023/11/05 v1.732(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
- `newtx'v1.732, 2023/11/05 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/opt/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
+Package: newtx 2023/09/14 v1.725(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
+ `newtx'v1.725, 2023/09/14 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/opt/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/opt/texlive/2023/texmf-dist/tex/latex/fontaxes/fontaxes.sty
 Package: fontaxes 2020/07/21 v1.0e Font selection axes
@@ -277,8 +277,8 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 
 IV
 (/opt/texlive/2023/texmf-dist/tex/latex/newtx/newtxmath.sty
-Package: newtxmath 2023/11/05 v1.732
- `newtxmath' v1.732, 2023/11/05 Math macros based originally on txfonts (msharpe) (/opt/texlive/2023/texmf-dist/tex/latex/oberdiek/centernot.sty
+Package: newtxmath 2023/09/14 v1.725
+ `newtxmath' v1.725, 2023/09/14 Math macros based originally on txfonts (msharpe) (/opt/texlive/2023/texmf-dist/tex/latex/oberdiek/centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
 \tx@cntz=\count289
@@ -290,113 +290,113 @@ Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 \tx@su=\read3
 
 amsthm NOT loaded
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 391.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 389.
 LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 391.
+(Font)              `operators' in the math version `normal' on input line 389.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> T1/MinLibertinus/m/n on input line 391.
+(Font)                  OT1/cmr/m/n --> T1/MinLibertinus/m/n on input line 389.
 LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 391.
+(Font)              `operators' in the math version `bold' on input line 389.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/m/n on input line 391.
+(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/m/n on input line 389.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  T1/MinLibertinus/m/n --> T1/MinLibertinus/b/n on input line 392.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 398.
+(Font)                  T1/MinLibertinus/m/n --> T1/MinLibertinus/b/n on input line 390.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 396.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 398.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 396.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 398.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 399.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 396.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 397.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/MinLibertinus/m/it on input line 399.
+(Font)                  OT1/cmr/m/it --> T1/MinLibertinus/m/it on input line 397.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/MinLibertinus/m/it on input line 399.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 400.
+(Font)                  OT1/cmr/bx/it --> T1/MinLibertinus/m/it on input line 397.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 398.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 400.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 398.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 400.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 402.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 398.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 400.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/b/n on input line 402.
+(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/b/n on input line 400.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/b/n on input line 402.
+(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/b/n on input line 400.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/MinLibertinus/m/it --> T1/MinLibertinus/b/it on input line 403.
+(Font)                  T1/MinLibertinus/m/it --> T1/MinLibertinus/b/it on input line 401.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 404.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 402.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 405.
-LaTeX Font Info:    Redeclaring symbol font `letters' on input line 423.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 403.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 421.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/cmm/m/it --> OML/nxlmi/m/it on input line 423.
+(Font)                  OML/cmm/m/it --> OML/nxlmi/m/it on input line 421.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/cmm/b/it --> OML/nxlmi/m/it on input line 423.
+(Font)                  OML/cmm/b/it --> OML/nxlmi/m/it on input line 421.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/nxlmi/m/it --> OML/nxlmi/b/it on input line 424.
+(Font)                  OML/nxlmi/m/it --> OML/nxlmi/b/it on input line 422.
 \symlettersA=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `lettersA' in version `bold'
-(Font)                  U/ntxmia/m/it --> U/ntxmia/b/it on input line 563.
+(Font)                  U/ntxmia/m/it --> U/ntxmia/b/it on input line 561.
 Now handling font encoding LMS ...
 ... no UTF-8 mapping file for font encoding LMS
-LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 584.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 582.
 LaTeX Font Info:    Encoding `OMS' has changed to `LMS' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 584.
+(Font)              `symbols' in the math version `normal' on input line 582.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> LMS/ntxsy/m/n on input line 584.
+(Font)                  OMS/cmsy/m/n --> LMS/ntxsy/m/n on input line 582.
 LaTeX Font Info:    Encoding `OMS' has changed to `LMS' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 584.
+(Font)              `symbols' in the math version `bold' on input line 582.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> LMS/ntxsy/m/n on input line 584.
+(Font)                  OMS/cmsy/b/n --> LMS/ntxsy/m/n on input line 582.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  LMS/ntxsy/m/n --> LMS/ntxsy/b/n on input line 585.
+(Font)                  LMS/ntxsy/m/n --> LMS/ntxsy/b/n on input line 583.
 \symAMSm=\mathgroup5
 LaTeX Font Info:    Overwriting symbol font `AMSm' in version `bold'
-(Font)                  U/ntxsym/m/n --> U/ntxsym/b/n on input line 610.
+(Font)                  U/ntxsym/m/n --> U/ntxsym/b/n on input line 608.
 \symsymbolsC=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `symbolsC' in version `bold'
-(Font)                  U/ntxsyc/m/n --> U/ntxsyc/b/n on input line 631.
+(Font)                  U/ntxsyc/m/n --> U/ntxsyc/b/n on input line 629.
 Now handling font encoding LMX ...
 ... no UTF-8 mapping file for font encoding LMX
-LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 644.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 642.
 LaTeX Font Info:    Encoding `OMX' has changed to `LMX' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 644.
+(Font)              `largesymbols' in the math version `normal' on input line 642.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> LMX/ntxexx/m/n on input line 644.
+(Font)                  OMX/cmex/m/n --> LMX/ntxexx/m/n on input line 642.
 LaTeX Font Info:    Encoding `OMX' has changed to `LMX' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 644.
+(Font)              `largesymbols' in the math version `bold' on input line 642.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> LMX/ntxexx/m/n on input line 644.
+(Font)                  OMX/cmex/m/n --> LMX/ntxexx/m/n on input line 642.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  LMX/ntxexx/m/n --> LMX/ntxexx/b/n on input line 645.
+(Font)                  LMX/ntxexx/m/n --> LMX/ntxexx/b/n on input line 643.
 \symlargesymbolsTXA=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `largesymbolsTXA' in version `bold'
-(Font)                  U/ntxexa/m/n --> U/ntxexa/b/n on input line 659.
+(Font)                  U/ntxexa/m/n --> U/ntxexa/b/n on input line 657.
 \tx@sbptoks=\toks48
-LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 882.
-LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 883.
-LaTeX Font Info:    Redeclaring math delimiter \lceil on input line 884.
-LaTeX Font Info:    Redeclaring math delimiter \rceil on input line 885.
-LaTeX Font Info:    Redeclaring math delimiter \lbrace on input line 890.
-LaTeX Font Info:    Redeclaring math delimiter \rbrace on input line 891.
-LaTeX Font Info:    Redeclaring math delimiter \langle on input line 893.
-LaTeX Font Info:    Redeclaring math delimiter \rangle on input line 895.
-LaTeX Font Info:    Redeclaring math delimiter \arrowvert on input line 899.
-LaTeX Font Info:    Redeclaring math delimiter \vert on input line 900.
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 946.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 971.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 972.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 988.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 989.
-LaTeX Font Info:    Redeclaring math accent \check on input line 990.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 991.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 992.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 993.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 994.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 995.
-LaTeX Font Info:    Redeclaring math accent \vec on input line 2045.
-LaTeX Info: Redefining \Bbbk on input line 2835.
-LaTeX Info: Redefining \not on input line 2983.
+LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 880.
+LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 881.
+LaTeX Font Info:    Redeclaring math delimiter \lceil on input line 882.
+LaTeX Font Info:    Redeclaring math delimiter \rceil on input line 883.
+LaTeX Font Info:    Redeclaring math delimiter \lbrace on input line 884.
+LaTeX Font Info:    Redeclaring math delimiter \rbrace on input line 885.
+LaTeX Font Info:    Redeclaring math delimiter \langle on input line 886.
+LaTeX Font Info:    Redeclaring math delimiter \rangle on input line 888.
+LaTeX Font Info:    Redeclaring math delimiter \arrowvert on input line 892.
+LaTeX Font Info:    Redeclaring math delimiter \vert on input line 893.
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 939.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 964.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 965.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 981.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 982.
+LaTeX Font Info:    Redeclaring math accent \check on input line 983.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 984.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 985.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 986.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 987.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 988.
+LaTeX Font Info:    Redeclaring math accent \vec on input line 2035.
+LaTeX Info: Redefining \Bbbk on input line 2825.
+LaTeX Info: Redefining \not on input line 2973.
 ) (/opt/texlive/2023/texmf-dist/tex/latex/libertine/libertine.sty
 Package: libertine 2022/09/12 (Bob Tennent) Supports Libertine and Biolinum fonts for all LaTeX engines.
  (/opt/texlive/2023/texmf-dist/tex/generic/iftex/ifxetex.sty
@@ -703,7 +703,7 @@ File: tikzlibrarythrough.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/opt/texlive/2023/texmf-dist/tex/latex/l3packages/xfp/xfp.sty (/opt/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2023-11-01 L3 programming layer (loader) 
  (/opt/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-11-04 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2023-10-23 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count316
 \l__pdf_internal_box=\box70
 ))
@@ -827,7 +827,7 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@dima=\skip76
 \bigstrutjot=\dimen334
 ) (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2023-11-09 v7.01f Hypertext links for LaTeX
+Package: hyperref 2023-10-27 v7.01d Hypertext links for LaTeX
  (/opt/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
@@ -851,7 +851,7 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2023-11-09 v2.55 Cross-referencing by name of section
+Package: nameref 2023-10-05 v2.54 Cross-referencing by name of section
  (/opt/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
@@ -865,7 +865,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 \Hy@linkcounter=\count324
 \Hy@pagecounter=\count325
  (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2023-11-09 v7.01f Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2023-10-27 v7.01d Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (/opt/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -873,23 +873,23 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count326
  (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2023-11-09 v7.01f Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2023-10-27 v7.01d Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4171.
-Package hyperref Info: Link nesting OFF on input line 4176.
-Package hyperref Info: Hyper index ON on input line 4179.
-Package hyperref Info: Plain pages OFF on input line 4186.
-Package hyperref Info: Backreferencing OFF on input line 4191.
+Package hyperref Info: Hyper figures OFF on input line 4168.
+Package hyperref Info: Link nesting OFF on input line 4173.
+Package hyperref Info: Hyper index ON on input line 4176.
+Package hyperref Info: Plain pages OFF on input line 4183.
+Package hyperref Info: Backreferencing OFF on input line 4188.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4438.
+Package hyperref Info: Bookmarks ON on input line 4435.
 \c@Hy@tempcnt=\count327
  (/opt/texlive/2023/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4776.
+LaTeX Info: Redefining \url on input line 4773.
 \XeTeXLinkMargin=\dimen336
  (/opt/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -899,13 +899,13 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 \Fld@menulength=\count328
 \Field@Width=\dimen337
 \Fld@charsize=\dimen338
-Package hyperref Info: Hyper figures OFF on input line 6055.
-Package hyperref Info: Link nesting OFF on input line 6060.
-Package hyperref Info: Hyper index ON on input line 6063.
-Package hyperref Info: backreferencing OFF on input line 6070.
-Package hyperref Info: Link coloring OFF on input line 6075.
-Package hyperref Info: Link coloring with OCG OFF on input line 6080.
-Package hyperref Info: PDF/A mode OFF on input line 6085.
+Package hyperref Info: Hyper figures OFF on input line 6052.
+Package hyperref Info: Link nesting OFF on input line 6057.
+Package hyperref Info: Hyper index ON on input line 6060.
+Package hyperref Info: backreferencing OFF on input line 6067.
+Package hyperref Info: Link coloring OFF on input line 6072.
+Package hyperref Info: Link coloring with OCG OFF on input line 6077.
+Package hyperref Info: PDF/A mode OFF on input line 6082.
  (/opt/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
@@ -916,7 +916,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2023-11-09 v7.01f Hyperref driver for pdfTeX
+File: hpdftex.def 2023-10-27 v7.01d Hyperref driver for pdfTeX
  (/opt/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -1106,11 +1106,7 @@ File: T1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for T1/Lin
 )
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 10.95pt on input line 4.
- (./main.aux
-
-LaTeX Warning: Label `fig:konvergentni-posloupnost' multiply defined.
-
-)
+ (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 4.
@@ -1224,7 +1220,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 6.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 17.28pt on input line 6.
-<moebius.png, id=79, 869.2475pt x 524.96124pt>
+<moebius.png, id=71, 869.2475pt x 524.96124pt>
 File: moebius.png Graphic file (type png)
 <use moebius.png>
 Package pdftex.def Info: moebius.png  used on input line 7.
@@ -1329,9 +1325,9 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 ]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 20.74pt on input line 1.
- [7] [8] (./real-numbers-and-limits/number-domains.tex
+ [7] [8] (./real-numbers-and-limits/sequences-and-limits.tex
 Kapitola 1.
-(./real-numbers-and-limits/number-domains/algebraic-structures.tex
+(./real-numbers-and-limits/sequences-and-limits/definition-of-a-limit.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
@@ -1339,213 +1335,69 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 18.
+(Font)              scaled to size 10.95pt on input line 10.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 18.
-LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 21.
+(Font)              scaled to size 10.95pt on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
+ (/opt/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+LaTeX Warning: Hyper reference `def:prirozena-cisla' on page 9 undefined on input line 27.
+
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 31.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 6.1pt on input line 31.
+[9
+
+{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_75t36g.enc}] [10] [11]) (./real-numbers-and-limits/sequences-and-limits/limits-of-convergent.tex
+Package hyperref Info: bookmark level for unknown lemproof defaults to 0 on input line 15.
+ [12] [13]
+LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 135.
  (/opt/texlive/2023/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
 File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 21.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
-(Font)              scaled to size 10.95pt on input line 28.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
-(Font)              scaled to size 8.0pt on input line 28.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
-(Font)              scaled to size 6.1pt on input line 28.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9
-
-{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_75t36g.enc}]
-LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
- (/opt/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for U+dsrom on input line 54.
- (/opt/texlive/2023/texmf-dist/tex/latex/doublestroke/Udsrom.fd
-File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-)
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 135.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
-(Font)              scaled to size 10.0pt on input line 135.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
-(Font)              scaled to size 7.3pt on input line 135.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
-(Font)              scaled to size 5.5pt on input line 135.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 10.0pt on input line 135.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 7.3pt on input line 135.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 5.5pt on input line 135.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.0pt on input line 135.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.3pt on input line 135.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.5pt on input line 135.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 135.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 135.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 135.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
-(Font)              scaled to size 10.0pt on input line 135.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
-(Font)              scaled to size 7.3pt on input line 135.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
-(Font)              scaled to size 5.5pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.0pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.3pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.5pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.3pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.5pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.3pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.5pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.0pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.3pt on input line 135.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.5pt on input line 135.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 135.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 135.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_sfissr.enc}] [11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 377.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.1pt on input line 377.
- [13]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14]) (./real-numbers-and-limits/number-domains/number-domains.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15] [16] [17]
-LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
-(Font)              scaled to size 14.4pt on input line 221.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
-(Font)              scaled to size 10.5pt on input line 221.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
-(Font)              scaled to size 7.9pt on input line 221.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 14.4pt on input line 221.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 10.5pt on input line 221.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 7.9pt on input line 221.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 14.4pt on input line 221.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.5pt on input line 221.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.9pt on input line 221.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 14.4pt on input line 221.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.5pt on input line 221.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.9pt on input line 221.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
-(Font)              scaled to size 14.4pt on input line 221.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
-(Font)              scaled to size 10.5pt on input line 221.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
-(Font)              scaled to size 7.9pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 14.4pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.5pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.9pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 14.4pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.5pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.9pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 14.4pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.5pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.9pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 14.4pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.5pt on input line 221.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.9pt on input line 221.
- [18] [19] [20])) (./real-numbers-and-limits/sequences-and-limits.tex [21] [22
-
-]
-Kapitola 2.
-(./real-numbers-and-limits/sequences-and-limits/definition-of-a-limit.tex [23] [24] [25]) (./real-numbers-and-limits/sequences-and-limits/limits-of-convergent.tex
-Package hyperref Info: bookmark level for unknown lemproof defaults to 0 on input line 15.
- [26] [27] [28]
+(Font)              scaled to size 10.95pt on input line 135.
+ [14{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 227.
- [29] [30]
+ [15] [16]
 Package hyperref Info: bookmark level for unknown propproof defaults to 0 on input line 310.
 Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 334.
 
 Underfull \vbox (badness 2351) has occurred while \output is active []
 
- [31]))) (./exercises.tex [32] [33
-
-])
+ [17]) (./real-numbers-and-limits/sequences-and-limits/limit-theorems.tex [18] [19])))
 \tf@thm=\write6
 \openout6 = `main.thm'.
 
- [34] (./main.aux)
+ [20] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2020/03/25>
  ***********
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1EEB2E00FEFBD4768B9EF116B64A71B1;1662.
+(rerunfilecheck)             Checksum: 480704114A538A567F307F681FF4069E;1640.
  ) 
 Here is how much of TeX's memory you used:
- 42927 strings out of 474272
- 869404 string characters out of 5722368
- 2001530 words of memory out of 5000000
- 64082 multiletter control sequences out of 15000+600000
- 814728 words of font info for 216 fonts, out of 8000000 for 9000
+ 42288 strings out of 474272
+ 857577 string characters out of 5722369
+ 1995530 words of memory out of 5000000
+ 63528 multiletter control sequences out of 15000+600000
+ 701456 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,16n,143p,1190b,1853s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexs.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsym.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (34 pages, 1125644 bytes).
+ 89i,15n,120p,1190b,1255s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexs.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsym.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on main.pdf (20 pages, 962852 bytes).
 PDF statistics:
- 509 PDF objects out of 1000 (max. 8388607)
- 400 compressed objects within 4 object streams
- 118 named destinations out of 1000 (max. 500000)
- 234 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 345 PDF objects out of 1000 (max. 8388607)
+ 262 compressed objects within 3 object streams
+ 68 named destinations out of 1000 (max. 500000)
+ 218 words of extra memory for PDF output out of 10000 (max. 10000000)
 
