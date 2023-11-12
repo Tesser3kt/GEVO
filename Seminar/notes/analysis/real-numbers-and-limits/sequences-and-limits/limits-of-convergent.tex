@@ -20,6 +20,38 @@ jejímu důkazu potřebujeme jen jednu vlastnost absolutní hodnoty.
  hotov.
 \end{lemproof}
 
+\begin{remark}{}{trojuhelnikova-nerovnost}
+ Název \emph{trojúhelníková} obvykle přiřazovaný
+ nerovnosti~\ref{lem:trojuhelnikova-nerovnost} vyplývá z její přirozené
+ geometrické interpretace. Ať $a,b,c$ jsou body v rovině. Dosazením $x = a - b$,
+ $y = b - c$, dostává nerovnost~\ref{lem:trojuhelnikova-nerovnost}
+ tvar
+ \[
+  |a - c| \leq |a - b| + |b - c|,
+ \]
+ tj. vzdálenost $a$ od $c$ je nanejvýš rovna součtu vzdáleností $a$ od $b$ a $b$
+ od $c$ pro libovolný bod $b$.
+ Vizte~\myref{obrázek}{fig:trojuhelnikova-nerovnost}.
+ \begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+   \tkzDefPoints{0/0/a,2/1/c,1.5/-0.5/b}
+   \tkzDrawPolygon(a,b,c)
+   \tkzDrawPoints(a,b,c)
+   \tkzLabelPoint[left](a){$a$}
+   \tkzLabelPoint[below](b){$b$}
+   \tkzLabelPoint[right](c){$c$}
+
+   \tkzLabelSegment[above left,xshift=1mm,yshift=-1mm](a,c){$|a - c|$}
+   \tkzLabelSegment[right,yshift=-1mm](b,c){$|b - c|$}
+   \tkzLabelSegment[below left,xshift=4mm](a,b){$|a - b|$}
+  \end{tikzpicture}
+
+  \caption{Trojúhelníková nerovnost}
+  \label{fig:trojuhelnikova-nerovnost}
+ \end{figure}
+\end{remark}
+
 Trojúhelníková nerovnost poskytuje snadné důkazy mnoha užitečných dílčích
 tvrzení o posloupnostech. Příkladem je následující cvičení.
 
@@ -68,7 +100,9 @@ Ponecháváme jej čtenářům jako (ne zcela snadné) cvičení.
 
 \begin{exercise}{}{}
  Dokažte, že jsou-li $a,b$ konvergentní posloupnosti racionálních čísel, pak je
- posloupnost $a \cdot b$ rovněž konvergentní.
+ posloupnost $a \cdot b$ rovněž konvergentní. Kromě
+ \hyperref[lem:trojuhelnikova-nerovnost]{trojúhelníkové nerovnosti} je zde třeba
+ použít i zatím nedokázané \myref{lemma}{lem:konvergentni-omezena}.
 \end{exercise}
 
 Racionální čísla jsou přirozeně součástí reálných prostřednictvím zobrazení
@@ -118,7 +152,7 @@ definice, neboť $(a+0)(n) = a_n + 0 = a_n = a(n)$ a $(a \cdot 1)(n) = a_n \cdot
 Konečně, rozšíříme rovněž $-$ a $^{-1}$ na $\R$. Pro libovolnou posloupnost $x
 \in \mathcal{C}(\Q)$ definujeme zkrátka $(-a)(n) \coloneqq -a(n)$. S $^{-1}$ je
 situace lehce komplikovanější. Totiž, pouze \textbf{nenulová} racionální čísla
-mají svůj inverz k násobení. Zde je třeba zpozorovat, že \textbf{konvergentní}
+mají svůj inverz k~násobení. Zde je třeba zpozorovat, že \textbf{konvergentní}
 posloupnost, která by však měla nekonečně mnoho prvků nulových, už musí mít od
 nějakého kroku \textbf{všechny} prvky nulové, jinak by totiž nemohla
 konvergovat. Vskutku, představme si, že $a$ je posloupnost taková, že $a_n = 0$
@@ -128,7 +162,8 @@ libovolné. Pokud $a_n \neq 0$, pak můžeme vzít třeba $\varepsilon \coloneqq
 |a_n| / 2$ a bude platit, že $|a_n - a_m| > \varepsilon$, což je dokonalý zápor
 \hyperref[def:konvergentni-posloupnost]{definice konvergence}. Z toho plyne, že
 $a_n$ musí být $0$ pro $n \geq n_0$ a odtud dále, že $a \simeq 0$. Čili, pouze
-nulové posloupnosti v $\R$ nemají inverz vzhledem k $ \cdot $.
+posloupnosti ekvivalentní nulové posloupnosti nemají v~$\R$ inverz vzhledem k $
+\cdot $.
 
 Právě provedená úvaha nám umožňuje definovat $^{-1}$ pro posloupnosti $a \in
 \mathcal{C}(\Q)$ takové, že $a \not\simeq 0$, následovně:
@@ -152,9 +187,11 @@ případě $^{-1}$ dostáváme pro $a \not\simeq 0$
   a_n \cdot 0 = 0,& \text{když } a_n = 0.
  \end{cases}
 \]
-Ergo, $a \cdot a^{-1}$ je rovna posloupnosti samých jedniček až na konečně mnoho
-nul, protože, jak jsme si již rozmysleli, $a$ nemůže mít nekonečně $0$ a zároveň
-nebýt v relaci $ \simeq $ s nulovou posloupností, jinak by nebyla konvergentní.
+Ergo, $a \cdot a^{-1}$ je rovna posloupnosti samých jedniček, až na konečně
+mnoho nul, protože, jak jsme si již rozmysleli, $a$ nemůže mít nekonečně $0$ a
+zároveň nebýt v relaci $ \simeq $ s nulovou posloupností, jinak by nebyla
+konvergentní. To však přesně znamená, že $a \cdot a^{-1} \simeq 1$, čili $[a]
+\cdot [a^{-1}] = [1]$.
 
 Shrneme-li řád předchozích úvah, získáme oprávnění tvrdit, že
 \[
@@ -196,13 +233,13 @@ potřebujeme ukázat, že $\Q$ jsou tzv. \emph{hustá} v $\R$, tj. že ke každ�
 reálnému číslu existuje racionální číslo, které je mu nekonečně blízko. Zde jsme
 opět implicitně ztotožnili racionální čísla s třídami ekvivalence konstantních
 posloupností. Na základě toho budeme totiž moci tvrdit, že reálná čísla jsou
-tzv. \emph{kompletní}, což přesně znamená, že každá konvergentní posloupnost
+tzv. \emph{úplná}, což přesně znamená, že každá konvergentní posloupnost
 reálných čísel má reálnou limitu.
 
 Nejprve si ovšem musíme rozmyslet, co vlastně míníme posloupností
 \emph{reálných} čísel. Pochopitelně, zobrazení $x:\N \to \R$ poskytuje validní
-definici, ale uvědomme si, že teď vlastně uvažujeme posloupnosti, jejichž prvky
-jsou třídy ekvivalence konvergentních racionálních posloupností.
+definici, ale uvědomme sobě, že teď vlastně uvažujeme posloupnosti, jejichž
+prvky jsou třídy ekvivalence konvergentních racionálních posloupností.
 
 Abychom směli hovořit o konvergentních \emph{reálných} posloupnostech, rozšíříme
 absolutní hodnotu $| \cdot |$ z $\Q$ na $\R$ zkrátka předpisem $|[(x_n)]|
@@ -217,7 +254,7 @@ K_n$ jen pro \textbf{konečně mnoho} $n \in \N$.
  konvergentních posloupností, je ta, že při porovnávání dvou tříd nás nezajímá
  libovolný \textbf{konečný počet} jejich prvních prvků.
 
- Konkrétně, vztah $x = y$ pro $x,y \in \R$ znamená, že $x_n = y_n$ pro každé $n
+ Například, vztah $x = y$ pro $x,y \in \R$ znamená, že $x_n = y_n$ pro každé $n
  \in \N$ až na libovolný konečný počet prvních přirozených čísel. To se lépe
  vyjadřuje pomocí negace. Je snazší říct, že $x = y$, když $x_n \neq y_n$ pro
  jenom konečně mnoho $n \in \N$.
@@ -229,7 +266,7 @@ konvergentní, dostaneme pro dané $\varepsilon>0$, vhodné $n_0 \in \N$ a $m,n
 o sobě třídy ekvivalence konvergentních \textbf{posloupností} racionálních
 čísel, tedy poslední nerovnost plně rozepsána dí
 \[
- |[((x_n)_{k} - (x_m)_{k})_{k=0}^{\infty}]| < \varepsilon \; \forall k \in \N,
+ |[((x_n)_{k} - (x_m)_{k})_{k=0}^{\infty}]| < \varepsilon,
 \]
 což lze rovněž vyjádřit tak, že
 \[
@@ -239,15 +276,15 @@ jen pro konečně mnoho $k \in \N$.
 
 Nepřináší však žádný hmotný užitek nad konvergencí reálných posloupností
 uvažovat takto složitě. Čtenáři dobře učiní, uvědomí-li si plný význam
-předchozího odstavce, ovšem zůstanou věrni intuitivnímu vnímání výrazu $|x - y|$
-jako \uv{vzdálenosti} čísel $x$ a $y$.
+předchozího odstavce, ovšem zůstanou-li věrni intuitivnímu vnímání výrazu $|x -
+y|$ jako \uv{vzdálenosti} čísel $x$ a $y$.
 
 \begin{definition}{Omezená posloupnost}{omezena-posloupnost}
  Řekneme, že posloupnost $x:\N \to \R$ je \emph{omezená}, když existuje $K \in
- \R$ takové, že $|x_n| \leq K$ pro všechna $n \in \N$.
+ \R$ takové, že $|x_n| \leq K$ pro všechna $n \in \N$. Píšeme $|x| \leq K$.
 \end{definition}
 
-\begin{lemma}{}{}
+\begin{lemma}{}{konvergentni-omezena}
  Každá konvergentní posloupnost $x:\N \to \R$ je omezená.
 \end{lemma}
 \begin{lemproof}
