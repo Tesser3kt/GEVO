@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.11)  12 NOV 2023 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.9)  14 NOV 2023 07:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -781,7 +781,7 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
  No configuration file `numprint.cfg' found.) (/opt/texlive/2023/texmf-dist/tex/latex/l3packages/xfp/xfp.sty (/opt/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2023-11-01 L3 programming layer (loader) 
  (/opt/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-11-04 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2023-10-23 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count322
 \l__pdf_internal_box=\box94
 ))
@@ -1002,7 +1002,7 @@ Package ntheorem Info: option `amsmath' handling for `thmmarks' loaded on input 
 \c@endsolutionctr=\count339
 \c@solution=\count340
  (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2023-11-09 v7.01f Hypertext links for LaTeX
+Package: hyperref 2023-10-27 v7.01d Hypertext links for LaTeX
  (/opt/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
@@ -1024,7 +1024,7 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2023-11-09 v2.55 Cross-referencing by name of section
+Package: nameref 2023-10-05 v2.54 Cross-referencing by name of section
  (/opt/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
@@ -1046,7 +1046,7 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \Hy@linkcounter=\count343
 \Hy@pagecounter=\count344
  (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2023-11-09 v7.01f Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2023-10-27 v7.01d Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (/opt/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -1054,23 +1054,23 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count345
  (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2023-11-09 v7.01f Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2023-10-27 v7.01d Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4171.
-Package hyperref Info: Link nesting OFF on input line 4176.
-Package hyperref Info: Hyper index ON on input line 4179.
-Package hyperref Info: Plain pages OFF on input line 4186.
-Package hyperref Info: Backreferencing OFF on input line 4191.
+Package hyperref Info: Hyper figures OFF on input line 4168.
+Package hyperref Info: Link nesting OFF on input line 4173.
+Package hyperref Info: Hyper index ON on input line 4176.
+Package hyperref Info: Plain pages OFF on input line 4183.
+Package hyperref Info: Backreferencing OFF on input line 4188.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4438.
+Package hyperref Info: Bookmarks ON on input line 4435.
 \c@Hy@tempcnt=\count346
  (/opt/texlive/2023/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4776.
+LaTeX Info: Redefining \url on input line 4773.
 \XeTeXLinkMargin=\dimen328
  (/opt/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -1080,13 +1080,13 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 \Fld@menulength=\count347
 \Field@Width=\dimen329
 \Fld@charsize=\dimen330
-Package hyperref Info: Hyper figures OFF on input line 6055.
-Package hyperref Info: Link nesting OFF on input line 6060.
-Package hyperref Info: Hyper index ON on input line 6063.
-Package hyperref Info: backreferencing OFF on input line 6070.
-Package hyperref Info: Link coloring OFF on input line 6075.
-Package hyperref Info: Link coloring with OCG OFF on input line 6080.
-Package hyperref Info: PDF/A mode OFF on input line 6085.
+Package hyperref Info: Hyper figures OFF on input line 6052.
+Package hyperref Info: Link nesting OFF on input line 6057.
+Package hyperref Info: Hyper index ON on input line 6060.
+Package hyperref Info: backreferencing OFF on input line 6067.
+Package hyperref Info: Link coloring OFF on input line 6072.
+Package hyperref Info: Link coloring with OCG OFF on input line 6077.
+Package hyperref Info: PDF/A mode OFF on input line 6082.
  (/opt/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
@@ -1097,7 +1097,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2023-11-09 v7.01f Hyperref driver for pdfTeX
+File: hpdftex.def 2023-10-27 v7.01d Hyperref driver for pdfTeX
  (/opt/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -1324,15 +1324,15 @@ Package rerunfilecheck Info: File `exam.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 35278 strings out of 474272
- 716632 string characters out of 5722368
+ 35288 strings out of 474272
+ 716659 string characters out of 5722369
  1940530 words of memory out of 5000000
- 56656 multiletter control sequences out of 15000+600000
+ 56666 multiletter control sequences out of 15000+600000
  598220 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,11n,107p,853b,1009s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss2488.pfb></opt/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncb8a.pfb></opt/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></opt/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
-Output written on exam.pdf (1 page, 57773 bytes).
+Output written on exam.pdf (1 page, 57629 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  44 compressed objects within 1 object stream
