@@ -285,7 +285,231 @@ centered, draw=black, fill=Green!30]
 
 \begin{frame}
  \frametitle{Klíčová idea: program uložený v hlavní paměti}
+ \begin{itemize}[label=\textbullet]
+  \item Vyjádření programu jako posloupnosti zakódovaných instrukcí.\pause
+  \item Paměť ukládá \alert{jak program, tak instrukce!}\pause
+  \item CPU \alert{vyzvedne, přeloží} a \alert{vykoná} (fetch-decode-execute
+   cyklus) instrukce programu, jak jdou za sebou.
+ \end{itemize}
+\end{frame}
 
+\begin{frame}
+ \frametitle{Klíčová idea: program uložený v hlavní paměti}
+ \vspace*{-1em}
+ \begin{center}
+  \includegraphics[width=.5\textwidth]{instructions-1.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Klíčová idea: program uložený v hlavní paměti}
+ \begin{center}
+  \includegraphics[width=.5\textwidth]{instructions-2.pdf}
+ \end{center}
+ \vspace*{-3em}
+ \begin{itemize}[label=\textbullet]
+  \item \alert{Instrukce} je obvykle čtveřice
+  \begin{itemize}[label=\textemdash]
+   \item operace (\texttt{op}),
+   \item registr s prvním operandem (\texttt{ra}),
+   \item registr s druhým operandem (\texttt{rb}),
+   \item registr pro uložení výsledku (\texttt{rc}).
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Klíčová idea: program uložený v hlavní paměti}
+ \begin{center}
+  \includegraphics[width=.5\textwidth]{instructions-3.pdf}
+ \end{center}
+ \vspace*{-1em}
+ \begin{itemize}[label=\textbullet]
+  \item CPU tuhle instrukci přeloží jako, \uv{Proveď \texttt{op} na hodnotu v
+   \texttt{ra} a hodnotu v \texttt{rb} a výsledek ulož do \texttt{rc}}.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Klíčová idea: program uložený v hlavní paměti}
+ \begin{center}
+  \includegraphics[width=.5\textwidth]{instructions-4.pdf}
+ \end{center}
+ \vspace*{-1em}
+ \begin{itemize}[label=\textbullet]
+  \item Bloky (řádky) paměti s daty nemají žádný daný formát. Jsou to zkrátka
+   jen uložené hodnoty vzniklé nějakým výpočtem v minulosti. Mohou to být slova,
+   čísla či cokoli jiného.
+  \pause
+  \item Každý blok má daný počet bitů (v tomto příkladě 8).
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Klíčová idea: program uložený v hlavní paměti}
+ \alert{Problém:} Jak poznám, co je instrukce a co datum?\pause\\
+ \begin{itemize}[label=\textbullet]
+  \item Pamatujte, že CPU i paměť jsou pořád jenom logické (elektrické)
+   obvody.\pause
+  \item To znamená, že je možné ukládat instrukce tak, aby šly přímo do
+   \alert{řídící FSM} a data naopak přímo do \alert{datové cesty (a tam do
+   registrů)}.\pause
+  \item CPU je pak navržen tak, že posloupnost bitů v řídící FSM považuje za
+   instrukci, zatímco v datové cestě za datum.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Anatomie von Neumannova počítače}
+ \begin{columns}[T]
+  \begin{column}{.6\textwidth}
+   \vspace*{-1em}
+   \begin{center}
+    \includegraphics[width=1.2\textwidth]{anatomy-1.pdf}
+   \end{center}
+  \end{column}
+  \begin{column}{.39\textwidth}
+  \end{column}
+ \end{columns}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Anatomie von Neumannova počítače}
+ \begin{columns}[T]
+  \begin{column}{.6\textwidth}
+   \vspace*{-1em}
+   \begin{center}
+    \includegraphics[width=1.2\textwidth]{anatomy-2.pdf}
+   \end{center}
+  \end{column}
+  \begin{column}{.39\textwidth}
+  \end{column}
+ \end{columns}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Anatomie von Neumannova počítače}
+ \begin{columns}[T]
+  \begin{column}{.6\textwidth}
+   \vspace*{-1em}
+   \begin{center}
+    \includegraphics[width=1.2\textwidth]{anatomy-3.pdf}
+   \end{center}
+  \end{column}
+  \begin{column}{.39\textwidth}
+  \end{column}
+ \end{columns}
+\end{frame}
+
+\begin{frame}
+
+ \frametitle{Anatomie von Neumannova počítače}
+ \begin{columns}[T]
+  \begin{column}{.6\textwidth}
+   \vspace*{-1em}
+   \begin{center}
+    \includegraphics[width=1.2\textwidth]{anatomy-4.pdf}
+   \end{center}
+  \end{column}
+  \begin{column}{.39\textwidth}
+   \begin{itemize}[label=\textbullet]
+    \item \alert{Instrukce} zakódovány jako binární čísla.\pause
+    \item \alert{Čítač} (PC -- Program Counter): adresa instrukce, která se má
+     vykonat.\pause
+   \end{itemize}
+   \vspace{3em}
+   \begin{itemize}[label=\textbullet]
+    \item Postup pro překlad instrukcí do signálů pro datovou cestu.
+   \end{itemize}
+  \end{column}
+ \end{columns}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Anatomie von Neumannova počítače -- Instrukce}
+ \begin{itemize}[label=\textbullet]
+  \item Instrukce jsou základní jednotkou práce.\pause
+  \item Každá instrukce specifikuje
+  \begin{itemize}[label=\textemdash]
+   \item \alert{operaci}, která se má vykonat,\pause
+   \item registry se zdrojovými \alert{operandy} a \alert{cílový registr} pro
+    výsledek.
+  \end{itemize}
+  \begin{columns}[T]
+   \begin{column}{.65\textwidth}
+    \begin{itemize}[label=\textbullet]
+     \item Ve von Neumannově počítači jsou instrukce čteny postupně.\pause
+     \begin{itemize}[label=\textemdash]
+      \item CPU implementuje cyklus napravo:
+      \item Pokud právě vykonaná instrukce nespecifikuje jinak, je adresa další
+       instrukce v pořadí adresa této + délka instrukce (v bitech).
+     \end{itemize}
+    \end{itemize}
+   \end{column}
+   \begin{column}{.29\textwidth}
+    \begin{center}
+     \includegraphics[width=\textwidth]{instruction-reading.pdf}
+    \end{center}
+   \end{column}
+  \end{columns}
+ \end{itemize}
+\end{frame}
+
+\section{Architektura instrukční sady}
+
+\begin{frame}
+ \frametitle{Architektura instrukční sady}
+ Architektura instrukční sady (angl. \alert{ISA} -- Instruction Set
+ Architecture) je jakási \uv{dohoda} mezi softwarem a hardwarem.\pause\\
+ \begin{itemize}[label=\textbullet]
+  \item \alert{Software} jsou programy uložené ve vnitřní paměti -- dají se
+   měnit.\pause
+  \item \alert{Hardware} jsou logické obvody tvořící počítač -- nelze je
+   měnit.\pause
+  \item \alert{ISA} obsahuje
+  \begin{itemize}[label=\textemdash]
+   \item definice \alert{operací} a \alert{adres pro ukládání},\pause
+   \item \alert{přesný popis} toho, jak je software má \alert{nařídit} a
+    \alert{dostat se k nim}.
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Architektura instrukční sady}
+ ISA je další úroveň abstrakce umožňující vývoj hardware \alert{bez ohledu na
+ software}.\pause
+ \begin{itemize}[label=\textbullet]
+  \item ISA specifikuje, \alert{co} hardware poskytuje, nikoli \alert{jak}
+   (nespecifikuje implementaci logických obvodů v CPU).\pause
+  \item Dokud je ISA dodržena, je možné vylepšovat hardware zcela bez ohledu na
+   software, který ho používá. Např.
+  \begin{itemize}[label=\textemdash]
+   \item Intel 8086 (z roku 1978) má 29 tisíc tranzistorů, hodiny s frekvencí 5
+    MHz a zvládne asi 330 tisíc operací za sekundu;\pause 
+   \item Intel Pentium 4 (2003) má 44 milionů tranzistorů, hodiny s frekvencí 4
+    Ghz a zvládne asi 5 miliard operací za sekundu;\pause
+  \end{itemize}
+  oba procesory používají instrukční sadu x86.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Architektura instrukční sady}
+ Navrhnout ISA je obtížné.
+ \begin{itemize}[label=\textbullet]
+  \item Kolik operací a jaké?\pause
+  \item Jaké typy úložišť? Kolik?\pause
+  \item Jak kódovat instrukce?\pause
+  \item Jak zařídit kompatibilitu s budoucím hardwarem?\pause
+ \end{itemize}
+ \alert{Statistický přístup:}
+ \begin{itemize}[label=\textbullet]
+  \item Vybere se mnoho testovacích programů.\pause
+  \item Každá verze ISA se otestuje na každém programu.\pause
+  \item Určí se nejběžněji používané operace -- rychlost jejich provedení a
+   spotřeba energie se optimalizuje.
+ \end{itemize}
 \end{frame}
 
 \end{document}
