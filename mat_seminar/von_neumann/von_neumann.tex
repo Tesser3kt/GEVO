@@ -1,0 +1,291 @@
+\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
+
+\usepackage[czech]{babel}
+\usepackage[czech=quotes]{csquotes}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{tikz}
+
+% Flowchart stuff
+\usetikzlibrary{shapes.geometric, arrows.meta, calc, positioning}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum
+height=1cm,text centered, draw=black, fill=Red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
+minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=Blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text
+centered, draw=black, fill=Orange!30]
+\tikzstyle{decision} = [diamond, aspect=2, minimum width=3cm, minimum height=.5cm, text
+centered, draw=black, fill=Green!30]
+\tikzstyle{connector} = [draw, -latex']
+
+\usepackage{pgfopts}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+
+\usepackage[czech]{algorithm2e}
+
+\usetheme[
+ titlestyle=style2,
+ titleformat=smallcaps,
+ sectionstyle=plain,
+ slidestyle=cyber,
+ headingcolor=theme,
+ block=transparent
+]{trigon}
+
+\title{von Neumannova architektura}
+\date{\today}
+\author{Adam Klepáč}
+\institute[GEVO]{Gymnázium Evolution Jižní Město}
+\biglogo[width=.2\textwidth]{logo}
+\smalllogo[width=.1\textwidth]{logo}
+\titlegraphic{\includegraphics[height=\paperheight]{title.jpg}}
+
+\def\subsectionname{}
+
+% enumerate global settings
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=\alph*)}
+
+% custom colors %
+\definecolor{PolynesianBlue}{HTML}{0D519A}
+\definecolor{MountbattenPink}{HTML}{997E9A}
+\definecolor{RoyalBlue}{HTML}{0D266D}
+\definecolor{HonoluluBlue}{HTML}{107EC0}
+\definecolor{CoolGray}{HTML}{A4A4C1}
+
+\colorlet{tPrim}{RoyalBlue}
+\colorlet{tSec}{PolynesianBlue}
+\colorlet{tAccent}{MountbattenPink}
+\colorlet{tTheme}{RoyalBlue}
+\colorlet{tTxt}{Black}
+
+\tcbset{
+ boxsep=7pt,
+ fonttitle=\sc,
+ colframe=tGreyBg,
+ colframe=tTheme,
+ boxrule=1pt
+}
+
+\begin{document}
+\titleframe
+
+\begin{frame}
+ \frametitle{Obsah}
+ \tableofcontents
+\end{frame}
+
+\section{Konečný automat a datová cesta}
+
+\begin{frame}
+ \frametitle{Konečný automat a datová cesta}
+ \alert{Konečný automat} (angl. FSM -- finite-state machine) je výpočetní model
+ v teoretické informatice. \pause
+ Je to popis velmi jednoduchého počítače, který může být v jednom z několika
+ stavů, mezi kterými přechází na základě informací ze vstupu.\\
+ \pause
+ \alert{Datová cesta} (angl. Datapath) je sdružení jednotek provádějících
+ výpočetní operace, registrů a řadičů.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Příklad -- Faktoriál}
+ Postavíme FSM, který umí spočítat $n! = n \cdot (n-1) \cdot (n-2) \cdot \ldots
+ \cdot 2 \cdot 1$.\\
+ \pause
+ \vspace{\parskip}
+ \begin{minipage}[t]{.45\textwidth}
+  \begin{center}
+   \textbf{V pseudokódu:}
+   \begin{algorithm}[H]
+    \SetKwProg{Dokud}{dokud}{ opakuj}{konec}
+    $a = 1$\;
+    $b = n$\;
+    \Dokud{$b \neq 0$}{
+     $a = a \cdot b$\;
+     $b = b - 1$\;
+    }
+   \end{algorithm}
+  \end{center}
+ \end{minipage}
+ \pause
+ \begin{minipage}[t]{.45\textwidth}
+  \begin{center}
+   \textbf{Průběh pro $n = 5$:}\\
+   \BlankLine
+   \begin{tabular}{lll}
+    na začátku: & $a = 1$ & $b = 5$\pause\\
+    \midrule
+    po 1. iteraci: & $a = 5$ & $b = 4$\\
+    \pause
+    po 2. iteraci: & $a = 20$ & $b = 3$\\
+    \pause
+    po 3. iteraci: & $a = 60$ & $b = 2$\\
+    \pause
+    po 4. iteraci: & $a = 120$ & $b = 1$\\
+    \pause
+    po 5. iteraci & $a = 120$ & $b = 0$\pause\\
+    \midrule
+    konec & & 
+   \end{tabular}
+  \end{center}
+ \end{minipage}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Příklad -- Faktoriál}
+ FSM vykonávající tento algoritmus:
+ \vspace*{-\parskip}
+ \begin{center}
+  \includegraphics[width=.4\textwidth]{factorial.pdf}
+ \end{center}
+ \vspace*{-\parskip}
+ \pause
+ Pro převod do hardwarové podoby potřebujeme:
+ \pause
+ \begin{itemize}[label=\textbullet,topsep=0pt]
+  \item dva registry -- pro $a$ a pro $b$,
+  \pause
+  \item dva bity pro uložení stavu -- start/loop/done,
+  \pause
+  \item logické přechody -- $b == 0$ a $b \neq 0$,
+  \pause
+  \item přiřazení hodnoty registrům -- $a = a \cdot b$ a $b = b - 1$.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Datová cesta pro Faktoriál}
+ Nejprve přidáme registry pro $a$ a $b$.
+ \begin{center}
+  \includegraphics[width=.75\textwidth]{factorial-circuit-1.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Datová cesta pro Faktoriál}
+ Na začátku musejí registry obdržet hodnoty $1$ a $n$.
+ \begin{center}
+  \includegraphics[width=.75\textwidth]{factorial-circuit-2.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Datová cesta pro Faktoriál}
+ Přidáme logický obvod pro násobení $a \cdot b$.
+ \begin{center}
+  \includegraphics[width=.75\textwidth]{factorial-circuit-3.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Datová cesta pro Faktoriál}
+ Přidáme logický obvod pro součet $b + (-1)$.
+ \begin{center}
+  \includegraphics[width=.75\textwidth]{factorial-circuit-4.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Datová cesta pro Faktoriál}
+ Přidáme cestu zpět z výpočetních obvodů do registrů pro $a$ a $b$.
+ \begin{center}
+  \includegraphics[width=.75\textwidth]{factorial-circuit-5.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Datová cesta pro Faktoriál}
+ Přidáme cestu z registrů pro $a$ a $b$ zpět do nich samých, aby po skončení
+ výpočtu mohly uchovat informaci.
+ \begin{center}
+  \includegraphics[width=.75\textwidth]{factorial-circuit-6.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Datová cesta pro Faktoriál}
+ Přidáme přepínače stavů, aby vždy do registrů pouštěly jen jeden vstup podle
+ stavu výpočtu.
+ \begin{center}
+  \includegraphics[width=.75\textwidth]{factorial-circuit-7.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Řídící FSM pro Faktoriál}
+ Přepínání vstupů do registrů pro $a$ a $b$ musí řídit nějaká jednotka --
+ konečný automat.\pause\\
+ Ta musí přepínat $a_{\text{sel}}$ a $b_{\text{sel}}$ během výpočtu.
+ \begin{center}
+  \includegraphics[width=\textwidth]{factorial-circuit-8.pdf}
+ \end{center}
+\end{frame}
+
+\section{von Neumannův model}
+
+\begin{frame}
+ \frametitle{von Neumannův model}
+ Nejpoužívanější model víceúčelového počítače. Skoro všechny moderní počítače
+ jsou postaveny na tomto principu.\\
+ \pause
+ Komponenty:
+ \vspace*{-1em}
+ \begin{center}
+  \includegraphics[width=.75\textwidth]{von-neumann-1.pdf}
+ \end{center}
+ \begin{itemize}[label=\textbullet]
+  \item \alert{CPU}: Provádí aritmetické a logické operace na datech uložených v
+   paměti a registrech.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{von Neumannův model}
+ Nejpoužívanější model víceúčelového počítače. Skoro všechny moderní počítače
+ jsou postaveny na tomto principu.\\
+ \pause
+ Komponenty:
+ \vspace*{-1em}
+ \begin{center}
+  \includegraphics[width=.75\textwidth]{von-neumann-2.pdf}
+ \end{center}
+ \begin{itemize}[label=\textbullet]
+  \item \alert{CPU}: Provádí aritmetické a logické operace na datech uložených v
+   paměti a registrech.
+  \item \alert{Hlavní (dnes \uv{vnitřní}) paměť}: Seznam \alert{slov} o daném
+   počtu \alert{bitů} 
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{von Neumannův model}
+ Nejpoužívanější model víceúčelového počítače. Skoro všechny moderní počítače
+ jsou postaveny na tomto principu.\\
+ \pause
+ Komponenty:
+ \vspace*{-1em}
+ \begin{center}
+  \includegraphics[width=.75\textwidth]{von-neumann-3.pdf}
+ \end{center}
+ \begin{itemize}[label=\textbullet]
+  \item \alert{CPU}: Provádí aritmetické a logické operace na datech uložených v
+   paměti a registrech.
+  \item \alert{Hlavní (dnes \uv{vnitřní}) paměť}: Seznam \alert{slov} o daném
+   počtu \alert{bitů}.
+  \item \alert{Input/output}: Libovolná zařízení umožňující interakci s vnějším
+   světem.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Klíčová idea: program uložený v hlavní paměti}
+
+\end{frame}
+
+\end{document}

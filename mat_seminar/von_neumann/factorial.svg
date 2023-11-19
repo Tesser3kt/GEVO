@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="138.04282mm"
+   height="66.925896mm"
+   viewBox="0 0 138.04282 66.925896"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="factorial.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.64"
+     inkscape:cx="77.34375"
+     inkscape:cy="314.84375"
+     inkscape:window-width="2048"
+     inkscape:window-height="1116"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true">
+    <sodipodi:guide
+       position="13.701427,284.77112"
+       orientation="1,0"
+       id="guide1"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="41.693439,259.94205"
+       orientation="0,-1"
+       id="guide2"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="68.972317,273.30562"
+       orientation="1,0"
+       id="guide10"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="124.36945,270.82515"
+       orientation="1,0"
+       id="guide11"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="ArrowWideRounded"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide, rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWide"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path12" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-45.129243,-87.719999)">
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="path1"
+       cx="58.933525"
+       cy="124.88019"
+       r="13.67199" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-opacity:1"
+       x="49.277916"
+       y="126.83384"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="49.277916"
+         y="126.83384">start</tspan></text>
+    <g
+       id="use6"
+       inkscape:tile-x0="45.129242"
+       inkscape:tile-y0="111.0759"
+       style="fill:#00cd00;fill-opacity:0.180153">
+      <circle
+         style="fill:#00cd00;fill-opacity:0.180153;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+         id="circle8"
+         cx="58.933525"
+         cy="124.88019"
+         r="13.67199" />
+    </g>
+    <circle
+       style="fill:#0000c9;fill-opacity:0.180153;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="circle9"
+       cx="114.15065"
+       cy="124.88019"
+       r="13.67199" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';mix-blend-mode:overlay;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-opacity:1"
+       x="106.64486"
+       y="126.6994"
+       id="text9"><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="106.64486"
+         y="126.6994">loop</tspan></text>
+    <circle
+       style="fill:#c90000;fill-opacity:0.18;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="circle10"
+       cx="169.36778"
+       cy="124.88019"
+       r="13.67199" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';mix-blend-mode:overlay;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-opacity:1"
+       x="161.72755"
+       y="126.83384"
+       id="text10"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="161.72755"
+         y="126.83384">done</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.365;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowWide)"
+       d="m 72.75012,124.74671 h 27.4087"
+       id="path11" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.365;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowWide)"
+       d="m 127.97164,124.74671 h 27.40869"
+       id="path13" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';mix-blend-mode:overlay;fill:#00cd00;fill-opacity:0.180153;stroke:none;stroke-width:0.264583;stroke-opacity:1"
+       x="49.277916"
+       y="126.83384"
+       id="text8"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';fill:#00cd00;fill-opacity:0.180153;stroke:none;stroke-width:0.264583"
+         x="49.277916"
+         y="126.83384">start</tspan></text>
+    <path
+       style="fill:none;fill-opacity:0.18;stroke:#000000;stroke-width:0.465;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowWideRounded)"
+       d="m 123.75612,114.94237 c 0,0 4.56074,-19.380872 -9.88028,-19.380872 -14.441022,0 -8.93079,18.430812 -8.93079,18.430812"
+       id="path14" />
+    <path
+       style="fill:none;fill-opacity:0.18;stroke:#000000;stroke-width:0.465;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowWideRounded)"
+       d="m 123.75612,114.94237 c 0,0 4.56074,-19.380872 -9.88028,-19.380872 -14.441022,0 -8.93079,18.430812 -8.93079,18.430812"
+       id="path15" />
+    <path
+       style="fill:none;fill-opacity:0.18;stroke:#000000;stroke-width:0.465;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ArrowWideRounded)"
+       d="m 178.85958,114.94237 c 0,0 4.56074,-19.380872 -9.88028,-19.380872 -14.44102,0 -8.93079,18.430812 -8.93079,18.430812"
+       id="path16" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-dasharray:none;stroke-opacity:1"
+       x="49.183289"
+       y="146.6449"
+       id="text16"><tspan
+         sodipodi:role="line"
+         id="tspan16"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.465"
+         x="49.183289"
+         y="146.6449">a = 1</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.465"
+         x="49.183289"
+         y="154.5824"
+         id="tspan17">b = n</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-dasharray:none;stroke-opacity:1"
+       x="97.065948"
+       y="146.6449"
+       id="text19"><tspan
+         sodipodi:role="line"
+         id="tspan18"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.465"
+         x="97.065948"
+         y="146.6449">a = a * b</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.465"
+         x="97.065948"
+         y="154.5824"
+         id="tspan19">b = b - 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-dasharray:none;stroke-opacity:1"
+       x="159.96001"
+       y="146.6449"
+       id="text21"><tspan
+         sodipodi:role="line"
+         id="tspan20"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.465"
+         x="159.96001"
+         y="146.6449">a = a</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.465"
+         x="159.96001"
+         y="154.5824"
+         id="tspan21">b = b</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-dasharray:none;stroke-opacity:1"
+       x="102.5482"
+       y="92.418999"
+       id="text22"><tspan
+         sodipodi:role="line"
+         id="tspan22"
+         style="stroke-width:0.465"
+         x="102.5482"
+         y="92.418999">b != 0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'JetBrainsMono Nerd Font';-inkscape-font-specification:'JetBrainsMono Nerd Font';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-dasharray:none;stroke-opacity:1"
+       x="130.61151"
+       y="123.27367"
+       id="text23"><tspan
+         sodipodi:role="line"
+         id="tspan23"
+         style="stroke-width:0.465"
+         x="130.61151"
+         y="123.27367">b == 0</tspan></text>
+  </g>
+</svg>

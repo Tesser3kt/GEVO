@@ -92,12 +92,35 @@ def admin_users():
 def admin_user(user_id):
     user = get_user_from_session()
     edited_user = User.query.get(user_id)
+    if not edited_user:
+        return redirect(url_for('pages.admin_users'))
+
+    groups = Group.query.all()
+
     return render_template(
         'admin_users_form.html',
         title="Uživatel",
         user=user,
         edited_user=edited_user,
+        groups=groups,
         form_title="Úprava uživatele"
+    )
+
+
+@pages.route('/admin/users/add')
+@login_required(redirect_url='/admin/users')
+@admin_required
+def admin_user_add():
+    user = get_user_from_session()
+    groups = Group.query.all()
+
+    return render_template(
+        'admin_users_form.html',
+        title="Uživatel",
+        user=user,
+        edited_user=None,
+        groups=groups,
+        form_title="Nový uživatel"
     )
 
 

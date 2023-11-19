@@ -2,14 +2,65 @@
 {% block content %}
     <div class="mx-auto container edit-user-container pt-16 px-8">
         <h2 class="text-center">{{ form_title }}</h2>
-        <div class="edit-user-form-container mx-auto mt-8 grid grid-cols-1">
-            <form class="edit-user-form"
-                  action="{{ url_for("admin.edit_user") }}"
-                  method="post">
-                <input type="text" name="name" value="{{ user.name }}">
-                <input type="email" name="email" value="{{ user.email }}">
-                <input type="role" name="role" value="{{ user.role }}">
-            </form>
-        </div>
+        <div class="edit-user-form-container mx-auto mt-8 flex justify-center align-center">
+            <form class="edit-user-form grid grid-rows-auto grid-cols-3 gap-y-4 gap-x-6 items-center" action={{ "/admin/users/edit/{}".format(edited_user.id) if edited_user else "/admin/users/new_user" }} method="post">
+                <label for="name" class="font-bold">Jméno</label>
+                <input type="text"
+                       name="name"
+                       value="{{ edited_user.name }}"
+                       class="w-80 py-2 px-3 col-span-2 rounded-md border border-my-light-100 shadow-sm outline-none focus:border-my-yellow-100 focus:ring-1 focus:ring-my-yellow-100">
+                <label for="email" class="font-bold">E-mail</label>
+                <input type="email"
+                       name="email"
+                       value="{{ edited_user.email }}"
+                       class="w-80 py-2 px-3 col-span-2 rounded-md border border-my-light-100 shadow-sm outline-none focus:border-my-yellow-100 focus:ring-1 focus:ring-my-yellow-100">
+                <label for="role" class="font-bold">Oprávnění</label>
+                <select name="role"
+                        class="w-80 py-2 px-3 col-span-2 rounded-md border border-my-light-100 shadow-sm outline-none focus:border-my-yellow-100 focus:ring-1 focus:ring-my-yellow-100">
+                    <option value="admin" {{ "selected" if edited_user and edited_user.role.value == 'admin' }}>Admin
+                    </option>
+                    <option value="teacher" {{ "selected" if edited_user and edited_user.role.value == 'teacher' }}>Učitel
+                    </option>
+                    <option value="student" {{ "selected" if not edited_user or edited_user.role.value == 'student' or not edited_user }}>Student
+                    </option>
+                </select>
+                {% if groups %}
+                    <label for="group" class="font-bold">Skupina</label>
+                    <select name="group"
+                            class="w-80 py-2 px-3 col-span-2 rounded-md border border-my-light-100 shadow-sm outline-none focus:border-my-yellow-100 focus:ring-1 focus:ring-my-yellow-100">
+                        {% for group in groups %}
+                            <option value={{ group.id }} {{ "selected" if edited_user.group_id == group.id }}>
+                                {{ group.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                {% endif %}
+                <div class="edit-form-buttons-container col-span-3 text-right mt-2">
+                    <a href={{ url_for("pages.admin_users") }} class="h-9 add-button rounded-md text-xl px-3 inline-flex items-center justify-center edit-button bg-red-200 hover:bg-red-300 transition-colors duration">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="w-5 h-5 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Zrušit
+                    </a>
+                    <button type="submit"
+                            class="ml-4 h-9 add-button rounded-md text-xl px-3 inline-flex items-center justify-center edit-button bg-emerald-200 hover:bg-emerald-300 transition-colors duration">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="w-5 h-5 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Uložit
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 {% endblock %}

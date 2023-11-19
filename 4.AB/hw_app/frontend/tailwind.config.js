@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   content: [
     "./src/**/*.{html,js}",
@@ -59,10 +61,21 @@ module.exports = {
         800: "#332a15",
         900: "#19150a",
       },
+      "transparent": 'transparent',
+      "current": 'currentColor',
+      "black": colors.black,
+      "white": colors.white,
+      "gray": colors.gray,
+      "emerald": colors.emerald,
+      "indigo": colors.indigo,
+      "yellow": colors.yellow,
+      "red": colors.red,
+      "sky": colors.sky,
     },
     extend: {},
   },
   plugins: [
+    require('@tailwindcss/forms'),
     require('preline/plugin')
   ],
 };
