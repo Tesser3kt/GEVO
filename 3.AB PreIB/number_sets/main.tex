@@ -1,9 +1,8 @@
-\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
+\documentclass[aspectratio=169,11pt,svgnames]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{enumitem}
-\setlist[itemize,1]{label=\textbullet}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{float}
@@ -48,7 +47,9 @@
 
 \def\subsectionname{}
 
-% enumerate global settings
+% enumerate and itemize global settings
+\setlist{topsep=0pt}
+\setlist[itemize,1]{label=\textbullet}
 \setlist[enumerate,1]{label=\arabic*.}
 \setlist[enumerate,2]{label=\alph*)}
 
@@ -73,7 +74,7 @@
  boxsep=7pt,
  fonttitle=\sc,
  colframe=tGreyBg,
- colframe=tPrim,
+ colframe=CuriousBlue,
  boxrule=1pt
 }
 
@@ -515,7 +516,140 @@
  \alert{Integers} or \alert{whole numbers} come about when we say we can not
  only add blocks on top of collections but we can also \alert{remove}
  blocks.\pause\\
-
+ In mathematical terms, this means introducing \alert{inverses} to numbers
+ \alert{with respect to addition}.\pause\\
+ We typically denote these inverses by the symbol $-$.\pause\\
+ \textcolor{Red}{\textbf{Beware!}} `Taking inverse' is a \alert{unary} operation
+ (meaning it acts on \alert{one} element), not a binary one.
 \end{frame}
+
+\subsection{Digression\\ $\big\downarrow$\\Mathematical Structures\\ Destructive \&
+Symmetric Transformations}
+
+\begin{frame}
+ \subsectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Mathematical Structures}
+ \begin{tcolorbox}[title=Mathematical Structure (also `Universe')]
+  A \alert{mathematical} structure is a \alert{set} with \alert{operations}. If
+  $X$ is the set and $op_1,\ldots,op_n$ the operations on $X$, we write the
+  resulting structure as
+  \[
+   (X,op_1,\ldots,op_n).
+  \]
+ \end{tcolorbox}
+ \pause
+ The reason mathematical structures are called by some enthusiasts as
+ mathematical `universes' is that they really \emph{are} universes in the
+ broadest sense possible -- a bunch of elements with prescribed rules of
+ interaction.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Operation On A Set}
+ \begin{tcolorbox}[title=Operation]
+  An \alert{operation} on a set $X$ is really just a \alert{rule of
+  interaction} between its elements. In symbols, it is a \alert{function}
+  \[
+   op: X^{n} \to X
+  \]
+  where $X^{n} \to X$ just means `Take $n$ elements of $X$ and give me back
+  one.'
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Operation On A Set}
+ \alert{Examples:}
+ \begin{itemize}
+  \item $(\N,+, \cdot )$ is a structure where $+$ and $ \cdot $ are
+   \alert{binary} operations (meaning they take two elements and return one).
+   They can be seen as functions $\N^2 \to \N$.\pause
+  \item $(\{\text{orderings of vertices of a regular $n$-gon}\}, r,
+   r^{2},\ldots, r^{n}, s_1,\ldots,s_n)$ is a structure where $r$ is the
+   rotation by $360^{ \circ } / n$ and $s_1,\ldots,s_n$ are all the reflections.
+   They are all \alert{unary} operations (they take one element and return one).
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Operation As A Transformation}
+ \alert{Operations} basically describe interactions between set elements -- two
+ or more elements combine or \alert{transform} into another one.\pause\\
+ This interaction can be \alert{destructive} or \alert{symmetric}.\pause\\
+ \begin{itemize}
+  \item The operations $+$ and $ \cdot $ on $\N$ are \alert{destructive} -- they
+   \emph{destroy} the elements.\pause
+  When I multiply $3 \cdot 5 = 15$, I have no way to get back the $3$ or the
+  $5$.\pause
+ \item The operation $r$ on the vertices of a regular polygon is
+  \alert{symmetric} -- it can be reversed or \alert{inverted}.\pause
+  If, for example, vertex $A$ is sent to $G$ by this rotation, then rotation in
+  the opposite direction sends $G$ back to $A$.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Operation As A Transformation}
+ All destructive operations on a set $X$ \alert{can be made symmetric} by making
+ the set larger and introducing \alert{inverses} and \alert{identity elements}
+ with respect to the given operation.\pause\\
+ Let's pick an (commutative) operation $op$ on a set $X$ and two elements $x,y
+ \in X$.\pause
+ \begin{itemize}
+  \item Suppose $op(x,y)$ is some element $z \in X$. For the operation $op$ to
+   be \alert{symmetric}, we need two things:\pause
+  \begin{itemize}[label=\textemdash]
+   \item A special element $e \in X$ (the \alert{identity} element).\pause
+   \item Elements $x^{*}$ and $y^{*}$ (the \alert{inverse} elements to $x$ and
+    $y$) such that
+   \[
+    op(x,x^{*}) = op(y,y^{*}) = e.
+   \]
+  \end{itemize}
+  \pause
+ \item It's possible $X$ doesn't have those things -- which means the operation
+  $op$ cannot be symmetric \alert{on $X$}, but it can be symmetric on a larger
+  set which does contain those elements.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Inverse As A Function}
+ Inverse can be thought of as a \alert{unary} operation -- it takes an element
+ $x$ and gives back its inverse $x^{*}$.\pause\\
+ Clearly, the inverse to $x^{*}$ is $x$, again.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Operation As A Transformation}
+ \alert{Motivating examples:}
+ \begin{itemize}
+  \item The operation $+$ on $\N$ \alert{cannot be made symmetric}. Natural
+   numbers do not contain inverses to $+$.\pause
+  We fix this by introducing \alert{integers}, basically forcefully adding to
+  each number $n$ its inverse with respect to $+$, that is, the negative number
+  $-n$. The new set is called the \alert{integers}, denoted $\Z$. The identity
+  element is $0$ in this case.\pause
+ \item The operation $ \cdot $ on $\Z$ cannot be made symmetric. We fix this by
+  introducing \alert{fractions/reciprocals} to elements. The inverse with
+  respect to $ \cdot $ of an element $z$ is $\frac{1}{z}$. The identity element
+  is $1$.
+ \end{itemize}
+\end{frame}
+
+% \begin{frame}
+%  \frametitle{What Is An Inverse?}
+%  \begin{tcolorbox}[title=Inverse with respect to $+$]
+%   Given an element $n \in \N$, its \alert{inverse with respect to $+$} is a
+%   number $m \in \N$ such that $n + m = 0$. We write this number as $-n$.
+%  \end{tcolorbox}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Minus As A Function}
+% \end{frame}
 
 \end{document}
