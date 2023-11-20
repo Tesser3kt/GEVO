@@ -1,0 +1,154 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Bonus Problems -- PreIB 3.AB 3 \& 4}\\
+ \Large\textsf{Triangulations and Symmetries of Regular Polygons}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\hrule
+\textbf{\footnotesize \clr{\uppercase{You will be asked to present your
+solutions orally. You don't need to write anything down. Only your
+understanding of the problems and the provided solution is evaluated.
+Correctness of the results is immaterial.}}}
+\vspace{2ex}
+\hrule
+ 
+\section*{Triangulations}
+
+The graph of triangulations of a regular heptagon has 42 triangulations. By a
+\textbf{cycle} in the graph, I mean a path (of flips) which ends where it
+started. That is, it's a sequence of flips which returns to the original
+triangulation. Find one of the \clr{\textbf{shortest}} (having the least number
+of flips) cycles in the graph of triangulations of the heptagon. \textbf{Explain
+very precisely WHY the cycle you've found is the shortest}. Please, do
+\textbf{not} draw the whole graph of triangulations...
+\clearpage
+
+\section*{Symmetries}
+In the regular dodecagon (12 vertices), you're given 3 reflections --
+$\clr{s_1}, \clb{s_2}$ and $\clg{s_3}$.
+\begin{center}
+ \begin{tikzpicture}[scale=1.5]
+  \foreach \n/\an in
+  {a/90,b/120,c/150,d/180,e/210,f/240,g/270,h/300,i/330,j/0,k/30,l/60}
+  {
+   \tkzDefPoint(\an:1.5){\n}
+  }
+  \tkzDrawPolygon(a,b,c,d,e,f,g,h,i,j,k,l)
+  \tkzDrawLine[red,thick,dashed](a,g)
+  \tkzLabelLine[pos=-0.1,left](a,g){$\clr{s_1}$}
+  \tkzDrawLine[blue,thick,dashed](c,i)
+  \tkzLabelLine[pos=-0.1,below](c,i){$\clb{s_2}$}
+  \tkzDefMidPoint(d,e)\tkzGetPoint{sde}
+  \tkzDefMidPoint(k,j)\tkzGetPoint{skj}
+  \tkzDrawLine[green,thick,dashed](sde,skj)
+  \tkzLabelLine[pos=-0.1,below](sde,skj){$\clg{s_3}$}
+  \tkzDrawPoints[size=4](a,b,c,d,e,f,g,h,i,j,k,l)
+ \end{tikzpicture}
+\end{center}
+Can I get $\clg{s_3}$ by combining $\clr{s_1}$ and $\clb{s_2}$? By a
+`combination' I mean any sequence (however long) of $\clr{s_1}$'s and
+$\clb{s_2}$'s, for example $\clr{s_1s_1}\clb{s_2}\clr{s_1}\clb{s_2}\clb{s_2}$.
+If yes, show how. If not, explain why. \textbf{In any case, be precise and
+thorough in describing your solution.}
+
+\end{document}
