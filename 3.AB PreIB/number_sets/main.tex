@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,svgnames]{beamer}
+\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -414,7 +414,7 @@
  \begin{itemize}
   \item $m \cdot 1 = m$,
   \pause
-  \item $m \cdot s(n) = m \cdot n + n$. 
+  \item $m \cdot s(n) = m \cdot n + m$. 
  \end{itemize}
  \pause
  We can imagine multiplication $m \cdot n$ by adding a collections of $n$ blocks
@@ -422,7 +422,7 @@
  \pause
  If we write $s(n) = n + 1$, then the second formula just means that
  \[
-  m \cdot s(n) = m \cdot (n+1) = m \cdot n + n.
+  m \cdot s(n) = m \cdot (n+1) = m \cdot n + m.
  \]
 \end{frame}
 
@@ -445,10 +445,7 @@
   \pause
   \begin{subfigure}[b]{.25\textwidth}
    \begin{tikzpicture}
-    \draw[draw=PictonBlue,thick,fill=Tiber] (-0.15,0) rectangle ++(.3,.3);
-    \draw[draw=PictonBlue,thick,fill=Tiber] (-0.15,0.4) rectangle ++(.3,.3);
-
-    \node at (0.55,-0.4) {$\clt{2} \cdot s(\clp{3})$};
+    \node at (0.8,-0.4) {$\clt{2} \cdot s(\clp{3})$};
     \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0) rectangle ++(.3,.3);
     \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0.4) rectangle ++(.3,.3);
     \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0.8) rectangle ++(.3,.3);
@@ -463,10 +460,7 @@
   \pause
   \begin{subfigure}[b]{.25\textwidth}
    \begin{tikzpicture}
-    \draw[draw=PictonBlue,thick,fill=Tiber] (-0.15,0) rectangle ++(.3,.3);
-    \draw[draw=PictonBlue,thick,fill=Tiber] (-0.15,0.4) rectangle ++(.3,.3);
-
-    \node at (0.75,-0.4) {$\clt{2} \cdot \clp{3} + \clt{2}$};
+    \node at (1,-0.4) {$\clt{2} \cdot \clp{3} + \clt{2}$};
     \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0) rectangle ++(.3,.3);
     \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0.4) rectangle ++(.3,.3);
     \draw[draw=Tiber,thick,fill=PictonBlue] (0.35,0.8) rectangle ++(.3,.3);
@@ -481,7 +475,7 @@
   \end{subfigure}
  \end{figure}
  \pause
- The formula $m \cdot s(n) = m \cdot n + n$ allows us to compute $m \cdot n$ by
+ The formula $m \cdot s(n) = m \cdot n + m$ allows us to compute $m \cdot n$ by
  applying it $n$ times.
  \pause
  More precisely,
@@ -512,6 +506,16 @@
    m \cdot (n + k) = m \cdot n + m \cdot k.
   \]
  \end{itemize}
+\end{frame}
+
+\section{Integers}
+
+\begin{frame}
+ \frametitle{Integers}
+ \alert{Integers} or \alert{whole numbers} come about when we say we can not
+ only add blocks on top of collections but we can also \alert{remove}
+ blocks.\pause\\
+
 \end{frame}
 
 \end{document}
