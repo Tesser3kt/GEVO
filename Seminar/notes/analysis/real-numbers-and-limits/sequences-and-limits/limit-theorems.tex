@@ -22,13 +22,13 @@ jevu přezdívá
 Behavior} a představuje stav, kdy chování systému nelze plně popsat pouze
 studiem jeho jednotlivých prvků.
 
-\subsection{Bolzanova-Weierstraßova věta a rozšířená reálná osa}
-\label{ssec:bolzanova-weierstrassova-veta}
-
 Pro důkaz Bolzanovy-Weierstraßovy věty potřebujeme jedné pomocné konstrukce,
 tzv. \emph{systému vnořených intervalů}. Nejprve si však pořádně definujeme
 samotný pojem \emph{intervalu}. K tomu se nám bude hodit rozšířit množinu
 reálných čísel o prvky $-\infty$ a $\infty$.
+
+\subsection{Rozšířená reálná osa}
+\label{ssec:rozsirena-realna-osa}
 
 \begin{definition}{Rozšířená reálná osa}{rozsirena-realna-osa}
  Definujme množinu $\R^{*} \coloneqq \R \cup \{-\infty,\infty\}$, kde $\infty$,
@@ -76,6 +76,31 @@ stoupají}. Pro další studium záhodno se tohoto nedostatku zlišit.
  $\lim_{} x = \infty$, resp. $\lim_{} x = -\infty$.
 \end{definition}
 
+Na reálných číslech existuje uspořádání $ \leq $, které zdělila z čísel
+přirozených, prostřednictvím čísel celých a konečně čísel racionálních. Protože,
+vděkem naší konstrukci, jsou celá čísla třídy ekvivalence dvojic čísel
+přirozených, čísla racionální třídy ekvivalence dvojic čísel celých a čísla
+reálná limity konvergentních racionálních posloupností, bylo by vskutku obtížné
+a neproduktivní vypsat konkrétní množinovou definici tohoto uspořádání na
+reálných číslech. Přidržíme se pročež intuitivního pohledu na věc a důkaz, že
+$ \leq $ je skutečně uspořádání na reálných číslech, necháváme laskavému čtenáři
+k promyšlení.
+
+Existence uspořádání umožňuje dívat se na množiny z jistého \uv{souvislého}
+pohledu. Nemusejí již být vňaty (jako tomu je u ostatních představených
+číselných okruhů) jako výčty jednotlivých prvků, ale oprávněně jako
+\uv{provázky} či \uv{úsečky}. \hyperref[cor:r-jsou-uplna]{Úplnost reálných
+čísel} zaručuje, že z každého reálného čísla mohu plynule dorazit do každého
+jiné reálného čísla aniž reálná čísla opustím.
+
+Předchozí odstavec vágně motivuje definici \emph{intervalu} -- \uv{souvislé}
+omezené podmnožiny reálných čísel. Zároveň s definicí intervalu vzniká i pojem
+\emph{otevřenosti} a \emph{uzavřenosti} podmnožiny reálných čísel -- pojem,
+který je klíčem k definici \emph{topologie} na obecné množině a tím pádem
+vlastně i základem tak zhruba poloviny celé moderní matematiky.
+
+Směrem k definici intervalu učiňmež koliksi mezikroků.
+
 \begin{definition}{Maximum a minimum}{maximum-a-minimum}
  Ať $X \subseteq \R$ je množina. Řekneme, že prvek $M \in X$, resp. $m \in X$,
  je \emph{maximem}, resp. \emph{minimem}, množiny $X$, když pro každé $x \in X$
@@ -83,5 +108,104 @@ stoupají}. Pro další studium záhodno se tohoto nedostatku zlišit.
 \end{definition}
 
 \begin{definition}{Horní a dolní závora}{horni-a-dolni-zavora}
- Ať $X \subseteq \R$ je množina. 
+ Ať $X \subseteq \R$ je množina. Řekneme, že prvek $Z \in \R^{*}$ resp. $z \in
+ \R^{*}$, je \emph{horní}, resp. \emph{dolní}, \emph{závora} množiny $X$, když
+ pro každé $x \in X$ platí $x \leq Z$, resp. $x \geq z$.
+
+ Má-li množina $X$ horní, resp. dolní, závoru, říkáme, že je \emph{shora}, resp.
+ \emph{zdola}, \emph{omezená}.
 \end{definition}
+
+\begin{definition}{Supremum a infimum}{supremum-a-infimum}
+ Ať $X \subseteq \R$ je množina. Řekneme, že prvek $S \in \R^{*}$, resp. $i \in
+ \R^{*}$, je \emph{supremum}, resp. \emph{infimum}, množiny $X$, když je to její
+ \emph{nejmenší horní závora}, resp. \emph{největší dolní závora}. Píšeme $S =
+ \sup X$, resp. $i = \inf X$.
+
+ Vyjádřeno symbolicky, prvek $S \in \R$ je \emph{supremem} množiny $X$, když $x
+ \leq S$ pro všechna $x \in X$, a kdykoli $x \leq Z$ pro nějaký prvek $Z \in \R$
+ a všechna $x \in X$, pak $S \leq Z$. Prvek $i \in \R$ je \emph{infimem} množiny
+ $X$, když $x \geq i$ pro všechna $x \in X$, a kdykoli $x \geq z$ pro nějaký
+ prvek $z \in \R$ a všechna $x \in X$, pak $i \geq z$.
+\end{definition}
+
+\begin{warning}[topsep at break=0pt]{}{supremum-vs-maximum}
+ Vřele radíme čtenářům, aby sobě bedlivě přečetli předchozí tři definice a
+ uvědomili si -- velmi zásadní, leč lehko přehlédnuté -- jejich vzájemné
+ rozdíly.
+ \begin{itemize}
+  \item Maximum a minimum množiny $X$ je z
+   \hyperref[def:maximum-a-minimum]{definice} \textbf{vždy prvkem této množiny}.
+   Maximem množiny $\{1,2,3\}$ je prvek $3$ a jeho minimem je prvek $1$.
+  \item Horní, resp. dolní, závora množiny $X$ je \textbf{libovolné
+   \clr{rozšířené} reálné číslo} (tedy klidně i $ \pm \infty$), které je větší,
+   resp. menší, než všechny prvky $X$. Horní závorou množiny $\{1,2,3\}$ je
+   číslo $69$, též $\infty$ a též číslo $3$. Horní a dolní závora \textbf{může,
+   ale nemusí}, být prvkem $X$.
+  \item Supremum, resp. infimum, množiny $X$ je \textbf{rozšířené reálné číslo},
+   které je větší, resp. menší, než všechny prvky $X$, ale \textbf{zároveň
+   menší, resp. větší, než každá jeho horní, resp. dolní, závora}. Supremum a
+   infimum \textbf{může, ale nemusí, ležet v množině $X$}. Touto vlastností se
+   přesně rozlišují \emph{uzavřené} a \emph{otevřené} intervaly -- interval je
+   uzavřený, když jeho supremum v~něm leží, kdežto otevřený, když nikoliževěk.
+   Supremem množiny $\{1,2,3\}$ je číslo $3$ a jeho infimem je číslo $1$.
+ \end{itemize}
+ Daná podmnožina $X \subseteq \R$ \textbf{nemusí nutně mít maximum a minimum},
+ ale, a to si dokážeme, jest-li shora, resp. zdola, omezená, \textbf{pak má
+ nutně supremum, resp. infimum}.
+\end{warning}
+
+\begin{exercise}{}{sup-inf-prazdne-mnoziny}
+ Určete z \hyperref[def:supremum-a-infimum]{definice suprema a infima} $\inf
+ \emptyset$ a $\sup \emptyset$.
+\end{exercise}
+
+\begin{exercise}{}{sup-inf-jednoznacne}
+ Dokažte, že $\sup X$ a $\inf X$ jsou určeny jednoznačně.
+\end{exercise}
+
+\subsubsection{Axiomatická definice reálných čísel}
+\label{sssec:axiomaticka-definice-realnych-cisel}
+
+Přestože jsme konstrukci reálných čísel úspěšně dokončili použitím
+konvergentních racionálních posloupností, stojí snad za zmínku i jejich
+axiomatická definice, která se obvykle uvádí v úvodních učebnicích matematické
+analýzy.
+
+Překvapivě není v principu tak odlišná od jejich konstrukce, kromě jednoho
+konkrétního axiomu, jenž právě zaručuje úplnost; není z něj však vůbec na první,
+v zásadě ani na druhý, pohled vidno, že takovou vlastnost skutečně implikuje.
+
+\begin{definition}{Axiomatická definice reálných
+ čísel}{axiomaticka-definice-realnych-cisel}
+ Množina $\R$ se v zásadě definuje jako nekonečné uspořádané těleso s vlastností
+ úplnosti. Tedy,
+ \begin{itemize}
+  \item existují prvky $0,1 \in \R$ a operace $+, \cdot :\R^{2} \to \R$ s
+   inverzy $-,^{-1}:\R \to \R$ takové, že
+   \[
+    (\R,+,-,0, \cdot ,^{-1},1)
+   \]
+   je nekonečné těleso;
+  \item existuje uspořádání $ \leq $ na $\R$, které je lineární (každé dva prvky
+   lze spolu porovnat);
+  \item (\textbf{axiom úplnosti}) každá shora omezená podmnožina $\R$ má
+   supremum.
+ \end{itemize}
+\end{definition}
+
+Je to právě on poslední axiom v
+\hyperref[def:axiomaticka-definice-realnych-cisel]{předchozí definici}, jehož
+použití jsme se chtěli vyhnout, bo dohlédnout jeho hloubky je obtížné a
+neintuitivní.
+
+Dokážeme si zde ovšem, že naše \hyperref[def:realna-cisla]{definice reálných
+čísel} odpovídá jejich axiomatické. Otázky nekonečnosti, podmínek tělesa i
+uspořádání jsme již zodpověděli. Zbývá dokázat axiom úplnosti.
+
+\begin{proposition}{Axiom úplnosti}{axiom-uplnosti}
+ Ať $X \subseteq \R$ je shora omezená množina. Pak existuje $\sup X$.
+\end{proposition}
+\begin{propproof}
+ TODO.
+\end{propproof}

@@ -1,0 +1,193 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Homework -- PreIB 3.AB 4}\\
+ \Large\textsf{Triangulations and Symmetries of Regular Polygons}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\clr{\textbf{\uppercase{Z následujících úloh si vyberte jednu!}}}
+
+\subsection*{Bitka, bitka, bitka!}
+Máte dány dvě množiny lidí -- $\mathtt{L_1}$ a $\mathtt{L_2}$. Dále máte funkci
+\texttt{potkajise}, která dostane jako parametry jednoho člověka z
+$\mathtt{L_1}$ a jednoho člověka z $\mathtt{L_2}$ a rozhodne o nich, jestli se
+potkají, tj. vrátí \texttt{true}, když se potkají, a \texttt{false}, když ne.
+Naposled máte funkci \texttt{nesnasi}, která dostane jako parametry dva lidi (ať
+už z $\mathtt{L_1}$ nebo z $\mathtt{L_2}$) a rozhodne, jestli \textbf{ten první
+ nesnáší toho druhého}.
+
+Vaším úkolem je napsat algoritmus, který vrátí dvě množiny lidí -- \texttt{B} a
+\texttt{U}. V množině \texttt{B} jsou lidi, kteří se s někým poperou -- to se
+stane tehdy, když se potkají dva lidé, kteří se vzájemně nesnáší. V množině
+\texttt{U} budou lidi, kteří utečou -- to se stane tehdy, když se potkají dva
+lidé a pouze jeden nesnáší toho druhého; ten druhý před ním uteče.
+
+\emph{Příklad}: Pro následující zadání (funkce \texttt{\clb{potkajise}} a
+\texttt{\clr{nesnasi}} reprezentujeme šipkami)
+\begin{center}
+ \begin{tikzpicture}[scale=1.5]
+  \node (z) at (0,1) {Zbyšek};
+  \node (j) at (0,2) {Jarmila};
+  \node at (0,3) {$L_1$};
+
+  \node (k) at (4,0) {Kvido};
+  \node (h) at (4,1) {Horymír};
+  \node (a) at (4,2) {Alois};
+  \node at (4,3) {$L_2$};
+
+  \draw[thick,blue,<->,dashed,bend left=30] (z) to (h);
+  \draw[thick,blue,<->,dashed,bend right=30] (z) to (k);
+  \draw[thick,blue,<->,dashed] (j) -- (a);
+  \node at (2,2.6) {\clb{\texttt{potkajise}}};
+
+  \draw[thick,red,->,dashed,bend left=15] (a) to (j);
+  \draw[thick,red,->,dashed] (h) -- (z);
+  \draw[thick,red,->,dashed,bend right=15] (j) to (h);
+  \draw[thick,red,->,dashed] (k) -- (z);
+  \node at (2,-0.5) {\clr{\texttt{nesnasi}}};
+ \end{tikzpicture}
+\end{center}
+je správná odpověď
+\begin{align*}
+ \mathtt{B} &= \{\text{Zbyšek},\text{Horymír}\},\\
+ \mathtt{U} &= \{\text{Jarmila},\text{Zbyšek}\}.
+\end{align*}
+\clearpage
+
+\subsection*{Divná Morseovka}
+
+Armáda Spolkové republiky GEVO používá pro tajnou komunikaci tzv. Divnou
+Morseovku. Každá zakódovaná zpráva obsahuje pouze symboly \clr{\textbf{.}} a
+\clr{\textbf{--}}, ale obsahuje \textbf{přesně dvakrát tolik \clr{.}, jak
+\clr{--}}. Navíc, ještě divněji, musí \textbf{každá zpráva začínat dvěma
+\clr{--} a končit třemi \clr{.}}.
+
+Dvě zprávy v Divné Morseovce považujeme za \textbf{stejné}, když \textbf{mají
+stejný počet \clr{.} a \clr{--} bez ohledu na pořadí}.
+
+Na vstupu dostanete \clr{\textbf{pouze funkce}} $znak_1$ a $znak_2$, které umí
+ze zadaných dvou zpráv vytáhnout znak na pozici $i$ jako $znak_1(i)$ nebo
+$znak_2(i)$. \clr{Nemáte funkci, která by vám řekla délku zprávy!} Funkce
+$znak_1$ a $znak_2$ vrací prázdnou množinu, když znak na pozici $i$ neexistuje.
+
+\begin{enumerate}
+ \item Napište funkci/proceduru $DivnaMorseovka(znak)$, která dostane parametrem
+  zprávu jako funkci $znak$ a rozhodne, zda se jedná o zprávu v Divné Morseovce.
+  Doporučuji, aby funkce vracela i počet \clr{\textbf{.}} a \clr{\textbf{--}} ve
+  zprávě. Výsledný algoritmus bude jednodušší.
+ \item Použijte tuhle proceduru v algoritmu, který dostane funkce $znak_1$ a
+  $znak_2$ a, \textbf{za předpokladu, že se jedná o zprávy v Divné Morseovce},
+  rozhodne, zda \textbf{jsou stejné}.
+\end{enumerate}
+
+\emph{Příklady:}
+\begin{itemize}
+ \item \clr{\textbf{-- -- . . -- -- -- . . .}} a \clr{\textbf{-- -- -- -- . . --
+  . . .}} jsou dvě zprávy Divné Morseovce, které jsou stejné.
+ \item \clr{\textbf{-- -- . . .}} není zpráva v Divné Morseovce, protože má víc
+  \clr{\textbf{.}} než \clr{\textbf{--}}.
+ \item \clr{\textbf{-- . . -- .}} není zpráva v Divné Morseovce, protože nezačíná
+  na \clr{\textbf{-- --}} ani nekončí na \clr{\textbf{. . .}}.
+ \item \clr{\textbf{-- -- . -- -- . . .}} a \clr{\textbf{-- -- -- . . .}} jsou
+  obě zprávy v Divné Morseovce, které nejsou stejné.
+\end{itemize}
+
+\end{document}
