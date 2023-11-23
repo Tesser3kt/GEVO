@@ -113,7 +113,8 @@ Směrem k definici intervalu učiňmež koliksi mezikroků.
  pro každé $x \in X$ platí $x \leq Z$, resp. $x \geq z$.
 
  Má-li množina $X$ horní, resp. dolní, závoru, říkáme, že je \emph{shora}, resp.
- \emph{zdola}, \emph{omezená}.
+ \emph{zdola}, \emph{omezená}. Je-li navíc $X$ omezená shora i zdola, říkáme
+ krátce, že je \emph{omezená}.
 \end{definition}
 
 \begin{definition}{Supremum a infimum}{supremum-a-infimum}
@@ -203,9 +204,61 @@ Dokážeme si zde ovšem, že naše \hyperref[def:realna-cisla]{definice reáln�
 čísel} odpovídá jejich axiomatické. Otázky nekonečnosti, podmínek tělesa i
 uspořádání jsme již zodpověděli. Zbývá dokázat axiom úplnosti.
 
+K tomu potřebujeme pouze jedno pomocné lemma a definici -- a to konkrétně
+\emph{monotónní} posloupnosti. Pěstujeme víru, že ctění čtenáři se s tímto
+pojmem již setkali ve spojitosti s funkcemi. Totiž \emph{monotónní}
+posloupnosti jsou posloupnosti takové, že velikost jejich prvků buď klesá
+(případně jen neroste), či roste (případně jen neklesá). Je přirozené myslet si,
+že posloupnosti, které jsou shora omezené a rostou, musejí konvergovat. Je tomu
+vskutku tak.
+
+\begin{definition}{Monotónní posloupnost}{monotonni-posloupnost}
+ O posloupnosti $x:\N \to \R$ řekneme, že je
+ \begin{itemize}
+  \item \emph{rostoucí}, když $x_{n+1}>x_n \; \forall n \in \N$;
+  \item \emph{klesající}, když $x_{n+1} < x_n \; \forall n \in \N$;
+  \item \emph{neklesající}, když $x_{n+1} \geq x_n \; \forall n \in \N$;
+  \item \emph{nerostoucí}, když $x_{n+1} \leq x_n \; \forall n \in \N$.
+ \end{itemize}
+ Ve všech těchto případech díme, že posloupnost $x$ je \emph{monotónní}.
+\end{definition}
+
+\begin{lemma}{Limita monotónní posloupnosti}{limita-monotonni-posloupnosti}
+ \vspace*{-\parskip}
+ \begin{enumerate}[label=(\alph*)]
+  \item Každá rostoucí nebo neklesající shora omezená posloupnost je
+   konvergentní.
+  \item Každá klesající nebo nerostoucí zdola omezená posloupnost je
+   konvergentní.
+ \end{enumerate}
+\end{lemma}
+\begin{lemproof}
+ Dokážeme pouze část (a), část (b) je ponechána jako cvičení.
+
+ Ať 
+\end{lemproof}
+
+
 \begin{proposition}{Axiom úplnosti}{axiom-uplnosti}
  Ať $X \subseteq \R$ je shora omezená množina. Pak existuje $\sup X$.
 \end{proposition}
 \begin{propproof}
- TODO.
+ Ježto naše \hyperref[cor:r-jsou-uplna]{pojetí úplnosti} se překládá do znění,
+ \uv{Každá konvergentní posloupnost má limitu}, není snad nečekané, že se důkaz
+ \emph{axiomu úplnosti} o tuto vlastnost opírá.
+
+ Je-li $X$ prázdná, pak má supremum podle
+ \myref{cvičení}{exer:sup-inf-prazdne-mnoziny}. Je-li jednoprvková, pak její
+ jediný prvek je její supremum. Ať má tedy $X$ aspoň dva prvky. Ať $Z_0 \in \R$
+ je její horní závora a $x_0 \in X$ je libovolné číslo, které \textbf{není}
+ horní závorou $X$ (to jistě existuje, protože $X$ má aspoň dva prvky).
+ Zkonstruujeme posloupnosti $(x_n)$ a $(Z_n)$ podle následujících pravidel:
+ \begin{itemize}
+  \item Je-li $(Z_n + x_n) / 2$ horní závorou $X$, pak $x_{n+1} \coloneqq x_n$ a
+  $Z_{n+1} \coloneqq (Z_n + x_n) / 2$.
+  \item Není-li $(Z_n + x_n) / 2$ horní závorou $X$, pak nutně existuje $y \in
+  X$ takový, že $y > (Z_n + x_n) / 2$. Položíme $x_{n+1} \coloneqq y$ a
+  $Z_{n+1} \coloneqq Z_n$.
+ \end{itemize}
+
 \end{propproof}
