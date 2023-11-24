@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,svgnames]{beamer}
+\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
 
 \usepackage[czech]{babel}
 \usepackage[czech=quotes]{csquotes}
@@ -455,61 +455,61 @@ centered, draw=black, fill=Green!30]
  \end{itemize}
 \end{frame}
 
-\section{Architektura instrukční sady}
-
-\begin{frame}
- \frametitle{Architektura instrukční sady}
- Architektura instrukční sady (angl. \alert{ISA} -- Instruction Set
- Architecture) je jakási \uv{dohoda} mezi softwarem a hardwarem.\pause\\
- \begin{itemize}[label=\textbullet]
-  \item \alert{Software} jsou programy uložené ve vnitřní paměti -- dají se
-   měnit.\pause
-  \item \alert{Hardware} jsou logické obvody tvořící počítač -- nelze je
-   měnit.\pause
-  \item \alert{ISA} obsahuje
-  \begin{itemize}[label=\textemdash]
-   \item definice \alert{operací} a \alert{adres pro ukládání},\pause
-   \item \alert{přesný popis} toho, jak je software má \alert{nařídit} a
-    \alert{dostat se k nim}.
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Architektura instrukční sady}
- ISA je další úroveň abstrakce umožňující vývoj hardware \alert{bez ohledu na
- software}.\pause
- \begin{itemize}[label=\textbullet]
-  \item ISA specifikuje, \alert{co} hardware poskytuje, nikoli \alert{jak}
-   (nespecifikuje implementaci logických obvodů v CPU).\pause
-  \item Dokud je ISA dodržena, je možné vylepšovat hardware zcela bez ohledu na
-   software, který ho používá. Např.
-  \begin{itemize}[label=\textemdash]
-   \item Intel 8086 (z roku 1978) má 29 tisíc tranzistorů, hodiny s frekvencí 5
-    MHz a zvládne asi 330 tisíc operací za sekundu;\pause 
-   \item Intel Pentium 4 (2003) má 44 milionů tranzistorů, hodiny s frekvencí 4
-    Ghz a zvládne asi 5 miliard operací za sekundu;\pause
-  \end{itemize}
-  oba procesory používají instrukční sadu x86.
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Architektura instrukční sady}
- Navrhnout ISA je obtížné.
- \begin{itemize}[label=\textbullet]
-  \item Kolik operací a jaké?\pause
-  \item Jaké typy úložišť? Kolik?\pause
-  \item Jak kódovat instrukce?\pause
-  \item Jak zařídit kompatibilitu s budoucím hardwarem?\pause
- \end{itemize}
- \alert{Statistický přístup:}
- \begin{itemize}[label=\textbullet]
-  \item Vybere se mnoho testovacích programů.\pause
-  \item Každá verze ISA se otestuje na každém programu.\pause
-  \item Určí se nejběžněji používané operace -- rychlost jejich provedení a
-   spotřeba energie se optimalizuje.
- \end{itemize}
-\end{frame}
+% \section{Architektura instrukční sady}
+%
+% \begin{frame}
+%  \frametitle{Architektura instrukční sady}
+%  Architektura instrukční sady (angl. \alert{ISA} -- Instruction Set
+%  Architecture) je jakási \uv{dohoda} mezi softwarem a hardwarem.\pause\\
+%  \begin{itemize}[label=\textbullet]
+%   \item \alert{Software} jsou programy uložené ve vnitřní paměti -- dají se
+%    měnit.\pause
+%   \item \alert{Hardware} jsou logické obvody tvořící počítač -- nelze je
+%    měnit.\pause
+%   \item \alert{ISA} obsahuje
+%   \begin{itemize}[label=\textemdash]
+%    \item definice \alert{operací} a \alert{adres pro ukládání},\pause
+%    \item \alert{přesný popis} toho, jak je software má \alert{nařídit} a
+%     \alert{dostat se k nim}.
+%   \end{itemize}
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Architektura instrukční sady}
+%  ISA je další úroveň abstrakce umožňující vývoj hardware \alert{bez ohledu na
+%  software}.\pause
+%  \begin{itemize}[label=\textbullet]
+%   \item ISA specifikuje, \alert{co} hardware poskytuje, nikoli \alert{jak}
+%    (nespecifikuje implementaci logických obvodů v CPU).\pause
+%   \item Dokud je ISA dodržena, je možné vylepšovat hardware zcela bez ohledu na
+%    software, který ho používá. Např.
+%   \begin{itemize}[label=\textemdash]
+%    \item Intel 8086 (z roku 1978) má 29 tisíc tranzistorů, hodiny s frekvencí 5
+%     MHz a zvládne asi 330 tisíc operací za sekundu;\pause 
+%    \item Intel Pentium 4 (2003) má 44 milionů tranzistorů, hodiny s frekvencí 4
+%     Ghz a zvládne asi 5 miliard operací za sekundu;\pause
+%   \end{itemize}
+%   oba procesory používají instrukční sadu x86.
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Architektura instrukční sady}
+%  Navrhnout ISA je obtížné.
+%  \begin{itemize}[label=\textbullet]
+%   \item Kolik operací a jaké?\pause
+%   \item Jaké typy úložišť? Kolik?\pause
+%   \item Jak kódovat instrukce?\pause
+%   \item Jak zařídit kompatibilitu s budoucím hardwarem?\pause
+%  \end{itemize}
+%  \alert{Statistický přístup:}
+%  \begin{itemize}[label=\textbullet]
+%   \item Vybere se mnoho testovacích programů.\pause
+%   \item Každá verze ISA se otestuje na každém programu.\pause
+%   \item Určí se nejběžněji používané operace -- rychlost jejich provedení a
+%    spotřeba energie se optimalizuje.
+%  \end{itemize}
+% \end{frame}
 
 \end{document}

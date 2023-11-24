@@ -248,17 +248,25 @@ vskutku tak.
  \emph{axiomu úplnosti} o tuto vlastnost opírá.
 
  Je-li $X$ prázdná, pak má supremum podle
- \myref{cvičení}{exer:sup-inf-prazdne-mnoziny}. Je-li jednoprvková, pak její
- jediný prvek je její supremum. Ať má tedy $X$ aspoň dva prvky. Ať $Z_0 \in \R$
- je její horní závora a $x_0 \in X$ je libovolné číslo, které \textbf{není}
- horní závorou $X$ (to jistě existuje, protože $X$ má aspoň dva prvky).
- Zkonstruujeme posloupnosti $(x_n)$ a $(Z_n)$ podle následujících pravidel:
+ \myref{cvičení}{exer:sup-inf-prazdne-mnoziny}. Ať je tedy $X$ neprázdná a shora
+ omezená a $Z \in \R$ je libovolná horní závora $X$. Můžeme předpokládat, že
+ $Z \in \Q$ (\textbf{proč?}). Protože $X$ je neprázdná, existuje $q \in \Q$
+ takové, že $q < x$ pro nějaké $x \in X$. Definujeme racionální posloupnosti
+ $Z_n$ a $q_n$ podle následujících pravidel.
  \begin{itemize}
-  \item Je-li $(Z_n + x_n) / 2$ horní závorou $X$, pak $x_{n+1} \coloneqq x_n$ a
-  $Z_{n+1} \coloneqq (Z_n + x_n) / 2$.
-  \item Není-li $(Z_n + x_n) / 2$ horní závorou $X$, pak nutně existuje $y \in
-  X$ takový, že $y > (Z_n + x_n) / 2$. Položíme $x_{n+1} \coloneqq y$ a
-  $Z_{n+1} \coloneqq Z_n$.
+  \item Položme $Z_0 \coloneqq Z$ a $q_0 \coloneqq q$.
+  \item Uvažme číslo $p_n \coloneqq (Z_n + q_n) / 2$.
+  \item Je-li $p_n$ horní závorou $X$, položme $Z_{n+1} \coloneqq p_n$ a
+   $q_{n+1} \coloneqq q_n$.
+  \item Není-li $p_n$ horní závorou $X$, položme $Z_{n+1} \coloneqq Z_n$ a
+   $q_{n+1} \coloneqq p_n$.
  \end{itemize}
+ Pak jsou posloupnosti $Z_n$ a $p_n$ konvergentní (\textbf{proč?}) a indukcí lze
+ snadno dokázat (\textbf{dokažte!}), že $q_n$ \textbf{není} horní závorou
+ $X$ a $Z_n$ \textbf{je} horní závorou $X$ pro všechna $n \in \N$. Odtud plyne
+ (\textbf{proč?}), že $\lim_{} Z_n$ je horní závorou $X$. Navíc platí $\lim_{}
+ |Z_n - q_n| = 0$ (\textbf{proč?}), a tedy $\lim_{} Z_n = \lim_{} q_n$.
 
+ Označme $S \coloneqq \lim_{} Z_n = \lim_{} q_n$. Dokážeme, že $S = \sup X$. P
+ Podle předchozího odstavce je $S$ horní závorou $X$. Zbývá dok
 \end{propproof}
