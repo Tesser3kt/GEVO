@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,svgnames]{beamer}
+\documentclass[aspectratio=169,11pt,usenames,dvipsnames,handout]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -22,6 +22,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+\usepackage{booktabs}
 % Flowchart stuff
 
 \usepackage{pgfopts}
@@ -67,6 +68,10 @@
 \newcommand{\clc}{\textcolor{Charlotte}}
 \newcommand{\clp}{\textcolor{PictonBlue}}
 \newcommand{\clu}{\textcolor{CuriousBlue}}
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Magenta}}
 
 \newcommand{\N}{\mathbb{N}}
 
@@ -602,14 +607,41 @@ Symmetric Transformations}
   \item Suppose $op(x,y)$ is some element $z \in X$. For the operation $op$ to
    be \alert{symmetric}, we need two things:\pause
   \begin{itemize}[label=\textemdash]
-   \item A special element $e \in X$ (the \alert{identity} element).\pause
+   \item A special element $e \in X$ (the \alert{identity} element) which
+    satisfies
+    \[
+     op(x,e) = x
+    \]
+    for all elements $x \in X$.\pause
    \item Elements $x^{*}$ and $y^{*}$ (the \alert{inverse} elements to $x$ and
     $y$) such that
    \[
     op(x,x^{*}) = op(y,y^{*}) = e.
    \]
   \end{itemize}
-  \pause
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Operation As A Transformation}
+ Let's pick an (commutative) operation $op$ on a set $X$ and two elements $x,y
+ \in X$.\pause
+ \begin{itemize}
+  \item Suppose $op(x,y)$ is some element $z \in X$. For the operation $op$ to
+   be \alert{symmetric}, we need two things:\pause
+  \begin{itemize}[label=\textemdash]
+   \item A special element $e \in X$ (the \alert{identity} element) which
+    satisfies
+    \[
+     op(x,e) = x
+    \]
+    for all elements $x \in X$. 
+   \item Elements $x^{*}$ and $y^{*}$ (the \alert{inverse} elements to $x$ and
+    $y$) such that
+   \[
+    op(x,x^{*}) = op(y,y^{*}) = e.
+   \]
+  \end{itemize}
  \item It's possible $X$ doesn't have those things -- which means the operation
   $op$ cannot be symmetric \alert{on $X$}, but it can be symmetric on a larger
   set which does contain those elements.
@@ -617,10 +649,97 @@ Symmetric Transformations}
 \end{frame}
 
 \begin{frame}
+ \frametitle{Operation As A Transformation}
+ For an operation to be invertible, it really just means its \alert{effects can
+ be reversed}, that there's always a way back.\pause\\
+ If $x^{*}, y^{*}$ are the inverse to $x,y$ with respect to $op$, then we can
+ \alert{recover} $x$ and $y$ after performing the operation $op$.\pause\\
+ Suppose $op(x,y) = z$. Then, $op(z,y^{*}) = x$ and $op(z,x^{*}) = y$.\pause\\
+ Why? We know that $op(x,x^{*}) = e = op(y,y^{*})$.\pause
+ Therefore
+\end{frame}
+
+\begin{frame}
  \frametitle{Inverse As A Function}
  Inverse can be thought of as a \alert{unary} operation -- it takes an element
  $x$ and gives back its inverse $x^{*}$.\pause\\
  Clearly, the inverse to $x^{*}$ is $x$, again.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Drawing Structures}
+ Let's draw some mathematical structures.\pause
+ Remember that a mathematical structure is just a set with a bunch of
+ operations. If our set $X$ is finite, we can draw its elements as dots.\pause\\
+ The simplest way to `draw' a mathematical structure is using a table.\pause\\
+ Imagine our set has three points $\clr{a}, \clb{b}$ and $\clg{c}$. We can
+ define a \alert{unary} operation~~$\clm{\hat{}}: X \to X$ (meaning it takes one
+ element) on $X$ by writing what it does into a table:\pause
+ \begin{center}
+  \begin{tabular}{c|c|c}
+   $\hat{\clr{a}}$ & $\hat{\clb{b}}$ & $\hat{\clg{c}}$ \\
+   \midrule
+   $\clg{c}$ & $\clr{a}$ & $\clb{b}$
+  \end{tabular}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Drawing Structures}
+ The table
+ \begin{center}
+  \begin{tabular}{c|c|c}
+   $\hat{\clr{a}}$ & $\hat{\clb{b}}$ & $\hat{\clg{c}}$ \\
+   \midrule
+   $\clg{c}$ & $\clr{a}$ & $\clb{b}$
+  \end{tabular}
+ \end{center}
+ from the previous slide can be also drawn using dots and arrows for example
+ like this:\pause
+ \begin{center}
+  \begin{tikzpicture}
+   \tkzDefPoint(90:1){a}
+   \tkzDefPoint(210:1){b}
+   \tkzDefPoint(330:1){c}
+
+   \tkzDrawPoint[size=4,color=BrickRed](a)
+   \tkzDrawPoint[size=4,color=RoyalBlue](b)
+   \tkzDrawPoint[size=4,color=ForestGreen](c)
+
+   \tkzLabelPoint[color=BrickRed,above,yshift=1mm](a){$a$}
+   \tkzLabelPoint[color=RoyalBlue,below left](b){$b$}
+   \tkzLabelPoint[color=ForestGreen,below right](c){$c$}
+
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](a,c)
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](b,a)
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](c,b)
+  \end{tikzpicture}
+ \end{center}
+ where the \clm{magenta} arrows denote the operation~~$\clm{\hat{}}$~.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Drawing Structures}
+ Let's think what could be an \alert{inverse} to the operation~~$\clm{\hat{}}$~.
+ \begin{center}
+  \begin{tikzpicture}
+   \tkzDefPoint(90:1){a}
+   \tkzDefPoint(210:1){b}
+   \tkzDefPoint(330:1){c}
+
+   \tkzDrawPoint[size=4,color=BrickRed](a)
+   \tkzDrawPoint[size=4,color=RoyalBlue](b)
+   \tkzDrawPoint[size=4,color=ForestGreen](c)
+
+   \tkzLabelPoint[color=BrickRed,above,yshift=1mm](a){$a$}
+   \tkzLabelPoint[color=RoyalBlue,below left](b){$b$}
+   \tkzLabelPoint[color=ForestGreen,below right](c){$c$}
+
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](a,c)
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](b,a)
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](c,b)
+  \end{tikzpicture}
+ \end{center}
 \end{frame}
 
 \begin{frame}

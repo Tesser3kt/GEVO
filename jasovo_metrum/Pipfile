@@ -9,8 +9,10 @@ tensorflow = "*"
 pandas = "*"
 tensorflow-datasets = "*"
 tensorflow-text = "*"
+matplotlib = "*"
 
 [dev-packages]
+ipykernel = "*"
 
 [requires]
 python_version = "3.11"

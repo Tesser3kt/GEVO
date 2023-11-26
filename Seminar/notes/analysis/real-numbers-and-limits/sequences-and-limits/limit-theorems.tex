@@ -112,9 +112,10 @@ Směrem k definici intervalu učiňmež koliksi mezikroků.
  \R^{*}$, je \emph{horní}, resp. \emph{dolní}, \emph{závora} množiny $X$, když
  pro každé $x \in X$ platí $x \leq Z$, resp. $x \geq z$.
 
- Má-li množina $X$ horní, resp. dolní, závoru, říkáme, že je \emph{shora}, resp.
- \emph{zdola}, \emph{omezená}. Je-li navíc $X$ omezená shora i zdola, říkáme
- krátce, že je \emph{omezená}.
+ Má-li množina $X$ horní, resp. dolní, závoru, \textbf{která leží v $\R$} (tedy
+ není rovna $ \pm \infty$), říkáme, že je \emph{shora}, resp. \emph{zdola},
+ \emph{omezená}. Je-li navíc $X$ omezená shora i zdola, říkáme krátce, že je
+ \emph{omezená}.
 \end{definition}
 
 \begin{definition}{Supremum a infimum}{supremum-a-infimum}
@@ -249,10 +250,9 @@ vskutku tak.
 
  Je-li $X$ prázdná, pak má supremum podle
  \myref{cvičení}{exer:sup-inf-prazdne-mnoziny}. Ať je tedy $X$ neprázdná a shora
- omezená a $Z \in \R$ je libovolná horní závora $X$. Můžeme předpokládat, že
- $Z \in \Q$ (\textbf{proč?}). Protože $X$ je neprázdná, existuje $q \in \Q$
- takové, že $q < x$ pro nějaké $x \in X$. Definujeme racionální posloupnosti
- $Z_n$ a $q_n$ podle následujících pravidel.
+ omezená a $Z \in \R$ je libovolná horní závora $X$. Protože $X$ je neprázdná,
+ existuje $q \in \R$ takové, že $q < x$ pro nějaké $x \in X$. Definujeme
+ posloupnosti $Z_n$ a $q_n$ podle následujících pravidel.
  \begin{itemize}
   \item Položme $Z_0 \coloneqq Z$ a $q_0 \coloneqq q$.
   \item Uvažme číslo $p_n \coloneqq (Z_n + q_n) / 2$.
@@ -261,12 +261,37 @@ vskutku tak.
   \item Není-li $p_n$ horní závorou $X$, položme $Z_{n+1} \coloneqq Z_n$ a
    $q_{n+1} \coloneqq p_n$.
  \end{itemize}
- Pak jsou posloupnosti $Z_n$ a $p_n$ konvergentní (\textbf{proč?}) a indukcí lze
- snadno dokázat (\textbf{dokažte!}), že $q_n$ \textbf{není} horní závorou
- $X$ a $Z_n$ \textbf{je} horní závorou $X$ pro všechna $n \in \N$. Odtud plyne
- (\textbf{proč?}), že $\lim_{} Z_n$ je horní závorou $X$. Navíc platí $\lim_{}
- |Z_n - q_n| = 0$ (\textbf{proč?}), a tedy $\lim_{} Z_n = \lim_{} q_n$.
+ Pak jsou posloupnosti $Z_n$ a $q_n$ konvergentní (\textbf{proč?}) a indukcí lze
+ snadno dokázat (\textbf{dokažte!}), že $q_n$ \textbf{není} horní závorou $X$ a
+ $Z_n$ \textbf{je} horní závorou $X$ pro všechna $n \in \N$. Navíc platí
+ $\lim_{} |Z_n - q_n| = 0$ (\textbf{proč?}), a tedy $\lim_{} Z_n = \lim_{} q_n$.
 
- Označme $S \coloneqq \lim_{} Z_n = \lim_{} q_n$. Dokážeme, že $S = \sup X$. P
- Podle předchozího odstavce je $S$ horní závorou $X$. Zbývá dok
+ Označme $S \coloneqq \lim_{} Z_n = \lim_{} q_n$. Dokážeme, že $S = \sup X$. Je
+ třeba ukázat, že
+ \begin{enumerate}
+  \item $S$ je horní závorou $X$;
+  \item $S$ je nejmenší horní závorou.
+ \end{enumerate}
+ Předpokládejme pro spor, že existuje $x \in X$ takové, že $x > S$. To znamená,
+ že existuje konstanta $c > 0$ taková, že $x - S = c$. Volme $\varepsilon
+ \coloneqq c / 2$. Pro toto $\varepsilon$ z
+ \hyperref[def:limita-posloupnosti]{definice limity} existuje $n_0 \in \N$
+ takové, že pro všechna $n \geq n_0$ platí $|Z_n - \lim_{} Z_n| = |Z_n - S| <
+ \varepsilon$. Jelikož $(Z_n)$ je nerostoucí, je absolutní hodnota v předchozím
+ výrazu zbytečná a můžeme zkrátka psát $Z_n - S < \varepsilon$. Potom ale pro
+ všechna $n \geq n_0$ máme
+ \[
+  x - Z_n = x + S - S - Z_n = (x - S) + (S - Z_n) > c - \varepsilon =
+  \frac{c}{2},
+ \]
+ čili speciálně $x > Z_n$, což je ve sporu s volbou $Z_n$ jako horní závory $X$.
+ To dokazuje (1).
+
+ Tvrzení (2) lze dokázat obdobně, akorát využitím posloupnosti $(q_n)$ spíše než
+ $(Z_n)$. Opět ať pro spor existuje $Z \in \R$, které je horní závorou $X$, a $Z
+ < S$. Pak nalezneme konstantu $c > 0$ takovou, že $S - Z = c$. Opět z
+ \hyperref[def:limita-posloupnosti]{definice limity} vezmeme $\varepsilon
+ \coloneqq c / 2$ a k němu $n_0 \in \N$ takové, že $\forall n \geq n_0$ platí $S
+ - q_n < \varepsilon$, kde absolutní hodnotu jsem mohli vynechat, bo $S \geq
+ q_n$ pro 
 \end{propproof}
