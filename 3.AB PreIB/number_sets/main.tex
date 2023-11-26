@@ -4,6 +4,12 @@
 \usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage{amsmath}
+\newlength{\dhatheight}
+\newcommand{\doublehat}[1]{%
+    \settoheight{\dhatheight}{\ensuremath{\hat{#1}}}%
+    \addtolength{\dhatheight}{-0.2ex}%
+    \hat{\vphantom{\rule{1pt}{\dhatheight}}%
+    \smash{\hat{#1}}}}
 \usepackage{mathtools}
 \usepackage{float}
 \usepackage{tikz}
@@ -72,8 +78,14 @@
 \newcommand{\clb}{\textcolor{RoyalBlue}}
 \newcommand{\clg}{\textcolor{ForestGreen}}
 \newcommand{\clm}{\textcolor{Magenta}}
+<<<<<<< HEAD
+\newcommand{\cls}{\textcolor{Salmon}}
+=======
+>>>>>>> 234d6d09a06d1f32ff20f07bf17e192dc1f51a20
 
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\tng}{\triangle}
 
 \tcbset{
  boxsep=7pt,
@@ -420,7 +432,7 @@
  \begin{itemize}
   \item $m \cdot 1 = m$,
   \pause
-  \item $m \cdot s(n) = m \cdot n + m$. 
+  \item $m \cdot s(n) = m \cdot n + m$.
  \end{itemize}
  \pause
  We can imagine multiplication $m \cdot n$ by adding a collections of $n$ blocks
@@ -586,11 +598,11 @@ Symmetric Transformations}
  This interaction can be \alert{destructive} or \alert{symmetric}.\pause\\
  \begin{itemize}
   \item The operations $+$ and $ \cdot $ on $\N$ are \alert{destructive} -- they
-   \emph{destroy} the elements.\pause
+   \emph{destroy} the elements. \pause
   When I multiply $3 \cdot 5 = 15$, I have no way to get back the $3$ or the
   $5$.\pause
  \item The operation $r$ on the vertices of a regular polygon is
-  \alert{symmetric} -- it can be reversed or \alert{inverted}.\pause
+  \alert{symmetric} -- it can be reversed or \alert{inverted}. \pause
   If, for example, vertex $A$ is sent to $G$ by this rotation, then rotation in
   the opposite direction sends $G$ back to $A$.
  \end{itemize}
@@ -601,49 +613,50 @@ Symmetric Transformations}
  All destructive operations on a set $X$ \alert{can be made symmetric} by making
  the set larger and introducing \alert{inverses} and \alert{identity elements}
  with respect to the given operation.\pause\\
- Let's pick an (commutative) operation $op$ on a set $X$ and two elements $x,y
+ Let's pick an commutative and associative operation $\tng$ on a set $X$
+ and two elements $x,y
  \in X$.\pause
  \begin{itemize}
-  \item Suppose $op(x,y)$ is some element $z \in X$. For the operation $op$ to
-   be \alert{symmetric}, we need two things:\pause
+  \item Suppose $x \tng y$ is some element $z \in X$. For the operation
+   $\tng$ to be \alert{symmetric}, we need two things:\pause
   \begin{itemize}[label=\textemdash]
    \item A special element $e \in X$ (the \alert{identity} element) which
     satisfies
     \[
-     op(x,e) = x
+     x \tng e = x
     \]
     for all elements $x \in X$.\pause
    \item Elements $x^{*}$ and $y^{*}$ (the \alert{inverse} elements to $x$ and
     $y$) such that
-   \[
-    op(x,x^{*}) = op(y,y^{*}) = e.
-   \]
+    \[
+     x \tng x^{*} = y \tng y^{*} = e.
+    \]
   \end{itemize}
  \end{itemize}
 \end{frame}
 
 \begin{frame}
  \frametitle{Operation As A Transformation}
- Let's pick an (commutative) operation $op$ on a set $X$ and two elements $x,y
- \in X$.\pause
+ Let's pick an (commutative) operation $\tng$ on a set $X$ and two elements $x,y
+ \in X$.
  \begin{itemize}
-  \item Suppose $op(x,y)$ is some element $z \in X$. For the operation $op$ to
-   be \alert{symmetric}, we need two things:\pause
+  \item Suppose $x \tng y$ is some element $z \in X$. For the operation $\tng$
+   to be \alert{symmetric}, we need two things:
   \begin{itemize}[label=\textemdash]
    \item A special element $e \in X$ (the \alert{identity} element) which
     satisfies
     \[
-     op(x,e) = x
+     x \tng e = x
     \]
-    for all elements $x \in X$. 
+    for all elements $x \in X$.
    \item Elements $x^{*}$ and $y^{*}$ (the \alert{inverse} elements to $x$ and
     $y$) such that
-   \[
-    op(x,x^{*}) = op(y,y^{*}) = e.
-   \]
+    \[
+      x \tng x^{*} = y \tng y^{*} = e.
+    \]
   \end{itemize}
  \item It's possible $X$ doesn't have those things -- which means the operation
-  $op$ cannot be symmetric \alert{on $X$}, but it can be symmetric on a larger
+  $\tng$ cannot be symmetric \alert{on $X$}, but it can be symmetric on a larger
   set which does contain those elements.
  \end{itemize}
 \end{frame}
@@ -652,11 +665,14 @@ Symmetric Transformations}
  \frametitle{Operation As A Transformation}
  For an operation to be invertible, it really just means its \alert{effects can
  be reversed}, that there's always a way back.\pause\\
- If $x^{*}, y^{*}$ are the inverse to $x,y$ with respect to $op$, then we can
- \alert{recover} $x$ and $y$ after performing the operation $op$.\pause\\
- Suppose $op(x,y) = z$. Then, $op(z,y^{*}) = x$ and $op(z,x^{*}) = y$.\pause\\
- Why? We know that $op(x,x^{*}) = e = op(y,y^{*})$.\pause
- Therefore
+ If $x^{*}, y^{*}$ are the inverse to $x,y$ with respect to $\tng$, then we can
+ \alert{recover} $x$ and $y$ after performing the operation $\tng$.\pause\\
+ Suppose $x \tng y = z$. Then, $z \tng y^{*} = x$ and $z \tng x^* = y$.\pause\\
+ Why? We know that $x \tng x^{*} = e = y \tng y^{*}$. \pause
+ Therefore, for example,
+ \[
+  z \tng y^{*} = (x \tng y) \tng y^{*} = x \tng (y \tng y^{*}) = x \tng e = x.
+ \]
 \end{frame}
 
 \begin{frame}
@@ -740,6 +756,108 @@ Symmetric Transformations}
    \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](c,b)
   \end{tikzpicture}
  \end{center}
+ \pause
+ What the operation~~$\clm{\hat{}}$~~does is basically changing a dot into
+ another dot following the \clm{arrows}.\pause\\
+ As I have three dots, this means, that after traversing one \clm{arrow}, I have
+ to \alert{traverse two \clm{arrows}} to get to where I started.\pause\\
+ However, traversing two \clm{arrows} just means \alert{applying the
+ operation~~$\clm{\hat{}}$~~twice}.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Drawing Structures}
+ Let's think what could be an \alert{inverse} to the operation~~$\clm{\hat{}}$~.
+ \begin{center}
+  \begin{tikzpicture}
+   \tkzDefPoint(90:1){a}
+   \tkzDefPoint(210:1){b}
+   \tkzDefPoint(330:1){c}
+
+   \tkzDrawPoint[size=4,color=BrickRed](a)
+   \tkzDrawPoint[size=4,color=RoyalBlue](b)
+   \tkzDrawPoint[size=4,color=ForestGreen](c)
+
+   \tkzLabelPoint[color=BrickRed,above,yshift=1mm](a){$a$}
+   \tkzLabelPoint[color=RoyalBlue,below left](b){$b$}
+   \tkzLabelPoint[color=ForestGreen,below right](c){$c$}
+
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](a,c)
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](b,a)
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](c,b)
+  \end{tikzpicture}
+ \end{center}
+ What this means in symbols is that if $\hat{\clg{c}} = \clb{b}$, then
+ $\doublehat{\clb{b}} = \clg{c}$.\pause\\
+ So, to get an inverse element with respect to~~$\clm{\hat{}}$~, we just need
+ to apply~~$\clm{\hat{}}$~~twice.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Drawing Structures -- Examples}
+ Imagine a similar unary operation~~$\tilde{}$~. It is given by the following
+ table
+ \begin{center}
+  \begin{tabular}{c|c|c}
+   $\tilde{\clr{a}}$ & $\tilde{\clb{b}}$ & $\tilde{\clg{c}}$ \\
+   \midrule
+   $\clb{b}$ & $\clb{b}$ & $\clb{b}$
+  \end{tabular}
+ \end{center}
+ \pause
+ and can be pictured like this
+ \begin{center}
+  \vspace*{-1em}
+  \begin{tikzpicture}
+   \tkzDefPoint(90:1){a}
+   \tkzDefPoint(210:1){b}
+   \tkzDefPoint(210:1.4){b2}
+   \tkzDefPoint(330:1){c}
+
+   \tkzDrawPoint[size=4,color=BrickRed](a)
+   \tkzDrawPoint[size=4,color=RoyalBlue](b)
+   \tkzDrawPoint[size=4,color=ForestGreen](c)
+
+   \tkzLabelPoint[color=BrickRed,above,yshift=1mm](a){$a$}
+   \tkzLabelPoint[color=RoyalBlue,below left](b){$b$}
+   \tkzLabelPoint[color=ForestGreen,below right](c){$c$}
+
+   \tkzDrawSegment[thick,->,color=Salmon,add=-.1 and -.1](a,b)
+   \tkzDrawSegment[thick,->,color=Salmon,add=-.1 and -.1](c,b)
+   \tkzDrawArc[R,thick,->,color=Salmon](b2,0.4)(60,360)
+  \end{tikzpicture}
+ \end{center}
+ \pause
+ How many elements do we need to add to make~~$\tilde{}$~~symmetric?
+\end{frame}
+
+\begin{frame}
+ \frametitle{Drawing Structures -- Examples}
+ \begin{center}
+  \begin{tikzpicture}
+   \tkzDefPoint(90:1){a}
+   \tkzDefPoint(210:1){b}
+   \tkzDefPoint(210:1.4){b2}
+   \tkzDefPoint(330:1){c}
+
+   \tkzDrawPoint[size=4,color=BrickRed](a)
+   \tkzDrawPoint[size=4,color=RoyalBlue](b)
+   \tkzDrawPoint[size=4,color=ForestGreen](c)
+
+   \tkzLabelPoint[color=BrickRed,above,yshift=1mm](a){$a$}
+   \tkzLabelPoint[color=RoyalBlue,below left](b){$b$}
+   \tkzLabelPoint[color=ForestGreen,below right](c){$c$}
+
+   \tkzDrawSegment[thick,->,color=Salmon,add=-.1 and -.1](a,b)
+   \tkzDrawSegment[thick,->,color=Salmon,add=-.1 and -.1](c,b)
+   \tkzDrawArc[R,thick,->,color=Salmon](b2,0.4)(60,360)
+  \end{tikzpicture}
+  \vspace*{-1em}
+ \end{center}
+ How many elements do we need to add to make~~$\tilde{}$~~symmetric?\pause\\
+ The answer is \alert{two elements} -- that is because we need to be able to
+ return from $\clb{b}$ to $\clr{a}$ and to $\clg{c}$ and we cannot do it using
+ only one element because one element cannot be transformed into two different.
 \end{frame}
 
 \begin{frame}
