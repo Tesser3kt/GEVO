@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,usenames,dvipsnames,handout]{beamer}
+\documentclass[aspectratio=169,11pt,usenames,dvipsnames]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -78,10 +78,8 @@
 \newcommand{\clb}{\textcolor{RoyalBlue}}
 \newcommand{\clg}{\textcolor{ForestGreen}}
 \newcommand{\clm}{\textcolor{Magenta}}
-<<<<<<< HEAD
 \newcommand{\cls}{\textcolor{Salmon}}
-=======
->>>>>>> 234d6d09a06d1f32ff20f07bf17e192dc1f51a20
+\newcommand{\clo}{\textcolor{OrangeRed}}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -610,15 +608,14 @@ Symmetric Transformations}
 
 \begin{frame}
  \frametitle{Operation As A Transformation}
- All destructive operations on a set $X$ \alert{can be made symmetric} by making
- the set larger and introducing \alert{inverses} and \alert{identity elements}
- with respect to the given operation.\pause\\
- Let's pick an commutative and associative operation $\tng$ on a set $X$
- and two elements $x,y
- \in X$.\pause
+ Most destructive operations on a set $X$ \alert{can be made symmetric} by
+ making the set larger and introducing \alert{inverses} and \alert{identity
+ elements} with respect to the given operation.\pause\\
+ Let's pick an commutative and associative \alert{binary} operation $\tng$ on a
+ set $X$ and two elements $x,y \in X$.\pause
  \begin{itemize}
-  \item Suppose $x \tng y$ is some element $z \in X$. For the operation
-   $\tng$ to be \alert{symmetric}, we need two things:\pause
+  \item For the operation $\tng$ to be \alert{symmetric}, we need two
+   things:\pause
   \begin{itemize}[label=\textemdash]
    \item A special element $e \in X$ (the \alert{identity} element) which
     satisfies
@@ -630,29 +627,6 @@ Symmetric Transformations}
     $y$) such that
     \[
      x \tng x^{*} = y \tng y^{*} = e.
-    \]
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Operation As A Transformation}
- Let's pick an (commutative) operation $\tng$ on a set $X$ and two elements $x,y
- \in X$.
- \begin{itemize}
-  \item Suppose $x \tng y$ is some element $z \in X$. For the operation $\tng$
-   to be \alert{symmetric}, we need two things:
-  \begin{itemize}[label=\textemdash]
-   \item A special element $e \in X$ (the \alert{identity} element) which
-    satisfies
-    \[
-     x \tng e = x
-    \]
-    for all elements $x \in X$.
-   \item Elements $x^{*}$ and $y^{*}$ (the \alert{inverse} elements to $x$ and
-    $y$) such that
-    \[
-      x \tng x^{*} = y \tng y^{*} = e.
     \]
   \end{itemize}
  \end{itemize}
@@ -707,10 +681,10 @@ Symmetric Transformations}
 
 \begin{frame}
  \frametitle{Drawing Structures}
- Let's draw some mathematical structures.\pause
+ Let's draw some mathematical structures. \pause
  Remember that a mathematical structure is just a set with a bunch of
  operations. If our set $X$ is finite, we can draw its elements as dots.\pause\\
- The simplest way to `draw' a mathematical structure is using a table.\pause\\
+ The simplest way to `draw' a mathematical structure is a table.\pause\\
  Imagine our set has three points $\clr{a}, \clb{b}$ and $\clg{c}$. We can
  define a \alert{unary} operation~~$\clm{\hat{}}: X \to X$ (meaning it takes one
  element) on $X$ by writing what it does into a table:\pause
@@ -783,7 +757,7 @@ Symmetric Transformations}
  What the operation~~$\clm{\hat{}}$~~does is basically changing a dot into
  another dot following the \clm{arrows}.\pause\\
  As I have three dots, this means, that after traversing one \clm{arrow}, I have
- to \alert{traverse two \clm{arrows}} to get to where I started.\pause\\
+ to \alert{traverse two \clm{arrows}} to get back to where I started.\pause\\
  However, traversing two \clm{arrows} just means \alert{applying the
  operation~~$\clm{\hat{}}$~~twice}.
 \end{frame}
@@ -810,7 +784,7 @@ Symmetric Transformations}
    \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](c,b)
   \end{tikzpicture}
  \end{center}
- What this means in symbols is that if $\hat{\clg{c}} = \clb{b}$, then
+ What this means in symbols, is that if $\hat{\clg{c}} = \clb{b}$, then
  $\doublehat{\clb{b}} = \clg{c}$.\pause\\
  So, to get an inverse element with respect to~~$\clm{\hat{}}$~, we just need
  to apply~~$\clm{\hat{}}$~~twice.
@@ -845,13 +819,13 @@ Symmetric Transformations}
    \tkzLabelPoint[color=RoyalBlue,below left](b){$b$}
    \tkzLabelPoint[color=ForestGreen,below right](c){$c$}
 
-   \tkzDrawSegment[thick,->,color=Salmon,add=-.1 and -.1](a,b)
-   \tkzDrawSegment[thick,->,color=Salmon,add=-.1 and -.1](c,b)
-   \tkzDrawArc[R,thick,->,color=Salmon](b2,0.4)(60,360)
+   \tkzDrawSegment[thick,->,color=OrangeRed,add=-.1 and -.1](a,b)
+   \tkzDrawSegment[thick,->,color=OrangeRed,add=-.1 and -.1](c,b)
+   \tkzDrawArc[R,thick,->,color=OrangeRed](b2,0.4)(60,360)
   \end{tikzpicture}
  \end{center}
  \pause
- How many elements do we need to add to make~~$\tilde{}$~~symmetric?
+ How many elements do we need to add to make~~$\clo{\tilde{}}$~~symmetric?
 \end{frame}
 
 \begin{frame}
@@ -871,16 +845,37 @@ Symmetric Transformations}
    \tkzLabelPoint[color=RoyalBlue,below left](b){$b$}
    \tkzLabelPoint[color=ForestGreen,below right](c){$c$}
 
-   \tkzDrawSegment[thick,->,color=Salmon,add=-.1 and -.1](a,b)
-   \tkzDrawSegment[thick,->,color=Salmon,add=-.1 and -.1](c,b)
-   \tkzDrawArc[R,thick,->,color=Salmon](b2,0.4)(60,360)
+   \tkzDrawSegment[thick,->,color=OrangeRed,add=-.1 and -.1](a,b)
+   \tkzDrawSegment[thick,->,color=OrangeRed,add=-.1 and -.1](c,b)
+   \tkzDrawArc[R,thick,->,color=OrangeRed](b2,0.4)(60,360)
   \end{tikzpicture}
   \vspace*{-1em}
  \end{center}
- How many elements do we need to add to make~~$\tilde{}$~~symmetric?\pause\\
- The answer is \alert{two elements} -- that is because we need to be able to
- return from $\clb{b}$ to $\clr{a}$ and to $\clg{c}$ and we cannot do it using
- only one element because one element cannot be transformed into two different.
+ Can we make~~$\clo{\tilde{}}$~~symmetric?\pause\\
+ The answer is \alert{no} because I can never get back after reaching $\clb{b}$.
+ This happens since all the \clo{arrows} end in \clb{b}.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Drawing Structures -- Examples}
+ Let's now imagine a structure with a binary operation $\clo{\triangle}$
+ instead. Let's upgrade the number of elements to $4$ and label them $\clr{a},
+ \clb{b}$, $\clg{c}$ and $d$.\pause\\
+ To represent a binary operation using a table, we need to write each element to
+ each row and each column.\pause\\
+ Suppose our operation $\clo{\triangle}$ acts like this:
+ \begin{center}
+  \begin{tabular}{c|cccc}
+   $\clo{\triangle}$ & $\clr{a}$ & $\clb{b}$ & $\clg{c}$ & $d$ \\
+   \midrule
+   $\clr{a}$ & $\clg{c}$ & $\clr{a}$ & $d$ & $\clb{b}$ \\
+   $\clb{b}$ & $\clr{a}$ & $\clb{b}$ & $\clg{c}$ & $d$ \\
+   $\clg{c}$ & $d$ & $\clg{c}$ & $\clb{b}$ & $\clr{a}$ \\
+   $d$ & $\clb{b}$ & $d$ & $\clr{a}$ & $\clg{c}$
+  \end{tabular}
+ \end{center}
+ \pause
+ Is this operation \alert{symmetric} or \alert{destructive}?
 \end{frame}
 
 \begin{frame}
