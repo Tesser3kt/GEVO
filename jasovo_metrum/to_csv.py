@@ -3,6 +3,7 @@ import csv
 import os
 import pyphen
 import unidecode as ud
+from .config import METRE_TO_CAT
 
 # Load the JSON poem
 with open("data.csv", "w", encoding="utf-8") as f:
@@ -34,5 +35,8 @@ with open("data.csv", "w", encoding="utf-8") as f:
                         syllable for syllable in syllables if syllable != ""
                     )
                     text = '"' + ud.unidecode(text.lower()) + '"'
-                    csv_writer.writerow([index, "test", line["metre"][0]["type"], text])
+                    metre = line["metre"][0]["type"]
+                    if metre == "N":
+                        continue
+                    csv_writer.writerow([index, "test", METRE_TO_CAT[metre], text])
                     index += 1

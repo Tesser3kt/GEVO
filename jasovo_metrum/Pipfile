@@ -4,22 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-black = "*"
-tensorflow = "*"
-pandas = "*"
-tensorflow-datasets = "*"
-tensorflow-text = "*"
-matplotlib = "*"
-<<<<<<< HEAD
 pyphen = "*"
 unidecode = "*"
+black = "*"
+tensorflow = "*"
 numpy = "*"
+pandas = "*"
+matplotlib = "*"
 ipykernel = "*"
-=======
->>>>>>> 234d6d09a06d1f32ff20f07bf17e192dc1f51a20
 
 [dev-packages]
-ipykernel = "*"
 
 [requires]
 python_version = "3.11"

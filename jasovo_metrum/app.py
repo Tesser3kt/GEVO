@@ -1,37 +1,40 @@
-import json
 import tensorflow as tf
-import tensorflow_datasets as tfds
-import tensorflow_text as tf_text
-import pickle
+import pyphen
+import unidecode as ud
+from config import CAT_TO_METRE
 
 
-def filter_train(line):
-    split = tf.strings.split(line, ",", maxsplit=3)
-    return split[1] == "train" and split[2] != "N"
+def file_to_dataset(filename, batch_size=32):
+    """Reads verses from a file and converts them to a dataset."""
+
+    dic = pyphen.Pyphen(lang="cs_CZ")
+    with open(filename, "r", encoding="utf-8") as f:
+        verses = []
+
+        for line in f:
+            line = line.strip()
+            line = "".join([c for c in line if c.isalpha() or c == " "])
+            words = line.split(" ")
+
+            for word_index, word in enumerate(words):
+                if word.lower() in ["k", "s", "z", "v"]:
+                    words[word_index] = ""
+                    continue
+                words[word_index] = dic.inserted(word)
+
+            syllables = []
+            for word in words:
+                syllables.extend(word.split("-"))
+            text = " ".join(syllable for syllable in syllables if syllable != "")
+            text = ud.unidecode(text.lower())
+            verses.append(text)
+
+    return (
+        tf.data.Dataset.from_tensor_slices(verses)
+        .batch(batch_size)
+        .prefetch(tf.data.AUTOTUNE)
+    )
 
 
-def build_vocabulary(ds_train):
-    vocabulary = set()
-    vocabulary.update(["sostoken"])
-    vocabulary.update(["eostoken"])
-
-    for line in ds_train:
-        split = tf.strings.split(line, ",", maxsplit=3)
-        text = split[3]
-        tokenized_text = tokenizer.tokenize(text.numpy().decode("utf-8").lower())
-        vocabulary.update(tokenized_text)
-
-    return vocabulary
-
-
-poem = json.load(open("corpusCzechVerse/ccv/0001.json", "r", encoding="utf-8"))
-
-ds_train = tf.data.TextLineDataset("data.csv")
-ds_test = tf.data.TextLineDataset("data.csv")
-
-tokenizer = tf_text.WhitespaceTokenizer()
-
-# Build vocabulary and save it
-vocabulary = build_vocabulary(ds_train)
-voc_file = open("vocabulary.obj", "wb")
-pickle.dump(vocabulary, voc_file)
+data = file_to_dataset("verses.txt")
+print(data)
