@@ -203,15 +203,8 @@ neintuitivní.
 
 Dokážeme si zde ovšem, že naše \hyperref[def:realna-cisla]{definice reálných
 čísel} odpovídá jejich axiomatické. Otázky nekonečnosti, podmínek tělesa i
-uspořádání jsme již zodpověděli. Zbývá dokázat axiom úplnosti.
-
-K tomu potřebujeme pouze jedno pomocné lemma a definici -- a to konkrétně
-\emph{monotónní} posloupnosti. Pěstujeme víru, že ctění čtenáři se s tímto
-pojmem již setkali ve spojitosti s funkcemi. Totiž \emph{monotónní}
-posloupnosti jsou posloupnosti takové, že velikost jejich prvků buď klesá
-(případně jen neroste), či roste (případně jen neklesá). Je přirozené myslet si,
-že posloupnosti, které jsou shora omezené a rostou, musejí konvergovat. Je tomu
-vskutku tak.
+uspořádání jsme již zodpověděli. Zbývá dokázat axiom úplnosti. Pro stručnost
+vyjádření se nám bude hodit následující definice.
 
 \begin{definition}{Monotónní posloupnost}{monotonni-posloupnost}
  O posloupnosti $x:\N \to \R$ řekneme, že je
@@ -223,22 +216,6 @@ vskutku tak.
  \end{itemize}
  Ve všech těchto případech díme, že posloupnost $x$ je \emph{monotónní}.
 \end{definition}
-
-\begin{lemma}{Limita monotónní posloupnosti}{limita-monotonni-posloupnosti}
- \vspace*{-\parskip}
- \begin{enumerate}[label=(\alph*)]
-  \item Každá rostoucí nebo neklesající shora omezená posloupnost je
-   konvergentní.
-  \item Každá klesající nebo nerostoucí zdola omezená posloupnost je
-   konvergentní.
- \end{enumerate}
-\end{lemma}
-\begin{lemproof}
- Dokážeme pouze část (a), část (b) je ponechána jako cvičení.
-
- Ať 
-\end{lemproof}
-
 
 \begin{proposition}{Axiom úplnosti}{axiom-uplnosti}
  Ať $X \subseteq \R$ je shora omezená množina. Pak existuje $\sup X$.
@@ -293,5 +270,115 @@ vskutku tak.
  \hyperref[def:limita-posloupnosti]{definice limity} vezmeme $\varepsilon
  \coloneqq c / 2$ a k němu $n_0 \in \N$ takové, že $\forall n \geq n_0$ platí $S
  - q_n < \varepsilon$, kde absolutní hodnotu jsem mohli vynechat, bo $S \geq
- q_n$ pro 
+ q_n$ pro všechna $n \in \N$, ježto jest posloupnost $(q_n)$ neklesající. Nyní
+ pro $n \geq n_0$ platí
+ \[
+  q_n - Z = q_n - S + S - Z = (q_n - S) + (S - Z) > c - \varepsilon =
+  \frac{c}{2},
+ \]
+ čili speciálně $q_n > Z$, což je ve sporu s tím, že $q_n$ není horní závora $X$
+ pro žádné $n \in \N$, zatímco $Z$ je.
+
+ Tím je důkaz dokončen.
 \end{propproof}
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}[b]{.99\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/a,12/0/b}
+   \tkzDrawSegment(a,b)
+
+   \tkzDefPoint(8,0){S}
+   \tkzLabelPoint[BrickRed,yshift=-1mm](S){$S$}
+   \tkzDrawSegment[ultra thick,BrickRed,latex-|](a,S)
+   \tkzLabelSegment[pos=0.5,yshift=-1mm](a,S){$\clr{X}$}
+   \tkzDefPoints{3/0/q0,11/0/Z0,7/0/q1}
+   \tkzDrawPoint[RoyalBlue,size=6](q0)
+   \tkzDrawPoint[ForestGreen,size=6](Z0)
+   \tkzDrawPoint[Fuchsia,size=6](q1)
+   \tkzLabelPoint[above,yshift=2mm,RoyalBlue](q0){$q_0$}
+   \tkzLabelPoint[above,yshift=2mm,ForestGreen](Z0){$Z_1 \coloneqq Z_0$}
+   \tkzLabelPoint[above,yshift=2mm,Fuchsia](q1){$q_1 \coloneqq
+   \frac{Z_0+q_0}{2}$}
+  \end{tikzpicture}
+ \end{subfigure}
+ \begin{subfigure}[b]{.99\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/a,12/0/b}
+   \tkzDrawSegment(a,b)
+
+   \tkzDefPoint(8,0){S}
+   \tkzLabelPoint[BrickRed,yshift=-1mm](S){$S$}
+   \tkzDrawSegment[ultra thick,BrickRed,latex-|](a,S)
+   \tkzLabelSegment[pos=0.5,yshift=-1mm](a,S){$\clr{X}$}
+   \tkzDefPoints{7/0/q1,11/0/Z1,9/0/Z2}
+   \tkzDrawPoint[RoyalBlue,size=6](q1)
+   \tkzDrawPoint[ForestGreen,size=6](Z1)
+   \tkzDrawPoint[Fuchsia,size=6](Z2)
+   \tkzLabelPoint[above,yshift=2mm,RoyalBlue](q1){$q_2 \coloneqq q_1$}
+   \tkzLabelPoint[above,yshift=2mm,ForestGreen](Z1){$Z_1$}
+   \tkzLabelPoint[above,yshift=2mm,Fuchsia](Z2){$Z_2 \coloneqq \frac{Z_1 +
+   q_1}{2}$}
+   \tkzDefPoints{6/-1/d1,6/-1.2/d2,6/-1.4/d3}
+   \tkzDrawPoints(d1,d2,d3)
+  \end{tikzpicture}
+ \end{subfigure}
+ \caption{Důkaz axiomu úplnosti}
+ \label{fig:axiom-uplnosti}
+\end{figure}
+\begin{exercise}{}{axiom-uplnosti}
+ Dokažte všechna (\textbf{proč?}) a (\textbf{dokažte!}) v důkazu
+ \hyperref[prop:axiom-uplnosti]{předchozího tvrzení}.
+\end{exercise}
+
+Jako každé poctivé tvrzení, jmá i \hyperref[prop:axiom-uplnosti]{axiom úplnosti}
+svých důsledkův. Tyto bychom pochopitelně dokázati uměli i bez něj, neboť z naší
+konstrukce reálných čísel přímo plyne. Nicméně, zcela jistě jej lze použít
+jako nástroj ke zkrácení některých důkazů.
+
+Nejprve duální tvrzení.
+
+\begin{proposition}{}{axiom-infima}
+ Každá zdola omezená podmnožina $\R$ má infimum.
+\end{proposition}
+\begin{propproof}
+ Cvičení. Doporučujeme čtenářům se zamyslet, jak tvrzení snadno plyne z
+ \hyperref[prop:axiom-uplnosti]{axiomu úplnosti}, aniž opakují konstrukci z jeho
+ důkazu.
+\end{propproof}
+
+Jedno, jak bude časem vidno, mimořádně užitečné tvrzení dí, že shora omezené
+rostoucí či neklesající posloupnosti a zdola omezené klesající či nerostoucí
+posloupnosti mají vždy limitu. To je opět intuitivně zřejmý fakt (jistě?), ale,
+kterak čtenáři doufáme již pozřeli, tvrzení o věcech nekonečných málokdy radno
+nechat pouze intuici.
+
+\begin{lemma}{Limita monotónní posloupnosti}{limita-monotonni-posloupnosti}
+ \vspace*{-\parskip}
+ \begin{enumerate}[label=(\alph*)]
+  \item Každá rostoucí nebo neklesající shora omezená posloupnost je
+   konvergentní.
+  \item Každá klesající nebo nerostoucí zdola omezená posloupnost je
+   konvergentní.
+ \end{enumerate}
+\end{lemma}
+\begin{lemproof}
+ Dokážeme pouze část (a), část (b) je ponechána jako cvičení.
+
+ Ať $x:\N \to \R$ je neklesající posloupnost. Důkaz pro rostoucí posloupnost je
+ dokonale stejný, liše se akorát ostrými nerovnostmi v několika výrazech. Z
+ předpokladu je $x$ shora omezená, tudíž má množina jejích členů $\{x_n \mid n
+ \in \N\}$ horní závoru. Z \hyperref[prop:axiom-uplnosti]{axiomu úplnosti} má
+ tato množina též supremum; označíme je $S$.
+
+ Ukážeme, že $\lim x = S$. Předpokládejme pro spor, že existuje $\varepsilon>0$
+ takové, že pro každé $n_0 \in \N$ existuje $n \in \N$ takové, že $|x_n - S|
+ \geq \varepsilon$ (tento výrok je přesnou negací
+ \hyperref[def:limita-posloupnosti]{definice limity}).
+
+ Vezměme tedy nějaké takové $\varepsilon>0$ a volme $n_0 \coloneqq 1$. Pak
+ $|x_n-S| \geq \varepsilon$ pro nějaké $n \in \N$. Ovšem 
+\end{lemproof}
+
