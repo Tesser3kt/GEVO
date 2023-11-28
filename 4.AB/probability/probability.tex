@@ -1,0 +1,90 @@
+\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
+
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\setlist[itemize,1]{label=\textbullet}
+\setlist[itemize,2]{label=$\circ$}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{patterns,arrows.meta}
+\usepackage{tkz-euclide}
+\tikzset{point style/.style = {%
+  draw = black,
+  inner sep = 0pt,
+  shape = circle,
+  minimum size = 5pt,
+  fill = black
+ }
+}
+\usepackage{booktabs} 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgf-pie}
+
+\usepackage{enumitem}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Flowchart stuff
+
+\usepackage{pgfopts}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+\usetheme[
+ titlestyle=style2,
+ titleformat=smallcaps,
+ sectionstyle=plain,
+ slidestyle=cyber,
+ headingcolor=theme,
+ block=transparent
+]{trigon}
+
+\title{Probability}
+\date{\today}
+\author{Adam Klepáč}
+\institute[GEVO]{Gymnázium Evolution Jižní Město}
+\biglogo[width=.2\textwidth]{logo}
+\smalllogo[width=.1\textwidth]{logo}
+\titlegraphic{\includegraphics[height=\paperheight]{title.jpg}}
+
+\def\subsectionname{}
+
+% enumerate global settings
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=\alph*)}
+
+% custom colors %
+\definecolor{DarkRed}{HTML}{260104}
+\definecolor{LightRed}{HTML}{8C031C}
+\definecolor{Red}{HTML}{590212}
+\definecolor{Gray}{HTML}{4D4A59}
+\definecolor{DarkBrown}{HTML}{0D0000}
+\colorlet{tPrim}{DarkRed}
+\colorlet{tTheme}{LightRed}
+\colorlet{tSec}{LightRed}
+\colorlet{tAccent}{Gray}
+\colorlet{tText}{DarkBrown}
+
+\tcbset{
+ boxsep=7pt,
+ fonttitle=\sc,
+ colframe=tGreyBg,
+ colframe=tPrim,
+ boxrule=1pt
+}
+
+\newcommand{\clt}{\textcolor{MyTeal}}
+\newcommand{\cln}{\textcolor{MyNavy}}
+\newcommand{\clb}{\textcolor{MyBlue}}
+\newcommand{\clw}{\textcolor{MyWhite}}
+
+\begin{document}
+\titleframe
+%
+
+\end{document}

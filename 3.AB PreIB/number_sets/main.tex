@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,usenames,dvipsnames]{beamer}
+\documentclass[aspectratio=169,11pt,usenames,dvipsnames,handout]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -879,6 +879,82 @@ Symmetric Transformations}
 \end{frame}
 
 \begin{frame}
+ \frametitle{Drawing Structures -- Examples}
+ Drawing binary operations as arrows between elements would be a nightmare. Just
+ watch what such a diagram would look like for the operation from the previous
+ slide.
+ \begin{center}
+  \begin{tikzpicture}[scale=1.5]
+   \tkzDefPoint(90:1){a}
+   \tkzDefPoint(90:1.4){a2}
+   \tkzDefPoint(210:1){b}
+   \tkzDefPoint(210:1.4){b2}
+   \tkzDefPoint(210:1.6){b3}
+   \tkzDefPoint(210:1.5){b4}
+   \tkzDefPoint(330:1){c}
+   \tkzDefPoint(270:2){d}
+   \tkzDefPoint(270:2.2){d2}
+
+   \tkzDrawPoint[size=4,color=BrickRed](a)
+   \tkzDrawPoint[size=4,color=RoyalBlue](b)
+   \tkzDrawPoint[size=4,color=ForestGreen](c)
+   \tkzDrawPoint[size=4,color=Black](d)
+
+   \tkzLabelPoint[color=BrickRed,above,yshift=1mm](a){$a$}
+   \tkzLabelPoint[color=RoyalBlue,below left](b){$b$}
+   \tkzLabelPoint[color=ForestGreen,below right](c){$c$}
+   \tkzLabelPoint[color=Black,below,yshift=-1mm](d){$d$}
+
+   \draw[thick,color=OrangeRed,-latex,bend left=30,shorten >=2mm,shorten <=2mm]
+    (a) to (c);
+   \draw[thick,color=OrangeRed,-latex,bend right=30,shorten >=2mm,shorten <=2mm]
+    (a) to (c);
+   \draw[thick,color=CuriousBlue,-latex,shorten >=2mm,shorten <=2mm,bend
+    left=30] (b) to (a);
+   \draw[thick,color=CuriousBlue,-latex,shorten >=2mm,shorten <=2mm, bend left=30]
+    (a) to (b);
+   \tkzDrawArc[R,thick,-latex,color=OrangeRed](b2,0.4)(60,360)
+   \tkzDrawArc[R,thick,-latex,color=OrangeRed](b3,0.6)(60,360)
+   \tkzDrawArc[R,thick,-latex,color=CuriousBlue](b4,0.5)(60,360)
+   \draw[thick,color=OrangeRed,latex-latex,shorten >=2mm,shorten <=2mm] (a) to
+    (d);
+   \draw[thick,color=OrangeRed,-latex,shorten >=2mm,bend left=30, shorten <=2mm]
+    (c) to (d);
+   \draw[thick,color=OrangeRed,-latex,shorten >=2mm,bend left=30, shorten <=2mm]
+    (d) to (c);
+   \draw[thick,color=OrangeRed,-latex,bend left=30,shorten >=2mm,shorten <=2mm]
+    (c) to (b);
+   \draw[thick,color=OrangeRed,-latex,bend right=30,shorten >=2mm,shorten <=2mm]
+    (c) to (b);
+   \draw[thick,color=CuriousBlue,-latex,shorten >=2mm,shorten <=2mm,bend
+    left=30] (d) to (b);
+   \draw[thick,color=CuriousBlue,-latex,shorten >=2mm,shorten <=2mm,bend
+    left=30] (b) to (d);
+   \draw[thick,color=CuriousBlue,-latex,shorten >=2mm,shorten <=2mm] (b) to (c);
+   \draw[thick,color=OrangeRed,-latex,shorten >=2mm,shorten <=2mm] (c) to (a);
+   \tkzDrawArc[R,thick,-latex,color=OrangeRed](d2,0.2)(120,60)
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Drawing Structures -- Examples}
+ Let's change the operation $\clo{\triangle}$ a little.\pause
+ \begin{center}
+  \begin{tabular}{c|cccc}
+   $\clo{\triangle}$ & $\clr{a}$ & $\clb{b}$ & $\clg{c}$ & $d$ \\
+   \midrule
+   $\clr{a}$ & $\clg{c}$ & $d$ & $d$ & $\clb{b}$ \\
+   $\clb{b}$ & $d$ & $\clb{b}$ & $\clg{c}$ & $d$ \\
+   $\clg{c}$ & $d$ & $\clg{c}$ & $\clb{b}$ & $d$ \\
+   $d$ & $\clb{b}$ & $d$ & $d$ & $\clg{c}$
+  \end{tabular}
+ \end{center}
+ \pause
+ Is it still \alert{symmetric}?
+\end{frame}
+
+\begin{frame}
  \frametitle{Operation As A Transformation}
  \alert{Motivating examples:}
  \begin{itemize}
@@ -894,6 +970,7 @@ Symmetric Transformations}
   is $1$.
  \end{itemize}
 \end{frame}
+
 
 % \begin{frame}
 %  \frametitle{What Is An Inverse?}
