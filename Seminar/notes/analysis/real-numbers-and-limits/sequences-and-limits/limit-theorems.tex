@@ -373,12 +373,44 @@ nechat pouze intuici.
  \in \N\}$ horní závoru. Z \hyperref[prop:axiom-uplnosti]{axiomu úplnosti} má
  tato množina též supremum; označíme je $S$.
 
- Ukážeme, že $\lim x = S$. Předpokládejme pro spor, že existuje $\varepsilon>0$
- takové, že pro každé $n_0 \in \N$ existuje $n \in \N$ takové, že $|x_n - S|
- \geq \varepsilon$ (tento výrok je přesnou negací
- \hyperref[def:limita-posloupnosti]{definice limity}).
-
- Vezměme tedy nějaké takové $\varepsilon>0$ a volme $n_0 \coloneqq 1$. Pak
- $|x_n-S| \geq \varepsilon$ pro nějaké $n \in \N$. Ovšem 
+ Ukážeme, že $\lim x = S$. Ať je $\varepsilon>0$ dáno. Z
+ \hyperref[def:supremum-a-infimum]{definice suprema} není $S - \varepsilon$
+ horní závora množiny $\{x_n \mid n \in \N\}$. Tedy existuje $n_0 \in \N$
+ takové, že $x_{n_0} > S - \varepsilon$. Protože $x$ je neklesající -- tj. $x_n
+ \geq x_{n_0}$, kdykoli $n \geq n_0$ -- platí rovněž $x_n > S - \varepsilon$ pro
+ všechna $n \geq n_0$. Jelikož $S$ je horní závora množiny členů $x$, platí $S
+\geq x_n$ pro všechna $n \in \N$. To však znamená, že $|x_n - S| = S - x_n$, a
+tedy z nerovnosti $x_n > S - \varepsilon$ po úpravě plyne, že $\varepsilon > S -
+x_n = |x_n - S|$, čili $\lim x = S$.
 \end{lemproof}
 
+Posledním důsledkem \hyperref[prop:axiom-uplnosti]{axiomu úplnosti}, který si
+uvedeme, je tzv. \emph{Archimédova vlastnost reálných čísel}. Obecně, těleso se
+nazývá \emph{Archimédovo}, když vágně řečeno neobsahuje žádné nekonečně velké
+ani nekonečně malé prvky \textbf{vzhledem ke zvolené absolutní hodnotě}. Ukazuje
+se, že na reálných číslech lze definovat jen dva typy funkcí absolutní hodnoty
+-- jednu \uv{obvyklou}, též vyjádřitelnou vztahem $|x| = \sqrt{x^2}$, a pak tzv.
+\href{https://en.wikipedia.org/wiki/P-adic_valuation}{$p$-adickou absolutní
+hodnotu} pro $p$ prvočíslo. Libovolná další konstrukce absolutní hodnoty
+(majíc přirozené vlastnosti) již je ekvivalentní absolutní hodnotě jednoho z
+těchto typů. Reálná čísla jsou Archimédova vzhledem k obvyklé absolutní hodnotě,
+ale nikoliv vzhledem k libovolné $p$-adické absolutní hodnotě.
+
+\begin{lemma}{Archimédova vlastnost reálných
+ čísel}{archimedova-vlastnost-realnych-cisel}
+ Pro každé $\varepsilon \in \R, \varepsilon>0$, existuje $n \in \N$ takové, že
+ $1 / n < \varepsilon$.
+\end{lemma}
+\begin{lemproof}
+ Stačí dokázat, že
+ \[
+  \inf \left\{\frac{1}{n} \mid n \in \N\right\} = 0,
+ \]
+ neboť potom z \hyperref[def:supremum-a-infimum]{definice infima} pro každé
+ $\varepsilon>0$ není $0 + \varepsilon = \varepsilon$ dolní závorou $\{1 / n
+ \mid n \in \N\}$, čili existuje $n \in \N$ takové, že $1 / n < \varepsilon$.
+
+Číslo $0$ je zřejmě dolní závorou množiny $\{1 / n \mid n \in \N\}$. Podle
+\myref{tvrzení}{prop:axiom-infima} má tato množina infimum, označme je $i$. Pro
+spor ať $i > 0$.
+\end{lemproof}
