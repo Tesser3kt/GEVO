@@ -154,8 +154,8 @@ Směrem k definici intervalu učiňmež koliksi mezikroků.
    Supremem množiny $\{1,2,3\}$ je číslo $3$ a jeho infimem je číslo $1$.
  \end{itemize}
  Daná podmnožina $X \subseteq \R$ \textbf{nemusí nutně mít maximum a minimum},
- ale, a to si dokážeme, jest-li shora, resp. zdola, omezená, \textbf{pak má
- nutně supremum, resp. infimum}.
+ ale, a to si dokážeme, \textbf{má vždy supremum, resp. infimum}. Je-li navíc
+ shora, resp. zdola, omezená, pak toto supremum, resp. infimum, leží v $\R$.
 \end{warning}
 
 \begin{exercise}{}{sup-inf-prazdne-mnoziny}
@@ -217,7 +217,6 @@ vyjádření se nám bude hodit následující definice.
  \end{itemize}
  Ve všech těchto případech díme, že posloupnost $x$ je \emph{monotónní}.
 \end{definition}
-
 \begin{proposition}{Axiom úplnosti}{axiom-uplnosti}
  Ať $X \subseteq \R$ je shora omezená množina. Pak existuje $\sup X$.
 \end{proposition}
@@ -255,14 +254,14 @@ vyjádření se nám bude hodit následující definice.
  \coloneqq c / 2$. Pro toto $\varepsilon$ z
  \hyperref[def:limita-posloupnosti]{definice limity} existuje $n_0 \in \N$
  takové, že pro všechna $n \geq n_0$ platí $|Z_n - \lim_{} Z_n| = |Z_n - S| <
- \varepsilon$. Jelikož $(Z_n)$ je nerostoucí, je absolutní hodnota v předchozím
- výrazu zbytečná a můžeme zkrátka psát $Z_n - S < \varepsilon$. Potom ale pro
- všechna $n \geq n_0$ máme
+ \varepsilon$. Jelikož $(Z_n)$ je nerostoucí a $S \leq Z_n$ pro každé $n \in
+ \N$, je absolutní hodnota v předchozím výrazu zbytečná a můžeme zkrátka psát
+ $Z_n - S < \varepsilon$. Potom ale pro všechna $n \geq n_0$ máme
  \[
   x - Z_n = x + S - S - Z_n = (x - S) + (S - Z_n) > c - \varepsilon =
   \frac{c}{2},
  \]
- čili speciálně $x > Z_n$, což je ve sporu s volbou $Z_n$ jako horní závory $X$.
+ čili speciálně $x > Z_n$, což je ve sporu s tím, že $Z_n$ je horní závora $X$.
  To dokazuje (1).
 
  Tvrzení (2) lze dokázat obdobně, akorát využitím posloupnosti $(q_n)$ spíše než
@@ -270,9 +269,9 @@ vyjádření se nám bude hodit následující definice.
  < S$. Pak nalezneme konstantu $c > 0$ takovou, že $S - Z = c$. Opět z
  \hyperref[def:limita-posloupnosti]{definice limity} vezmeme $\varepsilon
  \coloneqq c / 2$ a k němu $n_0 \in \N$ takové, že $\forall n \geq n_0$ platí $S
- - q_n < \varepsilon$, kde absolutní hodnotu jsem mohli vynechat, bo $S \geq
- q_n$ pro všechna $n \in \N$, ježto jest posloupnost $(q_n)$ neklesající. Nyní
- pro $n \geq n_0$ platí
+ - q_n < \varepsilon$, kde absolutní hodnotu jsme mohli vynechat, ježto jest
+ posloupnost $(q_n)$ neklesající a $S \geq q_n$ pro každé $n \in \N$. Nyní pro
+ $n \geq n_0$ platí
  \[
   q_n - Z = q_n - S + S - Z = (q_n - S) + (S - Z) > c - \varepsilon =
   \frac{c}{2},
@@ -335,9 +334,9 @@ vyjádření se nám bude hodit následující definice.
 \end{exercise}
 
 Jako každé poctivé tvrzení, jmá i \hyperref[prop:axiom-uplnosti]{axiom úplnosti}
-svých důsledkův. Tyto bychom pochopitelně dokázati uměli i bez něj, neboť z naší
-konstrukce reálných čísel přímo plyne. Nicméně, zcela jistě jej lze použít
-jako nástroj ke zkrácení některých důkazů.
+svých důsledkův. Tyto bychom pochopitelně dokázati uměli i bez něj, neboť axiom
+úplnosti z naší konstrukce reálných čísel přímo plyne. Nicméně, zcela jistě jej
+lze použít jako nástroj ke zkrácení některých důkazů.
 
 Nejprve duální tvrzení.
 
@@ -353,8 +352,8 @@ Nejprve duální tvrzení.
 Jedno, jak bude časem vidno, mimořádně užitečné tvrzení dí, že shora omezené
 rostoucí či neklesající posloupnosti a zdola omezené klesající či nerostoucí
 posloupnosti mají vždy limitu. To je opět intuitivně zřejmý fakt (jistě?), ale,
-kterak čtenáři doufáme již pozřeli, tvrzení o věcech nekonečných málokdy radno
-nechat pouze intuici.
+kterak čtenáři doufáme již pozřeli, tvrzení o věcech nekonečných řídce radno
+nechati pouze intuici.
 
 \begin{lemma}{Limita monotónní posloupnosti}{limita-monotonni-posloupnosti}
  \vspace*{-\parskip}
@@ -369,8 +368,8 @@ nechat pouze intuici.
  Dokážeme pouze část (a), část (b) je ponechána jako cvičení.
 
  Ať $x:\N \to \R$ je neklesající posloupnost. Důkaz pro rostoucí posloupnost je
- dokonale stejný, liše se akorát ostrými nerovnostmi v několika výrazech. Z
- předpokladu je $x$ shora omezená, tudíž má množina jejích členů $\{x_n \mid n
+ téměř dokonale stejný, liše se akorát ostrými nerovnostmi v několika výrazech.
+ Z předpokladu je $x$ shora omezená, tudíž má množina jejích členů $\{x_n \mid n
  \in \N\}$ horní závoru. Z \hyperref[prop:axiom-uplnosti]{axiomu úplnosti} má
  tato množina též supremum; označíme je $S$.
 
@@ -414,7 +413,7 @@ ale nikoliv vzhledem k libovolné $p$-adické absolutní hodnotě.
 Číslo $0$ je zřejmě dolní závorou množiny $\{1 / n \mid n \in \N\}$. Podle
 \myref{tvrzení}{prop:axiom-infima} má tato množina infimum, označme je $i$. Pro
 spor ať $i > 0$. Potom $1 / i \in \R$ a z nerovnosti $1 / n \geq i$ ($i$ je
-horní závora) plyne, že $n \leq 1 / i$ pro všechna $n \in \N$. Potom je ovšem
+dolní závora) plyne, že $n \leq 1 / i$ pro všechna $n \in \N$. Potom je ovšem
 číslo $1 / i$ horní závorou množiny $\N$ a podle
 \hyperref[prop:axiom-uplnosti]{axiomu úplnosti} má množina $\N$ supremum;
 označme je $S$. Pro každé $n \in \N$ tudíž platí $n \leq S$. Ovšem, z
@@ -426,4 +425,42 @@ $S$ bylo z předpokladu supremum $\N$.
 Musí pročež platit $i = 0$, což bylo dokázati.
 \end{lemproof}
 
+\begin{remark}{}{archimedova-vlastnost-realnych-cisel}
+ \myref{Lemma}{lem:archimedova-vlastnost-realnych-cisel} v podstatě říká, že
+ $\lim_{n \to \infty} 1 / n = 0$.
 
+ Bedliví čtenáři si mohou pamatovat, že jsme ono lemma již v předchozím textu
+ bez uvedení použili (například v důkaze \myref{důsledku}{cor:r-jsou-uplna}).
+ Jedná se však z naší strany o drzost pouze malou. Totiž, jeho platnost je téměř
+ okamžitým důsledkem \myref{tvrzení}{prop:hustota-q-v-r}, jak si čtenáři rádi
+ ověří v následujícím cvičení.
+\end{remark}
+\begin{exercise}{}{archimedes-z-hustoty}
+ Dokažte, že \myref{lemma}{lem:archimedova-vlastnost-realnych-cisel} je
+ důsledkem \myref{tvrzení}{prop:hustota-q-v-r}.
+\end{exercise}
+
+\subsection{Bolzanova-Weierstraßova věta}
+\label{ssec:bolzanova-weierstraova-veta}
+
+Konečně kráčíme cestou definice intervalu a důkazu slibované
+Bolzanovy-Weierstraßovy věty. Vybaveni pojmy
+\hyperref[def:maximum-a-minimum]{maxima (minima)} a
+\hyperref[def:supremum-a-infimum]{suprema (infima)}, můžeme intuitivní
+představě intervalu dát formální ráz. Vágně řečeno je interval \emph{souvislá}
+podmnožina $\R$. Formálně je no ... vlastně totéž.
+
+\begin{definition}{Interval}{interval}
+ Podmnožinu $I \subseteq \R$ nazveme \emph{intervalem}, pokud pro každé dva
+ prvky $x < y \in I$ a $z \in \R$ platí
+ \[
+  x < z < y \Rightarrow z \in I.
+ \]
+\end{definition}
+
+Intervaly mohou být otevřené, uzavřené a polouzavřené (či polootevřené?). Tyto
+vlastnosti intervalů jsou definovány pomocí existence maxim a minim.
+
+\begin{definition}{Typy intervalů}{typy-intervalu}
+ Ať $I$
+\end{definition}

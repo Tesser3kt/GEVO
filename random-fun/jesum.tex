@@ -1,0 +1,63 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% LaTeX 3
+\usepackage{xparse}
+
+% TikZ
+\usepackage{tikz}
+\usetikzlibrary{calc, fit, positioning, tikzmark}
+
+\makeatletter
+\newcommand{\gettikzxy}[3]{%
+  \tikz@scan@one@point\pgfutil@firstofone#1\relax
+  \edef#2{\the\pgf@x}%
+  \edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\NewDocumentCommand \jesum {mmm}
+ {
+  \begin{tikzpicture}[baseline=-.5ex]
+   \node (exp) {$\displaystyle #1$};
+   
+   % Frame
+   \draw (exp.north west) to node[midway,yshift=2mm]{\footnotesize $#3$}
+    (exp.north east);
+   \draw (exp.south west) to node[midway,yshift=-2mm]{\footnotesize $#2$}
+    (exp.south east);
+   \draw (exp.south east) -- ++(0,0.15);
+   \draw (exp.north east) -- ++(0,-0.15);
+
+   % Sigma
+   \coordinate (a) at ($(exp.north west) + (-0.6,0)$);
+   \coordinate (b) at ($(exp.south west) + (-0.6,0)$);
+   \coordinate (a2) at ($(a) + (0.4,0)$);
+   \gettikzxy{(a2)}{\ax}{\ay};
+   \gettikzxy{(exp.center)}{\cx}{\cy};
+   \coordinate (c) at (\ax,\cy);
+
+   \draw (exp.north west) -- (a);
+   \draw (exp.south west) -- (b);
+   \draw (a) -- (c);
+   \draw (c) -- (b);
+  \end{tikzpicture}
+ }
+
+\begin{document}
+ \[
+  \sin x \coloneqq \jesum{\jesum{\frac{(-1)^{n}}{(2n +
+  1)!}x^{2n+1}}{n=0}{\infty}}{k=0}{\infty}
+ \]
+\end{document}
