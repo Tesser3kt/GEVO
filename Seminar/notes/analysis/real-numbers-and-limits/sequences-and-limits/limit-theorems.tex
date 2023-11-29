@@ -5,10 +5,11 @@
 umožní čtenářům limity konkrétních posloupností efektivně počítat a navíc
 široké jejich použití v následujících kapitolách.
 
-Začneme jedním z nejdůležitějších a dle našeho názoru též nejkrásnějších
-výsledků -- tzv. Bolzano\-vou-Weierstraßovou větou. Ta tvrdí v podstatě toto:
-mám-li omezenou posloupnost, pak z ní již umím vybrat nekonečně mnoho prvků,
-které tvoří posloupnost \emph{konvergentní}.
+Začneme technickým, ale nezbytným, konceptem \emph{rozšířené reálné osy} a
+pokračovati budeme jedním z nejdůležitějších a dle našeho názoru též
+nejkrásnějších výsledků -- tzv. Bolzano\-vou-Weierstraßo\-vou větou. Ta tvrdí v
+podstatě toto: mám-li omezenou posloupnost, pak z ní již umím vybrat nekonečně
+mnoho prvků, které tvoří posloupnost \emph{konvergentní}.
 
 Ona krása takového tvrzení spočívá v principu, kterým se podrobně zabývá
 kombinatorická disciplína zvaná
@@ -76,7 +77,7 @@ stoupají}. Pro další studium záhodno se tohoto nedostatku zlišit.
  $\lim_{} x = \infty$, resp. $\lim_{} x = -\infty$.
 \end{definition}
 
-Na reálných číslech existuje uspořádání $ \leq $, které zdělila z čísel
+Na reálných číslech existuje uspořádání $ \leq $, které zdědila z čísel
 přirozených, prostřednictvím čísel celých a konečně čísel racionálních. Protože,
 vděkem naší konstrukci, jsou celá čísla třídy ekvivalence dvojic čísel
 přirozených, čísla racionální třídy ekvivalence dvojic čísel celých a čísla
@@ -86,18 +87,18 @@ reálných číslech. Přidržíme se pročež intuitivního pohledu na věc a d
 $ \leq $ je skutečně uspořádání na reálných číslech, necháváme laskavému čtenáři
 k promyšlení.
 
-Existence uspořádání umožňuje dívat se na množiny z jistého \uv{souvislého}
-pohledu. Nemusejí již být vňaty (jako tomu je u ostatních představených
-číselných okruhů) jako výčty jednotlivých prvků, ale oprávněně jako
-\uv{provázky} či \uv{úsečky}. \hyperref[cor:r-jsou-uplna]{Úplnost reálných
+Existence uspořádání umožňuje dívat se na podmnožiny $\R$ z jistého
+\uv{souvislého} pohledu. Nemusejí již být vňaty (jako tomu je u ostatních
+představených číselných okruhů) jako výčty jednotlivých prvků, ale oprávněně
+jako \uv{provázky} či \uv{úsečky}. \hyperref[cor:r-jsou-uplna]{Úplnost reálných
 čísel} zaručuje, že z každého reálného čísla mohu plynule dorazit do každého
-jiné reálného čísla aniž reálná čísla opustím.
+jiného reálného čísla aniž reálná čísla opustím.
 
 Předchozí odstavec vágně motivuje definici \emph{intervalu} -- \uv{souvislé}
-omezené podmnožiny reálných čísel. Zároveň s definicí intervalu vzniká i pojem
-\emph{otevřenosti} a \emph{uzavřenosti} podmnožiny reálných čísel -- pojem,
-který je klíčem k definici \emph{topologie} na obecné množině a tím pádem
-vlastně i základem tak zhruba poloviny celé moderní matematiky.
+omezené podmnožiny reálných čísel. V souhlasu s definicí intervalu vzniká i
+pojem \emph{otevřenosti} a \emph{uzavřenosti} množiny -- pojem, který je klíčem
+k definici \emph{topologie} na obecné množině a tím pádem vlastně i základem tak
+zhruba poloviny celé moderní matematiky.
 
 Směrem k definici intervalu učiňmež koliksi mezikroků.
 
@@ -412,5 +413,17 @@ ale nikoliv vzhledem k libovolné $p$-adické absolutní hodnotě.
 
 Číslo $0$ je zřejmě dolní závorou množiny $\{1 / n \mid n \in \N\}$. Podle
 \myref{tvrzení}{prop:axiom-infima} má tato množina infimum, označme je $i$. Pro
-spor ať $i > 0$.
+spor ať $i > 0$. Potom $1 / i \in \R$ a z nerovnosti $1 / n \geq i$ ($i$ je
+horní závora) plyne, že $n \leq 1 / i$ pro všechna $n \in \N$. Potom je ovšem
+číslo $1 / i$ horní závorou množiny $\N$ a podle
+\hyperref[prop:axiom-uplnosti]{axiomu úplnosti} má množina $\N$ supremum;
+označme je $S$. Pro každé $n \in \N$ tudíž platí $n \leq S$. Ovšem, z
+\hyperref[def:prirozena-cisla]{definice přirozených čísel} platí $n+1 \in \N$
+pro každé $n \in \N$. Speciálně toto tedy znamená, že $n + 1 \leq S$ pro každé
+$n \in \N$. Pak je ovšem $S - 1$ horní závorou množiny $\N$, což je spor, neboť
+$S$ bylo z předpokladu supremum $\N$.
+
+Musí pročež platit $i = 0$, což bylo dokázati.
 \end{lemproof}
+
+

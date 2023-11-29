@@ -1,0 +1,196 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Homework -- PreIB 3.AB 4}\\
+ \Large\textsf{Triangulations and Symmetries of Regular Polygons}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\clr{\textbf{\uppercase{Z následujících úloh si vyberte jednu!}}}
+
+
+\subsection*{Princ a drak}
+
+Vyrobte simulaci boje prince s drakem. Na vstupu máte dvě proměnné --
+\texttt{princ} a \texttt{drak}. K tomu máte tři funkce -- \texttt{hp},
+\texttt{damage} a \texttt{heal}, které dostanou parametrem prince nebo draka a
+vrátí celé číslo.
+\begin{itemize}
+ \item Funkce \texttt{hp} značí, kolik životů ještě princi či drakovi zbývá.
+ \item Funkce \texttt{damage} značí, kolik životů sebere útokem drak princi a
+  princ drakovi.
+ \item Funkce \texttt{heal} značí, kolik životů se princi či drakovi doplní.
+\end{itemize}
+
+Vaším úkolem je napsat algoritmus, který simuluje boj prince s drakem a vrátí
+vítěze (tedy proměnnou \texttt{drak} nebo proměnnou \texttt{princ}). \textbf{Boj
+je rozdělen na kola} a probíhá následovně:
+\begin{enumerate}
+ \item Každé kolo ubude z \texttt{hp} draka a prince \texttt{damage} toho
+  druhého.
+ \item Každé \textbf{třetí} kolo se \texttt{hp} draka i prince doplní o jejich
+  \texttt{heal}.
+ \item V moment, kdy \texttt{hp} prince či draka klesne pod \texttt{1}, tento
+  zemře a druhý vyhrává.
+\end{enumerate}
+
+\emph{Příklad:} Pro vstup
+\begin{center}
+ \begin{tabular}{cccc}
+  & \texttt{hp} & \texttt{damage} & \texttt{heal}\\
+  \toprule
+  Princ & \texttt{100} & \texttt{60} & \texttt{10}\\
+  \midrule
+  Drak & \texttt{200} & \texttt{20} & \texttt{30}\\
+ \end{tabular}
+\end{center}
+bude boj probíhat takto:
+\begin{center}
+ \begin{tabular}{ccc}
+  & \texttt{hp(princ)} & \texttt{hp(drak)} \\
+  \toprule
+  Na začátku & \texttt{100} & \texttt{200}\\
+  \midrule
+  1. kolo & \texttt{80} & \texttt{140}\\
+  \midrule
+  2. kolo & \texttt{60} & \texttt{80}\\
+  \midrule
+  3. kolo & \texttt{50} & \texttt{50}\\
+  \midrule
+  4. kolo & \texttt{30} & \texttt{-10}
+ \end{tabular}
+\end{center}
+Čili algoritmus odpoví \texttt{princ}.
+
+\clearpage
+
+\subsection*{Dárky}
+
+Darovanému koni na zuby nekoukej, a dej ho někomu jinému.
+
+Na vstupu máte dány množinu dárků \texttt{D} a množinu lidí \texttt{L}. Z
+množiny \texttt{L} do množiny \texttt{D} vede funkce \texttt{daroval}, která
+vrací dárek, jež vám dal příslušný člověk. Například
+"\texttt{daroval(}Zbyšek\texttt{) = }whisky"~znamená, že Zbyšek vám dal whisky.
+Konečně, máte dánu proměnnou \texttt{nejdrazsi}, ve které je uložen nejdražší
+dárek z množiny \texttt{D}.
+
+Vaším rozdílem je všechny dárky kromě toho nejdražšího rozdat \textbf{jiným}
+lidem, než vám je darovali. Formálně to znamená sestavit funkci \texttt{daruju},
+která pro každý dárek kromě nejdražšího z množiny \texttt{D} rozhodne, který
+člověk z množiny \texttt{L} ho dostane. Dosazování hodnot do funkce můžete v
+pseudokódu napsat například jako "\texttt{daruju(}whisky\texttt{)}
+\textleftarrow~Jarmila". Tím řeknete, že whisky darujete Jarmile.
+
+\emph{Příklad:} Pro následující vstup
+\begin{align*}
+ \mathtt{D} &= \{\text{auto}, \text{plyšák}, \text{past na myši}\}\\
+ \mathtt{L} &= \{\text{Kvido}, \text{Horymír}, \text{Řehoř}\}\\
+ \mathtt{daruju} & : \text{Horymír} \to \text{auto}, \text{Kvido} \to
+ \text{plyšák}, \text{Řehoř} \to \text{past na myši}\\
+ \mathtt{nejdrazsi} &= \text{plyšák},
+\end{align*}
+je \textbf{jeden možný} správný výstup
+\[
+ \mathtt{daruju}: \text{past na myši} \to \text{Horymír}, \text{auto} \to
+ \text{Kvido}.
+\]
+
+\end{document}
