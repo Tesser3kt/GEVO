@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,usenames,dvipsnames,handout]{beamer}
+\documentclass[aspectratio=169,11pt,usenames,dvipsnames]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -423,11 +423,171 @@
      \node[White] at (90:1) {\Large $\mathbf{1}$};
      \node[White] at (210:1) {\Large $\mathbf{1}$};
      \node[White] at (330:1) {\Large $\mathbf{1}$};
-     
+     \node[White] at (150:0.7) {\Large $\mathbf{2}$};
+     \node[White] at (270:0.7) {\Large $\mathbf{2}$};
+     \node[White] at (30:0.7) {\Large $\mathbf{2}$};
+     \node[White] at (0,0) {\Large $\mathbf{3}$};
     \end{scope}
    \end{scope}
   \end{tikzpicture}
  \end{center}
+ \[
+  |E \cup F \cup G| = |E| + |F| + |G| \ldots
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Example}
+ \begin{center}
+  \begin{tikzpicture}
+   \begin{scope}[transparency group]
+    \begin{scope}[blend mode=screen]
+     \filldraw[fill=BrickRed,draw=Black] (90:0.6) circle[radius=1];
+     \filldraw[fill=RoyalBlue,draw=Black] (210:0.6) circle[radius=1];
+     \filldraw[fill=ForestGreen,draw=Black] (330:0.6) circle[radius=1];
+
+     \node[BrickRed] at (90:2) {\Large $E$};
+     \node[RoyalBlue] at (210:2) {\Large $F$};
+     \node[ForestGreen] at (330:2) {\Large $G$};
+
+     \node[White] at (90:1) {\Large $\mathbf{1}$};
+     \node[White] at (210:1) {\Large $\mathbf{1}$};
+     \node[White] at (330:1) {\Large $\mathbf{1}$};
+     \node[White] at (150:0.7) {\Large $\mathbf{1}$};
+     \node[White] at (270:0.7) {\Large $\mathbf{1}$};
+     \node[White] at (30:0.7) {\Large $\mathbf{1}$};
+     \node[White] at (0,0) {\Large $\mathbf{0}$};
+    \end{scope}
+   \end{scope}
+  \end{tikzpicture}
+ \end{center}
+ \[
+  |E \cup F \cup G| = |E| + |F| + |G| - |E \cap F| - |E \cap G| - |F \cap G|
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Example}
+ \begin{center}
+  \begin{tikzpicture}
+   \begin{scope}[transparency group]
+    \begin{scope}[blend mode=screen]
+     \filldraw[fill=BrickRed,draw=Black] (90:0.6) circle[radius=1];
+     \filldraw[fill=RoyalBlue,draw=Black] (210:0.6) circle[radius=1];
+     \filldraw[fill=ForestGreen,draw=Black] (330:0.6) circle[radius=1];
+
+     \node[BrickRed] at (90:2) {\Large $E$};
+     \node[RoyalBlue] at (210:2) {\Large $F$};
+     \node[ForestGreen] at (330:2) {\Large $G$};
+
+     \node[White] at (90:1) {\Large $\mathbf{1}$};
+     \node[White] at (210:1) {\Large $\mathbf{1}$};
+     \node[White] at (330:1) {\Large $\mathbf{1}$};
+     \node[White] at (150:0.7) {\Large $\mathbf{1}$};
+     \node[White] at (270:0.7) {\Large $\mathbf{1}$};
+     \node[White] at (30:0.7) {\Large $\mathbf{1}$};
+     \node[White] at (0,0) {\Large $\mathbf{1}$};
+    \end{scope}
+   \end{scope}
+  \end{tikzpicture}
+ \end{center}
+ \[
+  |E \cup F \cup G| = |E| + |F| + |G| - |E \cap F| - |E \cap G| - |F \cap G| +
+  |E \cap F \cap G|.
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Example}
+ \[
+  |E \cup F \cup G| = |E| + |F| + |G| - |E \cap F| - |E \cap G| - |F \cap G| +
+  |E \cap F \cap G|.
+ \]
+ Apply this formula to our example with language groups gives
+ \[
+  |E \cup F \cup G| = 40 + 11 + 23 - 5 - 10 - 3 + 1 = 57.
+ \]
+ \pause
+ So, 57 people speak at least one language.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Formula}
+ The previous example can be generalized to any number of sets.\pause\\
+ The basic idea is
+ \begin{enumerate}
+  \item Add the sizes of all the sets.\pause
+  \item Subtract the size of all two-set intersections.\pause
+  \item Add the sizes of all three-set intersections.\pause
+  \item Subtract the sizes of all four-set intersections.\pause
+  \item ...
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Formula}
+ If $A_1,A_2,\ldots,A_n$ are sets with $n \in \mathbb{N}$, then
+ \begin{tcolorbox}[top=-\parskip,title=Principle of Inclusion and Exclusion]
+  \begin{align*}
+   |A_1 \cup A_2 \cup \ldots A_n| &= |A_1| + |A_2| + |A_3| + \ldots + |A_n|\\
+                                  &- |A_1 \cap A_2| - \ldots - |A_1 \cap A_n| -
+                                  |A_2 \cap A_3| - \ldots - |A_{n-1} \cap A_n|\\
+                                  &+ |A_1 \cap A_2 \cap A_3| + \ldots + |A_1
+                                  \cap A_2 \cap A_n| + \ldots |A_{n-2} \cap
+                                  A_{n-1} \cap A_n|\\
+                                  & \hspace*{3em} \vdots \\
+                                  & + (-1)^{n} |A_1 \cap A_2 \cap \ldots \cap
+                                  A_n|.
+  \end{align*}
+ \end{tcolorbox}
+ \pause
+ The $(-1)^{n}$ only means that if $n$ is odd, then I subtract the last term,
+ and I add it if $n$ is even.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Problems}
+ Probabilistic problems requiring the \alert{principle of exclusion and
+ inclusion} are those with multiple desirable outcomes.\pause\\
+ Let's start with something familiar:
+ \begin{center}
+  \emph{Out of the numbers 1 to 100, what is the probability that a randomly
+  picked number is a multiple of 2, 3 or 7?}
+ \end{center}
+ \pause
+ Let's define the sets
+ \[
+  E = \{\text{multiples of 2}\}, \quad T = \{\text{multiples of 3}\}, \quad S =
+  \{\text{multiples of 7}\}
+ \]
+ \pause
+ and
+ \[
+  O = \{1,2,\ldots,100\}.
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Problems}
+ We're figuring out the probability
+ \[
+  P(X \in E \cup T \cup S) = \frac{|E \cup T \cup S|}{|O|}.
+ \]
+ \pause
+ Using the \alert{inclusion-exclusion principle}, we count
+ \begin{align*}
+  |E \cup T \cup S| &= |E| + |T| + |S| - \underbrace{|E \cap
+  T|}_{\text{multiples of $6$}} - \underbrace{|E \cap S|}_{\text{multiples of
+  $14$}} - \underbrace{|T \cap S|}_{\text{multiples of $21$}} + \underbrace{|E \cap T \cap
+  S|}_{\text{multiples of $42$}} \\
+                    &= 50 + 33 + 14 - 16 - 7 - 4 + 2 = 72.
+ \end{align*}
+ \pause
+ So,
+ \[
+  P(X \in E \cup T \cup S) = \frac{72}{100}.
+ \]
+ 
 \end{frame}
 
 \end{document}
