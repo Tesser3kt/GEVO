@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,usenames,dvipsnames]{beamer}
+\documentclass[aspectratio=169,11pt,usenames,dvipsnames,handout]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -312,6 +312,122 @@
    B|}{|O|}.
   \]
  \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Sums of Probabilities -- Formula}
+ We have a formula for two sets but how about three sets? Four sets? Million
+ sets?\pause\\
+ We need a \alert{general formula} to calculate the size
+ \[
+  |A_1 \cup A_2 \cup \ldots \cup A_n|
+ \]
+ where $A_1,A_2,\ldots,A_n$ are any sets.\pause\\
+ Such a formula is widely known as the \alert{principle of inclusion and
+ exclusion}.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Example}
+ Let's consider the following setup: There are three language groups -- English,
+ French and German.\pause
+ \begin{itemize}
+  \item 40 people speak English, 23 speak German and 11 speak French.\pause
+  \item 10 people speak both English and German, 5 speak both English and French
+   and only 3 speak both German and French.\pause
+  \item Finally, just one person speaks all three languages.
+ \end{itemize}
+ \pause
+ How many people speak at least one language?
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Example}
+ Let's tackle this formally.\pause\\
+ Label the three language groups $E$, $F$ and $G$. The setup from the previous
+ slide can be summarized as
+ \begin{center}
+  \begin{tabular}{ccccccc}
+   $|E|$ & $|F|$ & $|G|$ & $|E \cap F|$ & $|E \cap G|$ & $|F \cap G|$ & $|E \cap
+   F \cap G|$\\
+   \midrule
+   40 & 11 & 23 & 5 & 10 & 3 & 1
+  \end{tabular}
+ \end{center}
+ \pause
+ We're trying to calculate $|E \cup F \cup G|$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Example}
+ Let's picture the problem first.\pause\\
+ When working with sets, Venn diagrams are often a great choice.
+ \begin{center}
+  \begin{tikzpicture}
+   \begin{scope}[transparency group]
+    \begin{scope}[blend mode=screen]
+     \filldraw[fill=BrickRed,draw=Black] (90:0.6) circle[radius=1];
+     \filldraw[fill=RoyalBlue,draw=Black] (210:0.6) circle[radius=1];
+     \filldraw[fill=ForestGreen,draw=Black] (330:0.6) circle[radius=1];
+
+     \node[BrickRed] at (90:2) {\Large $E$};
+     \node[RoyalBlue] at (210:2) {\Large $F$};
+     \node[ForestGreen] at (330:2) {\Large $G$};
+    \end{scope}
+   \end{scope}
+  \end{tikzpicture}
+ \end{center}
+ \pause
+ There are 7 regions in total (differentiated by colour) in this picture,
+ corresponding to the 7 sets in the previous slide.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Example}
+ \begin{center}
+  \begin{tikzpicture}
+   \begin{scope}[transparency group]
+    \begin{scope}[blend mode=screen]
+     \filldraw[fill=BrickRed,draw=Black] (90:0.6) circle[radius=1];
+     \filldraw[fill=RoyalBlue,draw=Black] (210:0.6) circle[radius=1];
+     \filldraw[fill=ForestGreen,draw=Black] (330:0.6) circle[radius=1];
+
+     \node[BrickRed] at (90:2) {\Large $E$};
+     \node[RoyalBlue] at (210:2) {\Large $F$};
+     \node[ForestGreen] at (330:2) {\Large $G$};
+    \end{scope}
+   \end{scope}
+  \end{tikzpicture}
+ \end{center}
+ What we need to count is the total number of elements inside this entire
+ shape.\pause\\
+ Let's start by counting the number of elements in each of the regions
+ separately and assign numbers to regions corresponding to \alert{how many times
+ we've counted all the elements in that region}.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Example}
+ \begin{center}
+  \begin{tikzpicture}
+   \begin{scope}[transparency group]
+    \begin{scope}[blend mode=screen]
+     \filldraw[fill=BrickRed,draw=Black] (90:0.6) circle[radius=1];
+     \filldraw[fill=RoyalBlue,draw=Black] (210:0.6) circle[radius=1];
+     \filldraw[fill=ForestGreen,draw=Black] (330:0.6) circle[radius=1];
+
+     \node[BrickRed] at (90:2) {\Large $E$};
+     \node[RoyalBlue] at (210:2) {\Large $F$};
+     \node[ForestGreen] at (330:2) {\Large $G$};
+
+     \node[White] at (90:1) {\Large $\mathbf{1}$};
+     \node[White] at (210:1) {\Large $\mathbf{1}$};
+     \node[White] at (330:1) {\Large $\mathbf{1}$};
+     
+    \end{scope}
+   \end{scope}
+  \end{tikzpicture}
+ \end{center}
 \end{frame}
 
 \end{document}
