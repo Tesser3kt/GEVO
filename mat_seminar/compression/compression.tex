@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
+\documentclass[aspectratio=169,11pt,svgnames]{beamer}
 
 \usepackage[czech]{babel}
 \usepackage[czech=quotes]{csquotes}
@@ -415,14 +415,14 @@ centered, draw=black, fill=Green!30]
  \frametitle{Obrázky -- formáty}
  Bezztrátově komprimované obrázky jsou ukládány často ve formátech
  \begin{itemize}[label=\textbullet]
-  \item \alert{GIF} (Graphics Interchange Format), který využívá metodu komprese
-   typu run-length zvanou LZW (Lempel-Ziv-Welch). Formát GIF je v základu
-   limitován na 256 barev (1 B pro celou trojici R,G,B), ale moderní verze
-   podporují i 8bitovou hloubku. Formát GIF poskytuje nejlepší komprimaci v
-   případech, kdy obsahem obrázku je jednoduchá grafika s jednobarevnými
+  \item \alert{GIF} (.gif, Graphics Interchange Format), který využívá metodu
+   komprese typu run-length zvanou LZW (Lempel-Ziv-Welch). Formát GIF je v
+   základu limitován na 256 barev (1 B pro celou trojici R,G,B), ale moderní
+   verze podporují i 8bitovou hloubku. Formát GIF poskytuje nejlepší komprimaci
+   v případech, kdy obsahem obrázku je jednoduchá grafika s jednobarevnými
    plochami.
   \pause
-  \item \alert{PNG} (Portable Network Graphics) -- bohatě nejoblíbenější
+  \item \alert{PNG} (.png, Portable Network Graphics) -- bohatě nejoblíbenější
    bezztrátový formát podporující navíc \alert{průhlednost}. Byl vytvořen jako
    open-source alternativa k GIF, jehož tvůrci si nechali algoritmus LZW
    patentovat. PNG používá ke komprimaci formát DEFLATE, postavený na principu
@@ -434,11 +434,11 @@ centered, draw=black, fill=Green!30]
 \begin{frame}
  \frametitle{Obrázky -- formáty}
  \begin{itemize}[label=\textbullet]
-  \item \alert{WebP} -- formát vytvořený Googlem v roce 2010 podporující jak
-   ztrátovou tak bezztrátovou kompresi. Jeho primárním účelem je nahrazení
-   formátů PNG a JPEG jako hlavních formátů obrázků na webu. WebP používá ke
-   kompresi formát \alert{VP8}, což je komprimační formát na blokové bázi, ale
-   výrazně odlišný od Huffmanova.
+  \item \alert{WebP} (.webp, Web Picture) -- formát vytvořený Googlem v roce
+   2010 podporující jak ztrátovou tak bezztrátovou kompresi. Jeho primárním
+   účelem je nahrazení formátů PNG a JPEG jako hlavních formátů obrázků na webu.
+   WebP používá ke kompresi formát \alert{VP8}, což je komprimační formát na
+   blokové bázi, ale výrazně odlišný od Huffmanova.
  \end{itemize}
 \end{frame}
 
@@ -490,11 +490,11 @@ centered, draw=black, fill=Green!30]
  nepoužívají. \pause Za zmínku stojí například formáty používané ve filmovém
  průmyslu určené k archivaci, jako
  \begin{itemize}[label=\textbullet]
-  \item \alert{DPX} (Digital Moving Picture Exchange Bitmap) je video formát
-   užívající pouze run-length časovou kompresi. Jednotlivé snímky jsou uložené v
-   čistém (též raw či bitmap) formátu.
+  \item \alert{DPX} (.dpx, Digital Moving Picture Exchange Bitmap) je video
+   formát užívající pouze run-length časovou kompresi. Jednotlivé snímky jsou
+   uložené v čistém (též raw či bitmap) formátu.
    \pause
-  \item \alert{OpenEXR} -- open-source bezztrátový komprimační formát
+  \item \alert{OpenEXR} (.exr) -- open-source bezztrátový komprimační formát
    využívající rovněž run-length časovou komprimaci a (obvykle) DEFLATE formát
    komprese pro prostorovou kompresi (jako PNG).
  \end{itemize}
@@ -554,6 +554,122 @@ centered, draw=black, fill=Green!30]
   \includegraphics[width=1.5cm]{lossy-5.pdf}
   \vspace*{-.5em}
  \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Audio -- Formáty}
+ Některé oblíbené \alert{ztrátové} audio formáty jsou
+ \begin{itemize}[label=\textbullet]
+  \item \alert{MP3} (.mp3, MPEG-1 Audio Layer III) -- jeden z nejstarších a
+   nejpoužívanějších formátů. Pro kompresi využívá primárně dvou věcí:
+  \begin{itemize}[label=\textemdash]
+   \item neschopnosti lidského ucha slyšet tóny vysokých frekvencí přes tóny
+    frekvencí nižších;
+   \item aproximačního algoritmu známého jako \alert{MDCT} (Modified Discrete
+    Cosine Transform).
+  \end{itemize}
+  \pause
+  \item \alert{AAC} (.aac, Advanced Audio Coding) -- míněn jako nástupce MP3.
+   Využívá lepších komprimačních algoritmů než MP3 a dosahuje menších velikostí
+   za stejných ztrát kvality. Díky tomu se ujal jako hlavní formát zvukových
+   stop v oblíbených ztrátových video formátech MPEG-4 nebo Matroska.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Obrázek -- formáty}
+ Pár ztrátových formátů obrázků:
+ \begin{itemize}[label=\textbullet]
+  \item \alert{JPEG} (.jpg, Joint Photographic Experts Group) je zcela jistě
+   nejpoužívanější ztrátový formát obrázku. Využívá faktu, že lidské oko není
+   schopné vnímat ostré posuny v~intenzitě barvy, ale místo toho vlastně do sebe
+   barvy prolne. Pokud je toto prolnutí již součástí obrázku, tak člověk v
+   ideálním případě nic nepozná a velikost obrázku se tím dá výrazně zmenšit.
+   Tento algoritmus \uv{prolínání} se nazývá DCT (Discrete Cosine Transform).
+  \pause
+  \item \alert{WebP} -- již zmíněný formát vynalezený Googlem, který má za účel
+   nahradit JPEG a PNG na webu. Umí ztrátovou i bezztrátovou kompresi.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Video -- formáty}
+ U video souborů je výrazný rozdíl mezi \alert{kodekem} a \alert{datovým
+ kontejnerem}.
+ \pause
+ \begin{itemize}[label=\textbullet]
+  \item \alert{Kodek} (Video Coding Format) je komprimační formát videa.
+  \pause
+  \item \alert{Datový kontejner} (Video Container Format) je formát, který v
+   sobě uchovává několik video, audio i titulkových stop, z nichž všechny mohou
+   být obvykle komprimovány v různých formátech.
+ \end{itemize}
+ \pause
+ O kvalitě videa nejvíce rozhoduje parametr \alert{bit rate}, který popisuje,
+ kolik bitů video souboru je přeneseno za vteřinu. Účelem ztrátových kodeků je s
+ klesajícím bit ratem co nejméně snižovat pozorovatelnou kvalitu.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Video -- ztrátové kodeky}
+ Aktivně se používají vlastně jen dva ztrátové kodeky.
+ \begin{itemize}[label=\textbullet]
+  \item \alert{MPEG-4} (Moving Picture Experts Group) je ztrátový formát, který
+   využívá
+  \begin{itemize}[label=\textemdash]
+   \item algoritmickou metodu zvanou \uv{kompenzace pohybu}. Další snímek se
+    často liší od předchozího pouze pohybem objektu na kameře nebo samotné
+    kamery. To umožňuje předpovědět pozici mnoha pixelů na dalším snímku bez
+    jejich explicitního ukládání v paměti.
+   \pause
+   \item \uv{prolnutí} bezprostředních snímků pomocí DCT (Discrete Cosine
+    Transform).
+  \end{itemize}
+ \item \alert{AVC, též H.264}, (Advanced Video Coding) a jeho nástupce
+  \alert{HEVC, též H.265}, (High Efficiency Video Coding) je kodek, který vznikl
+  za účelem reprodukce videa ve stejné kvalitě jako MPEG-4 s méně než polovičním
+  bit ratem. Ujal se jako hlavní formát videa na Blu-ray discích a
+  streamingových platformách. Používá kombinaci mnoha sofistikovaných
+  kompresních algoritmů.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Video -- datové kontejnery}
+ Formátů datových kontejnerů je \emph{velmi mnoho}. Uvedeme si pár rozšířených:
+ \begin{itemize}[label=\textbullet]
+  \item \alert{Matroska} (.mkv) je open-source projekt s účelem vytvoření
+   kontejneru, který je schopen uchovat teoreticky libovolné množství video,
+   audio i titulkových stop v~jednom souboru. Neklade žádná omezení na formát
+   videa ani audia.
+  \pause
+  \item \alert{AVI} (.avi, Audio Video Interleave) je kontejner vytvořený
+   Microsoftem pro použití ve Windowsu. Pro uchování video i audio stop používá
+   kontejner \alert{RIFF} (Resource Interchange File Format), který funguje na
+   principu rozdělení souborů na stejně velké kusy, každý s vlastní hlavičkou
+   obsahující informace o následujících datech. AVI podporuje libovolný formát
+   audia, videa i titulků. Díky své implementaci je též schopno sloučit
+   bezprostřední kusy videa různých kodeků, ačkoli této vlastnosti se zřídkakdy
+   užívá.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Video -- datové kontejnery}
+ \begin{itemize}[label=\textbullet]
+  \item \alert{QTFF} (.mov, QuickTime File Format) je kontejner vytvořený
+   Applem. Nepodporuje mnoho video a audio formátů, ale na rozdíl od ostatních
+   kontejnerů si stopy ukládá v~typu \uv{složkové} struktury. To jej dělá zvlášť
+   užitečným pro editaci videa, neboť přesouvání částí je možné pouhým přepsáním
+   údajů v tabulce, bez nutnosti kopírování dat. Z toho důvodu je využíván jako
+   primární kontejner například v Adobe produktech.
+  \pause
+  \item \alert{MP4} (.mp4, MPEG-4 Part 14) též nepodporuje mnoho video ani audio
+   formátů a obecně oproti ostatním uvedeným kontejnerům nepřináší nic nového.
+   Hlavní důvody jeho rozšíření jsou zpětná kompatibilita s předchozími verzemi,
+   snadné zašifrování obsažených stop a možnost uložení teoreticky neomezeného
+   množství metadat ve formátu XML.
+ \end{itemize}
 \end{frame}
 
 \end{document}
