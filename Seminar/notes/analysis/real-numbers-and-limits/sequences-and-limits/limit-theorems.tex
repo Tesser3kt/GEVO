@@ -433,7 +433,7 @@ Musí pročež platit $i = 0$, což bylo dokázati.
  bez uvedení použili (například v důkaze \myref{důsledku}{cor:r-jsou-uplna}).
  Jedná se však z naší strany o drzost pouze malou. Totiž, jeho platnost je téměř
  okamžitým důsledkem \myref{tvrzení}{prop:hustota-q-v-r}, jak si čtenáři rádi
- ověří v následujícím cvičení.
+ ověří v~následujícím cvičení.
 \end{remark}
 \begin{exercise}{}{archimedes-z-hustoty}
  Dokažte, že \myref{lemma}{lem:archimedova-vlastnost-realnych-cisel} je
@@ -462,5 +462,84 @@ Intervaly mohou být otevřené, uzavřené a polouzavřené (či polootevřené
 vlastnosti intervalů jsou definovány pomocí existence maxim a minim.
 
 \begin{definition}{Typy intervalů}{typy-intervalu}
- Ať $I$
+ Ať $I \subseteq \R$ je interval. Řekneme, že $I$ je
+ \begin{itemize}
+  \item \emph{otevřený}, když \textbf{nemá} maximum ani minimum;
+  \item \emph{uzavřený}, když \textbf{má} maximum i minimum;
+  \item \emph{shora uzavřený}, když má pouze maximum, ale nikoli minimum;
+  \item \emph{zdola uzavřený}, když má pouze minimum, ale nikoli maximum.
+ \end{itemize}
+ Otevřený interval $I$ zapisujeme jako $I = (a,b)$, kde $a = \inf I$ a $b = \sup
+ I$. Čísla $a,b$ mohou být i $ \pm \infty$, pokud $I$ není shora či zdola
+ omezený.
+
+ Uzavřený interval $I$ zapisujeme jako $I = [a,b]$, kde $a = \min I$ a $b = \max
+ I$. \textbf{Pozor!} Zde prvky $a$ i $b$ jsou striktně reálná čísla, tedy
+ například $[0,\infty]$ \textbf{není} interval, neboť se nejedná o podmnožinu
+ $\R$.
 \end{definition}
+
+\begin{definition}{Délka intervalu}{delka-intervalu}
+ Délkou intervalu $I \subseteq \R$ s $a \coloneqq \inf I$ a $b \coloneqq \sup I$
+ myslíme číslo $\lambda(I) \coloneqq b - a$, je-li toto definováno.
+\end{definition}
+
+\begin{example}{Pár intervalů}{par-intervalu}
+ Množina
+ \begin{itemize}
+  \item $I = (4,6)$ je otevřený interval. Zřejmě platí $4 = \inf I$ a $6 = \sup
+   I$. Ovšem, $I$ nemá maximum ani minimum.
+  \item $I = [-5,4]$ je uzavřený interval. Zřejmě platí $-5 = \min I = \inf I$ a
+   $4 = \max I = \sup I$.
+  \item $I = [-2,\infty)$ je zdola uzavřený interval. Platí $-2 = \min I = \inf
+   I$ a $\infty = \sup I$.
+  \item $\R = (-\infty,\infty)$ je otevřený interval. Platí $-\infty = \inf \R$
+   a $\infty = \sup \R$.
+  \item $I = (4,4)$ je prázdná, neboť je to z definice množina čísel $x \in \R$
+   takových, že $4 < x < 4$.
+  \item $I = [\exp(\tan(\log^{3}(\sqrt[7]{\pi /
+   4}))),\exp(\tan(\log^{3}(\sqrt[7]{\pi / 4})))]$ je rovna
+   $\{\exp(\tan(\log^{3}(\sqrt[7]{\pi / 4})))\}$, neboť je to z definice množina
+   čísel $x \in \R$ takových, že
+   \[
+    \exp(\tan(\log^{3}(\sqrt[7]{\pi / 4}))) \leq x \leq
+    \exp(\tan(\log^{3}(\sqrt[7]{\pi / 4}))).
+   \]
+ \end{itemize}
+\end{example}
+
+K pojmu intervalu se víže jedna speciální konstrukce zvaná \emph{systém
+vnořených intervalů}. Definujeme si ji a ihned poté si povíme, čím je speciální.
+
+\begin{definition}{Systém vnořených intervalů}{system-vnorenych-intervalu}
+ \emph{Systém vnořených intervalů} je posloupnost $(I_n)_{n=0}^{\infty}$
+ podmnožin $\R$ (čili zobrazení $\N \to 2^{\R}$) splňující následující podmínky:
+ \begin{itemize}
+  \item $I_n$ je \textbf{uzavřený} interval pro každé $n \in \N$;
+  \item $I_{n+1} \subseteq I_n$ pro každé $n \in \N$;
+  \item $\lim_{n \to \infty} \lambda(I_n) = 0$.
+ \end{itemize}
+\end{definition}
+
+Následující tvrzení je dalším ekvivalentem \hyperref[prop:axiom-uplnosti]{axiomu
+úplnosti} a \myref{důsledku}{cor:r-jsou-uplna}. V některých definicích reálných
+čísel se jím \hyperref[prop:axiom-uplnosti]{axiom úplnosti} nahrazuje.
+
+\begin{proposition}{O vnořených intervalech}{vnorene-intervaly}
+ Ať $(I_n)_{n=0}^{\infty}$ je \hyperref[def:system-vnorenych-intervalu]{systém
+ vnořených intervalů}. Pak $\# (\bigcap_{n=0}^{\infty} I_n) = 1$, čili v průniku
+ všech intervalů $I_n$ leží přesně jeden prvek.
+\end{proposition}
+\begin{propproof}
+ Je třeba dokázat, že takový prvek existuje a že je právě jeden. Začněme
+ jednoznačností.
+
+ Předpokládejme, že existují prvky $x,y \in \bigcap_{n=0}^{\infty} I_n$ a $x
+ \neq y$. Pak ale existuje konstanta $c>0$ taková, že $|x-y| = c$. Protože však
+ $x,y \in I_n$ pro každé $n \in \N$, speciálně platí $\lambda(I_n) \geq c$ pro
+ každé $n \in N$. To je spor s tím, že $\lim_{n \to \infty} \lambda(I_n) = 0$.
+
+ Dokážeme existenci. Označme $I_n = [a_n,b_n]$. Definujme posloupnost $x:\N \to
+ \R$, $x_n \coloneqq (a_n + b_n) / 2$. Pak jistě $x_n \in I_n$ pro každé $n \in
+ \N$. Ukážeme, že $x$ konverguje. Ať je dáno $\varepsilon>0$.
+\end{propproof}
