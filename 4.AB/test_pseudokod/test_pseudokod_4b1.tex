@@ -1,0 +1,138 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Homework -- PreIB 3.AB 4}\\
+ \Large\textsf{Triangulations and Symmetries of Regular Polygons}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\clr{\textbf{\uppercase{Z následujících úloh si vyberte jednu!}}}
+
+\section*{Nákup}
+Máte dánu množinu produktů \texttt{produkty} a množinu obchodů \texttt{obchody}.
+Dále máte dány funkce \texttt{cena} a \texttt{skladem}. Funkce \texttt{cena}
+dostane jako parametry \textbf{jeden produkt} a \textbf{jeden obchod} a vrátí
+\textbf{cenu tohoto produktu v tomto obchodě}. Funkce \texttt{skladem} dostane
+též jako parametry produkt a obchod a vrátí \textbf{true/false}, podle toho,
+jestli tento obchod má skladem tento produkt.
+
+Pokud je tedy například cena produktu \texttt{boty} v obchodě \texttt{deichmann}
+1000 Kč, pak \texttt{cena(boty,deichmann) = 1000}. Podobně, když například
+obchod \texttt{deichmann} produkt \texttt{boty} na skladě má, pak
+\texttt{skladem(boty,deichmann) = true}.
+
+Vaším úkolem je napsat algoritmus, který najde \textbf{jeden obchod}, ve kterém
+\textbf{mají na skladě všechny produkty z množiny \texttt{produkty}} a navíc je
+\textbf{celková cena za nákup} v tomto obchodě nejnižší ze všech obchodů.
+
+\vspace*{2em}
+
+\hrule
+
+\section*{Mocniny dvojky}
+Na vstupu máte dáno jedno kladné celé číslo \texttt{A}. O tomto čísle máte
+rozhodnout, zda se jedná o mocninu čísla \texttt{2} (a pokud ano, tak o kterou).
+Čili na vstupu vrátíte buď číslo \texttt{n} takové, že $\mathtt{2^{n} = A}$,
+nebo vypíšete \texttt{\uv{A není mocninou 2}}.
+
+\clr{\textbf{Pozor!}} \textbf{Náš počítač umí JENOM základní aritmetické operace
+-- tj. sčítání, odčítání, násobení a dělení. Neumí třeba ani mocnit!}
+
+\end{document}
