@@ -779,9 +779,9 @@ Symmetric Transformations}
    \tkzLabelPoint[color=RoyalBlue,below left](b){$b$}
    \tkzLabelPoint[color=ForestGreen,below right](c){$c$}
 
-   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](a,c)
-   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](b,a)
-   \tkzDrawSegment[thick,->,color=Magenta,add=-.1 and -.1](c,b)
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1cm and -.1cm](a,c)
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1cm and -.1cm](b,a)
+   \tkzDrawSegment[thick,->,color=Magenta,add=-.1cm and -.1cm](c,b)
   \end{tikzpicture}
  \end{center}
  What this means in symbols, is that if $\hat{\clg{c}} = \clb{b}$, then
@@ -971,17 +971,29 @@ Symmetric Transformations}
  \end{itemize}
 \end{frame}
 
+\begin{frame}
+ \frametitle{Def\hspace*{0pt}ining Integers}
+ We define the set of integers (or whole numbers) $\Z$ as the set of natural
+ numbers $\N$ plus the inverses to all natural numbers with respect to
+ addition.\pause\\
+ We define addition on integers by the formulae
+ \begin{itemize}
+  \item $n + (-m) = x$ where $x + m = n$ for $n \geq m$ and
+  \item $n + (-m) = -(m + (-n))$ for $n \leq m$.
+ \end{itemize}
+ \pause
+ and multiplication simply by
+ \[
+  m \cdot (-n) = -(n \cdot m).
+ \]
+ \pause
+ The operation $+$ on $\Z$ is symmetric, while $ \cdot $ is still
+ \alert{destructive}. This leads us to the rationals.
+\end{frame}
 
-% \begin{frame}
-%  \frametitle{What Is An Inverse?}
-%  \begin{tcolorbox}[title=Inverse with respect to $+$]
-%   Given an element $n \in \N$, its \alert{inverse with respect to $+$} is a
-%   number $m \in \N$ such that $n + m = 0$. We write this number as $-n$.
-%  \end{tcolorbox}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Minus As A Function}
-% \end{frame}
+\section{Rational Numbers}
+\label{sec:rational-numbers}
+
+
 
 \end{document}
