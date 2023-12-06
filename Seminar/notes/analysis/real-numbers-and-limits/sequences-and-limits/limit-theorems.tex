@@ -540,6 +540,111 @@ Následující tvrzení je dalším ekvivalentem \hyperref[prop:axiom-uplnosti]{
  každé $n \in N$. To je spor s tím, že $\lim_{n \to \infty} \lambda(I_n) = 0$.
 
  Dokážeme existenci. Označme $I_n = [a_n,b_n]$. Definujme posloupnost $x:\N \to
- \R$, $x_n \coloneqq (a_n + b_n) / 2$. Pak jistě $x_n \in I_n$ pro každé $n \in
- \N$. Ukážeme, že $x$ konverguje. Ať je dáno $\varepsilon>0$.
+ \R$, $x_n \coloneqq (a_n + b_n) / 2$. Na volbě čísla $(a_n + b_n) / 2$ není nic
+ speciálního. Stačí volit jakékoliv $x_n \in I_n$. Ukážeme, že $x$ konverguje.
+ Ať je dáno $\varepsilon>0$. Protože $\lim_{n \to \infty} \lambda(I_n) = 0$,
+ nalezneme $n_0 \in \N$ takové, že $\lambda(I_n)<\varepsilon$ pro $n \geq n_0$.
+ Potom ale platí $|x_n-x_m|<\varepsilon$ pro všechna $m,n \geq n_0$, neboť
+ $x_n,x_m \in I_{n_0}$, což je zaručeno podmínkou $I_n,I_m \subseteq I_{n_0}$.
+
+ Podle \myref{důsledku}{cor:r-jsou-uplna} má $x$ limitu, označme ji $L$. Chceme
+ ukázat, že $L \in \bigcap_{n=0}^{\infty}I_n$. K tomu je třeba ověřit, že $L \in
+ I_n$ pro každé $n \in \N$. Ať pro spor existuje $n_L \in \N$ takové, že $L
+ \notin I_{n_L}$. Protože intervaly jsou vnořené, znamená toto, že $L \notin
+ I_n$ pro $n \geq n_L$. Volme $\varepsilon>0$. K němu nalezneme $n_I \in \N$
+ takové, že $\lambda(I_n)<\varepsilon$ pro $n \geq n_I$. Ať $n_0 \coloneqq
+ \max(n_L,n_I)$. Pak na jednu stranu pro $n \geq n_0$ platí
+ $\lambda(I_n)<\varepsilon$ a na druhou stranu $L \notin I_n$. Sloučením obou
+ vztahů dostaneme $|x_n-L| \geq \varepsilon$ pro $n \geq n_0$, neboť $x_n \in
+ I_n$ pro každé $n \in \N$. To je spor s tím, že $\lim x = L$.
+
+ Důkaz je hotov.
 \end{propproof}
+
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}[b]{.99\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/L,12/0/R}
+   \tkzDrawSegment(L,R)
+   \tkzDefPoints{2/0/l,10/0/r}
+   \node[BrickRed] at (l) {$\Large [$};
+   \node[BrickRed] at (r) {$\Large ]$};
+   \tkzDrawSegment[thick,BrickRed](l,r)
+   \tkzLabelSegment[below,BrickRed,yshift=-2mm](l,r){$I_0$}
+   \tkzDefPoint(6,0){x0}
+   \tkzDrawPoint[size=4](x0)
+   \tkzLabelPoint[above](x0){$x_0$}
+  \end{tikzpicture}
+ \end{subfigure}
+ \begin{subfigure}[b]{.99\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/L,12/0/R}
+   \tkzDrawSegment(L,R)
+   \tkzDefPoints{2/0/l,10/0/r}
+   \node[BrickRed] at (l) {$\Large [$};
+   \node[BrickRed] at (r) {$\Large ]$};
+   \tkzDrawSegment[BrickRed,dashed,thick](l,r)
+   \tkzLabelSegment[below,BrickRed,yshift=-2mm](l,r){$I_0$}
+   \tkzDefPoint(6,0){x0}
+   \tkzLabelPoint[above](x0){$x_0$}
+
+   \tkzDefPoints{3/0/l2,8/0/r2}
+   \node[RoyalBlue] at (l2) {\Large $[$};
+   \node[RoyalBlue] at (r2) {\Large $]$};
+   \tkzDrawSegment[ultra thick,RoyalBlue](l2,r2)
+   \tkzLabelSegment[below,RoyalBlue,yshift=-2mm](l2,r2){$I_1$}
+   \tkzDefPoint(5.5,0){x1}
+   \tkzDrawPoint[size=4](x1)
+   \tkzDrawPoint[size=4](x0)
+   \tkzLabelPoint[above](x1){$x_1$}
+  \end{tikzpicture}
+ \end{subfigure}
+ \begin{subfigure}[b]{.99\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/L,12/0/R}
+   \tkzDrawSegment(L,R)
+   \tkzDefPoints{2/0/l,10/0/r}
+   \node[BrickRed] at (l) {$\Large [$};
+   \node[BrickRed] at (r) {$\Large ]$};
+   \tkzDrawSegment[BrickRed,dashed,thick](l,r)
+   \tkzLabelSegment[below,BrickRed,yshift=-2mm](l,r){$I_0$}
+   \tkzDefPoint(6,0){x0}
+   \tkzDrawPoint[size=4](x0)
+   \tkzLabelPoint[above](x0){$x_0$}
+
+   \tkzDefPoints{3/0/l2,8/0/r2}
+   \node[RoyalBlue] at (l2) {$\Large [$};
+   \node[RoyalBlue] at (r2) {$\Large ]$};
+   \tkzDrawSegment[thick,RoyalBlue,dashed](l2,r2)
+   \tkzLabelSegment[below,RoyalBlue,yshift=-2mm](l2,r2){$I_1$}
+   \tkzDrawPoint[size=4](x0)
+   \tkzDefPoint(5.5,0){x1}
+   \tkzDrawPoint[size=4](x1)
+   \tkzLabelPoint[above](x1){$x_1$}
+
+   \tkzDefPoints{3.5/0/l3,5/0/r3}
+   \node[ForestGreen] at (l3) {\Large $[$};
+   \node[ForestGreen] at (r3) {\Large $]$};
+   \tkzDrawSegment[ultra thick,ForestGreen](l3,r3)
+   \tkzLabelSegment[below,ForestGreen,yshift=-2mm](l3,r3){$I_2$}
+   \tkzDefPoint(4.25,0){x2}
+   \tkzDrawPoint[size=4](x2)
+   \tkzLabelPoint[above](x2){$x_2$}
+
+   \node at (6,-1) {\Large $\vdots$};
+  \end{tikzpicture}
+ \end{subfigure}
+ \caption{Důkaz \myref{tvrzení}{prop:vnorene-intervaly}.}
+ \label{fig:vnorene-intervaly}
+\end{figure}
+
+Již máme všechny ingredience k formulaci a důkazu Bolzanovy-Weierstraßovy věty.
+Je stěžejním tvrzením pro matematickou analýzu a pro matematiku obecně. Jeho
+filosofický význam dlí v poznání, že v \uv{příliš velkých} strukturách přirozeně
+vzniká řád.
+
+

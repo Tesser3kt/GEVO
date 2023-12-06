@@ -587,6 +587,68 @@
  \[
   P(X \in E \cup T \cup S) = \frac{72}{100}.
  \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Problems}
+ Given two circles and a triangle in the plane, what's the maximum number of
+ points that can belong to at least two of these shapes?\pause\\
+ Let's label the circles $C_1,C_2$ and the triangle $T$. \pause
+ We're interested in points that lie in \alert{at least one} of the sets $C_1
+ \cap C_2, C_1 \cap T$ and $C_2 \cap T$.\pause\\
+ In other words, we want to determine the maximum size of
+ \[
+  |(C_1 \cap C_2) \cup (C_1 \cap T) \cup (C_2 \cap T)|.
+ \]
+ \pause
+ The maximum number of points
+ \begin{itemize}
+  \item two circles can share is $2$. So, let's set $|C_1 \cap C_2| = 2$.
+  \pause
+  \item circle and a triangle can share is $3$. So $|C_1 \cap T| = |C_2 \cap T|
+   = 3$.
+  \pause
+  \item all three objects can share is $2$. So $|C_1 \cap C_2 \cap T| = 2$.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Problems}
+ Let's apply the inclusion-exclusion principle. We get
+ \begin{align*}
+  &|(C_1 \cap C_2) \cup (C_1 \cap T) \cup (C_2 \cup T)| \\
+  &= |C_1 \cap C_2| + |C_1 \cap T| + |C_2 \cap T| \\
+                                                       &- |(C_1 \cap C_2) \cap
+                                                       (C_1 \cap T)| - |(C_1
+                                                       \cap C_2) \cap (C_2 \cap
+                                                       T)| 
+                                                       - |(C_1 \cap T) \cap
+                                                       (C_2 \cap T)| \\
+                                                       &+ |(C_1 \cap C_2) \cap
+                                                       (C_1 \cap T) \cap (C_2
+                                                       \cap T)|.
+ \end{align*}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Principle of Inclusion and Exclusion -- Problems}
+ This is less scary than it looks. Actually, most of the intersections there are
+ one and the same. Really,
+ \begin{align*}
+  (C_1 \cap C_2) \cap (C_1 \cap T) &= C_1 \cap C_2 \cap T \\
+  \pause
+  (C_1 \cap C_2) \cap (C_2 \cap T) &= C_1 \cap C_2 \cap T \\
+  \pause
+  (C_1 \cap T) \cap (C_2 \cap T) &= C_1 \cap C_2 \cap T \\
+  \pause
+  (C_1 \cap C_2) \cap (C_1 \cap T) \cap (C_2 \cap T) &= C_1 \cap C_2 \cap T.
+ \end{align*}
+ \pause
+ So, the previous expression just ends up being
+ \[
+  |C_1 \cap C_2| + |C_1 \cap T| + |C_2 \cap T| - 2 \cdot |C_1 \cap C \cap T| = 2
+  + 3 + 3 - 2 \cdot 2 = 4.
+ \]
  
 \end{frame}
 
