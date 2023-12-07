@@ -441,7 +441,7 @@ Musí pročež platit $i = 0$, což bylo dokázati.
 \end{exercise}
 
 \subsection{Bolzanova-Weierstraßova věta}
-\label{ssec:bolzanova-weierstraova-veta}
+\label{ssec:bolzanova-weierstrassova-veta}
 
 Konečně kráčíme cestou definice intervalu a důkazu slibované
 Bolzanovy-Weierstraßovy věty. Vybaveni pojmy
@@ -483,6 +483,15 @@ vlastnosti intervalů jsou definovány pomocí existence maxim a minim.
  Délkou intervalu $I \subseteq \R$ s $a \coloneqq \inf I$ a $b \coloneqq \sup I$
  myslíme číslo $\lambda(I) \coloneqq b - a$, je-li toto definováno.
 \end{definition}
+
+\begin{remark}{}{delka-intervalu}
+ Čtenáře snad mohlo zarazit značení $\lambda(I)$ pro délku intervalu, oproti
+ zvyku podlehnuvšímu $|I|$. Písmeno $\lambda$ zde není spojeno s angl. slovem
+ \textbf{l}ength, jak by se snad mohlo prve zdát, nýbrž pochází ze jména
+ \textbf{L}ebesgue. Totiž, \emph{délka} intervalu je jeho \emph{objemem} či
+ \emph{velikostí} vzhledem k tzv. Lebesgueově míře -- mnohem obecnější
+ konstrukci umožňující měřit velikosti všemožných podmnožin reálných čísel.
+\end{remark}
 
 \begin{example}{Pár intervalů}{par-intervalu}
  Množina
@@ -537,26 +546,27 @@ Následující tvrzení je dalším ekvivalentem \hyperref[prop:axiom-uplnosti]{
  Předpokládejme, že existují prvky $x,y \in \bigcap_{n=0}^{\infty} I_n$ a $x
  \neq y$. Pak ale existuje konstanta $c>0$ taková, že $|x-y| = c$. Protože však
  $x,y \in I_n$ pro každé $n \in \N$, speciálně platí $\lambda(I_n) \geq c$ pro
- každé $n \in N$. To je spor s tím, že $\lim_{n \to \infty} \lambda(I_n) = 0$.
+ každé $n \in \N$. To je spor s tím, že $\lim_{n \to \infty} \lambda(I_n) = 0$.
 
  Dokážeme existenci. Označme $I_n = [a_n,b_n]$. Definujme posloupnost $x:\N \to
  \R$, $x_n \coloneqq (a_n + b_n) / 2$. Na volbě čísla $(a_n + b_n) / 2$ není nic
  speciálního. Stačí volit jakékoliv $x_n \in I_n$. Ukážeme, že $x$ konverguje.
  Ať je dáno $\varepsilon>0$. Protože $\lim_{n \to \infty} \lambda(I_n) = 0$,
- nalezneme $n_0 \in \N$ takové, že $\lambda(I_n)<\varepsilon$ pro $n \geq n_0$.
- Potom ale platí $|x_n-x_m|<\varepsilon$ pro všechna $m,n \geq n_0$, neboť
- $x_n,x_m \in I_{n_0}$, což je zaručeno podmínkou $I_n,I_m \subseteq I_{n_0}$.
+ nalezneme $n_0 \in \N$ takové, že $\lambda(I_{n_0})<\varepsilon$. Potom ale
+ platí $|x_n-x_m|<\varepsilon$ pro všechna $m,n \geq n_0$, neboť $x_n,x_m \in
+ I_{n_0}$, což je zaručeno podmínkou $I_n,I_m \subseteq I_{n_0}$.
 
  Podle \myref{důsledku}{cor:r-jsou-uplna} má $x$ limitu, označme ji $L$. Chceme
  ukázat, že $L \in \bigcap_{n=0}^{\infty}I_n$. K tomu je třeba ověřit, že $L \in
  I_n$ pro každé $n \in \N$. Ať pro spor existuje $n_L \in \N$ takové, že $L
  \notin I_{n_L}$. Protože intervaly jsou vnořené, znamená toto, že $L \notin
- I_n$ pro $n \geq n_L$. Volme $\varepsilon>0$. K němu nalezneme $n_I \in \N$
- takové, že $\lambda(I_n)<\varepsilon$ pro $n \geq n_I$. Ať $n_0 \coloneqq
- \max(n_L,n_I)$. Pak na jednu stranu pro $n \geq n_0$ platí
+ I_n$ pro $n \geq n_L$. Volme libovolné $\varepsilon>0$. K němu nalezneme $n_I
+ \in \N$ takové, že $\lambda(I_n)<\varepsilon$ pro $n \geq n_I$. Ať $n_0
+ \coloneqq \max(n_L,n_I)$. Pak na jednu stranu pro $n \geq n_0$ platí
  $\lambda(I_n)<\varepsilon$ a na druhou stranu $L \notin I_n$. Sloučením obou
- vztahů dostaneme $|x_n-L| \geq \varepsilon$ pro $n \geq n_0$, neboť $x_n \in
- I_n$ pro každé $n \in \N$. To je spor s tím, že $\lim x = L$.
+ vztahů dostaneme $|x_n-L| \geq \varepsilon / 2$ pro $n \geq n_0$, neboť $x_n$
+ leží v polovině intervalu $I_n$ a $L$ mimo něj pro každé $n \in \N$. To je spor
+ s tím, že $\lim x = L$.
 
  Důkaz je hotov.
 \end{propproof}
@@ -653,20 +663,20 @@ Je stěžejním tvrzením pro matematickou analýzu a pro matematiku obecně. Je
 filosofický význam dlí v poznání, že v \uv{příliš velkých} strukturách přirozeně
 vzniká řád.
 
-\begin{theorem}{Bolzanova-Weierstraßova}{bolzanova-weierstraova}
+\begin{theorem}{Bolzanova-Weierstraßova}{bolzanova-weierstrassova}
  Ať $x:\N \to \R$ je \textbf{omezená} posloupnost. Pak existuje podposloupnost
  $y$ posloupnosti $x$, která konverguje.
 \end{theorem}
 \begin{thmproof}
  Z omezenosti $x$ existují $s,S \in \R$ taková, že $s \leq x_n \leq S$ pro
- všechna $n \in \N$. Postupně vyrobíme systém vnořených intervalů. Položme $I_0
- \coloneqq [s,S]$. Za předpokladu, že $I_n = [a_n,b_n]$ je dán, sestrojíme
+ všechna $n \in \N$. Induktivně vyrobíme systém vnořených intervalů. Položme
+ $I_0 \coloneqq [s,S]$. Za předpokladu, že $I_n = [a_n,b_n]$ je dán, sestrojíme
  $I_{n+1}$ následovně:
  \begin{equation}
   \label{eq:bw-construction}
   I_{n+1} \coloneqq \begin{cases}
-   [a_n, (a_n+b_n) / 2], &\text{pokud } x_n \in [a_n, (a_n+b_n) / 2] \text{ pro
-   nekonečně mnoho } n \in \N,\\
+   [a_n, (a_n+b_n) / 2], &\text{pokud } x_k \in [a_n, (a_n+b_n) / 2] \text{ pro
+   nekonečně mnoho } k \in \N,\\
     [ (a_n+b_n) / 2,b_n ], &\text{jinak}.
   \end{cases}
  \end{equation}
@@ -686,7 +696,8 @@ vzniká řád.
   \item Délky intervalů $I_n$ klesají k $0$, neboť $\lambda(I_{n+1}) =
    \lambda(I_n) / 2$, a tedy $\lambda(I_n) = \lambda(I_0) / 2^{n}$. Zřejmě
    \[
-    \lim_{n \to \infty} \frac{\lambda(I_n)}{2^{n}} = 0.
+    \lim_{n \to \infty} \lambda(I_n) = \lim_{n \to \infty}
+    \frac{\lambda(I_0)}{2^{n}} = 0.
    \]
  \end{itemize}
  Vyberme nyní z $x$ libovolnou podposloupnost $y:\N \to \R$ takovou, že $y_n \in
@@ -696,3 +707,116 @@ vzniká řád.
  platí $\lim y = L$. To však znamená, se znalostí
  \myref{lemmatu}{lem:limita-konvergence}, že $y$ konverguje.
 \end{thmproof}
+
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}[b]{.99\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/L,12/0/R}
+   \tkzDrawSegment(L,R)
+   \tkzDefPoints{2/0/l,10/0/r}
+   \node[BrickRed] at (l) {\Large $[$};
+   \node[BrickRed] at (r) {\Large $]$};
+   \tkzDrawSegment[ultra thick,BrickRed](l,r)
+   \tkzLabelPoint[below,BrickRed,yshift=-2mm](l){$s$}
+   \tkzLabelPoint[below,BrickRed,yshift=-2mm](r){$S$}
+   \foreach \x in {1,2,...,10} {
+    \tkzDefPoint(3.5 + \x / 10,0){a\x}
+    \tkzDefPoint(4 + \x / 20,0){b\x}
+    \tkzDrawPoints[size=4](a\x,b\x)
+   }
+   \tkzDefPoint(3,0){a}
+   \tkzDefPoint(3.7,0){b}
+   \tkzDefPoint(4.1,0){c}
+   \tkzDefPoint(4.2,0){d}
+   \tkzDefPoint(4.3,0){e}
+   \tkzDefPoint(4.9,0){f}
+   \tkzDefPoint(5.1,0){g}
+   \tkzDefPoint(5.3,0){h}
+   \tkzDefPoint(5.7,0){i}
+   \tkzDefPoint(6.4,0){j}
+   \tkzDefPoint(7,0){k}
+   \tkzDefPoint(8.4,0){m}
+   \tkzDefPoint(8.5,0){n}
+   \tkzDrawPoints[size=4](a,b,c,d,e,f,g,h,i,j,k,m,n)
+   \tkzLabelSegment[below,BrickRed,yshift=-2mm](l,r){$I_0$}
+   \tkzDefPoint(6,0){x0}
+   \tkzLabelPoint[above,yshift=2mm](x0){$x$}
+  \end{tikzpicture}
+ \end{subfigure}
+ \begin{subfigure}[b]{.99\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/L,12/0/R}
+   \tkzDrawSegment(L,R)
+   \tkzDefPoints{2/0/l,6/0/r}
+   \node[RoyalBlue] at (l) {\Large $[$};
+   \node[RoyalBlue] at (r) {\Large $]$};
+   \tkzDrawSegment[ultra thick,RoyalBlue](l,r)
+   \tkzLabelPoint[below,RoyalBlue,yshift=-1mm](l){$a_1$}
+   \tkzLabelPoint[below,RoyalBlue,yshift=-1mm](r){$b_1$}
+   \foreach \x in {1,2,...,10} {
+    \tkzDefPoint(3.5 + \x / 10,0){a\x}
+    \tkzDefPoint(4 + \x / 20,0){b\x}
+    \tkzDrawPoints[size=4](a\x,b\x)
+   }
+   \tkzDefPoint(3,0){a}
+   \tkzDefPoint(3.7,0){b}
+   \tkzDefPoint(4.1,0){c}
+   \tkzDefPoint(4.2,0){d}
+   \tkzDefPoint(4.3,0){e}
+   \tkzDefPoint(4.9,0){f}
+   \tkzDefPoint(5.1,0){g}
+   \tkzDefPoint(5.3,0){h}
+   \tkzDefPoint(5.7,0){i}
+   \tkzDefPoint(6.4,0){j}
+   \tkzDefPoint(7,0){k}
+   \tkzDefPoint(8.4,0){m}
+   \tkzDefPoint(8.5,0){n}
+   \tkzDrawPoints[size=4](a,b,c,d,e,f,g,h,i,j,k,m,n)
+   \tkzLabelSegment[below,RoyalBlue,yshift=-2mm](l,r){$I_1$}
+   \tkzDefPoint(6,0){x0}
+   \tkzLabelPoint[above,yshift=2mm](x0){$x$}
+  \end{tikzpicture}
+ \end{subfigure}
+ \begin{subfigure}[b]{.99\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/L,12/0/R}
+   \tkzDrawSegment(L,R)
+   \tkzDefPoints{4/0/l,6/0/r}
+   \tkzDrawSegment[thick,ForestGreen](l,r)
+   \tkzLabelPoint[below,ForestGreen,yshift=-1mm](l){$a_2$}
+   \tkzLabelPoint[below,ForestGreen,yshift=-1mm](r){$b_2$}
+   \foreach \x in {1,2,...,10} {
+    \tkzDefPoint(3.5 + \x / 10,0){a\x}
+    \tkzDefPoint(4 + \x / 20,0){b\x}
+    \tkzDrawPoints[size=4](a\x,b\x)
+   }
+   \tkzDefPoint(3,0){a}
+   \tkzDefPoint(3.7,0){b}
+   \tkzDefPoint(4.1,0){c}
+   \tkzDefPoint(4.2,0){d}
+   \tkzDefPoint(4.3,0){e}
+   \tkzDefPoint(4.9,0){f}
+   \tkzDefPoint(5.1,0){g}
+   \tkzDefPoint(5.3,0){h}
+   \tkzDefPoint(5.7,0){i}
+   \tkzDefPoint(6.4,0){j}
+   \tkzDefPoint(7,0){k}
+   \tkzDefPoint(8.4,0){m}
+   \tkzDefPoint(8.5,0){n}
+   \tkzDrawPoints[size=4](a,b,c,d,e,f,g,h,i,j,k,m,n)
+   \node[ForestGreen] at (l) {$[$};
+   \node[ForestGreen] at (r) {$]$};
+   \tkzLabelSegment[below,ForestGreen,yshift=-2mm](l,r){$I_2$}
+   \tkzDefPoint(6,0){x0}
+   \tkzLabelPoint[above,yshift=2mm](x0){$x$}
+   \node at (6,-1) {\Large $\vdots$};
+  \end{tikzpicture}
+ \end{subfigure}
+ \caption{Důkaz \hyperref[thm:bolzanova-weierstrassova]{Bolzanovy-Weierstraßovy
+  věty}.}
+ \label{fig:bolzano-weierstrass}
+\end{figure}
