@@ -569,8 +569,8 @@ Následující tvrzení je dalším ekvivalentem \hyperref[prop:axiom-uplnosti]{
    \tkzDefPoints{0/0/L,12/0/R}
    \tkzDrawSegment(L,R)
    \tkzDefPoints{2/0/l,10/0/r}
-   \node[BrickRed] at (l) {$\Large [$};
-   \node[BrickRed] at (r) {$\Large ]$};
+   \node[BrickRed] at (l) {$[$};
+   \node[BrickRed] at (r) {$]$};
    \tkzDrawSegment[thick,BrickRed](l,r)
    \tkzLabelSegment[below,BrickRed,yshift=-2mm](l,r){$I_0$}
    \tkzDefPoint(6,0){x0}
@@ -584,8 +584,8 @@ Následující tvrzení je dalším ekvivalentem \hyperref[prop:axiom-uplnosti]{
    \tkzDefPoints{0/0/L,12/0/R}
    \tkzDrawSegment(L,R)
    \tkzDefPoints{2/0/l,10/0/r}
-   \node[BrickRed] at (l) {$\Large [$};
-   \node[BrickRed] at (r) {$\Large ]$};
+   \node[BrickRed] at (l) {$[$};
+   \node[BrickRed] at (r) {$]$};
    \tkzDrawSegment[BrickRed,dashed,thick](l,r)
    \tkzLabelSegment[below,BrickRed,yshift=-2mm](l,r){$I_0$}
    \tkzDefPoint(6,0){x0}
@@ -608,8 +608,8 @@ Následující tvrzení je dalším ekvivalentem \hyperref[prop:axiom-uplnosti]{
    \tkzDefPoints{0/0/L,12/0/R}
    \tkzDrawSegment(L,R)
    \tkzDefPoints{2/0/l,10/0/r}
-   \node[BrickRed] at (l) {$\Large [$};
-   \node[BrickRed] at (r) {$\Large ]$};
+   \node[BrickRed] at (l) {$[$};
+   \node[BrickRed] at (r) {$]$};
    \tkzDrawSegment[BrickRed,dashed,thick](l,r)
    \tkzLabelSegment[below,BrickRed,yshift=-2mm](l,r){$I_0$}
    \tkzDefPoint(6,0){x0}
@@ -617,8 +617,8 @@ Následující tvrzení je dalším ekvivalentem \hyperref[prop:axiom-uplnosti]{
    \tkzLabelPoint[above](x0){$x_0$}
 
    \tkzDefPoints{3/0/l2,8/0/r2}
-   \node[RoyalBlue] at (l2) {$\Large [$};
-   \node[RoyalBlue] at (r2) {$\Large ]$};
+   \node[RoyalBlue] at (l2) {$[$};
+   \node[RoyalBlue] at (r2) {$]$};
    \tkzDrawSegment[thick,RoyalBlue,dashed](l2,r2)
    \tkzLabelSegment[below,RoyalBlue,yshift=-2mm](l2,r2){$I_1$}
    \tkzDrawPoint[size=4](x0)
@@ -642,9 +642,57 @@ Následující tvrzení je dalším ekvivalentem \hyperref[prop:axiom-uplnosti]{
  \label{fig:vnorene-intervaly}
 \end{figure}
 
+\begin{definition}{Podposloupnost}{podposloupnost}
+ Řekneme, že $y:\N \to \R$ je \emph{podposloupností} posloupnosti $x:\N \to \R$,
+ když pro každé $n \in \N$ existuje $m \in \N$ takové, že $y_n = x_m$. Jinak
+ řečeno, každý prvek $y$ je rovněž prvkem $x$.
+\end{definition}
+
 Již máme všechny ingredience k formulaci a důkazu Bolzanovy-Weierstraßovy věty.
 Je stěžejním tvrzením pro matematickou analýzu a pro matematiku obecně. Jeho
 filosofický význam dlí v poznání, že v \uv{příliš velkých} strukturách přirozeně
 vzniká řád.
 
+\begin{theorem}{Bolzanova-Weierstraßova}{bolzanova-weierstraova}
+ Ať $x:\N \to \R$ je \textbf{omezená} posloupnost. Pak existuje podposloupnost
+ $y$ posloupnosti $x$, která konverguje.
+\end{theorem}
+\begin{thmproof}
+ Z omezenosti $x$ existují $s,S \in \R$ taková, že $s \leq x_n \leq S$ pro
+ všechna $n \in \N$. Postupně vyrobíme systém vnořených intervalů. Položme $I_0
+ \coloneqq [s,S]$. Za předpokladu, že $I_n = [a_n,b_n]$ je dán, sestrojíme
+ $I_{n+1}$ následovně:
+ \begin{equation}
+  \label{eq:bw-construction}
+  I_{n+1} \coloneqq \begin{cases}
+   [a_n, (a_n+b_n) / 2], &\text{pokud } x_n \in [a_n, (a_n+b_n) / 2] \text{ pro
+   nekonečně mnoho } n \in \N,\\
+    [ (a_n+b_n) / 2,b_n ], &\text{jinak}.
+  \end{cases}
+ \end{equation}
+ Rozmyslíme si lehce neformálním použitím matematické indukce, že tato
+ konstrukce je korektní. První interval $I_0$ jistě obsahuje nekonečně mnoho
+ prvků $x$, neboť obsahuje celou tuto posloupnost. Podobně, pokud $I_n$ obsahuje
+ nekonečně mnoho prvků $x$, pak aspoň jedna z jeho polovin musí rovněž obsahovat
+ nekonečně mnoho prvků $x$. Z konstrukce~\eqref{eq:bw-construction} pak plyne,
+ že rovněž $I_{n+1}$ obsahuje nekonečně mnoho prvků $x$.
 
+ Ověříme, že $(I_n)_{n=0}^{\infty}$ je systém vnořených intervalů podle
+ \myref{definice}{def:system-vnorenych-intervalu}.
+ \begin{itemize}
+  \item Zcela jistě je $I_n$ uzavřený interval pro každé $n \in \N$.
+  \item Rovněž zcela jistě $I_{n+1} \subseteq I_n$ pro každé $n \in \N$, neboť
+   $I_{n+1}$ je jedna z polovin intervalu $I_n$.
+  \item Délky intervalů $I_n$ klesají k $0$, neboť $\lambda(I_{n+1}) =
+   \lambda(I_n) / 2$, a tedy $\lambda(I_n) = \lambda(I_0) / 2^{n}$. Zřejmě
+   \[
+    \lim_{n \to \infty} \frac{\lambda(I_n)}{2^{n}} = 0.
+   \]
+ \end{itemize}
+ Vyberme nyní z $x$ libovolnou podposloupnost $y:\N \to \R$ takovou, že $y_n \in
+ I_n$. To jistě lze, neboť každý z intervalů $I_n$ obsahuje nekonečně mnoho
+ prvků posloupnosti $x$. Pak ovšem podle \myref{tvrzení}{prop:vnorene-intervaly}
+ existuje prvek $L \in \bigcap_{n=0}^{\infty} I_n$ a podle důkazu téhož tvrzení
+ platí $\lim y = L$. To však znamená, se znalostí
+ \myref{lemmatu}{lem:limita-konvergence}, že $y$ konverguje.
+\end{thmproof}
