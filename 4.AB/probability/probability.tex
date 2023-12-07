@@ -605,10 +605,11 @@
  \begin{itemize}
   \item two circles can share is $2$. So, let's set $|C_1 \cap C_2| = 2$.
   \pause
-  \item circle and a triangle can share is $3$. So $|C_1 \cap T| = |C_2 \cap T|
-   = 3$.
+  \item circle and a triangle can share is $6$. So $|C_1 \cap T| = |C_2 \cap T|
+   = 6$.
   \pause
-  \item all three objects can share is $2$. So $|C_1 \cap C_2 \cap T| = 2$.
+  \item all three objects share is zero if the number of intersections is
+   maximized. So $|C_1 \cap C_2 \cap T| = 0$.
  \end{itemize}
 \end{frame}
 
@@ -636,20 +637,110 @@
  one and the same. Really,
  \begin{align*}
   (C_1 \cap C_2) \cap (C_1 \cap T) &= C_1 \cap C_2 \cap T \\
-  \pause
   (C_1 \cap C_2) \cap (C_2 \cap T) &= C_1 \cap C_2 \cap T \\
-  \pause
   (C_1 \cap T) \cap (C_2 \cap T) &= C_1 \cap C_2 \cap T \\
-  \pause
   (C_1 \cap C_2) \cap (C_1 \cap T) \cap (C_2 \cap T) &= C_1 \cap C_2 \cap T.
  \end{align*}
  \pause
  So, the previous expression just ends up being
  \[
   |C_1 \cap C_2| + |C_1 \cap T| + |C_2 \cap T| - 2 \cdot |C_1 \cap C \cap T| = 2
-  + 3 + 3 - 2 \cdot 2 = 4.
+  + 6 + 6 - 2 \cdot 0 = 14.
  \]
  
+\end{frame}
+
+\section{Events}
+\label{sec:events}
+
+\begin{frame}
+ \frametitle{What Is An Event?}
+ Formally, an \alert{event} is just an element which \alert{has some
+ probability}.\\
+ However, we typically think of events as \alert{things that have some chance of
+ happening}.\\
+ For example
+ \begin{itemize}
+  \item the fact that a random variable $X$ lies in some set is an event.
+  \pause
+  \item the fact that a randomly chosen ball has a specific colour is an event.
+  \pause
+  \item the fact that the universe ends today at midnight is an event.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Operations On Events}
+ Ultimately, an event is \alert{logical sentence}, meaning it's a sentence which
+ is either \alert{true} or \alert{false}.\pause\\
+ Logical sentences can be negated (written as $\neg $) and joined together using
+ logical conjunctions\pause\\
+ \begin{itemize}
+  \item \alert{and} (written as $ \wedge $),
+  \pause
+  \item \alert{or} (written as $ \vee $).
+ \end{itemize}
+ \pause
+ We want to understand how to calculate $P(\neg A),P(A \wedge B),P(A \vee B)$
+ for two events $A,B$ whose probabilities we know.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Negating Events}
+ Suppose we have an event $A = \text{`It's going to rain in 5 minutes.'}$ with
+ probability 0.2.\pause\\
+ What's the probability of $\neg A$?\pause\\
+ Quite naturally, it's 0.8 because it either is going to rain or it's not. The
+ total of the probabilities of those two events has to be 1.\pause
+ \begin{tcolorbox}[title=Negation Formula]
+  If $A$ is an event with probability $P(A) = p$, then
+  \[
+   P(\neg A) = 1 - p.
+  \]
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Independent and Incompatible Events}
+ Two events are called \alert{independent} if the result of one event doesn't at
+ all influence the result of the other.\pause\\
+ For example, two tosses of a coin are independent.\pause\\
+ \vspace{2\parskip}
+ \hrule
+ Two events are called \alert{incompatible} if they cannot \emph{both}
+ happen.\pause\\
+ For example, the events `I'm going to spend vacation in Florida.' and `I'm
+ going to spend vacation in Spain.' are incompatible.\pause\\
+ An event is always incompatible with its own negation.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Conjunction of Events}
+ \begin{tcolorbox}[title=Conjunction Formula]
+  If $A,B$ are two \alert{independent} events, then
+  \[
+   P(A \wedge B) = P(A) \cdot P(B).
+  \]
+ \end{tcolorbox}
+ \pause
+ If the two events are \alert{dependent}, then calculating the probability of
+ their conjunction is much more difficult. We'll need \emph{conditional
+ probability} for that.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Disjunction of Events}
+ The disjunction formula for events is really just the inclusion-exclusion
+ principle.\pause\\
+ \begin{tcolorbox}[title=Disjunction Formula]
+  If $A,B$ are any events, then
+  \[
+   P(A \vee B) = P(A) + P(B) - P(A \wedge B).
+  \]
+ \end{tcolorbox}
+ \pause
+ If $A,B$ are \alert{incompatible}, then $P(A \wedge B) = 0$ and the formula
+ above becomes $P(A \vee B) = P(A) + P(B)$.
 \end{frame}
 
 \end{document}
