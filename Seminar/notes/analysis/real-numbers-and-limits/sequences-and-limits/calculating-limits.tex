@@ -1,0 +1,89 @@
+\section{Metody výpočtů limit}
+\label{sec:metody-vypoctu-limit}
+
+Tato sekce je veskrze výpočetní, věnována způsobům určování limit rozličných
+posloupností -- primárně těch zadaných vzorcem pro $n$-tý člen. Obecně
+neexistuje algoritmus pro výpočet limity posloupnosti a například limity
+posloupností zadaných rekurentně (další člen je vypočten jako kombinace
+předchozích) je často obtížné určit. K jejich výpočtu jsou často použity metody
+z lineární algebry a obecně metody teorie diskrétních systémů zcela mimo rozsah
+tohoto textu.
+
+Přinejmenším v případě limit zadaných \uv{hezkými} vzorci čítajícími podíly
+mnohočlenů a odmocnin, je možné obyčejně algebraickými úpravami dojít k
+výsledku. Uvedeme si pár stěžejních tvrzení sloužících tomuto účelu.
+
+K důkazu prvního bude užitečná následující nerovnost, kterou přenecháváme
+čtenáři jako (snadné) cvičení.
+
+\begin{exercise}{}{random-abs-nerovnost}
+ Dokažte, že pro čísla $x,y \in \R$ platí
+ \[
+  | |x| - |y| | \leq |x - y|.
+ \]
+\end{exercise}
+
+\begin{theorem}{Aritmetika limit}{aritmetika-limit}
+ Ať $a,b:\N \to \R$ jsou reálné posloupnosti mající limitu (ale klidně i
+ nekonečnou). Pak
+ \begin{enumerate}[label=(\alph*)]
+  \item $\lim (a + b) = \lim a + \lim b$, je-li pravá strana definována;
+  \item $\lim (a \cdot b) = \lim a \cdot \lim b$, je-li pravá strana definována;
+  \item $\lim (a / b) = \lim a / \lim b$, platí-li $b \not\simeq 0$ a pravá
+   strana je definována.
+ \end{enumerate}
+\end{theorem}
+\begin{thmproof}
+ Důkaz této věty je ryze výpočetního charakteru a využívá vhodně zvolených
+ odhadů. Vzhledem k tomu, že povolujeme i nekonečné limity, je třeba důkaz
+ každého bodu rozložit na případy. Položme $A \coloneqq \lim a, B \coloneqq \lim
+ b$.
+
+ Nejprve budeme předpokládat, že $A,B \in \R$. Pro dané $\varepsilon>0$ existují
+ $n_a,n_b \in \N$ taková, že pro každé $n \geq n_a$ platí $|a_n-A|<\varepsilon$
+ a pro každé $n \geq n_b$ zas $|b_n-B|<\varepsilon$. Zvolíme-li $n_0 \coloneqq
+ \max(n_a,n_b)$, pak pro $n \geq n_0$ platí oba odhady zároveň. Potom ale,
+ použitím \hyperref[lem:trojuhelnikova-nerovnost]{trojúhelníkové nerovnosti},
+ dostaneme
+ \[
+  |(a_n+b_n)-(A+B)| = |(a_n-A)+(b_n-B)| \leq |a_n-A| + |b_n-B| <
+  \varepsilon+\varepsilon = 2\varepsilon,
+ \]
+ čili $\lim (a+b) = A+B$. Pro důkaz vzorce pro součin a podíl, musíme navíc
+ využít \myref{lemmatu}{lem:konvergentni-omezena}, tedy faktu, že konvergentní
+ posloupnosti jsou omezené. Umíme tudíž najít $C_b \in \R$ takové, že od
+ určitého indexu $n_1 \in \N$ dále platí $|b_n| \leq C_b$. Volme tedy nově $n_0
+ \coloneqq \max(n_a,n_b,n_1)$ a počítejme
+ \begin{align*}
+  |a_n \cdot b_n - A \cdot B| &= |a_n \cdot b_n - b_n \cdot A + b_n \cdot A -
+  A \cdot B| = |b_n(a_n - A) + A(b_n - B)|\\
+                              & \leq |b_n(a_n - A)| + |A(b_n-B)| = |b_n| \cdot
+                              |a_n-A| + |A| \cdot |b_n-B| \\
+                              &< |C_b| \cdot \varepsilon + |A| \cdot
+                              \varepsilon.
+ \end{align*}
+ Protože $|C_b|$ i $|A|$ jsou konstanty nezávislé na $\varepsilon$, znamená
+ toto, že $\lim (a \cdot b) = A \cdot B$. Konečně, v případě podílu volme
+ $\varepsilon_b = |B| / 2$. K tomuto $\varepsilon_b$ nalezněme $n'_b \in \N$
+ takové, že pro $n \geq n'_b$ platí $|b_n - B| < \varepsilon_b$. Poslední
+ nerovnost spolu s \myref{cvičením}{exer:random-abs-nerovnost} znamená, že $|
+ |b_n| - |B| | < \varepsilon$. Tento vztah si rozepíšeme na
+ \[
+  |B| - \varepsilon_b < |b_n| < |B| + \varepsilon_b.
+ \]
+ Levá z těchto nerovností je pak ekvivalentní $|b_n| > |B| / 2$ neboli $1 /
+ |b_n| < 2 / |B|$. Položme $n_0 \coloneqq \max(n_a,n_b,n'_b)$. Potom pro $n \geq
+ n_0$ máme
+ \begin{align*}
+  \left| \frac{a_n}{b_n} - \frac{A}{B} \right| &= \left| \frac{a_nB -
+  b_nA}{b_nB} \right| = \left| \frac{a_nB - AB + AB - b_nA}{b_nB} \right| \leq
+  \left| \frac{B(a_n-A)}{b_nB} \right| + \left| \frac{A(B - b_n)}{b_nB} \right|
+  \\
+                                               &= \frac{1}{|b_n|}\left(|a_n-A| +
+                                               \frac{|A|}{|B|}|B-b_n| \right) <
+                                               \frac{2\varepsilon}{|B|}\left(1 +
+                                               \frac{|A|}{|B|}\right).
+ \end{align*}
+ Protože $|A|$ i $|B|$ jsou konstanty nezávislé na $\varepsilon$, toto znamená,
+ že $\lim (a / b) = A / B$.
+\end{thmproof}

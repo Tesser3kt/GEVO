@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header-container {
+	background: linear-gradient(rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0.6)),
+		url('imgs/bg.jpg') center / cover no-repeat;
+}

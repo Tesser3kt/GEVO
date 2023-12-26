@@ -743,4 +743,160 @@
  above becomes $P(A \vee B) = P(A) + P(B)$.
 \end{frame}
 
+\begin{frame}
+ \frametitle{Conditional Probability}
+ Conditional is the probability of an event happening \alert{given another event
+ has already happened}.
+ \pause
+ \begin{tcolorbox}[title=Conditional Probability]
+  If $A,B$ are events, then
+  \[
+   P(A \mid B)
+  \]
+  is the probability that $A$ happens supposing $B$ has already happened.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Conditional Probability -- Example}
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0,1,2} {
+    \foreach \y in {0,1,2} {
+     \tkzDefPoint(\x,\y){\x\y}
+    }
+   }
+   \tkzDrawPoints[color=BrickRed](00,12,20,21)
+   \tkzDrawPoints[color=RoyalBlue](01,11,22)
+   \tkzDrawPoints[color=ForestGreen](02,10)
+  \end{tikzpicture}
+ \end{center}
+ In our balls example, suppose
+ \begin{itemize}
+  \item $A$ is the event that the \alert{second} randomly chosen ball is red.
+  \item $B$ is the event that the \alert{first} randomly chosen ball is red.
+ \end{itemize}
+ \pause
+ What is the probability $P(A \mid B)$?
+\end{frame}
+
+\begin{frame}
+ \frametitle{Conditional Probability -- Example}
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0,1,2} {
+    \foreach \y in {0,1,2} {
+     \tkzDefPoint(\x,\y){\x\y}
+    }
+   }
+   \tkzDrawPoints[color=BrickRed](00,12,20,21)
+   \tkzDrawPoints[color=RoyalBlue](01,11,22)
+   \tkzDrawPoints[color=ForestGreen](02,10)
+   \tkzDrawPoint[color=Black,shape=cross out,size=10,thick](21)
+  \end{tikzpicture}
+ \end{center}
+ If $B$ has happened, then there are only 3 red balls left in the set of 8
+ balls.\pause\\
+ Therefore $P(A \mid B) = 3 / 8$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Conditional Probability \& Conjunction}
+ We can use conditional probability to compute $P(A \wedge B)$ for \alert{any}
+ events $A$ and $B$, not necessarily independent.\pause\\
+ If, for example, $A$ is dependent on $B$, then $A$ can \alert{only happen if
+ $B$ happened as well}. \pause
+ In other words, the probability that $A \wedge B$ happens is the probability
+ that $B$ happens times the probability that $A$ happens \alert{supposing $B$
+ happened}.
+ \pause
+ \begin{tcolorbox}[title=Event Conjunction Formula]
+  If $A,B$ are \alert{any} events, then
+  \[
+   P(A \wedge B) = P(B) \cdot P(A \mid B) = P(A) \cdot P(B \mid A).
+  \]
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Conditional Probability \& Conjunction}
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0,1,2} {
+    \foreach \y in {0,1,2} {
+     \tkzDefPoint(\x,\y){\x\y}
+    }
+   }
+   \tkzDrawPoints[color=BrickRed](00,12,20,21)
+   \tkzDrawPoints[color=RoyalBlue](01,11,22)
+   \tkzDrawPoints[color=ForestGreen](02,10)
+  \end{tikzpicture}
+ \end{center}
+ The event $A \wedge B$ in the ball example means that the first two randomly
+ chosen balls are red.\pause\\
+ We know that $P(B) = 4 / 9$ and $P(A \mid B) = 3 / 8$. Therefore,
+ \[
+  P(A \wedge B) = P(B) \cdot P(A \mid B) = \frac{4}{9} \cdot \frac{3}{8} =
+  \frac{1}{6}.
+ \]
+\end{frame}
+\begin{frame}
+ \frametitle{Conditional Probability -- Examples}
+ Suppose the probability that a woman will live to at least 70 years is $0.7$
+ and that she will live to at least 80 years is $0.55$. What is the probability
+ that she will live to 80 supposing she has already turned 70?\pause\\
+ \vspace*{1em}
+ \hrule
+ Let's set the problem up formally:
+ \begin{itemize}
+  \item $S$ is the event that she will live to at least 70 and $E$ is the event
+   that she will live to at least 80.
+  \pause
+  \item We know that $P(S) = 0.7$ and $P(E) = 0.55$.
+  \pause
+  \item We want to know $P(E \mid S)$.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Conditional Probability -- Examples}
+ Suppose the probability that a woman will live to at least 70 years is $0.7$
+ and that she will live to at least 80 years is $0.55$. What is the probability
+ that she will live to 80 supposing she has already turned 70?\\
+ \vspace*{1em}
+ \hrule
+ Using the formula $P(E \wedge S) = P(S) \cdot P(E \mid S)$, we can calculate
+ \[
+  P(E \mid S) = \frac{P(E \wedge S)}{P(S)}.
+ \]
+ \pause
+ Quite clearly, $P(E \wedge S) = P(E)$, so the above becomes $P(E) /
+ P(S)$. \pause
+ This means that
+ \[
+  P(E \mid S) = \frac{P(E)}{P(S)} = \frac{0.55}{0.7} = 0.786.
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{Conditional Probability -- Examples}
+ From a deck of 32 cards (8 ranks and 4 suits) two cards are drawn. What's the
+ probability that the first is of diamonds and the second is of a different
+ suit?
+ \vspace{1em}
+ \hrule
+ Let's formalize, again. Denote by $D$ the event that the first card is of
+ diamonds and by $S$ the event that the second card is of a different suit. We
+ want to know $P(D \wedge S)$.\pause\\
+ We'll use the formula $P(D \wedge S) = P(D) \cdot P(S \mid D)$.\pause\\
+ It's easy to see that $P(D) = 1 / 4$. \pause
+ If $D$ has already happened, there are only 31 cards left in the deck, 24 of
+ them being of a different suit than diamonds. This means that $P(S \mid D) = 24
+ / 31$.\pause\\
+ Multiplying these two values, we get our result:
+ \[
+  P(D \wedge S) = P(D) \cdot P(S \mid D) = \frac{1}{4} \cdot \frac{24}{31} =
+  \frac{6}{31}.
+ \]
+\end{frame}
 \end{document}
