@@ -1,0 +1,179 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Homework -- PreIB 3.AB 4}\\
+ \Large\textsf{Triangulations and Symmetries of Regular Polygons}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\thispagestyle{fancy}
+
+Napište program \textbf{v Pythonu} (nebo v jiném programovacím jazyce, pokud
+chcete), který řeší vám přidělené úlohy.
+
+\subsection*{Podmínky}
+\begin{itemize}
+ \item Váš program musí \textbf{přesně} řešit zadanou úlohu. To mimo jiné
+  znamená, že funguje a naprosto dodržuje, co je vstupem a výstupem.
+ \item S řešením úloh vám \textbf{\clr{nesmí}} pomáhat žádná umělá inteligence.
+  Spolupráce s jiným žákem je fajn, pokud o ní vím dopředu a odsouhlasím ji.
+  Nebudu podporovat párování lidí, z nichž jeden ví, co dělá, a druhý v tom
+  plave.
+ \item K řešení používejte ideálně pouze části Pythonu, které jsme si
+  vysvětlili. \textbf{Použití jakýchkoli funkcí nebo datových struktur, které
+  výrazně zjednodušují úlohu, neberu!} Příkladem takových funkcí je třeba
+  \texttt{sort}, která seřadí seznam, nebo \texttt{reverse}, která ho otočí.
+ \item \textbf{Součástí vašeho programu budou komentáře!} Těmi vysvětlujete, co
+  děláte a \textbf{hlavně} proč.
+ \item Program odevzdáte do Classroomu s koncovkou .py (tj. \textbf{\clr{ne}}
+  jako textový soubor a už vůbec ne jako obrázek). Program, který bude obsahovat
+  chyby, kvůli kterým nejde spustit, hodnotím rovnou 0 \%. \textbf{Program vám
+  vrátím k přepracování maximálně dvakrát, pokud je odevzdaný včas!}
+ \item Pokud vám jakákoli část zadání nebo obecně cokoli o úkolu není jasné,
+  \textbf{pište/přijďte a ptejte se}. Pozdní odevzdání se slovy, \uv{Nechápu, co
+  se po mně chtělo.} neberu.
+\end{itemize}
+
+\subsection*{Úlohy}
+\begin{enumerate}
+ \item Napište funkci, která dostane jako parametr \texttt{list} (seznam) čísel
+  typu \texttt{int} (celé číslo) a vrátí součet \textbf{všech kladných čísel v
+  tomto seznamu} jako \texttt{int}. Pokud je seznam prázdný, vrátí \texttt{0}.\\
+  \textbf{Příklad:} pro seznam \texttt{[2, -1, 3, -2, 5]} vaše funkce vrátí
+  \texttt{10}.
+ \item Napište funkci, která dostane parametrem \texttt{string}, odebere jeho
+  první a poslední prvek a výsledek vrátí opět jako \texttt{string}. Můžete
+  počítat s tím, že obdržený string má aspoň dva prvky.\\
+  \textbf{Hint}: \texttt{for} cyklus prochází \texttt{string} prvek po prvku
+  stejně jako třeba seznam.
+  \textbf{Příklad:} pro string \texttt{"čuně"} vaše funkce vrátí \texttt{"un"}.
+ \item Napište funkci, která dostane parametrem kladné číslo (jako \texttt{int})
+  a vrátí součin všech kladných čísel, která jsou mu menší nebo rovna (opět jako
+  \texttt{int}). \textbf{Nepoužívejte funkci \texttt{range}!}\\
+  \textbf{Příklad:} pro číslo \texttt{7} vaše funkce vrátí \texttt{5040}.
+ \item Napište funkci, která dostane parametrem rok (po Kristu, jako
+  \texttt{int}) a vrátí století, do kterého je tento rok zařazen (opět jako
+  \texttt{int}). Pamatujte, že třeba rok 1705 je v 18. století, ale rok 400 je
+  stále ve čtvrtém.\\
+  \textbf{Příklad}: pro rok \texttt{1609} vaše funkce vrátí \texttt{17}.
+ \item Napište funkci, která najde \uv{jehlu v kupce sena}. Dostane parametrem
+  \texttt{list} (seznam) stringů, který obsahuje \textbf{přesně jeden} string
+  \texttt{"jehla"}. Vrátí \textbf{pozici/pořadí} v zadaném seznamu, kde se tento
+  string nachází (jako \texttt{int}).\\
+  \textbf{Příklad:} pro seznam \texttt{["bla", "ano", "jejda", "jehla", "blb"]}
+  vaše funkce vrátí \texttt{3}.
+ \item Napište funkci, která dostane tři parametry -- hodiny, minuty, vteřiny --
+  jako tři celá čísla (\texttt{int}). Tyto parametry značí množství času, které
+  uběhlo od půlnoci. Vaše funkce vrátí \textbf{počet vteřin} (jako
+  \texttt{int}), který uběhl od půlnoci. Nepředstavuje-li trojice parametrů
+  denní čas (například je-li počet hodin větší než 23), vrátí \texttt{-1}.\\
+  \textbf{Příklad}: pro vstup \texttt{4, 20, 11} vaše funkce vrátí
+  \texttt{15611} a pro vstup \texttt{20, 69, 420} vrátí \texttt{-1}.
+ \item Napište funkci, která dostane dva parametry -- prvek (jakéhokoli typu) a
+  \texttt{list}. Funkce vrátí \texttt{True}, pokud prvek leží v obdrženém
+  seznamu, jinak vrátí \texttt{False}.\\
+  \textbf{Příklad:} pro prvek \texttt{7} a seznam \texttt{["nic", 2, 3.5, "zas
+  nic"]} vrátí funkce \texttt{False}.
+ \item Napište funkci, která dostane jeden parametr -- seznam (\texttt{list})
+  stringů -- a vrátí seznam dvojic (\texttt{tuple}) všech stringů v seznamu
+  spolu s jejich délkou.\\
+  \textbf{Příklad}: pro seznam \texttt{["nic", "slovo", "kočka"]} má vaše funkce
+  vrátit \texttt{[("nic", 3), ("slovo", 5), ("kočka", 5)]}.
+\end{enumerate}
+
+\end{document}

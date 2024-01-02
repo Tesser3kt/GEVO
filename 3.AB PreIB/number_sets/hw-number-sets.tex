@@ -1,0 +1,186 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Homework -- PreIB 3.AB 3 \& 4}\\
+ \Large\textsf{Structures and Operations}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+ \hrule
+ \textbf{\clr{DON'T FORGET TO EXPLAIN EVERYTHING EVEN IF YOU THINK IT'S
+ OBVIOUS!}}
+ \vspace{2ex}
+ \hrule
+\end{center}
+ 
+\section*{Natural Numbers}
+
+\textbf{Exponentiation} of two natural numbers $n,m \in \N$ is defined by the
+following two formulae:
+\begin{itemize}
+ \item $n^{0} = 1$,
+ \item $n^{s(m)} = n^{m} \cdot n$.
+\end{itemize}
+Explain \textbf{very clearly} how to calculate $n^{m}$ using \textbf{only} the
+two rules above.\\
+\textbf{Hint}: This process is very similar to the definition of \emph{addition}
+and \emph{multiplication} on natural numbers.
+
+Answer the following questions:
+\begin{enumerate}
+ \item Is exponentiation \emph{commutative}, that is, is it true that $n^{m} =
+  m^{n}$ for all pairs of natural numbers $n,m \in \N$? If yes, explain why. If
+  not, provide a counterexample.
+ \item Is exponentiation \emph{associative}, that is, is it true that
+  $n^{(m^{k})} = (n^{m})^{k}$ for all triples of natural numbers $n,m,k \in \N$?
+  If yes, explain why. If not, provide a counterexample.
+ \item Is exponentiation an \emph{operation} (by definition) on natural numbers?
+  Explain.
+\end{enumerate}
+
+\clearpage
+\section*{Operations}
+
+On the set $X = \{a,b,c,d\}$ there are two operations given by the following
+picture.
+
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}[b]{.48\textwidth}
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+   \tkzDefPoints{0/0/a,1/0/b,1/1/c,0/1/d}
+   \tkzDrawPoints[size=4](a,b,c,d)
+   \tkzLabelPoint[below left](a){$a$}
+   \tkzLabelPoint[below right](b){$b$}
+   \tkzLabelPoint[above right](c){$c$}
+   \tkzLabelPoint[above left](d){$d$}
+
+   \tkzDefPoint(-0.15,-0.15){o}
+   \tkzDrawArc[R,->,thick,color=RoyalBlue](o,0.2)(70,380)
+   \tkzDrawLine[->,thick,color=RoyalBlue,add=-.1 and -.1](d,b)
+   \tkzDrawLine[->,thick,color=RoyalBlue,add=-.1 and -.1](c,d)
+   \tkzDrawLine[->,thick,color=RoyalBlue,add=-.1 and -.1](b,a)
+  \end{tikzpicture}
+  \caption{First operation.}
+ \end{subfigure}
+ \begin{subfigure}[b]{.48\textwidth}
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+   \tkzDefPoints{0/0/a,1/0/b,1/1/c,0/1/d}
+   \tkzDrawPoints[size=4](a,b,c,d)
+   \tkzLabelPoint[below left](a){$a$}
+   \tkzLabelPoint[below right](b){$b$}
+   \tkzLabelPoint[above right](c){$c$}
+   \tkzLabelPoint[above left](d){$d$}
+
+   \tkzDefPoint(-0.15,-0.15){o}
+   \tkzDrawArc[R,->,thick,color=RoyalBlue](o,0.2)(70,380)
+   \tkzDrawLine[->,thick,color=RoyalBlue,add=-.1 and -.1](d,b)
+   \tkzDrawLine[->,thick,color=RoyalBlue,add=-.1 and -.1](c,d)
+   \tkzDrawLine[->,thick,color=RoyalBlue,add=-.1 and -.1](b,a)
+  \end{tikzpicture}
+  \caption{Second operation.}
+ \end{subfigure}
+\end{figure}
+
+\end{document}

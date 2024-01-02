@@ -1,10 +1,10 @@
 from random import randint
 from collections import defaultdict
 
-STUDENTS = 14
-PROBLEMS = 6
+STUDENTS = 8
+PROBLEMS = 8
 PROBLEMS_PER_STUDENT = 2
-MAX_DISTRIB = 5
+MAX_DISTRIB = 2
 
 distributed = defaultdict(int)
 problems = [set() for _ in range(STUDENTS)]
@@ -16,7 +16,7 @@ while sum(len(p) for p in problems) < PROBLEMS_PER_STUDENT * STUDENTS:
 
     problem = list(sorted(range(1, PROBLEMS + 1),
                    key=lambda x: distributed[x]))[0]
-    while (distributed[problem] >= MAX_DISTRIB
+    while (distributed[problem] > MAX_DISTRIB
            or problem in problems[student - 1]):
         problem = randint(1, PROBLEMS)
 
