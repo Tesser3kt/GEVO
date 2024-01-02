@@ -140,7 +140,7 @@ Answer the following questions:
 \clearpage
 \section*{Operations}
 
-On the set $X = \{a,b,c,d\}$ there are two operations given by the following
+On the set $X = \{a,b,c,d\}$, there are two operations given by the following
 picture.
 
 \begin{figure}[ht]
@@ -156,10 +156,10 @@ picture.
    \tkzLabelPoint[above left](d){$d$}
 
    \tkzDefPoint(-0.15,-0.15){o}
-   \tkzDrawArc[R,->,thick,color=RoyalBlue](o,0.2)(70,380)
-   \tkzDrawLine[->,thick,color=RoyalBlue,add=-.1 and -.1](d,b)
-   \tkzDrawLine[->,thick,color=RoyalBlue,add=-.1 and -.1](c,d)
-   \tkzDrawLine[->,thick,color=RoyalBlue,add=-.1 and -.1](b,a)
+   \tkzDrawArc[R,->,thick,color=BrickRed](o,0.2)(70,380)
+   \tkzDrawLine[->,thick,color=BrickRed,add=-.1 and -.1](d,a)
+   \tkzDrawLine[->,thick,color=BrickRed,add=-.1 and -.1](c,b)
+   \tkzDrawLine[->,thick,color=BrickRed,add=-.1 and -.1](b,a)
   \end{tikzpicture}
   \caption{First operation.}
  \end{subfigure}
@@ -182,5 +182,47 @@ picture.
   \caption{Second operation.}
  \end{subfigure}
 \end{figure}
+
+Solve the following problems:
+\begin{enumerate}
+ \item Change operations (a) and (b) \textbf{as little as possible} to make them
+  \emph{symmetric} (or \emph{invertible}). By a `change', I mean altering the
+  source and target of a single arrow. \textbf{Explain} why your method requires
+  the fewest changes.
+ \item Let's add another element $e$ to the set $X$. Change operation (b) so
+  that one arrow ends in $e$ and one arrow starts at $e$ so that the new
+  operation is \emph{symmetric}.
+ \item We label the operation from point 2 by~$\clb{ \sim }$. Find an inverse to
+  each element of $X$ with respect to $\clb{ \sim }$. Recall that, in this case,
+  an \emph{inverse} to $x \in X$ is an element $y \in X$ such that
+  $\clb{\tilde{y}} = x$.
+ \item Does $\clb{ \sim }$ have an \emph{identity element}? That is, is there an
+  element $x \in X$ such that $\clb{\tilde{x}} = x$?
+\end{enumerate}
+
+We define a binary operation $\clr{\square}$ on the set $X$ by the following
+table.
+
+\begin{table}[ht]
+ \centering
+ \begin{tabular}{c|cccc}
+  $\clr{\square}$ & $a$ & $b$ & $c$ & $d$ \\
+  \midrule
+  $a$ & $a$ & $b$ & $?$ & $?$ \\
+  $b$ & $b$ & $?$ & $d$ & $a$ \\
+  $c$ & $?$ & $d$ & $a$ & $?$ \\
+  $d$ & $d$ & $?$ & $b$ & $c$
+ \end{tabular}
+ \caption*{Operation $\clr{\square}$.}
+\end{table}
+
+Solve the following problems:
+\begin{enumerate}
+ \item Substitute all $?$'s in the table by an adequate element of $X$ so that
+  the resulting operation is \emph{symmetric}.
+ \item Show that the operation you get in point 1 is indeed symmetric, that is,
+  \textbf{find inverse with respect to $\clr{\square}$ of each element in X} and
+  \textbf{find the identity element}.
+\end{enumerate}
 
 \end{document}
