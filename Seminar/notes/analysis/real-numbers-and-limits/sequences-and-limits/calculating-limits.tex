@@ -5,13 +5,13 @@ Tato sekce je veskrze výpočetní, věnována způsobům určování limit rozl
 posloupností -- primárně těch zadaných vzorcem pro $n$-tý člen. Obecně
 neexistuje algoritmus pro výpočet limity posloupnosti a například limity
 posloupností zadaných rekurentně (další člen je vypočten jako kombinace
-předchozích) je často obtížné určit. K jejich výpočtu jsou často použity metody
-z lineární algebry a obecně metody teorie diskrétních systémů zcela mimo rozsah
+předchozích) je často obtížné určit. K jejich výpočtu bývá užito metod z
+lineární algebry a obecně metod teorie diskrétních systémů zcela mimo rozsah
 tohoto textu.
 
 Přinejmenším v případě limit zadaných \uv{hezkými} vzorci čítajícími podíly
-mnohočlenů a odmocnin, je možné obyčejně algebraickými úpravami dojít k
-výsledku. Uvedeme si pár stěžejních tvrzení sloužících tomuto účelu.
+mnohočlenů a odmocnin je možné obyčejně algebraickými úpravami dojít k výsledku.
+Uvedeme si pár stěžejních tvrzení sloužících tomuto účelu.
 
 K důkazu prvního bude užitečná následující nerovnost, kterou přenecháváme
 čtenáři jako (snadné) cvičení.
@@ -39,6 +39,7 @@ K důkazu prvního bude užitečná následující nerovnost, kterou přenecháv
  každého bodu rozložit na případy. Položme $A \coloneqq \lim a, B \coloneqq \lim
  b$.
 
+ \textbf{\emph{Případ $A,B \in \R$}.}\\
  Nejprve budeme předpokládat, že $A,B \in \R$. Pro dané $\varepsilon>0$ existují
  $n_a,n_b \in \N$ taková, že pro každé $n \geq n_a$ platí $|a_n-A|<\varepsilon$
  a pro každé $n \geq n_b$ zas $|b_n-B|<\varepsilon$. Zvolíme-li $n_0 \coloneqq
@@ -53,7 +54,7 @@ K důkazu prvního bude užitečná následující nerovnost, kterou přenecháv
  využít \myref{lemmatu}{lem:konvergentni-omezena}, tedy faktu, že konvergentní
  posloupnosti jsou omezené. Umíme tudíž najít $C_b \in \R$ takové, že od
  určitého indexu $n_1 \in \N$ dále platí $|b_n| \leq C_b$. Volme tedy nově $n_0
- \coloneqq \max(n_a,n_b,n_1)$ a počítejme
+ \coloneqq \max(n_a,n_b,n_1)$ a pro $n \geq n_0$ počítejme
  \begin{align*}
   |a_n \cdot b_n - A \cdot B| &= |a_n \cdot b_n - b_n \cdot A + b_n \cdot A -
   A \cdot B| = |b_n(a_n - A) + A(b_n - B)|\\
@@ -86,4 +87,21 @@ K důkazu prvního bude užitečná následující nerovnost, kterou přenecháv
  \end{align*}
  Protože $|A|$ i $|B|$ jsou konstanty nezávislé na $\varepsilon$, toto znamená,
  že $\lim (a / b) = A / B$.
+
+ \textbf{\emph{Případ $A = \pm \infty, B \in \R \setminus \{0\}$.}}\\
+ Předpokládejme, že $\lim a = \infty$; případ $\lim a = -\infty$ se dokáže v
+ zásadě identicky. Pak pro dané $\varepsilon_a$ existuje $n_a \in \N$ takové, že
+ pro $n \geq n_a$ platí $a_n > \varepsilon_a$. Podle
+ \myref{lemmatu}{lem:konvergentni-omezena} je posloupnost $b$ omezená, čili
+ existuje $C_b > 0$ takové, že $|b_n| \leq C_b$ pro všechna $n \in \N$. Potom
+ pro $n \geq n_a$ máme
+ \[
+  a_n + b_n \geq a_n - C_b > \varepsilon_a - C_b.
+ \]
+ Pro důkaz součinu nejprve ať $B > 0$. Pak pro dané $\varepsilon_b > 0$ existuje
+ $n_b \in \N$ takové, že $b_n \geq \varepsilon_b$, jakmile $n \geq n_b$. Pro $n
+ \geq \max(n_a,n_b)$ tedy máme
+ \[
+  a_n \cdot b_n \geq C_a \cdot \varepsilon_b.
+ \]
 \end{thmproof}
