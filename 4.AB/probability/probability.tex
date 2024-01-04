@@ -899,4 +899,97 @@
   \frac{6}{31}.
  \]
 \end{frame}
+
+\begin{frame}
+ \frametitle{Bayes' Theorem}
+ Consider the following problem:
+ \emph{In a clinic, 10 \% of patients are prescribed pain killers. Overall, 5 \%
+  of the patients are addicted to narcotics (whether pain killers or illegal
+  substances). Out of all the people with prescribed pain killers, 8 \% are
+  addicts. \textbf{If a patient is an addict, what's the probability that he
+  will be prescribed pain killers?}}\\
+  \pause
+  Let's formalize this:
+  \begin{itemize}
+   \item Let's denote by $A$ the event that a patient is prescribed pain
+    killers.
+   \pause
+   \item By $E$, we denote the event that a patient is an addict.
+  \end{itemize}
+  We know that $P(A) = 0.1$ and $P(B) = 0.05$. \pause
+  We also know that \textbf{if} a patient is prescribed pain killers, then he is
+  addicted with probability 0.08. In symbols, $P(B \mid A) = 0.08$.\\\pause
+  However, we're asking for the probability of being prescribed pain killers to
+  an addicted patient. That is, we want to know $P(A \mid B)$.
+\end{frame}
+\begin{frame}
+ \frametitle{Bayes' Theorem}
+ Fortunately, there's a way to compute $P(A \mid B)$ having determined $P(B \mid
+ A)$.\\
+ \pause
+ Remember the formula for calculating $P(A \wedge B)$. We have
+ \[
+  P(A \wedge B) = P(B) \cdot P(A \mid B) = P(A) \cdot P(B \mid A).
+ \]
+ \pause
+ The second equality is important. If we divide by $P(B)$, we get that
+ \[
+  P(A \mid B) = \frac{P(A) \cdot P(B \mid A)}{P(B)}.
+ \]
+ \pause
+ This (either of the two equalities) is called the \alert{Bayes' Theorem}.
+\end{frame}
+\begin{frame}
+ \frametitle{Bayes' Theorem}
+ \begin{tcolorbox}[title=Bayes' Theorem]
+  If $A,B$ are events, then
+  \[
+  P(B) \cdot P(A \mid B) = P(A) \cdot P(B \mid A).
+  \]
+ \end{tcolorbox}
+\end{frame}
+\begin{frame}
+ \frametitle{Bayes' Theorem}
+ Using Bayes' Theorem, we can solve the problem. Recall that
+ \[
+  P(A) = 0.1, \quad P(B) = 0.05 \quad \text{and} \quad P(B \mid A) = 0.08.
+ \]
+ \pause
+ This means that
+ \[
+  P(A \mid B) = \frac{P(A) \cdot P(B \mid A)}{P(B)} = \frac{0.1 * 0.08}{0.05} =
+  0.16.
+ \]
+\end{frame}
+
+\section{Conditional Probability Problems}
+
+\begin{frame}
+ \frametitle{Problem \#1}
+ A nuclear power plant hosts three reactors. One is quite old and the
+ probability of failure is about $0.001$. The other two are newer and their
+ share an estimated probability of failure of $0.0002$. \emph{What's the
+ probability that a reactor fails?}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Problem \#2}
+ A box contains three coins: two regular coins and one fake two-headed coin.
+ \begin{itemize}
+  \item You pick a coin at random and toss it. What is the probability that it
+   lands heads up?
+  \item You pick a coin at random and toss it, and get heads. What is the
+   probability that it is the two-headed coin?
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Problem \# 3}
+ A spam filter is designed by looking at commonly occurring phrases in spam.
+ Suppose that 80 \% of email is spam. In 10 \% of the spam emails, the phrase
+ “free money” is used, whereas this phrase is only used in 1 \% of non-spam
+ emails. A new email has just arrived, which does mention “free money”. What is
+ the probability that it is spam?
+\end{frame}
+
 \end{document}
