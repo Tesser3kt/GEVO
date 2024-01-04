@@ -98,10 +98,57 @@ K důkazu prvního bude užitečná následující nerovnost, kterou přenecháv
  \[
   a_n + b_n \geq a_n - C_b > \varepsilon_a - C_b.
  \]
- Pro důkaz součinu nejprve ať $B > 0$. Pak pro dané $\varepsilon_b > 0$ existuje
- $n_b \in \N$ takové, že $b_n \geq \varepsilon_b$, jakmile $n \geq n_b$. Pro $n
- \geq \max(n_a,n_b)$ tedy máme
+ Pro důkaz součinu nejprve ať $B > 0$. Pak existuje konstanta $K_b > 0$ a $n_b
+ \in \N$ takové, že pro $n \geq n_b$ je $b_n \geq K_b$. Pročež, pro libovolné
+ $C_a > 0$ a $n \geq \max(n_a,n_b)$ dostaneme
  \[
-  a_n \cdot b_n \geq C_a \cdot \varepsilon_b.
+  a_n \cdot b_n \geq \varepsilon_a \cdot K_b
  \]
+ a rovněž
+ \[
+  \frac{a_n}{b_n} \geq \frac{\varepsilon_a}{K_b},
+ \]
+ čili $\lim (a \cdot b) = \infty$ a $\lim (a / b) = \infty$. Velmi podobně se
+ řeší případ $B < 0$.
+
+ Zdlouhavý důkaz zakončíme komentářem, že případ $A \in \R \setminus \{0\}, B =
+ \pm \infty$ je symetrický předchozímu a případy $A = 0, B = \pm \infty$, též $A
+ = \pm \infty, B = 0$ a konečně $A = \pm \infty, B = \pm \infty$ jsou triviální.
 \end{thmproof}
+
+\hyperref[thm:aritmetika-limit]{Věta o aritmetice limit} je zcela nejužitečnější
+tvrzení k jejich výpočtu, neboť umožňuje limitu výrazu rozdělit na mnoho menších
+podlimit, které jsou často známy. Další dvě lemmata jsou často též k užitku.
+
+\begin{lemma}{Limita odmocniny}{limita-odmocniny}
+ Ať $a:\N \to [0,\infty)$ je posloupnost \emph{nezáporných} čísel. Potom
+ \[
+  \lim_{n \to \infty} \sqrt[k]{a_n} = \sqrt[k]{\lim_{n \to \infty} a_n}
+ \]
+ pro každé $k \in \N$.
+\end{lemma}
+\begin{lemproof}
+ Zdlouhavý a technický. Ambiciózní čtenáři jsou zváni, aby se o něj pokusili.
+\end{lemproof}
+
+\begin{lemma}{O dvou strážnících}{o-dvou-straznicich}
+ Ať $a,b,c:\N \to \R$ jsou posloupnosti reálných čísel a $L \coloneqq \lim a =
+ \lim c$. Pokud existuje $n_0 \in \N$ takové, že pro každé $n \geq n_0$ platí
+ $a_n \leq b_n \leq c_n$, pak $\lim b = L$.
+\end{lemma}
+\begin{lemproof}
+ Protože $\lim a = L$ a též $\lim c = L$, nalezneme pro dané $\varepsilon>0$
+ index $n_1 \in \N$ takový, že pro $n \geq n_1$ platí dva odhady:
+ \[
+  |a_n - L| < \varepsilon \quad \text{a} \quad |c_n - L| < \varepsilon.
+ \]
+ Potom ovšem $a_n > L - \varepsilon$ a $c_n < L + \varepsilon$. Z předpokladu
+ existuje $n_b \in \N$ takové, že $a_n \leq b_n \leq c_n$ pro $n \geq n_b$.
+ Zvolíme-li tedy $n_0 \coloneqq \max(n_1,n_b)$, pak pro $n \geq n_0$ platí
+ \[
+  L - \varepsilon < a_n \leq b_n \leq c_n < L + \varepsilon.
+ \]
+ Sloučením obou nerovností dostaneme pro $n \geq n_0$ odhad $|b_n -
+ L|<\varepsilon$, čili $\lim b = L$.
+\end{lemproof}
+
