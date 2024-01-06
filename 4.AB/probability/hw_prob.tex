@@ -1,0 +1,146 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Homework -- PreIB 4.AB 4}\\
+ \Large\textsf{Inclusion-Exclusion Principle and Conditional Probability}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\textbf{You are to always formalize the problem, solve it and (at least briefly)
+explain your reasoning.}
+
+\section*{Problem 1.}
+
+I've received a bag full of juggling balls for Christmas. As my parents are evil
+theoretical mathematicians, they refused to let me use them until I solve a
+problem.
+
+I was told the balls have up to three different colours but some have only one
+or two. The number of balls which are white (but not necessarily only white) is
+15, 12 have black colour and 8 have blue. Moreover, there are 6 balls which are
+both black and white, 4 that are black and blue and 3 that are white and blue.
+Only 2 balls are three-coloured. \emph{What is the probability that a random
+ball I pick is both black and white?}
+
+\section*{Problem 2.}
+A university has an acceptance rate of 10 \%, meaning 1 of every 10 applicants
+is accepted. Accepted applicants have the right to also apply for financial aid
+in the form of scholarships. The chance that an accepted applicant receives the
+scholarship is 2 \%, meaning on average only 1 out of 50 accepted students do
+receive it. \emph{What is the probability that a random applicant is both
+accepted and receives a scholarship?}
+
+\section*{Problem 3.}
+A family has two children but we don't know their sex. If we're given the
+information that the first child is a boy, what is the probability that the
+second one is also a boy?
+
+\section*{Problem 4.}
+\emph{Given the following statistics, calculate the probability that a woman
+over fifty has breast cancer if she has a positive mammogram result?}
+\begin{itemize}
+ \item 1 \% of all women over fifty years old have breast cancer.
+ \item 90 \% of women over fifty who have breast cancer test positive on
+  mammograms.
+ \item 8 \% of all breast cancer tests on women over fifty are false positives.
+\end{itemize}
+
+\end{document}
