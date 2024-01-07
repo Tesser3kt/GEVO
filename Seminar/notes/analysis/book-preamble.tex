@@ -188,6 +188,8 @@ from=theorem]{observation}{Pozorování}{thmbox=YellowGreen}{obs}
 \newtcbtheorem[use counter
 from=theorem]{corollary}{Důsledek}{thmbox=RoyalPurple}{cor}
 \newtcbtheorem[use counter
+from=theorem]{problem}{Úloha}{thmbox=Plum}{prob}
+\newtcbtheorem[use counter
 from=theorem]{definition}{Definice}{defbox=Aquamarine}{def}
 \newtcbtheorem[use counter
 from=theorem]{example}{Příklad}{defbox=VioletRed}{exam}
@@ -198,7 +200,7 @@ from=theorem]{warning}{Varování}{defbox=Red}{warn}
 \newtcbtheorem[use counter
 from=theorem]{exercise}{Cvičení}{defbox=Gray}{exer}
 
-% Proofs, each for different color %
+% Proofs and solutions, each for different color %
 \theoremstyle{nonumberplain}
 \theoremseparator{.\smallskip}
 \theorembodyfont{\upshape}
@@ -228,6 +230,11 @@ from=theorem]{exercise}{Cvičení}{defbox=Gray}{exer}
 \theoremsymbol{\ensuremath{\color{RoyalPurple}\blacksquare}}
 \newtheorem{corproof}{Důkaz}
 \tcolorboxenvironment{corproof}{prfbox=RoyalPurple}
+
+% Problem Solution %
+\theoremsymbol{\ensuremath{\color{Plum}\spadesuit}}
+\newtheorem{probsol}{Řešení}
+\tcolorboxenvironment{probsol}{prfbox=Plum}
 
 % Extra custom commands %
 \newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}

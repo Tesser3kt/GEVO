@@ -1,0 +1,16 @@
+\frametitle{Sémantika programovacího jazyka}
+ Významovou stránku programovacího jazyka je obecně mnohem těžší formalizovat.
+ Obvykle se skládá ze dvou částí:
+ \begin{itemize}
+  \item \alert{dynamická sémantika} -- definuje způsob, jakým se mají
+   interpretovat (v CPU instrukcích) konkrétní věty.\\
+   \pause
+   Například udává, že
+   \begin{verbatim}
+    if x < 0:
+        print("x is less than 0.")
+   \end{verbatim}
+   \vspace*{-1.5em}
+   má podmínečně skočit, kde je uložen program \texttt{print("x is less than
+   0.")}, vykonat ho, pak se vrátit a pokračovat další instrukcí.
+ \end{itemize}

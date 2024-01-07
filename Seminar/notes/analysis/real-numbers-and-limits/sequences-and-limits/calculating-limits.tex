@@ -98,18 +98,21 @@ K důkazu prvního bude užitečná následující nerovnost, kterou přenecháv
  \[
   a_n + b_n \geq a_n - C_b > \varepsilon_a - C_b.
  \]
- Pro důkaz součinu nejprve ať $B > 0$. Pak existuje konstanta $K_b > 0$ a $n_b
- \in \N$ takové, že pro $n \geq n_b$ je $b_n \geq K_b$. Pročež, pro libovolné
+ Jelikož $C_b$ je konstantní, plyne z tohoto odhadu, že $\lim (a + b) = \infty =
+ A + B$.
+
+ Pro důkaz součinu nejprve ať $B > 0$. Pak existuje konstanta $C_b > 0$ a $n_b
+ \in \N$ takové, že pro $n \geq n_b$ je $b_n \geq C_b$. Pročež, pro libovolné
  $C_a > 0$ a $n \geq \max(n_a,n_b)$ dostaneme
  \[
-  a_n \cdot b_n \geq \varepsilon_a \cdot K_b
+  a_n \cdot b_n \geq \varepsilon_a \cdot C_b
  \]
  a rovněž
  \[
-  \frac{a_n}{b_n} \geq \frac{\varepsilon_a}{K_b},
+  \frac{a_n}{b_n} \geq \frac{\varepsilon_a}{C_b},
  \]
- čili $\lim (a \cdot b) = \infty$ a $\lim (a / b) = \infty$. Velmi podobně se
- řeší případ $B < 0$.
+ čili $\lim (a \cdot b) = \infty = A \cdot B$ a $\lim (a / b) = \infty = A / B$.
+ Velmi podobně se řeší případ $B < 0$.
 
  Zdlouhavý důkaz zakončíme komentářem, že případ $A \in \R \setminus \{0\}, B =
  \pm \infty$ je symetrický předchozímu a případy $A = 0, B = \pm \infty$, též $A
@@ -118,12 +121,14 @@ K důkazu prvního bude užitečná následující nerovnost, kterou přenecháv
 
 \hyperref[thm:aritmetika-limit]{Věta o aritmetice limit} je zcela nejužitečnější
 tvrzení k jejich výpočtu, neboť umožňuje limitu výrazu rozdělit na mnoho menších
-podlimit, které jsou často známy. Další dvě lemmata jsou často též k užitku.
+\uv{podlimit}, které jsou často známy. Další dvě lemmata jsou často též dobrými
+sluhy.
 
 \begin{lemma}{Limita odmocniny}{limita-odmocniny}
- Ať $a:\N \to [0,\infty)$ je posloupnost \emph{nezáporných} čísel. Potom
+ Ať $a:\N \to [0,\infty)$ je posloupnost \emph{nezáporných} čísel. Ať též
+    $\lim a = A$ (speciálně tedy předpokládáme, že $\lim a$ existuje). Potom
  \[
-  \lim_{n \to \infty} \sqrt[k]{a_n} = \sqrt[k]{\lim_{n \to \infty} a_n}
+  \lim_{n \to \infty} \sqrt[k]{a_n} = \sqrt[k]{A}
  \]
  pro každé $k \in \N$.
 \end{lemma}
@@ -151,4 +156,237 @@ podlimit, které jsou často známy. Další dvě lemmata jsou často též k u�
  Sloučením obou nerovností dostaneme pro $n \geq n_0$ odhad $|b_n -
  L|<\varepsilon$, čili $\lim b = L$.
 \end{lemproof}
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=0,xmax=10,ymin=0,ymax=3]
+  \foreach \n in {0,1,...,18} {
+   \tkzDefPoint(0.5 * (\n + 1),0){x\n}
+   \tkzDrawPoint[shape=cross](x\n)
+   \tkzLabelPoint[below](x\n){$\n$}
+  }
+  \tkzLabelPoint[below,color=RoyalPurple](x11){$11$}
+  \foreach \y in {1,2,3,4,5,6} {
+   \tkzDefPoint(0,0.5 * \y){y\y}
+   \tkzDrawPoint[shape=cross](y\y)
+   \tkzLabelPoint[left](y\y){$\y$}
+  }
+  \tkzDefPoint(0.5,2.8){c0}
+  \tkzDefPoint(1,0.9){c1}
+  \tkzDefPoint(1.5,2.3){c2}
+  \tkzDefPoint(2,1){c3}
+  \tkzDefPoint(2.5,1.1){c4}
+  \tkzDefPoint(3,0.3){c5}
+  \tkzDefPoint(3.5,2.4){c6}
+  \tkzDefPoint(4,1.2){c7}
+  \tkzDefPoint(4.5,3.2){c8}
+  \tkzDefPoint(5,2.6){c9}
+  \tkzDefPoint(5.5,1.9){c10}
+  \tkzDefPoint(6,2.4){c11}
+  \tkzDefPoint(6.5,2.2){c12}
+  \tkzDefPoint(7,1.9){c13}
+  \tkzDefPoint(7.5,2){c14}
+  \tkzDefPoint(8,1.8){c15}
+  \tkzDefPoint(8.5,2.05){c16}
+  \tkzDefPoint(9,1.95){c17}
+  \tkzDefPoint(9.5,1.85){c18}
+
+  \tkzDefPoint(0.5,1){b0}
+  \tkzDefPoint(1,2.1){b1}
+  \tkzDefPoint(1.5,0.3){b2}
+  \tkzDefPoint(2,1.1){b3}
+  \tkzDefPoint(2.5,1.6){b4}
+  \tkzDefPoint(3,0.8){b5}
+  \tkzDefPoint(3.5,2){b6}
+  \tkzDefPoint(4,0.9){b7}
+  \tkzDefPoint(4.5,0.2){b8}
+  \tkzDefPoint(5,2.2){b9}
+  \tkzDefPoint(5.5,0.9){b10}
+  \tkzDefPoint(6,2){b11}
+  \tkzDefPoint(6.5,1.8){b12}
+  \tkzDefPoint(7,1){b13}
+  \tkzDefPoint(7.5,1.6){b14}
+  \tkzDefPoint(8,1.6){b15}
+  \tkzDefPoint(8.5,1.4){b16}
+  \tkzDefPoint(9,1.7){b17}
+  \tkzDefPoint(9.5,1.65){b18}
+  
+  \tkzDefPoint(0.5,1.5){a0}
+  \tkzDefPoint(1,0.2){a1}
+  \tkzDefPoint(1.5,3){a2}
+  \tkzDefPoint(2,2.7){a3}
+  \tkzDefPoint(2.5,1.7){a4}
+  \tkzDefPoint(3,0.2){a5}
+  \tkzDefPoint(3.5,2.2){a6}
+  \tkzDefPoint(4,1){a7}
+  \tkzDefPoint(4.5,0.7){a8}
+  \tkzDefPoint(5,0.1){a9}
+  \tkzDefPoint(5.5,1.3){a10}
+  \tkzDefPoint(6,0.8){a11}
+  \tkzDefPoint(6.5,1.5){a12}
+  \tkzDefPoint(7,0.6){a13}
+  \tkzDefPoint(7.5,1){a14}
+  \tkzDefPoint(8,1.4){a15}
+  \tkzDefPoint(8.5,0.9){a16}
+  \tkzDefPoint(9,1.5){a17}
+  \tkzDefPoint(9.5,1.55){a18}
+
+  \tkzDrawX[>=latex,label={$n$}]
+  \tkzDrawY[>=latex,label={$\clr{a_n},\clg{b_n},\clb{c_n}$}]
+
+  \tkzDefPoint(0,1.6){O}
+  \tkzDrawPoint[size=4,color=RoyalPurple](O)
+  \tkzLabelPoint[right,color=RoyalPurple](O){$L$}
+  \tkzDefPoint(0.5,1.6){P}
+  \tkzDefPoint(6.5,1.6){P2}
+  \tkzDrawLine[add=0 and 0.7,dashed,color=RoyalPurple,thick](P,P2)
+
+  \tkzDrawPoints[color=RoyalBlue](c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18)
+  \tkzDrawPoints[color=ForestGreen](b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16,b17,b18)
+  \tkzDrawPoints[color=BrickRed](a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18)
+
+  \foreach \n in {11,12,...,17} {
+   \pgfmathparse{\n+1}
+   \edef\m{\pgfmathresult}
+   \tkzDrawSegment[dashed,color=BrickRed](a\n,a\m)
+   \tkzDrawSegment[dashed,color=ForestGreen](b\n,b\m)
+   \tkzDrawSegment[dashed,color=RoyalBlue](c\n,c\m)
+  }
+  \tkzLabelPoint[above,color=RoyalPurple](x11){$n_0$}
+  \tkzDefPoint(6,3){wtv}
+  \tkzDrawLine[add=-0.15 and 0,dashed,color=RoyalPurple](x11,wtv)
+ \end{tikzpicture}
+
+ \caption{Lemma \hyperref[lem:o-dvou-straznicich]{o dvou strážnících}.}
+ \label{fig:dva-straznici}
+\end{figure}
+
+Zbytek sekce je věnován výpočtům limit vybraných posloupností s účelem objasnit
+použití právě sepsaných tvrzení. Mnoho z nich je ponecháno čtenářům jako
+cvičení.
+
+\begin{problem}{}{piplacka-limity}
+ Spočtěte
+ \[
+  \lim_{n \to \infty} \frac{2n^2+n-3}{n^3-1}.
+ \]
+\end{problem}
+\begin{probsol}
+ Použijeme \hyperref[thm:aritmetika-limit]{větu o aritmetice limit}. Ta
+ vyžaduje, aby výsledná strana rovnosti byla definována. Je tudíž možné (a
+ žádoucí) limitu spočítat -- často opakovaným použitím této věty -- a teprve na
+ konci výpočtu argumentovat, že její nasazení bylo oprávněné.
+
+ Dobrým prvním krokem při řešení limit zadaných zlomky je najít v čitateli i
+ jmenovateli \uv{nejrychleji rostoucí} člen. Spojením \uv{nejrychleji rostoucí}
+ zde míníme takový člen, velikost ostatních členů je pro velmi velká $n$ vůči
+ jehož zanedbatelná. V čitateli zlomku
+ \[
+  \frac{2n^2 + n - 3}{n^3 - 1}
+ \]
+ je nejrychleji rostoucí člen právě $2n^2$. Například, pro $n = 10^9$ je $2n^2 =
+ 2 \cdot 10^{18}$ zatímco $n = 10^9$ zabírá méně než jednu miliardtinu $2n^2$.
+ Ve jmenovateli je naopak jediným rostoucím členem $n^3$. Nejrychleji rostoucí
+ členy (pro pohodlí bez koeficientů) z obou částí zlomku vytkneme. Dostaneme
+ \[
+  \frac{2n^2 + n - 3}{n^3 - 1} = \frac{n^2 \left( 2 + \frac{1}{n} -
+  \frac{3}{n^2} \right)}{n^3 \left(1 - \frac{1}{n^3}\right)} = \frac{1}{n} \cdot
+  \frac{2 + \frac{1}{n} - \frac{3}{n^2}}{1 - \frac{1}{n^3}}.
+ \]
+ Část (b) \hyperref[thm:aritmetika-limit]{věty o aritmetice limit} nyní dává
+ \begin{equation*}
+  \label{eq:soucin-limit}
+  \tag{$\triangle$}
+  \lim_{n \to \infty} \frac{2n^2 + n - 3}{n^3 - 1} = \lim_{n \to \infty}
+  \frac{1}{n} \cdot \lim_{n \to \infty} \frac{2 + \frac{1}{n} - \frac{3}{n^2}}{1
+  - \frac{1}{n^3}},
+ \end{equation*}
+ \textbf{za předpokladu, že součin na pravé straně je definován!}
+
+ Již víme, že platí $\lim_{n \to \infty} \frac{1}{n} = 0$. \textbf{Pozor!} Bylo
+ by lákavé prohlásit, že výsledná limita je rovna $0$, neboť součin čehokoliv s
+ $0$ je též $0$. To je pravda pro všechna čísla až na $\pm \infty$. Musíme se
+ ujistit, že druhá limita v součinu na pravé straně~\eqref{eq:soucin-limit}
+ existuje a není nekonečná.
+
+ S použitím \hyperref[thm:aritmetika-limit]{věty o aritmetice limit} (c)
+ počítáme
+ \[
+  \lim_{n \to \infty} \frac{2 + \frac{1}{n} - \frac{3}{n^2}}{1 - \frac{1}{n^3}}
+  = \frac{\lim_{n \to \infty} 2 + \frac{1}{n} - \frac{3}{n^2}}{\lim_{n \to
+  \infty} 1 - \frac{1}{n^3}}.
+ \]
+ Limity v čitateli a jmenovateli zlomku výše spočteme zvlášť. Z
+ \hyperref[thm:aritmetika-limit]{věty o aritmetice limit}, části (a), plyne, že
+ \[
+  \lim_{n \to \infty} 2 + \frac{1}{n} - \frac{3}{n^2} = \lim_{n \to \infty} 2 +
+  \lim_{n \to \infty} \frac{1}{n} - \lim_{n \to \infty} \frac{3}{n^2} = 2 + 0 -
+  0 = 2.
+ \]
+ Podle stejného tvrzení též
+ \[
+  \lim_{n \to \infty} 1 - \frac{1}{n^3} = \lim_{n \to \infty} 1 - \lim_{n \to
+  \infty} \frac{1}{n^3} = 1 - 0 = 1.
+ \]
+ To znamená, že
+ \[
+  \lim_{n \to \infty} \frac{2 + \frac{1}{n} - \frac{3}{n^2}}{1 - \frac{1}{n^3}}
+  = \frac{2}{1} = 2.
+ \]
+ Odtud pak
+ \[
+  \lim_{n \to \infty} \frac{2n^2 + n - 3}{n^3 - 1} = \lim_{n \to \infty}
+  \frac{1}{n} \cdot \lim_{n \to \infty} \frac{2 + \frac{1}{n} - \frac{3}{n^2}}{1
+  - \frac{1}{n^3}} = 0 \cdot 2 = 0.
+ \]
+ Protože všechny výrazy na konci výpočtů jsou reálná čísla (a tedy speciálně jsou
+ dobře definované), bylo lze použít \hyperref[thm:aritmetika-limit]{větu o
+ aritmetice limit}.
+\end{probsol}
+
+\begin{remark}{}{aritmetika-limit}
+ Právě vyřešená \myref{úloha}{prob:piplacka-limity} ukazuje, jak dlouhé se
+ limitní úlohy stávají při ověřování všech předpokladů. A to jsme navíc použil
+ \emph{jen jediné tvrzení} k jejímu výpočtu. Takový postup není, s
+ pochopitelného důvodu, obvyklý. Opakovaná použití
+ \hyperref[thm:aritmetika-limit]{věty o aritmetice limit} se často schovají pod
+ jedno prohlášení a výpočet limity je pak mnohem stručnější. Názorně předvedeme.
+
+ Snadno úpravou zjistíme, že
+ \[
+  \frac{2n^2 + n - 3}{n^3 - 1} = \frac{1}{n} \cdot \frac{2 + \frac{1}{n} -
+  \frac{3}{n^2}}{1 - \frac{1}{n^3}}.
+ \]
+ Potom z \hyperref[thm:aritmetika-limit]{věty o aritmetice limit} platí
+ \[
+  \lim_{n \to \infty} \frac{2n^2 + n - 3}{n^3 - 1} = \lim_{n \to \infty}
+  \frac{1}{n} \cdot \lim_{n \to \infty} \frac{2 + \frac{1}{n} - \frac{3}{n^2}}{1
+  - \frac{1}{n^3}} = 0 \cdot \frac{2 + 0 + 0}{1 + 0} = 0.
+ \]
+ Protože výsledný výraz je definovaný, byla \hyperref[thm:aritmetika-limit]{věta
+ o aritmetice limit} použita korektně.
+
+ My rovněž hodláme v dalším textu bez varování řešit podobné limitní příklady
+ tímto \uv{zkráce\-ným} způsobem.
+\end{remark}
+
+\begin{warning}{}{aritmetika-limit}
+ \hyperref[thm:aritmetika-limit]{Větou o aritmetice limit} \textbf{nelze}
+ dokazovat, že limita posloupnosti neexistuje, neboť předpokladem každé její
+ části je \emph{definovanost} výsledného výrazu. Jeho zanedbání může snadno vést
+ ke lži. Uvažme následující triviální příklad.
+
+ Prohlásili-li bychom, že z \hyperref[thm:aritmetika-limit]{věty o aritmetice
+ limit} platí výpočet
+ \[
+  \lim_{n \to \infty} \frac{n}{n} = \frac{\lim_{n \to \infty} n}{\lim_{n \to
+  \infty} n} = \frac{\infty}{\infty},
+ \]
+ nabyli bychom práva tvrdit, že $\lim_{n \to \infty} n / n$ neexistuje, přestože
+ zřejmě platí $\lim_{n \to \infty} n / n = \lim_{n \to \infty} 1 = 1$.
+ \hyperref[thm:aritmetika-limit]{Věta o aritmetice limit} je tudíž zcela prázdné
+ tvrzení v případě nedefinovanosti výsledného výrazu.
+\end{warning}
+
 

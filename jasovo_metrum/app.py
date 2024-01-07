@@ -1,3 +1,4 @@
+import numpy as np
 import tensorflow as tf
 import pyphen
 import unidecode as ud
@@ -37,4 +38,7 @@ def file_to_dataset(filename, batch_size=32):
 
 
 data = file_to_dataset("verses.txt")
-print(data)
+print(list(data)[0])
+model = tf.keras.models.load_model("metre_detector.tf")
+predictions = model.predict(data)
+print(np.argmax(predictions, axis=1))

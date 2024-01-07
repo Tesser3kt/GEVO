@@ -1,0 +1,319 @@
+\documentclass[aspectratio=169,11pt,svgnames]{beamer}
+
+\usepackage[czech]{babel}
+\usepackage[czech=quotes]{csquotes}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{tikz}
+
+% Flowchart stuff
+\usetikzlibrary{shapes.geometric, arrows.meta, calc, positioning}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum
+height=1cm,text centered, draw=black, fill=Red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
+minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=Blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text
+centered, draw=black, fill=Orange!30]
+\tikzstyle{decision} = [diamond, aspect=2, minimum width=3cm, minimum height=.5cm, text
+centered, draw=black, fill=Green!30]
+\tikzstyle{connector} = [draw, -latex']
+
+\usepackage{pgfopts}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+
+\usepackage[czech]{algorithm2e}
+
+\usetheme[
+ titlestyle=style2,
+ titleformat=smallcaps,
+ sectionstyle=plain,
+ slidestyle=cyber,
+ headingcolor=theme,
+ block=transparent
+]{trigon}
+
+\title{Programovací jazyky}
+\date{\today}
+\author{Adam Klepáč}
+\institute[GEVO]{Gymnázium Evolution Jižní Město}
+\biglogo[width=.2\textwidth]{logo}
+\smalllogo[width=.1\textwidth]{logo}
+\titlegraphic{\includegraphics[height=\paperheight]{title}}
+
+\def\subsectionname{}
+
+% enumerate global settings
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=\alph*)}
+\setlist[itemize,1]{label=\textbullet}
+\setlist[itemize,2]{label=\textopenbullet}
+
+% custom colors %
+\definecolor{Night}{HTML}{100D14}
+\definecolor{RobinEggBlue}{HTML}{05C5C8}
+\definecolor{OxfordBlue}{HTML}{0C152F}
+\definecolor{Plum}{HTML}{8B4184}
+\definecolor{CoralPink}{HTML}{E18175}
+
+\colorlet{tPrim}{RobinEggBlue}
+\colorlet{tSec}{OxfordBlue}
+\colorlet{tAccent}{Plum}
+\colorlet{tTheme}{RobinEggBlue}
+\colorlet{tTxt}{Night}
+
+\tcbset{
+ boxsep=7pt,
+ fonttitle=\sc,
+ colframe=tGreyBg,
+ colframe=tTheme,
+ boxrule=1pt
+}
+
+\begin{document}
+\titleframe
+
+\begin{frame}
+ \frametitle{Obsah}
+ \tableofcontents
+\end{frame}
+
+\section{Počítačový program}
+
+\begin{frame}
+ \frametitle{Co je počítačový program?}
+ Počítačový program je sada instrukcí (uložená ve vnitřní paměti), kterou má CPU
+ vykonat.\\
+ \pause
+ Popis a způsob zápisu instrukcí, které CPU umí vykonat, je určen jeho
+ \emph{instrukční sadou}.\\
+ \pause
+ Instrukce společné většině instrukčních sad jsou:
+ \begin{itemize}
+  \item \alert{Datové a paměťové}
+  \begin{itemize}
+   \item \alert{SET} -- nastaví registr na konkrétní hodnotu;
+   \pause
+   \item \alert{COPY} (též \alert{MOVE}) -- zkopíruje data z registru nebo místa
+    v paměti do registru nebo místa v paměti;
+   \pause
+   \item \alert{READ}/\alert{WRITE} -- přečti/zapiš data z připojeného/na
+    připojené zařízení.
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Co je počítačový program?}
+ Počítačový program je sada instrukcí (uložená ve vnitřní paměti), kterou má CPU
+ vykonat.\\
+ Popis a způsob zápisu instrukcí, které CPU umí vykonat, je určen jeho
+ \emph{instrukční sadou}.\\
+ Instrukce společné většině instrukčních sad jsou:
+ \begin{itemize}
+  \item \alert{Výpočetní a logické}
+  \begin{itemize}
+   \item \alert{ADD}/\alert{SUBTRACT}/\alert{MULTIPLY}/\alert{DIVIDE} -- provede
+    danou aritmetickou operaci na hodnoty ve dvou registrech a výsledek uloží
+    opět do registru;
+   \pause
+   \item \alert{AND}/\alert{OR}/\alert{NOT} -- provede danou logickou operaci na
+    hodnoty ve dvou registrech (v případě \alert{AND} a \alert{OR}) nebo jednom
+    registru (v případě \alert{NOT}) a výsledek uloží do registru;
+   \pause
+   \item \alert{COMPARE} -- porovná hodnoty ve dvou registrech a výsledek uloží
+    do registru;
+   \pause
+   \item instrukce související s aritmetikou plovoucího bodu (floating-point).
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Co je počítačový program?}
+ Počítačový program je sada instrukcí (uložená ve vnitřní paměti), kterou má CPU
+ vykonat.\\
+ Popis a způsob zápisu instrukcí, které CPU umí vykonat, je určen jeho
+ \emph{instrukční sadou}.\\
+ Instrukce společné většině instrukčních sad jsou:
+ \begin{itemize}
+  \item \alert{Řídící}
+  \begin{itemize}
+   \item \alert{BRANCH} (též \alert{JUMP}) -- přesuň se na jinou adresu v paměti
+    a vykonej instrukce tam;
+   \pause
+   \item \alert{CONDITIONALLY BRANCH} -- je-li daná podmínka splněna, přesuň se
+    na jinou adresu v paměti a vykonej instrukce tam;
+   \pause
+   \item \alert{INDIRECTLY BRANCH} -- přečti adresu z daného místa
+    (paměť, registr, \dots) a vykonej instrukce na této adrese;
+   \pause
+   \item \alert{CALL} -- proveď instrukce mezi danými adresami v paměti, po
+    vykonání se vrať zpět a pokračuj další instrukcí.
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Programovací jazyky}
+
+\begin{frame}
+ \frametitle{Co je programovací jazyk?}
+ Programovací jazyk je způsob zápisu počítačového programu, který je blíže
+ lidskému jazyku než program psaný čistě v CPU instrukcích.
+ \pause
+ Programovací jazyk (stejně jako lidský) je popsán svoji
+ \begin{itemize}
+  \item \alert{formou/syntaxí} -- způsobem zápisu,
+  \pause
+  \item \alert{sémantikou} -- významem slov (posloupností symbolů).
+ \end{itemize}
+ \pause
+ Každý programovací jazyk potřebuje buď svůj (aspoň jeden) \alert{překladač}
+ (compiler) nebo \alert{interpret} (interpreter), aby v něm psané programy mohly
+ být vykonány CPU jako sady základních instrukcí.
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Syntax programovacího jazyka}
+ Syntax programovacího jazyka je obvykle definována přes \alert{regulární
+ výrazy} (pro lexikální strukturu) a tzv. \alert{Backusovou-Naurovou formou}
+ (pro gramatickou strukturu).
+ \pause
+ Příklad syntaxe velmi jednoduchého programovacího jazyka může vypadat takto:
+ \begin{verbatim}
+  expression ::= atom | list\\
+  atom       ::= number | symbol\\
+  number     ::= [+-]?['0'-'9']+\\
+  symbol     ::= ['A'-'Z''a'-'z'].*\\
+  list       ::= '(' expression* ')'
+ \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Sémantika programovacího jazyka}
+ Významovou stránku programovacího jazyka je obecně mnohem těžší formalizovat.
+ \pause
+ Obvykle se skládá ze dvou částí:
+ \begin{itemize}
+  \item \alert{statická sémantika} -- omezení na strukturu \uv{vět}, která je
+   obtížné nebo nemožné definovat v rámci syntaxe.\\
+   \pause
+   U většiny programovacích jazyků například udává, že proměnné musejí být
+   inicializovány před použitím nebo že dvě různé větve stejné podmínky musejí
+   být podmíněny různými výroky.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Sémantika programovacího jazyka}
+ Významovou stránku programovacího jazyka je obecně mnohem těžší formalizovat.
+ Obvykle se skládá ze dvou částí:
+ \begin{itemize}
+  \item \alert{dynamická sémantika} -- definuje způsob, jakým se mají
+   interpretovat (v CPU instrukcích) konkrétní věty.\\
+   \pause
+   Například udává, že
+   \begin{verbatim}
+    if x < 0:
+        print("x is less than 0.")
+   \end{verbatim}
+   \vspace*{-1.5em}
+   má podmínečně skočit, kde je uložen program \texttt{print("x is less than
+   0.")}, vykonat ho, pak se vrátit a pokračovat další instrukcí.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Datové typy}
+ Každé datum, které ukládáte přes programovací jazyk, má konkrétní \alert{typ}
+ -- např. celé číslo, desetinné číslo, string, pole apod.\\
+ \pause
+ Datové typy jsou pro moderní programovací jazyky v podstatě nezbytné, protože
+ zjednodušené syntaxe je dosaženo na úkor přesnosti vyjádření instrukcí.\\
+ \pause
+ Mnoho programovacích jazyků již docílilo kompletní automatizace správy paměti
+ (např. JavaScript, Python, C\# apod.)
+\end{frame}
+
+\begin{frame}
+ \frametitle{Datové typy}
+ Programovací jazyky můžeme rozdělit do kategorií podle toho, jak zacházejí s
+ datovými typy:
+ \pause
+ \begin{itemize}
+  \item \alert{netypované jazyky} -- programovací jazyky \alert{bez datových
+  typů}, programátor tedy provádí operace přímo na uložená data (posloupnosti 1
+  a 0). Sám musí vědět, co daná posloupnost znamená. V podstatě pouze nejstarší
+  jazyky, nebo obecně jazyky velmi blízko strojovému kódu (instrukce psané přímo
+  v 0 a 1), jsou netypované.
+ \pause
+ \item \alert{typované jazyky} -- programovací jazyky, kde každé v paměti
+  uložené datum má jasně přiřazený typ. Datový typ bývá obvykle uložen v
+  několika prvních bitech samotného data. To znamená, že třeba posloupnost
+  \texttt{01001011} bude v programovacím jazyku interpretována podle toho, jaké
+  bity jí předchází.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Typované jazyky}
+ Typované programovací jazyky pak můžeme ještě rozdělit podle toho, jestli nutí
+ programátora typy deklarovat či nikoliv.
+ \pause
+ \begin{itemize}
+  \item \alert{staticky typované} jazyky vyžadují u inicializace každé proměnné
+   explicitně vypsat její typ. Jejich syntaxe zakazuje používat operace na
+   datové typy, pro které nebyly definovány.
+  \pause
+  \item \alert{dynamicky typované} jazyky nevynucují explicitní vypsání typu a
+   často se typ proměnné za běhu programu mění. Kompatibilita operací s typem
+   proměnné se ověřuje až za překladu nebo interpretace.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Rozšířené programovací jazyky}
+ \begin{enumerate}
+  \item \alert{Python} (dynamicky typovaný, překládaný i interpretovaný) --
+   víceúčelový programovací jazyk. Používá se hlavně na
+   \begin{itemize}
+    \item datovou analýzu a vývoj umělé inteligence,
+    \item vývoj webových aplikací,
+    \item testování a simulaci chování softwaru.
+   \end{itemize}
+  \pause
+  \item \alert{Java} (staticky typovaný, překládaný i interpretovaný) --
+   používaný hlavně na
+  \begin{itemize}
+   \item vývoj mobilních aplikací,
+   \item vývoj cloudových služeb,
+   \item chatboty a marketing,
+   \item rozsáhlé webové aplikace.
+  \end{itemize}
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Rozšířené programovací jazyky}
+ \begin{enumerate}
+  \setcounter{enumi}{2}
+  \item \alert{JavaScript} (dynamicky typovaný, interpretovaný) -- hlavní
+   využití JS je ve vývoji webových aplikací (konkrétně frontendu = toho, co vidí
+   uživatel).
+  \pause
+  \item \alert{C/C++} (staticky typovaný, překládaný) -- extrémně rychle
+   překládaný jazyk, používaný hlavně na
+  \begin{itemize}
+   \item vývoj překladačů jiných jazyků (překladá například Python),
+   \item vývoj operačních systémů,
+   \item vývoj databází,
+   \item vývoj aplikací.
+  \end{itemize}
+ \end{enumerate}
+\end{frame}
+
+\end{document}
