@@ -1,0 +1,403 @@
+\documentclass[aspectratio=169,11pt,usenames,dvipsnames]{beamer}
+
+\usepackage[czech,english]{babel}
+\usepackage{CJKutf8}
+\newcommand{\zh}[1]{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\newlength{\dhatheight}
+\newcommand{\doublehat}[1]{%
+    \settoheight{\dhatheight}{\ensuremath{\hat{#1}}}%
+    \addtolength{\dhatheight}{-0.2ex}%
+    \hat{\vphantom{\rule{1pt}{\dhatheight}}%
+    \smash{\hat{#1}}}}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{patterns,arrows.meta,calc,3d,angles}
+\usepackage{tkz-euclide}
+\tikzset{point style/.style = {%
+  draw = black,
+  inner sep = 0pt,
+  shape = circle,
+  minimum size = 5pt,
+  fill = black
+ }
+}
+\usepackage{enumitem}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{booktabs}
+% Flowchart stuff
+
+\usepackage{pgfopts}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+\usetheme[
+ titlestyle=style2,
+ titleformat=smallcaps,
+ sectionstyle=plain,
+ slidestyle=cyber,
+ headingcolor=theme,
+ block=transparent
+]{trigon}
+
+\title{Prime Factorizations\\
+GCD \& LCM}
+\date{\today}
+\author{Adam Klepáč}
+\institute[GEVO]{Gymnázium Evolution Jižní Město}
+\biglogo[width=.2\textwidth]{logo}
+\smalllogo[width=.1\textwidth]{logo}
+\titlegraphic{\includegraphics[height=\paperheight]{title.jpg}}
+
+\def\subsectionname{}
+
+% enumerate and itemize global settings
+\setlist{topsep=0pt}
+\setlist[itemize,1]{label=\textbullet}
+\setlist[itemize,2]{label=\textopenbullet}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=\alph*)}
+
+% custom colors %
+\definecolor{Licorice}{HTML}{200F08}
+\definecolor{Bistre}{HTML}{3D1F0F}
+\definecolor{SealBrown}{HTML}{561F0D}
+\definecolor{EerieBlack}{HTML}{1A1A17}
+\definecolor{EarthYellow}{HTML}{D7AC6C}
+
+\colorlet{tPrim}{Licorice}
+\colorlet{tTheme}{SealBrown}
+\colorlet{tSec}{EarthYellow}
+\colorlet{tAccent}{Bistre}
+\colorlet{tText}{EerieBlack}
+
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Magenta}}
+\newcommand{\cls}{\textcolor{Salmon}}
+\newcommand{\clo}{\textcolor{OrangeRed}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\DeclareMathOperator{\tng}{\triangle}
+\DeclareMathOperator{\dv}{div}
+
+\tcbset{
+ boxsep=7pt,
+ fonttitle=\sc,
+ colframe=tGreyBg,
+ colframe=tSec,
+ boxrule=1pt
+}
+
+\begin{document}
+\titleframe
+
+\begin{frame}
+ \frametitle{Contents}
+ \tableofcontents
+\end{frame}
+
+\section{Divisibility}
+
+\begin{frame}
+ \frametitle{Divisibility}
+  We say that a number $n \in \N$ \alert{is divisible} by $m \in \N$ or that $m$
+  \alert{divides} $n$ \pause
+  if there exists a number $q \in \N$ (called the \alert{quotient}) such that
+  \[
+   n = m \cdot q.
+  \]
+  \pause
+  We write the fact that $m$ divides $n$ as $m \mid n$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Divisibility}
+ Even if $m$ doesn't divide $n$, we can always at least \alert{divide with
+ remainder}.\\
+ \pause
+ Formally, for every two numbers $n,m \in \N$, there always exist number $q \in
+ \N$ and $r \leq n$ (called the \alert{remainder}) such that
+ \[
+  n = m \cdot q + r.
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{Integer Division \& Modulus}
+ \begin{itemize}
+  \item The operation which to a pair $(n,m)$ assigns the \alert{quotient} of
+   the division of $n$ by $m$ is called \alert{integer division} and denoted by
+   $\dv$.
+  \pause
+  \begin{itemize}
+   \item For example, $7 \dv 2 = 3$ and $5 \dv 9 = 0$.
+  \end{itemize}
+  \pause
+ \item The operation which to a pair $(n,m)$ assigns the \alert{remainder} of
+  the division of $n$ by $m$ is called \alert{modulus} and denoted $\bmod$.
+  \pause
+  \begin{itemize}
+   \item For example, $7 \bmod 2 = 1$ and $5 \bmod 9 = 5$.
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Integer Division \& Modulus}
+ Using integer division and modulus, we can write the operation of division with
+ remainder like this:
+ \[
+  n = m \cdot (n \dv m) + n \bmod m.
+ \]
+\end{frame}
+
+\section{Chinese Remainder Theorem}
+
+\begin{frame}
+ \frametitle{Counting Soldiers}
+ The famous Chinese military general, strategist and philosopher \zh{孙子}
+ describes in his book \zh{孙子兵法} an efficient method to count the number of
+ soldiers.\\
+ \pause
+ He instructs the soldiers to arrange into a grid with
+ \begin{itemize}
+  \item 21 soldiers in each row. He counts the number of soldiers remaining in
+   the last row to be 3.
+  \pause
+  \item 25 soldiers in each row. He counts the number of soldiers remaining in
+   the last row to be 6.
+  \pause
+  \item 32 soldiers in each row. He counts the number of soldiers remaining in
+   the last row to be 23.
+ \end{itemize}
+ \pause
+ \zh{孙子} then determines, that there are 1431 soldiers standing before him.
+\end{frame}
+
+\subsection{Prime Factorization}
+
+\begin{frame}
+ \subsectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Prime Number}
+ \begin{tcolorbox}[title=Prime Number]
+  A number $n \in \N$ is \alert{prime} if it has \alert{exactly two divisors} --
+  $1$ and itself.
+
+  We denote the set of all prime numbers by $\mathbb{P}$.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Decomposition Into Primes}
+ Prime numbers are somewhat of a building blocks of other numbers.\\
+ \pause
+ Each natural number decomposes \alert{uniquely} into a product of prime
+ numbers.\\
+ \pause
+ Formally,
+ \begin{tcolorbox}[title=Prime Factorization]
+  For each number $n \in \N$, there exist prime numbers $p_1,\ldots,p_m \in \P$ and
+  powers $k_1,\ldots k_m \in \N$ such that
+  \[
+   n = p_1^{k_1} \cdot p_2^{k_2} \cdot \ldots \cdot p_m^{k_m}.
+  \]
+ \end{tcolorbox}
+ \pause
+ The numbers $p_1,\ldots,p_m$ are called the \alert{prime factors} of $n$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Decomposition Into Primes}
+ Currently, there's no known fast algorithm how to decompose a number into its
+ prime factors.\\
+ \pause
+ The best we can do is to try each prime number from $2$ up to $\sqrt{n}$.\\
+ \pause
+ We divide the number in question as many times as possible and proceed to find
+ the next prime factor of the resulting quotient.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Decomposition Into Primes -- Example}
+ Let's decompose the number 16335 into its prime factors.\\
+ \pause
+ It's as easy as keeping a table of all the prime factors we've divided the
+ number by.\\
+ \pause
+ \begin{center}
+  \begin{tabular}{c|c}
+   \textbf{Prime Factors} & \textbf{Quotients}\\
+   \toprule
+   3 & 5445\\
+   \pause
+   3 & 1815\\
+   \pause
+   3 & 605\\
+   \pause
+   5 & 121\\
+   \pause
+   11 & 11\\
+   \pause
+   11 & 1
+  \end{tabular}
+ \end{center}
+ \pause
+ This means that $16335 = 3^3 \cdot 5 \cdot 11^2$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Greatest Common Divisor}
+ \begin{tcolorbox}[title=Greatest Common Divisor]
+  Given two numbers $n,m \in \N$, their \alert{Greatest Common Divisor} (GCD) or
+  Highest Common Factor (HCF) is the largest natural number $k \in \N$ such that
+  $k \mid n$ and $k \mid m$.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Greatest Common Divisor}
+ The simplest (and most inefficient) way how to compute the GCD is to decompose
+ the two numbers into prime factors and take all those that the two numbers have
+ in common.\\
+ \pause
+ For example, let's take a look at the decompositions of 16335 and 17325.\\
+ \vspace{1em}
+ \centering
+ \begin{minipage}{.48\textwidth}
+  \centering
+   \begin{tabular}{c|c}
+    \textbf{Prime Factors} & \textbf{Quotients}\\
+    \toprule
+    3 & 5445\\
+    3 & 1815\\
+    3 & 605\\
+    5 & 121\\
+    11 & 11\\
+    11 & 1
+  \end{tabular}
+ \end{minipage}
+ \begin{minipage}{.48\textwidth}
+   \begin{tabular}{c|c}
+    \textbf{Prime Factors} & \textbf{Quotients}\\
+    \toprule
+    3 & 5775\\
+    3 & 1925\\
+    5 & 385\\
+    5 & 77\\
+    7 & 11\\
+    11 & 1
+  \end{tabular}
+ \end{minipage}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Greatest Common Divisor}
+ If we highlight the prime factors the two numbers share\\
+ \vspace{1em}
+ \begin{minipage}{.48\textwidth}
+  \centering
+   \begin{tabular}{c|c}
+    \textbf{Prime Factors} & \textbf{Quotients}\\
+    \toprule
+    \clr{3} & 5445\\
+    \clr{3} & 1815\\
+    3 & 605\\
+    \clg{5} & 121\\
+    \clb{11} & 11\\
+    11 & 1
+  \end{tabular}
+ \end{minipage}
+ \begin{minipage}{.48\textwidth}
+   \begin{tabular}{c|c}
+    \textbf{Prime Factors} & \textbf{Quotients}\\
+    \toprule
+    \clr{3} & 5775\\
+    \clr{3} & 1925\\
+    \clg{5} & 385\\
+    5 & 77\\
+    7 & 11\\
+    \clb{11} & 1
+  \end{tabular}
+ \end{minipage}\\
+ \pause
+ \vspace{1em}
+ we deduce that the GCD of 16335 and 17325 is
+ \[
+  3^2 \cdot 5 \cdot 11 = 495.
+ \]
+ \pause
+ We'll denote the GCD of $n$ and $m$ as $\mathrm{gcd}(n,m)$ or simply as
+ $(n,m)$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Least Common Multiple}
+ \begin{tcolorbox}[title=Least Common Multiple]
+  Given $n,m \in \N$ their \alert{Least Common Multiple} (LCM) is the
+  \alert{smallest} number $k \in \N$ such that $n \mid k$ and $m \mid k$.
+  \pause
+  It is given by the formula
+  \[
+   \mathrm{lcm}(n,m) = \frac{n \cdot m}{\mathrm{gcd}(n,m)}.
+  \]
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Least Common Multiple}
+ The other option how to calculate the least common multiple of two numbers is
+ to take their prime factors elevated on the highest power that appears in at
+ least one of the numbers.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Least Common Multiple}
+ Explicitly, from the prime decompositions of 16335 and 17325\\
+ \vspace{1em}
+ \begin{minipage}{.48\textwidth}
+  \centering
+   \begin{tabular}{c|c}
+    \textbf{Prime Factors} & \textbf{Quotients}\\
+    \toprule
+    \clr{3} & 5445\\
+    \clr{3} & 1815\\
+    \clr{3} & 605\\
+    5 & 121\\
+    \clb{11} & 11\\
+    \clb{11} & 1
+  \end{tabular}
+ \end{minipage}
+ \begin{minipage}{.48\textwidth}
+   \begin{tabular}{c|c}
+    \textbf{Prime Factors} & \textbf{Quotients}\\
+    \toprule
+    3 & 5775\\
+    3 & 1925\\
+    \clg{5} & 385\\
+    \clg{5} & 77\\
+    \clm{7} & 11\\
+    11 & 1
+  \end{tabular}
+ \end{minipage}\\
+ \pause
+ \vspace{1em}
+ we see that their LCM is
+ \[
+  3^3 \cdot 5^2 \cdot 7 \cdot 11^2 = 571725.
+ \]
+\end{frame}
+
+\end{document}
