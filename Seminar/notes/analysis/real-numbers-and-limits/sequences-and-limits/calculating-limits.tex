@@ -10,7 +10,7 @@ lineární algebry a obecně metod teorie diskrétních systémů zcela mimo roz
 tohoto textu.
 
 Přinejmenším v případě limit zadaných \uv{hezkými} vzorci čítajícími podíly
-mnohočlenů a odmocnin je možné obyčejně algebraickými úpravami dojít k výsledku.
+mnohočlenů a odmocnin je obyčejně možné algebraickými úpravami dojít k výsledku.
 Uvedeme si pár stěžejních tvrzení sloužících tomuto účelu.
 
 K důkazu prvního bude užitečná následující nerovnost, kterou přenecháváme
@@ -52,19 +52,19 @@ K důkazu prvního bude užitečná následující nerovnost, kterou přenecháv
  \]
  čili $\lim (a+b) = A+B$. Pro důkaz vzorce pro součin a podíl, musíme navíc
  využít \myref{lemmatu}{lem:konvergentni-omezena}, tedy faktu, že konvergentní
- posloupnosti jsou omezené. Umíme tudíž najít $C_b \in \R$ takové, že od
- určitého indexu $n_1 \in \N$ dále platí $|b_n| \leq C_b$. Volme tedy nově $n_0
- \coloneqq \max(n_a,n_b,n_1)$ a pro $n \geq n_0$ počítejme
+ posloupnosti jsou omezené. Pročež najdeme $C_b \in \R$ takové, že od určitého
+ indexu $n_1 \in \N$ dále platí $|b_n| \leq C_b$. Volme nově $n_0 \coloneqq
+ \max(n_a,n_b,n_1)$ a pro $n \geq n_0$ počítejme
  \begin{align*}
   |a_n \cdot b_n - A \cdot B| &= |a_n \cdot b_n - b_n \cdot A + b_n \cdot A -
   A \cdot B| = |b_n(a_n - A) + A(b_n - B)|\\
                               & \leq |b_n(a_n - A)| + |A(b_n-B)| = |b_n| \cdot
                               |a_n-A| + |A| \cdot |b_n-B| \\
                               &< |C_b| \cdot \varepsilon + |A| \cdot
-                              \varepsilon.
+                              \varepsilon = (|C_b| + |A|) \cdot \varepsilon.
  \end{align*}
- Protože $|C_b|$ i $|A|$ jsou konstanty nezávislé na $\varepsilon$, znamená
- toto, že $\lim (a \cdot b) = A \cdot B$. Konečně, v případě podílu volme
+ Protože $|C_b| + |A|$ je kladná konstanta nezávislá na $\varepsilon$, dokazuje
+ odhad výše, že $\lim (a \cdot b) = A \cdot B$. Konečně, v případě podílu volme
  $\varepsilon_b = |B| / 2$. K tomuto $\varepsilon_b$ nalezněme $n'_b \in \N$
  takové, že pro $n \geq n'_b$ platí $|b_n - B| < \varepsilon_b$. Poslední
  nerovnost spolu s \myref{cvičením}{exer:random-abs-nerovnost} znamená, že $|
@@ -105,14 +105,17 @@ K důkazu prvního bude užitečná následující nerovnost, kterou přenecháv
  \in \N$ takové, že pro $n \geq n_b$ je $b_n \geq C_b$. Pročež, pro libovolné
  $C_a > 0$ a $n \geq \max(n_a,n_b)$ dostaneme
  \[
-  a_n \cdot b_n \geq \varepsilon_a \cdot C_b
+  a_n \cdot b_n \geq \varepsilon_a \cdot C_b.
  \]
- a rovněž
+ čili $\lim (a \cdot b) = \infty = A \cdot B$. Z omezenosti (plynoucí z
+ konvergence) $b$ pak zase existují $n_b'$ a $K_b > 0$ takové, že $b_n \leq
+ K_b$, čili též $1 / b_n \geq 1 / K_b$, pro $n \geq n'_b$. Pro $n \geq
+ \max(n_a,n'_b)$ tedy
  \[
-  \frac{a_n}{b_n} \geq \frac{\varepsilon_a}{C_b},
+  \frac{a_n}{b_n} \geq \frac{\varepsilon_a}{K_b},
  \]
- čili $\lim (a \cdot b) = \infty = A \cdot B$ a $\lim (a / b) = \infty = A / B$.
- Velmi podobně se řeší případ $B < 0$.
+ což dokazuje $\lim (a / b) = \infty = A / B$. Velmi podobně se řeší případ $B <
+ 0$.
 
  Zdlouhavý důkaz zakončíme komentářem, že případ $A \in \R \setminus \{0\}, B =
  \pm \infty$ je symetrický předchozímu a případy $A = 0, B = \pm \infty$, též $A
@@ -121,8 +124,8 @@ K důkazu prvního bude užitečná následující nerovnost, kterou přenecháv
 
 \hyperref[thm:aritmetika-limit]{Věta o aritmetice limit} je zcela nejužitečnější
 tvrzení k jejich výpočtu, neboť umožňuje limitu výrazu rozdělit na mnoho menších
-\uv{podlimit}, které jsou často známy. Další dvě lemmata jsou často též dobrými
-sluhy.
+\uv{podlimit}, jejichž výpočet je snadný. Další dvě lemmata jsou často též
+dobrými sluhy.
 
 \begin{lemma}{Limita odmocniny}{limita-odmocniny}
  Ať $a:\N \to [0,\infty)$ je posloupnost \emph{nezáporných} čísel. Ať též
@@ -305,8 +308,8 @@ cvičení.
  \textbf{za předpokladu, že součin na pravé straně je definován!}
 
  Již víme, že platí $\lim_{n \to \infty} \frac{1}{n} = 0$. \textbf{Pozor!} Bylo
- by lákavé prohlásit, že výsledná limita je rovna $0$, neboť součin čehokoliv s
- $0$ je též $0$. To je pravda pro všechna čísla až na $\pm \infty$. Musíme se
+ by lákavé prohlásit, že výsledná limita je rovna $0$, bo součin čehokoliv s $0$
+ je též $0$. To je pravda pro všechna čísla až na $\pm \infty$. Musíme se
  ujistit, že druhá limita v součinu na pravé straně~\eqref{eq:soucin-limit}
  existuje a není nekonečná.
 
@@ -347,8 +350,8 @@ cvičení.
 
 \begin{remark}{}{aritmetika-limit}
  Právě vyřešená \myref{úloha}{prob:piplacka-limity} ukazuje, jak dlouhé se
- limitní úlohy stávají při ověřování všech předpokladů. A to jsme navíc použil
- \emph{jen jediné tvrzení} k jejímu výpočtu. Takový postup není, s
+ limitní úlohy stávají při pedantickém ověřování všech předpokladů. A to jsme
+ navíc použili \emph{jen jediné tvrzení} k jejímu výpočtu. Takový postup není, z
  pochopitelného důvodu, obvyklý. Opakovaná použití
  \hyperref[thm:aritmetika-limit]{věty o aritmetice limit} se často schovají pod
  jedno prohlášení a výpočet limity je pak mnohem stručnější. Názorně předvedeme.
@@ -374,8 +377,8 @@ cvičení.
 \begin{warning}{}{aritmetika-limit}
  \hyperref[thm:aritmetika-limit]{Větou o aritmetice limit} \textbf{nelze}
  dokazovat, že limita posloupnosti neexistuje, neboť předpokladem každé její
- části je \emph{definovanost} výsledného výrazu. Jeho zanedbání může snadno vést
- ke lži. Uvažme následující triviální příklad.
+ části je \emph{definovanost} výsledného výrazu. Zanedbání toho předpokladu může
+ snadno vést ke lži. Uvažme následující triviální příklad.
 
  Prohlásili-li bychom, že z \hyperref[thm:aritmetika-limit]{věty o aritmetice
  limit} platí výpočet
@@ -389,4 +392,12 @@ cvičení.
  tvrzení v případě nedefinovanosti výsledného výrazu.
 \end{warning}
 
-
+\begin{problem}{}{limita-binomicka-veta}
+ Spočtěte limitu
+ \[
+  \lim_{n \to \infty} \frac{(n+4)^{100} - (n+3)^{100}}{(n+2)^{100} - n^{100}}.
+ \]
+\end{problem}
+\begin{probsol}
+ 
+\end{probsol}
