@@ -400,4 +400,96 @@ GCD \& LCM}
  \]
 \end{frame}
 
+\subsection{Congruence}
+
+\begin{frame}
+ \subsectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Congruence}
+ \begin{tcolorbox}[title=Congruence]
+  \alert{Congruence} is a relation between two natural numbers $n,m \in \N$ that
+  says they have the same remainder when divided by some third number $k \in
+  \N$.\\
+  \pause
+  Formally, we write that
+  \[
+   n \equiv m \pmod{k}
+  \]
+  and read it as `$n$ is congruent to $m$ modulo $k$' if
+  \[
+   n \bmod k = m \bmod k.
+  \]
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Congruence -- Examples}
+ For example,
+ \begin{itemize}
+  \item $4 \equiv 9 \pmod{5}$ because $9 \bmod 5 = 4$;
+  \pause
+  \item $x \equiv 3 \pmod{6}$ is the same as saying $x \bmod 6 = 3$;
+  \pause
+  \item if $x \equiv 1 \pmod{3}$, then the remainder of $x$ after division by
+   $3$ is $1$. This also means that $x = 3k + 1$ for some number $k \in \N$.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Systems Of Linear Congruences}
+ If we require that a number $x$ satisfies more than one congruence, we call the
+ resulting set of congruences a \alert{system of linear congruences}.\\
+\end{frame}
+
+\begin{frame}
+ \frametitle{Systems Of Linear Congruences}
+ \begin{tcolorbox}[title=System Of Linear Congruences]
+  If $k_1,\ldots,k_n,l_1,\ldots,l_n \in \N$, then the set of congruences
+  \begin{equation*}
+   \begin{split}
+    x & \equiv k_1 \pmod{l_1}\\
+    x & \equiv k_2 \pmod{l_2}\\
+      &~~~\vdots\\
+    x & \equiv k_n \pmod{l_n}
+   \end{split}
+  \end{equation*}
+  where $x \in \N$ is called a \alert{system of linear congruences}.
+ \end{tcolorbox}
+\end{frame}
+
+\subsection{Chinese Remainder Theorem}
+
+\begin{frame}
+ \subsectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Coprime Numbers}
+ \begin{tcolorbox}[title=Coprime Numbers]
+  We say that two numbers $n,m \in \N$ are \alert{coprime} if $(n,m)$ = 1, that
+  is, if $n$ and $n$ have no common divisor besides $1$.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Chinese Remainder Theorem}
+ \begin{tcolorbox}[title=Chinese Remainder Theorem]
+  If $l_1,\ldots,l_n \in \N$ are \alert{mutually coprime} numbers and
+  $k_1,\ldots,k_n \in \N$ are any natural numbers, then every
+  system
+  \begin{equation*}
+   \begin{split}
+    x & \equiv k_1 \pmod{l_1}\\
+    x & \equiv k_2 \pmod{l_2}\\
+      &~~~\vdots\\
+    x & \equiv k_n \pmod{l_n}
+   \end{split}
+  \end{equation*}
+  of linear congruences has \alert{exactly one solution} between $0$ and $l_1
+  \cdot l_2 \cdot \ldots \cdot l_n$.
+ \end{tcolorbox}
+\end{frame}
+
 \end{document}
