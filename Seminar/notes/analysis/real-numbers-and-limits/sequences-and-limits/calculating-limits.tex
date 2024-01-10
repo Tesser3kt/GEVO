@@ -509,3 +509,84 @@ cvičení.
  Výsledkem je reálné číslo, \hyperref[thm:aritmetika-limit]{věta o aritmetice
  limit} byla užita legálně.
 \end{probsol}
+
+\begin{problem}{}{dva-straznici-uloha}
+ Spočtěte
+ \[
+  \lim_{n \to \infty} \sqrt[n]{n^2 + 2^{n} + 3^{n}}.
+ \]
+\end{problem}
+\begin{warning}{}{limita-n-te-odmocniny}
+ \textbf{Pozor!} Obecně
+ \[
+  \lim_{n \to \infty} \sqrt[n]{a_n} \neq \sqrt[n]{\lim_{n \to \infty} a_n}.
+ \]
+ Taková rovnost by ani nedávala žádný smysl, protože ve výraze napravo je
+ odmocnina \textbf{vně} limity, přestože závisí na $n$.
+
+ \myref{Lemma}{lem:limita-odmocniny} předpokládá, že $k \in \N$ je
+ \textbf{konstantní}, čili nezávisí na $n$. 
+\end{warning}
+
+\begin{probsol}[\myref{úlohy}{prob:dva-straznici-uloha}]
+ Na první pohled není zřejmé, kterak výraz $\sqrt[n]{n^2 + 2^{n} + 3^{n}}$
+ upravit, aby výpočet mohl pokročit, bo \hyperref[thm:aritmetika-limit]{věta o
+ aritmetice limit} není v závěsu \myref{varování}{warn:limita-n-te-odmocniny}
+ přímo použitelná.
+
+ V případech, kdy člověk nevidí způsob, jak spočítat konkrétní zadanou limitu,
+ jesti pleché uchýliti sebe k odhadům zezdola i seshora jinými posloupnosti se
+ snadněji určitelnými limitami. Zvoleny-li ony posloupnosti, bychu měly stejnou
+ limitu, závěr \myref{lemmatu}{lem:o-dvou-straznicich} dává limitu i
+ posloupnosti zadané.
+
+ K volbě vhodných posloupností je však dlužno prve \uv{tipnout} limitu zadaného
+ výrazu. Jelikož $3^{n}$ je jistě nejrychleji rostoucí člen dané posloupnosti, a
+ $\sqrt[n]{3^{n}} = 3$, zdá se rozumným pokusit se nejprve odhadnout zadaný
+ výraz zezdola i seshora posloupnostmi, jejichž limita je $3$.
+
+ Dolní odhad je triviální a v zásadě jsme ho již uvedli. Totiž, jistě platí
+ \[
+  3^{n} \leq n^2 + 2^{n} + 3^{n},
+ \]
+ a tedy i
+ \[
+  \sqrt[n]{3^{n}} \leq \sqrt[n]{n^2 + 2^{n} + 3^{n}}.
+ \]
+ Zřejmě $\lim_{n \to \infty} \sqrt[n]{3^{n}} = \lim_{n \to \infty} 3 = 3$.
+
+ Snad méně přímočarý jest horní odhad, jenž však plyne z uvědomění, že $3^{n}$
+ je nejrychleji rostoucí člen dané posloupnosti. Speciálně máme odhady $n^2 \leq
+ 3^{n}$ i $2^{n} \leq 3^{n}$. Můžeme pročež pro všechna $n \in \N$ učinit další
+ odhad:
+ \[
+  n^2 + 2^{n} + 3^{n} \leq 3^{n} + 3^{n} + 3^{n} = 3 \cdot 3^{n}.
+ \]
+ Z \hyperref[thm:aritmetika-limit]{věty o aritmetice limit} potom platí
+ \[
+  \lim_{n \to \infty} \sqrt[n]{3 \cdot 3^{n}} = \lim_{n \to \infty} \sqrt[n]{3}
+  \cdot \sqrt[n]{3^{n}} = \lim_{n \to \infty} \sqrt[n]{3} \cdot \lim_{n \to
+  \infty} 3 = 1 \cdot 3 = 3.
+ \]
+ Fakt, že $\lim_{n \to \infty} \sqrt[n]{3} = 1$ je snadno dokazatelný a onen
+ důkaz ponecháme čtenáři jako cvičení.
+
+ Jelikož pro všechna $n \in \N$ platí
+ \[
+  \sqrt[n]{3^{n}} \leq \sqrt[n]{n^2 + 2^{n} + 3^{n}} \leq \sqrt[n]{3 \cdot
+  3^{n}}
+ \]
+ a již jsme spočetli, že $\lim_{n \to \infty} \sqrt[n]{3^{n}} = \lim_{n \to
+ \infty} \sqrt[n]{3 \cdot 3^{n}} = 3$, můžeme prohlásit s použitím
+ \myref{lemmatu}{lem:o-dvou-straznicich}, že
+ \[
+  \lim_{n \to \infty} \sqrt[n]{n^2 + 2^{n} + 3^{n}} = 3.
+ \]
+\end{probsol}
+
+\begin{exercise}{}{limita-n-te-odmocniny}
+ Dokažte, že pro všechna $a \in \R, a > 0$ platí
+ \[
+  \lim_{n \to \infty} \sqrt[n]{a} = 1.
+ \]
+\end{exercise}
