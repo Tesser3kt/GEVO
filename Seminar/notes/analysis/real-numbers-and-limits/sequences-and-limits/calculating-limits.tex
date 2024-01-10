@@ -399,5 +399,113 @@ cvičení.
  \]
 \end{problem}
 \begin{probsol}
- 
+ Z binomické věty platí
+ \[
+  (n+m)^{100} = \sum_{k=0}^{100} \binom{100}{k} n^{100-k} m^{k}.
+ \]
+ Je tudíž snadno vidět, že členy $n^{100}$ v se v čitateli i jmenovateli odečtou
+ a \uv{nejrychleji rostoucím} členem v čitateli i jmenovateli stane sebe
+ $cn^{99}$ pro vhodné $c \in \N$. Konkrétně, v čitateli koeficient $n^{99}$
+ vychází
+ \[
+  \binom{100}{1} \cdot 4^{1} - \binom{100}{1} \cdot 3^{1} = 400 - 300 = 100
+ \]
+ a ve jmenovateli zkrátka
+ \[
+  \binom{100}{1} \cdot 2^{1} = 200.
+ \]
+ Užitím výpočtu v předešedším odstavci získáme úpravou původního výrazu
+ \[
+  \frac{(n+4)^{100} - (n+3)^{100}}{(n+2)^{100} - n^{100}} = \frac{100n^{99} +
+  \sum_{k=2}^{100} \binom{100}{k}(4^{k} - 3^{k})n^{100 - k}}{200n^{99} +
+ \sum_{k=2}^{100} \binom{100}{k} 2^{k}n^{100-k}}.
+ \]
+ Vytčení $n^{99}$ z obou částí zlomku dá
+ \[
+  \frac{100n^{99} + \sum_{k=2}^{100} \binom{100}{k}(4^{k} - 3^{k})n^{100 -
+  k}}{200n^{99} + \sum_{k=2}^{100} \binom{100}{k} 2^{k}n^{100-k}}
+  = \frac{n^{99}\left( 100 + \sum_{k=2}^{100} \binom{100}{k}(4^{k}-3^{k})n^{1-k}
+  \right)}{n^{99}\left( 200 + \sum_{k=2}^{100} \binom{100}{k} 2^{k}n^{1-k}
+  \right)}.
+ \]
+ Položme
+ \begin{align*}
+  f(n) & \coloneqq 100 + \sum_{k=2}^{100} \binom{100}{k} (4^{k} -
+  3^{k})n^{1-k},\\
+  g(n) & \coloneqq 200 + \sum_{k=2}^{100} \binom{100}{k} 2^{k}n^{1-k}.
+ \end{align*}
+ Nahlédneme, že $\lim_{n \to \infty} f(n) = 100$. Vskutku, z
+ \hyperref[thm:aritmetika-limit]{věty o aritmetice limit}, částí (a) a (b),
+ platí
+ \begin{align*}
+  \lim_{n \to \infty} f(n) &= \lim_{n \to \infty} 100 + \sum_{k=2}^{100}
+ \binom{100}{k}(4^{k} - 3^{k})n^{1-k} = 100 + \sum_{k=2}^{100} (4^{k}-3^{k})
+ \cdot \lim_{n \to \infty} n^{1-k}\\
+                           &= 100 + \sum_{k=2}^{100} (4^{k} - 3^{k}) \cdot 0 =
+                           100,
+ \end{align*}
+ kde $\lim_{n \to \infty} n^{1-k} = 0$ pro $k \geq 2$ zřejmě. Podobně bychom
+ byli spočetli i $\lim_{n \to \infty} g(n) = 200$.
+ \hyperref[thm:aritmetika-limit]{Větou o aritmetice limit}, částí (b) a (c), pak
+ spočteme
+ \[
+  \lim_{n \to \infty} \frac{(n+4)^{100} - (n+3)^{100}}{(n+2)^{100} - n^{100}} =
+  \lim_{n \to \infty} \frac{n^{99}}{n^{99}} \cdot \frac{\lim_{n \to \infty}
+  f(n)}{\lim_{n \to \infty} g(n)} = 1 \cdot \frac{100}{200} = \frac{1}{2}.
+ \]
+ Protože výsledkem je reálné číslo, byla \hyperref[thm:aritmetika-limit]{věta o
+ aritmetice limit} použita legálně.
+\end{probsol}
+
+\begin{problem}{}{limita-odmocniny}
+ Spočtěte
+ \[
+  \lim_{n \to \infty} \sqrt{n^2 + n} - \sqrt{n^2 + 1}.
+ \]
+\end{problem}
+\begin{probsol}
+ Zkusili-li bychom spočítat limitu přímo z \hyperref[thm:aritmetika-limit]{věty
+ o aritmetice limit} a \myref{lemmatu}{lem:limita-odmocniny}, dostali bychom
+ \[
+  \lim_{n \to \infty} \sqrt{n^2 + n} - \lim_{n \to \infty} \sqrt{n^2 + 1} =
+  \infty - \infty,
+ \]
+ anžto výraz není definován. Je pročež třeba jej upravit. Využijeme vzorce
+ \[
+  a^2 - b^2 = (a+b)(a-b).
+ \]
+ Pro $a \coloneqq \sqrt{n^2+n}$ a $b \coloneqq \sqrt{n^2+1}$ dostaneme
+ \[
+  (n^2 + n) - (n^2 + 1) = (\sqrt{n^2 + n} + \sqrt{n^2 + 1})(\sqrt{n^2 + n} -
+  \sqrt{n^2 + 1}).
+ \]
+ Zadaný výraz upravíme posléze na
+ \[
+  \sqrt{n^2+n} - \sqrt{n^2+1} = \frac{(\sqrt{n^2+n} + \sqrt{n^2+1})(\sqrt{n^2+n}
+  - \sqrt{n^2+1})}{\sqrt{n^2+n} + \sqrt{n^2+1}} = \frac{n - 1}{\sqrt{n^2 + n} +
+ \sqrt{n^2 + 1}}.
+ \]
+ Vidíme, že nejrychleji rostoucí člen v čitateli je $n$ a ve jmenovateli
+ $\sqrt{n^2} = n$. Jejich vytčením získáme
+ \[
+  \frac{n-1}{\sqrt{n^2 + n}+\sqrt{n^2+1}} = \frac{n}{n} \cdot \frac{1 -
+  \frac{1}{n}}{\sqrt{1 + \frac{1}{n}} + \sqrt{1 + \frac{1}{n^2}}} = \frac{1 -
+  \frac{1}{n}}{\sqrt{1 + \frac{1}{n}} + \sqrt{1 + \frac{1}{n^2}}}.
+ \]
+ Byvše zaštítěni \myref{lemmatu}{lem:limita-odmocniny}, nabyli jsme práva
+ tvrdit, že
+ \[
+  \lim_{n \to \infty} \sqrt{1 + \frac{1}{n}} = \sqrt{\lim_{n \to \infty} 1 +
+  \frac{1}{n}}.
+ \]
+ a podobně pro $\lim_{n \to \infty} \sqrt{1 + 1 / n^2}$. Nyní tedy z
+ \hyperref[thm:aritmetika-limit]{věty o aritmetice limit}, částí (a) a (c),
+ plyne, že
+ \[
+  \lim_{n \to \infty}
+  \frac{1-\frac{1}{n}}{\sqrt{1+\frac{1}{n}}+\sqrt{1+\frac{1}{n^2}}} =
+  \frac{1-0}{\sqrt{1+0} + \sqrt{1+0}} = \frac{1}{2}.
+ \]
+ Výsledkem je reálné číslo, \hyperref[thm:aritmetika-limit]{věta o aritmetice
+ limit} byla užita legálně.
 \end{probsol}
