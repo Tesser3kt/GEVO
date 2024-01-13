@@ -590,3 +590,163 @@ cvičení.
   \lim_{n \to \infty} \sqrt[n]{a} = 1.
  \]
 \end{exercise}
+
+Úplný závěr sekce věnujeme výpočtu jistých \emph{speciálních} limit, které je
+výhodné znát, neboť v tradičních limitních úlohách vyvstávají často. V principu
+jde o limity zadané zlomky, u kterých není na první pohled zřejmé, zda roste
+rychleji čitatel, či jmenovatel.
+
+Následující tvrzení spolu s \hyperref[thm:aritmetika-limit]{větou o aritmetice
+limit} říká v podstatě, že \uv{Každá polynomiální funkce roste pomaleji než
+každá funkce exponenciální.}
+
+\begin{lemma}{}{polynomial-over-exponential}
+ Platí
+ \[
+  \lim_{n \to \infty} \frac{n^{k}}{a^{n}} = 0,
+ \]
+ kdykoli $a > 1$ a $k \in \N$.
+\end{lemma}
+\begin{lemproof}
+ Dokážeme tvrzení nejprve pro $k = 1$.
+
+ Položme $b \coloneqq a - 1$. Potom z binomické věty
+ \[
+  a^{n} = (1 + b)^{n} = \sum_{i=0}^n \binom{n}{i}b^{i}.
+ \]
+ Speciálně tedy platí
+ \[
+  (1 + b)^{n} \geq \binom{n}{2}b^2 = \frac{n(n-1)}{2}b^2,
+ \]
+ neboť součet výše obsahuje člen napravo a ještě mnoho dalších členů, z nichž
+ všechny jsou kladné. Potom ale
+ \[
+  \frac{n}{a^{n}} = \frac{n}{(1+b)^{n}} \leq \frac{2n}{b^2n(n-1)} =
+  \frac{2}{b^2(n-1)}.
+ \]
+ Snadno vidíme, že platí $n / a^{n} \geq 0$ pro každé $n \in \N$. Máme tudíž
+ oboustranný odhad
+ \[
+  0 \leq \frac{n}{a^{n}} \leq \frac{2}{b^2(n-1)}.
+ \]
+ Vzhledem k tomu, že
+ \[
+  \lim_{n \to \infty} \frac{2}{b^2(n-1)} = 0,
+ \]
+ jest závěrem \myref{lemmatu}{lem:o-dvou-straznicich}, že $\lim_{n \to \infty} n
+ / a^{n} = 0$.
+
+ V obecném případě $k \in \N$ stačí položit $b \coloneqq \sqrt[k]{a}$. Potom $b
+ > 1$ (protože $a > 1$) a
+ \[
+  \lim_{n \to \infty} \frac{n^{k}}{a^{n}} = \lim_{n \to \infty} \left(
+  \frac{n}{(\sqrt[k]{a})^{n}} \right)^{k} = \lim_{n \to \infty} \left(
+  \frac{n}{b^{n}} \right)^{k} = \left( \lim_{n \to \infty} \frac{n}{b^{n}}
+  \right)^{k},
+ \]
+ kde poslední rovnost platí z \hyperref[thm:aritmetika-limit]{věty o aritmetice
+ limit}. Podle již dokázané části tvrzení je pravdou, žeť
+ \[
+  \left( \lim_{n \to \infty} \frac{n}{b^{n}} \right)^{k} = 0^{k} = 0,
+ \]
+ což bylo dokázati.
+\end{lemproof}
+\begin{lemma}{}{faktorial-podle-exponenciala}
+ Platí
+ \[
+  \lim_{n \to \infty} \frac{n!}{n^{n}} = 0.
+ \]
+\end{lemma}
+\begin{lemproof}
+ Rozložíme výraz následovně:
+ \[
+  \frac{n!}{n^{n}} = \frac{1}{n} \cdot \prod_{k=2}^n \frac{k}{n}.
+ \]
+ Pozorujeme, že pro $2 \leq k \leq n$ platí $k / n \leq 1$. Čili,
+ \[
+  \frac{n!}{n^{n}} = \frac{1}{n} \cdot \prod_{k=2}^n \frac{k}{n} \leq
+  \frac{1}{n} \cdot \prod_{k=2}^n 1 = \frac{1}{n}.
+ \]
+ Dostáváme pro $n \in \N$ odhady
+ \[
+  0 \leq \frac{n!}{n^{n}} \leq \frac{1}{n}.
+ \]
+ Jelikož $\lim_{n \to \infty} 0 = \lim_{n \to \infty} 1 / n = 0$, platí z
+ \myref{lemmatu}{lem:o-dvou-straznicich} závěr
+ \[
+  \lim_{n \to \infty} \frac{n!}{n^{n}} = 0,
+ \]
+ jak jsme chtěli.
+\end{lemproof}
+\begin{lemma}{}{exponenciala-podle-faktorialu}
+ Pro $ a > 1$ platí
+ \[
+  \lim_{n \to \infty} \frac{a^{n}}{n!} = 0,
+ \]
+ čili \uv{faktoriál roste rychleji než exponenciála}.
+\end{lemma}
+\begin{lemproof}
+ Nalezněme $m \in \N$ takové, že $m > a$. Rozložíme
+ \[
+  \frac{a^{n}}{n!} = \frac{a^{m}}{m!} \cdot \prod_{k=m+1}^n \frac{a}{k}.
+ \]
+ Všimněme sobě, že pro $k > m$ je $a / k < 1$, ježto $m$ bylo zvoleno ostře
+ větší než $a$. Speciálně tedy platí
+ \[
+  \prod_{k=m+1}^n \frac{a}{k} = \frac{a}{n} \cdot \prod_{k=m+1}^{n-1}
+  \frac{a}{k} \leq \frac{a}{n},
+ \]
+ neboť
+ \[
+  \prod_{k=m+1}^{n-1} \frac{a}{k} \leq \prod_{k=m+1}^{n-1} 1 = 1.
+ \]
+ Položme $c_m \coloneqq a^{m} / m!$. Číslo $c_m$ je konstantní (vzhledem k $n$),
+ neboť $m$ i $a$ jsou. Můžeme odhadnout
+ \[
+  0 \leq \frac{a^{n}}{n!} \leq \frac{a^{m}}{m!} \cdot \frac{a}{n} = c_m \cdot
+  \frac{a}{n}.
+ \]
+ Z \hyperref[thm:aritmetika-limit]{věty o aritmetice limit} platí
+ \[
+  \lim_{n \to \infty} c_m \cdot \frac{a}{n} = ac_m \cdot \lim_{n \to \infty}
+  \frac{1}{n} = 0.
+ \]
+ Podle \myref{lemmatu}{lem:o-dvou-straznicich} tudíž máme i
+ \[
+  \lim_{n \to \infty} \frac{a^{n}}{n!} = 0,
+ \]
+ což zakončuje důkaz.
+\end{lemproof}
+
+Několik limitních cvičení na závěr.
+
+\begin{exercise}{}{odmocnina-z-faktorialu}
+ Dokažte, že
+ \[
+  \lim_{n \to \infty} \sqrt[n]{n!} = \infty.
+ \]
+ \textbf{Hint}: Rozložte součin $n!$ na dvě poloviny a tu větší zespodu
+ odhadněte vhodnou posloupností jdoucí k $\infty$.
+\end{exercise}
+
+\begin{exercise}{}{}
+ Spočtěte
+ \[
+  \lim_{n \to \infty} \sqrt{4n^2 - n} - 2n.
+ \]
+\end{exercise}
+
+\begin{exercise}{}{}
+ Spočtěte
+ \[
+  \lim_{n \to \infty} (-1)^{n}\sqrt{n}(\sqrt{n+1}-\sqrt{n}).
+ \]
+\end{exercise}
+
+\begin{exercise}{těžké}{}
+ Spočtěte limitu posloupnosti $a:\N \to \R$ zadané rekurentním vztahem
+ \begin{align*}
+  a_0 &\coloneqq 10,\\
+  a_{n+1} & \coloneqq 6 - \frac{5}{a_n} \text{ pro } n \in \N.
+ \end{align*}
+\end{exercise}
