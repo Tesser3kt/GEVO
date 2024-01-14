@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,usenames,dvipsnames]{beamer}
+\documentclass[aspectratio=169,11pt,usenames,dvipsnames,handout]{beamer}
 
 \usepackage[czech,english]{babel}
 \usepackage{CJKutf8}
@@ -428,7 +428,7 @@ GCD \& LCM}
  \frametitle{Congruence -- Examples}
  For example,
  \begin{itemize}
-  \item $4 \equiv 9 \pmod{5}$ because $9 \bmod 5 = 4$;
+  \item $14 \equiv 9 \pmod{5}$ because $9 \bmod 5 = 14 \bmod 5$;
   \pause
   \item $x \equiv 3 \pmod{6}$ is the same as saying $x \bmod 6 = 3$;
   \pause
@@ -457,6 +457,82 @@ GCD \& LCM}
   \end{equation*}
   where $x \in \N$ is called a \alert{system of linear congruences}.
  \end{tcolorbox}
+\end{frame}
+
+\subsection{Euclid's Algorithm}
+
+\begin{frame}
+ \subsectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{An Eff\hspace*{0pt}icient Way to Calculate GCD}
+ We can calculate the GCD of two numbers by using prime decompositions but that
+ is too slow and cumbersome.\\
+ \pause
+ There's a method known as \alert{Euclid's Algorithm} which is based on
+ repeatedly taking the remainder after the division of the larger number by the
+ smaller.\\
+ \pause
+ Concretely, let's say we want to calculate $(x,y)$ and $x > y$. Then,
+ \[
+  (x,y) = (x \bmod y, y).
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{An Eff\hspace*{0pt}icient Way to Calculate GCD}
+ Concretely, let's say we want to calculate $(x,y)$ and $x > y$. Then,
+ \[
+  (x,y) = (x \bmod y, y).
+ \]
+ But why?\\
+ \pause
+ Let's denote $g = (x,y)$ and $r = x \bmod y$. We need to make sure that $g \mid
+ r$ and $g$ is the largest number that divides both $r$ and $y$.\\
+ \pause
+ When we divide $x$ by $y$, we get $x = q \cdot y + r$ for some $q \in \N$. We
+ know that $g \mid x$ and so I can divide the whole equation by $g$ and get
+ natural numbers:
+ \[
+  \frac{x}{g} = \frac{q \cdot y + r}{g}.
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{An Eff\hspace*{0pt}icient Way to Calculate GCD}
+ When we divide $x$ by $y$, we get $x = q \cdot y + r$ for some $q \in \N$. We
+ know that $g \mid x$ and so I can divide the whole equation by $g$ and get
+ natural numbers:
+ \[
+  \frac{x}{g} = \frac{q \cdot y + r}{g}.
+ \]
+ We also know that $g \mid y$ and so $q \cdot y / g \in \N$. We can write the
+ right fraction like this:
+ \[
+  \frac{q \cdot y + r}{g} = \frac{q \cdot y}{g} + \frac{r}{g}.
+ \]
+ Because the left side is a natural number, so is the right. This means that $r
+ / g \in \N$ and thus $g \mid r$.\\
+ \pause
+ The fact that $g$ is the \alert{largest} common divisor of $r$ and $y$ is clear
+ because if there was a larger number $g'>g$ that divided both $y$ and $r$, then
+ it would also divide $q \cdot y + r = x$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Euclid's Algorithm}
+ \alert{Euclid's Algorithm} is a way to compute $(x,y)$ for two natural numbers
+ $x,y \in \N$.\\
+ \pause
+ It goes like this:
+ \begin{enumerate}
+  \item If $x \geq y$, substitute $x \coloneqq x \bmod y$. Otherwise, substitute
+   $y \coloneqq y \bmod x$.
+  \pause 
+  \item If $x = 0$, the answer is $y$. If $y = 0$, the answer is $x$. If $x,y
+   \neq 0$, repeat step 1.
+ \end{enumerate}
 \end{frame}
 
 \subsection{Chinese Remainder Theorem}

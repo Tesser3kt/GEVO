@@ -1,0 +1,147 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+\usepackage{paracol}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\sffamily\large Vocabulary Exam -- 3.AB PreIB 3}
+\lhead{\sffamily\large January 15$^{\text{th}}$, 2024}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+% Title %
+\title{\Huge\textsf{Vocabulary Exam -- PreIB 3.AB 3}\\
+ \Large\textsf{Systems of Linear Equations}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+\newcommand{\blank}{\underline{\hspace{16ex}}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+ \renewcommand{\baselinestretch}{1.2}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\columnratio{.7}
+\begin{paracol}{2}
+ A \blank is a closed 2D shape made up of points and segments. The points are
+ called \blank and the segments are called \blank. If we connect two \blank
+ which are not next to each other by a segment, this segment is called a \blank.
+
+ A \blank whose inner angles don't exceed $180^{ \circ }$ is called \blank.
+ Those that have only four sides even have special names. For example, a shape
+ made of two pairs of parallel sides is called a \blank. When in addition all of
+ the sides share the same length, it's a \blank. In general, a \blank with any
+ number of sides that are all equally long is called \blank.
+
+ Such shapes are interesting because they're symmetric with respect to a number
+ of \blank~~\blank. We extensively studied two of those -- \blank~and \blank. We
+ also saw that their composition is again a \blank~or a \blank.
+
+ A \blank with only three sides is called a \blank. Out of those, the ones
+ having an inner angle of $90^{ \circ }$ are interesting. They're called
+ \blank~~\blank. Their longest side is called a \blank and the two shorter ones
+ are \blank.
+
+ \switchcolumn
+ \renewcommand{\arraystretch}{2}
+ \begin{tabular}{c}
+  \textbf{HYPOTHENUSE}\\
+  \textbf{CONVEX}\\
+  \textbf{RHOMBUS}\\
+  \textbf{PLANE}\\
+  \textbf{REFLECTION}\\
+  \textbf{VERTEX}\\
+  \textbf{TRANSFORMATION}\\
+  \textbf{POLYGON}\\
+  \textbf{PARALLELOGRAM}\\
+  \textbf{TRIANGLE}\\
+  \textbf{RIGHT}\\
+  \textbf{DIAGONAL}\\
+  \textbf{REGULAR}\\
+  \textbf{ROTATION}\\
+  \textbf{EDGE}\\
+  \textbf{CATHETUS}
+ \end{tabular}
+\end{paracol}
+
+\end{document}
