@@ -1,0 +1,143 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Homework -- PreIB 3.AB 4}\\
+ \Large\textsf{Triangulations and Symmetries of Regular Polygons}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\section*{Oprava železnice}
+
+Na vstupu máte dánu množinu \texttt{kolej} obsahující její jednotlivé díly. Dále
+máte dány funkce \texttt{potrebuje\_opravu} a \texttt{cas\_opravy}. Funkce
+\texttt{potrebuje\_opravu} dostane parametrem díl koleje a vrátí \uv{Ano}, či
+\uv{Ne} (tj. \texttt{true}, či \texttt{false}), podle toho, zda daný díl koleje
+potřebuje opravu. Podobně, funkce \texttt{cas\_opravy} vrátí pro daný díl
+koleje, \textbf{který potřebuje opravu}, čas, jejž tato oprava zabere. Posledním
+vstupem je množina \texttt{vlaky} obsahující vlaky, které mají po koleji značené
+\texttt{kolej} jet za čas, který vám pro daný vlak řekne funkce
+\texttt{cas\_odjezdu}.
+
+Vaším úkolem je spočítat čas, který zabere oprava všech dílů z množiny
+\texttt{kolej}, a vrátit množinu \texttt{V} vlaků, které je třeba odklonit na
+kolej jinou, neboť jejich \texttt{cas\_odjezdu} je nižší, než potřebný čas na
+opravu.
+
+\emph{Příklad}:\\
+Pro množiny \texttt{kolej = \{a,b,c\}}, \texttt{vlaky = \{v1,v2\}} a funkce
+\begin{center}
+ \begin{tabular}{c|c|c|c}
+  & \texttt{potrebuje\_opravu} & \texttt{cas\_opravy} & \texttt{cas\_odjezdu}\\
+  \toprule
+  \texttt{a} & \texttt{true} & \texttt{40} & $\diagup$ \\
+  \midrule
+  \texttt{b} & \texttt{false} & $\diagup$ & $\diagup$\\
+  \midrule
+  \texttt{c} & \texttt{true} & \texttt{15} & $\diagup$\\
+  \midrule
+  \texttt{v1} & $\diagup$ & $\diagup$ & \texttt{35}\\
+  \midrule
+  \texttt{v2} & $\diagup$ & $\diagup$ & \texttt{60}
+ \end{tabular}
+\end{center}
+je správná odpověď \texttt{V = \{v1\}}, protože celkový čas opravy činí 55
+minut, a tudíž je vlak \texttt{v1} třeba odklonit.
+
+\end{document}
