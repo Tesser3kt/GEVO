@@ -54,7 +54,7 @@
 \title{\Huge\textsf{Ústní zkouška}\\
  \Large\textsf{z Úvodu do matematické analýzy, části prvé}\\
  \vspace*{1em}
- Verze: reKt\\
+ Verze: r3kt\\
  \author{Přednášející: His Divine Wisdom Sir Adam Clypatch}
  \date{19. ledna 2024}
 }
@@ -138,13 +138,11 @@
   \emph{Neznalost základních definic znamená bezpodmínečné nesložení
   zkoušky.}
   \begin{enumerate}
-   \item Konvergentní racionální posloupnost (včetně definice racionální
-    posloupnosti).
-   \item Reálné číslo. Vysvětlete též, v jakém smyslu jsou $\Q$ podmnožinou
-    $\R$.
-   \item Celé číslo.
-   \item Limita posloupnosti.
-   \item Supremum a infimum.
+   \item Okruh a těleso.
+   \item Racionální číslo.
+   \item Konvergentní posloupnost.
+   \item Rozšířená reálná osa.
+   \item Interval a typy intervalů.
   \end{enumerate}
  \end{tcolorbox}
  \clearpage
@@ -155,27 +153,16 @@
   \emph{Pojmy užité v úlohách nemusíte definovat. Používáte-li k řešení úlohy
   nebo k důkazu předchozí tvrzení, zformulujte je.}
   \begin{enumerate}
-   \item Dokažte, že relace $ \sim $ na $\Z \times \Z \setminus \{0\}$ daná
-    předpisem
-    \[
-     (a,b) \sim (c,d) \overset{def.}{\Longleftrightarrow} a \cdot d = b \cdot c
-    \]
-    je ekvivalence a že operace $+$ a $ \cdot $ na třídách ekvivalence $ \sim $
-    dané předpisy
-    \begin{align*}
-     [(a,b)]_{ \sim } + [(c,d)]_{ \sim } &\coloneqq [(a \cdot d + b \cdot c, b
-     \cdot d)]_{ \sim },\\
-     [(a,b)]_{ \sim } \cdot [(c,d)]_{ \sim } & \coloneqq [(a \cdot c,b \cdot
-     d)]_{ \sim }
-    \end{align*}
-    jsou dobře definované.
-   \item Dokažte, že každá konvergentní posloupnost (reálných čísel) je
-    omezená.
+   \item Dokažte, že každá posloupnost má \emph{nejvýše} jednu limitu.
+   \item Dokažte, že $\Q$ jsou hustá v $\R$, tedy že pro každé $\varepsilon>0$ a
+    každé $x \in \R$ existuje $r \in \Q$ splňující $|x - r|<\varepsilon$.\\
+    \textbf{Hint:} Využijte definici $\R$ jako tříd ekvivalence konvergentních
+    racionálních posloupností.
    \item Spočtěte
-    \[
-     \lim_{n \to \infty} \sqrt{\frac{9 + n^2}{4n^2}}.
-    \]
-    Uveďte všechna tvrzení, jež používáte, a ověřte jejich předpoklady.
+   \[
+    \lim_{n \to \infty} \left( -\frac{1}{2} \right)^{n}.
+   \]
+   Ověřte předpoklady všech tvrzení, která k výpočtu používáte.
   \end{enumerate}
  \end{tcolorbox}
  \clearpage
@@ -185,56 +172,6 @@
   \emph{Nemusíte dokonale zformulovat svá řešení. Obecná idea rozvinutá
   důležitými detaily postačuje.}
   \begin{enumerate}
-   \item Alternativní důkaz Bolzanovy-Weierstraßovy věty.
-   \begin{enumerate}
-    \item Dokažte, že každá posloupnost $a:\N \to \R$ má \emph{monotónní}
-     podposloupnost.
-    \begin{enumerate}
-     \item Předpokládejte nejprve, že pro každé $m \in \N$ má množina $\{a_n
-      \mid n \geq m\}$ maximum. Využijte tohoto předpokladu k sestrojení
-      nerostoucí posloupnosti $b:\N \to \R$ jako posloupnosti maxim stále
-      menších podmnožin prvků posloupnosti $a$. Zkuste to \emph{induktivně}.
-     \item Nyní naopak předpokládejte, že existuje $m \in \N$, pro které množina
-      $\{a_n \mid n \geq m\}$ maximum nemá. V tomto případě rovněž $\{a_n \mid
-      n \geq m'\}$ nemá maximum pro všechna $m' \geq m$. Induktivní konstrukcí
-      velmi obdobnou té z~bodu i. sestrojte podposloupnost $b$ posloupnosti $a$,
-      jež je rostoucí.
-    \end{enumerate}
-   \item Dokažte Bolzanovu-Weierstraßovu větu (tedy tvrzení, že každá omezená
-    posloupnost má konvergentní podposloupnost) užitím bodu (a) a tvrzení, že
-    každá monotónní omezená posloupnost je konvergentní.
-   \end{enumerate}
-  \item Posloupnost $a:\N \to \R$ je zadána rekurentně vztahy
-   \begin{align*}
-    a_1 & \coloneqq 1,\\
-    a_{n+1} & \coloneqq \frac{1}{1+a_n}.
-   \end{align*}
-   Spočtěte $\lim a$. Návod:
-   \begin{enumerate}
-    \item Dokažte, že všechny členy $a$ jsou dobře definovány.
-    \item Definujme funkce
-     \[
-      f(x) \coloneqq \frac{1}{1+x}, \quad g(x) \coloneqq (f \circ f)(x).
-     \]
-     Dokažte, že
-     \begin{itemize}
-      \item rovnice $g(x) = x$ má na intervalu $[0,1]$ přesně jedno řešení.
-       Označme je $c$.
-      \item platí $x < g(x) < c$ pro $x \in [0,c)$ a $c < g(x) < x$ pro $x \in
-       (c,1]$.
-      \item platí $a_2 < c < a_1$ a $g(a_k) = a_{k+2}$.
-      \item podposloupnost lichých členů $a$ je klesající a zdola omezená a
-       podposloupnost sudých členů je rostoucí a shora omezená.
-     \end{itemize}
-    \item Podle bodu (b) jsou posloupnosti $(a_{2k})_{k=1}^{\infty}$ a
-     $(a_{2k+1})_{k=1}^{\infty}$ monotónní a omezené, tudíž mají limitu. Označme
-     \[
-      A \coloneqq \lim_{k \to \infty} a_{2k}, \quad B \coloneqq \lim_{k \to
-      \infty} a_{2k+1}.
-     \]
-     Dokažte, že $g(A) = A$ a $g(B) = B$.
-    \item Odvoďte, že z bodu (c) plyne, že $\lim a = c$.
-   \end{enumerate}
   \end{enumerate}
  \end{tcolorbox}
 \end{document}

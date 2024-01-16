@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.2)  16 JAN 2024 15:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.2)  16 JAN 2024 16:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**analysis-exam.tex
-(./analysis-exam.tex
+**analysis-exam-2.tex
+(./analysis-exam-2.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
 (/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
@@ -1196,8 +1196,8 @@ Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 Package: regexpatch 2021/03/21 v0.2f Extending etoolbox patching commands
  (/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2023-08-29 L3 Experimental document command parser
-)) (./analysis-exam.aux)
-\openout1 = `analysis-exam.aux'.
+)) (./analysis-exam-2.aux)
+\openout1 = `analysis-exam-2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
 LaTeX Font Info:    ... okay on input line 112.
@@ -1295,9 +1295,9 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring ON on input line 112.
-(./analysis-exam.out) (./analysis-exam.out)
+(./analysis-exam-2.out) (./analysis-exam-2.out)
 \@outlinefile=\write4
-\openout4 = `analysis-exam.out'.
+\openout4 = `analysis-exam-2.out'.
 
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
 (Font)              scaled to size 16.07027pt on input line 114.
@@ -1367,38 +1367,44 @@ LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
 ] [3
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+fnc on input line 221.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/fouriernc/ts1fnc.fd
-File: ts1fnc.fd 2005/12/13 font definitions for TS1/fnc.
-)
-LaTeX Font Info:    Font shape `TS1/fnc/m/n' will be
-(Font)              scaled to size 10.18341pt on input line 221.
+
+./analysis-exam-2.tex:175: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.175   \end{enumerate}
+                       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 \tf@thm=\write5
-\openout5 = `analysis-exam.thm'.
+\openout5 = `analysis-exam-2.thm'.
 
- [4
+[4
 
-] (./analysis-exam.aux)
+] (./analysis-exam-2.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2021/03/21>
  ***********
-Package rerunfilecheck Info: File `analysis-exam.out' has not changed.
+Package rerunfilecheck Info: File `analysis-exam-2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 39313 strings out of 474934
- 834813 string characters out of 5759817
- 1933791 words of memory out of 5000000
- 59968 multiletter control sequences out of 15000+600000
- 605796 words of font info for 116 fonts, out of 8000000 for 9000
+ 39269 strings out of 474934
+ 834151 string characters out of 5759817
+ 1924791 words of memory out of 5000000
+ 59939 multiletter control sequences out of 15000+600000
+ 604554 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,11n,107p,862b,703s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss2488.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncb8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
-Output written on analysis-exam.pdf (4 pages, 108049 bytes).
+ 101i,11n,107p,864b,572s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss2488.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncb8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
+Output written on analysis-exam-2.pdf (4 pages, 104578 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
- 23 named destinations out of 1000 (max. 500000)
+ 120 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
