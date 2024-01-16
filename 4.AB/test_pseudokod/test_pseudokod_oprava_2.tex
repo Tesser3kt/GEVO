@@ -1,0 +1,142 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Homework -- PreIB 3.AB 4}\\
+ \Large\textsf{Triangulations and Symmetries of Regular Polygons}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\section*{Stěhování}
+
+Vaším úkolem je napsat algoritmus, který naplní krabice věcmi.
+
+Na vstupu máte danou funkci \texttt{vec(poradi)}, která dostane parametrem
+přirozené číslo \texttt{poradi} a vrátí vám věc s tímto pořadím jako trojici
+přirozených čísel \texttt{(šířka,výška,hloubka)} představující rozměry této
+věci. V případě, že věc s daným pořadím již neexistuje, vrátí funkce
+\texttt{vec} prázdnou množinu.
+
+Napište algoritmus, který pro tento vstup dá na výstupu \textbf{počet krabic},
+které potřebuji, abych do nich uskladnil všechny věci, za následujících
+předpokladů:
+\begin{itemize}
+ \item Každá krabice má rozměry $100 \times 50 \times 100$ v pořadí
+  $\text{šířka} \times \text{výška} \times \text{hloubka}$.
+ \item Věc se vejde do krabice, pokud žádný z jejích rozměrů spolu s rozměry
+  věcí již přítomných v dané krabici nepřekročí žádný z rozměrů této krabice.
+ \item Věci do krabic vkládám v tom pořadí, v kterém mi je dává funkce
+  \texttt{vec}. Jakmi\-le se již věc do krabice nevejde, beru krabici novou.
+ \item Krabic mám k dispozici libovolné množství.
+ \item Abyste se neupsali, smíte spolu porovnávat trojice čísel prostě pomocí
+  $<$ a $>$ a smíte je od sebe rovněž odečítat. Tedy, napíši-li
+  \vspace*{-1em}
+  \begin{verbatim}
+   (40,30,10) <= (100,50,100)
+  \end{verbatim}
+  \vspace*{-2.3em}
+  myslím tím, že \texttt{40 <= 100}, \texttt{30 <= 50} a \texttt{10 <= 100}.
+  Podobně,
+  \vspace*{-1em}
+  \begin{verbatim}
+   (100,50,100) - (40,30,10) = (60,20,90).
+  \end{verbatim}
+\end{itemize}
+
+\end{document}

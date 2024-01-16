@@ -172,6 +172,62 @@
   \emph{Nemusíte dokonale zformulovat svá řešení. Obecná idea rozvinutá
   důležitými detaily postačuje.}
   \begin{enumerate}
+   \item Ať $c > 0$ a $a:\N \to \R$ je posloupnost dána rekurentním vztahem
+   \begin{align*}
+    a_0 & \coloneqq \sqrt{c},\\
+    a_{n+1} & \coloneqq \sqrt{a_n + c}.
+   \end{align*}
+   Spočtěte $\lim a$. Návod:
+   \begin{enumerate}
+    \item Dokažte, že posloupnost $a$ je dobře definovaná. To znamená, že $a_n
+     \in \R$ pro všechna $n \in \N$.
+    \item Dokažte, že $a$ je rostoucí.
+    \item Dokažte, že $a$ je shora omezená.
+    \item Z bodů (b) a (c) plyne (užitím věty o limitě monotónní posloupnosti),
+     že $a$ má limitu. Označme ji $A$. Spočtěte tuto limitu pomocí vhodné
+     kvadratické rovnice využivše rovností
+     \[
+      a^2_{n+1} = a_n + c, \quad \lim_{n \to \infty} a_{n+1} = A \quad \text{a}
+      \quad \lim_{n \to \infty} (a_n + c) = A + c.
+     \]
+   \end{enumerate}
+  \item Dokažte \emph{Borelovu větu}: Ať $I$ je \textbf{uzavřený} interval a
+   $\{S_i \mid i \in \N\}$ je množina \textbf{otevřených} intervalů splňující $I
+   \subseteq \bigcup_{i \in \N} S_i$. Pak existuje \textbf{konečná} množina $F
+   \subseteq \N$ taková, že $I \subseteq \bigcup_{i \in F} S_i$.
+
+   Návod (vřele doporučujeme si při důkaze kreslit):
+   \begin{enumerate}
+    \item Označme $I = [a,b]$. Ať $M$ je množina takových prvků $x \in [a,b]$,
+     pro něž existuje konečná $F_x \subseteq \N$ taková, že $[a,x] \subseteq
+     \bigcup_{i \in F_x} S_i$. Uvědomte si, že pro důkaz Borelovy věty stačí
+     ukázat, že $b \in M$.
+    \item Dokažte, že $M$ má supremum, které leží v $\R$. K tomu je třeba
+     ukázat, že není prázdná a že je shora omezená. Existence suprema pak plyne
+     z úplnosti $\R$. Položme $y \coloneqq \sup M$. Nyní je třeba ukázat, že
+     $y \in M$ a $y = b$.
+    \item Z předpokladu $y \in I \subseteq \bigcup_{i \in \N} S_i$, a tedy
+     existuje \textbf{otevřený} interval $S_j$ takový, že $y \in S_j$. Ovšem,
+     protože je tento interval otevřený, $y$ nemůže být jeho mi\-nimem. Dokažte,
+     že z tohoto plyne existence prvku $z \in M \cap S_j$ (nezapomeňte, že $y$
+     je supremem $M$).
+    \item Pro tento prvek z definice $M$ existuje konečná množina $F_z$ taková,
+     že $[a,z] \subseteq \bigcup_{i \in F_z} S_i$. Dokažte, že
+     \[
+      x \in \left( \bigcup_{i \in F_z} S_i \right) \cup S_j
+     \]
+     pro každé $x \in [a,y]$. Argumentujte, že tento fakt již znamená, že $y \in
+     M$.
+    \item Dokážeme, že $y = b$. Předpokládejme pro spor, že $y < b$. Pak
+     existuje $\varepsilon>0$ takové, že $y + \varepsilon < b$, což znamená, že
+     umíme najít (proč?) otevřený interval $S_k$ takový, že $[y,y+\varepsilon]
+     \subseteq S_k$. Užitím faktu, že $y \in M$, najděte konečnou množinu
+     $\mathcal{S} \subseteq \{S_i \mid i \in \N\}$ otevřených intervalů takovou,
+     že $[a,y + \varepsilon] \subseteq \mathcal{S}$ (nezapomeňte, že takové
+     množiny umíte triviálně najít zvlášť pro $[a,y]$ a $[y,y+\varepsilon]$).
+    \item Argumentujte, že existence $\mathcal{S}$ z bodu (e) je sporem s
+     definicí $y$ jako suprema $M$. Tedy, $y = b$ a důkaz je hotov.
+   \end{enumerate}
   \end{enumerate}
  \end{tcolorbox}
 \end{document}
