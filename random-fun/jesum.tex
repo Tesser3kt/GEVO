@@ -28,36 +28,86 @@
 \makeatother
 
 \NewDocumentCommand \jesum {mmm}
- {
-  \begin{tikzpicture}[baseline=-.5ex]
-   \node (exp) {$\displaystyle #1$};
-   
-   % Frame
-   \draw (exp.north west) to node[midway,yshift=2mm]{\footnotesize $#3$}
-    (exp.north east);
-   \draw (exp.south west) to node[midway,yshift=-2mm]{\footnotesize $#2$}
-    (exp.south east);
-   \draw (exp.south east) -- ++(0,0.15);
-   \draw (exp.north east) -- ++(0,-0.15);
+{
+ \begin{tikzpicture}[baseline=-.5ex]
+  \node (exp) {$\displaystyle #1$};
+  
+  % Frame
+  \draw (exp.north west) to node[midway,yshift=2mm]{\footnotesize $#3$}
+   (exp.north east);
+  \draw (exp.south west) to node[midway,yshift=-2mm]{\footnotesize $#2$}
+   (exp.south east);
+  
+  \draw (exp.south east) -- ++(0,0.15);
+  \draw (exp.north east) -- ++(0,-0.15);
 
-   % Sigma
-   \coordinate (a) at ($(exp.north west) + (-0.6,0)$);
-   \coordinate (b) at ($(exp.south west) + (-0.6,0)$);
-   \coordinate (a2) at ($(a) + (0.4,0)$);
-   \gettikzxy{(a2)}{\ax}{\ay};
-   \gettikzxy{(exp.center)}{\cx}{\cy};
-   \coordinate (c) at (\ax,\cy);
+  % Sigma
+  \gettikzxy{(exp.north west)}{\x}{\y};
+  \gettikzxy{(exp.south west)}{\bx}{\by};
+  
+  \coordinate (a) at ($(exp.north west) + {\y-\by}*(-0.02,0)$);
+  \coordinate (b) at ($(exp.south west) + {\y-\by}*(-0.02,0)$);
 
-   \draw (exp.north west) -- (a);
-   \draw (exp.south west) -- (b);
-   \draw (a) -- (c);
-   \draw (c) -- (b);
-  \end{tikzpicture}
- }
+  \coordinate (a2) at ($(a)+{\y-\by}*(0.015,0)$);
+  \gettikzxy{(a2)}{\ax}{\ay};
+  \gettikzxy{(exp.center)}{\cx}{\cy};
+  \coordinate (c) at (\ax,\cy);
+
+  \draw (exp.north west) -- (a);
+  \draw (exp.south west) -- (b);
+  \draw (a) -- (c);
+  \draw (c) -- (b);
+ \end{tikzpicture}
+}
+
+\NewDocumentCommand \jeprod {mmm}
+{
+ \begin{tikzpicture}[baseline=-.5ex]
+
+  % Bound and expression nodes
+  \node (exp) {$\displaystyle #1$};
+  \node [anchor=north east,minimum width=.7cm] (lower) at (exp.north west)
+   {\footnotesize $#2$};
+  \node [anchor=north west,minimum width=.7cm] (upper) at (exp.north east)
+   {\footnotesize $#3$};
+
+  % Calculating coordinates
+  \coordinate (la) at (exp.north west);
+  \gettikzxy{(la)}{\lax}{\lay};
+  \gettikzxy{(exp.south west)}{\lbx}{\lby};
+
+  \coordinate (ua) at (exp.north east);
+  \gettikzxy{(ua)}{\uax}{\uay};
+  \gettikzxy{(exp.south east)}{\ubx}{\uby};
+
+  % Pi frame
+  \draw (lower.north west) -- (upper.north east);
+
+  \draw (la) -- (\lax,\lby);
+
+  \draw (ua) -- (\uax,\uby);
+
+  % Pi decorations
+  \draw (lower.north west) -- ++(0,-.2);
+  \draw (upper.north east) -- ++(0,-.2);
+  \draw ($(exp.south west) + (-0.1,0)$) -- ($(exp.south west) + (0.1,0)$);
+  \draw ($(exp.south east) + (-0.1,0)$) -- ($(exp.south east) + (0.1,0)$);
+ \end{tikzpicture}
+}
 
 \begin{document}
+ Definice násobení mnohočlenů:
  \[
-  \sin x \coloneqq \jesum{\jesum{\frac{(-1)^{n}}{(2n +
-  1)!}x^{2n+1}}{n=0}{\infty}}{k=0}{\infty}
+  \left( \jesum{p_ix^{i}}{i=0}{n} \right) \cdot \left( \jesum{q_jx^{j}}{j=0}{m}
+  \right) = \jesum{\left(\jesum{p_lq_{k-l}}{l=0}{k}\right)x^{k}}{k=0}{n+m}.
+ \]
+ Definice determinantu:
+ \[
+  \det A \coloneqq \jesum{\jeprod{a_{i,\sigma(i)}}{i=1}{n}}{\sigma \in S_n}{}.
+ \]
+ Náhodnej součin:
+ \[
+  \jeprod{(5y-3) \cdot \jeprod{\frac{2x-3}{5x^2 - 6}}{x=0}{\infty}}{y=8}{5 \cdot
+  10^{17}}.
  \]
 \end{document}

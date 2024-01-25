@@ -1,130 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../dest/main.css" />
+    <title>Whatever</title>
+  </head>
+  <body>
+    <div class="content flex justify-center items-center min-h-screen">
+      <div class="form_container bg-gray-100 p-10 rounded-lg shadow-md">
+        <form class="grid grid-cols-1 " action="">
+          <label for="username">Jméno:</label>
+          <input
+			class="mt-1 rounded-md"
+            name="username"
+            type="text"
+            placeholder="např. PussyHunter69"
+          />
+          <label class="mt-6" for="password">Heslo:</label>
+          <input class="mt-1 rounded-md" name="password" type="password" placeholder="např. 696969" />
+          <button class="button mt-10 mx-6 border-2 border-indigo-600 bg-indigo-100
+          transition hover:bg-indigo-200 rounded-lg p-2" type="submit">Přihlásit</button>
+        </form>
+      </div>
+    </div>
+  </body>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Klepyho otroci</title>
-	<link rel="stylesheet" href="../dest/main.css">
-</head>
-
-<body>
-	<header>
-		<div class="h-4 w-4 grid">
-			<div class="m-2 p-2"></div>
-		</div>
-	</header>
-
-
-
-	<!--moje cast-->
-	<div class="rounded-sm border-4 border-blue-400 p-10 mx-52">
-	<div class="grid gap-4 grid-cols-3">
-		<div class="w-12 h-12 bg-black"></div>
-		<div class="w-12 h-12 bg-pink-500"></div>
-		<div class="w-12 h-12 bg-black"></div>
-		<div class="w-12 h-12 bg-black"></div>
-		<div class="w-12 h-12 bg-pink-500"></div>
-		<div class="w-12 h-12 bg-black"></div>
-	</div>
-	</div>
-
-
-
-
-
-
-
-
-
-
-
-	<!--tohle je moje, opavaž se sem psát
-	<div class="flex w-screen p-16">
-		<div class="w-1/3">
-			<h1 class="font-bold text-center mb-3 text-xl">Modro-400: Krize Extravagance</h1>
-			<p class="text-justify">
-				Odu modré barvy, jak když nevinného Smurfa mávne elektrika,
-				Na kartičce blikáš, jak překvapení na plese u Smurfetky.
-				Blue-400, nejsi jen obyčejná pigmentace,
-				Tvoje modré tóny jsou jak Instagramový filtr na realitu.
-
-				Kartičko modrá, třpytíš se jak disco koule v nebi,
-				Tvůj odstín má víc stylu než Justin Bieber na motorkách v KFC.
-				Blue-400, tvá barva je catchy, jak popová hitparáda,
-				Na kartičce tleskáme, jak na koncertě boybandu v kyslíkové masce.
-
-				Na modré kartičce, kde se klidně mihneš,
-				Máš ten vibe, co rozveselí každého, co tě zahlédne.
-				Odu modré barvy, jsi jak meme, co neví, že je meme,
-				Kartičko, smějeme se s tebou, ne proti tobě – to je náš team.
-			</p>
-		</div>
-		<div class="w-2/3 mx-16">
-		<div class="border-8 border-black grid-cols-3 grid justify-items-center">
-			<div class="mx-5 mt-5 ">
-				<div class="w-24 h-24 bg-blue-400"></div>
-				<p class="mb-5 text-center font-bold">tst</p>
-			</div>
-			<div class="mx-5 mt-5 ">
-				<div class="w-24 h-24 bg-blue-400"></div>
-				<p class="mb-5 text-center font-bold">tst</p>
-			</div>
-			<div class="mx-5 mt-5 ">
-				<div class="w-24 h-24 bg-blue-400"></div>
-				<p class="mb-5 text-center font-bold">tst</p>
-			</div>
-			<div class="mx-5 mt-5 ">
-				<div class="w-24 h-24 bg-blue-400"></div>
-				<p class="mb-5 text-center font-bold">tst</p>
-			</div>
-			<div class="mx-5 mt-5 ">
-				<div class="w-24 h-24 bg-blue-400"></div>
-				<p class="mb-5 text-center font-bold">tst</p>
-			</div>
-			<div class="mx-5 mt-5 ">
-				<div class="w-24 h-24 bg-blue-400"></div>
-				<p class="mb-5 text-center font-bold">tst</p>
-			</div>
-		</div>
-	</div>
-	</div>
-	-->
-	<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-		<div class="sm:mx-auto sm:w-full sm:max-w-sm">
-		  <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
-		</div>
-
-		<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-		  <form class="space-y-6" action="#" method="POST">
-			<div>
-			  <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
-			  <div class="mt-2">
-				<input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-			  </div>
-			</div>
-
-			<div>
-			  <div class="flex items-center justify-between">
-				<label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-				<div class="text-sm">
-				  <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
-				</div>
-			  </div>
-			  <div class="mt-2">
-				<input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-			  </div>
-			</div>
-
-			<div>
-			  <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
-			</div>
-		  </form>
-
-
-		</div>
-	  </div>
-
-</body>
-
-</html>
+   </html>
