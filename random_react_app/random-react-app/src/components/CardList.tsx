@@ -2,17 +2,17 @@ import { useState } from "react";
 import Card from "./Card";
 
 const CardList = () => {
-	const handleDoneClick = (index: number) => {
-		const newCards = cards;
-		for (let i = 0; i < cards.length; i++) {
-			const card = cards[i];
-			if (i === index) {
-				card.done = !card.done;
-			}
-			newCards[i] = card;
-		}
-		setCards(newCards);
-	}
+  const handleDoneClick = (index: number) => {
+    console.log("Switching card " + index + " to " + !cards[index].done);
+    setCards((cards) => {
+      const newCards = [...cards];
+      newCards[index] = {
+        ...cards[index],
+        done: !cards[index].done,
+      };
+      return newCards;
+    });
+  };
 
   const [cards, setCards] = useState([
     {
@@ -41,7 +41,7 @@ const CardList = () => {
           author={card.author}
           date={card.date}
           done={card.done}
-		      onDoneClick={() => handleDoneClick(index)}
+          onDoneClick={() => handleDoneClick(index)}
         />
       ))}
     </div>
