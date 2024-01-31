@@ -1,12 +1,20 @@
 import csv
+import datetime as dt
+import pandas as pd
 
 COLUMNS = [
     "Příjmení",
     "Jméno",
+    "Pohlaví",
     "Datum narození",
     "Andělské číslo",
     "Anděl strážný",
     "Popis anděla strážného",
+    "Zvířecí znamení",
+    "Kameny duše",
+    "Živel",
+    "Keltské znamení",
+    "Čínské znamení",
 ]
 
 CHINESE_ZODIAC = [
@@ -23,6 +31,89 @@ CHINESE_ZODIAC = [
     "Pes",
     "Vepř",
 ]
+
+this_year = dt.date.today().year
+celtic_zodiac_dates = {
+    "Buk": pd.date_range(dt.date(this_year, 12, 21), periods=1).to_list(),
+    "Jabloň": pd.date_range(dt.date(this_year, 6, 22), periods=11).tolist()
+    + pd.date_range(dt.date(this_year, 12, 22), periods=11).to_list(),
+    "Jedle": pd.date_range(dt.date(this_year, 1, 2), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 7, 3), periods=11).to_list(),
+    "Jilm": pd.date_range(dt.date(this_year, 1, 12), periods=11).tolist()
+    + pd.date_range(dt.date(this_year, 7, 14), periods=11).to_list(),
+    "Cypřiš": pd.date_range(dt.date(this_year, 1, 23), periods=9).tolist()
+    + pd.date_range(dt.date(this_year, 7, 25), periods=11).to_list(),
+    "Topol": pd.date_range(dt.date(this_year, 11, 1), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 5, 1), periods=10).to_list()
+    + pd.date_range(dt.date(this_year, 2, 1), periods=10).to_list()
+    + pd.date_range(dt.date(this_year, 8, 5), periods=10).to_list(),
+    "Borovice": pd.date_range(dt.date(this_year, 2, 21), periods=11).tolist()
+    + pd.date_range(dt.date(this_year, 8, 25), periods=10).to_list(),
+    "Modřín": pd.date_range(dt.date(this_year, 2, 11), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 8, 15), periods=10).to_list(),
+    "Lípa": pd.date_range(dt.date(this_year, 3, 13), periods=8).tolist()
+    + pd.date_range(dt.date(this_year, 9, 14), periods=9).to_list(),
+    "Vrba": pd.date_range(dt.date(this_year, 3, 3), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 9, 4), periods=10).to_list(),
+    "Dub": pd.date_range(dt.date(this_year, 3, 21), periods=1).tolist(),
+    "Olše": pd.date_range(dt.date(this_year, 9, 23), periods=1).tolist(),
+    "Jeřáb": pd.date_range(dt.date(this_year, 4, 1), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 10, 3), periods=9).to_list(),
+    "Líska": pd.date_range(dt.date(this_year, 3, 22), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 9, 24), periods=9).to_list(),
+    "Ořešák": pd.date_range(dt.date(this_year, 4, 21), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 10, 22), periods=10).to_list(),
+    "Javor": pd.date_range(dt.date(this_year, 4, 11), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 10, 12), periods=10).to_list(),
+    "Osika": pd.date_range(dt.date(this_year, 12, 11), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 6, 11), periods=10).tolist(),
+    "Kaštan": pd.date_range(dt.date(this_year, 11, 11), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 5, 11), periods=10).tolist(),
+    "Jasan": pd.date_range(dt.date(this_year, 11, 21), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 5, 21), periods=10).tolist(),
+    "Habr": pd.date_range(dt.date(this_year, 12, 1), periods=10).tolist()
+    + pd.date_range(dt.date(this_year, 5, 31), periods=11).tolist(),
+}
+
+CELTIC_ZODIAC = {
+    key: set(map(lambda x: (x.day, x.month), value))
+    for key, value in celtic_zodiac_dates.items()
+}
+
+zodiac_dates = {
+    "Beran": pd.date_range(dt.date(this_year, 3, 21), periods=31).tolist(),
+    "Býk": pd.date_range(dt.date(this_year, 4, 21), periods=31).tolist(),
+    "Blíženci": pd.date_range(dt.date(this_year, 5, 22), periods=31).tolist(),
+    "Rak": pd.date_range(dt.date(this_year, 6, 22), periods=31).tolist(),
+    "Lev": pd.date_range(dt.date(this_year, 7, 23), periods=31).tolist(),
+    "Panna": pd.date_range(dt.date(this_year, 8, 23), periods=31).tolist(),
+    "Váhy": pd.date_range(dt.date(this_year, 9, 23), periods=31).tolist(),
+    "Štír": pd.date_range(dt.date(this_year, 10, 24), periods=30).tolist(),
+    "Střelec": pd.date_range(dt.date(this_year, 11, 23), periods=29).tolist(),
+    "Kozoroh": pd.date_range(dt.date(this_year, 12, 22), periods=30).tolist(),
+    "Vodnář": pd.date_range(dt.date(this_year, 1, 21), periods=31).tolist(),
+    "Ryby": pd.date_range(dt.date(this_year, 2, 21), periods=29).tolist(),
+}
+
+ZODIAC = {
+    key: set(map(lambda x: (x.day, x.month), value))
+    for key, value in zodiac_dates.items()
+}
+
+SPIRITUAL_STONES = {
+    "Vodnář": {"stones": ("jasmín", "opál"), "element": "vzduch"},
+    "Ryby": {"stones": ("ametyst", "opál"), "element": "voda"},
+    "Beran": {"stones": ("karneol", "jaspis"), "element": "oheň"},
+    "Býk": {"stones": ("růženín", "achát"), "element": "země"},
+    "Blíženci": {"stones": ("tygří oko",), "element": "vzduch"},
+    "Rak": {"stones": ("karneol",), "element": "voda"},
+    "Lev": {"stones": ("křišťál", "granát"), "element": "oheň"},
+    "Panna": {"stones": ("citrín", "jaspis"), "element": "země"},
+    "Váhy": {"stones": ("achát",), "element": "vzduch"},
+    "Štír": {"stones": ("hematit", "jaspis"), "element": "voda"},
+    "Střelec": {"stones": ("sodalit", "chalcedon"), "element": "oheň"},
+    "Kozoroh": {"stones": ("obsidián", "ametyst", "onyx"), "element": "země"},
+}
 
 GUARDIAN_ANGELS = {
     1: {
@@ -117,6 +208,61 @@ def chinese_zodiac(birthdate: tuple[int, int, int]) -> str:
     return CHINESE_ZODIAC[(birth_year - 4) % 12]
 
 
+def celtic_zodiac(birthdate: tuple[int, int, int]) -> str:
+    """Return the celtic zodiac based on birthdate."""
+    if not birthdate:
+        return -1
+
+    birth_day, birth_month, _ = birthdate
+    for key, value in CELTIC_ZODIAC.items():
+        if (birth_day, birth_month) in value:
+            return key
+
+
+def zodiac(birthdate: tuple[int, int, int]) -> str:
+    """Return the zodiac based on birthdate."""
+    if not birthdate:
+        return -1
+
+    birth_day, birth_month, _ = birthdate
+    for key, value in ZODIAC.items():
+        if (birth_day, birth_month) in value:
+            return key
+
+
+def spiritual_stone(zodiac_sign: str) -> str:
+    """Return the spiritual stone based on zodiac."""
+    if not zodiac_sign:
+        return -1
+
+    return SPIRITUAL_STONES[zodiac_sign]
+
+
+def data_for_export(data: list) -> list:
+    """Return the data for export."""
+    return [
+        {
+            "Příjmení": student["surname"],
+            "Jméno": student["first_name"] + " " + student["middle_name"]
+            if student["middle_name"]
+            else student["first_name"],
+            "Pohlaví": student["gender"],
+            "Datum narození": dt.date(*reversed(student["birthdate"])).strftime(
+                "%d.%m.%Y"
+            ),
+            "Andělské číslo": student["angelic_number"],
+            "Anděl strážný": student["guardian_angel"],
+            "Popis anděla strážného": student["guardian_angel_description"],
+            "Zvířecí znamení": student["zodiac"],
+            "Kameny duše": ", ".join(student["spiritual_stone"]["stones"]),
+            "Živel": student["spiritual_stone"]["element"],
+            "Keltské znamení": student["celtic_zodiac"],
+            "Čínské znamení": student["chinese_zodiac"],
+        }
+        for student in data
+    ]
+
+
 students_data = []
 
 # Read the file
@@ -139,7 +285,8 @@ with open("students.csv", "r", encoding="cp1250") as file:
             "birthdate": birthdate_from_number(personal_number),
             "gender": gender_from_number(personal_number),
         }
-        students_data.append(student_data)
+        if student_data["birthdate"]:
+            students_data.append(student_data)
 
 # Fill out esoteric stuff
 for student in students_data:
@@ -148,4 +295,13 @@ for student in students_data:
     student["guardian_angel_description"] = GUARDIAN_ANGELS[student["angelic_number"]][
         "description"
     ]
+    student["zodiac"] = zodiac(student["birthdate"])
+    student["spiritual_stone"] = spiritual_stone(student["zodiac"])
     student["chinese_zodiac"] = chinese_zodiac(student["birthdate"])
+    student["celtic_zodiac"] = celtic_zodiac(student["birthdate"])
+
+# Export data
+with open("valentyn_troll.csv", "w", encoding="utf-8") as file:
+    writer = csv.DictWriter(file, fieldnames=COLUMNS, delimiter="|")
+    writer.writeheader()
+    writer.writerows(data_for_export(students_data))
