@@ -1,10 +1,10 @@
-import './App.css'
-import CardList from './components/CardList';
+import "./App.css";
+import CardList from "./components/CardList";
 
 function App() {
   return (
     <>
-      <h1 className="text-4xl">Kartičky</h1>
+      <h1 className="text-4xl mb-4">Kartičky</h1>
       <CardList />
     </>
   );

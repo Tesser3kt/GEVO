@@ -3,7 +3,6 @@ import Card from "./Card";
 
 const CardList = () => {
   const handleDoneClick = (index: number) => {
-    console.log("Switching card " + index + " to " + !cards[index].done);
     setCards((cards) => {
       const newCards = [...cards];
       newCards[index] = {
