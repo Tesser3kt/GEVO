@@ -19,19 +19,51 @@ def smooth_func(x):
 class Definition(Scene):
     def limit_expression(self, direction: LimitDirection) -> VGroup:
         if direction == LimitDirection.LEFT:
-            limit_interval = MathTex(r"\forall x \in (a - \delta, a)")
+            limit_interval = MathTex(
+                r"\forall",
+                "x",
+                r"\in",
+                "(",
+                "a",
+                "-" r"\delta",
+                ",",
+                "a",
+                ")",
+            )
         elif direction == LimitDirection.RIGHT:
-            limit_interval = MathTex(r"\forall x \in (a, a + \delta)")
+            limit_interval = MathTex(
+                r"\forall",
+                "x",
+                r"\in",
+                "(",
+                "a",
+                ",",
+                "a",
+                "+",
+                r"\delta",
+                ")",
+            )
         elif direction == LimitDirection.BOTH:
-            limit_interval = MathTex(r"\forall 0 < |x - a| < \delta")
+            limit_interval = MathTex(
+                r"\forall",
+                "0",
+                "<",
+                "|",
+                "x",
+                "-",
+                "a",
+                "|",
+                "<",
+                r"\delta",
+            )
 
         return VGroup(
             *[
-                MathTex(r"\forall \epsilon > 0", substrings_to_isolate=[r"\epsilon"]),
-                MathTex(r"\exists \delta > 0"),
+                MathTex(r"\forall", r"\epsilon", ">", "0"),
+                MathTex(r"\exists", r"\delta", ">", "0"),
                 limit_interval,
-                MathTex(r" : "),
-                MathTex(r"|f(x) - L| < \epsilon"),
+                MathTex(":"),
+                MathTex("|", "f(x)", "-", "L", "|", "<", r"\epsilon"),
             ]
         ).arrange(RIGHT, buff=0.25)
 
@@ -59,14 +91,18 @@ class Definition(Scene):
         y_label.next_to(axes.y_axis.get_top(), LEFT)
         return VGroup(x_label, y_label)
 
-    def highlight_and_recolor(self, eq: VMobject, letter: str, new_color) -> VMobject:
+    def highlight_and_recolor(
+        self, eq: VMobject, rng: tuple[int, int], new_color
+    ) -> VMobject:
         return AnimationGroup(
-            Circumscribe(eq[eq.index_of_part_by_tex(letter)], color=new_color),
-            eq.animate.set_color_by_tex(letter, new_color),
+            Circumscribe(eq[rng[0] : rng[1]], color=new_color),
+            eq[rng[0] : rng[1]].animate.set_color(new_color),
             run_time=1.5,
         )
 
     def construct(self):
+        # Updaters
+
         # Formal definition
         self.next_section("Expression", skip_animations=SkipSectionAnims.formal)
         expression = self.limit_expression(LimitDirection.LEFT)
@@ -80,7 +116,10 @@ class Definition(Scene):
         axes_labels = self.axes_labels(axes)
         graph = axes.plot(smooth_func, x_range=[0, 3.5], color=Colors.graph)
 
-        self.play(self.highlight_and_recolor(expression[0], r"\epsilon", TEAL))
+        self.play(
+            self.highlight_and_recolor(expression[2], (1, 2), Colors.time),
+            self.highlight_and_recolor(expression[4], (1, 2), Colors.graph),
+        )
 
         anims = AnimationGroup(
             FadeIn(axes),
@@ -89,5 +128,56 @@ class Definition(Scene):
             lag_ratio=0.4,
         )
         self.play(anims)
+
+        # Point and limit
+        self.next_section(
+            "Point and limit", skip_animations=SkipSectionAnims.point_and_limit
+        )
+
+        # Highlight point
+        self.play(
+            self.highlight_and_recolor(expression[2], (4, 5), Colors.point),
+            self.highlight_and_recolor(expression[2], (7, 8), Colors.point),
+        )
+
+        # Create point with updaters
+        a = ValueTracker(2)
+        point = Dot(
+            axes.coords_to_point(a.get_value(), smooth_func(a.get_value())),
+            color=Colors.point,
+        ).add_updater(
+            lambda m: m.move_to(
+                axes.coords_to_point(a.get_value(), smooth_func(a.get_value()))
+            )
+        )
+        line_to_point = DashedLine(
+            point, axes.coords_to_point(a.get_value(), 0), color=Colors.point
+        ).add_updater(
+            lambda m: m.put_start_and_end_on(
+                point.get_center(), axes.coords_to_point(a.get_value(), 0)
+            )
+        )
+        point_label = (
+            MathTex("a", color=Colors.point)
+            .next_to(axes.coords_to_point(a.get_value(), 0), DOWN, buff=0.1)
+            .add_updater(
+                lambda m: m.next_to(
+                    axes.coords_to_point(a.get_value(), 0), DOWN, buff=0.1
+                )
+            )
+        )
+
+        # Create limit with updaters
+        L = ValueTracker(smooth_func(a.get_value()))
+
+        anims = AnimationGroup(
+            Create(point),
+            Create(line_to_point),
+            Write(point_label),
+            lag_ratio=0.7,
+        )
+        self.play(anims)
+
+        self.play(a.animate.set_value(2.5), run_time=3)
 
         self.wait()
