@@ -1,37 +1,37 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.12.6)  10 JAN 2024 20:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.30)  8 FEB 2024 13:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
-LaTeX2e <2023-11-01>
-L3 programming layer <2023-11-09>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
 (/opt/texlive/2023/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
 (/opt/texlive/2023/texmf-dist/tex/latex/base/bk11.clo
 File: bk11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count186
-\c@chapter=\count187
-\c@section=\count188
-\c@subsection=\count189
-\c@subsubsection=\count190
-\c@paragraph=\count191
-\c@subparagraph=\count192
-\c@figure=\count193
-\c@table=\count194
+\c@part=\count187
+\c@chapter=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
 ) (./book-preamble.tex (/opt/texlive/2023/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2023/11/11 v3.97 The Babel package
-\babel@savecnt=\count195
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count196
 \U@D=\dimen141
 \l@unhyphenated=\language89
  (/opt/texlive/2023/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count196
+\bbl@dirlevel=\count197
  (/opt/texlive/2023/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
@@ -43,7 +43,7 @@ Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 ) (/opt/texlive/2023/texmf-dist/tex/generic/babel-czech/czech.ldf
 Language: czech 2008/07/06 v3.1a Czech support from the babel system
 Package babel Info: Making " an active character on input line 172.
-\cs@wordlen=\count197
+\cs@wordlen=\count198
 Package babel Info: Making - an active character on input line 226.
 )) (/opt/texlive/2023/texmf-dist/tex/generic/babel/locale/cs/babel-czech.tex
 Package babel Info: Importing font and identification data for czech
@@ -67,9 +67,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (/opt/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count198
-\Gm@cntv=\count199
-\c@Gm@tempcnt=\count266
+\Gm@cnth=\count199
+\Gm@cntv=\count266
+\c@Gm@tempcnt=\count267
 \Gm@bindingoffset=\dimen142
 \Gm@wd@mp=\dimen143
 \Gm@odd@mp=\dimen144
@@ -107,14 +107,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/opt/texlive/2023/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count267
+\inf@bad=\count268
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count268
-\leftroot@=\count269
+\uproot@=\count269
+\leftroot@=\count270
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count270
-\DOTSCASE@=\count271
+\classnum@=\count271
+\DOTSCASE@=\count272
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -127,20 +127,20 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen152
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count272
+\macc@depth=\count273
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count273
+\c@MaxMatrixCols=\count274
 \dotsspace@=\muskip16
-\c@parentequation=\count274
-\dspbrk@lvl=\count275
+\c@parentequation=\count275
+\dspbrk@lvl=\count276
 \tag@help=\toks22
-\row@=\count276
-\column@=\count277
-\maxfields@=\count278
+\row@=\count277
+\column@=\count278
+\maxfields@=\count279
 \andhelp@=\toks23
 \eqnshift@=\dimen153
 \alignsep@=\dimen154
@@ -158,20 +158,20 @@ LaTeX Info: Redefining \] on input line 2954.
 Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
  (/opt/texlive/2023/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count279
-\calc@Bcount=\count280
+\calc@Acount=\count280
+\calc@Bcount=\count281
 \calc@Adimen=\dimen159
 \calc@Bdimen=\dimen160
 \calc@Askip=\skip62
 \calc@Bskip=\skip63
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count281
+\calc@Ccount=\count282
 \calc@Cskip=\skip64
 ) (/opt/texlive/2023/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count282
+\g_MT_multlinerow_int=\count283
 \l_MT_multwidth_dim=\dimen161
 \origjot=\skip65
 \l_MT_shortvdotswithinadjustabove_dim=\dimen162
@@ -221,15 +221,15 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 \thm@topsep=\skip72
 \thm@topsepadd=\skip73
 Package ntheorem Info: Option `thmmarks' loaded on input line 1175.
-\c@endNonectr=\count283
-\c@currNonectr=\count284
+\c@endNonectr=\count284
+\c@currNonectr=\count285
 \mysavskip=\skip74
 Package ntheorem Info: option `amsmath' handling for `thmmarks' loaded on input line 1175.
 \thm@amstmpdepth=\dimen173
 \tagwidth=\dimen174
 ) (/opt/texlive/2023/texmf-dist/tex/latex/newtx/newtx.sty
-Package: newtx 2023/11/05 v1.732(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
- `newtx'v1.732, 2023/11/05 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/opt/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
+Package: newtx 2023/12/18 v1.735(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
+ `newtx'v1.735, 2023/12/18 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/opt/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/opt/texlive/2023/texmf-dist/tex/latex/fontaxes/fontaxes.sty
 Package: fontaxes 2020/07/21 v1.0e Font selection axes
@@ -245,10 +245,10 @@ LaTeX Info: Redefining \textssc on input line 48.
 LaTeX Info: Redefining \textulc on input line 49.
 ) (/opt/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count285
+\etb@tempcnta=\count286
 ) (/opt/texlive/2023/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/opt/texlive/2023/texmf-dist/tex/generic/xstring/xstring.sty (/opt/texlive/2023/texmf-dist/tex/generic/xstring/xstring.tex
-\xs_counta=\count286
-\xs_countb=\count287
+\xs_counta=\count287
+\xs_countb=\count288
 )
 Package: xstring 2023/08/22 v1.86 String manipulations (CT)
 ) (/opt/texlive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -257,7 +257,7 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks44
 \XKV@tempa@toks=\toks45
 )
-\XKV@depth=\count288
+\XKV@depth=\count289
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 \tx@sixem=\dimen175
@@ -281,122 +281,122 @@ Package: newtxmath 2023/11/05 v1.732
  `newtxmath' v1.732, 2023/11/05 Math macros based originally on txfonts (msharpe) (/opt/texlive/2023/texmf-dist/tex/latex/oberdiek/centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
-\tx@cntz=\count289
+\tx@cntz=\count290
  (/opt/texlive/2023/texmf-dist/tex/generic/kastrup/binhex.tex)
-\tx@Isdigit=\count290
-\tx@IsAlNum=\count291
+\tx@Isdigit=\count291
+\tx@IsAlNum=\count292
 \tx@tA=\toks46
 \tx@tB=\toks47
 \tx@su=\read3
 
 amsthm NOT loaded
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 391.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 390.
 LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 391.
+(Font)              `operators' in the math version `normal' on input line 390.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> T1/MinLibertinus/m/n on input line 391.
+(Font)                  OT1/cmr/m/n --> T1/MinLibertinus/m/n on input line 390.
 LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 391.
+(Font)              `operators' in the math version `bold' on input line 390.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/m/n on input line 391.
+(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/m/n on input line 390.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  T1/MinLibertinus/m/n --> T1/MinLibertinus/b/n on input line 392.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 398.
+(Font)                  T1/MinLibertinus/m/n --> T1/MinLibertinus/b/n on input line 391.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 397.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 398.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 397.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 398.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 399.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 397.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 398.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/MinLibertinus/m/it on input line 399.
+(Font)                  OT1/cmr/m/it --> T1/MinLibertinus/m/it on input line 398.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/MinLibertinus/m/it on input line 399.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 400.
+(Font)                  OT1/cmr/bx/it --> T1/MinLibertinus/m/it on input line 398.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 399.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 400.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 399.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 400.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 402.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 399.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 401.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/b/n on input line 402.
+(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/b/n on input line 401.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/b/n on input line 402.
+(Font)                  OT1/cmr/bx/n --> T1/MinLibertinus/b/n on input line 401.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/MinLibertinus/m/it --> T1/MinLibertinus/b/it on input line 403.
+(Font)                  T1/MinLibertinus/m/it --> T1/MinLibertinus/b/it on input line 402.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 404.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 403.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 405.
-LaTeX Font Info:    Redeclaring symbol font `letters' on input line 423.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 404.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 422.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/cmm/m/it --> OML/nxlmi/m/it on input line 423.
+(Font)                  OML/cmm/m/it --> OML/nxlmi/m/it on input line 422.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/cmm/b/it --> OML/nxlmi/m/it on input line 423.
+(Font)                  OML/cmm/b/it --> OML/nxlmi/m/it on input line 422.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/nxlmi/m/it --> OML/nxlmi/b/it on input line 424.
+(Font)                  OML/nxlmi/m/it --> OML/nxlmi/b/it on input line 423.
 \symlettersA=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `lettersA' in version `bold'
-(Font)                  U/ntxmia/m/it --> U/ntxmia/b/it on input line 563.
+(Font)                  U/ntxmia/m/it --> U/ntxmia/b/it on input line 562.
 Now handling font encoding LMS ...
 ... no UTF-8 mapping file for font encoding LMS
-LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 584.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 583.
 LaTeX Font Info:    Encoding `OMS' has changed to `LMS' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 584.
+(Font)              `symbols' in the math version `normal' on input line 583.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> LMS/ntxsy/m/n on input line 584.
+(Font)                  OMS/cmsy/m/n --> LMS/ntxsy/m/n on input line 583.
 LaTeX Font Info:    Encoding `OMS' has changed to `LMS' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 584.
+(Font)              `symbols' in the math version `bold' on input line 583.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> LMS/ntxsy/m/n on input line 584.
+(Font)                  OMS/cmsy/b/n --> LMS/ntxsy/m/n on input line 583.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  LMS/ntxsy/m/n --> LMS/ntxsy/b/n on input line 585.
+(Font)                  LMS/ntxsy/m/n --> LMS/ntxsy/b/n on input line 584.
 \symAMSm=\mathgroup5
 LaTeX Font Info:    Overwriting symbol font `AMSm' in version `bold'
-(Font)                  U/ntxsym/m/n --> U/ntxsym/b/n on input line 610.
+(Font)                  U/ntxsym/m/n --> U/ntxsym/b/n on input line 609.
 \symsymbolsC=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `symbolsC' in version `bold'
-(Font)                  U/ntxsyc/m/n --> U/ntxsyc/b/n on input line 631.
+(Font)                  U/ntxsyc/m/n --> U/ntxsyc/b/n on input line 630.
 Now handling font encoding LMX ...
 ... no UTF-8 mapping file for font encoding LMX
-LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 644.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 643.
 LaTeX Font Info:    Encoding `OMX' has changed to `LMX' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 644.
+(Font)              `largesymbols' in the math version `normal' on input line 643.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> LMX/ntxexx/m/n on input line 644.
+(Font)                  OMX/cmex/m/n --> LMX/ntxexx/m/n on input line 643.
 LaTeX Font Info:    Encoding `OMX' has changed to `LMX' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 644.
+(Font)              `largesymbols' in the math version `bold' on input line 643.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> LMX/ntxexx/m/n on input line 644.
+(Font)                  OMX/cmex/m/n --> LMX/ntxexx/m/n on input line 643.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  LMX/ntxexx/m/n --> LMX/ntxexx/b/n on input line 645.
+(Font)                  LMX/ntxexx/m/n --> LMX/ntxexx/b/n on input line 644.
 \symlargesymbolsTXA=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `largesymbolsTXA' in version `bold'
-(Font)                  U/ntxexa/m/n --> U/ntxexa/b/n on input line 659.
+(Font)                  U/ntxexa/m/n --> U/ntxexa/b/n on input line 658.
 \tx@sbptoks=\toks48
-LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 882.
-LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 883.
-LaTeX Font Info:    Redeclaring math delimiter \lceil on input line 884.
-LaTeX Font Info:    Redeclaring math delimiter \rceil on input line 885.
-LaTeX Font Info:    Redeclaring math delimiter \lbrace on input line 890.
-LaTeX Font Info:    Redeclaring math delimiter \rbrace on input line 891.
-LaTeX Font Info:    Redeclaring math delimiter \langle on input line 893.
-LaTeX Font Info:    Redeclaring math delimiter \rangle on input line 895.
-LaTeX Font Info:    Redeclaring math delimiter \arrowvert on input line 899.
-LaTeX Font Info:    Redeclaring math delimiter \vert on input line 900.
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 946.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 971.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 972.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 988.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 989.
-LaTeX Font Info:    Redeclaring math accent \check on input line 990.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 991.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 992.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 993.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 994.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 995.
-LaTeX Font Info:    Redeclaring math accent \vec on input line 2045.
-LaTeX Info: Redefining \Bbbk on input line 2835.
-LaTeX Info: Redefining \not on input line 2983.
+LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 881.
+LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 882.
+LaTeX Font Info:    Redeclaring math delimiter \lceil on input line 883.
+LaTeX Font Info:    Redeclaring math delimiter \rceil on input line 884.
+LaTeX Font Info:    Redeclaring math delimiter \lbrace on input line 889.
+LaTeX Font Info:    Redeclaring math delimiter \rbrace on input line 890.
+LaTeX Font Info:    Redeclaring math delimiter \langle on input line 892.
+LaTeX Font Info:    Redeclaring math delimiter \rangle on input line 894.
+LaTeX Font Info:    Redeclaring math delimiter \arrowvert on input line 898.
+LaTeX Font Info:    Redeclaring math delimiter \vert on input line 899.
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 945.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 970.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 971.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 987.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 988.
+LaTeX Font Info:    Redeclaring math accent \check on input line 989.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 990.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 991.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 992.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 993.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 994.
+LaTeX Font Info:    Redeclaring math accent \vec on input line 2044.
+LaTeX Info: Redefining \Bbbk on input line 2834.
+LaTeX Info: Redefining \not on input line 2982.
 ) (/opt/texlive/2023/texmf-dist/tex/latex/libertine/libertine.sty
 Package: libertine 2023/11/26 (Bob Tennent) Supports Libertine and Biolinum fonts for all LaTeX engines.
  (/opt/texlive/2023/texmf-dist/tex/generic/iftex/ifxetex.sty
@@ -493,14 +493,14 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yd=\dimen258
 \w@pgf@writea=\write3
 \r@pgf@reada=\read4
-\c@pgf@counta=\count292
-\c@pgf@countb=\count293
-\c@pgf@countc=\count294
-\c@pgf@countd=\count295
+\c@pgf@counta=\count293
+\c@pgf@countb=\count294
+\c@pgf@countc=\count295
+\c@pgf@countd=\count296
 \t@pgf@toka=\toks53
 \t@pgf@tokb=\toks54
 \t@pgf@tokc=\toks55
-\pgf@sys@id@count=\count296
+\pgf@sys@id@count=\count297
  (/opt/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -511,8 +511,8 @@ File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 ))) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count297
-\pgfsyssoftpath@bigbuffer@items=\count298
+\pgfsyssoftpath@smallbuffer@items=\count298
+\pgfsyssoftpath@bigbuffer@items=\count299
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
@@ -520,13 +520,13 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
  (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
 (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen259
-\pgfmath@count=\count299
+\pgfmath@count=\count300
 \pgfmath@box=\box55
 \pgfmath@toks=\toks56
 \pgfmath@stack@operand=\toks57
 \pgfmath@stack@operation=\toks58
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count300
+\c@pgfmathroundto@lastzeros=\count301
 )) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@picminx=\dimen260
@@ -556,7 +556,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box56
 \pgf@hbox=\box57
 \pgf@layerbox@main=\box58
-\pgf@picture@serial@count=\count301
+\pgf@picture@serial@count=\count302
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgflinewidth=\dimen278
@@ -578,8 +578,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/opt/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen283
-\pgf@sys@shading@range@num=\count302
-\pgf@shadingcount=\count303
+\pgf@sys@shading@range@num=\count303
+\pgf@shadingcount=\count304
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -614,7 +614,7 @@ Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
  (/opt/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count304
+\pgf@plot@mark@count=\count305
 \pgfplotmarksize=\dimen288
 )
 \tikz@lastx=\dimen289
@@ -629,22 +629,22 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@figbox@bg=\box62
 \tikz@tempbox=\box63
 \tikz@tempbox@bg=\box64
-\tikztreelevel=\count305
-\tikznumberofchildren=\count306
-\tikznumberofcurrentchild=\count307
-\tikz@fig@count=\count308
+\tikztreelevel=\count306
+\tikznumberofchildren=\count307
+\tikznumberofcurrentchild=\count308
+\tikz@fig@count=\count309
  (/opt/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count309
-\pgfmatrixcurrentcolumn=\count310
-\pgf@matrix@numberofcolumns=\count311
+\pgfmatrixcurrentrow=\count310
+\pgfmatrixcurrentcolumn=\count311
+\pgf@matrix@numberofcolumns=\count312
 )
-\tikz@expandcount=\count312
+\tikz@expandcount=\count313
  (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-euclide.sty
-2023/10/26 5.04c tkz-euclide.sty
-Package: tkz-euclide  2023/10/26 5.04c for pure Euclidean Geometry 
+2024/02/04 5.06c tkz-euclide.sty
+Package: tkz-euclide  2024/02/04 5.06c for pure Euclidean Geometry 
 (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex
 File: tikzlibraryangles.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
@@ -670,7 +670,7 @@ File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfdecoratedinputsegmentcompleteddistance=\dimen304
 \pgfdecoratedinputsegmentremainingdistance=\dimen305
 \pgf@decorate@distancetomove=\dimen306
-\pgf@decorate@repeatstate=\count313
+\pgf@decorate@repeatstate=\count314
 \pgfdecorationsegmentamplitude=\dimen307
 \pgfdecorationsegmentlength=\dimen308
 )
@@ -681,9 +681,9 @@ File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@lib@dec@te@box=\box69
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/opt/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex))
 (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (/opt/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex (/opt/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
-\pgf@intersect@solutions=\count314
+\pgf@intersect@solutions=\count315
 )) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex)
-\tikz@math@for@depth=\count315
+\tikz@math@for@depth=\count316
 \tikz@math@dimen=\dimen309
 \tikz@math@toks=\toks61
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
@@ -701,10 +701,10 @@ File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarythrough.code.tex
 File: tikzlibrarythrough.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/opt/texlive/2023/texmf-dist/tex/latex/l3packages/xfp/xfp.sty (/opt/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2023-11-09 L3 programming layer (loader) 
+Package: expl3 2024-01-22 L3 programming layer (loader) 
  (/opt/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-11-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count316
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count317
 \l__pdf_internal_box=\box70
 ))
 Package: xfp 2023-10-10 L3 Floating point unit
@@ -724,77 +724,77 @@ Package: xparse 2023-10-10 L3 Experimental document command parser
 \tkz@cy=\dimen318
 \tkz@dx=\dimen319
 \tkz@dy=\dimen320
-\tkz@cntmk=\count317
+\tkz@cntmk=\count318
 
 Local configuration file tkz-euclide.cfg found and used
 (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-euclide.cfg
-2023/10/26 5.04c tkz-euclide.cfg
+2024/02/04 5.06c tkz-euclide.cfg
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-base.tex
-2023/10/26 5.04c tkz-tools-eu-base.tex
+2024/02/04 5.06c tkz-tools-eu-base.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-utilities.tex
-2023/10/26 5.04c tkz-tools-eu-utilities.tex
+2024/02/04 5.06c tkz-tools-eu-utilities.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-BB.tex
-2023/10/26 5.04c tkz-obj-eu-BB.tex
+2024/02/04 5.06c tkz-obj-eu-BB.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-grids.tex
-2023/10/26 5.04c tkz-obj-eu-grids.tex
+2024/02/04 5.06c tkz-obj-eu-grids.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-lib-eu-marks.tex
-2023/10/26 5.04c tkz-lib-eu-marks.tex
+2024/02/04 5.06c tkz-lib-eu-marks.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-text.tex
-2023/10/26 5.04c tkz-tools-eu-text.tex
+2024/02/04 5.06c tkz-tools-eu-text.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-lib-eu-shape.tex
-2023/10/26 5.04c tkz-lib-eu-shape.tex
+2024/02/04 5.06c tkz-lib-eu-shape.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-axesmin.tex
-2023/10/26 5.04c tkz-obj-eu-axesmin
+2024/02/04 5.06c tkz-obj-eu-axesmin
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-colors.tex
-2023/10/26 5.04c tkz-tools-eu-colors
+2024/02/04 5.06c tkz-tools-eu-colors
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points.tex
-2023/10/26 5.04c tkz-obj-eu-points.tex
+2024/02/04 5.06c tkz-obj-eu-points.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-points.tex
-2023/10/26 5.04c tkz-draw-eu-points.tex
+2024/02/04 5.06c tkz-draw-eu-points.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points.tex
-2023/10/26 5.04c tkz-obj-eu-points.tex
+2024/02/04 5.06c tkz-obj-eu-points.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-by.tex
-2023/10/26 5.04c tkz-tools-eu-points-by.tex
+2024/02/04 5.06c tkz-tools-eu-points-by.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-math.tex
-2023/10/26 5.04c tkz-tools-eu-math.tex
+2024/02/04 5.06c tkz-tools-eu-math.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-intersections.tex
-2023/10/26 5.04c tkz-tools-eu-intersections.tex
+2024/02/04 5.06c tkz-tools-eu-intersections.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-with.tex
-2023/10/26 5.04c tkz-obj-eu-points-with.tex
+2024/02/04 5.06c tkz-obj-eu-points-with.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-spc.tex
-2023/10/26 5.04c tkz-obj-el-points.tex
+2024/02/04 5.06c tkz-obj-el-points.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-angles.tex
-2023/10/26 5.04c tkz-tools-eu-angles.tex
+2024/02/04 5.06c tkz-tools-eu-angles.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-circles.tex
-2023/10/26 5.04c tkz-obj-eu-circles.tex
+2024/02/04 5.06c tkz-obj-eu-circles.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-circles-by.tex
-2023/10/26 5.04c tkz-obj-eu-circles.tex
+2024/02/04 5.06c tkz-obj-eu-circles.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-rnd.tex
-2023/10/26 5.04c tkz-obj-eu-points-rnd.tex
+2024/02/04 5.06c tkz-obj-eu-points-rnd.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-lines.tex
-2023/10/26 5.04c tkz-obj-eu-lines.tex
+2024/02/04 5.06c tkz-obj-eu-lines.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-polygons.tex
-2023/10/26 5.04c tkz-obj-eu-polygons.tex
+2024/02/04 5.06c tkz-obj-eu-polygons.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-triangles.tex
-2023/10/26 5.04c tkz-obj-eu-triangles.tex
+2024/02/04 5.06c tkz-obj-eu-triangles.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-lines.tex
-2023/10/26 5.04c tkz-obj-eu-draw-lines.tex
+2024/02/04 5.06c tkz-obj-eu-draw-lines.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-circles.tex
-2023/10/26 5.04c tkz-obj-eu-draw-circles.tex
+2024/02/04 5.06c tkz-obj-eu-draw-circles.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-ellipses.tex
-2023/10/26 5.04c tkz-obj-eu-draw-ellipses.tex
+2024/02/04 5.06c tkz-obj-eu-draw-ellipses.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-polygons.tex
-2023/10/26 5.04c tkz-obj-eu-polygons.tex
+2024/02/04 5.06c tkz-obj-eu-polygons.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-angles.tex
-2023/10/26 5.04c tkz-tool-eu-angles.tex
+2024/02/04 5.06c tkz-tool-eu-angles.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-sectors.tex
-2023/10/26 5.04c tkz-obj-eu-sectors.tex
+2024/02/04 5.06c tkz-obj-eu-sectors.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-compass.tex
-2023/10/26 5.04c tkz-obj-eu-compass.tex
+2024/02/04 5.06c tkz-obj-eu-compass.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-show.tex
-2023/10/26 5.04c tkz-obj-eu-show.tex
+2024/02/04 5.06c tkz-obj-eu-show.tex
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-protractor.tex
-2023/10/26 5.04c tkz-obj-eu-protractor.tex
+2024/02/04 5.06c tkz-obj-eu-protractor.tex
 )) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryperspective.code.tex
 File: tikzlibraryperspective.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex
@@ -813,24 +813,22 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen328
 \cmidrulekern=\dimen329
 \defaultaddspace=\dimen330
-\@cmidla=\count318
-\@cmidlb=\count319
+\@cmidla=\count319
+\@cmidlb=\count320
 \@aboverulesep=\dimen331
 \@belowrulesep=\dimen332
-\@thisruleclass=\count320
-\@lastruleclass=\count321
+\@thisruleclass=\count321
+\@lastruleclass=\count322
 \@thisrulewidth=\dimen333
 ) (/opt/texlive/2023/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip75
-\multirow@cntb=\count322
+\multirow@cntb=\count323
 \multirow@dima=\skip76
 \bigstrutjot=\dimen334
 ) (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
- (/opt/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (/opt/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+ (/opt/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
@@ -840,13 +838,14 @@ Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/opt/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )) (/opt/texlive/2023/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/opt/texlive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
-Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ) (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -858,74 +857,73 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
  (/opt/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count323
+\c@section@level=\count324
 )
 \@linkdim=\dimen335
-\Hy@linkcounter=\count324
-\Hy@pagecounter=\count325
+\Hy@linkcounter=\count325
+\Hy@pagecounter=\count326
  (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (/opt/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count326
+\Hy@SavedSpaceFactor=\count327
  (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4181.
-Package hyperref Info: Link nesting OFF on input line 4186.
-Package hyperref Info: Hyper index ON on input line 4189.
-Package hyperref Info: Plain pages OFF on input line 4196.
-Package hyperref Info: Backreferencing OFF on input line 4201.
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4448.
-\c@Hy@tempcnt=\count327
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count328
  (/opt/texlive/2023/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4786.
+LaTeX Info: Redefining \url on input line 4784.
 \XeTeXLinkMargin=\dimen336
  (/opt/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/opt/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count328
+\Fld@menulength=\count329
 \Field@Width=\dimen337
 \Fld@charsize=\dimen338
-Package hyperref Info: Hyper figures OFF on input line 6065.
-Package hyperref Info: Link nesting OFF on input line 6070.
-Package hyperref Info: Hyper index ON on input line 6073.
-Package hyperref Info: backreferencing OFF on input line 6080.
-Package hyperref Info: Link coloring OFF on input line 6085.
-Package hyperref Info: Link coloring with OCG OFF on input line 6090.
-Package hyperref Info: PDF/A mode OFF on input line 6095.
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
  (/opt/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count329
-\c@Item=\count330
-\c@Hfootnote=\count331
+\Hy@abspage=\count330
+\c@Item=\count331
+\c@Hfootnote=\count332
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/opt/texlive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
+File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
  (/opt/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count332
-\c@bookmark@seq@number=\count333
+\Fld@listcount=\count333
+\c@bookmark@seq@number=\count334
  (/opt/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
-
-(/opt/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+ (/opt/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
@@ -933,7 +931,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip77
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 78.
- (/opt/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
+
+(/opt/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
  (/opt/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
@@ -947,18 +946,18 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@hangindent=\dimen346
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count334
-\c@continuedfloat=\count335
+\c@caption@flags=\count335
+\c@continuedfloat=\count336
 Package caption Info: hyperref package is loaded.
 ) (/opt/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count336
+\c@subfigure=\count337
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count337
+\c@subtable=\count338
 ) (/opt/texlive/2023/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count338
+\c@float@type=\count339
 \float@exts=\toks62
 \float@box=\box71
 \@float@everytoks=\toks63
@@ -969,10 +968,10 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@outerparindent=\dimen347
 \enit@toks=\toks64
 \enit@inbox=\box73
-\enit@count@id=\count339
-\enitdp@description=\count340
+\enit@count@id=\count340
+\enitdp@description=\count341
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2023/09/26 version 6.1.0 text color boxes
+Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
  (/opt/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks65
@@ -987,120 +986,119 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@upperbox=\box75
 \tcb@lowerbox=\box76
 \tcb@phantombox=\box77
-\c@tcbbreakpart=\count341
-\c@tcblayer=\count342
-\c@tcolorbox@number=\count343
-\tcb@temp=\box78
+\c@tcbbreakpart=\count342
+\c@tcblayer=\count343
+\c@tcolorbox@number=\count344
+\l__tcobox_tmpa_box=\box78
+\l__tcobox_tmpa_dim=\dimen348
 \tcb@temp=\box79
 \tcb@temp=\box80
 \tcb@temp=\box81
+\tcb@temp=\box82
  (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
-Library (tcolorbox): 'tcbtheorems.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.2.0'
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
-Library (tcolorbox): 'tcbbreakable.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
 (/opt/texlive/2023/texmf-dist/tex/latex/pdfcol/pdfcol.sty
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box82
-\tcb@totalupperbox=\box83
-\tcb@totallowerbox=\box84
+\tcb@testbox=\box83
+\tcb@totalupperbox=\box84
+\tcb@totallowerbox=\box85
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
-Library (tcolorbox): 'tcbraster.code.tex' version '6.1.0'
-\c@tcbrastercolumn=\count344
-\c@tcbrasterrow=\count345
-\c@tcbrasternum=\count346
-\c@tcbraster=\count347
+Library (tcolorbox): 'tcbraster.code.tex' version '6.2.0'
+\c@tcbrastercolumn=\count345
+\c@tcbrasterrow=\count346
+\c@tcbrasternum=\count347
+\c@tcbraster=\count348
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
-Library (tcolorbox): 'tcbskins.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcbskins.code.tex' version '6.2.0'
 (/opt/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
 Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
  (/opt/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzfill-common.sty
 Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box85
+\l__tikzfill_img_box=\box86
 )) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
-Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 )) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
-Library (tcolorbox): 'tcbhooks.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.2.0'
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
-Library (tcolorbox): 'tcbfitting.code.tex' version '6.1.0'
-\tcbfitdim=\dimen348
-\tcb@lowerfitdim=\dimen349
-\tcb@upperfitdim=\dimen350
-\tcb@cur@hbadness=\count348
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.2.0'
+\tcbfitdim=\dimen349
+\tcb@lowerfitdim=\dimen350
+\tcb@upperfitdim=\dimen351
+\tcb@cur@hbadness=\count349
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
-Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.2.0'
 (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
-Library (tcolorbox): 'tcblistings.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcblistings.code.tex' version '6.2.0'
 (/opt/texlive/2023/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count349
-\lst@gtempboxa=\box86
+\lst@mode=\count350
+\lst@gtempboxa=\box87
 \lst@token=\toks67
-\lst@length=\count350
-\lst@currlwidth=\dimen351
-\lst@column=\count351
-\lst@pos=\count352
-\lst@lostspace=\dimen352
-\lst@width=\dimen353
-\lst@newlines=\count353
-\lst@lineno=\count354
-\lst@maxwidth=\dimen354
+\lst@length=\count351
+\lst@currlwidth=\dimen352
+\lst@column=\count352
+\lst@pos=\count353
+\lst@lostspace=\dimen353
+\lst@width=\dimen354
+\lst@newlines=\count354
+\lst@lineno=\count355
+\lst@maxwidth=\dimen355
  (/opt/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count355
-\lst@skipnumbers=\count356
-\lst@framebox=\box87
+\c@lstnumber=\count356
+\lst@skipnumbers=\count357
+\lst@framebox=\box88
 ) (/opt/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
 Package: listings 2023/02/27 1.9 (Carsten Heinz)
  (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcblistingscore.code.tex
-Library (tcolorbox): 'tcblistingscore.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.2.0'
 (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
-Library (tcolorbox): 'tcbprocessing.code.tex' version '6.1.0'
-(/opt/texlive/2023/texmf-dist/tex/latex/tools/shellesc.sty
-Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
-Package shellesc Info: Restricted shell escape enabled on input line 77.
-))
-\c@tcblisting=\count357
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.2.0'
+)
+\c@tcblisting=\count358
 )) (/opt/texlive/2023/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
 Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
  (/opt/texlive/2023/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 ))) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
-Library (tcolorbox): 'tcbexternal.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.2.0'
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbmagazine.code.tex
-Library (tcolorbox): 'tcbmagazine.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.2.0'
 ) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbvignette.code.tex
-Library (tcolorbox): 'tcbvignette.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.2.0'
 (/opt/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
 File: tikzlibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/opt/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
 File: pgflibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/opt/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
-Library (tcolorbox): 'tcbposter.code.tex' version '6.1.0'
+Library (tcolorbox): 'tcbposter.code.tex' version '6.2.0'
 ))
-\c@tcb@cnt@theorem=\count358
-\c@currthmproofctr=\count359
-\c@endthmproofctr=\count360
-\c@thmproof=\count361
-\c@currpropproofctr=\count362
-\c@endpropproofctr=\count363
-\c@propproof=\count364
-\c@currlemproofctr=\count365
-\c@endlemproofctr=\count366
-\c@lemproof=\count367
-\c@currobsproofctr=\count368
-\c@endobsproofctr=\count369
-\c@obsproof=\count370
-\c@currcorproofctr=\count371
-\c@endcorproofctr=\count372
-\c@corproof=\count373
-\c@currprobsolctr=\count374
-\c@endprobsolctr=\count375
-\c@probsol=\count376
+\c@tcb@cnt@theorem=\count359
+\c@currthmproofctr=\count360
+\c@endthmproofctr=\count361
+\c@thmproof=\count362
+\c@currpropproofctr=\count363
+\c@endpropproofctr=\count364
+\c@propproof=\count365
+\c@currlemproofctr=\count366
+\c@endlemproofctr=\count367
+\c@lemproof=\count368
+\c@currobsproofctr=\count369
+\c@endobsproofctr=\count370
+\c@obsproof=\count371
+\c@currcorproofctr=\count372
+\c@endcorproofctr=\count373
+\c@corproof=\count374
+\c@currprobsolctr=\count375
+\c@endprobsolctr=\count376
+\c@probsol=\count377
 )
 LaTeX Font Info:    Trying to load font information for T1+LinuxLibertineT-TLF on input line 4.
  (/opt/texlive/2023/texmf-dist/tex/latex/libertine/T1LinuxLibertineT-TLF.fd
@@ -1186,20 +1184,20 @@ LaTeX Font Info:    ... okay on input line 4.
 
 LaTeX Info: Command `\dddot' is already robust on input line 4.
 LaTeX Info: Command `\ddddot' is already robust on input line 4.
-\c@mv@tabular=\count377
-\c@mv@boldtabular=\count378
+\c@mv@tabular=\count378
+\c@mv@boldtabular=\count379
 (/opt/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count379
-\scratchdimen=\dimen355
-\scratchbox=\box88
-\nofMPsegments=\count380
-\nofMParguments=\count381
+\scratchcounter=\count380
+\scratchdimen=\dimen356
+\scratchbox=\box89
+\nofMPsegments=\count381
+\nofMParguments=\count382
 \everyMPshowfont=\toks68
-\MPscratchCnt=\count382
-\MPscratchDim=\dimen356
-\MPnumerator=\count383
-\makeMPintoPDFobject=\count384
+\MPscratchCnt=\count383
+\MPscratchDim=\dimen357
+\MPnumerator=\count384
+\makeMPintoPDFobject=\count385
 \everyMPtoPDFconversion=\toks69
 ) (/opt/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1216,13 +1214,13 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count385
+\c@lstlisting=\count386
  (./titlepage.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 6.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 17.28pt on input line 6.
-<moebius.png, id=131, 869.2475pt x 524.96124pt>
+<moebius.png, id=95, 869.2475pt x 524.96124pt>
 File: moebius.png Graphic file (type png)
 <use moebius.png>
 Package pdftex.def Info: moebius.png  used on input line 7.
@@ -1257,182 +1255,95 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 
 ] (./main.toc
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 2.
+(Font)              scaled to size 12.0pt on input line 2.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
 LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
-(Font)              scaled to size 8.0pt on input line 3.
+(Font)              scaled to size 8.0pt on input line 4.
 LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
-(Font)              scaled to size 6.1pt on input line 3.
+(Font)              scaled to size 6.1pt on input line 4.
 LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 10.95pt on input line 3.
+(Font)              scaled to size 10.95pt on input line 4.
 LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 8.0pt on input line 3.
+(Font)              scaled to size 8.0pt on input line 4.
 LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 6.1pt on input line 3.
+(Font)              scaled to size 6.1pt on input line 4.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.95pt on input line 3.
+(Font)              scaled to size 10.95pt on input line 4.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 8.0pt on input line 3.
+(Font)              scaled to size 8.0pt on input line 4.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.1pt on input line 3.
+(Font)              scaled to size 6.1pt on input line 4.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 3.
+(Font)              scaled to size 10.95pt on input line 4.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 8.0pt on input line 3.
+(Font)              scaled to size 8.0pt on input line 4.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 3.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 3.
+(Font)              scaled to size 6.1pt on input line 4.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 4.
  (/opt/texlive/2023/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 3.
+(Font)              scaled to size 10.95pt on input line 4.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.0pt on input line 3.
+(Font)              scaled to size 8.0pt on input line 4.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.1pt on input line 3.
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 3.
+(Font)              scaled to size 6.1pt on input line 4.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 4.
  (/opt/texlive/2023/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 3.
+(Font)              scaled to size 10.95pt on input line 4.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.0pt on input line 3.
+(Font)              scaled to size 8.0pt on input line 4.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.1pt on input line 3.
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 3.
+(Font)              scaled to size 6.1pt on input line 4.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 4.
  (/opt/texlive/2023/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 3.
+(Font)              scaled to size 10.95pt on input line 4.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.0pt on input line 3.
+(Font)              scaled to size 8.0pt on input line 4.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.1pt on input line 3.
+(Font)              scaled to size 6.1pt on input line 4.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 3.
+(Font)              scaled to size 10.95pt on input line 4.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.0pt on input line 3.
+(Font)              scaled to size 8.0pt on input line 4.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.1pt on input line 3.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 11.
-
-Underfull \vbox (badness 3884) has occurred while \output is active []
-
- [5{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}])
+(Font)              scaled to size 6.1pt on input line 4.
+)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- (./preliminaries.tex [6]
-Kapitola 1.
+ (./real-numbers-and-limits.tex [5{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}] [6
+
+]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 20.74pt on input line 1.
-(./preliminaries/logic.tex
+ [7] [8] (./real-numbers-and-limits/number-domains.tex
+Kapitola 1.
+(./real-numbers-and-limits/number-domains/algebraic-structures.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
-LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 6.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
+(Font)              scaled to size 10.95pt on input line 18.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
+(Font)              scaled to size 10.95pt on input line 18.
+LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 21.
  (/opt/texlive/2023/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
 File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 6.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 31.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.1pt on input line 31.
- [7
-
-{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_75t36g.enc}]
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 51.
- [8]) (./preliminaries/sets.tex [9] (./preliminaries/sets/operations.tex
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 1.
-
-Underfull \vbox (badness 2671) has occurred while \output is active []
-
- [10]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 27.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
-(Font)              scaled to size 10.0pt on input line 27.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
-(Font)              scaled to size 7.3pt on input line 27.
-LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
-(Font)              scaled to size 5.5pt on input line 27.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 10.0pt on input line 27.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 7.3pt on input line 27.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 5.5pt on input line 27.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.0pt on input line 27.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.3pt on input line 27.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.5pt on input line 27.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 27.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 27.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.0pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.3pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.5pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.3pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.5pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.3pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.5pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.0pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.3pt on input line 27.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.5pt on input line 27.
- [11]) (./preliminaries/sets/tuples.tex [12]
-LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
- (/opt/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [13]) (./preliminaries/sets/relations.tex
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 13.
- [14]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/it' will be
-(Font)              scaled to size 10.95pt on input line 86.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 170.
-) (./preliminaries/sets/equivalence.tex [15{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_ki75ao.enc}]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 8.0pt on input line 62.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 6.1pt on input line 62.
- [16]) (./preliminaries/sets/orderings.tex [17] [18]) (./preliminaries/sets/maps.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19] [20]))) (./real-numbers-and-limits.tex [21] [22
-
-] [23] [24] (./real-numbers-and-limits/number-domains.tex
-Kapitola 2.
-(./real-numbers-and-limits/number-domains/algebraic-structures.tex
+(Font)              scaled to size 10.95pt on input line 21.
 LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
 (Font)              scaled to size 10.95pt on input line 28.
 LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
@@ -1442,19 +1353,73 @@ LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [25
+ [9
 
-]
+{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_75t36g.enc}]
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+ (/opt/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 54.
  (/opt/texlive/2023/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 135.
+LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
+(Font)              scaled to size 10.0pt on input line 135.
+LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
+(Font)              scaled to size 7.3pt on input line 135.
+LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
+(Font)              scaled to size 5.5pt on input line 135.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 10.0pt on input line 135.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 7.3pt on input line 135.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 5.5pt on input line 135.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 10.0pt on input line 135.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 7.3pt on input line 135.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 5.5pt on input line 135.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 10.0pt on input line 135.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 7.3pt on input line 135.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 5.5pt on input line 135.
 LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
 (Font)              scaled to size 10.0pt on input line 135.
 LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
 (Font)              scaled to size 7.3pt on input line 135.
 LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
 (Font)              scaled to size 5.5pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 10.0pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 7.3pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 5.5pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 10.0pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 7.3pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 5.5pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 10.0pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 7.3pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 5.5pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 10.0pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 7.3pt on input line 135.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 5.5pt on input line 135.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 7.3pt on input line 135.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
@@ -1462,10 +1427,15 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [26{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_sfissr.enc}] [27]
+ [10{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_sfissr.enc}] [11]
 Underfull \vbox (badness 6445) has occurred while \output is active []
 
- [28] [29] [30]) (./real-numbers-and-limits/number-domains/number-domains.tex [31] [32]
+ [12]
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 377.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 6.1pt on input line 377.
+ [13] [14]) (./real-numbers-and-limits/number-domains/number-domains.tex [15] [16]
 LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
 (Font)              scaled to size 14.4pt on input line 221.
 LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
@@ -1520,67 +1490,64 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 10.5pt on input line 221.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 7.9pt on input line 221.
- [33] [34] [35])) (./real-numbers-and-limits/sequences-and-limits.tex [36] [37] [38
+ [17] [18] [19])) (./real-numbers-and-limits/sequences-and-limits.tex [20] [21] [22
 
 ]
-Kapitola 3.
-(./real-numbers-and-limits/sequences-and-limits/definition-of-a-limit.tex [39]
+Kapitola 2.
+(./real-numbers-and-limits/sequences-and-limits/definition-of-a-limit.tex [23]
 Underfull \vbox (badness 3118) has occurred while \output is active []
 
- [40] [41]) (./real-numbers-and-limits/sequences-and-limits/limits-of-convergent.tex
+ [24] [25]) (./real-numbers-and-limits/sequences-and-limits/limits-of-convergent.tex
 Package hyperref Info: bookmark level for unknown lemproof defaults to 0 on input line 15.
- [42] [43] [44] [45] [46]
+ [26] [27] [28]
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 227.
+ [29] [30]
 Package hyperref Info: bookmark level for unknown propproof defaults to 0 on input line 310.
 Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 334.
+ [31]) (./real-numbers-and-limits/sequences-and-limits/limit-theorems.tex [32] [33] [34] [35] [36] [37]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \vbox (badness 2351) has occurred while \output is active []
-
- [47]) (./real-numbers-and-limits/sequences-and-limits/limit-theorems.tex [48] [49] [50] [51] [52]
-Underfull \vbox (badness 2486) has occurred while \output is active []
-
- [53]
-Underfull \vbox (badness 5175) has occurred while \output is active []
-
- [54] [55] [56]
+ [38] [39] [40]
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/it' will be
+(Font)              scaled to size 10.95pt on input line 667.
 Package hyperref Info: bookmark level for unknown thmproof defaults to 0 on input line 671.
-
-Underfull \vbox (badness 1259) has occurred while \output is active []
-
- [57]) (./real-numbers-and-limits/sequences-and-limits/calculating-limits.tex [58] [59]
+ [41{/opt/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_ki75ao.enc}]) (./real-numbers-and-limits/sequences-and-limits/calculating-limits.tex [42] [43]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [60]
+ [44]
 Package hyperref Info: bookmark level for unknown probsol defaults to 0 on input line 279.
- [61]
+ [45]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62] [63] [64] [65] [66] [67] [68]))) (./exercises.tex [69] [70
+ [46] [47] [48] [49] [50] [51] [52])) (./real-numbers-and-limits/series.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] [71])
+ [53]))
 \tf@thm=\write6
 \openout6 = `main.thm'.
 
- [72] (./main.aux)
+ [54] (./main.aux)
  ***********
-LaTeX2e <2023-11-01>
+LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5D4E0B690779BC325F3EDFE8A3920DBE;3957.
+(rerunfilecheck)             Checksum: 4B22F8A4A78E5A185A5EE495BE728F00;2458.
  ) 
 Here is how much of TeX's memory you used:
- 44260 strings out of 474267
- 893330 string characters out of 5722286
- 2027555 words of memory out of 5000000
- 65211 multiletter control sequences out of 15000+600000
- 836680 words of font info for 226 fonts, out of 8000000 for 9000
+ 43744 strings out of 474222
+ 885574 string characters out of 5749198
+ 2026975 words of memory out of 5000000
+ 64856 multiletter control sequences out of 15000+600000
+ 820761 words of font info for 220 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,16n,143p,1190b,1851s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexas.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexs.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsym.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (72 pages, 1375278 bytes).
+ 89i,16n,143p,1190b,1855s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexs.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsym.pfb></opt/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on main.pdf (54 pages, 1291195 bytes).
 PDF statistics:
- 1007 PDF objects out of 1200 (max. 8388607)
- 845 compressed objects within 9 object streams
- 284 named destinations out of 1000 (max. 500000)
- 342 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 788 PDF objects out of 1000 (max. 8388607)
+ 651 compressed objects within 7 object streams
+ 210 named destinations out of 1000 (max. 500000)
+ 266 words of extra memory for PDF output out of 10000 (max. 10000000)
 

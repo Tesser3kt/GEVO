@@ -1,0 +1,46 @@
+\section{Číselné řady}
+\label{sec:ciselne-rady}
+
+Speciální, a pro rozvoj diferenciálního kalkulu zcela nezanedbatelnou, čeledí
+posloupností jsou tzv. \emph{číselné řady}. Intuitivně a téměř i formálně jsou
+číselné řady vlastně součty nekonečného počtu (reálných) čísel. Přechod od
+posloupnosti k číselné řadě je přímočarý -- sestrojíme zkrátka součet všech
+prvků oné posloupnosti \emph{zachovajíce jejich pořadí}. Jest ovšem dlužno dbáti
+skutku, žeť číselné řady jsou samy posloupnostmi. Totiž, limita posloupnosti,
+jejíž $n$-tý člen je právě součtem $n$ prvních členů posloupnosti druhé, je
+rovněž přesně součtem číselné řady této druhé posloupnosti. Tímto způsobem se
+součty číselných řad definují, což umožňuje k jejich studiu využít dokázaných
+tvrzení o limitách posloupností z předchozích oddílů.
+
+\begin{definition}{Posloupnost částečných součtů}{posloupnost-castecnych-souctu}
+ Ať $a:\N \to \R$ je posloupnost. \emph{Posloupností částečných součtů}
+ posloupnosti $a$ nazveme posloupnost $s:\N \to \R$ definovanou předpisem
+ \[
+  s_n \coloneqq \sum_{i = 0}^{n} a_i.
+ \]
+\end{definition}
+
+\begin{example}{}{castecne-soucty}
+ Je-li $a:\N \to \R$ posloupnost $0,1,2,3,\ldots$ (tj. $a_n = n$), pak
+ posloupnost jejích částečných součtů je $0,0+1,0+1+2,0+1+2+3,\ldots$, neboli
+ \[
+  s_n = \sum_{i=0}^{n} i.
+ \]
+\end{example}
+
+\begin{definition}{Součet číselné řady}{soucet-ciselne-rady}
+ Je-li $a:\N \to \R$, pak výraz $\sum_{n=0}^{\infty} a_n$ nazýváme
+ \emph{číselnou řadou} posloupnosti $a$. Ať je dále $s:\N \to \R$ posloupností
+ částečných součtů posloupnosti $a$. Existuje-li $\lim_{n \to \infty} s_n$ (ne
+ nutně konečná), pak řkouce, že řada $\sum_{n=0}^{\infty} a_n$ \emph{má součet},
+ definujeme
+ \[
+  \sum_{n=0}^{\infty} a_n \coloneqq \lim_{n \to \infty} s_n.
+ \]
+ Slovně vyjádřeno, součtem číselné řady míníme limitu částečných součtů
+ posloupnosti jejích členů.
+\end{definition}
+
+\begin{problem}{}{soucet-rady-pres-castecne-soucty}
+ Spočtěte
+\end{problem}
