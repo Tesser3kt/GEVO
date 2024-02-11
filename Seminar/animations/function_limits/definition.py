@@ -25,7 +25,8 @@ class Definition(Scene):
                 r"\in",
                 "(",
                 "a",
-                "-" r"\delta",
+                "-",
+                r"\delta",
                 ",",
                 "a",
                 ")",
@@ -137,7 +138,7 @@ class Definition(Scene):
         # Highlight point
         self.play(
             self.highlight_and_recolor(expression[2], (4, 5), Colors.point),
-            self.highlight_and_recolor(expression[2], (7, 8), Colors.point),
+            self.highlight_and_recolor(expression[2], (8, 9), Colors.point),
         )
 
         # Create point with updaters
@@ -159,16 +160,13 @@ class Definition(Scene):
         )
         point_label = (
             MathTex("a", color=Colors.point)
-            .next_to(axes.coords_to_point(a.get_value(), 0), DOWN, buff=0.1)
+            .next_to(axes.coords_to_point(a.get_value(), 0), DOWN, buff=0.2)
             .add_updater(
                 lambda m: m.next_to(
-                    axes.coords_to_point(a.get_value(), 0), DOWN, buff=0.1
+                    axes.coords_to_point(a.get_value(), 0), DOWN, buff=0.2
                 )
             )
         )
-
-        # Create limit with updaters
-        L = ValueTracker(smooth_func(a.get_value()))
 
         anims = AnimationGroup(
             Create(point),
@@ -178,6 +176,96 @@ class Definition(Scene):
         )
         self.play(anims)
 
-        self.play(a.animate.set_value(2.5), run_time=3)
+        self.wait()
+
+        # Create limit with updaters
+        limit_point = Circle(radius=0.15, color=Colors.limit).move_to(
+            point.get_center()
+        )
+        L = ValueTracker(smooth_func(a.get_value()))
+        line_to_limit = DashedLine(
+            point,
+            axes.coords_to_point(0, L.get_value()),
+            color=Colors.limit,
+        ).add_updater(
+            lambda m: m.put_start_and_end_on(
+                point.get_center(), axes.coords_to_point(0, L.get_value())
+            )
+        )
+        limit_label = (
+            MathTex("L", color=Colors.limit)
+            .next_to(axes.coords_to_point(0, L.get_value()), LEFT, buff=0.2)
+            .add_updater(
+                lambda m: m.next_to(
+                    axes.coords_to_point(0, L.get_value()), LEFT, buff=0.2
+                )
+            )
+        )
+
+        self.play(
+            self.highlight_and_recolor(expression[4], (3, 4), Colors.limit),
+        )
+        anims = AnimationGroup(
+            Create(limit_point),
+            Create(line_to_limit),
+            Write(limit_label),
+            lag_ratio=0.7,
+        )
+        self.play(anims)
+
+        # Epsilon
+        # Preparing delta for easier computation
+        delta = ValueTracker(0.3)
+
+        self.next_section("Epsilon", skip_animations=SkipSectionAnims.epsilon)
+        epsilon = ValueTracker(
+            abs(
+                smooth_func(a.get_value())
+                - smooth_func(a.get_value() - delta.get_value())
+            )
+        ).add_updater(
+            lambda m: m.set_value(
+                abs(
+                    smooth_func(a.get_value())
+                    - smooth_func(a.get_value() - delta.get_value())
+                )
+            )
+        )
+
+        # Highlight epsilon
+        self.play(
+            self.highlight_and_recolor(expression[0], (1, 2), Colors.epsilon),
+            self.highlight_and_recolor(expression[-1], (6, 7), Colors.epsilon),
+        )
+
+        # Show epsilon interval
+        epsilon_points = (
+            axes.coords_to_point(0, smooth_func(a.get_value()) + epsilon.get_value()),
+            axes.coords_to_point(0, smooth_func(a.get_value()) - epsilon.get_value()),
+        )
+        epsilon_dots = (
+            Dot(epsilon_points[0], radius=0.08, color=Colors.epsilon),
+            Dot(epsilon_points[1], radius=0.08, color=Colors.epsilon),
+        )
+        epsilon_interval = Line(
+            *epsilon_points,
+            color=Colors.epsilon,
+            stroke_width=6,
+        ).add_updater(
+            lambda m: m.put_start_and_end_on(
+                axes.coords_to_point(
+                    0, smooth_func(a.get_value()) + epsilon.get_value()
+                ),
+                axes.coords_to_point(
+                    0, smooth_func(a.get_value()) - epsilon.get_value()
+                ),
+            )
+        )
+        self.play(
+            Create(epsilon_interval), Create(epsilon_dots[0]), Create(epsilon_dots[1])
+        )
+        self.play(
+            epsilon.animate.set_value(0.1),
+        )
 
         self.wait()

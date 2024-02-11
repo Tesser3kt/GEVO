@@ -6,7 +6,8 @@ from manim import *
 class SkipSectionAnims:
     formal: bool = True
     graph: bool = True
-    point_and_limit: bool = False
+    point_and_limit: bool = True
+    epsilon: bool = False
 
 
 @dataclass
@@ -15,3 +16,5 @@ class Colors:
     time = YELLOW
     graph = GREEN
     point = RED
+    limit = PINK
+    epsilon = TEAL
