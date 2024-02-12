@@ -16,6 +16,15 @@ class Signs(Enum):
     STONE = "spiritual_stone"
 
 
+SIGNS_TO_MESSAGE = {
+    "chinese_zodiac": "čínské znamení",
+    "zodiac": "zvířecí znamení",
+    "celtic_zodiac": "keltské znamení",
+    "angelic_number": "andělské číslo",
+    "spiritual_stone": "kameny duše",
+}
+
+
 COLUMNS = [
     "Příjmení",
     "Jméno",
@@ -322,7 +331,9 @@ def create_data() -> list:
 
     # Export data
     with open("valentyn_troll.csv", "w", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=COLUMNS, delimiter="|")
+        writer = csv.DictWriter(
+            file, fieldnames=COLUMNS, delimiter="|", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(data_for_export(students_data))
 
@@ -333,8 +344,8 @@ def find_random_connection(student, students_data: list) -> tuple:
     """Find a random connection between the students."""
     connection = choice(list(Signs))
     connected_students = [
-        stud
-        for stud in students_data
+        index
+        for index, stud in enumerate(students_data)
         if stud["surname"] != student["surname"]
         and stud["gender"] != student["gender"]
         and stud[connection.value] == student[connection.value]
@@ -364,36 +375,125 @@ def create_pairs(students_data: list) -> None:
     from_dict = defaultdict(int)
     pairs = []
     failed_students = []
+    connection_dict = defaultdict(int)
 
-    for student in students_data:
+    for index, student in enumerate(students_data):
         connected_stud, connection = find_random_connection(student, students_data)
         if not connected_stud:
-            failed_students.append(full_name(student))
+            failed_students.append(index)
             continue
 
         tries = 0
-        while from_dict[full_name(student)] >= 2 and tries < MAX_TRIES:
+        while from_dict[index] >= 2 and tries < MAX_TRIES:
             connected_stud, connection = find_random_connection(student, students_data)
             tries += 1
 
         if tries == MAX_TRIES:
-            failed_students.append(full_name(student))
+            failed_students.append(index)
         else:
-            from_dict[full_name(student)] += 1
-            pairs.append(
-                (full_name(student), full_name(connected_stud), connection.value)
-            )
+            from_dict[index] += 1
+            pairs.append((index, connected_stud, connection.value))
+            connection_dict[connection.value] += 1
 
     print(failed_students)
+    print(connection_dict)
     with open("valentyn_pary.csv", "w+", encoding="utf-8") as file:
-        writer = csv.writer(file, delimiter="|")
+        writer = csv.writer(file, delimiter="|", lineterminator="\n")
         writer.writerow(["Od", "Komu", "Spojení"])
         writer.writerows(pairs)
 
 
-def prepare_tokens() -> list[str]:
-    client = OpenAI(api_key=OPENAI_API_KEY)
+def prepare_tokens(students_data: list) -> dict[str:list]:
+
+    # Read pairs
+    pairs = []
+    with open("valentyn_pary.csv", "r", encoding="utf-8") as file:
+        reader = csv.reader(file, delimiter="|")
+        next(reader)
+        for row in reader:
+            pairs.append(row)
+
+    # Prepare tokens
+    messages = []
+    for pair in pairs[:1]:
+        from_student = students_data[int(pair[0])]
+        to_student = students_data[int(pair[1])]
+
+        if from_student["gender"] == "muž":
+            user_message = (
+                f"{from_student['first_name']} sdílí se "
+                f"spolužačkou jménem {to_student['first_name']} "
+                f"{SIGNS_TO_MESSAGE[pair[2]]}.\n"
+                f"O dívce jménem {to_student['first_name']} jsou známy "
+                "tyto informace:\n"
+            )
+        else:
+            user_message = (
+                f"{from_student['first_name']} sdílí se "
+                f"spolužákem jménem {to_student['first_name']} "
+                f"{SIGNS_TO_MESSAGE[pair[2]]}.\n"
+                f"O chlapci {to_student['first_name']} jsou známy "
+                "tyto informace:\n"
+            )
+
+        user_message += (
+            f"Křestní jméno: {to_student['first_name']}\n"
+            f"Pohlaví: {to_student['gender']}\n"
+            f"Zvířecí znamení: {to_student['zodiac']}\n"
+            f"Keltské znamení: {to_student['celtic_zodiac']}\n"
+            f"Čínské znamení: {to_student['chinese_zodiac']}\n"
+            f"Andělské číslo: {to_student['angelic_number']}\n"
+            f"Anděl strážný: {to_student['guardian_angel']}\n"
+        )
+        user_message += (
+            "O tomto andělovi strážném se traduje: "
+            f"„{to_student['guardian_angel_description']}“\n"
+        )
+
+        if from_student["gender"] == "muž":
+            user_message += (
+                "Na základě těchto informací, napište nejvýše dva odstavce dlouhé valentýnské přání od "
+                f"chlapce jménem {from_student['first_name']} pro spolužačku jménem "
+                f"{to_student['first_name']}, které zdůrazní to, že spolu sdílejí "
+                f"{SIGNS_TO_MESSAGE[pair[2]]}. Nikde v přání neuvádějte jméno autora.\n"
+            )
+        else:
+            user_message += (
+                "Na základě těchto informací, napište nejvýše dva odstavce dlouhé anonymní valentýnské přání od "
+                f"dívky jménem {from_student['first_name']} pro spolužáka jménem "
+                f"{to_student['first_name']}, které zdůrazní to, že spolu sdílejí "
+                f"{SIGNS_TO_MESSAGE[pair[2]]}. Nikde v přání neuvádějte jméno autorky.\n"
+            )
+
+        system_message = (
+            "Jste populárním spisovatelem milostných románů, který se rovněž amatérsky "
+            "zabývá esoterikou a spirituální stránkou člověka. Umíte čtenáře zaujmout "
+            "neočekávanými formulacemi a překvapivými zvraty."
+        )
+        messages.append(
+            [
+                {
+                    "role": "user",
+                    "content": user_message,
+                },
+                {
+                    "role": "system",
+                    "content": system_message,
+                },
+            ]
+        )
+
+    return messages
 
 
 students_data = create_data()
-create_pairs(students_data)
+messages = prepare_tokens(students_data)
+
+print(messages[0])
+# Let GPT-3 generate the responses
+client = OpenAI(api_key=OPENAI_API_KEY)
+completion = client.chat.completions.create(
+    model="gpt-4-turbo-preview",
+    messages=messages[0],
+)
+print(completion.choices[0].message.content)
