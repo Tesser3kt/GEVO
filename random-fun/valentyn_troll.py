@@ -1,6 +1,6 @@
 import csv
 import datetime as dt
-from random import choice, sample
+from random import choice
 from enum import Enum
 from collections import defaultdict
 import pandas as pd
@@ -329,54 +329,66 @@ def create_data() -> list:
     return students_data
 
 
-def find_random_connection(student, students_data: list):
-    connections = sample(list(Signs), k=2)
+def find_random_connection(student, students_data: list) -> tuple:
+    """Find a random connection between the students."""
+    connection = choice(list(Signs))
     connected_students = [
         stud
         for stud in students_data
         if stud["surname"] != student["surname"]
         and stud["gender"] != student["gender"]
-        and stud[connections[0].value] == student[connections[0].value]
-        and stud[connections[1].value] == student[connections[1].value]
+        and stud[connection.value] == student[connection.value]
     ]
-    return choice(connected_students), connections
+    if not connected_students:
+        return None, None
+    return choice(connected_students), connection
 
 
 def full_name(student: dict) -> str:
-    return " ".join(
-        [
-            student["surname"],
-            student["first_name"],
-            student["middle_name"],
-        ]
+    """Return the full name of the student."""
+    return (
+        " ".join(
+            [
+                student["surname"],
+                student["first_name"],
+                student["middle_name"],
+            ]
+        )
+        if student["middle_name"]
+        else " ".join([student["surname"], student["first_name"]])
     )
 
 
-def create_pairs(students_data: list):
+def create_pairs(students_data: list) -> None:
+    """Create pairs of students based on their esoteric data."""
     from_dict = defaultdict(int)
-    to_dict = defaultdict(int)
     pairs = []
     failed_students = []
 
     for student in students_data:
-        connection, connections = find_random_connection(student, students_data)
-        if not connection:
+        connected_stud, connection = find_random_connection(student, students_data)
+        if not connected_stud:
+            failed_students.append(full_name(student))
             continue
+
         tries = 0
-        while (
-            from_dict[full_name(student)] >= 2
-            and to_dict[full_name(connection)] >= 2
-            and tries < MAX_TRIES
-        ):
-            connection, connections = find_random_connection(student, students_data)
+        while from_dict[full_name(student)] >= 2 and tries < MAX_TRIES:
+            connected_stud, connection = find_random_connection(student, students_data)
             tries += 1
 
         if tries == MAX_TRIES:
             failed_students.append(full_name(student))
         else:
             from_dict[full_name(student)] += 1
-            to_dict[full_name(connection)] += 1
-            pairs.append((full_name(student), full_name(connection), connections))
+            pairs.append(
+                (full_name(student), full_name(connected_stud), connection.value)
+            )
+
+    print(failed_students)
+    with open("valentyn_pary.csv", "w+", encoding="utf-8") as file:
+        writer = csv.writer(file, delimiter="|")
+        writer.writerow(["Od", "Komu", "Spojení"])
+        writer.writerows(pairs)
 
 
 def prepare_tokens() -> list[str]:
@@ -384,4 +396,4 @@ def prepare_tokens() -> list[str]:
 
 
 students_data = create_data()
-pairs = create_pairs(students_data)
+create_pairs(students_data)
