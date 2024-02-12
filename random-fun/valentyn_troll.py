@@ -1,6 +1,20 @@
 import csv
 import datetime as dt
+from random import choice, sample
+from enum import Enum
+from collections import defaultdict
 import pandas as pd
+from openai import OpenAI
+from valentyn_troll_config import OPENAI_API_KEY
+
+
+class Signs(Enum):
+    CHINESE = "chinese_zodiac"
+    ZODIAC = "zodiac"
+    CELTIC = "celtic_zodiac"
+    ANGEL = "angelic_number"
+    STONE = "spiritual_stone"
+
 
 COLUMNS = [
     "Příjmení",
@@ -154,6 +168,8 @@ GUARDIAN_ANGELS = {
     },
 }
 
+MAX_TRIES = 10
+
 
 def split_name(name_to_split: str) -> tuple[str, str, str]:
     """Split the name into surname, first name and middle name."""
@@ -243,9 +259,11 @@ def data_for_export(data: list) -> list:
     return [
         {
             "Příjmení": student["surname"],
-            "Jméno": student["first_name"] + " " + student["middle_name"]
-            if student["middle_name"]
-            else student["first_name"],
+            "Jméno": (
+                student["first_name"] + " " + student["middle_name"]
+                if student["middle_name"]
+                else student["first_name"]
+            ),
             "Pohlaví": student["gender"],
             "Datum narození": dt.date(*reversed(student["birthdate"])).strftime(
                 "%d.%m.%Y"
@@ -263,45 +281,107 @@ def data_for_export(data: list) -> list:
     ]
 
 
-students_data = []
+def create_data() -> list:
+    """Creates students' esoteric data and saves them in a csv."""
+    students_data = []
 
-# Read the file
-with open("students.csv", "r", encoding="cp1250") as file:
-    reader = csv.reader(file, delimiter=";")
+    # Read the file
+    with open("students.csv", "r", encoding="cp1250") as file:
+        reader = csv.reader(file, delimiter=";")
 
-    # Skip the header
-    next(reader)
+        # Skip the header
+        next(reader)
 
-    # Read the data
-    for row in reader:
-        name, _ = tuple(row[0].split(sep="  ", maxsplit=1))
-        surname, first_name, middle_name = split_name(name)
+        # Read the data
+        for row in reader:
+            name, _ = tuple(row[0].split(sep="  ", maxsplit=1))
+            surname, first_name, middle_name = split_name(name)
 
-        personal_number = row[7][:6]
-        student_data = {
-            "surname": surname,
-            "first_name": first_name,
-            "middle_name": middle_name,
-            "birthdate": birthdate_from_number(personal_number),
-            "gender": gender_from_number(personal_number),
-        }
-        if student_data["birthdate"]:
-            students_data.append(student_data)
+            personal_number = row[7][:6]
+            student_data = {
+                "surname": surname,
+                "first_name": first_name,
+                "middle_name": middle_name,
+                "birthdate": birthdate_from_number(personal_number),
+                "gender": gender_from_number(personal_number),
+            }
+            if student_data["birthdate"]:
+                students_data.append(student_data)
 
-# Fill out esoteric stuff
-for student in students_data:
-    student["angelic_number"] = angelic_number(student["birthdate"])
-    student["guardian_angel"] = GUARDIAN_ANGELS[student["angelic_number"]]["name"]
-    student["guardian_angel_description"] = GUARDIAN_ANGELS[student["angelic_number"]][
-        "description"
+    # Fill out esoteric stuff
+    for student in students_data:
+        student["angelic_number"] = angelic_number(student["birthdate"])
+        student["guardian_angel"] = GUARDIAN_ANGELS[student["angelic_number"]]["name"]
+        student["guardian_angel_description"] = GUARDIAN_ANGELS[
+            student["angelic_number"]
+        ]["description"]
+        student["zodiac"] = zodiac(student["birthdate"])
+        student["spiritual_stone"] = spiritual_stone(student["zodiac"])
+        student["chinese_zodiac"] = chinese_zodiac(student["birthdate"])
+        student["celtic_zodiac"] = celtic_zodiac(student["birthdate"])
+
+    # Export data
+    with open("valentyn_troll.csv", "w", encoding="utf-8") as file:
+        writer = csv.DictWriter(file, fieldnames=COLUMNS, delimiter="|")
+        writer.writeheader()
+        writer.writerows(data_for_export(students_data))
+
+    return students_data
+
+
+def find_random_connection(student, students_data: list):
+    connections = sample(list(Signs), k=2)
+    connected_students = [
+        stud
+        for stud in students_data
+        if stud["surname"] != student["surname"]
+        and stud["gender"] != student["gender"]
+        and stud[connections[0].value] == student[connections[0].value]
+        and stud[connections[1].value] == student[connections[1].value]
     ]
-    student["zodiac"] = zodiac(student["birthdate"])
-    student["spiritual_stone"] = spiritual_stone(student["zodiac"])
-    student["chinese_zodiac"] = chinese_zodiac(student["birthdate"])
-    student["celtic_zodiac"] = celtic_zodiac(student["birthdate"])
+    return choice(connected_students), connections
 
-# Export data
-with open("valentyn_troll.csv", "w", encoding="utf-8") as file:
-    writer = csv.DictWriter(file, fieldnames=COLUMNS, delimiter="|")
-    writer.writeheader()
-    writer.writerows(data_for_export(students_data))
+
+def full_name(student: dict) -> str:
+    return " ".join(
+        [
+            student["surname"],
+            student["first_name"],
+            student["middle_name"],
+        ]
+    )
+
+
+def create_pairs(students_data: list):
+    from_dict = defaultdict(int)
+    to_dict = defaultdict(int)
+    pairs = []
+    failed_students = []
+
+    for student in students_data:
+        connection, connections = find_random_connection(student, students_data)
+        if not connection:
+            continue
+        tries = 0
+        while (
+            from_dict[full_name(student)] >= 2
+            and to_dict[full_name(connection)] >= 2
+            and tries < MAX_TRIES
+        ):
+            connection, connections = find_random_connection(student, students_data)
+            tries += 1
+
+        if tries == MAX_TRIES:
+            failed_students.append(full_name(student))
+        else:
+            from_dict[full_name(student)] += 1
+            to_dict[full_name(connection)] += 1
+            pairs.append((full_name(student), full_name(connection), connections))
+
+
+def prepare_tokens() -> list[str]:
+    client = OpenAI(api_key=OPENAI_API_KEY)
+
+
+students_data = create_data()
+pairs = create_pairs(students_data)
