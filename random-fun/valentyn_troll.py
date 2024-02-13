@@ -1,5 +1,6 @@
 import csv
 import datetime as dt
+import unidecode as ud
 from random import choice
 from enum import Enum
 from collections import defaultdict
@@ -306,6 +307,11 @@ def create_data() -> list:
             name, _ = tuple(row[0].split(sep="  ", maxsplit=1))
             surname, first_name, middle_name = split_name(name)
 
+            if surname == "Le":
+                surname += " " + first_name
+                first_name = middle_name
+                middle_name = ""
+
             personal_number = row[7][:6]
             student_data = {
                 "surname": surname,
@@ -384,15 +390,15 @@ def create_pairs(students_data: list) -> None:
             continue
 
         tries = 0
-        while from_dict[index] >= 2 and tries < MAX_TRIES:
+        while from_dict[connected_stud] >= 2 and tries < MAX_TRIES:
             connected_stud, connection = find_random_connection(student, students_data)
             tries += 1
 
         if tries == MAX_TRIES:
             failed_students.append(index)
         else:
-            from_dict[index] += 1
-            pairs.append((index, connected_stud, connection.value))
+            from_dict[connected_stud] += 1
+            pairs.append((connected_stud, index, connection.value))
             connection_dict[connection.value] += 1
 
     print(failed_students)
@@ -403,8 +409,7 @@ def create_pairs(students_data: list) -> None:
         writer.writerows(pairs)
 
 
-def prepare_tokens(students_data: list) -> dict[str:list]:
-
+def prepare_tokens(students_data: list, rng: tuple[int, int]) -> dict[str:list]:
     # Read pairs
     pairs = []
     with open("valentyn_pary.csv", "r", encoding="utf-8") as file:
@@ -413,9 +418,12 @@ def prepare_tokens(students_data: list) -> dict[str:list]:
         for row in reader:
             pairs.append(row)
 
+    indices_to = set(int(pair[1]) for pair in pairs)
+    print(len(indices_to))
+
     # Prepare tokens
-    messages = []
-    for pair in pairs[:1]:
+    messages = {}
+    for pair in pairs[rng[0] : rng[1]]:
         from_student = students_data[int(pair[0])]
         to_student = students_data[int(pair[1])]
 
@@ -452,17 +460,17 @@ def prepare_tokens(students_data: list) -> dict[str:list]:
 
         if from_student["gender"] == "muž":
             user_message += (
-                "Na základě těchto informací, napište nejvýše dva odstavce dlouhé valentýnské přání od "
+                "Na základě těchto informací, napište nejvýše dva odstavce a 150 slov dlouhé valentýnské přání od "
                 f"chlapce jménem {from_student['first_name']} pro spolužačku jménem "
                 f"{to_student['first_name']}, které zdůrazní to, že spolu sdílejí "
-                f"{SIGNS_TO_MESSAGE[pair[2]]}. Nikde v přání neuvádějte jméno autora.\n"
+                f"{SIGNS_TO_MESSAGE[pair[2]]}. Nikde v přání neuvádějte jméno autora, ale začněte jej oslovením.\n"
             )
         else:
             user_message += (
-                "Na základě těchto informací, napište nejvýše dva odstavce dlouhé anonymní valentýnské přání od "
+                "Na základě těchto informací, napište nejvýše dva odstavce a 150 slov dlouhé valentýnské přání od "
                 f"dívky jménem {from_student['first_name']} pro spolužáka jménem "
                 f"{to_student['first_name']}, které zdůrazní to, že spolu sdílejí "
-                f"{SIGNS_TO_MESSAGE[pair[2]]}. Nikde v přání neuvádějte jméno autorky.\n"
+                f"{SIGNS_TO_MESSAGE[pair[2]]}. Nikde v přání neuvádějte jméno autorky, ale začněte jej oslovením.\n"
             )
 
         system_message = (
@@ -470,30 +478,43 @@ def prepare_tokens(students_data: list) -> dict[str:list]:
             "zabývá esoterikou a spirituální stránkou člověka. Umíte čtenáře zaujmout "
             "neočekávanými formulacemi a překvapivými zvraty."
         )
-        messages.append(
-            [
-                {
-                    "role": "user",
-                    "content": user_message,
-                },
-                {
-                    "role": "system",
-                    "content": system_message,
-                },
-            ]
-        )
+        messages[tuple(pair)] = [
+            {
+                "role": "user",
+                "content": user_message,
+            },
+            {
+                "role": "system",
+                "content": system_message,
+            },
+        ]
 
     return messages
 
 
-students_data = create_data()
-messages = prepare_tokens(students_data)
+def save_completions(messages: dict, students_data: list) -> None:
+    """Save the completions to the files."""
+    for pair, message in messages.items():
+        print(
+            f"Completing the message for the student {students_data[int(pair[1])]['surname']}..."
+        )
 
-print(messages[0])
-# Let GPT-3 generate the responses
-client = OpenAI(api_key=OPENAI_API_KEY)
-completion = client.chat.completions.create(
-    model="gpt-4-turbo-preview",
-    messages=messages[0],
-)
-print(completion.choices[0].message.content)
+        # Let GPT-4 generate the completions
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        completion = client.chat.completions.create(
+            model="gpt-4-turbo-preview",
+            messages=message,
+        )
+
+        student_to = full_name(students_data[int(pair[1])])
+        student_to = "-".join(ud.unidecode(name.lower()) for name in student_to.split())
+
+        # Save the completions
+        print(f"Writing to letters/{student_to}.txt ...")
+        with open(f"letters/{student_to}.txt", "w+", encoding="utf-8") as file:
+            file.write(completion.choices[0].message.content)
+
+
+students_data = create_data()
+messages = prepare_tokens(students_data, (300, 307))
+save_completions(messages, students_data)
