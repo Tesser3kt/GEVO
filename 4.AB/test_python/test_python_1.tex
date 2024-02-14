@@ -1,0 +1,157 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Homework -- PreIB 3.AB 4}\\
+ \Large\textsf{Triangulations and Symmetries of Regular Polygons}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\hrule
+\vspace*{-1em}
+\begin{center}
+ \clr{\textbf{Z NÁSLEDUJÍCÍCH ÚLOH SI VYBERTE JEDNU. PŘI ŘEŠENÍ ÚLOH 
+  NESMÍTE VYUŽÍT CIZÍ POMOCI -- ANI LIDSKÉ ANI UMĚLÉ!}}
+\end{center}
+\hrule
+
+\subsection*{1. Správné závorky}
+
+Napište funkci, která dostane parametrem \texttt{vyraz} algebraický výraz, který
+může obsahovat (pouze kulaté) závorky. O tomto výrazu rozhodne, \textbf{zda je
+správně uzávorkovaný}. To pro nás znamená jen to, že je v něm stejně levých
+závorek \texttt{"("} jako pravých \texttt{")"} a že při čtení zleva doprava v
+žádnou chvíli nenarazím na víc pravých závorek než levých.
+
+\textbf{Hint:} Čtěte výraz \texttt{for} cyklem a pamatujte si ve dvou proměnných
+počet levých a pravých závorek. V průběhu cyklu vždycky zkontrolujte, že počet
+pravých nikdy není větší než počet levých. Na konci zkontrolujte, že obou typů
+závorek máte stejně.
+
+\emph{Příklady}:
+\begin{itemize}
+ \item Výraz \texttt{((x + y) * 6) + 5} je správně uzávorkovaný.
+ \item Výraz \texttt{(20 + 3) * 5)} správně uzávorkovaný není, protože má víc
+  \texttt{")"} než \texttt{"("}.
+ \item Výraz \texttt{)z - (20 + 5) * 3} je špatně uzávorkovaný, protože před
+  první \texttt{"("} už je jedna \texttt{")"}.
+\end{itemize}
+
+\clearpage
+
+\subsection*{2. Stejná písmena}
+
+Napište funkci, která dostane dva parametry -- \texttt{slovo1} a \texttt{slovo2}
+a spočítá, \textbf{kolik mají \texttt{slovo1} a \texttt{slovo2} stejných písmen
+na stejných místech}.
+
+\textbf{Hint:} Procházejte \texttt{slovo1} a \texttt{slovo2} současně pomocí
+proměnné, ve které si budete pamatovat pořadí písmene v obou slovech (buď
+\texttt{while} cyklem nebo \texttt{for} cyklem s~funkcí \texttt{range}). Když se
+písmena s tímto pořadím budou shodovat, zvyšte počet shodných písmen o jedna.
+
+\emph{Příklady:}
+\begin{itemize}
+ \item Pro slova \texttt{"pes"} a \texttt{"les"} vaše funkce vrátí \texttt{2}.
+ \item Pro slova \texttt{"stůl"} a \texttt{"vůl"} vaše funkce vrátí \texttt{0},
+  protože mají sice společná písmena \texttt{"ů"} a \texttt{"l"}, ale jsou na
+  jiných místech.
+\end{itemize}
+
+\end{document}
