@@ -1,0 +1,196 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{xcolor}
+
+% Colored boxes %
+\usepackage[many]{tcolorbox}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=6pt}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+\tikzset{
+  vertex/.style = {shape=circle,fill,text=white,minimum size=9pt,inner
+  sep=1pt}
+}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Ústní zkouška}\\
+ \Large\textsf{z Úvodu do matematické analýzy, části prvé}\\
+ \vspace*{1em}
+ Verze: oMegareKt\\
+ \author{Přednášející: His Divine Wisdom Sir Adam Clypatch}
+ \date{16. února 2024}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\img}{im}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\codom}{codom}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Table array stretch
+\renewcommand{\arraystretch}{1.5}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+ \maketitle
+ \begin{tcolorbox}[boxsep=3mm,arc=0mm,toprule=1pt,bottomrule=1pt,leftrule=-0.1mm,
+   rightrule=-0.1mm,colframe=red!90!black]
+  \vspace*{-2pt}
+  \begin{center}
+   \textbf{NENÍ-LI ŘEČENO JINAK, VŠECHNY POJMY A DŮKAZY FORMULUJTE PEČLIVĚ
+   S~DŮRAZEM NA FORMÁLNÍ SPRÁVNOST.}
+  \end{center}
+ \end{tcolorbox}
+ \vspace*{\fill}
+ \begin{center}
+  \begin{tabular}{c|c}
+   \textsf{\textbf{Část}} & \textsf{\textbf{Hodnocení}}\\
+   \toprule
+   \textcolor{CornflowerBlue}{Základní definice} & 0 / 0\\
+   \textcolor{Emerald}{Lehké úlohy a důkazy} & \hspace{2ex}/ 6\\
+   \textcolor{BrickRed}{Těžké ulohy a důkazy} & \hspace{2ex} / 12
+  \end{tabular}
+ \end{center}
+ \vspace*{\fill}
+ \clearpage
+ \begin{tcolorbox}[title=\textsf{Základní
+   definice (0 bodů)},arc=0mm,boxsep=3mm,bottomrule=1pt,toprule=3pt,leftrule=-0.1mm,
+   rightrule=-0.1mm,colframe=CornflowerBlue!80!white,
+   colback=CornflowerBlue!5!white]
+  \emph{Neznalost základních definic znamená bezpodmínečné nesložení
+   zkoušky.}
+  \begin{enumerate}
+   \item Monoid.
+   \item Limita posloupnosti.
+   \item Monotónní posloupnost.
+   \item Minimum a maximum.
+   \item Interval a typy intervalů.
+  \end{enumerate}
+ \end{tcolorbox}
+ \clearpage
+
+ \begin{tcolorbox}[title=\textsf{Lehké úlohy a důkazy (6
+  bodů)},arc=0mm,boxsep=3mm,bottomrule=1pt,toprule=3pt,leftrule=-0.1mm,
+  rightrule=-0.1mm,colframe=Emerald!80!white,colback=Emerald!5!white]
+  \emph{Pojmy užité v úlohách nemusíte definovat. Používáte-li k řešení úlohy
+  nebo k důkazu předchozí tvrzení, zformulujte je.}
+  \begin{enumerate}
+   \item Uvažme množinu $\R$ jako množinu tříd ekvivalence $ \simeq $ všech
+    konvergentních racionálních posloupností. Dokažte, že zobrazení
+    \begin{align*}
+     \xi: \Q &\hookrightarrow \R,\\
+     q & \mapsto [(q)]_{ \simeq }
+    \end{align*}
+    které racionálnímu číslu přiřadí třídu ekvivalence posloupnosti samých čísel
+    $q$, je prosté.
+   \item Dokažte, že jsou-li posloupnosti $a,b:\N \to \R$ konvergentní, pak je
+    konvergentní i posloupnost $a + b$.
+   \item Spočtěte
+    \[
+     \lim_{n \to \infty} \frac{3n^{4} - 7n^2 + 5}{6 - 4n^{4}}.
+    \]
+  \end{enumerate}
+ \end{tcolorbox}
+ \clearpage
+ \begin{tcolorbox}[breakable,title=\textsf{Těžké úlohy a důkazy (12
+  bodů)},arc=0mm,boxsep=3mm,bottomrule=1pt,toprule=1pt,leftrule=-0.1mm,
+  rightrule=-0.1mm,colframe=BrickRed!80!white,colback=BrickRed!5!white]
+  \emph{Nemusíte dokonale zformulovat svá řešení. Obecná idea rozvinutá
+  důležitými detaily postačuje.}
+  \begin{enumerate}
+   \item Uvažte posloupnost danou rekurzivním předpisem
+    \begin{align*}
+     a_1 &= 2,\\
+     a_{n+1} &= \frac{a_n}{2} + \frac{1}{2a_n}.
+    \end{align*}
+    Spočtěte $\lim_{n \to \infty} a_n$.
+   
+    \textbf{Návod:}
+    \begin{enumerate}
+     \item Dokažte, že $a_n$ je klesající a zdola omezená.
+     \item Podle věty o limitě monotónní posloupnosti má $a_n$ limitu, označme
+      ji $L$. Využijte vzorce pro $a_{n+1}$ (v závislosti na $a_n$) a faktu, že
+      $\lim_{n \to \infty} a_{n+1} = \lim_{n \to \infty} a_n$ pro nalezení
+      rovnice k výpočtu $L$.
+    \end{enumerate}
+  \end{enumerate}
+ \end{tcolorbox}
+\end{document}

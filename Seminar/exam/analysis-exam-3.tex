@@ -1,0 +1,205 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{xcolor}
+
+% Colored boxes %
+\usepackage[many]{tcolorbox}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=6pt}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+\tikzset{
+  vertex/.style = {shape=circle,fill,text=white,minimum size=9pt,inner
+  sep=1pt}
+}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Ústní zkouška}\\
+ \Large\textsf{z Úvodu do matematické analýzy, části prvé}\\
+ \vspace*{1em}
+ Verze: 0m3g4r3kt\\
+ \author{Přednášející: His Divine Wisdom Sir Adam Clypatch}
+ \date{16. února 2024}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\img}{im}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\codom}{codom}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Table array stretch
+\renewcommand{\arraystretch}{1.5}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+ \maketitle
+ \begin{tcolorbox}[boxsep=3mm,arc=0mm,toprule=1pt,bottomrule=1pt,leftrule=-0.1mm,
+   rightrule=-0.1mm,colframe=red!90!black]
+  \vspace*{-2pt}
+  \begin{center}
+   \textbf{NENÍ-LI ŘEČENO JINAK, VŠECHNY POJMY A DŮKAZY FORMULUJTE PEČLIVĚ
+   S~DŮRAZEM NA FORMÁLNÍ SPRÁVNOST.}
+  \end{center}
+ \end{tcolorbox}
+ \vspace*{\fill}
+ \begin{center}
+  \begin{tabular}{c|c}
+   \textsf{\textbf{Část}} & \textsf{\textbf{Hodnocení}}\\
+   \toprule
+   \textcolor{CornflowerBlue}{Základní definice} & 0 / 0\\
+   \textcolor{Emerald}{Lehké úlohy a důkazy} & \hspace{2ex}/ 6\\
+   \textcolor{BrickRed}{Těžké ulohy a důkazy} & \hspace{2ex} / 12
+  \end{tabular}
+ \end{center}
+ \vspace*{\fill}
+ \clearpage
+ \begin{tcolorbox}[title=\textsf{Základní
+   definice (0 bodů)},arc=0mm,boxsep=3mm,bottomrule=1pt,toprule=3pt,leftrule=-0.1mm,
+   rightrule=-0.1mm,colframe=CornflowerBlue!80!white,
+   colback=CornflowerBlue!5!white]
+  \emph{Neznalost základních definic znamená bezpodmínečné nesložení
+  zkoušky.}
+  \begin{enumerate}
+   \item Přirozená čísla.
+   \item Konvergentní posloupnost.
+   \item Limita posloupnosti v $ \pm \infty$.
+   \item Infimum a supremum.
+   \item Délka intervalu.
+  \end{enumerate}
+ \end{tcolorbox}
+ \clearpage
+
+ \begin{tcolorbox}[title=\textsf{Lehké úlohy a důkazy (6
+  bodů)},arc=0mm,boxsep=3mm,bottomrule=1pt,toprule=3pt,leftrule=-0.1mm,
+  rightrule=-0.1mm,colframe=Emerald!80!white,colback=Emerald!5!white]
+  \emph{Pojmy užité v úlohách nemusíte definovat. Používáte-li k řešení úlohy
+  nebo k důkazu předchozí tvrzení, zformulujte je.}
+  \begin{enumerate}
+   \item Trojúhelníková nerovnost.
+   \item Dokažte, že když $a,b:\N \to \R$ jsou posloupnosti, $\lim a = A \in \R$
+    a $\lim b = B \in \R$, pak
+    \[
+     \lim (a + b) = A + B.
+    \]
+   \item Spočtěte
+    \[
+     \lim_{n \to \infty} (\sqrt{n+1}-\sqrt{n}).
+    \]
+  \end{enumerate}
+ \end{tcolorbox}
+ \clearpage
+ \begin{tcolorbox}[breakable,title=\textsf{Těžké úlohy a důkazy (12
+  bodů)},arc=0mm,boxsep=3mm,bottomrule=1pt,toprule=1pt,leftrule=-0.1mm,
+  rightrule=-0.1mm,colframe=BrickRed!80!white,colback=BrickRed!5!white]
+  \emph{Nemusíte dokonale zformulovat svá řešení. Obecná idea rozvinutá
+  důležitými detaily postačuje.}
+  \begin{enumerate}
+   \item Ať $a:\N \to \R$ je posloupnost a $b:\N \to \R$ je posloupnost
+    \uv{průměrů} posloupnosti $a$, tj.
+    \[
+     b_n \coloneqq \frac{1}{n}\sum_{k=1}^n a_k.
+    \]
+    \begin{enumerate}
+     \item Dokažte, že když $\lim a = 0$, pak i $\lim b = 0$. Platí i opačná
+      implikace? Dokažte nebo uveďte protipříklad.
+     \item Dokažte s použitím bodu (a), že když $\lim a = L \in \R$, pak rovněž
+      $\lim b = L$.
+    \end{enumerate}
+    \textbf{Návod:} Pro dané $\varepsilon>0$ a $n_0 \in \N$, od kterého dále již
+    platí $|a_n|<\varepsilon$, rozložte členy posloupnosti $b_n$ na dvě složky,
+    které lze obě seshora odhadnout číslem závislým na $\varepsilon$. V bodě (b)
+    využijte faktu, že když $\lim_{n \to \infty} a_n = L$, pak $\lim_{n \to
+    \infty} (a_n - L) = 0$.
+   \item Dokažte, že
+    \[
+     \lim_{n \to \infty} \frac{4^{n}}{n!} = 0.
+    \]
+    \textbf{Návod:}
+    \begin{enumerate}
+     \item Ukažte, že posloupnost $a_n \coloneqq 4^{n} / n!$ je klesající a
+      zdola omezená, a tedy má z~věty o konvergenci monotónních posloupností
+      limitu.
+     \item Vyjádřete $a_{n+1}$ pomocí $a_n$ a využijte získaného vzorce pro
+      výpočet $\lim_{n \to \infty} a_{n} = \lim_{n \to \infty} a_{n+1}$.
+    \end{enumerate}
+  \end{enumerate}
+ \end{tcolorbox}
+\end{document}
