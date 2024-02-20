@@ -32,12 +32,12 @@ tvrzení o limitách posloupností z předchozích oddílů.
  \centering
  \begin{tikzpicture}
   \tkzInit[xmin=0,xmax=7,ymin=0,ymax=3]
-  \foreach \n in {0,1,...,13} {
+  \foreach \n in {0,1,...,11} {
    \tkzDefPoint(0.5 * (\n + 1),0){x\n}
    \tkzDrawPoint[shape=cross](x\n)
    \tkzLabelPoint[below](x\n){$\n$}
   }
-  \foreach \y in {1,2,3,4,5,6} {
+  \foreach \y in {1,2,3,4,5} {
    \tkzDefPoint(0,0.5 * \y){y\y}
    \tkzDrawPoint[shape=cross](y\y)
    \tkzLabelPoint[left](y\y){$\y$}
@@ -83,8 +83,8 @@ tvrzení o limitách posloupností z předchozích oddílů.
   }
  \end{tikzpicture}
 
- \caption{Posloupnost $\clr{a_n}$ a její posloupnost částečných součtů
- $\clb{s_n}$.}
+ \caption{Konstantní posloupnost $\clr{a_n}$ a její posloupnost částečných
+ součtů $\clb{s_n}$.}
  \label{fig:castecne-soucty}
 \end{figure}
 
@@ -134,8 +134,8 @@ tvrzení o limitách posloupností z předchozích oddílů.
 \end{probsol}
 
 \begin{problem}{Geometrická řada}{geometricka-rada}
- Dokažte, že řada $\sum_{n=0}^{\infty} q^{n}$, kde $q \in \R$, má součet právě
- tehdy, když $|q| < 1$ a v tomto případě platí
+ Dokažte, že řada $\sum_{n=0}^{\infty} q^{n}$, kde $q \in \R$, má
+ \textbf{konečný} součet právě tehdy, když $|q| < 1$, a v tomto případě platí
  \[
   \sum_{n=0}^{\infty} q_n = \frac{1}{1-q}.
  \]
@@ -146,7 +146,7 @@ tvrzení o limitách posloupností z předchozích oddílů.
   s_n \coloneqq \sum_{k=0}^n q^{k} = \frac{1 - q^{n+1}}{1 - q}.
  \]
  V případě, že $q = 1$, máme zřejmě $s_n = n + 1$, neboť $1^{k} = 1$ pro všechna
- $k \in \N$. Pro $q \neq 1$ máme 
+ $k \in \N$. Pro $q \neq 1$ potom
  \begin{equation*}
   \begin{array}{ccccccccccccc}
    s_n & = & q^{0} & + & q^{1} & + & q^{2} & + & \ldots & + & q^{n} & &\\
@@ -158,9 +158,9 @@ tvrzení o limitách posloupností z předchozích oddílů.
  \[
   s_n = \frac{1-q^{n+1}}{1 - q}.
  \]
- Dále, víme, že $\lim_{n \to \infty} q^{n} = 0$ pro $|q| < 1$ a pro $|q| > 1$ je
+ Dále víme, že $\lim_{n \to \infty} q^{n} = 0$ pro $|q| < 1$ a pro $|q| > 1$ je
  tato limita nekonečná nebo neexistuje. Je-li $q = 1$, tak $\lim_{n \to \infty}
- q^{n} = 1$.
+ q^{n} = 1$, a je-li $q = -1$, tak $\lim_{n \to \infty} q_n$ neexistuje.
 
  Odtud a z \hyperref[thm:aritmetika-limit]{věty o aritmetice limit},
  \[
@@ -195,7 +195,7 @@ jejích členů mít limitu $0$. Jinak bychom totiž nekonečněkrát přičíta
  \]
  Avšak, snadno vidíme, že platí
  \[
-  s_n - s_{n-1} = \sum_{k=0}^n a_k - \sum_{k=0}^{n-1} a_k = a_n.
+  s_n - s_{n-1} = \sum_{k=0}^n a_k - \sum_{k=0}^{n+1} a_k = a_n.
  \]
  Pak ovšem
  \[
