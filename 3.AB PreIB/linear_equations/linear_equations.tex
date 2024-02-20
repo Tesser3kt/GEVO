@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,usenames,dvipsnames,handout]{beamer}
+\documentclass[aspectratio=169,11pt,usenames,dvipsnames]{beamer}
 
 \usepackage[czech,english]{babel}
 \usepackage{CJKutf8}
@@ -85,6 +85,7 @@
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
 \renewcommand{\P}{\mathbb{P}}
 \DeclareMathOperator{\tng}{\triangle}
 \DeclareMathOperator{\dv}{div}
@@ -242,7 +243,153 @@
 
 \begin{frame}
  \frametitle{Function Composition}
+ So, the \alert{order of the composition matters}! Here are a few examples of
+ compositions which make sense:
+ \begin{center}
+  \begin{tikzpicture}
+   \node[draw,rectangle,minimum height=.5cm,minimum
+    width=2cm,color=BlueGray,align=center] (f) at (0,0) {ingredients};
+   \node[draw,rectangle,minimum height=.5cm,minimum
+    width=2cm,color=BlueGray,align=center,right=1cm of f] (g) {total price};
+   \node[left=1cm of f,align=center] (in) {\clr{omelette}};
+   \node[right=1cm of g,align=center] (out) {\clb{\$4.37}};
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (in) -- (f);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (f) -- (g);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (g) -- (out);
+  \end{tikzpicture}\\
+  \pause
+  \vspace*{1em}
+  \begin{tikzpicture}
+   \node[draw,rectangle,minimum height=.5cm,minimum
+    width=2cm,color=BlueGray,align=center] (f) at (0,0) {average};
+   \node[draw,rectangle,minimum height=.5cm,minimum
+    width=2cm,color=BlueGray,align=center,right=1cm of f] (g) {times two};
+   \node[left=1cm of f,align=center] (in) {\clr{$x_1,x_2,\ldots,x_n$}\\\clr{$n$}};
+   \node[right=1cm of g,align=center] (out) {\clb{$\displaystyle 2 \cdot
+    \frac{x_1+x_2+\ldots+x_n}{n}$}};
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (in) -- (f);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (f) -- (g);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (g) -- (out);
+  \end{tikzpicture}
+ \end{center}
+ \pause
+ We can of course compose \alert{as many functions} as we like. An example of
+ this:
+ \begin{center}
+  \begin{tikzpicture}
+   \node[draw,rectangle,minimum height=.5cm,minimum
+    width=2cm,color=BlueGray,align=center] (f) at (0,0) {ingredients};
+   \node[draw,rectangle,minimum height=.5cm,minimum
+    width=2cm,color=BlueGray,align=center,right=1cm of f] (g) {total price};
+   \node[draw,rectangle,minimum height=.5cm,minimum
+    width=2cm,color=BlueGray,align=center,right=1cm of g] (h) {times two};
+   \node[left=1cm of f,align=center] (in) {\clr{omelette}};
+   \node[right=1cm of h,align=center] (out) {\clb{\$8.74}};
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (in) -- (f);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (f) -- (g);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (g) -- (h);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (h) -- (out);
+  \end{tikzpicture}\\
+ \end{center}
+\end{frame}
 
+\begin{frame}
+ \frametitle{Functions -- Notation}
+ Drawing pictures like this would be cumbersome. \pause Instead of
+ \begin{center}
+  \begin{tikzpicture}
+   \node[draw,rectangle,minimum height=1cm,minimum
+    width=2cm,color=BlueGray,align=center] (f) at (0,0) {function};
+   \node[left=2cm of f,align=center] (in) {\clr{input}};
+   \node[right=2cm of f,align=center] (out) {\clb{output}};
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (in) -- (f);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (f) -- (out);
+  \end{tikzpicture}
+ \end{center}
+ we simply write \alert{function}(\clr{input}) = \clb{output}. \\ \pause
+ You're probably used to seeing function written like $f(x) = y$. The picture
+ corresponding to this is
+ \begin{center}
+  \begin{tikzpicture}
+   \node[draw,rectangle,minimum height=1cm,minimum
+    width=1cm,color=BlueGray,align=center] (f) at (0,0) {$f$};
+   \node[left=2cm of f,align=center] (in) {\clr{$x$}};
+   \node[right=2cm of f,align=center] (out) {\clb{$y$}};
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (in) -- (f);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (f) -- (out);
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Functions -- Notation}
+ The symbol used for function composition is $ \circ $. It is however a little
+ confusing because it is written in order `from right to left'. \\ \pause
+ For example, if $f$ and $g$ are two functions, their composition $f \circ g$
+ corresponds to this picture
+ \begin{center}
+  \begin{tikzpicture}
+   \node[draw,rectangle,minimum height=1cm,minimum
+    width=1cm,color=BlueGray,align=center] (g) at (0,0) {$g$};
+   \node[draw,rectangle,minimum height=1cm,minimum
+    width=1cm,color=BlueGray,align=center,right=2cm of g] (f) at (0,0) {$f$};
+   \node[left=1cm of g,align=center] (in) {\clr{$x$}};
+   \node[right=1cm of f,align=center] (out) {\clb{$y$}};
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (in) -- (g);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (g) -- (f);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (f) -- (out);
+  \end{tikzpicture}
+ \end{center}
+ that is, \alert{first $g$, then $f$}.
+\end{frame}
+
+\subsection{Real Functions}
+
+\begin{frame}
+ \subsectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Real Function}
+ A \alert{real function} is simply a function whose \alert{\clr{input} and
+ \clb{output} are both real numbers}. \\ \pause
+ Examples of such functions are
+ \begin{itemize}
+  \item $f(x) = 0$,
+  \item $g(x) = \tan^{6}(\log^{\sin(x^2 + 4)}(\frac{5x^3 - 2}{9x^{7}}))$,
+ \end{itemize}
+ where $x \in \R$. \pause Or, using pictures,
+ \begin{center}
+  \begin{tikzpicture}
+   \node[draw,rectangle,minimum height=1cm,minimum
+    width=1cm,color=BlueGray,align=center] (f) at (0,0) {$f$};
+   \node[left=2cm of f,align=center] (in) {\clr{$x$}};
+   \node[right=2cm of f,align=center] (out) {\clb{$0$}};
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (in) -- (f);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (f) -- (out);
+
+   \node[draw,rectangle,minimum height=1cm,minimum
+    width=1cm,color=BlueGray,align=center,below=.5cm of f] (g) {$g$};
+   \node[left=2cm of g,align=center] (in) {\clr{$x$}};
+   \node[right=2cm of g,align=center] (out) {\clb{$\tan^{6}(\log^{\sin(x^2 +
+    4)}(\frac{5x^3 - 2}{9x^{7}}))$}};
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (in) -- (g);
+   \draw[-latex,thick,shorten <= 2pt, shorten >= 2pt] (g) -- (out);
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Operations On Real Functions}
+ As both the \clr{input} and the \clb{output} of a real function is a real
+ number, \alert{we can always compose real functions}. \\ \pause
+ However, that \alert{doesn't mean that the order doesn't matter!} Different
+ order of composition gives different functions.\\ \pause
+ For example, take $f(x) = 2x^2 + 7$ and $g(x) = \frac{1}{1 + x}$. Then,\pause
+ \begin{itemize}
+  \item $(f \circ g)(x) = 2 \left( \frac{1}{1+x} \right)^2 + 7$ and \pause
+  \item $(g \circ f)(x) = \frac{1}{1 + (2x^2 + 7)}$.
+ \end{itemize}
 \end{frame}
 
 \end{document}

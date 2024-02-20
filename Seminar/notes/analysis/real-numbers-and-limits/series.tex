@@ -28,6 +28,66 @@ tvrzení o limitách posloupností z předchozích oddílů.
  \]
 \end{example}
 
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=0,xmax=7,ymin=0,ymax=3]
+  \foreach \n in {0,1,...,13} {
+   \tkzDefPoint(0.5 * (\n + 1),0){x\n}
+   \tkzDrawPoint[shape=cross](x\n)
+   \tkzLabelPoint[below](x\n){$\n$}
+  }
+  \foreach \y in {1,2,3,4,5,6} {
+   \tkzDefPoint(0,0.5 * \y){y\y}
+   \tkzDrawPoint[shape=cross](y\y)
+   \tkzLabelPoint[left](y\y){$\y$}
+  }
+  
+  \tkzDefPoint(0.5,0.2){a0}
+  \tkzDefPoint(1.0,0.2){a1}
+  \tkzDefPoint(1.5,0.2){a2}
+  \tkzDefPoint(2,0.2){a3}
+  \tkzDefPoint(2.5,0.2){a4}
+  \tkzDefPoint(3,0.2){a5}
+  \tkzDefPoint(3.5,0.2){a6}
+  \tkzDefPoint(4,0.2){a7}
+  \tkzDefPoint(4.5,0.2){a8}
+  \tkzDefPoint(5,0.2){a9}
+  \tkzDefPoint(5.5,0.2){a10}
+  \tkzDefPoint(6,0.2){a11}
+
+  \tkzDefPoint(0.5,0.2){s0}
+  \tkzDefPoint(1.0,0.4){s1}
+  \tkzDefPoint(1.5,0.6){s2}
+  \tkzDefPoint(2,0.8){s3}
+  \tkzDefPoint(2.5,1){s4}
+  \tkzDefPoint(3,1.2){s5}
+  \tkzDefPoint(3.5,1.4){s6}
+  \tkzDefPoint(4,1.6){s7}
+  \tkzDefPoint(4.5,1.8){s8}
+  \tkzDefPoint(5,2){s9}
+  \tkzDefPoint(5.5,2.2){s10}
+  \tkzDefPoint(6,2.4){s11}
+
+  \tkzDrawX[>=latex,label={$n$}]
+  \tkzDrawY[>=latex,label={$\clr{a_n}, \clb{s_n}$}]
+
+  \tkzDrawPoints[color=BrickRed](a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11)
+  \tkzDrawPoints[color=RoyalBlue](s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11)
+
+  \foreach \n in {0,1,...,10} {
+   \pgfmathparse{\n+1}
+   \edef\m{\pgfmathresult}
+   \tkzDrawSegment[dashed,color=BrickRed](a\n,a\m)
+   \tkzDrawSegment[dashed,color=RoyalBlue](s\n,s\m)
+  }
+ \end{tikzpicture}
+
+ \caption{Posloupnost $\clr{a_n}$ a její posloupnost částečných součtů
+ $\clb{s_n}$.}
+ \label{fig:castecne-soucty}
+\end{figure}
+
 \begin{definition}{Součet číselné řady}{soucet-ciselne-rady}
  Je-li $a:\N \to \R$, pak výraz $\sum_{n=0}^{\infty} a_n$ nazýváme
  \emph{číselnou řadou} posloupnosti $a$. Ať je dále $s:\N \to \R$ posloupností
@@ -73,4 +133,107 @@ tvrzení o limitách posloupností z předchozích oddílů.
  čili rovněž $\sum_{n=1}^{\infty} \frac{1}{n(n+1)} = 1$.
 \end{probsol}
 
+\begin{problem}{Geometrická řada}{geometricka-rada}
+ Dokažte, že řada $\sum_{n=0}^{\infty} q^{n}$, kde $q \in \R$, má součet právě
+ tehdy, když $|q| < 1$ a v tomto případě platí
+ \[
+  \sum_{n=0}^{\infty} q_n = \frac{1}{1-q}.
+ \]
+\end{problem}
+\begin{probsol}
+ Ukážeme nejprve, že pro libovolné $n \in \N$ a $q \neq 1$ platí
+ \[
+  s_n \coloneqq \sum_{k=0}^n q^{k} = \frac{1 - q^{n+1}}{1 - q}.
+ \]
+ V případě, že $q = 1$, máme zřejmě $s_n = n + 1$, neboť $1^{k} = 1$ pro všechna
+ $k \in \N$. Pro $q \neq 1$ máme 
+ \begin{equation*}
+  \begin{array}{ccccccccccccc}
+   s_n & = & q^{0} & + & q^{1} & + & q^{2} & + & \ldots & + & q^{n} & &\\
+   q \cdot s_n & = & & & q^{1} & + & q^2 & + & \ldots & + & q^{n} & + & q^{n+1},
+  \end{array}
+ \end{equation*}
+ čili $s_n - q \cdot s_n = q^{0} - q^{n+1} = 1 - q^{n+1}$, z čehož snadno
+ spočteme, že
+ \[
+  s_n = \frac{1-q^{n+1}}{1 - q}.
+ \]
+ Dále, víme, že $\lim_{n \to \infty} q^{n} = 0$ pro $|q| < 1$ a pro $|q| > 1$ je
+ tato limita nekonečná nebo neexistuje. Je-li $q = 1$, tak $\lim_{n \to \infty}
+ q^{n} = 1$.
 
+ Odtud a z \hyperref[thm:aritmetika-limit]{věty o aritmetice limit},
+ \[
+  \lim_{n \to \infty} s_n = \lim_{n \to \infty} \frac{1-q^{n+1}}{1-q} =
+  \frac{\lim_{n \to \infty} 1-q^{n+1}}{\lim_{n \to \infty} 1-q} = \frac{1}{1-q},
+ \]
+ když $|q| < 1$. Pro $|q| \geq 1$ plyne z předchozí úvahy, že $\lim_{n \to
+ \infty} s_n$ neexistuje nebo je nekonečná. Tím je součet zadané řady spočten.
+\end{probsol}
+
+Nyní se jmeme odvodit několik základních tvrzení o existenci součtů číselných
+řad, která plynou v podstatě okamžitě z jejich definice jako limit posloupností
+částečných součtů.
+
+Asi není překvapivé, že aby součet řady vůbec mohl existovat, musí posloupnost
+jejích členů mít limitu $0$. Jinak bychom totiž nekonečněkrát přičítali nenulové
+číslo, čímž bychom určitě nedostali konečný součet.
+
+\begin{lemma}{Nutná podmínka existence součtu
+ řady}{nutna-podminka-existence-souctu-rady}
+ Ať $\sum_{n=0}^{\infty} a_n$ je číselná řada, která má součet. Pak nutně
+ $\lim_{n \to \infty} a_n = 0$.
+\end{lemma}
+\begin{lemproof}
+ Označme $s_n$ posloupnost částečných součtů $a_n$. Z předpokladu existuje
+ $\lim_{n \to \infty} s_n$. Jelikož platí $\lim_{n \to \infty} s_n = \lim_{n \to
+ \infty} s_{n-1}$, můžeme použitím~\hyperref[thm:aritmetika-limit]{věty o
+ aritmetice limit} počítat
+ \[
+  \lim_{n \to \infty} (s_n - s_{n-1}) = \lim_{n \to \infty} s_n - \lim_{n \to
+  \infty} s_{n-1} = 0.
+ \]
+ Avšak, snadno vidíme, že platí
+ \[
+  s_n - s_{n-1} = \sum_{k=0}^n a_k - \sum_{k=0}^{n-1} a_k = a_n.
+ \]
+ Pak ovšem
+ \[
+  0 = \lim_{n \to \infty} s_n - \lim_{n \to \infty} s_{n-1} = \lim_{n \to
+  \infty} (s_n - s_{n-1}) = \lim_{n \to \infty} a_n,
+ \]
+ kterak bylo dokázati.
+\end{lemproof}
+
+Dalším přímo přenositelným pojmem z teorie limit posloupností je pojem
+\emph{konvergence}. O číselné řadě řekneme, že \emph{konverguje}, když se
+velikosti součtů členů mezi danými indexy neustále zmenšují. Formální definice
+následuje.
+
+\begin{definition}{Konvergence řady}{konvergence-rady}
+ Díme, že číselná řada $\sum_{n=0}^{\infty} a_n$ \emph{konverguje}, když
+ \[
+ \forall \varepsilon > 0 \; \exists n_0 \in \N \; \forall m > n \geq n_0:\left|
+ \sum_{k=n+1}^m a_k \right| < \varepsilon.
+ \]
+\end{definition}
+
+Jak by jeden snad čekal, konvergence a existence součtu řady jsou víceméně
+záměnné.
+
+\begin{proposition}{Vztah konvergence a existence
+ součtu}{vztah-konvergence-a-existence-souctu}
+ Číselná řada $\sum_{n=0}^{\infty} a_n$ má součet právě tehdy, když konverguje.
+\end{proposition}
+\begin{propproof}
+ Označme $s_n$ posloupnost částečných součtů $a_n$. Pak to, že
+ $\sum_{n=0}^{\infty} a_n$ má součet, znamená, že $s_n$ má limitu. Dále si
+ všimněme, že
+ \[
+  \sum_{k=n+1}^m a_k = s_m - s_n,
+ \]
+ a tedy $\sum_{n=0}^{\infty} a_n$ konverguje právě tehdy, když posloupnost $s_n$
+ konverguje. Tím jsme převedli původní tvrzení na to, že $s_n$ má limitu právě
+ tehdy, když $s_n$ konverguje. Tuto ekvivalenci jsme dokázali v
+ rámci~\myref{sekce}{sec:limity-konvergentnich-posloupnosti}.
+\end{propproof}

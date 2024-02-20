@@ -145,13 +145,14 @@
   description font=\normalfont\sffamily,
   fontupper=\itshape,
   graphical environment=tikzpicture,
-  % topsep at break=\headheight
+  topsep at break=0pt
  }
 }
 \tcbset{%
  defbox/.style = {
   thmbox={#1},
-  fontupper=\normalfont
+  fontupper=\normalfont,
+  topsep at break=0pt
  }
 }
 \tcbset{%
@@ -173,7 +174,7 @@
   sharp corners,
   breakable,
   graphical environment=tikzpicture,
-  topsep at break=\headheight
+  topsep at break=0pt
  }
 }
 
