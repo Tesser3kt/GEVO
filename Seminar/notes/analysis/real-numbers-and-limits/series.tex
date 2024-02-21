@@ -171,31 +171,35 @@ tvrzení o limitách posloupností z předchozích oddílů.
  \infty} s_n$ neexistuje nebo je nekonečná. Tím je součet zadané řady spočten.
 \end{probsol}
 
-Nyní se jmeme odvodit několik základních tvrzení o existenci součtů číselných
-řad, která plynou v podstatě okamžitě z jejich definice jako limit posloupností
-částečných součtů.
+Nyní se jmeme odvodit několik základních tvrzení o existenci konečných součtů
+číselných řad, která plynou v podstatě okamžitě z jejich definice jako limit
+posloupností částečných součtů.
 
-Asi není překvapivé, že aby součet řady vůbec mohl existovat, musí posloupnost
-jejích členů mít limitu $0$. Jinak bychom totiž nekonečněkrát přičítali nenulové
-číslo, čímž bychom určitě nedostali konečný součet.
+Asi není překvapivé, že aby součet řady mohl být konečný, musí posloupnost
+jejích členů mít limitu $0$. Jinak bychom totiž sčítali nekonečně mnoho čísel s
+absolutní hodnotou větší než nějaká konstanta, čímž bychom určitě nedostali
+součet konečný.
 
 \begin{lemma}{Nutná podmínka existence součtu
  řady}{nutna-podminka-existence-souctu-rady}
- Ať $\sum_{n=0}^{\infty} a_n$ je číselná řada, která má součet. Pak nutně
- $\lim_{n \to \infty} a_n = 0$.
+ Ať $\sum_{n=0}^{\infty} a_n$ je číselná řada, která má konečný součet. Pak
+ nutně $\lim_{n \to \infty} a_n = 0$.
 \end{lemma}
 \begin{lemproof}
  Označme $s_n$ posloupnost částečných součtů $a_n$. Z předpokladu existuje
- $\lim_{n \to \infty} s_n$. Jelikož platí $\lim_{n \to \infty} s_n = \lim_{n \to
- \infty} s_{n-1}$, můžeme použitím~\hyperref[thm:aritmetika-limit]{věty o
- aritmetice limit} počítat
+ $\lim_{n \to \infty} s_n$ a je konečná. Jelikož platí $\lim_{n \to \infty} s_n
+ = \lim_{n \to \infty} s_{n-1}$, můžeme
+ použitím~\hyperref[thm:aritmetika-limit]{věty o aritmetice limit} počítat
  \[
   \lim_{n \to \infty} (s_n - s_{n-1}) = \lim_{n \to \infty} s_n - \lim_{n \to
   \infty} s_{n-1} = 0.
  \]
- Avšak, snadno vidíme, že platí
+ Zde je důležité zpozorovat, že výraz $\lim_{n \to \infty} s_n - \lim_{n \to
+ \infty} s_{n-1}$ jest z konečnosti $\lim_{n \to \infty} s_n$ vždy definován.
+
+ Snadno vidíme, že platí
  \[
-  s_n - s_{n-1} = \sum_{k=0}^n a_k - \sum_{k=0}^{n+1} a_k = a_n.
+  s_n - s_{n-1} = \sum_{k=0}^n a_k - \sum_{k=0}^{n-1} a_k = a_n.
  \]
  Pak ovšem
  \[
@@ -218,22 +222,25 @@ následuje.
  \]
 \end{definition}
 
-Jak by jeden snad čekal, konvergence a existence součtu řady jsou víceméně
-záměnné.
+Jak by jeden snad čekal, konvergence a existence konečného součtu řady jsou
+víceméně záměnné.
 
 \begin{proposition}{Vztah konvergence a existence
  součtu}{vztah-konvergence-a-existence-souctu}
- Číselná řada $\sum_{n=0}^{\infty} a_n$ má součet právě tehdy, když konverguje.
+ Číselná řada $\sum_{n=0}^{\infty} a_n$ má konečný součet právě tehdy, když
+ konverguje.
 \end{proposition}
 \begin{propproof}
  Označme $s_n$ posloupnost částečných součtů $a_n$. Pak to, že
- $\sum_{n=0}^{\infty} a_n$ má součet, znamená, že $s_n$ má limitu. Dále si
- všimněme, že
+ $\sum_{n=0}^{\infty} a_n$ má konečný součet, znamená, že $s_n$ má konečnou
+ limitu. Dále si všimněme, že
  \[
   \sum_{k=n+1}^m a_k = s_m - s_n,
  \]
  a tedy $\sum_{n=0}^{\infty} a_n$ konverguje právě tehdy, když posloupnost $s_n$
- konverguje. Tím jsme převedli původní tvrzení na to, že $s_n$ má limitu právě
- tehdy, když $s_n$ konverguje. Tuto ekvivalenci jsme dokázali v
+ konverguje. Tím jsme převedli původní tvrzení na to, že $s_n$ má konečnou
+ limitu právě tehdy, když $s_n$ konverguje. Tuto ekvivalenci jsme dokázali v
  rámci~\myref{sekce}{sec:limity-konvergentnich-posloupnosti}.
 \end{propproof}
+
+\input{real-numbers-and-limits/series/positive-series}
