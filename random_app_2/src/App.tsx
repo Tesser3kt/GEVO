@@ -11,8 +11,21 @@ function App() {
 
     return total;
   };
+
   const onLikeButtonClick = (id: number) => {
-    console.log("Like button clicked on article with id: " + id);
+    setArticles(
+      articles.map((article) => {
+        if (article.id === id) {
+          return { ...article, likes: article.likes + 1 };
+        } else {
+          return article;
+        }
+      })
+    );
+  };
+
+  const onDeleteButtonClick = (id: number) => {
+    setArticles(articles.filter((article) => article.id !== id));
   };
 
   const [articles, setArticles] = useState([
@@ -45,7 +58,11 @@ function App() {
         <h1 className="text-center text-3xl font-bold">{title}</h1>
         <h2 className="text-center text-xl text-gray-600">({subtitle})</h2>
       </header>
-      <ArticleList articles={articles} onLikeButtonClick={onLikeButtonClick} />
+      <ArticleList
+        articles={articles}
+        onLikeButtonClick={onLikeButtonClick}
+        onDeleteButtonClick={onDeleteButtonClick}
+      />
     </div>
   );
 }
