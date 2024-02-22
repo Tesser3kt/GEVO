@@ -11,13 +11,16 @@ function App() {
 
     return total;
   };
+  const onLikeButtonClick = (id: number) => {
+    console.log("Like button clicked on article with id: " + id);
+  };
 
   const [articles, setArticles] = useState([
     {
       id: 1,
       heading: "Heading 1",
       content: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non nisi est sit. Amet tellus cras adipiscing enim eu. Nisl vel pretium lectus quam id leo in vitae turpis. Vitae et leo duis ut diam quam. Morbi tincidunt ornare massa eget egestas purus viverra accumsan. Turpis in eu mi bibendum neque egestas congue quisque. Est velit egestas dui id ornare arcu odio ut. Ornare suspendisse sed nisi lacus sed. Cras semper auctor neque vitae. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Lacus laoreet non curabitur gravida. Sit amet consectetur adipiscing elit pellentesque. Tristique risus nec feugiat in fermentum posuere urna nec.",
+        "Lorem ipsum doarticleslor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non nisi est sit. Amet tellus cras adipiscing enim eu. Nisl vel pretium lectus quam id leo in vitae turpis. Vitae et leo duis ut diam quam. Morbi tincidunt ornare massa eget egestas purus viverra accumsan. Turpis in eu mi bibendum neque egestas congue quisque. Est velit egestas dui id ornare arcu odio ut. Ornare suspendisse sed nisi lacus sed. Cras semper auctor neque vitae. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Lacus laoreet non curabitur gravida. Sit amet consectetur adipiscing elit pellentesque. Tristique risus nec feugiat in fermentum posuere urna nec.",
         "Dignissim cras tincidunt lobortis feugiat vivamus at augue. Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus. Amet justo donec enim diam vulputate ut. Non curabitur gravida arcu ac tortor. In est ante in nibh. Eu turpis egestas pretium aenean pharetra magna ac. Vestibulum morbi blandit cursus risus at ultrices mi tempus. Id aliquet risus feugiat in ante metus. Ultrices vitae auctor eu augue ut lectus. Fringilla urna porttitor rhoncus dolor purus non enim praesent elementum. Pellentesque massa placerat duis ultricies.",
       ],
       likes: 3,
@@ -42,7 +45,7 @@ function App() {
         <h1 className="text-center text-3xl font-bold">{title}</h1>
         <h2 className="text-center text-xl text-gray-600">({subtitle})</h2>
       </header>
-      <ArticleList articles={articles} />
+      <ArticleList articles={articles} onLikeButtonClick={onLikeButtonClick} />
     </div>
   );
 }
