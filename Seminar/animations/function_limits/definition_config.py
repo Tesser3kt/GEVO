@@ -4,10 +4,15 @@ from manim import *
 
 @dataclass
 class SkipSectionAnims:
-    formal: bool = True
-    graph: bool = True
-    point_and_limit: bool = True
+    formal: bool = False
+    graph: bool = False
+    point_and_limit: bool = False
     epsilon: bool = False
+    delta: bool = False
+    moving_epsilon: bool = False
+    moving_a: bool = False
+    right_limit: bool = False
+    both_limits: bool = False
 
 
 @dataclass
@@ -18,3 +23,4 @@ class Colors:
     point = RED
     limit = PINK
     epsilon = TEAL
+    delta = ORANGE
