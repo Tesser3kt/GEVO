@@ -101,6 +101,26 @@ tvrzení o limitách posloupností z předchozích oddílů.
  posloupnosti jejích členů.
 \end{definition}
 
+\begin{warning}{}{rada-vs-castecne-soucty}
+ Uvědomme sobě, že \textbf{součet číselné řady}, existuje-li, \textbf{závisí na
+ všech jejích členech}. Obecně tedy dvě řady lišíce se pouze konečným počtem
+ členů mají \textbf{různý} součet. Například platí (ale nedokážeme si to), že
+ \[
+  \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}.
+ \]
+ Pak ale zřejmě
+ \[
+  \sum_{n=2}^{\infty} \frac{1}{n^2} = \sum_{n=1}^{\infty} \frac{1}{n^2} - 1 =
+  \frac{\pi^2}{6} - 1,
+ \]
+ tedy ony dvě řady mají rozdílné součty.
+
+ Tato situace však \textbf{nenastává} u posloupností částečných součtů $s_n$,
+ neboť $n$-tý člen takové posloupnosti je součtem prvních $n$ členů sesterské
+ číselné řady. Tudíž platí (jako u každé posloupnosti) $\lim_{n \to \infty}
+ s_{n+k} = \lim_{n \to \infty} s_n$ pro libovolnou konstantu $k \in \N$.
+\end{warning}
+
 \begin{problem}{}{soucet-rady-pres-castecne-soucty}
  Spočtěte
  \[
@@ -241,6 +261,82 @@ víceméně záměnné.
  konverguje. Tím jsme převedli původní tvrzení na to, že $s_n$ má konečnou
  limitu právě tehdy, když $s_n$ konverguje. Tuto ekvivalenci jsme dokázali v
  rámci~\myref{sekce}{sec:limity-konvergentnich-posloupnosti}.
+\end{propproof}
+
+\hyperref[prop:vztah-konvergence-a-existence-souctu]{Předchozí tvrzení} budeme v
+dalším textu používat zcela bez varování a bez explicitního odkazu, zaměňujíce
+ekvivalentní výroky \uv{Řada konverguje.} a \uv{Řada má konečný součet.}
+
+Ježto řady jsou též posloupnosti, lze je pochopitelně sčítat, násobit a dělit
+\uv{člen po členu}. Pro takto vzniklé řady platí podobná pravidla jako pro
+obecné posloupnosti. Pro pořádek si je uvedeme.
+
+\begin{proposition}{Aritmetika číselných řad}{aritmetika-ciselnych-rad}
+ Ať $\sum_{n=0}^{\infty} a_n$ a $\sum_{n=0}^{\infty} b_n$ jsou číselné řady.
+ \begin{enumerate}
+  \item Je-li $c \in \R$ a $\sum_{n=0}^{\infty} a_n$ konverguje, pak
+   $\sum_{n=0}^{\infty} c a_n$ konverguje a platí
+   \[
+    \sum_{n=0}^{\infty} ca_n = c \sum_{n=0}^{\infty} a_n.
+   \]
+  \item Konvergují-li $\sum_{n=0}^{\infty} a_n$ i $\sum_{n=0}^{\infty} b_n$, pak
+   konverguje i $\sum_{n=0}^{\infty} (a_n + b_n)$ a platí
+   \[
+    \sum_{n=0}^{\infty} (a_n + b_n) = \sum_{n=0}^{\infty} a_n +
+    \sum_{n=0}^{\infty} b_n.
+   \]
+  \item Konvergují-li $\sum_{n=0}^{\infty} a_n$ i $\sum_{n=0}^{\infty} b_n$, pak
+   konverguje i $\sum_{n=0}^{\infty} (a_n \cdot b_n)$.
+ \end{enumerate}
+\end{proposition}
+
+\begin{propproof}
+ Označme $s_n,t_n$ posloupnosti částečných součtů $\sum_{n=0}^{\infty} a_n,
+ \sum_{n=0}^{\infty} b_n$, respektive. Body (1) a (2) plynou přímo z
+ \hyperref[thm:aritmetika-limit]{věty o aritmetice limit}. Vskutku, v bodě (1)
+ máme
+ \[
+  c \cdot s_n = c \cdot \left( \sum_{k=0}^{n} a_k \right) = \sum_{k=0}^{n} c
+  \cdot a_k,
+ \]
+ a tedy je $cs_n$ posloupností částečných součtů řady $\sum_{n=0}^{\infty}
+ ca_n$. Pak tedy z \hyperref[thm:aritmetika-limit]{věty o aritmetice limit}
+ \[
+  \sum_{n=0}^{\infty} ca_n = \lim_{n \to \infty} cs_n = c \lim_{n \to \infty}
+  s_n = c \sum_{n=0}^{\infty} a_n.
+ \]
+ Důkaz konvergence $c \sum_{n=0}^{\infty} a_n$ za předpokladu konvergence
+ $\sum_{n=0}^{\infty} a_n$ plyne přímo z toho, že když existuje $\lim_{n \to
+ \infty} s_n$, pak existuje i $c \lim_{n \to \infty} s_n$.
+
+ V bodě (2) opět nahlédneme, že $s_n+t_n$ je posloupností částečných součtů
+ $\sum_{n=0}^{\infty} (a_n + b_n)$. Pak tedy, opět z
+ \hyperref[thm:aritmetika-limit]{věty o aritmetice limit}, dostaneme
+ \[
+  \sum_{n=0}^{\infty} (a_n+b_n) = \lim_{n \to \infty} (s_n + t_n) = \lim_{n \to
+  \infty} s_n + \lim_{n \to \infty} t_n = \sum_{n=0}^{\infty} a_n +
+  \sum_{n=0}^{\infty} b_n.
+ \]
+
+ V bodě (3) nestačí použít \hyperref[thm:aritmetika-limit]{větu o aritmetice
+ limit}, neboť $s_n \cdot t_n$ \textbf{není} posloupností částečných součtů řady
+ $\sum_{n=0}^{\infty} a_n \cdot b_n$. Zde použijeme
+ \myref{lemma}{lem:nutna-podminka-existence-souctu-rady} a definici konvergence.
+ Volme $\varepsilon \coloneqq 1$. K~němu podle tohoto lemmatu existuje $n_1 \in
+ \N$ takové, že pro $n \geq n_1$ máme $|a_n| < 1$.
+
+ Ať je nyní libovolné $\varepsilon>0$ dáno. Ježto $\sum_{n=0}^{\infty} a_n$ i
+ $\sum_{n=0}^{\infty} b_n$ konvergují, existují $n_a, n_b \in \N$ taková, že pro
+ $m > n \geq n_a$ platí $| \sum_{k=n+1}^{m} a_k | < \varepsilon$ a pro $m > n
+ \geq n_b$ platí $| \sum_{k=n+1}^{m} b_k| < \varepsilon$. Volme nyní $n_0
+ \coloneqq \max(n_1,n_a,n_b)$. Pak pro $m > n > n_0$ platí
+ \[
+  \left| \sum_{k=n+1}^{m} a_k b_k \right| \leq \left| \sum_{k=n+1}^{m} |a_k|b_k
+  \right| < \left| \sum_{k=n+1}^{m} b_k \right| < \varepsilon,
+ \]
+ kde první nerovnost plyne z toho, že $a_k \leq |a_k|$ pro všechna $k \in \N$ a
+ druhá z toho, že pro $k>n_1$ je $|a_k|<1$. Tedy $\sum_{n=0}^{\infty} a_nb_n$
+ konverguje. 
 \end{propproof}
 
 \input{real-numbers-and-limits/series/positive-series}

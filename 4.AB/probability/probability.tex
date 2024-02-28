@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,usenames,dvipsnames]{beamer}
+\documentclass[aspectratio=169,11pt,usenames,dvipsnames,handout]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -1034,233 +1034,233 @@
 %  is known that an odd number has shown.
 % \end{frame}
 
-% \section{Tree Diagrams}
-%
-% \begin{frame}
-%  \frametitle{Tree Diagrams}
-%  \alert{Tree diagrams} are essentially a schematic representation of all the
-%  possible outcomes of a probabilistic experiment.\\
-%  \pause
-%  They provide a good way to visualize a problem and compute probabilities.\\
-%  \pause
-%  In some sense, they allow \alert{dependent events} to \alert{become
-%  independent} and compute the probability of the successive occurrence of such
-%  events by simple multiplication.
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Drawing Tree Diagrams}
-%  We draw tree diagrams by
-%  \begin{itemize}
-%   \item representing events/outcomes by `points' or `dots';
-%   \pause
-%   \item connecting successive events by lines;
-%    \pause
-%   \item drawing the events from top to bottom in chronological order.
-%  \end{itemize}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Tree Diagram -- Example}
-%  Imagine again a set of 9 balls of three different colors.
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \foreach \x in {0,1,2} {
-%     \foreach \y in {0,1,2} {
-%      \tkzDefPoint(\x,\y){\x\y}
-%     }
-%    }
-%    \tkzDrawPoints[color=BrickRed](00,12,20,21)
-%    \tkzDrawPoints[color=RoyalBlue](01,11,22)
-%    \tkzDrawPoints[color=ForestGreen](02,10)
-%   \end{tikzpicture}
-%  \end{center}
-%  \pause
-%  We computed the probability that the \alert{second} ball we pick at random is
-%  \clr{red} assuming the first ball was also \clr{red}.\\
-%  \pause
-%  We'll perform the same computation using a \alert{tree diagram}.
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Tree Diagram -- Example}
-%  We start by drawing the `root' of the three. Just a simple dot which will then
-%  branch into different events.
-%  \vspace*{-2em}
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \tkzDefPoint(0,0){O}
-%    \tkzDrawPoint(O)
-%   \end{tikzpicture}
-%  \end{center}
-%  \pause
-%  The first event is `a randomly chosen ball is \clr{red}'. There are three
-%  possible outcomes of a random choice -- \clr{red}, \clg{green} or \clb{blue},
-%  each of different probability.\\
-%  \pause
-%  We represent this in the tree diagram like this:
-%  \vspace*{-1em}
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \tkzDefPoint(0,0){O}
-%    \tkzDefPoints{-5/-1/R,0/-1/G,5/-1/B}
-%
-%    \tkzDrawSegment[thick](O,R)
-%    \tkzDrawSegment[thick](O,G)
-%    \tkzDrawSegment[thick](O,B)
-%    
-%    \tkzDrawPoint(O)
-%    \tkzDrawPoint[color=BrickRed](R)
-%    \tkzDrawPoint[color=ForestGreen](G)
-%    \tkzDrawPoint[color=RoyalBlue](B)
-%    \tkzLabelSegment[above left=-1mm and -1mm](O,R){$\frac{4}{9}$}
-%    \tkzLabelSegment[above right=-1mm and -1mm](O,B){$\frac{3}{9}$}
-%    \tkzLabelSegment[right=-1mm](O,G){$\frac{2}{9}$}
-%   \end{tikzpicture}
-%  \end{center}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Tree Diagram -- Example}
-%  The next ball can be again \clr{red}, \clg{green} or \clb{blue}. But, this
-%  event follows after a previous random choice of a ball, so the number of balls
-%  remaining is 8 and their colours depend on the previous event.\\
-%  \pause
-%  The full tree diagram of this probabilistic experiment would look like this:
-%  \vspace*{-1em}
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \tkzDefPoint(0,0){O}
-%    \tkzDefPoints{-5/-1/R,0/-1/G,5/-1/B}
-%    \tkzDefPoints{-6.5/-2/RR,-5/-2/RG,-3.5/-2/RB}
-%    \tkzDefPoints{-1.5/-2/GR,0/-2/GG,1.5/-2/GB}
-%    \tkzDefPoints{3.5/-2/BR,5/-2/BG,6.5/-2/BB}
-%
-%    \tkzDrawSegment[thick](O,R)
-%    \tkzDrawSegment[thick](O,G)
-%    \tkzDrawSegment[thick](O,B)
-%
-%    \tkzDrawSegments[thick](R,RR R,RG R,RB)
-%    \tkzDrawSegments[thick](G,GR G,GG G,GB)
-%    \tkzDrawSegments[thick](B,BR B,BG B,BB)
-%    
-%    \tkzDrawPoint(O)
-%    \tkzDrawPoint[color=BrickRed](R)
-%    \tkzDrawPoint[color=ForestGreen](G)
-%    \tkzDrawPoint[color=RoyalBlue](B)
-%
-%    \tkzLabelSegment[above left=-1mm and -1mm](O,R){$\frac{4}{9}$}
-%    \tkzLabelSegment[above right=-1mm and -1mm](O,B){$\frac{3}{9}$}
-%    \tkzLabelSegment[right=-1mm](O,G){$\frac{2}{9}$}
-%
-%    \tkzLabelSegment[above left=-1mm and -1mm](R,RR){$\frac{3}{8}$}
-%    \tkzLabelSegment[above left=-1mm and -1mm](G,GR){$\frac{4}{8}$}
-%    \tkzLabelSegment[above left=-1mm and -1mm](B,BR){$\frac{4}{8}$}
-%    \tkzLabelSegment[above right=-1mm and -1mm](R,RB){$\frac{3}{8}$}
-%    \tkzLabelSegment[above right=-1mm and -1mm](G,GB){$\frac{3}{8}$}
-%    \tkzLabelSegment[above right=-1mm and -1mm](B,BB){$\frac{2}{8}$}
-%    \tkzLabelSegment[right=-1mm](R,RG){$\frac{2}{8}$}
-%    \tkzLabelSegment[right=-1mm](G,GG){$\frac{1}{8}$}
-%    \tkzLabelSegment[right=-1mm](B,BG){$\frac{2}{8}$}
-%
-%    \tkzDrawPoints[color=BrickRed](RR,GR,BR)
-%    \tkzDrawPoints[color=ForestGreen](RG,GG,BG)
-%    \tkzDrawPoints[color=RoyalBlue](RB,GB,BB)
-%   \end{tikzpicture}
-%  \end{center}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Tree Diagram -- Example}
-%  The great advantage of the tree diagram is that the probability of any events
-%  is just the product of the probabilities of the events that come before and
-%  this one.\\
-%  \pause
-%  For example, suppose we want to calculate the probability that a \clg{green}
-%  ball is picked after a \clb{blue} one has been.\\
-%  \pause
-%  This event corresponds to \clm{\textbf{this path}} in the tree:
-%  \vspace*{-1em}
-%  \begin{center}
-%   \begin{tikzpicture}
-%    \tkzDefPoint(0,0){O}
-%    \tkzDefPoints{-5/-1/R,0/-1/G,5/-1/B}
-%    \tkzDefPoints{-6.5/-2/RR,-5/-2/RG,-3.5/-2/RB}
-%    \tkzDefPoints{-1.5/-2/GR,0/-2/GG,1.5/-2/GB}
-%    \tkzDefPoints{3.5/-2/BR,5/-2/BG,6.5/-2/BB}
-%
-%    \tkzDrawSegment[thick](O,R)
-%    \tkzDrawSegment[thick](O,G)
-%    \tkzDrawSegment[thick](O,B)
-%
-%    \tkzDrawSegment[ultra thick,color=Magenta](O,B)
-%
-%    \tkzDrawSegments[thick](R,RR R,RG R,RB)
-%    \tkzDrawSegments[thick](G,GR G,GG G,GB)
-%    \tkzDrawSegments[thick](B,BR B,BG B,BB)
-%
-%    \tkzDrawSegment[ultra thick,color=Magenta](B,BG)
-%    
-%    \tkzDrawPoint(O)
-%    \tkzDrawPoint[color=BrickRed](R)
-%    \tkzDrawPoint[color=ForestGreen](G)
-%    \tkzDrawPoint[color=RoyalBlue](B)
-%
-%    \tkzLabelSegment[above left=-1mm and -1mm](O,R){$\frac{4}{9}$}
-%    \tkzLabelSegment[above right=-1mm and -1mm](O,B){$\frac{3}{9}$}
-%    \tkzLabelSegment[right=-1mm](O,G){$\frac{2}{9}$}
-%
-%    \tkzLabelSegment[above left=-1mm and -1mm](R,RR){$\frac{3}{8}$}
-%    \tkzLabelSegment[above left=-1mm and -1mm](G,GR){$\frac{4}{8}$}
-%    \tkzLabelSegment[above left=-1mm and -1mm](B,BR){$\frac{4}{8}$}
-%    \tkzLabelSegment[above right=-1mm and -1mm](R,RB){$\frac{3}{8}$}
-%    \tkzLabelSegment[above right=-1mm and -1mm](G,GB){$\frac{3}{8}$}
-%    \tkzLabelSegment[above right=-1mm and -1mm](B,BB){$\frac{2}{8}$}
-%    \tkzLabelSegment[right=-1mm](R,RG){$\frac{2}{8}$}
-%    \tkzLabelSegment[right=-1mm](G,GG){$\frac{1}{8}$}
-%    \tkzLabelSegment[right=-1mm](B,BG){$\frac{2}{8}$}
-%
-%    \tkzDrawPoints[color=BrickRed](RR,GR,BR)
-%    \tkzDrawPoints[color=ForestGreen](RG,GG,BG)
-%    \tkzDrawPoints[color=RoyalBlue](RB,GB,BB)
-%   \end{tikzpicture}
-%  \end{center}
-%  \pause
-%  Hence, we know its probability to be $\frac{3}{9} \cdot \frac{2}{8} =
-%  \frac{1}{12}$.
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Tree Diagram -- Problem \#1}
-%  A football team wins its matches with a probability of 0.7.
-%
-%  Using a tree diagram, find the probability that they win at least 1 of their
-%  next three matches.
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Tree Diagram -- Problem \#2}
-%  Anna and Rob take their driving tests on the same day. The probability of Anna
-%  passing her driving test is 0.7. The probability of both Anna and Rob passing
-%  is 0.35.
-%
-%  \begin{enumerate}
-%   \item Work out the probability of Rob passing his driving test.
-%   \item Work out the probability of both Anna and Rob failing their driving
-%    tests.
-%  \end{enumerate}
-% \end{frame}
-%
-% \begin{frame}
-%  \frametitle{Tree Diagram -- Problem \#3}
-%  You roll a dice three times. What's the probability that the sum of all the
-%  rolled numbers is 12 assuming
-%  \begin{enumerate}
-%   \item the first rolled number is 3.
-%   \item the second rolled number is 5.
-%  \end{enumerate}
-%  Use tree diagrams to solve the problem.
-% \end{frame}
+\section{Tree Diagrams}
+
+\begin{frame}
+ \frametitle{Tree Diagrams}
+ \alert{Tree diagrams} are essentially a schematic representation of all the
+ possible outcomes of a probabilistic experiment.\\
+ \pause
+ They provide a good way to visualize a problem and compute probabilities.\\
+ \pause
+ In some sense, they allow \alert{dependent events} to \alert{become
+ independent} and compute the probability of the successive occurrence of such
+ events by simple multiplication.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Drawing Tree Diagrams}
+ We draw tree diagrams by
+ \begin{itemize}
+  \item representing events/outcomes by `points' or `dots';
+  \pause
+  \item connecting successive events by lines;
+   \pause
+  \item drawing the events from top to bottom in chronological order.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Tree Diagram -- Example}
+ Imagine again a set of 9 balls of three different colors.
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0,1,2} {
+    \foreach \y in {0,1,2} {
+     \tkzDefPoint(\x,\y){\x\y}
+    }
+   }
+   \tkzDrawPoints[color=BrickRed](00,12,20,21)
+   \tkzDrawPoints[color=RoyalBlue](01,11,22)
+   \tkzDrawPoints[color=ForestGreen](02,10)
+  \end{tikzpicture}
+ \end{center}
+ \pause
+ We computed the probability that the \alert{second} ball we pick at random is
+ \clr{red} assuming the first ball was also \clr{red}.\\
+ \pause
+ We'll perform the same computation using a \alert{tree diagram}.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Tree Diagram -- Example}
+ We start by drawing the `root' of the three. Just a simple dot which will then
+ branch into different events.
+ \vspace*{-2em}
+ \begin{center}
+  \begin{tikzpicture}
+   \tkzDefPoint(0,0){O}
+   \tkzDrawPoint(O)
+  \end{tikzpicture}
+ \end{center}
+ \pause
+ The first event is `a randomly chosen ball is \clr{red}'. There are three
+ possible outcomes of a random choice -- \clr{red}, \clg{green} or \clb{blue},
+ each of different probability.\\
+ \pause
+ We represent this in the tree diagram like this:
+ \vspace*{-1em}
+ \begin{center}
+  \begin{tikzpicture}
+   \tkzDefPoint(0,0){O}
+   \tkzDefPoints{-5/-1/R,0/-1/G,5/-1/B}
+
+   \tkzDrawSegment[thick](O,R)
+   \tkzDrawSegment[thick](O,G)
+   \tkzDrawSegment[thick](O,B)
+   
+   \tkzDrawPoint(O)
+   \tkzDrawPoint[color=BrickRed](R)
+   \tkzDrawPoint[color=ForestGreen](G)
+   \tkzDrawPoint[color=RoyalBlue](B)
+   \tkzLabelSegment[above left=-1mm and -1mm](O,R){$\frac{4}{9}$}
+   \tkzLabelSegment[above right=-1mm and -1mm](O,B){$\frac{3}{9}$}
+   \tkzLabelSegment[right=-1mm](O,G){$\frac{2}{9}$}
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Tree Diagram -- Example}
+ The next ball can be again \clr{red}, \clg{green} or \clb{blue}. But, this
+ event follows after a previous random choice of a ball, so the number of balls
+ remaining is 8 and their colours depend on the previous event.\\
+ \pause
+ The full tree diagram of this probabilistic experiment would look like this:
+ \vspace*{-1em}
+ \begin{center}
+  \begin{tikzpicture}
+   \tkzDefPoint(0,0){O}
+   \tkzDefPoints{-5/-1/R,0/-1/G,5/-1/B}
+   \tkzDefPoints{-6.5/-2/RR,-5/-2/RG,-3.5/-2/RB}
+   \tkzDefPoints{-1.5/-2/GR,0/-2/GG,1.5/-2/GB}
+   \tkzDefPoints{3.5/-2/BR,5/-2/BG,6.5/-2/BB}
+
+   \tkzDrawSegment[thick](O,R)
+   \tkzDrawSegment[thick](O,G)
+   \tkzDrawSegment[thick](O,B)
+
+   \tkzDrawSegments[thick](R,RR R,RG R,RB)
+   \tkzDrawSegments[thick](G,GR G,GG G,GB)
+   \tkzDrawSegments[thick](B,BR B,BG B,BB)
+   
+   \tkzDrawPoint(O)
+   \tkzDrawPoint[color=BrickRed](R)
+   \tkzDrawPoint[color=ForestGreen](G)
+   \tkzDrawPoint[color=RoyalBlue](B)
+
+   \tkzLabelSegment[above left=-1mm and -1mm](O,R){$\frac{4}{9}$}
+   \tkzLabelSegment[above right=-1mm and -1mm](O,B){$\frac{3}{9}$}
+   \tkzLabelSegment[right=-1mm](O,G){$\frac{2}{9}$}
+
+   \tkzLabelSegment[above left=-1mm and -1mm](R,RR){$\frac{3}{8}$}
+   \tkzLabelSegment[above left=-1mm and -1mm](G,GR){$\frac{4}{8}$}
+   \tkzLabelSegment[above left=-1mm and -1mm](B,BR){$\frac{4}{8}$}
+   \tkzLabelSegment[above right=-1mm and -1mm](R,RB){$\frac{3}{8}$}
+   \tkzLabelSegment[above right=-1mm and -1mm](G,GB){$\frac{3}{8}$}
+   \tkzLabelSegment[above right=-1mm and -1mm](B,BB){$\frac{2}{8}$}
+   \tkzLabelSegment[right=-1mm](R,RG){$\frac{2}{8}$}
+   \tkzLabelSegment[right=-1mm](G,GG){$\frac{1}{8}$}
+   \tkzLabelSegment[right=-1mm](B,BG){$\frac{2}{8}$}
+
+   \tkzDrawPoints[color=BrickRed](RR,GR,BR)
+   \tkzDrawPoints[color=ForestGreen](RG,GG,BG)
+   \tkzDrawPoints[color=RoyalBlue](RB,GB,BB)
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Tree Diagram -- Example}
+ The great advantage of the tree diagram is that the probability of any events
+ is just the product of the probabilities of the events that come before and
+ this one.\\
+ \pause
+ For example, suppose we want to calculate the probability that a \clg{green}
+ ball is picked after a \clb{blue} one has been.\\
+ \pause
+ This event corresponds to \clm{\textbf{this path}} in the tree:
+ \vspace*{-1em}
+ \begin{center}
+  \begin{tikzpicture}
+   \tkzDefPoint(0,0){O}
+   \tkzDefPoints{-5/-1/R,0/-1/G,5/-1/B}
+   \tkzDefPoints{-6.5/-2/RR,-5/-2/RG,-3.5/-2/RB}
+   \tkzDefPoints{-1.5/-2/GR,0/-2/GG,1.5/-2/GB}
+   \tkzDefPoints{3.5/-2/BR,5/-2/BG,6.5/-2/BB}
+
+   \tkzDrawSegment[thick](O,R)
+   \tkzDrawSegment[thick](O,G)
+   \tkzDrawSegment[thick](O,B)
+
+   \tkzDrawSegment[ultra thick,color=Magenta](O,B)
+
+   \tkzDrawSegments[thick](R,RR R,RG R,RB)
+   \tkzDrawSegments[thick](G,GR G,GG G,GB)
+   \tkzDrawSegments[thick](B,BR B,BG B,BB)
+
+   \tkzDrawSegment[ultra thick,color=Magenta](B,BG)
+   
+   \tkzDrawPoint(O)
+   \tkzDrawPoint[color=BrickRed](R)
+   \tkzDrawPoint[color=ForestGreen](G)
+   \tkzDrawPoint[color=RoyalBlue](B)
+
+   \tkzLabelSegment[above left=-1mm and -1mm](O,R){$\frac{4}{9}$}
+   \tkzLabelSegment[above right=-1mm and -1mm](O,B){$\frac{3}{9}$}
+   \tkzLabelSegment[right=-1mm](O,G){$\frac{2}{9}$}
+
+   \tkzLabelSegment[above left=-1mm and -1mm](R,RR){$\frac{3}{8}$}
+   \tkzLabelSegment[above left=-1mm and -1mm](G,GR){$\frac{4}{8}$}
+   \tkzLabelSegment[above left=-1mm and -1mm](B,BR){$\frac{4}{8}$}
+   \tkzLabelSegment[above right=-1mm and -1mm](R,RB){$\frac{3}{8}$}
+   \tkzLabelSegment[above right=-1mm and -1mm](G,GB){$\frac{3}{8}$}
+   \tkzLabelSegment[above right=-1mm and -1mm](B,BB){$\frac{2}{8}$}
+   \tkzLabelSegment[right=-1mm](R,RG){$\frac{2}{8}$}
+   \tkzLabelSegment[right=-1mm](G,GG){$\frac{1}{8}$}
+   \tkzLabelSegment[right=-1mm](B,BG){$\frac{2}{8}$}
+
+   \tkzDrawPoints[color=BrickRed](RR,GR,BR)
+   \tkzDrawPoints[color=ForestGreen](RG,GG,BG)
+   \tkzDrawPoints[color=RoyalBlue](RB,GB,BB)
+  \end{tikzpicture}
+ \end{center}
+ \pause
+ Hence, we know its probability to be $\frac{3}{9} \cdot \frac{2}{8} =
+ \frac{1}{12}$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Tree Diagram -- Problem \#1}
+ A football team wins its matches with a probability of 0.7.
+
+ Using a tree diagram, find the probability that they win at least 1 of their
+ next three matches.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Tree Diagram -- Problem \#2}
+ Anna and Rob take their driving tests on the same day. The probability of Anna
+ passing her driving test is 0.7. The probability of both Anna and Rob passing
+ is 0.35.
+
+ \begin{enumerate}
+  \item Work out the probability of Rob passing his driving test.
+  \item Work out the probability of both Anna and Rob failing their driving
+   tests.
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Tree Diagram -- Problem \#3}
+ You roll a dice three times. What's the probability that the sum of all the
+ rolled numbers is 12 assuming
+ \begin{enumerate}
+  \item the first rolled number is 3.
+  \item the second rolled number is 5.
+ \end{enumerate}
+ Use tree diagrams to solve the problem.
+\end{frame}
 %
 % \begin{frame}
 %  \frametitle{Tree Diagram -- Problem \#4}
@@ -1288,276 +1288,276 @@
 %  to your advantage to switch your choice?
 % \end{frame}
 
-\section{Probability Distribution}
-
-\begin{frame}
- \frametitle{What Is Probability Distribution?}
- \alert{Probability distribution} is a function that describes the probability
- of different \emph{possible values} of a \emph{random variable}.\\ \pause
- \emph{graphs}.\\ \pause
- For example, imagine the random variable $X$ that describes the outcome of a
- coin toss, that is $X \in \{\text{heads},\text{tails}\}$. \\ \pause
- If the coin is fair then $P(X = \text{heads}) = P(X = \text{tails}) = 1 / 2$.\\
- \pause
- The \alert{probability distribution} of this random variable is a function
- $f:\{\text{heads},\text{tails}\} \to [0,1]$ which assigns to the element
- `heads' the probability $P(X = \text{heads})$ and to `tails' the probability
- $P(X = \text{tails})$.\\ \pause
- In other words, $f(\text{heads}) = f(\text{tails}) = 1 / 2$.
-\end{frame}
-
-\begin{frame}
- \frametitle{Probability Distribution -- Examples}
- \begin{itemize}
-  \item The \alert{probability distribution} of a random variable representing
-   the value of a dice roll is a function
-   \[
-    f: \{1,2,3,4,5,6\} \to [0,1]
-   \]
-   such that $f(k) = 1 / 6$ for all numbers $k \in \{1,2,3,4,5,6\}$.
-  \pause
-  \item The \alert{probability distribution} of a random variable representing
-   the rank of a randomly chosen playing card is a function
-   \pause
-   \[
-    f: \{2,3,4,5,6,7,8,9,10,J,Q,K,A\} \to [0,1]
-   \]
-   such that $f(r) = 4 / 52$ where $r$ is a rank of a playing card.
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Visualizing Probability Distributions -- Tables}
- \emph{Discrete} \alert{probability distributions} (meaning distributions of a
- \emph{discrete} random variable) can be easily represented using
- \alert{tables}.\\ \pause
- For example, the probability distribution of a dice roll is given simply by
- \begin{center}
-  \begin{tabular}{c|cccccc}
-   \textbf{Roll} & 1 & 2 & 3 & 4 & 5 & 6\\
-   \midrule
-   \textbf{Probability} & $\frac{1}{6}$ & $\frac{1}{6}$ &$\frac{1}{6}$
-                        &$\frac{1}{6}$ &$\frac{1}{6}$ &$\frac{1}{6}$.
-  \end{tabular}
- \end{center}
-\end{frame}
-
-\begin{frame}
- \frametitle{Visualizing Probability Distributions -- Tables}
- For a more abstract example, if $X$ can attain any of the four values $a,b,c,d$
- with probabilities $P(X = a) = 3 / 10$, $P(X = b) = 5 / 10$, $P(X = c) = 1 /
- 10$, $P(X = d) = 1 / 10$, then its probability distribution is
- \begin{center}
-  \begin{tabular}{c|cccc}
-   \textbf{Value} & a & b & c & d\\
-   \midrule
-   \textbf{Probability} & $\frac{3}{10}$ & $\frac{5}{10}$ & $\frac{1}{10}$ &
-   $\frac{1}{10}$.
-  \end{tabular}
- \end{center}
-\end{frame}
-
-\begin{frame}
- \frametitle{Visualizing Probability Distributions -- Graphs}
- \alert{Probability distributions} (both \emph{discrete} and \emph{continuous})
- can be represented as graphs. These are your typical function graphs which draw
- inputs on the $x$-axis and outputs on the $y$-axis.\\ \pause
- The probability distribution of a dice roll looks like this
- \vspace*{-1em}
- \begin{center}
-  \includegraphics[width=.45\linewidth]{dice-plot.png}
- \end{center}
-\end{frame}
-
-\begin{frame}
- \frametitle{Visualizing Probability Distributions -- Graphs}
- The probability distribution from this table
- \begin{center}
-  \begin{tabular}{c|cccc}
-   \textbf{Value} & a & b & c & d\\
-   \midrule
-   \textbf{Probability} & $\frac{3}{10}$ & $\frac{5}{10}$ & $\frac{1}{10}$ &
-   $\frac{1}{10}$.
-  \end{tabular}
- \end{center}
- looks like this
- \vspace*{-1em}
- \begin{center}
-  \includegraphics[width=.55\linewidth]{random-probability.png}
- \end{center}
-\end{frame}
-
-\subsection{Discrete Probability Distributions}
-
-\begin{frame}
- \subsectionpage
-\end{frame}
-
-\begin{frame}
- \frametitle{Discrete Probability Distribution}
- Let $X$ be a random variable taking values from a set $A$.\pause
- \begin{itemize}
-  \item The \alert{probability distribution} (or also \alert{probability mass
-   function}) of $X$ is the function $f:A \to [0,1]$ defined as $f(a) = P(X =
-   a)$ for $a \in A$. \pause
-  \item The \alert{cumulative distribution function} of $X$ gives the
-   probability that a random variable is \alert{less than a certain value}. It
-   is defined as $F(a) = P(X \leq a)$ for $a \in A$. \pause
-  \item The \alert{mean} of $X$ is defined as $E(X) = \sum_{a \in A} a \cdot P(X = a)$.
-   It represents the `expected' value of $X$. \pause
-  \item The \alert{variance} (describing the \emph{dispersion} of the
-   distribution around the mean) of $X$ is defined as
-   \[
-    \var(X) = \sum_{a \in A} (a - E(X))^2 \cdot P(X = a).
-   \]
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Discrete Probability Distribution -- Example}
- Let's see what these concepts mean in a simple statistical experiment.\\ \pause
- Suppose we measure the height of a randomly picked 20-year-old males. We might
- get something akin to the following table
- \begin{center}
-  \begin{tabular}{c|ccccccccc}
-   \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
-   \midrule
-   \textbf{Count} & 13 & 20 & 11 & 17 & 11 & 8 & 10 & 7 & 3
-  \end{tabular}
- \end{center}
- \pause
- We can easily calculate the mean and standard deviation of this data. 
-\end{frame}
-
-\begin{frame}
- \frametitle{Discrete Probability Distribution -- Example}
-  \begin{center}
-  \begin{tabular}{c|ccccccccc}
-   \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
-   \midrule
-   \textbf{Count} & 13 & 20 & 11 & 17 & 11 & 8 & 10 & 7 & 3
-  \end{tabular}
- \end{center}
- Using the formula for the arithmetic mean, we get
- \[
-  \bar{x} = \frac{175 \cdot 13 + 176 \cdot 20 + \ldots + 183 \cdot 3}{13 + 20 +
-  \ldots + 3} = 178.1
- \]
-\end{frame}
-
-\begin{frame}
- \frametitle{Discrete Probability Distribution -- Example}
-  \begin{center}
-  \begin{tabular}{c|ccccccccc}
-   \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
-   \midrule
-   \textbf{Count} & 13 & 20 & 11 & 17 & 11 & 8 & 10 & 7 & 3
-  \end{tabular}
- \end{center}
- The standard deviation is then
- \[
-  \sigma = \sqrt{\frac{13 \cdot (175 - 178.1)^2 + 20 \cdot (176 - 178.1)^2 +
-  \ldots + 3 \cdot (183 - 178.1)^2}{13 + 20 + \ldots + 3}} = 8.203.
- \]
-\end{frame}
-
-\begin{frame}
- \frametitle{Discrete Probability Distribution -- Example}
-  \begin{center}
-  \begin{tabular}{c|ccccccccc}
-   \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
-   \midrule
-   \textbf{Count} & 13 & 20 & 11 & 17 & 11 & 8 & 10 & 7 & 3
-  \end{tabular}
- \end{center}
- Let's now define a random variable $X$ which can be any of those heights in the
- table above. \\ \pause
- We define the probabilities that $X$ is a particular height based on the counts
- above. That gives the following table
- \begin{center}
-  \begin{tabular}{c|ccccccccc}
-   \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
-   \midrule
-   \textbf{Probability} & $\frac{13}{100}$ & $\frac{20}{100}$ & $\frac{11}{100}$
-                        & $\frac{17}{100}$ & $\frac{11}{100}$ & $\frac{8}{100}$
-                        & $\frac{10}{100}$ & $\frac{7}{100}$ & $\frac{3}{100}$
-  \end{tabular}
- \end{center}
- \pause
- In other words, this gives a \alert{distribution function} $f$ of $X$ where the
- set $A = \{175, 176, 177, 178, 179, 180, 181, 182, 183\}$ and the outputs of
- $f$ on each of these numbers are given by the table above.
-\end{frame}
-
-\begin{frame}
- \frametitle{Discrete Probability Distribution -- Example}
- \begin{center}
-  \begin{tabular}{c|ccccccccc}
-   \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
-   \midrule
-   \textbf{Probability} & $\frac{13}{100}$ & $\frac{20}{100}$ & $\frac{11}{100}$
-                        & $\frac{17}{100}$ & $\frac{11}{100}$ & $\frac{8}{100}$
-                        & $\frac{10}{100}$ & $\frac{7}{100}$ & $\frac{3}{100}$
-  \end{tabular}
- \end{center}
- \begin{itemize}
-  \item The \alert{cumulative distribution function} $F$ describes the
-   probability that a randomly chosen person from the group has height
-   \emph{less than} a particular number. \pause For example,
-   \begin{align*}
-    F(178) &= P(X \leq 178) = P(X = 175) + P(X = 176) + P(X = 177) + P(X =
-    178)\\
-           &= \frac{13}{100} + \frac{20}{100} + \frac{11}{100} + \frac{17}{100}
-           = \frac{61}{100}.
-   \end{align*}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Discrete Probability Distribution -- Example}
- \begin{center}
-  \begin{tabular}{c|ccccccccc}
-   \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
-   \midrule
-   \textbf{Probability} & $\frac{13}{100}$ & $\frac{20}{100}$ & $\frac{11}{100}$
-                        & $\frac{17}{100}$ & $\frac{11}{100}$ & $\frac{8}{100}$
-                        & $\frac{10}{100}$ & $\frac{7}{100}$ & $\frac{3}{100}$
-  \end{tabular}
- \end{center}
- \begin{itemize}
-  \item The \alert{mean} of $X$ is the same as the arithmetic mean of the data.
-   Indeed,
-   \begin{align*}
-    E(X) &= \sum_{a \in A} a \cdot P(X = a)\\
-         &= 175 \cdot P(X = 175) + 176 \cdot P(X = 176) + \ldots + 183 \cdot P(X
-         = 183)\\
-         &= 175 \cdot \frac{13}{100} + 176 \cdot \frac{20}{100} + \ldots + 183
-         \cdot \frac{3}{100} = 178.1.
-   \end{align*}
- \end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Discrete Probability Distribution -- Example}
- \begin{center}
-  \begin{tabular}{c|ccccccccc}
-   \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
-   \midrule
-   \textbf{Probability} & $\frac{13}{100}$ & $\frac{20}{100}$ & $\frac{11}{100}$
-                        & $\frac{17}{100}$ & $\frac{11}{100}$ & $\frac{8}{100}$
-                        & $\frac{10}{100}$ & $\frac{7}{100}$ & $\frac{3}{100}$
-  \end{tabular}
- \end{center}
- \begin{itemize}
-  \item The \alert{variance} of $X$ is the same as the standard deviation
-   \emph{squared} (that is, $\var(X) = \sigma^2$). Indeed,
-   \begin{align*}
-    \var(X) &= \sum_{a \in A} (a - E(X))^2 \cdot P(X = a)\\
-            &= (175 - 178.1)^2 \cdot P(X = 175) + \ldots + (183 - 178.1)^2 \cdot
-            P(X = 183)\\
-            &= 67.29 = 8.203^2.
-   \end{align*}
- \end{itemize}
-\end{frame}
-
+% \section{Probability Distribution}
+%
+% \begin{frame}
+%  \frametitle{What Is Probability Distribution?}
+%  \alert{Probability distribution} is a function that describes the probability
+%  of different \emph{possible values} of a \emph{random variable}.\\ \pause
+%  \emph{graphs}.\\ \pause
+%  For example, imagine the random variable $X$ that describes the outcome of a
+%  coin toss, that is $X \in \{\text{heads},\text{tails}\}$. \\ \pause
+%  If the coin is fair then $P(X = \text{heads}) = P(X = \text{tails}) = 1 / 2$.\\
+%  \pause
+%  The \alert{probability distribution} of this random variable is a function
+%  $f:\{\text{heads},\text{tails}\} \to [0,1]$ which assigns to the element
+%  `heads' the probability $P(X = \text{heads})$ and to `tails' the probability
+%  $P(X = \text{tails})$.\\ \pause
+%  In other words, $f(\text{heads}) = f(\text{tails}) = 1 / 2$.
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Probability Distribution -- Examples}
+%  \begin{itemize}
+%   \item The \alert{probability distribution} of a random variable representing
+%    the value of a dice roll is a function
+%    \[
+%     f: \{1,2,3,4,5,6\} \to [0,1]
+%    \]
+%    such that $f(k) = 1 / 6$ for all numbers $k \in \{1,2,3,4,5,6\}$.
+%   \pause
+%   \item The \alert{probability distribution} of a random variable representing
+%    the rank of a randomly chosen playing card is a function
+%    \pause
+%    \[
+%     f: \{2,3,4,5,6,7,8,9,10,J,Q,K,A\} \to [0,1]
+%    \]
+%    such that $f(r) = 4 / 52$ where $r$ is a rank of a playing card.
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Visualizing Probability Distributions -- Tables}
+%  \emph{Discrete} \alert{probability distributions} (meaning distributions of a
+%  \emph{discrete} random variable) can be easily represented using
+%  \alert{tables}.\\ \pause
+%  For example, the probability distribution of a dice roll is given simply by
+%  \begin{center}
+%   \begin{tabular}{c|cccccc}
+%    \textbf{Roll} & 1 & 2 & 3 & 4 & 5 & 6\\
+%    \midrule
+%    \textbf{Probability} & $\frac{1}{6}$ & $\frac{1}{6}$ &$\frac{1}{6}$
+%                         &$\frac{1}{6}$ &$\frac{1}{6}$ &$\frac{1}{6}$.
+%   \end{tabular}
+%  \end{center}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Visualizing Probability Distributions -- Tables}
+%  For a more abstract example, if $X$ can attain any of the four values $a,b,c,d$
+%  with probabilities $P(X = a) = 3 / 10$, $P(X = b) = 5 / 10$, $P(X = c) = 1 /
+%  10$, $P(X = d) = 1 / 10$, then its probability distribution is
+%  \begin{center}
+%   \begin{tabular}{c|cccc}
+%    \textbf{Value} & a & b & c & d\\
+%    \midrule
+%    \textbf{Probability} & $\frac{3}{10}$ & $\frac{5}{10}$ & $\frac{1}{10}$ &
+%    $\frac{1}{10}$.
+%   \end{tabular}
+%  \end{center}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Visualizing Probability Distributions -- Graphs}
+%  \alert{Probability distributions} (both \emph{discrete} and \emph{continuous})
+%  can be represented as graphs. These are your typical function graphs which draw
+%  inputs on the $x$-axis and outputs on the $y$-axis.\\ \pause
+%  The probability distribution of a dice roll looks like this
+%  \vspace*{-1em}
+%  \begin{center}
+%   \includegraphics[width=.45\linewidth]{dice-plot.png}
+%  \end{center}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Visualizing Probability Distributions -- Graphs}
+%  The probability distribution from this table
+%  \begin{center}
+%   \begin{tabular}{c|cccc}
+%    \textbf{Value} & a & b & c & d\\
+%    \midrule
+%    \textbf{Probability} & $\frac{3}{10}$ & $\frac{5}{10}$ & $\frac{1}{10}$ &
+%    $\frac{1}{10}$.
+%   \end{tabular}
+%  \end{center}
+%  looks like this
+%  \vspace*{-1em}
+%  \begin{center}
+%   \includegraphics[width=.55\linewidth]{random-probability.png}
+%  \end{center}
+% \end{frame}
+%
+% \subsection{Discrete Probability Distributions}
+%
+% \begin{frame}
+%  \subsectionpage
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Discrete Probability Distribution}
+%  Let $X$ be a random variable taking values from a set $A$.\pause
+%  \begin{itemize}
+%   \item The \alert{probability distribution} (or also \alert{probability mass
+%    function}) of $X$ is the function $f:A \to [0,1]$ defined as $f(a) = P(X =
+%    a)$ for $a \in A$. \pause
+%   \item The \alert{cumulative distribution function} of $X$ gives the
+%    probability that a random variable is \alert{less than a certain value}. It
+%    is defined as $F(a) = P(X \leq a)$ for $a \in A$. \pause
+%   \item The \alert{mean} of $X$ is defined as $E(X) = \sum_{a \in A} a \cdot P(X = a)$.
+%    It represents the `expected' value of $X$. \pause
+%   \item The \alert{variance} (describing the \emph{dispersion} of the
+%    distribution around the mean) of $X$ is defined as
+%    \[
+%     \var(X) = \sum_{a \in A} (a - E(X))^2 \cdot P(X = a).
+%    \]
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Discrete Probability Distribution -- Example}
+%  Let's see what these concepts mean in a simple statistical experiment.\\ \pause
+%  Suppose we measure the height of a randomly picked 20-year-old males. We might
+%  get something akin to the following table
+%  \begin{center}
+%   \begin{tabular}{c|ccccccccc}
+%    \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
+%    \midrule
+%    \textbf{Count} & 13 & 20 & 11 & 17 & 11 & 8 & 10 & 7 & 3
+%   \end{tabular}
+%  \end{center}
+%  \pause
+%  We can easily calculate the mean and standard deviation of this data. 
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Discrete Probability Distribution -- Example}
+%   \begin{center}
+%   \begin{tabular}{c|ccccccccc}
+%    \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
+%    \midrule
+%    \textbf{Count} & 13 & 20 & 11 & 17 & 11 & 8 & 10 & 7 & 3
+%   \end{tabular}
+%  \end{center}
+%  Using the formula for the arithmetic mean, we get
+%  \[
+%   \bar{x} = \frac{175 \cdot 13 + 176 \cdot 20 + \ldots + 183 \cdot 3}{13 + 20 +
+%   \ldots + 3} = 178.1
+%  \]
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Discrete Probability Distribution -- Example}
+%   \begin{center}
+%   \begin{tabular}{c|ccccccccc}
+%    \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
+%    \midrule
+%    \textbf{Count} & 13 & 20 & 11 & 17 & 11 & 8 & 10 & 7 & 3
+%   \end{tabular}
+%  \end{center}
+%  The standard deviation is then
+%  \[
+%   \sigma = \sqrt{\frac{13 \cdot (175 - 178.1)^2 + 20 \cdot (176 - 178.1)^2 +
+%   \ldots + 3 \cdot (183 - 178.1)^2}{13 + 20 + \ldots + 3}} = 8.203.
+%  \]
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Discrete Probability Distribution -- Example}
+%   \begin{center}
+%   \begin{tabular}{c|ccccccccc}
+%    \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
+%    \midrule
+%    \textbf{Count} & 13 & 20 & 11 & 17 & 11 & 8 & 10 & 7 & 3
+%   \end{tabular}
+%  \end{center}
+%  Let's now define a random variable $X$ which can be any of those heights in the
+%  table above. \\ \pause
+%  We define the probabilities that $X$ is a particular height based on the counts
+%  above. That gives the following table
+%  \begin{center}
+%   \begin{tabular}{c|ccccccccc}
+%    \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
+%    \midrule
+%    \textbf{Probability} & $\frac{13}{100}$ & $\frac{20}{100}$ & $\frac{11}{100}$
+%                         & $\frac{17}{100}$ & $\frac{11}{100}$ & $\frac{8}{100}$
+%                         & $\frac{10}{100}$ & $\frac{7}{100}$ & $\frac{3}{100}$
+%   \end{tabular}
+%  \end{center}
+%  \pause
+%  In other words, this gives a \alert{distribution function} $f$ of $X$ where the
+%  set $A = \{175, 176, 177, 178, 179, 180, 181, 182, 183\}$ and the outputs of
+%  $f$ on each of these numbers are given by the table above.
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Discrete Probability Distribution -- Example}
+%  \begin{center}
+%   \begin{tabular}{c|ccccccccc}
+%    \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
+%    \midrule
+%    \textbf{Probability} & $\frac{13}{100}$ & $\frac{20}{100}$ & $\frac{11}{100}$
+%                         & $\frac{17}{100}$ & $\frac{11}{100}$ & $\frac{8}{100}$
+%                         & $\frac{10}{100}$ & $\frac{7}{100}$ & $\frac{3}{100}$
+%   \end{tabular}
+%  \end{center}
+%  \begin{itemize}
+%   \item The \alert{cumulative distribution function} $F$ describes the
+%    probability that a randomly chosen person from the group has height
+%    \emph{less than} a particular number. \pause For example,
+%    \begin{align*}
+%     F(178) &= P(X \leq 178) = P(X = 175) + P(X = 176) + P(X = 177) + P(X =
+%     178)\\
+%            &= \frac{13}{100} + \frac{20}{100} + \frac{11}{100} + \frac{17}{100}
+%            = \frac{61}{100}.
+%    \end{align*}
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Discrete Probability Distribution -- Example}
+%  \begin{center}
+%   \begin{tabular}{c|ccccccccc}
+%    \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
+%    \midrule
+%    \textbf{Probability} & $\frac{13}{100}$ & $\frac{20}{100}$ & $\frac{11}{100}$
+%                         & $\frac{17}{100}$ & $\frac{11}{100}$ & $\frac{8}{100}$
+%                         & $\frac{10}{100}$ & $\frac{7}{100}$ & $\frac{3}{100}$
+%   \end{tabular}
+%  \end{center}
+%  \begin{itemize}
+%   \item The \alert{mean} of $X$ is the same as the arithmetic mean of the data.
+%    Indeed,
+%    \begin{align*}
+%     E(X) &= \sum_{a \in A} a \cdot P(X = a)\\
+%          &= 175 \cdot P(X = 175) + 176 \cdot P(X = 176) + \ldots + 183 \cdot P(X
+%          = 183)\\
+%          &= 175 \cdot \frac{13}{100} + 176 \cdot \frac{20}{100} + \ldots + 183
+%          \cdot \frac{3}{100} = 178.1.
+%    \end{align*}
+%  \end{itemize}
+% \end{frame}
+%
+% \begin{frame}
+%  \frametitle{Discrete Probability Distribution -- Example}
+%  \begin{center}
+%   \begin{tabular}{c|ccccccccc}
+%    \textbf{Height} & 175 & 176 & 177 & 178 & 179 & 180 & 181 & 182 & 183\\
+%    \midrule
+%    \textbf{Probability} & $\frac{13}{100}$ & $\frac{20}{100}$ & $\frac{11}{100}$
+%                         & $\frac{17}{100}$ & $\frac{11}{100}$ & $\frac{8}{100}$
+%                         & $\frac{10}{100}$ & $\frac{7}{100}$ & $\frac{3}{100}$
+%   \end{tabular}
+%  \end{center}
+%  \begin{itemize}
+%   \item The \alert{variance} of $X$ is the same as the standard deviation
+%    \emph{squared} (that is, $\var(X) = \sigma^2$). Indeed,
+%    \begin{align*}
+%     \var(X) &= \sum_{a \in A} (a - E(X))^2 \cdot P(X = a)\\
+%             &= (175 - 178.1)^2 \cdot P(X = 175) + \ldots + (183 - 178.1)^2 \cdot
+%             P(X = 183)\\
+%             &= 67.29 = 8.203^2.
+%    \end{align*}
+%  \end{itemize}
+% \end{frame}
+%
 \end{document}

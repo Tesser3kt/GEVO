@@ -1,0 +1,164 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{empty}
+\begin{document}
+
+\thispagestyle{empty}
+
+\hrule
+\vspace*{-1em}
+\begin{center}
+ \clr{\textbf{Z NÁSLEDUJÍCÍCH ÚLOH SI VYBERTE JEDNU. PŘI ŘEŠENÍ ÚLOH 
+  NESMÍTE VYUŽÍT CIZÍ POMOCI -- ANI LIDSKÉ ANI UMĚLÉ!}}
+\end{center}
+\hrule
+
+\subsection*{1. Závod}
+
+Napište funkci, která dostane jako parametry dva seznamy -- \texttt{auto1} a
+\texttt{auto2} a rozhodne, které auto ujede větší vzdálenost. Obdržené seznamy
+obsahují úseky -- dvojice \texttt{(rychlost, čas)}, které znamenají, že dané
+auto jelo po dobu \texttt{čas} (ve vteřinách) rychlostí \texttt{rychlost} (v
+metrech za vteřinu). Funkce má vrátit \texttt{1}, když \texttt{auto1} ujede
+větší vzdálenost, jinak má vrátit \texttt{2}.
+
+\textbf{Hint:} Na začátku funkce si vytvořte proměnné pro vzdálenosti obou aut.
+Procházejte \texttt{for} cyklem oba seznamy postupně (nebo jedním \texttt{while}
+cyklem oba najednou) a vždy k zapamatovaným vzdálenostem přičtěte
+\texttt{rychlost * čas}. Na konci cyklu budeme mít spočtenou celou uraženou
+vzdálenost.
+
+\emph{Příklad:} Je-li
+\begin{itemize}
+ \item \texttt{auto1 = [(40, 10), (35, 15), (50, 5)]},
+ \item \texttt{auto2 = [(30, 5), (35, 10), (50, 10), (25, 5)]},
+\end{itemize}
+pak
+\begin{itemize}
+ \item \texttt{auto1} urazí vzdálenost \texttt{40 * 10 + 35 * 15 + 50 * 5 =
+  1175},
+ \item \texttt{auto2} urazí vzdálenost \texttt{30 * 5 + 35 * 10 + 50 * 10 + 25 *
+  5 = 925},
+\end{itemize}
+takže vyhraje \texttt{auto1} a funkce vrací \texttt{1}.
+
+\clearpage
+
+\subsection*{2. Platný e-mail}
+
+Napište funkci, která dostane parametrem string \texttt{email} a rozhodne (tj.
+vrátí \texttt{True} nebo \texttt{False}), zda se jedná o platnou e-mailovou
+adresu. Podmínky platnosti jsou pro nás následující:
+\begin{enumerate}
+ \item \texttt{email} obsahuje \texttt{"@"} i \texttt{"."}.
+ \item mezi \texttt{"@"} a \texttt{"."} je aspoň jeden další symbol.
+ \item \texttt{email} začíná a končí jiným symbolem než \texttt{"@"} a
+  \texttt{"."}.
+\end{enumerate}
+
+\textbf{Hint:} Podmínky 1 a 3 jsou jednoduché, stačí použít \texttt{in} a
+podívat se na první a poslední prvek stringu \texttt{email}. U podmínky číslo
+\texttt{2} je potřeba zjistit pořadí \texttt{"@"} a \texttt{"."} (funkci
+\texttt{find} \textbf{nepoužívejte}) a podívat se, že nejsou hned u sebe.
+
+\emph{Příklady:}
+\begin{itemize}
+ \item \texttt{adam.klepac@gevo.cz} je platná e-mailová adresa.
+ \item \texttt{@gmail.com} není platná, protože začíná na \texttt{"@"}.
+ \item \texttt{whoever@gmail} není platná, protože neobsahuje \texttt{"."}.
+ \item \texttt{whoever2@.com} není platná, protože \texttt{"@"} a \texttt{"."}
+  jsou hned u sebe.
+\end{itemize}
+
+\end{document}
