@@ -44,7 +44,7 @@ const Article = ({
             </svg>
           </button>
           <button
-            className="button bg-red-100 py-2 px-4 rounded-md ring ring-red-400"
+            className="button bg-red-100 py-2 px-4 rounded-md ring ring-red-400 hover:bg-red-200"
             onClick={() => onDeleteButtonClick(id)}
           >
             Smazat

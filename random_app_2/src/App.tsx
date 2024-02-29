@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import ArticleList from "./components/ArticleList";
+import AddArticleForm from "./components/AddArticleForm";
 
 function App() {
   const totalLikes = () => {
@@ -28,6 +29,24 @@ function App() {
     setArticles(articles.filter((article) => article.id !== id));
   };
 
+  const onAddButtonClick = () => {
+    setShowForm(true);
+  };
+
+  const onSubmitClick = (heading: string, content: string) => {
+    setShowForm(false);
+    setArticles([
+      ...articles,
+      {
+        id: articles.length + 1,
+        heading: heading,
+        content: [content],
+        likes: 0,
+      },
+    ]);
+  };
+
+  const [showForm, setShowForm] = useState(false);
   const [articles, setArticles] = useState([
     {
       id: 1,
@@ -63,6 +82,18 @@ function App() {
         onLikeButtonClick={onLikeButtonClick}
         onDeleteButtonClick={onDeleteButtonClick}
       />
+      {showForm ? (
+        <AddArticleForm onSubmitClick={onSubmitClick} />
+      ) : (
+        <div className="flex justify-center mt-8">
+          <button
+            className="px-4 py-2 border rounded-md bg-blue-100 ring ring-blue-400 hover:bg-blue-200"
+            onClick={onAddButtonClick}
+          >
+            <span className="font-bold text-xl">Přidat článek</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
