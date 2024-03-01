@@ -339,4 +339,29 @@ obecné posloupnosti. Pro pořádek si je uvedeme.
  konverguje. 
 \end{propproof}
 
+\begin{warning}{}{soucin-rad}
+ Bod (3) v \hyperref[prop:aritmetika-ciselnych-rad]{předchozím tvrzení} zaručuje
+ pouze \textbf{existenci} konečného součtu řady $\sum_{n=0}^{\infty} a_nb_n$ za
+ předpokladu existence konečného součtu řad $\sum_{n=0}^{\infty} a_n$ a
+ $\sum_{n=0}^{\infty} b_n$, ale \textbf{netvrdí nic o jeho hodnotě}! Obecně na
+ základě znalosti hodnot součtů obou řad nelze kromě konečnosti usoudit nic o
+ hodnotě součtu řady $\sum_{n=0}^{\infty} a_nb_n$. Zcela jistě neplatí, že by
+ tato hodnota byla součinem součtů řad $\sum_{n=0}^{\infty} a_n$ a
+ $\sum_{n=0}^{\infty} b_n$.
+
+ Uvažme například libovolnou geometrickou řadu $\sum_{n=0}^{\infty} q^{n}$ pro
+ $|q| < 1$. Ta má podle \myref{úlohy}{prob:geometricka-rada} součet
+ $\frac{1}{1-q}$. Pak tedy platí
+ \[
+  \left( \sum_{n=0}^{\infty} q^{n} \right) \cdot \left( \sum_{n=0}^{\infty} q^n
+  \right) = \left( \frac{1}{1-q} \right)^2.
+ \]
+ Avšak, řada $\sum_{n=0}^{\infty} q^{n} \cdot q^{n} = \sum_{n=0}^{\infty}
+ q^{2n}$ je rovněž geometrická s kvocientem $q^{2} < 1$, a tudíž její součet je
+ \[
+  \sum_{n=0}^{\infty} q^{2n} = \frac{1}{1-q^2} \neq \left( \frac{1}{1-q}
+  \right)^2.
+ \]
+\end{warning}
+
 \input{real-numbers-and-limits/series/positive-series}
