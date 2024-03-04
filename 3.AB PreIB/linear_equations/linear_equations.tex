@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,usenames,dvipsnames]{beamer}
+\documentclass[aspectratio=169,11pt,usenames,dvipsnames,handout]{beamer}
 
 \usepackage[czech,english]{babel}
 \usepackage{CJKutf8}
@@ -392,4 +392,84 @@
  \end{itemize}
 \end{frame}
 
-\end{document}
+\begin{frame}
+ \frametitle{Operations On Real Functions}
+ Real functions can also be \alert{added} and \alert{multiplied}, just like real
+ numbers.\\ \pause
+ This involves simply adding or multiplying their respective outputs. \pause For
+ the functions $f(x) = 2x^2 + 7$ and $g(x) = \frac{1}{1+x}$, their
+ \begin{itemize}
+  \item \alert{sum} is the function with output
+  \[
+   (f+g)(x) = f(x) + g(x) = 2x^2 + 7 + \frac{1}{1+x}.
+  \]
+  \pause
+  \item \alert{product} is the function with output
+  \[
+   (f \cdot g)(x) = f(x) \cdot g(x) = (2x^2 + 7) \cdot \left( \frac{1}{1+x}
+   \right) = \frac{2x^2+7}{1+x}.
+  \]
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Graphs}
+ As real functions have real numbers as inputs and outputs, they can be easily
+ \alert{graphed}.\\ \pause
+ \alert{Graphing} a real function $f$ simply means drawing the points
+ $(\clr{x},\clb{f(x)})$ or $(\clr{input},\clb{output})$ in some chosen
+ coordinate system.\\ \pause
+ We typically use the \alert{Cartesian} coordinate system with two axes (one for
+ \clr{input} and one for \clb{output}) that are mutually perpendicular. \pause
+ These are often called the $\clr{x}$-axis and the $\clb{y}$-axis.\\ \pause
+ However, later, we'll also use the \alert{polar} coordinate system where every
+ point is instead determined by its angle and distance from the origin of the
+ system.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Graphs}
+ The functions $\clm{f(x) = 2x^2 + 7}$ and $\clg{g(x) = \frac{1}{1+x}}$ have the
+ following (parts of) graphs:
+ \begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{.48\textwidth}
+   \centering
+   \begin{tikzpicture}[scale=0.3]
+    \tkzInit[xmin=-3,xmax=5,ymin=0,ymax=12]
+    \tkzDrawX[>=latex,color=BrickRed]
+    \tkzDrawY[>=latex,color=RoyalBlue]
+    \draw[scale=0.5,color=Magenta,domain=-3:6,variable=\x,thick] plot
+     ({\x},{0.5*\x*\x + 7}) node[right] {$\clm{f}$};
+    \tkzDefPoints{2/0/a,0/7.5/fa,2/7.5/x}
+    \tkzDrawSegments[dashed](a,x fa,x)
+    \tkzDrawPoint[color=BrickRed](a)
+    \tkzLabelPoint[below=1mm,color=BrickRed](a){$a$}
+    \tkzDrawPoint[color=RoyalBlue](fa)
+    \tkzLabelPoint[left,color=RoyalBlue](fa){$f(a)$}
+    \tkzDrawPoint[color=Magenta](x)
+    \tkzLabelPoint[right,color=Magenta](x){$(a,f(a))$}
+   \end{tikzpicture}
+  \end{subfigure}
+  \begin{subfigure}[b]{.48\textwidth}
+   \centering
+   \begin{tikzpicture}[scale=0.3]
+    \tkzInit[xmin=-3,xmax=10,ymin=0,ymax=12]
+    \tkzDrawX[>=latex,color=BrickRed]
+    \tkzDrawY[>=latex,color=RoyalBlue]
+    \draw[scale=2,smooth,color=ForestGreen,domain=-0.8:4,variable=\x,thick] plot
+     ({\x},{1/(1+\x)}) node[above] {$\clg{g}$};
+    \tkzDefPoints{-1/0/a,0/4/fa,-1/4/x}
+    \tkzDrawSegments[dashed](a,x fa,x)
+    \tkzDrawPoint[color=BrickRed](a)
+    \tkzLabelPoint[below=1mm,color=BrickRed](a){$a$}
+    \tkzDrawPoint[color=RoyalBlue](fa)
+    \tkzLabelPoint[right,color=RoyalBlue](fa){$g(a)$}
+    \tkzDrawPoint[color=ForestGreen](x)
+    \tkzLabelPoint[left,color=ForestGreen](x){$(a,g(a))$}
+   \end{tikzpicture}
+  \end{subfigure}
+ \end{figure}
+\end{frame}
+
+\end{document} 
