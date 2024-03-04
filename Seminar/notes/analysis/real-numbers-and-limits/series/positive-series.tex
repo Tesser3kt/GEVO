@@ -8,7 +8,147 @@ nekonečný. Existence záporných členů v číselné řadě totiž vyžaduje,
 analyzoval jemný vztah mezi její `kladnou' a `zápornou' částí a hodnotil, zda
 obě v jistém smyslu `rostou stejně rychle', či nikolivěk.
 
-Součty ani těchto řad však není vůbec triviální určit a otázky jejich
-konvergence jsou obyčejně řešeny srovnáními s řadami, jejichž součty známy jsou.
+Součty ani řad s nezápornými členy však není vůbec triviální určit a otázky
+jejich konvergence jsou obyčejně řešeny srovnáními s řadami, jejichž součty
+známy jsou. Nástrojem k tomu je následující vcelku přímočaré tvrzení.
 
+\begin{proposition}{Srovnávací kritérium}{srovnavaci-kriterium}
+ Ať $\sum_{n = 0}^{\infty} a_n, \sum_{n = 0}^{\infty} b_n$ jsou řady \textbf{s
+ nezápornými členy}. Ať dále existuje $n_0 \in \N$ takové, že pro $n \geq n_0$
+ platí $a_n \leq b_n$. Potom,
+ \begin{enumerate}[label=(\alph*)]
+  \item konverguje-li $\sum_{n = 0}^{\infty} b_n$, konverguje i $\sum_{n =
+   0}^{\infty} a_n$;
+  \item je-li $\sum_{n = 0}^{\infty} a_n = \infty$, pak i $\sum_{n = 0}^{\infty}
+   b_n = \infty$.
+ \end{enumerate}
+\end{proposition}
+\begin{propproof}
+ Položme $s_n \coloneqq \sum_{i=0}^n a_i$ a $t_n \coloneqq \sum_{i=0}^n b_i$. Z
+ předpokladu máme $n_0 \in \N$, od kterého dále již platí $a_n \leq b_n$. Pro
+ důkaz (a) předpokládejme rovněž, že $\sum_{n = 0}^{\infty} b_n$ konverguje, tj.
+ existuje konečná $\lim_{n \to \infty} t_n$.
 
+ Ukážeme nejprve, že $s_n$ je shora omezená. Pro $n \geq n_0$ odhadujme
+ \[
+  s_n = s_{n_0} + \sum_{i=n_0+1}^n a_i \leq s_{n_0} + \sum_{i=n_0+1}^n b_i \leq
+  s_{n_0} + \sum_{i=0}^{n} b_i = s_{n_0} + t_m,
+ \]
+ kde odhad $\sum_{i=n_0+1}^n b_i \leq \sum_{i=0}^n b_i$ platí díky nezápornosti
+ členů $b_n$.
+
+ Nyní, opět pro nezápornost $b_n$, je posloupnost částečných součtů $t_n$
+ neklesající. Pročež pro všechna $k \in \N$ máme $t_k
+ \leq \lim_{n \to \infty} t_n$. To nám umožňuje pro $n \geq n_0$ dokončit odhad
+ \[
+  s_n \leq s_{n_0} + t_n \leq s_{n_0} + \lim_{n \to \infty} t_n,
+ \]
+ který ukazuje, že $s_n$ je omezená. To ovšem zakončuje důkaz části (a), neboť
+ $s_n$ je shora omezená neklesající (pro nezápornost $a_n$) posloupnost, a tedy
+ má podle \myref{lemmatu}{lem:limita-monotonni-posloupnosti} limitu.
+
+ Část (b) je pouze přepisem části (a) v kontrapozitivní formě, která zní, že
+ nekonveruje-li $\sum_{n=0}^{\infty} a_n$, pak nekonverguje ani
+ $\sum_{n=0}^{\infty} b_n$. Ovšem, divergentní řady s nezápornými členy mají
+ součet $\infty$, odkud již přímo plyne závěr v (b).
+\end{propproof}
+
+Pochopitelně, srovnávací kritérium je užitečné pouze ve chvíli, kdy má jeden
+\emph{s čím} srovnávat. Jmeme se odvodit divergenci jedné a konvergenci druhé z
+takřkouce \uv{učebnicových} řad.
+
+\begin{lemma}{Divergence harmonické řady}{divergence-harmonicke-rady} Číselná
+ řada $\sum_{n=1}^{\infty} 1 / n$ diverguje, neboli $\sum_{n=1}^{\infty} 1 / n =
+ \infty$.
+\end{lemma}
+\begin{lemproof}
+ Použijeme \myref{tvrzení}{prop:vztah-konvergence-a-existence-souctu} a dokážeme
+ negaci výroku o konvergenci $\sum_{n=1}^{\infty} 1 / n$. Konkrétně výrok
+ \[
+  \exists \varepsilon>0 \, \forall n_0 \in \N \, \exists m > n \geq n_0: \left|
+  \sum_{i=n+1}^{m} \frac{1}{i} \right| \geq \varepsilon.
+ \]
+ 
+ Ukážeme, že $\varepsilon = 1 / 2$ vyhovuje výroku výše. Ať je $n_0 \in \N$
+ dáno. Volme $n \coloneqq n_0$ a $m \coloneqq 2n_0$. Pak pro všechna $i \in \N,
+ n_0 \leq i \leq 2n_0$ platí $1 / i \geq 1 / 2n_0$. Součet výše můžeme pročež
+ zezdola odhadnout
+ \[
+  \left| \sum_{i=n_0+1}^{2n_0} \frac{1}{i} \right| = \sum_{i=n_0+1}^{2n_0}
+  \frac{1}{i} \geq \sum_{i=n_0+1}^{2n_0} \frac{1}{2n_0} = n_0 \cdot
+  \frac{1}{2n_0} = \frac{1}{2},
+ \]
+ kde první nerovnost plyne z faktu, že $1 / n > 0$ pro všechna $n \in \N$.
+
+ Pro dané $n_0 \in \N$ tudíž platí
+ \[
+  \left| \sum_{i=n_0+1}^{2n_0} \frac{1}{i} \right| \geq \frac{1}{2} =
+  \varepsilon,
+ \]
+ a tedy řada $\sum_{n=1}^{\infty} 1 / n$ diverguje. Protože jsou však její členy
+ nezáporné, znamená toto, že $\sum_{n=1}^{\infty} 1 / n = \infty$, což bylo jest
+ dokázati.
+\end{lemproof}
+
+\begin{remark}{}{harmonicka-rada}
+ Řada $\sum_{n=1}^{\infty} 1 / n$ sluje \emph{harmonická}, protože je úzce
+ spojena s pojmem \emph{alikvóty} a harmonie v~hud\-bě. Vlnové délky alikvót
+ daného tónu (vlastně \uv{souznivých} tónů) jsou $1 / 2, 1 / 3, 1 / 4$ atd. jeho
+ základní frekvence. Každý člen harmonické řady je \emph{harmonickým průměrem}
+ svých sousedů, takže trojice členů v této řadě představuje vlnové délky tónů
+ tvořících konsonantní akordy v~tónině dané původním frekvencí (jejíž alikvóty
+ jsou vyjádřeny členy řady). Vizte např.
+ \href{https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)}{stránku na
+ Wikipedii}.
+\end{remark}
+
+\begin{lemma}{}{divergence-n^2}
+ Řada $\sum_{n=1}^{\infty} 1 / n^2$ konverguje.
+\end{lemma}
+\begin{lemproof}
+ Srovnáme řadu $\sum_{n=1}^{\infty} 1 / n^2$ s řadou $\sum_{n=1}^{\infty} 1 /
+ n(n+1)$ z \myref{úlohy}{prob:soucet-rady-pres-castecne-soucty}, jejíž součet
+ je roven $1$. Protože obě řady mají nezáporné členy, lze použít
+ \hyperref[prop:srovnavaci-kriterium]{srovnávací kritérium}.
+
+ Indukcí dokážeme, že platí
+ \[
+  \frac{2}{n(n+1)} \geq \frac{1}{n^2} \quad \forall n \in \N.
+ \]
+ Pro $n = 1$ máme
+ \[
+  \frac{2}{1 \cdot (1 + 1)} = 1 \geq \frac{1}{1^2} = 1.
+ \]
+ Předpokládejme, že daná rovnost platí pro $n \in \N$. Počítáme
+ \[
+  \frac{2}{(n+1)(n+2)} = \frac{2}{n+1} \cdot \frac{1}{n+2} \geq \frac{1}{n}
+  \cdot \frac{1}{n+2} \geq \frac{1}{(n+1)^2},
+ \]
+ kde první nerovnost plyne z indukčního předpokladu (po vynásobení obou stran
+ číslem $n \in \N$) a poslední nerovnost plyne ze zřejmého vztahu
+ \[
+  n(n+2) = n^2 + 2n \leq n^2 + 2n + 1 = (n+1)^2.
+ \]
+
+ Nyní, z \hyperref[prop:aritmetika-ciselnych-rad]{aritmetiky řad} platí
+ \[
+  \sum_{n=1}^{\infty} \frac{2}{n(n+1)} = 2 \sum_{n=1}^{\infty} \frac{1}{n(n+1)}
+  = 2
+ \]
+ a již jsme dokázali, že $2 / n(n+1) \geq 1 / n^2$ pro všechna $n \in \N$.
+ \hyperref[prop:srovnavaci-kriterium]{Srovnávací kritérium} nyní dává
+ \[
+  \sum_{n=1}^{\infty} \frac{1}{n^2} \leq \sum_{n=1}^{\infty} \frac{2}{n(n+1)} =
+  2,
+ \]
+ čili je řada $\sum_{n=1}^{\infty} 1 / n^2$ konvergentní.
+\end{lemproof}
+
+Zbytek sekce o řadách se nezápornými členy je věnován důkazu dvou další
+užitečnou kritériou pro srovnání s ostatními řadami. Završíme zesílením závěru
+\myref{lemmatu}{lem:divergence-n^2} dokázajíce, že $\sum_{n=1}^{\infty}
+\frac{1}{n^{c}}$ je konvergentní právě tehdy, když $c > 1$.
+
+\begin{proposition}{Cauchyho odmocninové kritérium}{cauchyho-odmocninove-kriterium}
+ 
+\end{proposition}
