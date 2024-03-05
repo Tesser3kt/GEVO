@@ -1625,7 +1625,304 @@
  \frametitle{How To Count The Number Of Repetitions?}
  Imagine 11 people standing in supermarket queue. How many different ways can
  they order themselves in that queue?\\ \pause
- The answer is relatively simple. 
+ The answer is relatively simple.\\ \pause
+ Imagine 11 empty boxes and count how many ways can you distribute 11 people
+ into them.
+ \begin{center}
+  \begin{tikzpicture}
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] at (0,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] at (1,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] at (2,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] at (3,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] at (4,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] at (5,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] at (6,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] at (7,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] at (8,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] at (9,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] at (10,0) {};
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{How To Count The Number Of Repetitions?}
+ \begin{center}
+  \begin{tikzpicture}
+   \node (h1) at (0,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h2) at (1,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h3) at (2,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h4) at (3,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h5) at (4,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h6) at (5,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h7) at (6,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h8) at (7,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h9) at (8,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h10) at (9,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h11) at (10,4) {\includegraphics[width=5mm]{human.png}};
+
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b1) at (0,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b2) at (1,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b3) at (2,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b4) at (3,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b5) at (4,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b6) at (5,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b7) at (6,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b8) at (7,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b9) at (8,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b10) at (9,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b11) at (10,0) {};
+
+   \draw[-latex,thick,shorten >=2pt] (h1.south) -- (b4.north);
+   \draw[-latex,thick,shorten >=2pt] (h2.south) -- (b6.north);
+   \draw[-latex,thick,shorten >=2pt] (h3.south) -- (b1.north);
+   \draw[-latex,thick,shorten >=2pt] (h4.south) -- (b11.north);
+   \draw[-latex,thick,shorten >=2pt] (h5.south) -- (b5.north);
+   \draw[-latex,thick,shorten >=2pt] (h6.south) -- (b3.north);
+   \draw[-latex,thick,shorten >=2pt] (h7.south) -- (b8.north);
+   \draw[-latex,thick,shorten >=2pt] (h8.south) -- (b9.north);
+   \draw[-latex,thick,shorten >=2pt] (h9.south) -- (b2.north);
+   \draw[-latex,thick,shorten >=2pt] (h10.south) -- (b7.north);
+   \draw[-latex,thick,shorten >=2pt] (h11.south) -- (b10.north);
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{How To Count The Number Of Repetitions?}
+ \begin{center}
+  \begin{tikzpicture}
+   \node (h1) at (0,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h2) at (1,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h3) at (2,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h4) at (3,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h5) at (4,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h6) at (5,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h7) at (6,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h8) at (7,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h9) at (8,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h10) at (9,4) {\includegraphics[width=5mm{human.png}};
+   \node (h11) at (10,4) {\includegraphics[width=5mm]{human.png}};
+
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b1) at (0,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b2) at (1,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b3) at (2,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b4) at (3,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b5) at (4,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b6) at (5,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b7) at (6,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b8) at (7,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b9) at (8,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b10) at (9,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b11) at (10,0) {};
+
+   \draw[-latex,thick,shorten >=2pt] (h1.south) -- (b2.north);
+   \draw[-latex,thick,shorten >=2pt] (h2.south) -- (b3.north);
+   \draw[-latex,thick,shorten >=2pt] (h3.south) -- (b4.north);
+   \draw[-latex,thick,shorten >=2pt] (h4.south) -- (b5.north);
+   \draw[-latex,thick,shorten >=2pt] (h5.south) -- (b6.north);
+   \draw[-latex,thick,shorten >=2pt] (h6.south) -- (b7.north);
+   \draw[-latex,thick,shorten >=2pt] (h7.south) -- (b8.north);
+   \draw[-latex,thick,shorten >=2pt] (h8.south) -- (b9.north);
+   \draw[-latex,thick,shorten >=2pt] (h9.south) -- (b10.north);
+   \draw[-latex,thick,shorten >=2pt] (h10.south) -- (b11.north);
+   \draw[-latex,thick,shorten >=2pt] (h11.south) -- (b1.north);
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{How To Count The Number Of Repetitions?}
+ What if there were only $1$ human? \pause
+ \begin{center}
+  \begin{tikzpicture}[scale=0.75,every node/.style={transform shape}]
+   \node (h1) at (5,4) {\includegraphics[width=5mm]{human.png}};
+
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b1) at (0,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b2) at (1,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b3) at (2,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b4) at (3,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b5) at (4,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b6) at (5,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b7) at (6,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b8) at (7,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b9) at (8,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b10) at (9,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b11) at (10,0) {};
+
+   \draw[-latex,thick,dashed,color=RoyalBlue,shorten >=2pt] (h1.south) -- (b1.north);
+   \draw[-latex,thick,dashed,color=RoyalBlue,shorten >=2pt] (h1.south) -- (b2.north);
+   \draw[-latex,thick,dashed,color=RoyalBlue,shorten >=2pt] (h1.south) -- (b3.north);
+   \draw[-latex,thick,dashed,color=RoyalBlue,shorten >=2pt] (h1.south) -- (b4.north);
+   \draw[-latex,thick,dashed,color=RoyalBlue,shorten >=2pt] (h1.south) -- (b5.north);
+   \draw[-latex,thick,dashed,color=RoyalBlue,shorten >=2pt] (h1.south) -- (b6.north);
+   \draw[-latex,thick,dashed,color=RoyalBlue,shorten >=2pt] (h1.south) -- (b7.north);
+   \draw[-latex,thick,dashed,color=RoyalBlue,shorten >=2pt] (h1.south) -- (b8.north);
+   \draw[-latex,thick,dashed,color=RoyalBlue,shorten >=2pt] (h1.south) -- (b9.north);
+   \draw[-latex,thick,dashed,color=RoyalBlue,shorten >=2pt] (h1.south) -- (b10.north);
+   \draw[-latex,thick,dashed,color=RoyalBlue,shorten >=2pt] (h1.south) -- (b11.north);
+  \end{tikzpicture}
+ \end{center}
+ \pause
+ I'd have exactly 11 options where to put him.
+\end{frame}
+
+\begin{frame}
+ \frametitle{How To Count The Number Of Repetitions?}
+ So, I put him in a random box and in comes the second human.\pause
+ \begin{center}
+  \begin{tikzpicture}[scale=1,every node/.style={transform shape}]
+   \node (h1) at (5,4) {\includegraphics[width=5mm]{human.png}};
+
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b1) at (0,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b2) at (1,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b3) at (2,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b4) at (3,0) {};
+   \node[draw,thick,rectangle,minimum width=7mm,minimum height=7mm,color=RoyalBlue]
+    (b5) at (4,0) {\includegraphics[width=2mm]{human.png}};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b6) at (5,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b7) at (6,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b8) at (7,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b9) at (8,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b10) at (9,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b11) at (10,0) {};
+
+   \draw[-latex,thick,dashed,color=BrickRed,shorten >=2pt] (h1.south) -- (b1.north);
+   \draw[-latex,thick,dashed,color=BrickRed,shorten >=2pt] (h1.south) -- (b2.north);
+   \draw[-latex,thick,dashed,color=BrickRed,shorten >=2pt] (h1.south) -- (b3.north);
+   \draw[-latex,thick,dashed,color=BrickRed,shorten >=2pt] (h1.south) -- (b4.north);
+   \draw[-latex,thick,dashed,color=BrickRed,shorten >=2pt] (h1.south) -- (b6.north);
+   \draw[-latex,thick,dashed,color=BrickRed,shorten >=2pt] (h1.south) -- (b7.north);
+   \draw[-latex,thick,dashed,color=BrickRed,shorten >=2pt] (h1.south) -- (b8.north);
+   \draw[-latex,thick,dashed,color=BrickRed,shorten >=2pt] (h1.south) -- (b9.north);
+   \draw[-latex,thick,dashed,color=BrickRed,shorten >=2pt] (h1.south) -- (b10.north);
+   \draw[-latex,thick,dashed,color=BrickRed,shorten >=2pt] (h1.south) -- (b11.north);
+  \end{tikzpicture}
+ \end{center}
+ \pause
+ I'd have only 10 boxes left to place him into.
+\end{frame}
+
+\begin{frame}
+ \frametitle{How To Count The Number Of Repetitions?}
+ For the third human, only 9 boxes are left, etc.
+ \begin{center}
+  \begin{tikzpicture}[scale=1,every node/.style={transform shape}]
+   \node (h1) at (5,4) {\includegraphics[width=5mm]{human.png}};
+
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b1) at (0,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b2) at (1,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b3) at (2,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b4) at (3,0) {};
+   \node[draw,thick,rectangle,minimum width=7mm,minimum
+   height=7mm,color=RoyalBlue] (b5) at (4,0)
+   {\includegraphics[width=2mm]{human.png}};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b6) at (5,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b7) at (6,0) {};
+   \node[draw,thick,rectangle,minimum width=7mm,minimum
+   height=7mm,color=BrickRed] (b8) at (7,0)
+   {\includegraphics[width=2mm]{human.png}};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b9) at (8,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b10) at (9,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b11) at (10,0) {};
+
+   \draw[-latex,thick,dashed,color=ForestGreen,shorten >=2pt] (h1.south) -- (b1.north);
+   \draw[-latex,thick,dashed,color=ForestGreen,shorten >=2pt] (h1.south) -- (b2.north);
+   \draw[-latex,thick,dashed,color=ForestGreen,shorten >=2pt] (h1.south) -- (b3.north);
+   \draw[-latex,thick,dashed,color=ForestGreen,shorten >=2pt] (h1.south) -- (b4.north);
+   \draw[-latex,thick,dashed,color=ForestGreen,shorten >=2pt] (h1.south) -- (b6.north);
+   \draw[-latex,thick,dashed,color=ForestGreen,shorten >=2pt] (h1.south) -- (b7.north);
+   \draw[-latex,thick,dashed,color=ForestGreen,shorten >=2pt] (h1.south) -- (b9.north);
+   \draw[-latex,thick,dashed,color=ForestGreen,shorten >=2pt] (h1.south) -- (b10.north);
+   \draw[-latex,thick,dashed,color=ForestGreen,shorten >=2pt] (h1.south) -- (b11.north);
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Factorial}
+ \begin{tcolorbox}[title=Factorial]
+  Overall, given $n$ objects, I have
+  \[
+   n \cdot (n-1) \cdot (n-2) \cdot \ldots \cdot 1
+  \]
+  ways how to order them. This number is written as $n!$ and read \alert{$n$
+  factorial}.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{What If I Have Fewer Boxes?}
+ \begin{center}
+  \begin{tikzpicture}
+   \node (h1) at (0,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h2) at (1,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h3) at (2,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h4) at (3,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h5) at (4,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h6) at (5,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h7) at (6,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h8) at (7,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h9) at (8,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h10) at (9,4) {\includegraphics[width=5mm]{human.png}};
+   \node (h11) at (10,4) {\includegraphics[width=5mm]{human.png}};
+
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b1) at (3,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b2) at (4,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b3) at (5,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b4) at (6,0) {};
+   \node[draw,rectangle,minimum width=7mm,minimum height=7mm] (b5) at (7,0) {};
+
+   \draw[-latex,thick,shorten >=2pt] (h1.south) -- (b4.north);
+   \draw[-latex,thick,shorten >=2pt] (h3.south) -- (b1.north);
+   \draw[-latex,thick,shorten >=2pt] (h5.south) -- (b5.north);
+   \draw[-latex,thick,shorten >=2pt] (h6.south) -- (b3.north);
+   \draw[-latex,thick,shorten >=2pt] (h9.south) -- (b2.north);
+  \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}
+ \frametitle{What If I Have Fewer Boxes?}
+ The same argument applies.\\ \pause
+ If I have only 5 boxes and 11 humans, I have
+ \[
+  11 \cdot 10 \cdot 9 \cdot 8 \cdot 7
+ \]
+ ways to put 5 of those humans into all the boxes.\pause
+ \begin{tcolorbox}[title=Variations]
+  If I have $n$ elements, the number of ways how to order any $k$ of them is
+  \[
+   n \cdot (n-1) \cdot (n-2) \cdot \ldots \cdot (n-k+1) = \frac{n!}{(n-k)!}.
+  \]
+  This number is sometimes called the number of \alert{variations} of $k$
+  elements out of $n$.
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{What If I Don't Care About The Order?}
+ Finally, suppose I'm not interested in the differences between individual
+ humans and I just want to place some 5 of them into boxes.\\ \pause
+ In other words, I don't care about the order I put them into those boxes. It
+ doesn't matter to me which human goes to which box as long as all the boxes are
+ full.\\ \pause
+ This is a similar problem. The only difference is that I disregard all the ways
+ I can order those $k$ elements inside the boxes.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Combinations}
+ \begin{tcolorbox}[title=Combinations]
+  If I have $n$ elements, the number of ways I can choose any $k$ of them
+  regardless of order, is
+  \[
+   \frac{n \cdot (n-1) \cdot (n-2) \cdot \ldots \cdot (n-k+1)}{k!} =
+   \frac{n!}{(n-k)!k!}.
+  \]
+  This number is typically written as $\binom{n}{k}$ and read `\alert{ $n$
+  choose $k$}'.
+ \end{tcolorbox}
 \end{frame}
 
 \end{document}

@@ -1,0 +1,151 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{empty}
+\begin{document}
+
+\thispagestyle{empty}
+
+\hrule
+\vspace*{-1em}
+\begin{center}
+ \clr{\textbf{Z NÁSLEDUJÍCÍCH ÚLOH SI VYBERTE JEDNU. PŘI ŘEŠENÍ ÚLOH 
+  NESMÍTE VYUŽÍT CIZÍ POMOCI -- ANI LIDSKÉ ANI UMĚLÉ!}}
+\end{center}
+\hrule
+
+\subsection*{1. Přelévání vody}
+
+Napište funkci, která dostane jako parametry seznam čísel
+\texttt{objemy\_sklenic} a jedno číslo \texttt{objem\_nadoby}. Funkce rozhodne,
+kolik sklenic (v pořadí daném seznamem \texttt{objemy\_sklenic}) plných vody lze
+přelít do prázdné nádoby o objemu \texttt{objem\_nadoby}. Tento počet vrátí jako
+celé číslo.
+
+\textbf{Hint:} Vytvořte si proměnnou, ve které si budete pamatovat počet už
+přelitých sklenic. Pak procházejte seznam \texttt{objemy\_sklenic} a čísla z něj
+odčítejte od čísla \texttt{objem\_nadoby}, dokud zůstává kladným. Pak vraťte ten
+počet přelitých sklenic.
+
+\emph{Příklad}: Pro parametry
+\begin{itemize}
+ \item \texttt{objemy\_sklenic = [3.14, 2.78, 1.4]},
+ \item \texttt{objem\_nadoby = 6},
+\end{itemize}
+vrátí funkce $2$, protože se do nádoby vejde objem jen prvních dvou sklenic.
+
+\clearpage
+
+\subsection*{2. Součet vnitřního seznamu}
+
+Napište funkci, která dostane jako parametr seznam jménem \texttt{seznam}. Máte
+zaručeno, že tento seznam má vždy na čtvrté pozici (tj. na indexu \texttt{3})
+další seznam plný celých čísel. Funkce nahradí v seznamu \texttt{seznam} tento
+vnitřní seznam součtem jeho prvků a takto upravený seznam vrátí. \clr{K určení
+součtu prvků nepoužívejte funkci \texttt{sum}!}
+
+\textbf{Hint:} Stačí tradičním způsobem (přes pomocnou proměnnou) sečíst prvky
+ve vnitřním seznamu a pak prvek na místě \texttt{3} v seznamu \texttt{seznam}
+touto proměnnou nahradit.
+
+\emph{Příklad}: Pro seznam
+\begin{center}
+ \texttt{seznam = ["pes", 4.56, "nic", [5, 1, 4], "neco"]}
+\end{center}
+vrátí funkce seznam
+\begin{center}
+ \texttt{["pes", 4.56, "nic", 10, "neco"]},
+\end{center}
+protože součet seznamu \texttt{[5, 1, 4]} je \texttt{10}.
+
+\end{document}
