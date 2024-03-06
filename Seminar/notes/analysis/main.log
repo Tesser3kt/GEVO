@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.16)  1 MAR 2024 17:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.16)  6 MAR 2024 17:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1458,14 +1458,17 @@ Underfull \vbox (badness 5008) has occurred while \output is active []
  [40] [41]
 Underfull \vbox (badness 1028) has occurred while \output is active []
 
- [42] [43] (./real-numbers-and-limits/series/positive-series.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [42] [43] (./real-numbers-and-limits/series/positive-series.tex [44] [45]
+Underfull \vbox (badness 1057) has occurred while \output is active []
 
- [44] [45] [46])))
+ [46]
+Underfull \vbox (badness 3098) has occurred while \output is active []
+
+ [47])))
 \tf@thm=\write6
 \openout6 = `main.thm'.
 
- [47] (./main.aux)
+ [48] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1478,18 +1481,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 8525A1E7D0914B84646B821F96CC6F63;2182.
  ) 
 Here is how much of TeX's memory you used:
- 43400 strings out of 474148
- 881703 string characters out of 5744901
+ 43410 strings out of 474148
+ 881839 string characters out of 5744901
  2028995 words of memory out of 5000000
- 64625 multiletter control sequences out of 15000+600000
+ 64629 multiletter control sequences out of 15000+600000
  734190 words of font info for 161 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,15n,120p,1190b,1261s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (47 pages, 1175150 bytes).
+Output written on main.pdf (48 pages, 1181041 bytes).
 PDF statistics:
- 722 PDF objects out of 1000 (max. 8388607)
- 601 compressed objects within 7 object streams
- 200 named destinations out of 1000 (max. 500000)
+ 736 PDF objects out of 1000 (max. 8388607)
+ 614 compressed objects within 7 object streams
+ 206 named destinations out of 1000 (max. 500000)
  250 words of extra memory for PDF output out of 10000 (max. 10000000)
 

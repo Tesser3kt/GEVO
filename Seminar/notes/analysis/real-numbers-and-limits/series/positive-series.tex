@@ -144,11 +144,94 @@ takřkouce \uv{učebnicových} řad.
  čili je řada $\sum_{n=1}^{\infty} 1 / n^2$ konvergentní.
 \end{lemproof}
 
-Zbytek sekce o řadách se nezápornými členy je věnován důkazu dvou další
-užitečnou kritériou pro srovnání s ostatními řadami. Završíme zesílením závěru
-\myref{lemmatu}{lem:divergence-n^2} dokázajíce, že $\sum_{n=1}^{\infty}
-\frac{1}{n^{c}}$ je konvergentní právě tehdy, když $c > 1$.
+Na základě $\lim_{n \to \infty} a_n$ nelze obecně o konvergenci řady
+$\sum_{n=0}^{\infty} a_n$ rozhodnout. Je-li limita nenulová, pak řada jistě
+diverguje, ale je-li nulová, může řada konvergovat i divergovat. Máme-li ovšem
+dvě řady, posloupnosti jejichž členů rostou v limitním smyslu \uv{stejně
+rychle}, pak jsou i otázky jejich konvergencí ekvivalentní.
 
-\begin{proposition}{Cauchyho odmocninové kritérium}{cauchyho-odmocninove-kriterium}
- 
-\end{proposition}
+\begin{theorem}{Limitní srovnávací kritérium}{limitni-srovnavaci-kriterium}
+ Ať $\sum_{n = 0}^{\infty} a_n, \sum_{n = 0}^{\infty} b_n$ jsou řady s
+ nezápornými členy a označme $L \coloneqq \lim_{n \to \infty} a_n / b_n$.
+ \begin{enumerate}[label=(\alph*)]
+  \item Je-li $L \in (0,\infty)$, pak $\sum_{n = 0}^{\infty} a_n$ konverguje
+   \textbf{právě tehdy, když} konverguje $\sum_{n = 0}^{\infty} b_n$.
+  \item Je-li $L = 0$, pak konvergence $\sum_{n = 0}^{\infty} b_n$ implikuje
+   konvergenci $\sum_{n = 0}^{\infty} a_n$.
+  \item Je-li $L = \infty$, pak konvergence $\sum_{n = 0}^{\infty} a_n$
+   implikuje konvergenci $\sum_{n = 0}^{\infty} b_n$.
+ \end{enumerate}
+\end{theorem}
+\begin{thmproof}
+ Před samotným důkazem je dlužno nahlédnout, že nutně $L \in [0,\infty]$, neboť
+ posloupnosti $a_n$ i $b_n$ mají pouze nezáporné členy, tedy hodnoty $L$
+ rozlišené výše jsou vskutku jediné možné.
+
+ Započněme částí (a) a dokažme prve implikaci $( \Leftarrow )$. Předpokládejme,
+ že $L \in (0,\infty)$ a $\sum_{n = 0}^{\infty} b_n$ konverguje. Volme
+ $\varepsilon>0$ libovolně. Nalezneme $n_0 \in \N$ takové, že pro $n \geq n_0$
+ platí
+ \[
+  \left| \frac{a_n}{b_n} - L \right| < \varepsilon.
+ \]
+ První nerovnost lze přepsat na
+ \[
+  L - \varepsilon < \frac{a_n}{b_n} < L + \varepsilon,
+ \]
+ čímž dostaneme horní odhad
+ \[
+  a_n < b_n(L + \varepsilon)
+ \]
+ pro všechna $n \geq n_0$. Z \hyperref[prop:aritmetika-ciselnych-rad]{aritmetiky
+ řad} plyne, že řada $\sum_{n = 0}^{\infty} b_n(L + \varepsilon)$ je
+ konvergentní (neboť $\sum_{n = 0}^{\infty} b_n$ je konvergentní) a ze
+ \hyperref[prop:srovnavaci-kriterium]{srovnávacího kritéria} dostáváme (použitím
+ odhadu výše), že i $\sum_{n = 0}^{\infty} a_n$ je konvergentní.
+
+ K důkazu implikace $( \Rightarrow )$ je nám dán předpoklad $L \in (0,\infty)$ a
+ konvergence $\sum_{n = 0}^{\infty} a_n$. Stejně jako v důkazu opačné implikace
+ nalezneme ke zvolenému $\varepsilon>0$ číslo $n_0 \in \N$ takové, že pro $n
+ \geq n_0$ platí 
+ \[
+  L - \varepsilon < \frac{a_n}{b_n} < L + \varepsilon.
+ \]
+ Číslo $\varepsilon$ zde volíme menší než $L$, aby platilo $L - \varepsilon >
+ 0$. Z dolního odhadu
+ \[
+  L - \varepsilon < \frac{a_n}{b_n}
+ \]
+ plyne úpravou
+ \[
+  \frac{b_n}{a_n} < \frac{1}{L-\varepsilon},
+ \]
+ čili
+ \[
+  b_n < \frac{a_n}{L-\varepsilon}
+ \]
+ pro $n \geq n_0$. Z \hyperref[prop:aritmetika-ciselnych-rad]{aritmetiky řad}
+ opět platí, že řada $\sum_{n = 0}^{\infty} a_n / (L-\varepsilon)$ konverguje a
+ \hyperref[prop:srovnavaci-kriterium]{srovnávací kritérium} skýtá kýženou
+ konvergenci řady $\sum_{n = 0}^{\infty} b_n$.
+
+ Dokážeme část (b). Ke zvolenému $\varepsilon>0$ nalezneme $n_0 \in \N$ takové,
+ že pro $n \geq n_0$ platí
+ \[
+  \left| \frac{a_n}{b_n} - 0 \right| < \varepsilon.
+ \]
+ Pak ale máme odhad
+ \[
+  a_n < \varepsilon \cdot b_n
+ \]
+ a konvergence $\sum_{n = 0}^{\infty} a_n$ plyne z konvergence $\sum_{n =
+ 0}^{\infty} b_n$ zcela analogickým argumentem jako v~důkazu části (a).
+
+ Důkaz části (c) je zcela obdobný důkazu části (b).
+\end{thmproof}
+
+Sekci o řadách s nezápornými členy završíme uvedením tří užitečných kritérií pro
+zpyt konvergence takých řad, které o ní rozhodují přímo ze znalosti jejích
+členů nevyžadujíce srovnání s řadami jinými. Výsledkem bude mimo jiné důkaz
+konvergence jisté řady jsoucí mimořádně užitečnou pro srovnání s řadami, jejichž
+členy jsou vyjádřeny jako podíly dvou polynomů.
+
+
