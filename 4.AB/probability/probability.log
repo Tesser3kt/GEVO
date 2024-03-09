@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.16)  5 MAR 2024 10:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.16)  8 MAR 2024 07:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1903,7 +1903,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 1689.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<human.png, id=319, 73.2336pt x 159.7167pt>
+<human.png, id=317, 73.2336pt x 159.7167pt>
 File: human.png Graphic file (type png)
 <use human.png>
 Package pdftex.def Info: human.png  used on input line 1689.
@@ -2306,35 +2306,22 @@ Package pdftex.def Info: logo.png  used on input line 1926.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
-
-
-Package rerunfilecheck Warning: File `probability.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `probability.out':
-(rerunfilecheck)             Before: 5210C710376952C2ECA70244769C7A46;933
-(rerunfilecheck)             After:  B214D9FF07BC62E04F1B9ACACEE0477B;934.
+Package rerunfilecheck Info: File `probability.out' has not changed.
+(rerunfilecheck)             Checksum: B214D9FF07BC62E04F1B9ACACEE0477B;934.
  ) 
 Here is how much of TeX's memory you used:
- 46858 strings out of 474148
- 1113460 string characters out of 5744901
+ 46856 strings out of 474148
+ 1113432 string characters out of 5744901
  1953995 words of memory out of 5000000
  68093 multiletter control sequences out of 15000+600000
  715654 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,1886b,1063s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Outline0.2.1.22} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Outline0.1.1.9} has been referenced but does not exist, replaced by a fixed one
-
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Semibold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on probability.pdf (67 pages, 1793451 bytes).
+Output written on probability.pdf (67 pages, 1793293 bytes).
 PDF statistics:
- 496 PDF objects out of 1000 (max. 8388607)
- 384 compressed objects within 4 object streams
- 141 named destinations out of 1000 (max. 500000)
+ 494 PDF objects out of 1000 (max. 8388607)
+ 382 compressed objects within 4 object streams
+ 139 named destinations out of 1000 (max. 500000)
  118 words of extra memory for PDF output out of 10000 (max. 10000000)
 

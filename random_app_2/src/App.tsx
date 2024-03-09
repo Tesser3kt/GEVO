@@ -25,11 +25,11 @@ function App() {
     );
   };
 
-  const onDeleteButtonClick = (id: number) => {
-    setArticles(articles.filter((article) => article.id !== id));
+  const onDeleteButtonClick = (e: React.SyntheticEvent) => {
+    setArticles(articles.filter((article) => article.id !== e.target.id));
   };
 
-  const onAddButtonClick = () => {
+  const onAddButtonClick = (e: React.SyntheticEvent) => {
     setShowForm(true);
   };
 

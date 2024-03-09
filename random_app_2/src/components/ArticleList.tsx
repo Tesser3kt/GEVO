@@ -9,7 +9,7 @@ interface ArticleType {
 interface ArticleListProps {
   articles: Array<ArticleType>;
   onLikeButtonClick: (id: number) => void;
-  onDeleteButtonClick: (id: number) => void;
+  onDeleteButtonClick: (e: React.SyntheticEvent) => void;
 }
 
 const ArticleList = ({

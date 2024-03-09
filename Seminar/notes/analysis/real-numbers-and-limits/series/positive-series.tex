@@ -102,7 +102,7 @@ takřkouce \uv{učebnicových} řad.
  Wikipedii}.
 \end{remark}
 
-\begin{lemma}{}{divergence-n^2}
+\begin{lemma}{}{konvergence-n^2}
  Řada $\sum_{n=1}^{\infty} 1 / n^2$ konverguje.
 \end{lemma}
 \begin{lemproof}
@@ -233,5 +233,137 @@ zpyt konvergence takých řad, které o ní rozhodují přímo ze znalosti její
 členů nevyžadujíce srovnání s řadami jinými. Výsledkem bude mimo jiné důkaz
 konvergence jisté řady jsoucí mimořádně užitečnou pro srovnání s řadami, jejichž
 členy jsou vyjádřeny jako podíly dvou polynomů.
+
+\begin{theorem}{Cauchyho odmocninové kritérium}{cauchyho-odmocninove-kriterium}
+ Ať $\sum_{n = 0}^{\infty} a_n$ je řada s nezápornými členy.
+ \begin{enumerate}[label=(\alph*)]
+  \item Existují-li $q \in (0,1)$ a $n_0 \in \N$ taková, že pro $n \geq n_0$
+   platí $\sqrt[n]{a_n} \leq q$, pak řada $\sum_{n = 0}^{\infty} a_n$
+   konverguje.
+  \item Platí-li $\lim_{n \to \infty} \sqrt[n]{a_n} < 1$, pak řada $\sum_{n =
+   0}^{\infty} a_n$ konverguje.
+  \item Platí-li $\lim_{n \to \infty} \sqrt[n]{a_n} > 1$, pak řada $\sum_{n =
+   0}^{\infty} a_n$ diverguje.
+ \end{enumerate}
+\end{theorem}
+
+\begin{thmproof}
+ Část (a) se dokáže snadno srovnáním s geometrickou řadou. Mějme tedy dáno $q
+ \in (0,1)$ a $n_0 \in \N$ taková, že $\sqrt[n]{a_n} \leq q$ pro $n \geq n_0$.
+ Tato nerovnost je ekvivalentní nerovnosti $a_n \leq q^{n}$. Ježto $|q|<1$, je
+ řada $\sum_{n = 0}^{\infty} q^n$ podle \myref{úlohy}{prob:geometricka-rada}
+ konvergentní. Pak je ale díky \hyperref[prop:srovnavaci-kriterium]{srovnávacímu
+ kritériu} i $\sum_{n = 0}^{\infty} a_n$ konvergentní.
+
+ Část (b) lze dokázat užitím závěru již dokázané části (a). Položme $L \coloneqq
+ \lim_{n \to \infty} \sqrt[n]{a_n}$ a volme $\varepsilon \coloneqq (1-L) / 2$. Z
+ předpokladu je $L < 1$, a tedy vskutku $\varepsilon > 0$. K tomuto
+ $\varepsilon$ nalezneme z definice limity $n_0 \in \N$ takové, že pro $n \geq
+ n_0$ platí
+ \[
+  |\sqrt[n]{a_n} - L| < \frac{1-L}{2}.
+ \]
+ Pak ale
+ \[
+  \sqrt[n]{a_n} < L + \frac{1-L}{2} = \frac{1+L}{2} < 1,
+ \]
+ kde poslední nerovnost plyne opět z toho, že $L < 1$. Pro jakoukoli volbu $q
+ \in ((1+L) / 2,1)$ pročež platí $\sqrt[n]{a_n} \leq q$, kdykoli $n \geq n_0$. Z
+ části (a) víme, že v tomto případě $\sum_{n = 0}^{\infty} a_n$ konverguje.
+
+ Konečně, část (c) dokážeme nepřímo použitím
+ \myref{lemmatu}{lem:nutna-podminka-existence-souctu-rady}. Jelikož $\lim_{n \to
+ \infty} \sqrt[n]{a_n} > 1$, existuje $n_0 \in \N$ takové, že pro $n \geq n_0$
+ máme $\sqrt[n]{a_n} > 1$. Potom ale rovněž $a_n > 1^{n} = 1$ pro $n \geq n_0$.
+ To ale znamená, že $\lim_{n \to \infty} a_n \neq 0$, a tedy podle
+ \myref{lemmatu}{lem:nutna-podminka-existence-souctu-rady} řada $\sum_{n =
+ 0}^{\infty} a_n$ diverguje.
+\end{thmproof}
+
+\begin{warning}{}{cauchyho-odmocninove-kriterium}
+ \hyperref[thm:cauchyho-odmocninove-kriterium]{Předchozí věta} neříká nic o
+ konvergenci $\sum_{n = 0}^{\infty} a_n$ v moment, kdy $\lim_{n \to \infty}
+ \sqrt[n]{a_n} = 1$.
+
+ Uvažme například řady $\sum_{n=1}^{\infty} 1 / n^2$ a $\sum_{n=1}^{\infty} 1$.
+ První konvergentní podle \myref{lemmatu}{lem:konvergence-n^2} a druhá zřejmě
+ divergentní. Platí však
+ \[
+  \lim_{n \to \infty} \sqrt[n]{\frac{1}{n^2}} = \lim_{n \to \infty} \sqrt[n]{1}
+  = 1.
+ \]
+\end{warning}
+
+\begin{theorem}{d'Alembertovo podílové kritérium}{dalembertovo-podilove-kriterium}
+ Ať $\sum_{n = 0}^{\infty} a_n$ je řada s nezápornými členy.
+ \begin{enumerate}[label=(\alph*)]
+  \item Existují-li $q \in (0,1)$ a $n_0 \in \N$ taková, že pro každé $n \geq
+   n_0$ platí $a_{n+1} / a_n \leq q$, pak řada $\sum_{n = 0}^{\infty} a_n$
+   konverguje.
+  \item Platí-li $\lim_{n \to \infty} a_{n+1} / a_n < 1$, pak $\sum_{n =
+   0}^{\infty} a_n$ konverguje.
+  \item Platí-li $\lim_{n \to \infty} a_{n+1} / a_n > 1$, pak $\sum_{n =
+   0}^{\infty} a_n$ diverguje.
+ \end{enumerate}
+\end{theorem}
+\begin{thmproof}
+ Začneme částí (a). Ať jsou $q \in (0,1)$ a $n_0 \in \N$ dána. Dokážeme indukcí,
+ že pro $n \geq n_0$ platí výrok
+ \[
+  a_n \leq q^{n-n_0}a_{n_0}.
+ \]
+ Pro $n = n_0$ máme
+ \[
+  q^{n_0 - n_0}a_{n_0} = a_{n_0},
+ \]
+ tedy výrok platí. Dále, z předpokladu věty máme $a_{n+1} / a_n \leq q$, čili
+ $a_{n+1} \leq a_nq$. Odtud a z indukčního předpokladu,
+ \[
+  a_{n+1} \leq a_n q \leq q^{n-n_0}a_{n_0}q = q^{n+1-n_0}a_{n_0},
+ \]
+ jak jsme chtěli.
+
+ Protože $|q|<1$, je řada $\sum_{n = 0}^{\infty} q^{n-n_0}$ konvergentní a z
+ \hyperref[prop:aritmetika-ciselnych-rad]{aritmetiky řad} je i $\sum_{n =
+ 0}^{\infty} a_{n_0}q^{n-n_0}$ konvergentní. Z nerovnosti $a_n \leq
+ a_{n_0}q^{n-n_0}$ plyne použitím
+ \hyperref[prop:srovnavaci-kriterium]{srovnávacího kritéria}, že i řada $\sum_{n
+ = 0}^{\infty} a_n$ je konvergentní.
+
+ Pro důkaz (b) označme $L \coloneqq \lim_{n \to \infty} a_{n+1} / a_n$ a položme
+ $\varepsilon \coloneqq (1-L) / 2$. Z předpokladu $L < 1$, pročež
+ $\varepsilon>0$. K tomuto $\varepsilon$ nalezneme $n_0 \in \N$ takové, že pro
+ $n \geq n_0$ platí
+ \[
+  \left| \frac{a_{n+1}}{a_n} - L\right| < \frac{1-L}{2},
+ \]
+ z čehož úpravou plyne
+ \[
+  \frac{a_{n+1}}{a_n} < L + \frac{1-L}{2} = \frac{1+L}{2} < 1.
+ \]
+ Volíme-li tedy $q \in ((1+L) / 2,1)$, pak pro toto $q$ a $n \geq n_0$ platí
+ \[
+  \frac{a_{n+1}}{a_n} \leq q,
+ \]
+ čili řada $\sum_{n = 0}^{\infty} a_n$ konverguje podle části (a).
+
+ V části (c) předpokládáme, že $\lim_{n \to \infty} a_{n+1} / a_n > 1$, a tedy
+ existuje $n_0 \in \N$, že pro $n \geq n_0$ je
+ \[
+  \frac{a_{n+1}}{a_n} > 1,
+ \]
+ odkud $a_{n+1} > a_n$. Posloupnost $a_n$ je tedy od jistého indexu rostoucí a
+ nezáporná, a tedy její limita nemůže být rovna $0$. Podle
+ \myref{lemmatu}{lem:nutna-podminka-existence-souctu-rady} řada $\sum_{n =
+ 0}^{\infty} a_n$ diverguje.
+\end{thmproof}
+
+\begin{warning}{}{dalembertovo-podilove-kriterium}
+ Podobně jako \myref{věta}{thm:cauchyho-odmocninove-kriterium}, ani
+ \hyperref[thm:dalembertovo-podilove-kriterium]{předchozí věta} netvrdí nic o
+ konvergenci $\sum_{n = 0}^{\infty} a_n$ v případě, kdy $\lim_{n \to \infty}
+ a_{n+1} / a_n = 1$. Řady $\sum_{n = 1}^{\infty} 1 / n^2$ a $\sum_{n=1}^{\infty}
+ 1$ opět ukazují, že ani nic v tomto případě tvrdit obecně nelze.
+\end{warning}
 
 

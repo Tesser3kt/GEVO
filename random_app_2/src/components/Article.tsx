@@ -1,10 +1,12 @@
+import Button from "./Button";
+
 interface ArticleProps {
   id: number;
   heading: string;
   content: Array<string>;
   likes: number;
   onLikeButtonClick: (id: number) => void;
-  onDeleteButtonClick: (id: number) => void;
+  onDeleteButtonClick: (e: React.SyntheticEvent) => void;
 }
 
 const Article = ({
@@ -43,12 +45,12 @@ const Article = ({
               />
             </svg>
           </button>
-          <button
-            className="button bg-red-100 py-2 px-4 rounded-md ring ring-red-400 hover:bg-red-200"
-            onClick={() => onDeleteButtonClick(id)}
-          >
-            Smazat
-          </button>
+          <Button
+            id={id}
+            text={"Smazat"}
+            color={"red"}
+            onClick={onDeleteButtonClick}
+          />
           <span className="mt-2 italic">Počet liků: {likes}</span>
         </div>
       </div>
