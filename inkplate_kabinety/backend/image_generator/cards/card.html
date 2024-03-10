@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="cs">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Teacher Card Template
+  </title>
+  <style>
+   @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap");
+      html {
+        width: 1200px;
+        height: 825px;
+      }
+      body {
+        font-family: "Source Serif 4", serif;
+        padding: 0;
+        margin: 0;
+        filter: grayscale(1);
+        width: 1200px;
+        height: 825px;
+      }
+      .content {
+        width: 1200px;
+        height: 825px;
+        display: grid;
+        grid-template-rows: repeat(3, 265px);
+        row-gap: 15px;
+      }
+      .card-container {
+        margin: 0;
+        padding: 15px 30px 15px 30px;
+        background-color: rgb(230, 230, 230);
+      }
+      .card {
+        display: flex;
+        flex-direction: row;
+      }
+      .image-container {
+        border: 2px solid rgb(180, 180, 180);
+        max-height: 230px;
+      }
+      .teacher-image {
+        display: block;
+        height: 230px;
+      }
+      .text-container {
+        margin-left: 70px;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        width: 100%;
+      }
+      .teacher-name-container {
+        border-bottom: 1px solid rgb(180, 180, 180);
+        display: flex;
+        align-items: center;
+      }
+      .teacher-subjects-container {
+        display: flex;
+        align-items: center;
+      }
+      .teacher-name {
+        font-size: 2.5rem;
+        font-weight: 600;
+        padding-left: 1rem;
+      }
+      .teacher-subjects {
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+      }
+  </style>
+ </head>
+ <body>
+  <div class="content">
+   <div class="card-container">
+    <div class="card">
+     <div class="image-container">
+      <img alt="Teacher Image" class="teacher-image" src="/home/tesserekt/source/repos/gevo/inkplate_kabinety/backend/image_generator/imgs/aneta_andrle.png"/>
+     </div>
+     <div class="text-container">
+      <div class="teacher-name-container">
+       <h2 class="teacher-name">
+        Aneta Andrle
+       </h2>
+      </div>
+      <div class="teacher-subjects-container">
+       <p class="teacher-subjects">
+        <svg class="bi bi-dot" fill="currentColor" height="48" viewbox="0 0 16 16" width="48" xmlns="http://www.w3.org/2000/svg">
+         <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3">
+         </path>
+        </svg>
+        IB Business Management, CAS Advisor
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="card-container">
+    <div class="card">
+     <div class="image-container">
+      <img alt="Teacher Image" class="teacher-image" src="/home/tesserekt/source/repos/gevo/inkplate_kabinety/backend/image_generator/imgs/alena_andrysova.png"/>
+     </div>
+     <div class="text-container">
+      <div class="teacher-name-container">
+       <h2 class="teacher-name">
+        Alena Andrysová
+       </h2>
+      </div>
+      <div class="teacher-subjects-container">
+       <p class="teacher-subjects">
+        <svg class="bi bi-dot" fill="currentColor" height="48" viewbox="0 0 16 16" width="48" xmlns="http://www.w3.org/2000/svg">
+         <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3">
+         </path>
+        </svg>
+        art, IB Visual Arts
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="card-container">
+    <div class="card">
+     <div class="image-container">
+      <img alt="Teacher Image" class="teacher-image" src="/home/tesserekt/source/repos/gevo/inkplate_kabinety/backend/image_generator/imgs/christopher_barber.png"/>
+     </div>
+     <div class="text-container">
+      <div class="teacher-name-container">
+       <h2 class="teacher-name">
+        Christopher Barber
+       </h2>
+      </div>
+      <div class="teacher-subjects-container">
+       <p class="teacher-subjects">
+        <svg class="bi bi-dot" fill="currentColor" height="48" viewbox="0 0 16 16" width="48" xmlns="http://www.w3.org/2000/svg">
+         <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3">
+         </path>
+        </svg>
+        anglický jazyk, Humanities
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

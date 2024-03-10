@@ -51,13 +51,14 @@ def main():
 
         name = f"{name} {surname}"
 
-        teachers_data.append({"name": name, "subject": subject, "img_url": img_url})
+        teachers_data.append(
+            {"name": name, "subject": subject, "img_url": img_url})
 
     # Save the data to CSV
     with open("../teachers.csv", "w", encoding="utf-8") as file:
         file.write("Name,Subject,Image URL\n")
-        for teacher in teachers_data:
-            file.write(f"{teacher['name']};{teacher['subject']};{teacher['img_url']}\n")
+        for tchr in teachers_data:
+            file.write(f"{tchr['name']};{tchr['subject']};{tchr['img_url']}\n")
 
 
 if __name__ == "__main__":

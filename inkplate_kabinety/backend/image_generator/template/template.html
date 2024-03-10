@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Card Template</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap");
+      html {
+        width: 1200px;
+        height: 825px;
+      }
+      body {
+        font-family: "Source Serif 4", serif;
+        padding: 0;
+        margin: 0;
+        filter: grayscale(1);
+        width: 1200px;
+        height: 825px;
+      }
+      .content {
+        width: 1200px;
+        height: 825px;
+        display: grid;
+        grid-template-rows: repeat(3, 265px);
+        row-gap: 15px;
+      }
+      .card-container {
+        margin: 0;
+        padding: 15px 30px 15px 30px;
+        background-color: rgb(230, 230, 230);
+      }
+      .card {
+        display: flex;
+        flex-direction: row;
+      }
+      .image-container {
+        border: 2px solid rgb(180, 180, 180);
+        max-height: 230px;
+      }
+      .teacher-image {
+        display: block;
+        height: 230px;
+      }
+      .text-container {
+        margin-left: 70px;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        width: 100%;
+      }
+      .teacher-name-container {
+        border-bottom: 1px solid rgb(180, 180, 180);
+        display: flex;
+        align-items: center;
+      }
+      .teacher-subjects-container {
+        display: flex;
+        align-items: center;
+      }
+      .teacher-name {
+        font-size: 2.5rem;
+        font-weight: 600;
+        padding-left: 1rem;
+      }
+      .teacher-subjects {
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="card-container">
+        <div class="card">
+          <div class="image-container">
+            <img
+              class="teacher-image"
+              src="../image_generator/imgs/adam_klepac.png"
+              alt="Teacher Image"
+            />
+          </div>
+          <div class="text-container">
+            <div class="teacher-name-container">
+              <h2 class="teacher-name"></h2>
+            </div>
+            <div class="teacher-subjects-container">
+              <p class="teacher-subjects">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  fill="currentColor"
+                  class="bi bi-dot"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
+                </svg>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
