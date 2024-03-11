@@ -366,4 +366,76 @@ konvergence jisté řady jsoucí mimořádně užitečnou pro srovnání s řada
  1$ opět ukazují, že ani nic v tomto případě tvrdit obecně nelze.
 \end{warning}
 
+Poslední kritérium konvergence řad s nezápornými členy, jež si uvedeme, je
+veskrze překvapivým výsledkem. Ukazuje totiž, že (za jisté další podmínky) lze
+každých $2^{n}$ (s rostoucím $n$) členů vyměnit za ten nejmenší nebo největší z
+nich bez vlivu na konvergenci; na hodnotu součtu pochopitelně ano. Například už
+pro $n = 20$ toto znamená, že beztrestně nahrazujeme více než milión čísel.
+
+\begin{theorem}{Kondenzační kritérium}{kondenzacni-kriterium}
+ Ať $a:\N \to [0,\infty)$ je \textbf{nerostoucí} a \textbf{nezáporná}
+ posloupnost. Pak
+ \[
+  \sum_{n=0}^{\infty} a_n \text{ konverguje } \Leftrightarrow
+  \sum_{n=0}^{\infty} 2^{n}a_{2^{n}} \text{ konverguje}.
+ \]
+\end{theorem}
+\begin{thmproof}
+ Máme k důkazu dvě implikace. Položme
+ \[
+  s_n \coloneqq \sum_{i=0}^{n} a_n, \quad t_n \coloneqq \sum_{i=0}^{n}
+  2^{i}a_{2^{i}}.
+ \]
+
+ Pro důkaz implikace $(\Leftarrow)$ ověříme, že $s_n$ je shora omezená, což
+ spolu s její monotonií zaručí existenci konečné limity. Předpokládáme tedy, že
+ existuje konečná $L \coloneqq \lim_{n \to \infty} t_n$. Nechť $m \in \N$ je
+ dáno. Nalezneme $k \in \N$ takové, že $2^{k} > m$. Potom
+ \begin{align*}
+  s_m &= \sum_{i=0}^{m} a_i \leq \sum_{i=0}^{2^{k}} a_i = a_0 + \clr{a_1} +
+  \clb{(a_2 + a_3)} + \clg{(a_4 + a_5 + a_6 + a_7)} + \ldots + \clm{(a_{2^{k-1}}
+  + \ldots + a_{2^{k} - 1})}\\
+      &= a_0 + \clr{\sum_{i=2^{0}}^{2^{1}-1} a_i} + \clb{\sum_{i=2^{1}}^{2^2-1}
+      a_i} + \clg{\sum_{i=2^2}^{2^{3}-1} a_i} + \ldots +
+      \clm{\sum_{i=2^{k-1}}^{2^{k}-1} a_i} = a_0 + \sum_{j=0}^{k-1}
+      \sum_{i=2^{j}}^{2^{j+1}-1} a_i.
+ \end{align*}
+ Nyní, protože $a$ je nerostoucí, dostáváme
+ \[
+  \sum_{i=2^{j}}^{2^{j+1}-1} a_i = a_{2^{j}} + a_{2^{j} + 1}\ldots +
+  a_{2^{j+1}-1} \leq a_{2^{j}} + a_{2^{j}} + \ldots + a_{2^{j}} = 2^{j}a_{2^{j}}
+ \]
+ pro každé $j \in \N$. Spolu s předchozí nerovností dostaneme horní odhad
+ \[
+  s_m \leq a_0 + \sum_{j=0}^{k-1} \sum_{i=2^{j}}^{2^{j+1}-1} a_i \leq
+  a_0 + \sum_{j=0}^{k-1} 2^{j}a_{2^{j}} = a_0 + t_{k-1} \leq a_0 + L,
+ \]
+ kde poslední nerovnost plyne z faktu, že $t_n$ je neklesající, a tedy vždy
+ menší než svoje limita. Tím jsme ukázali, že $s_n$ jsouc shora omezená má
+ konečnou limitu, a tedy $\sum_{n=0}^{\infty} a_n$ konverguje.
+
+ V důkazu $( \Rightarrow )$ naopak předpokládáme, že existuje konečná $A
+ \coloneqq \lim_{n \to \infty} s_n$. Ukážeme omezenost $t_n$ shora. Mějme dáno
+ $k \in \N$. Nalezneme $m \in \N$ takové, že $2^{k} \leq m$. Potom
+ \begin{align*}
+  s_m &= \sum_{i=0}^{m} a_i \geq \sum_{i=0}^{2^{k}} a_i = a_0 + a_1 + \clr{a_2}
+  + \clb{(a_3 + a_4)} + \clg{(a_5 + a_6 + a_7 + a_8)} + \ldots +
+  \clm{(a_{2^{k-1}+1}+\ldots+a_{2^{k}})}\\
+      &= a_0 + a_1 + \clr{\sum_{i=2^{0}+1}^{2^1} a_i} +
+      \clb{\sum_{i=2^1+1}^{2^2} a_i} + \clg{\sum_{i=2^2+1}^{2^3} a_i} + \ldots +
+      \clm{\sum_{i=2^{k-1}+1}^{2^{k}} a_i} = a_0 + a_1 + \sum_{j=1}^{k}
+      \sum_{i=2^{j-1}+1}^{2^{j}} a_i\\
+      & \overset{\text{$a$ je nezáporná}}{ \geq } \sum_{j=1}^k
+      \sum_{i=2^{j-1}+1}^{2^{j}} a_i \overset{\text{$a$ je nerostoucí}}{ \geq }
+      \sum_{j=1}^k 2^{j-1}a_{2^{j}} = 2^{-1} \sum_{j=1}^k 2^{j}a_{2^{j}} =
+      2^{-1}t_k.
+ \end{align*}
+ Tím jsme dokázali, že $t_k \leq 2s_m \leq 2A$, čili $t_k$ je shora omezená a
+ má z monotonie konečnou limitu. To znamená, že $\sum_{n=0}^{\infty}
+ 2^{n}a_{2^{n}}$ konverguje a důkaz je hotov.
+\end{thmproof}
+
+Krátké pojednání o řadách s nezápornými členy završíme, kterak jest bylo
+zvěstěno, prozkoumáním konvergence jisté významné číselné řady.
+
 
