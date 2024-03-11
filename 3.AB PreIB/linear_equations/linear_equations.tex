@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,usenames,dvipsnames]{beamer}
+\documentclass[aspectratio=169,11pt,dvipsnames]{beamer}
 
 \usepackage[czech,english]{babel}
 \usepackage{CJKutf8}
@@ -613,6 +613,109 @@
    \tkzLabelPoint[left=1mm,color=Magenta](fxdd){$(x+2,f(x + 2))$}
   \end{tikzpicture}
  \end{minipage}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Linear Functions -- Intersections}
+ As two non-parallel lines \alert{always intersect}, we should expect the
+ equation $f(x) = g(x)$ to always \alert{have a solution} assuming the graphs of
+ $f$ and $g$ are not parallel.\\ \pause
+ The question is, when are the graphs of $f$ and $g$ parallel?\\ \pause
+ That happens exactly when their \alert{rates growth} are identical.\\ \pause
+ In symbols, if $f(x) = \clb{a}x + b$ and $g(x) = \clg{c}x + d$, then the graphs
+ of $f$ and $g$ are parallel if $\clb{a} = \clg{c}$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Linear Functions -- Intersections}
+ \begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{.49\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \tkzInit[xmin=-3,xmax=3,ymin=-3,ymax=3]
+    \tkzDrawX[color=BrickRed]
+    \tkzDrawY[color=RoyalBlue]
+
+    \tkzDefPoints{1/0/a1,2/1/a2,0/2/b1,2/0/b2}
+    \tkzDefPoint(1.5,0.5){c}
+    \tkzDrawLine[thick,color=Magenta,add=2 and 1](a1,a2)
+    \tkzDrawLine[thick,color=ForestGreen,add=.5 and .5](b1,b2)
+
+    \node[rectangle,draw] at (1.5,-1.5) (r) {$(s,\clm{f}(s) = \clg{g}(s))$};
+    \draw[-latex] (c) -- (r);
+    \tkzDrawPoint[size=6,draw=black,thick,fill=black!20](c)
+
+    \tkzLabelLine[pos=2,color=Magenta,left=1mm](a1,a2){$f(x) = x - 1$}
+    \tkzLabelLine[pos=0,color=ForestGreen,left=1mm](b1,b2){$g(x) = -x + 2$}
+   \end{tikzpicture}
+  \end{subfigure}
+  \begin{subfigure}[b]{.49\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \tkzInit[xmin=-3,xmax=3,ymin=-3,ymax=3]
+    \tkzDrawX[color=BrickRed]
+    \tkzDrawY[color=RoyalBlue]
+
+    \tkzDefPoints{1/0/a1,2/1/a2,0/1/b1,1/2/b2}
+    \tkzDrawLine[thick,color=Magenta,add=2 and 1](a1,a2)
+    \tkzDrawLine[thick,color=ForestGreen,add=2 and 1](b1,b2)
+
+    \tkzLabelLine[pos=2,color=Magenta,left=1mm](a1,a2){$f(x) = x - 1$}
+    \tkzLabelLine[pos=0,color=ForestGreen,left=1mm](b1,b2){$g(x) = x + 1$}
+   \end{tikzpicture}
+  \end{subfigure}
+ \end{figure}
+\end{frame}
+
+\section{Linear Equations}
+
+\begin{frame}
+ \frametitle{Linear Equation}
+ \begin{tcolorbox}[title=Linear Equation]
+  If $\clr{f},\clb{g}$ are linear functions, the equation
+  \[
+   \clr{f}(x) = \clb{g}(x)
+  \]
+  is called a \alert{linear equation} (in one variable).
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Linear Equation -- Solution}
+ Suppose $\clr{f}(x) = ax+b$ and $\clb{g}(x) = cx+d$. What are the possible
+ solutions to $\clr{f}(x) = \clb{g}(x)$?\\ \pause
+ Three things can happen:
+ \begin{itemize}
+  \item $a \neq c$. In this case, we can divide the equation by $a - c$ and get
+  \begin{align*}
+   ax + b &= cx + d\\
+   (a-c)x &= d - b\\
+   x &= \frac{d-b}{a-c}.
+  \end{align*}\pause
+ \item $a = c$ and $b \neq d$. In this case the graphs of the two functions are
+  parallel lines -- there is no solution.\pause
+ \item $a = c$ and $b = d$. In this case, the functions are one and the same and
+  every number is a solution.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Linear Equations \& Operations}
+ For two linear functions $\clr{f},\clb{g}$, when does
+ \[
+  (\clr{f} \circ \clb{g})(x) = (\clb{g} \circ \clr{f})(x)
+ \]
+ have a solution?\\ \pause
+ We can calculate that easily. If $\clr{f}(x) = ax + b$ and $\clb{g}(x) = cx +
+ d$, then
+ \begin{align*}
+  (\clr{f} \circ \clb{g})(x) &= a(cx + d) + b = (ac)x + (ad + b),\\
+  (\clb{g} \circ \clr{f})(x) &= c(ax + b) + d = (ac)x + (bc + d).
+ \end{align*}\\ \pause
+ We see that the graphs of $\clr{f} \circ \clb{g}$ and $\clb{g} \circ \clr{f}$
+ are parallel, so this equation has a solution only in the case that $\clr{f} =
+ \clb{g}$.
 \end{frame}
 
 \end{document} 
