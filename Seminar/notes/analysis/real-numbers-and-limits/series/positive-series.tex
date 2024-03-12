@@ -438,4 +438,62 @@ pro $n = 20$ toto znamená, že beztrestně nahrazujeme více než milión čís
 Krátké pojednání o řadách s nezápornými členy završíme, kterak jest bylo
 zvěstěno, prozkoumáním konvergence jisté významné číselné řady.
 
+\begin{proposition}{}{konvergence-n^c}
+ Ať $c \in [0,\infty)$. Pak řada
+ \[
+  \sum_{n = 1}^{\infty} \frac{1}{n^{c}}
+ \]
+ konverguje právě tehdy, když $c > 1$.
+\end{proposition}
+\begin{propproof}
+ Nejprve snadno nahlédneme, že řada diverguje, když $c \leq 1$. Z
+ \myref{lemmatu}{lem:divergence-harmonicke-rady} víme, že $\sum_{n = 1}^{\infty}
+ \frac{1}{n}$ diverguje. Protože pro libovolné $c \in [0,1]$ a každé $n \in \N$
+ platí $n^{c} \leq n$, a tudíž $1 / n^{c} \geq 1 / n$, plyne ze
+ \hyperref[prop:srovnavaci-kriterium]{srovnávacího kritéria}, že
+ $\sum_{n=1}^{\infty} \frac{1}{n^{c}}$ diverguje, když $c \in [0,1]$.
 
+ Pro důkaz konvergence v případě $c > 1$ použijeme
+ \hyperref[thm:kondenzacni-kriterium]{kondenzačního kritéria}. Posloupnost $1 /
+ n^{c}$ je jistě nezáporná a nerostoucí. Tedy, řada $\sum_{n=1}^{\infty} 1 /
+ n^{c}$ konverguje právě tehdy, když konverguje řada
+ \[
+  \sum_{n=0}^{\infty} 2^{n} \cdot \frac{1}{(2^{n})^{c}} = \sum_{n = 0}^{\infty}
+  2^{n-nc} = \sum_{n=0}^{\infty} (2^{1-c})^{n}.
+ \]
+ Poslední řada je geometrická s kvocientem $2^{1-c}$. Z
+ \myref{úlohy}{prob:geometricka-rada} víme, že tato konverguje právě tehdy, když
+ \[
+  2^{1-c} < 1,
+ \]
+ což nastává právě tehdy, když $c > 1$.
+\end{propproof}
+
+Na závěr několik cvičení na použití výše dokázaných kritérií konvergence.
+
+\begin{exercise}{}{random-rada}
+ Vyšetřete konvergenci řady
+ \[
+  \sum_{n=0}^{\infty} \frac{n^22^{n}+3}{(n^{4}+1)^{6}}.
+ \]
+\end{exercise}
+\begin{exercise}{}{random-rada-2}
+ Vyšetřete konvergenci řady
+ \[
+  \sum_{n = 0}^{\infty} n^{c}(\sqrt{n+1}-\sqrt{n})
+ \]
+ v závislosti na konstantě $c \in \R$.
+\end{exercise}
+\begin{exercise}{těžké}{raabeovo-kriterium}
+ Dokažte následující tvrzení, známé jako \emph{Raabeovo kritérium}: Nechť
+ $\sum_{n = 0}^{\infty} a_n$ je řada s nezápornými členy.
+ \begin{enumerate}[label=(\alph*)]
+  \item Platí-li $\lim_{n \to \infty} n \left( \frac{a_n}{a_{n+1}} - 1 \right) >
+   1$, pak řada $\sum_{n = 0}^{\infty} a_n$ konverguje.
+  \item Existuje-li $n_0 \in \N$ takové, že pro $n \geq n_0$ je
+  \[
+   n \left( \frac{a_n}{a_{n+1}} - 1 \right) \leq 1,
+  \]
+  pak řada $\sum_{n = 0}^{\infty} a_n$ diverguje.
+ \end{enumerate}
+\end{exercise}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.16)  8 MAR 2024 07:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.16)  12 MAR 2024 10:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1266,7 +1266,7 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 88.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 (Font)              scaled to size 8.0pt on input line 88.
-<logo.png, id=29, 218.31563pt x 153.57375pt>
+<logo.png, id=33, 218.31563pt x 153.57375pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 88.
@@ -1291,7 +1291,7 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/n' on input line 89.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
 (Font)              scaled to size 10.0pt on input line 89.
-<title.jpg, id=31, 6038.56pt x 4031.06pt>
+<title.jpg, id=35, 6038.56pt x 4031.06pt>
 File: title.jpg Graphic file (type jpg)
 <use title.jpg>
 Package pdftex.def Info: title.jpg  used on input line 89.
@@ -1450,7 +1450,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 1370.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<dice-plot.png, id=120, 462.528pt x 346.896pt>
+<dice-plot.png, id=124, 462.528pt x 346.896pt>
 File: dice-plot.png Graphic file (type png)
 <use dice-plot.png>
 Package pdftex.def Info: dice-plot.png  used on input line 1370.
@@ -1485,7 +1485,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 1388.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<random-probability.png, id=132, 722.7pt x 361.35pt>
+<random-probability.png, id=136, 722.7pt x 361.35pt>
 File: random-probability.png Graphic file (type png)
 <use random-probability.png>
 Package pdftex.def Info: random-probability.png  used on input line 1388.
@@ -1903,7 +1903,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 1689.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<human.png, id=317, 73.2336pt x 159.7167pt>
+<human.png, id=321, 73.2336pt x 159.7167pt>
 File: human.png Graphic file (type png)
 <use human.png>
 Package pdftex.def Info: human.png  used on input line 1689.
@@ -1995,30 +1995,10 @@ File: human.png Graphic file (type png)
 <use human.png>
 Package pdftex.def Info: human.png  used on input line 1732.
 (pdftex.def)             Requested size: 14.22636pt x 31.02643pt.
-
-./probability.tex:1732: Argument of \beamer@includegraphics has an extra }.
-<inserted text> 
-                \par 
-l.1732 \end{frame}
-                  
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
-
-Runaway argument?
-width=5mm{human.png}
-./probability.tex:1732: Paragraph ended before \beamer@includegraphics was complete.
-<to be read again> 
-                   \par 
-l.1732 \end{frame}
-                  
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
+File: human.png Graphic file (type png)
+<use human.png>
+Package pdftex.def Info: human.png  used on input line 1732.
+(pdftex.def)             Requested size: 14.22636pt x 31.02643pt.
 File: human.png Graphic file (type png)
 <use human.png>
 Package pdftex.def Info: human.png  used on input line 1732.
@@ -2027,7 +2007,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 1732.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[51
+ [51
 
 ]
 File: logo.png Graphic file (type png)
@@ -2292,6 +2272,156 @@ Package pdftex.def Info: logo.png  used on input line 1926.
  [67
 
 ]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1932.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1932.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [68
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1944.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1944.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [69
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1944.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [70
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1960.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+
+Overfull \vbox (6.86656pt too high) detected at line 1960
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1960.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[71
+
+]
+Overfull \vbox (6.86656pt too high) detected at line 1960
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1960.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[72
+
+]
+Overfull \vbox (6.86656pt too high) detected at line 1960
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1960.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[73
+
+]
+Overfull \vbox (6.86656pt too high) detected at line 1960
+ []
+
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1960.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+[74
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1975.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1975.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [75
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1975.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [76
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1975.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [77
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1975.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [78
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1986.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1986.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [79
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1994.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 1994.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [80
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 2004.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 2004.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [81
+
+]
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 2011.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+File: logo.png Graphic file (type png)
+<use logo.png>
+Package pdftex.def Info: logo.png  used on input line 2011.
+(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
+ [82
+
+]
 \tf@nav=\write6
 \openout6 = `probability.nav'.
 
@@ -2307,21 +2437,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `probability.out' has not changed.
-(rerunfilecheck)             Checksum: B214D9FF07BC62E04F1B9ACACEE0477B;934.
+(rerunfilecheck)             Checksum: 61A5DE069C4459A85FDB9516E92F7249;1123.
  ) 
 Here is how much of TeX's memory you used:
- 46856 strings out of 474148
- 1113432 string characters out of 5744901
+ 46906 strings out of 474148
+ 1113887 string characters out of 5744901
  1953995 words of memory out of 5000000
- 68093 multiletter control sequences out of 15000+600000
+ 68112 multiletter control sequences out of 15000+600000
  715654 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,1886b,1063s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Semibold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on probability.pdf (67 pages, 1793293 bytes).
+Output written on probability.pdf (82 pages, 1847955 bytes).
 PDF statistics:
- 494 PDF objects out of 1000 (max. 8388607)
- 382 compressed objects within 4 object streams
- 139 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 584 PDF objects out of 1000 (max. 8388607)
+ 456 compressed objects within 5 object streams
+ 170 named destinations out of 1000 (max. 500000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
