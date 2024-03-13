@@ -1,0 +1,136 @@
+\chapter{Limity funkcí}
+\label{chap:limity-funkci}
+
+Limita funkce je dost možná nejdůležitější ideou matematické analýzy a obecně
+matematických disciplín, jež využívá fyzika. Davši vzniknout teorii derivací a
+primitivních funkcí, umožnila popsat fyzikální jevy soustavami diferenciálních
+rovnic a je základem zatím nejlepších známých modelův světa --
+diferencovatelných struktur.
+
+Principiálně se pojem \emph{limity funkce} neliší pramnoho od limity
+posloupnosti. Matematici funkcí obyčejně myslíme zobrazení popisující vývoj
+systému v čase (tzv. funkce \emph{jedné proměnné}), případně závislé na více
+parametrech než jen na čase (tzv. funkce \emph{více proměnných}). Limita funkce
+v nějakém určeném okamžiku pak znamená vlastně \uv{očekávanou hodnotu} této
+funkce v tomto okamžiku -- hodnotu, ke které je funkce, čím méně času zbývá do
+onoho okamžiku, tím blíže.
+
+V tomto textu budeme sebe zaobírati pouze funkcemi závislými na čase tvořícími
+systémy, jejichž stav je rovněž vyjádřen jediným číslem. Uvidíme, že i teorie
+takto primitivních objektů je veskrze širá.
+
+\begin{definition}{Reálná funkce jedné proměnné}{realna-funkce-jedne-promenne}
+ Ať $M \subseteq \R$ je libovolná podmnožina $\R$. Zobrazení $f:M \to \R$
+ nazýváme \emph{reálnou funkcí (jedné proměnné)}.
+\end{definition}
+
+Ačkolivěk ve světě, jest-li nám známo, proudí čas pouze jedním směrem, v
+matematice se takovými trivialitami netřeba zabývat. Pojem limity reálné funkce
+budeme tedy definovat bez ohledu na \uv{proud času}. Budeme zkoumat jak hodnotu
+reálné funkce, když se čas blíží \emph{zleva} (tj. přirozeně) k~danému okamžiku,
+tak její očekávanou hodnotu proti toku času.
+
+Ona dva přístupa slujeta limita funkce \emph{zleva} a limita funkce
+\emph{zprava}. Před jejich výrokem ovšem učiníme kvapný formální obchvat. Bylo
+by totiž nanejvýš neelegantní musiti různými logickými výroky definovat konečné
+oproti nekonečným limitám v konečných oproti nekonečným bodům. Následující --
+čistě formální avšak se silnou geometrickou intuicí -- pojem tyto případy
+spojuje v~jeden.
+
+\begin{definition}{Okolí a prstencové okolí bodu}{okoli-a-prstencove-okoli-bodu}
+Ať $a \in \R^*$ a $\varepsilon \in (0,\infty)$. \emph{Okolím} bodu $a$ (o
+poloměru $\varepsilon$) myslíme množinu
+\[
+ B(a,\varepsilon) \coloneqq \begin{cases}
+  (a-\varepsilon,a+\varepsilon), & \text{pokud } a \in \R,\\
+  (1 / \varepsilon, \infty), &\text{pokud } a = \infty,\\
+  (-\infty,-1 / \varepsilon), &\text{pokud } a = -\infty.
+ \end{cases}
+\]
+Podobně, \emph{prstencovým okolím} $a$ (o velikosti $\varepsilon$) myslíme jeho
+okolí bez samotného bodu $a$. Konkrétně,
+\[
+ R(a,\varepsilon) \coloneqq \begin{cases}
+  (a-\varepsilon,a+\varepsilon) \setminus \{a\}, &\text{pokud }a \in \R,\\
+  (1 / \varepsilon,\infty), & \text{pokud } a = \infty,\\
+  (-\infty,-1 / \varepsilon), &\text{pokud } a = -\infty.
+ \end{cases}
+\]
+Pro účely definice levých a pravých limit, pojmenujeme rovněž množinu
+\[
+ B_+(a,\varepsilon) \coloneqq \begin{cases}
+  (a-\varepsilon,a], &\text{pokud }a \in \R,\\
+  (1 / \varepsilon,\infty), &\text{pokud }a = \infty,\\
+  (-\infty,-1 / \varepsilon), &\text{pokud }a = -\infty
+ \end{cases}
+\]
+\emph{pravým okolím} bodu $a$ a množinu
+\[
+ R_+(a,\varepsilon) \coloneqq \begin{cases}
+  (a-\varepsilon,a), &\text{pokud }a \in \R,\\
+  (1 / \varepsilon,\infty), &\text{pokud }a = \infty,\\
+  (-\infty,-1 / \varepsilon), &\text{pokud }a = -\infty
+ \end{cases}
+\]
+\emph{pravým prstencovým okolím} bodu $a$. \emph{Levé okolí} a \emph{levé
+prstencové okolí} bodu $a$ se definují analogicky.
+\end{definition}
+
+\begin{remark}{}{okoli-a-prstencove-okoli-bodu}
+ Písmena \emph{B} a \emph{R} v definici okolí a prstencového okolí pocházejí z
+ angl. slov \textbf{b}all a \textbf{r}ing. Okolí se v~angličtině přezdívá
+ \uv{ball} pro to, že okolí bodu $a$ je ve skutečnosti (jednodimenzionální) kruh
+ s poloměrem $\varepsilon$ o středu $a$. Znázornění okolí bodu jako kruhu v
+ rovině je vysoce účinným vizualizačním aparátem.
+
+ Čtenáře možná zarazilo číslo $1 / \varepsilon$ v definici okolí bodu $\infty$.
+ Důvod užití $1 / \varepsilon$ oproti prostému $\varepsilon$ je spíše
+ intuitivního rázu. V definici limity a v následných tvrzení si matematici
+ obvykle představujeme pod $\varepsilon$ reálné číslo, které je \uv{nekonečně
+ malé}. Chceme-li tedy, aby se \textbf{zmenšujícím se} $\varepsilon$ byla
+ hodnota dané funkce stále blíže nekonečnu, musí se tato hodnota zvětšovat. Díky
+ užité formulaci tomu tak je, neboť s menším $\varepsilon$ je číslo $1 /
+ \varepsilon$ větší.
+\end{remark}
+
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}[b]{.49\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzInit[xmin=-2,xmax=2]
+   \tkzDrawX[label=,>=]
+   \tkzDefPoints{0/0/a,-1.7/0/b,1.7/0/c}
+   \tkzLabelPoint[below=2mm,color=BrickRed](a){$a$}
+
+   \tkzDrawSegment[color=RoyalBlue,ultra thick](b,c)
+   \tkzDrawPoint[size=4,color=BrickRed](a)
+   \node[color=RoyalBlue] at (b) {\Large $($};
+   \node[color=RoyalBlue] at (c) {\Large $)$};
+   \tkzLabelPoint[below=2mm,color=RoyalBlue](b){$\clr{a} - \varepsilon$}
+   \tkzLabelPoint[below=2mm,color=RoyalBlue](c){$\clr{a} + \varepsilon$}
+  \end{tikzpicture}
+  \caption{Okolí $\clb{B(\clr{a},\varepsilon)}$ bodu $\clr{a}$.}
+  \label{subfig:okoli-a-prstencove-okoli-bodu-1}
+ \end{subfigure}
+ \begin{subfigure}[b]{.49\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzInit[xmin=-2,xmax=2]
+   \tkzDrawX[label=,>=]
+   \tkzDefPoints{0/0/a,-1.7/0/b,1.7/0/c}
+   \tkzLabelPoint[below=2mm,color=BrickRed](a){$a$}
+
+   \tkzDrawSegment[color=ForestGreen,ultra thick](b,c)
+   \tkzDrawPoint[size=6,draw=BrickRed,fill=white](a)
+   \node[color=ForestGreen] at (b) {\Large $($};
+   \node[color=ForestGreen] at (c) {\Large $)$};
+   \tkzLabelPoint[below=2mm,color=ForestGreen](b){$\clr{a} - \varepsilon$}
+   \tkzLabelPoint[below=2mm,color=ForestGreen](c){$\clr{a} + \varepsilon$}
+  \end{tikzpicture}
+  \caption{Prstencové okolí $\clg{R(\clr{a},\varepsilon)}$ bodu $\clr{a}$.}
+  \label{subfig:okoli-a-prstencove-okoli-bodu-2}
+ \end{subfigure}
+ \caption{Okolí a prstencové okolí bodu $\clr{a} \in \R$.}
+ \label{fig:okoli-a-prstencove-okoli-bodu}
+\end{figure}

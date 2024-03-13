@@ -31,6 +31,7 @@ const props = defineProps<{
             class="btn-close"
             data-bs-dismiss="modal"
             aria-label="Close"
+            @click="$emit('rerender')"
           ></button>
         </div>
         <div class="modal-body">

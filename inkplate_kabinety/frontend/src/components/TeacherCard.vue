@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, nextTick } from 'vue'
+import { sleep } from '@/utils/sleep'
 import type { TeacherData } from '@/types/TeacherData'
 import DeleteModal from '@/components/DeleteModal.vue'
 import EditTeacherModal from '@/components/EditTeacherModal.vue'
@@ -30,14 +31,12 @@ const imgSrc = computed(() => {
 
 // Methods
 const rerenderEditForm = async () => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000)
-    renderEditForm.value = false
-    nextTick(() => {
-      renderEditForm.value = true
-      resolve(true)
-    })
-  })
+  // Rerenders the edit form to reset it. Waits 500ms for the fade out
+  // animation to finish.
+  await sleep(500)
+  renderEditForm.value = false
+  await nextTick()
+  renderEditForm.value = true
 }
 </script>
 
