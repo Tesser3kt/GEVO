@@ -1,61 +1,41 @@
 <script setup lang="ts">
-import { useSubjectsStore } from '@/stores/subjects'
-import { ref, toRefs, onMounted, computed } from 'vue'
-import type { TeacherData } from '@/types/TeacherData'
+import { ref, computed } from 'vue'
 import type { OfficeData } from '@/types/OfficeData'
 import type { SubjectData } from '@/types/SubjectData'
-
-// Props
-const props = defineProps<{
-  teacher?: TeacherData
-}>()
+import { useSubjectsStore } from '@/stores/subjects'
+import { useOfficesStore } from '@/stores/offices'
 
 // Store
 const subjectsStore = useSubjectsStore()
+const officesStore = useOfficesStore()
 
-// Refs
-const id = ref<number>(0)
-const name = ref<string>('')
-const photo_file = ref<string>('')
-const office = ref<OfficeData>({
-  id: 0,
-  name: '',
-  number: ''
-})
-const subjects = ref<SubjectData[]>([])
+// Props
+const props = defineProps<{
+  id: number
+  name: string
+  photo_file: string
+  office: OfficeData
+  subjects: SubjectData[]
+}>()
 
+const id = ref<number>(props.id)
+const name = ref<string>(props.name)
+const photo_file = ref<string>(props.photo_file)
+const office = ref<OfficeData>(props.office)
+const subjects = ref<SubjectData[]>(props.subjects)
 const newSubject = ref<string>('')
 
 // Computed
 const otherSubjects = computed(() => {
   return subjectsStore.subjects.filter((subject) => {
-    return !subjects.value.some((s) => s.id === subject.id)
+    return !props.subjects.some((s) => s.id === subject.id)
   })
 })
 
 // Methods
-const loadTeacher = (teacher: TeacherData) => {
-  const {
-    id: teacherId,
-    name: teacherName,
-    photo_file: teacherPhotoFile,
-    office: teacherOffice,
-    subjects: teacherSubjects
-  } = toRefs(teacher)
-
-  id.value = teacherId.value
-  name.value = teacherName.value
-  photo_file.value = teacherPhotoFile.value
-  office.value = teacherOffice.value
-  subjects.value = teacherSubjects.value
+const officeName = (office: OfficeData) => {
+  return `${office.name} (${office.number})`
 }
-
-// Lifecycle hooks
-onMounted(() => {
-  if (props.teacher) {
-    loadTeacher(props.teacher)
-  }
-})
 </script>
 
 <template>
@@ -72,6 +52,7 @@ onMounted(() => {
         id="subjectsDatalist"
         placeholder="Přidat předmět"
         v-model="newSubject"
+        @change="$emit('addsubject', newSubject, otherSubjects)"
       />
       <datalist id="datalistSubjects">
         <option v-for="subject in otherSubjects" :key="subject.id" :value="subject.name" />
@@ -84,9 +65,22 @@ onMounted(() => {
           :key="subject.id"
         >
           {{ subject.name }}
-          <button type="button" class="ms-1 btn-close btn-xs" aria-label="Close"></button>
+          <button
+            type="button"
+            class="ms-1 btn-close"
+            aria-label="Close"
+            @click="$emit('removesubject', index)"
+          ></button>
         </div>
       </div>
+    </div>
+    <div class="mb-3">
+      <label for="teacherOffice" class="form-label">Kabinet</label>
+      <select class="form-select" id="teacherOffice" v-model="office" aria-label="Kabinet">
+        <option v-for="office in officesStore.offices" :key="office.id" :value="office">
+          {{ officeName(office) }}
+        </option>
+      </select>
     </div>
   </form>
 </template>

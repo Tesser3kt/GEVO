@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, nextTick } from 'vue'
+import { toRefs, computed, nextTick } from 'vue'
 import { sleep } from '@/utils/sleep'
 import type { TeacherData } from '@/types/TeacherData'
 import DeleteModal from '@/components/DeleteModal.vue'
@@ -12,32 +12,22 @@ const props = defineProps<{
 }>()
 
 // Refs
-const renderEditForm = ref<boolean>(true)
+const { id, name, photo_file, office, subjects } = toRefs(props.teacher)
 
 // Computed
 const teacherSubjects = computed(() => {
   let names = []
-  for (let subject of props.teacher.subjects) {
+  for (let subject of subjects.value) {
     names.push(subject.name)
   }
   return names.join(', ')
 })
 const officeName = computed(() => {
-  return props.teacher.office.name + ' (' + props.teacher.office.number + ')'
+  return office.value.name + ' (' + office.value.number + ')'
 })
 const imgSrc = computed(() => {
-  return new URL(`../assets/imgs/${props.teacher.photo_file}.png`, import.meta.url).href
+  return new URL(`../assets/imgs/${photo_file.value}.png`, import.meta.url).href
 })
-
-// Methods
-const rerenderEditForm = async () => {
-  // Rerenders the edit form to reset it. Waits 500ms for the fade out
-  // animation to finish.
-  await sleep(500)
-  renderEditForm.value = false
-  await nextTick()
-  renderEditForm.value = true
-}
 </script>
 
 <template>
@@ -59,7 +49,7 @@ const rerenderEditForm = async () => {
             <h2
               class="card-title fs-4 mb-0 pb-2 border-tertiary-emphasis border-bottom text-primary-emphasis"
             >
-              {{ teacher.name }}
+              {{ name }}
             </h2>
             <p class="card-text mb-0 mt-2">{{ teacherSubjects }}</p>
             <p class="card-text">{{ officeName }}</p>
@@ -67,7 +57,7 @@ const rerenderEditForm = async () => {
               class="btn btn-warning me-1"
               type="button"
               data-bs-toggle="modal"
-              :data-bs-target="`#editModal-${props.teacher.id}`"
+              :data-bs-target="`#editModal-${id}`"
             >
               <i class="bi bi-pencil-fill"></i>
             </button>
@@ -75,24 +65,26 @@ const rerenderEditForm = async () => {
               class="btn btn-danger ms-1"
               type="button"
               data-bs-toggle="modal"
-              :data-bs-target="`#deleteModal-${props.teacher.id}`"
+              :data-bs-target="`#deleteModal-${id}`"
             >
               <i class="bi bi-x-circle-fill"></i>
             </button>
 
             <!-- Delete Modal -->
             <DeleteModal
-              :id="props.teacher.id"
+              :id="id"
               title="Smazat učitele"
-              :message="`Opravdu chcete smazat učitele ${teacher.name}?`"
+              :message="`Opravdu chcete smazat učitele ${name}?`"
               :onDeleteClick="onDeleteClick"
             />
 
             <!-- Edit Modal -->
             <EditTeacherModal
-              v-if="renderEditForm"
-              :teacher="props.teacher"
-              @rerender="rerenderEditForm"
+              :id="id"
+              :name="name"
+              :photo_file="photo_file"
+              :office="office"
+              :subjects="subjects"
             />
           </div>
         </div>

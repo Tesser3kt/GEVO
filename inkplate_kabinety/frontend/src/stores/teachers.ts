@@ -59,6 +59,15 @@ export const useTeachersStore = defineStore('teachers', {
     async deleteTeacher(id: number) {
       /* TODO API call */
       this.teachers = this.teachers.filter((teacher) => teacher.id !== id)
+    },
+    async updateTeacher(teacher: TeacherData) {
+      /* TODO API call */
+      const index = this.teachers.findIndex((t) => t.id === teacher.id)
+      this.teachers[index] = teacher
+    },
+    async addTeacher(teacher: TeacherData) {
+      /* TODO API call */
+      this.teachers.push(teacher)
     }
   }
 })

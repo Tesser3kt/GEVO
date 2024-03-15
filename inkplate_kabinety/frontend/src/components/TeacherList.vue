@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import TeacherCard from '@/components/TeacherCard.vue'
 import { useTeachersStore } from '@/stores/teachers'
 
