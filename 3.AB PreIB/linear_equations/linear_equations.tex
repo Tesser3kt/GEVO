@@ -714,8 +714,140 @@
   (\clb{g} \circ \clr{f})(x) &= c(ax + b) + d = (ac)x + (bc + d).
  \end{align*}\\ \pause
  We see that the graphs of $\clr{f} \circ \clb{g}$ and $\clb{g} \circ \clr{f}$
- are parallel, so this equation has a solution only in the case that $\clr{f} =
- \clb{g}$.
+ are parallel, so this equation has a solution only in the case that $ad + b =
+ bc + d$.
+\end{frame}
+
+\subsection{Linear equations in two variables}
+
+\begin{frame}
+ \subsectionpage
+\end{frame}
+
+\begin{frame}
+ \frametitle{Linear Equations In Two Variables}
+ \begin{tcolorbox}[title=System of linear equations]
+  A pair of equations
+  \begin{align*}
+   a \clr{x} + b \clb{y} &= c,\\
+   d \clr{x} + e \clb{y} &= f,
+  \end{align*}
+  that have to be \alert{simultaneously} satisfied, is called a \alert{system of
+  (two) linear equations} (in two variables).
+ \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Linear Equations In Two Variables}
+ Linear equations in two variables can be \alert{reduced to} linear equations
+ \alert{in one variable}.\\ \pause
+ This is easily done. We can simply \alert{isolate} one of the variables and
+ make the other variable \alert{into a function}.\\ \pause
+ For example, imagine the equation
+ \[
+  4 \clr{x} - \clb{y} = 2.
+ \]
+ \pause
+ We can rewrite this as
+ \[
+  \clb{y} = 4 \clr{x} - 2,
+ \]
+ basically making $\clb{y}$ into a linear function $\clb{f}(\clr{x}) = 4 \clr{x}
+ - 2$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Linear Equations In Two Variables}
+ Linear equations in two variables can be \alert{reduced to} linear equations
+ \alert{in one variable}.\\
+ This is easily done. We can simply \alert{isolate} one of the variables and
+ make the other variable \alert{into a function}.\\
+ For example, imagine the equation
+ \[
+  4 \clr{x} - \clb{y} = 2.
+ \]
+ Similarly, we can write
+ \[
+  \clr{x} = \frac{1}{4} \clb{y} + \frac{2}{4}
+ \]
+ and turn $\clr{x}$ into a linear function $\clr{g}(\clb{y}) = \frac{1}{4}
+ \clb{y} + \frac{2}{4}$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Linear Equations In Two Variables}
+ You probably know this reduction under the name of \alert{substitution}.\\
+ \pause
+ Let us see it in practice.\\ \pause
+ Suppose we want to solve the system
+ \begin{align*}
+  3 \clr{x} + \clb{y} &= 4,\\
+  \clr{x} - 2\clb{y} &= 6.
+ \end{align*}
+ \pause
+ From the first equation, we see that
+ \[
+  \clb{y} = 3 \clr{x} + 6,
+ \]
+ \pause
+ and from the second that
+ \[
+  \clb{y} = \frac{1}{2} \clr{x} - 3.
+ \]
+\end{frame}
+
+\begin{frame}
+ \frametitle{Linear Equations In Two Variables}
+ From the first equation, we see that
+ \[
+  \clb{y} = 3 \clr{x} + 6,
+ \]
+ and from the second that
+ \[
+  \clb{y} = \frac{1}{2} \clr{x} - 3.
+ \]
+ Therefore, we get the linear equation \alert{in one variable}
+ \[
+  3 \clr{x} + 6 = \frac{1}{2} \clr{x} - 3.
+ \]
+ \pause
+ whose solution is $\clr{x} = -\frac{18}{5}$.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Linear Equations In Two Variables}
+ From the first equation, we see that
+ \[
+  \clb{y} = 3 \clr{x} + 6,
+ \]
+ and from the second that
+ \[
+  \clb{y} = \frac{1}{2} \clr{x} - 3.
+ \]
+ The functions $f(\clr{x}) = 3 \clr{x} + 6$ and $g(\clr{x}) = \frac{1}{2}
+ \clr{x} - 3$ are linear, so we can draw this equation as an intersection of two
+ lines.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Linear Equations In Two Variables}
+ \begin{center}
+  \begin{tikzpicture}[scale=0.12]
+   \tkzInit[xmin=-20,xmax=20,ymin=-20,ymax=20]
+   \tkzDrawX[color=BrickRed]
+   \tkzDrawY[color=RoyalBlue]
+
+   \tkzDefPoints{0/6/fa,-2/0/fb,2/-2/ga,4/-1/gb,-3.6/-4.8/x}
+   \tkzDrawLine[color=Magenta,thick,add=2.5 and 2.5](fa,fb)
+   \tkzLabelLine[color=Magenta,pos=3,right](fa,fb){$\clm{f(x) = 3x + 6}$}
+   \tkzDrawLine[color=ForestGreen,thick,add=7 and 7](ga,gb)
+   \tkzLabelLine[color=ForestGreen,pos=5,right=1mm](ga,gb){$\clg{g(x) = \frac{1}{2}x - 3}$}
+
+   \node[rectangle,draw,left=1cm of x] (xcoor) {$(-\frac{18}{5},-\frac{24}{5})$};
+   \draw[-latex] (x) -- (xcoor);
+   \tkzDrawPoint[size=6,draw=black,thick,fill=gray!50](x)
+  \end{tikzpicture}
+ \end{center}
 \end{frame}
 
 \end{document} 

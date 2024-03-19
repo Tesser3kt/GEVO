@@ -24,8 +24,8 @@ takto primitivních objektů je veskrze širá.
  nazýváme \emph{reálnou funkcí (jedné proměnné)}.
 \end{definition}
 
-Ačkolivěk ve světě, jest-li nám známo, proudí čas pouze jedním směrem, v
-matematice se takovými trivialitami netřeba zabývat. Pojem limity reálné funkce
+Ačkolivěk ve světě, jest-li nám známo, proudí čas pouze jedním směrem,
+matematiku takovými trivialitami netřeba třísnit. Pojem limity reálné funkce
 budeme tedy definovat bez ohledu na \uv{proud času}. Budeme zkoumat jak hodnotu
 reálné funkce, když se čas blíží \emph{zleva} (tj. přirozeně) k~danému okamžiku,
 tak její očekávanou hodnotu proti toku času.
@@ -35,7 +35,7 @@ Ona dva přístupa slujeta limita funkce \emph{zleva} a limita funkce
 by totiž nanejvýš neelegantní musiti různými logickými výroky definovat konečné
 oproti nekonečným limitám v konečných oproti nekonečným bodům. Následující --
 čistě formální avšak se silnou geometrickou intuicí -- pojem tyto případy
-spojuje v~jeden.
+skuje v~jeden.
 
 \begin{definition}{Okolí a prstencové okolí bodu}{okoli-a-prstencove-okoli-bodu}
 Ať $a \in \R^*$ a $\varepsilon \in (0,\infty)$. \emph{Okolím} bodu $a$ (o
@@ -59,16 +59,16 @@ okolí bez samotného bodu $a$. Konkrétně,
 Pro účely definice levých a pravých limit, pojmenujeme rovněž množinu
 \[
  B_+(a,\varepsilon) \coloneqq \begin{cases}
-  (a-\varepsilon,a], &\text{pokud }a \in \R,\\
-  (1 / \varepsilon,\infty), &\text{pokud }a = \infty,\\
+  [a,a+\varepsilon), &\text{pokud }a \in \R,\\
+  \emptyset, &\text{pokud }a = \infty,\\
   (-\infty,-1 / \varepsilon), &\text{pokud }a = -\infty
  \end{cases}
 \]
 \emph{pravým okolím} bodu $a$ a množinu
 \[
  R_+(a,\varepsilon) \coloneqq \begin{cases}
-  (a-\varepsilon,a), &\text{pokud }a \in \R,\\
-  (1 / \varepsilon,\infty), &\text{pokud }a = \infty,\\
+  (a,a+\varepsilon), &\text{pokud }a \in \R,\\
+  \emptyset, &\text{pokud }a = \infty,\\
   (-\infty,-1 / \varepsilon), &\text{pokud }a = -\infty
  \end{cases}
 \]
@@ -158,29 +158,106 @@ prstencové okolí} bodu $a$ se definují analogicky.
  \begin{subfigure}[b]{.49\textwidth}
   \centering
   \begin{tikzpicture}[scale=1.25]
-   \tkzInit[xmin=-1,xmax=3,ymin=-1,ymax=2.5]
+   \tkzInit[xmin=-1,xmax=3,ymin=-0.5,ymax=2.5]
+
+   \tkzDefPoints{1/0/a,0/1.84/L,1/1.84/x}
+   \tkzDefPoints{3/1.122/max1,3/2.558/max2}
+   \tkzDefPoints{0.35/0/ad,0.35/1.122/xd,0/1.122/Le1,0/2.558/Le2}
+   \tkzDrawPolygon[fill=Magenta!20!white,draw=none](Le1,max1,max2,Le2)
+
    \tkzDrawX[label=]
    \tkzDrawY[label=]
 
    \draw[scale=1,domain=-1:3.14,smooth,thick,variable=\x,RoyalBlue] plot
     ({\x},{sin(\x^2 r) + 1});
-   \tkzDefPoints{1/0/a,0/1.84/L,1/1.84/x}
    \tkzDrawSegment[dashed,thick,BrickRed](a,x)
+   \tkzDrawSegment[dashed,thick,BrickRed](ad,xd)
+   \tkzDrawSegment[ultra thick,BrickRed](ad,a)
    \tkzDrawSegment[dashed,thick,ForestGreen](L,x)
    \tkzDrawPoint[size=6,draw=BrickRed,thick,fill=white](a)
-   \tkzLabelPoint[below=1mm,color=BrickRed](a){$a$}
+   \tkzLabelPoint[below=2mm,color=BrickRed](a){$a$}
    \tkzDrawPoint[size=4,color=ForestGreen](L)
    \tkzLabelPoint[left=1mm,color=ForestGreen](L){$L$}
 
+   \tkzDrawSegments[color=Magenta](Le1,max1 Le2,max2)
    \tkzDrawPoint[size=4,color=RoyalBlue](x)
-   \tkzDefPoints{0.5/0/ad,0/1.479/Le1,0/2.204/Le2}
-   \tkzDrawPoints[size=4,color=ForestGreen](Le1,Le2)
+   \tkzDrawPoint[size=4,draw=BrickRed,thick,fill=white](ad)
+   \tkzDrawPoint[size=4,color=RoyalBlue](xd)
+   \tkzLabelPoint[below=1mm,color=BrickRed](ad){$a - \delta$}
+   \tkzDrawPoints[size=4,color=Magenta](Le1,Le2)
+   \tkzLabelPoint[left=1mm,color=Magenta](Le1){$L - \varepsilon$}
+   \tkzLabelPoint[left=1mm,color=Magenta](Le2){$L + \varepsilon$}
 
-   \tkzDefPoints{3/1.479/max1,3/2.204/max2}
-   \tkzDrawSegments[color=ForestGreen](Le1,max1 Le2,max2)
-   \tkzDrawPolygon[color=ForestGreen](Le2,max2,max1,Le1)
   \end{tikzpicture}
+  \caption{Limita $\clb{f}$ v bodě $\clr{a}$ zleva.}
+ \end{subfigure}
+ \begin{subfigure}[b]{.49\textwidth}
+  \centering
+  \begin{tikzpicture}[scale=1.25]
+   \tkzInit[xmin=-1,xmax=3,ymin=-0.5,ymax=2.5]
+
+   \tkzDefPoints{1/0/a,0/1.84/L,1/1.84/x}
+   \tkzDefPoints{3/1.407/max1,3/2.273/max2}
+   \tkzDefPoints{1.65/0/ad,1.65/1.407/xd,0/1.407/Le1,0/2.273/Le2}
+   \tkzDrawPolygon[fill=Magenta!20!white,draw=none](Le1,max1,max2,Le2)
+
+   \tkzDrawX[label=]
+   \tkzDrawY[label=]
+
+   \draw[scale=1,domain=-1:3.14,smooth,thick,variable=\x,RoyalBlue] plot
+    ({\x},{sin(\x^2 r) + 1});
+   \tkzDrawSegment[dashed,thick,BrickRed](a,x)
+   \tkzDrawSegment[dashed,thick,BrickRed](ad,xd)
+   \tkzDrawSegment[ultra thick,BrickRed](ad,a)
+   \tkzDrawSegment[dashed,thick,ForestGreen](L,x)
+   \tkzDrawPoint[size=6,draw=BrickRed,thick,fill=white](a)
+   \tkzLabelPoint[below=2mm,color=BrickRed](a){$a$}
+   \tkzDrawPoint[size=4,color=ForestGreen](L)
+   \tkzLabelPoint[left=1mm,color=ForestGreen](L){$L$}
+
+   \tkzDrawSegments[color=Magenta](Le1,max1 Le2,max2)
+   \tkzDrawPoint[size=4,color=RoyalBlue](x)
+   \tkzDrawPoint[size=4,draw=BrickRed,thick,fill=white](ad)
+   \tkzDrawPoint[size=4,color=RoyalBlue](xd)
+   \tkzLabelPoint[below=1mm,color=BrickRed](ad){$a + \delta$}
+   \tkzDrawPoints[size=4,color=Magenta](Le1,Le2)
+   \tkzLabelPoint[left=1mm,color=Magenta](Le1){$L - \varepsilon$}
+   \tkzLabelPoint[left=1mm,color=Magenta](Le2){$L + \varepsilon$}
+
+  \end{tikzpicture}
+  \caption{Limita $\clb{f}$ v bodě $\clr{a}$ zprava.}
  \end{subfigure}
  \caption{Jednostranné limity funkce $\clb{f}$ v bodě $\clr{a}$.}
  \label{fig:jednostranna-limita-funkce}
 \end{figure}
+
+\begin{warning}{}{okoli-v-limite}
+ Fakt, že $L$ je limita \textbf{zleva} funkce $f$ v bodě $a$, vůbec neznamená,
+ že hodnoty $f(x)$ se musejí blížit k $L$ rovněž \textbf{zleva}. Adverbia
+ \emph{zleva} a \emph{zprava} značí pouze směr, kterým se k číslu $a$ přibližují
+ \textbf{vstupy} funkce $f$, nikoli její \textbf{výstupy} k číslu $L$.
+\end{warning}
+
+Pochopitelně, lze též požadovat, aby hodnoty $f$ ležely v daném rozmezí kolem
+bodu $L$, jak se její vstupy blíží k $a$ zleva i zprava zároveň. V principu,
+blíží-li se $f$ ke stejnému číslu zleva i zprava, stačí vzít $\delta$ v
+\myref{definici}{def:jednostranna-limita-funkce} tak malé, aby $f(x)$ leželo v
+$B(L,\varepsilon)$ kdykoli je $x$ ve vzdálenosti nejvýše $\delta$ od $a$.
+
+\begin{definition}{Oboustranná limita funkce}{oboustranna-limita-funkce}
+ Ať $a,L \in \R^{*}$ a $f$ je reálná funkce. Řekneme, že $L$ je
+ \emph{(oboustrannou) limitou} funkce $f$ v bodě $a$, pokud
+ \[
+ \forall \varepsilon > 0 \, \exists \delta > 0 \, \forall x \in P(a,\delta):
+ f(x) \in B(L,\varepsilon).
+ \]
+ Tento fakt zapisujeme jako $L = \lim_{x \to a} f(x)$.
+\end{definition}
+
+Je jistě možné představovat si oboustrannou limitu funkce stejně jako limity
+jednostranné na \myref{obrázku}{fig:jednostranna-limita-funkce}. Ovšem, ona
+vlastnost \uv{oboustrannosti} umožňuje ještě jiný -- však ne rigorózní --
+pohled. Povýšíme-li situaci do roviny, tj. do prostoru druhé dimenze, a na
+funkci $f$ budeme nahlížet jako na zobrazení bodů roviny na body roviny, pak $L$
+je limitou funkce $f$ v bodě $a$, když zobrazuje všechny body zevnitř kruhu o
+poloměru $\delta$ a středu $a$ do kruhu o poloměru $\varepsilon$ a středu $L$.
