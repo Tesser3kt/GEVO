@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,usenames,dvipsnames]{beamer}
+\documentclass[aspectratio=169,11pt,usenames,dvipsnames,handout]{beamer}
 
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -1986,7 +1986,7 @@
 \end{frame}
 
 \begin{frame}
- \frametitle{The Bernoulli Distribution -- Problems}
+ \frametitle{The Binomial Distribution -- Problems}
  Let’s say that 80 \% of all business startups in the IT industry report that
  they generate a profit in their first year. If a sample of 10 new IT business
  startups is selected, find the probability that exactly seven will generate a
@@ -1994,7 +1994,7 @@
 \end{frame}
 
 \begin{frame}
- \frametitle{The Bernoulli Distribution -- Problems}
+ \frametitle{The Binomial Distribution -- Problems}
  Your basketball team is playing a series of 5 games against your opponent. The winner is those who wins more games (out of 5).
 
  Let assume that your team is much more skilled and has 75 \% chances of winning.
@@ -2004,10 +2004,27 @@
 \end{frame}
 
 \begin{frame}
- \frametitle{The Bernoulli Distribution -- Problems}
+ \frametitle{The Binomial Distribution -- Problems}
  A box of candies has many different colors in it. There is a 15 \% chance of
  getting a pink candy. What is the probability that exactly 4 candies in a box
  are pink out of 10?
+\end{frame}
+
+\begin{frame}
+ \frametitle{The Binomial Distribution -- Properties}
+ The probability distribution of $k$ successes out of $n$ tries with probability
+ of success $p$ is called the \alert{binomial distribution} with parameter
+ $n$.\\ \pause
+ It has the following properties (here, $X$ is a random variable representing
+ the number of successes).
+ \vspace*{-1em}
+ \begin{align*}
+  f(x) &= P(X = x) = \binom{n}{x} p^{x} (1-p)^{n-x},\\
+  F(x) &= P(X \leq x) = \sum_{k=0}^x \binom{n}{k} p^{k}(1-p)^{n-k},\\
+  E(X) &= \sum_{k=0}^n k \cdot f(k) = \sum_{k=0}^n k \cdot \binom{n}{k}
+  p^{k}(1-p)^{n-k} = n \cdot p,\\
+  \var(X) &= \sum_{k=0}^n (k-E(X))^2 \cdot f(k) = n \cdot p \cdot (1-p).
+ \end{align*}
 \end{frame}
 
 \end{document}
