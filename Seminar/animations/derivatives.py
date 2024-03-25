@@ -7,7 +7,7 @@ class Derivatives(MovingCameraScene):
         def f(x):
             return x * np.sin(x**2) + 1
 
-        self.next_section("f", skip_animations=True)
+        self.next_section("f", skip_animations=False)
 
         axes = Axes(
             x_range=[-1, 3],
@@ -22,7 +22,7 @@ class Derivatives(MovingCameraScene):
 
         self.wait()
 
-        self.next_section("f growth", skip_animations=True)
+        self.next_section("f growth", skip_animations=False)
 
         a = ValueTracker(1)
         h = ValueTracker(0.4)
@@ -194,26 +194,141 @@ class Derivatives(MovingCameraScene):
         def g(a, h):
             return (f(a + h) - f(a)) / h
 
-        g_graph = axes.plot(
-            lambda x: g(a.get_value(), x), color=YELLOW, x_range=[0.01, 2]
+        g_graph_right = axes.plot(
+            lambda x: g(a.get_value(), x), color=YELLOW, x_range=[0.01, 3]
         )
-        g_label = axes.get_graph_label(g_graph, label="g_a(h)", direction=DOWN)
+        g_graph_left = axes.plot(
+            lambda x: g(a.get_value(), x), color=YELLOW, x_range=[-3, -0.01]
+        )
+        g_not_def = Circle(
+            radius=0.15, color=RED, fill_opacity=1, fill_color=BLACK
+        ).move_to(axes.c2p(0, np.sin(1) + 2 * np.cos(1)))
+        g_label = axes.get_graph_label(g_graph_right, label="g_a(h)", direction=DOWN)
 
-        self.play(self.camera.)
+        self.play(
+            Create(g_graph_left),
+            Create(g_graph_right),
+            DrawBorderThenFill(g_not_def),
+            Write(g_label),
+            FadeOut(
+                a,
+                a_dot,
+                a_label,
+                a_fa,
+                fa_dot,
+                a_h,
+                h_dot,
+                h_label,
+                h_fh,
+                fh_dot,
+                ya_dot,
+                yh_dot,
+                ya_line,
+                yh_line,
+                ya_label,
+                yh_label,
+                ya_yh,
+                brace,
+                ya_yh_label,
+            ),
+        )
 
-        self.play(Create(g_graph), Write(g_label))
+        lim_text = (
+            MathTex(
+                r"\lim_{h \to 0}",
+                color=RED,
+            )
+            .next_to(g_text[2], LEFT, buff=0.1)
+            .shift(0.18 * DOWN)
+        )
+        lim_text_2 = (
+            lim_text.copy().next_to(g_text[0], LEFT).shift(0.8 * LEFT + 0.18 * DOWN)
+        )
+
+        self.play(
+            Write(lim_text),
+            Write(lim_text_2),
+            g_text[0].animate.shift(0.8 * LEFT),
+            g_text[1].animate.shift(0.8 * LEFT),
+        )
+
+        derivative_text = (
+            MathTex(
+                r"f'(a) = ",
+                color=RED,
+            )
+            .next_to(lim_text_2, LEFT, buff=0.1)
+            .shift(0.18 * UP)
+        )
+
+        self.play(Write(derivative_text))
 
         self.wait()
 
-        g_equals = MathTex("=", color=YELLOW).next_to(g_text, RIGHT).shift(0.05 * DOWN)
-        g_value = DecimalNumber(
-            g(a.get_value(), h.get_value()), num_decimal_places=2, color=YELLOW
-        ).next_to(g_equals, RIGHT)
+        def fx(x):
+            return 2 * x**2 * np.cos(x**2) + np.sin(x**2)
 
+        x = ValueTracker(0)
+        w = DecimalNumber(fx(x.get_value()), color=RED).next_to(
+            derivative_text, RIGHT, buff=0.1
+        )
+        w.add_updater(lambda m: m.set_value(x.get_value()))
+
+        x_dot = (
+            Dot(radius=0.12, color=RED)
+            .move_to(axes.c2p(x.get_value(), f(x.get_value())))
+            .add_updater(lambda m: m.move_to(axes.c2p(x.get_value(), f(x.get_value()))))
+        )
+        tangent = axes.plot(
+            lambda a: f(x.get_value()) + fx(x.get_value()) * (a - x.get_value()),
+            color=RED,
+            x_range=[x.get_value() - 0.5, x.get_value() + 0.5],
+            stroke_width=6,
+        ).add_updater(
+            lambda m: m.become(
+                axes.plot(
+                    lambda a: f(x.get_value())
+                    + fx(x.get_value()) * (a - x.get_value()),
+                    color=RED,
+                    x_range=[x.get_value() - 0.5, x.get_value() + 0.5],
+                    stroke_width=6,
+                )
+            )
+        )
         self.play(
-            Write(g_equals),
-            Write(g_value),
+            FadeOut(
+                g_graph_left,
+                g_graph_right,
+                g_not_def,
+                lim_text,
+                lim_text_2,
+                g_text,
+                g_label,
+            ),
+            Write(w),
+            DrawBorderThenFill(x_dot),
+            Create(tangent),
         )
 
-        g_value.add_updater(lambda x: x.set_value(g(a.get_value(), h.get_value())))
+        self.wait()
+
+        self.play(
+            x.animate.set_value(1),
+            run_time=3,
+        )
+
+        self.wait()
+
+        self.play(
+            x.animate.set_value(2),
+            run_time=3,
+        )
+
+        self.wait()
+
+        self.play(
+            x.animate.set_value(2.5),
+            run_time=3,
+        )
+
         self.wait()
