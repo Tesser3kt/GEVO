@@ -261,3 +261,59 @@ pohled. Povýšíme-li situaci do roviny, tj. do prostoru druhé dimenze, a na
 funkci $f$ budeme nahlížet jako na zobrazení bodů roviny na body roviny, pak $L$
 je limitou funkce $f$ v bodě $a$, když zobrazuje všechny body zevnitř kruhu o
 poloměru $\delta$ a středu $a$ do kruhu o poloměru $\varepsilon$ a středu $L$.
+Jako na \myref{obrázku}{fig:oboustranna-limita-ve-2D}.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \def\del{1}
+  \def\eps{1.5}
+
+  \tkzDefPoints{0/0/a,4/2/L}
+  \tkzLabelPoint[color=BrickRed,below=1mm](a){$a$}
+  \tkzLabelPoint[color=ForestGreen,below=1mm](L){$L$}
+
+  \tkzDefCircle[R](a,\del) \tkzGetPoint{ad}
+  \tkzDrawCircle[thick](a,ad)
+
+  \tkzDefCircle[R](L,\eps) \tkzGetPoint{Le}
+  \tkzDrawCircle[color=Magenta,thick](L,Le)
+
+  \tkzDefPoints{0/1.2/s,2.8/3.2/t}
+  \draw[bend left=45,color=RoyalBlue,-latex] (s) to node[midway,above left]{$f$}
+   (t);
+
+  \tkzDefPointOnCircle[R = center a angle 150 radius \del] \tkzGetPoint{B}
+  \tkzDrawPoint[color=BrickRed,size=3](B)
+  \tkzDrawSegment[color=BrickRed,dashed,thick](a,B)
+  \tkzLabelSegment[color=BrickRed,above right=-1mm](a,B){$\delta$}
+  \tkzDrawPoint[draw=BrickRed,thick,size=6,fill=white](a)
+
+  \tkzDefPointOnCircle[R = center L angle 150 radius \eps] \tkzGetPoint{C}
+  \tkzDrawPoint[color=Magenta,size=3](C)
+  \tkzDrawSegment[color=Magenta,dashed,thick](L,C)
+  \tkzLabelSegment[color=Magenta,above right=-1mm](L,C){$\varepsilon$}
+  \tkzDrawPoint[color=ForestGreen,size=6](L)
+
+  \tkzDefPoints{0.5/0.5/x,3.3/1.8/fx}
+  \tkzDrawPoint[size=4,color=black](x)
+  \tkzDrawPoint[size=4,color=RoyalBlue](fx)
+  \tkzLabelPoint[below](x){$x$}
+  \tkzLabelPoint[below,color=RoyalBlue](fx){$f(x)$}
+ \end{tikzpicture}
+
+ \caption{Oboustranná limita funkce \uv{ve 2D}.}
+ \label{fig:oboustranna-limita-ve-2D}
+\end{figure}
+
+Doporučujeme čtenářům, aby se zamysleli, čím by v této dvoudimenzionální říši
+byla \emph{jednostranná} limita funkce. Sen zámysl snad vedl k představě, že by
+se vstupy $x$ musely blížit k bodu $a$ po nějaké určené přímce. Existence
+\uv{všestranné} limity v $a$ by pak byla ekvivalentní existenci nespočetně mnoha
+\uv{jednostranných} limit -- jedné pro každou přímku procházející bodem $a$.
+Věříme, že není obtížné nahlédnout, jak zbytečný by takový pojem ve dvou
+dimenzích byl. Popsaná situace přímo souvisí s faktem, že první dimenze je z
+geometrického pohledu \uv{degenerovaná} -- kružnice je pouze dvoubodovou
+množinou.
+
+\input{function-limits/basic-facts}

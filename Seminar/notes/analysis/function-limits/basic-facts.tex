@@ -1,0 +1,137 @@
+\section{Základní poznatky o limitě funkce}
+\label{sec:zakladni-poznatky-o-limite-funkce}
+
+Počneme nyní shrnovati intuitivně vcelku zřejmé výsledky o limitách reálných
+funkcí. Jakž jsme již vícekrát děli, ona \uv{intuitivní zřejmost} pravdivosti
+výroků nechce nabodnout k přeskoku či trivializaci jejich důkazů. Vodami
+nekonečnými radno broditi se ostražitě, bo tvrzení jako \emph{limita složené
+	funkce} % TODO
+ráda svědčí, že intuicí bez logiky člověk na břeh nedoplove.
+
+Na první pád není překvapivé, že limita funkce je jednoznačně určena,
+pochopitelně za předpokladu její existence. Vyzýváme čtenáře, aby se při čtení
+důkazu drželi vizualizace oboustranné limity z
+\myref{obrázku}{fig:oboustranna-limita-ve-2D}.
+
+\begin{lemma}{Jednoznačnost limity}{jednoznacnost-limity}
+	Limita funkce (ať už jednostranná či oboustranná) je jednoznačně určená, pokud
+	existuje.
+\end{lemma}
+
+\begin{lemproof}
+	Dokážeme lemma pouze pro oboustrannou limitu, důkaz pro limity jednostranné je
+	v zásadě totožný.
+
+	Pro spor budeme předpokládat, že $L$ i $L'$ jsou limity $f$ v bodě $a \in
+		\R^{*}$. Nejprve ošetříme případ, kdy $L,L' \in \R$. Bez újmy na obecnosti
+	smíme předpokládat, že $L > L'$. Volme $\varepsilon \coloneqq (L-L') / 3$. K
+	tomuto $\varepsilon$ existují z
+	\hyperref[def:oboustranna-limita-funkce]{definice limity} $\delta_1>0,
+		\delta_2>0$ takové,
+	že
+	\[
+		\forall x \in R(a,\delta_1): f(x) \in B(L,\varepsilon).
+	\]
+	a rovněž
+	\[
+		\forall x \in R(a,\delta_2): f(x) \in B(L',\varepsilon).
+	\]
+	Volíme-li ovšem $\delta \coloneqq \min(\delta_1,\delta_2)$, pak pro $x \in
+		R(a,\delta)$ dostaneme
+	\[
+		f(x) \in B(L,\varepsilon) \cap B(L',\varepsilon).
+	\]
+	Poslední vztah lze přepsat do tvaru
+	\begin{align*}
+		L - \varepsilon  & < f(x) < L + \varepsilon,  \\
+		L' - \varepsilon & < f(x) < L' + \varepsilon.
+	\end{align*}
+	Odtud plyne, že
+	\[
+		L - \varepsilon < L' + \varepsilon,
+	\]
+	což po dosazení $\varepsilon = (L - L') / 3$ a následné úpravě vede na
+	\[
+		2L - L' < 2L' - L,
+	\]
+	z čehož ihned
+	\[
+		L < L',
+	\]
+	což je spor.
+
+	Nyní ať například $L = \infty$ a $L' \in \R$. Z
+	\hyperref[def:okoli-a-prstencove-okoli-bodu]{definice okolí} $B(L,\varepsilon)$
+	pro $L = \infty$, stačí nalézt $\varepsilon > 0$ takové, že
+	\[
+		\frac{1}{\varepsilon} > L' + \varepsilon,
+	\]
+	pak se totiž nemůže stát, že
+	\[
+		f(x) \in B(\infty,\varepsilon) \cap B(L',\varepsilon).
+	\]
+	Snadným výpočtem zjistíme, že
+	\[
+		\frac{1}{\varepsilon} > L' + \varepsilon
+	\]
+	právě tehdy, když $\varepsilon < (\sqrt{L'^2 + 4} - L') / 2$. Pro libovolné
+	takové $\varepsilon$ tudíž dostáváme spor stejně jako v předchozím případě.
+
+	Ostatní případy se ošetří obdobně.
+\end{lemproof}
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+	\def\del{1}
+	\def\eps{1.5}
+
+	\tkzDefPoints{0/0/a,4/2/L,4/-2/Lp}
+	\tkzLabelPoint[color=BrickRed,below=1mm](a){$a$}
+	\tkzLabelPoint[color=ForestGreen,below left=1mm](L){$L$}
+	\tkzLabelPoint[color=ForestGreen,below left=1mm](Lp){$L'$}
+
+	\tkzDefCircle[R](a,\del) \tkzGetPoint{ad}
+	\tkzDrawCircle[thick](a,ad)
+
+	\tkzDefCircle[R](L,\eps) \tkzGetPoint{Le}
+	\tkzDrawCircle[color=Magenta,thick](L,Le)
+
+	\tkzDefPoints{0/1.2/s,2.8/3.2/t,0/-1.2/s2,2.8/-3.2/t2}
+	\draw[bend left=45,color=RoyalBlue,-latex] (s) to node[midway,above left]{$f$}
+	(t);
+	\draw[bend right=45,color=RoyalBlue,-latex] (s2) to node[midway,below
+		left]{$f$} (t2);
+
+	\tkzDefPointOnCircle[R = center a angle 150 radius \del] \tkzGetPoint{B}
+	\tkzDrawPoint[color=BrickRed,size=3](B)
+	\tkzDrawSegment[color=BrickRed,dashed,thick](a,B)
+	\tkzLabelSegment[color=BrickRed,above right=-1mm](a,B){$\delta$}
+	\tkzDrawPoint[draw=BrickRed,thick,size=6,fill=white](a)
+
+	\tkzDrawSegment[decorate,decoration={brace,
+				amplitude=10pt},color=Aquamarine,thick](L,Lp)
+	\tkzLabelSegment[right=3mm,color=Aquamarine](L,Lp){$\displaystyle
+			\frac{|L-L'|}{2}$}
+
+	\tkzDefPointOnCircle[R = center L angle 150 radius \eps] \tkzGetPoint{C}
+	\tkzDrawPoint[color=Magenta,size=3](C)
+	\tkzDrawSegment[color=Magenta,dashed,thick](L,C)
+	\tkzLabelSegment[color=Magenta,above right=-1mm](L,C){$\varepsilon$}
+	\tkzDrawPoint[color=ForestGreen,size=6](L)
+
+	\tkzDefCircle[R](Lp,\eps) \tkzGetPoint{Lpe}
+	\tkzDrawCircle[color=Magenta,thick](Lp,Lpe)
+
+	\tkzDefPointOnCircle[R = center Lp angle 150 radius \eps] \tkzGetPoint{D}
+	\tkzDrawPoint[color=Magenta,size=3](D)
+	\tkzDrawSegment[color=Magenta,dashed,thick](Lp,D)
+	\tkzLabelSegment[color=Magenta,above right=-1mm](Lp,D){$\varepsilon$}
+	\tkzDrawPoint[color=ForestGreen,size=6](Lp)
+
+ \end{tikzpicture}
+ \caption{Spor v důkazu \myref{lemmatu}{lem:jednoznacnost-limity}.}
+ \label{fig:jednoznacnost-limity}
+\end{figure}
+
+
