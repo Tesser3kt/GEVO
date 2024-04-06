@@ -1,0 +1,29 @@
+<div class="header-container p-0 m-0 min-h-screen bg-cover flex flex-col
+justify-center justify-items-center text-gray-100">
+	{% include 'nav.html' %}
+	<div class="title mx-auto text-center">
+		<h1 class="font-goth drop-shadow-lg text-8xl">&nbsp;{{title}}</h1>
+	</div>
+	</svg>
+	<div class="date mx-auto text-center max-w-prose px-8 mt-7 mb-5">
+		<p class="text-xl">{{subtitle}}</p>
+	</div>
+	<svg class="w-60 h-8 fill-gray-100 mt-3 title mx-auto text-center" version="1.0" viewBox="0 0 800 89"
+		xmlns="http://www.w3.org/2000/svg">
+		<g transform="translate(0 89) scale(.1 -.1)">
+			<path
+				d="m3924 861c-71-44-78-155-14-216 27-26 39-30 85-30s58 4 85 30c50 48 58 114 21 184-27 50-120 67-177 32z" />
+			<path
+				d="m3390 849c-298-31-811-55-1465-69-956-19-1500-32-1503-35-9-8 395-17 1178-25 1031-11 1271-21 1767-71 207-20 230-18 259 26 25 39 15 118-21 155-32 33-60 36-215 19z" />
+			<path
+				d="m4400 848c-50-42-67-129-34-176 29-41 53-43 257-23 498 50 725 59 1802 71 512 6 977 14 1035 18 100 7 94 8-125 15-126 4-484 12-795 17-927 16-1359 32-1775 66-320 25-348 26-365 12z" />
+		</g>
+	</svg>
+	<div class="subtitle mx-auto text-center font-bold pt-5">
+		<p class="text-3xl font-bold  text-my-yellow">Premiéra (i derniéra): {{date.strftime("%d. %m. %Y")}}</p>
+	</div>
+	<div class="butt-container mx-auto mt-8">
+		<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="bg-white/10
+	button border font-bold px-10 py-4 hover:bg-white/30 transition text-lg">BUY THE Petráška Pavla.</a>
+	</div>
+</div>

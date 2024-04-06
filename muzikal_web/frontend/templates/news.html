@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block header %} {% include 'nav.html' %} {%
+endblock %} {% block content %}
+
+<div class="mt-10 px-16 min-h-screen">
+  <h2
+    class="font-bold text-my-yellow section-title text-2xl font-title text-center py-2 px-8 border-b-2 border-b-my-yellow"
+  >
+    {{new.title}}
+  </h2>
+  <div class="justify-between w-full mt-10 px-16">
+    {% if new.image %}
+    <img
+      src="{{new.image}}"
+      class="mr-6 mb-4 mt-2 ring-4 ring-gray-50 ring-opacity-40 float-left h-64"
+    />
+    {% endif %}
+    <p class="text-gray-100 text-justify">{{new.text}}</p>
+  </div>
+  <div class="flex justify-between w-full mt-4 px-16">
+    <span class="text-gray-300 italic text-sm align-bottom"
+      >{{new.author}}</span
+    >
+    <span class="text-gray-300 italic text-sm align-bottom">{{new.date}}</span>
+  </div>
+</div>
+{% endblock %} {% block footer %} {% include 'footer.html' %} {% endblock %}

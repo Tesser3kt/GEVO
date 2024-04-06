@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% block header %} {% include 'nav.html' %} {%
+endblock %} {% block content %}
+
+<div class="flex min-h-screen flex-col justify-center px-6 py-12">
+  <div class="mx-auto w-full">
+    <img
+      class="mx-auto h-10 w-auto"
+      src="https://www.gevo.cz/files/responsive/640/0/adamklepac.jpg"
+      alt="AAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    />
+    <h2
+      class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-100"
+    >
+      أمي هي ديناصور ريكسيكانوس الديناصوA
+    </h2>
+  </div>
+
+  <div class="mt-10 mx-auto w-full max-w-sm">
+    <form class="space-y-6" action="/login" method="POST">
+      <div>
+        <label
+          for="username"
+          class="block text-sm font-medium leading-6 text-gray-100"
+          >اسم المستخدم</label
+        >
+        <div class="mt-2">
+          <input
+            id="username"
+            name="username"
+            type="username"
+            required
+            class="block w-full border-0 ring-my-yellow ring-1 p-2 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-my-orange focus:ring-2"
+          />
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between">
+          <label
+            for="password"
+            class="block text-sm font-medium leading-6 text-gray-100"
+            >كلمة المرور</label
+          >
+        </div>
+        <div class="mt-2">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            required
+            class="font-serif block w-full border-0 ring-my-yellow ring-1 p-2 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-my-orange focus:ring-2"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          class="flex w-full justify-center rounded-md bg-my-orange py-2 px-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-my-yellow transition duration-300 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          تسجيل الدخول
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %} {% block footer %} {% include 'footer.html' %} {% endblock %}

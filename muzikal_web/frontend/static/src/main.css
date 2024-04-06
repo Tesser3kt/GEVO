@@ -3,7 +3,16 @@
 @tailwind utilities;
 
 .header-container {
-	background: linear-gradient(rgba(0, 0, 0, 0.6),
-			rgba(0, 0, 0, 0.6)),
-		url('imgs/bg.jpg') center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("imgs/bg.jpg") center / cover no-repeat;
+}
+.carousel-wrapper {
+  height: 600px;
+}
+
+#nav {
+  transition: background 0.4s;
+}
+.nav-link {
+  transition: color 0.4s;
 }
