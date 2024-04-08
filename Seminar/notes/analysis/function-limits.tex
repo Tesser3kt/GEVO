@@ -316,4 +316,117 @@ dimenzích byl. Popsaná situace přímo souvisí s faktem, že první dimenze j
 geometrického pohledu \uv{degenerovaná} -- kružnice je pouze dvoubodovou
 množinou.
 
+Oboustranné limity souvisejí s jednostrannými velmi přirozeným způsobem.
+Existence oboustran\-né limity funkce v bodě je ekvivalentní existenci limity
+jak zleva tak zprava v témže bodě. Oboustrannou limitu vlastně dostaneme tak, že
+z levého a pravého okolí limitního bodu, ve kterém již je funkční hodnota blízko
+limitě, vybereme to menší.
+
+\begin{proposition}{Vztah jednostranných a oboustranných
+ limit}{vztah-jednostrannych-a-oboustrannych-limit}
+ Ať $f$ je reálná funkce a $a \in \R^{*}$. Pak $\lim_{x \to a} f(x)$ existuje
+ právě tehdy, když existuje $\lim_{x \to a^{+}} f(x)$ i $\lim_{x \to a^{-}}
+ f(x)$ a jsou si rovny.
+\end{proposition}
+
+\begin{propproof}
+ Implikace $( \Rightarrow )$ je triviální. Pokud existuje $L \coloneqq \lim_{x
+ \to a} f(x)$, pak pro dané $\varepsilon>0$ máme nalezeno $\delta>0$ takové, že
+ pro $x \in R(a,\delta)$ je $f(x) \in B(L,\varepsilon)$. Ovšem, jistě platí
+ $R_+(a,\delta) \subseteq R(a,\delta)$ i $R_-(a,\delta) \subseteq R(a,\delta)$.
+ To však znamená, že pro $x \in R_+(a,\delta)$ i pro $x \in R_-(a,\delta)$
+ rovněž platí $f(x) \in B(L,\varepsilon)$. To dokazuje, že existuje jak $\lim_{x
+ \to a^{+}} f(x)$, tak $\lim_{x \to a^{-}} f(x)$ a
+ \[
+  \lim_{x \to a^{+}} f(x) = \lim_{x \to a^{-}} f(x) = L.
+ \]
+ 
+ Pro důkaz $( \Leftarrow )$ položme $L \coloneqq \lim_{x \to a^{+}} f(x) =
+ \lim_{x \to a^{-}} f(x)$ a pro dané $\varepsilon>0$ nalezněme $\delta_+>0$ a
+ $\delta_- >0$ splňující výroky
+ \begin{align*}
+  \forall x \in R_+(a,\delta_+) &: f(x) \in B(L,\varepsilon),\\
+  \forall x \in R_-(a,\delta_-) &: f(x) \in B(L,\varepsilon).
+ \end{align*}
+
+ Ať $\delta \coloneqq \min(\delta_+,\delta_-)$. Pak $R(a,\delta) \subseteq
+ R_+(a,\delta_+) \cup R_-(a,\delta_-)$, a tedy $\delta>0$ splňuje, že
+ \[
+  \forall x \in R(a,\delta):f(x) \in B(L,\varepsilon),
+ \]
+ čili $\lim_{x \to a} f(x) = L$.
+\end{propproof}
+
+\begin{example}{}{limita-signum-0}
+ \myref{Tvrzení}{prop:vztah-jednostrannych-a-oboustrannych-limit} je užitečné
+ jak v uvedené, tak v kontrapozitivní formě, tj. při důkazu neexistence
+ oboustranné limity za předpokladu nerovnosti (nikoli nutně \emph{neexistence})
+ limit jednostranných.
+
+ Uvažme funkce $f(x) \coloneqq \sign(x)$ a $g(x) \coloneqq |\sign(x)|$. Ukážeme,
+ že $\lim_{x \to 0} f(x)$ neexistuje, zatímco $\lim_{x \to 0} g(x) = 1$.
+ Připomeňme, že funkce $\sign(x)$ je definována předpisem
+ \[
+  \sign(x) \coloneqq \begin{cases}
+   -1, & x < 0;\\
+   0, & x = 0;\\
+   1, & x > 0.
+  \end{cases}
+ \]
+
+ Ověříme, že $\lim_{x \to 0^{+}} f(x) = 1$. Mějme dáno $\varepsilon>0$. Volme
+ například $\delta \coloneqq 1$. Potom pro $x \in R_+(0,1) = (0,1)$ platí $f(x)
+ = 1$, čili zřejmě $f(x) \in B(1,\varepsilon) = (1-\varepsilon,1+\varepsilon)$.
+ Podobně se ověří, že $\lim_{x \to 0^{-}} f(x) = -1$. To ovšem znamená, že
+ $\lim_{x \to 0^{+}} f(x) \neq \lim_{x \to 0^{-}} f(x)$, tudíž dle
+ \myref{tvrzení}{prop:vztah-jednostrannych-a-oboustrannych-limit} $\lim_{x \to
+ 0} f(x)$ neexistuje.
+
+ Velmi obdobným argumentem ukážeme, že $\lim_{x \to 0^{+}} g(x) = \lim_{x \to
+ 0^{-}} g(x) = 1$. Čili, podle
+ \hyperref[prop:vztah-jednostrannych-a-oboustrannych-limit]{téhož tvrzení} platí
+ $\lim_{x \to 0} g(x) = 1$.
+\end{example}
+
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}[b]{0.49\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzInit[xmin=-3,xmax=3,ymin=-1,ymax=1]
+   \tkzDrawX[color=BrickRed]
+   \tkzDrawY[color=RoyalBlue]
+
+   \tkzDefPoints{-3/-1/a,0/-1/b,0/0/c,0/1/d,3/1/e}
+   \tkzDrawSegments[color=Fuchsia,thick](a,b d,e)
+   \tkzDrawPoints[size=4,draw=Fuchsia,fill=white,thick](b,d)
+   \tkzDrawPoint[size=4,color=Fuchsia](c)
+  \end{tikzpicture}
+  \caption{Graf funkce $\clm{f(x) = \sign(x)}$.}
+ \end{subfigure}
+ \begin{subfigure}[b]{0.49\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzInit[xmin=-3,xmax=3,ymin=-1,ymax=1]
+   \tkzDrawX[color=BrickRed]
+   \tkzDrawY[color=RoyalBlue]
+
+   \tkzDefPoints{-3/1/a,0/1/b,0/0/c,0/1/d,3/1/e}
+   \tkzDrawSegments[color=Fuchsia,thick](a,b d,e)
+   \tkzDrawPoints[size=4,draw=Fuchsia,fill=white,thick](b,d)
+   \tkzDrawPoint[size=4,color=Fuchsia](c)
+  \end{tikzpicture}
+  \caption{Graf funkce $\clm{g(x) = |\sign(x)|}$.}
+ \end{subfigure}
+ \caption{Obrázek k \myref{příkladu}{exam:limita-signum-0}.}
+ \label{fig:limita-signum-0}
+\end{figure}
+
+\begin{exercise}{}{limita-absolutni-hodnota}
+ Dokažte, že pro reálnou funkci $f$ a $a \in \R^{*}$ platí
+ \[
+  \lim_{x \to a} f(x) = 0 \Leftrightarrow \lim_{x \to a} |f(x)| = 0.
+ \]
+\end{exercise}
+
 \input{function-limits/basic-facts}

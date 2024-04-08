@@ -134,4 +134,116 @@ důkazu drželi vizualizace oboustranné limity z
  \label{fig:jednoznacnost-limity}
 \end{figure}
 
+\begin{lemma}{}{ma-limitu-je-omezena}
+ Ať reálná funkce $f$ má \textbf{konečnou} limitu $L \in \R$ v bodě $a \in
+ \R^{*}$. Pak existuje prstencové okolí $a$, na němž je $f$ omezená.
+\end{lemma}
+\begin{lemproof}
+ Pro dané $\varepsilon>0$ nalezneme z
+ \hyperref[def:oboustranna-limita-funkce]{definice limity} $\delta>0$ takové, že
+ pro $x \in R(a,\delta)$ platí $f(x) \in B(L,\varepsilon)$. Protože však
+ $B(L,\varepsilon) = (L-\varepsilon,L+\varepsilon)$ platí pro $x \in
+ R(a,\delta)$ odhady
+ \[
+  L-\varepsilon \leq f(x) \leq L+\varepsilon,
+ \]
+ čili je $f$ na $R(a,\delta)$ omezená.
+\end{lemproof}
 
+Vzhledem k základním aritmetickým operacím si limity funkcí počínají vychovaně.
+Za předpokladu, že výsledný výraz dává smysl, můžeme spočítat limitu součtu,
+součinu či podílu funkcí jako součet, součin či podíl limit těchto funkcí.
+
+\begin{theorem}{Aritmetika limit funkcí}{aritmetika-limit-funkci}
+ Ať $f,g$ jsou reálné funkce a $a \in \R^{*}$. Předpokládejme, že $\lim_{x \to
+ a} f(x)$ i $\lim_{x \to a} g(x)$ existují a označme je po řadě $L_f$ a $L_g$.
+ Potom platí
+ \begin{enumerate}[label=(\alph*)]
+  \item $\lim_{x \to a} (f + g)(x) = L_f + L_g$, dává-li výraz napravo smysl.
+  \item $\lim_{x \to a} (f \cdot g)(x) = L_f \cdot L_g$, dává-li výraz napravo
+   smysl.
+  \item $\lim_{x \to a} (f / g)(x) = L_f / L_g$, dává-li výraz napravo smysl.
+ \end{enumerate}
+\end{theorem}
+
+\begin{thmproof}
+ Dokážeme pouze část (c), neboť je výpočetně nejnáročnější, ač nepřináší mnoho
+ intuice. Část (a) je triviální a (b) je lehká. Vyzýváme čtenáře, aby se je
+ pokusili dokázat sami.
+
+ Už jen v důkazu samotné části (c) bychom správně měli rozlišit šest různých
+ případů:
+ \begin{enumerate}
+  \item $L_f \in \R, L_g \in \R \setminus \{0\}$,
+  \item $L_f \in \R, L_g \in \{-\infty,\infty\}$,
+  \item $L_f = \infty, L_g \in (0,\infty)$,
+  \item $L_f = \infty, L_g \in (-\infty,0)$,
+  \item $L_f = -\infty, L_g \in (0,\infty)$,
+  \item $L_f = -\infty, L_g \in (-\infty,0)$.
+ \end{enumerate}
+ Jelikož se výpočty limit v oněch případech liší vzájemně pramálo a získaná
+ intuice je asymptoticky rovna té ze znalosti metod řešení exponenciálních
+ rovnic, soustředíme se pouze na (nejzajímavější) případ (1).
+
+ Ať tedy $L_f \in \R, L_g \in \R \setminus \{0\}$. Je nejprve dobré si uvědomit,
+ že $L_f / L_g$ není definován \textbf{nikdy}, pokud $L_g = 0$, bez ohledu na
+ hodnotu $L_f$. Totiž, hodnoty $g$ se mohou k $L_g$ limitně blížit zprava,
+ zleva či střídavě z obou směrů. Nelze tudíž obecně určit, zda dělíme čím dál
+ tím menším kladným číslem, či čím dál tím větším záporným číslem.
+
+ Položme $\varepsilon_g = |L_g| / 2$. K tomuto $\varepsilon_g$ existuje z
+ \hyperref[def:oboustranna-limita-funkce]{definice limity} $\delta_g$ takové, že
+ pro $x \in R(a,\delta_g)$ platí $g(x) \in B(L_g,\varepsilon_g)$. Poslední vztah
+ si přepíšeme na
+ \begin{align*}
+  L_g - \varepsilon_g & < g(x) < L_g + \varepsilon_g,\\
+  L_g - \frac{|L_g|}{2} & < g(x) < L_g + \frac{|L_g|}{2}.
+ \end{align*}
+ Speciálně tedy pro $x \in R(a,\delta_g)$ máme odhad
+ \[
+  |g(x)| > \left| L_g - \frac{|L_g|}{2} \right| > \frac{|L_g|}{2}.
+ \]
+ Jelikož poslední výraz je z předpokladu kladný, má výraz $f(x) / g(x)$ smysl
+ pro každé $x \in R(a,\delta_g)$, neboť pro tato $x$ platí $g(x) \neq 0$.
+
+ Pro $x \in R(a,\delta_g)$ odhadujme
+ \begin{align*}
+  \left| \frac{f(x)}{g(x)} - \frac{L_f}{L_g} \right| &= \frac{|f(x)L_g -
+  g(x)L_f|}{|g(x)||L_g|} = \frac{|f(x) L_g - L_f L_g + L_f L_g -
+  g(x)L_f|}{|g(x)| |L_g|}\\
+  																									 & \leq \frac{|L_g| |f(x) -
+  																									 L_f| + |L_f| |L_g -
+  																									g(x)|}{|g(x)| |L_g|}\\
+  																									 &= \frac{1}{|g(x)|}
+  																									 |f(x) - L_f| +
+  																									 \frac{|L_f|}{|g(x)|
+  																									 |L_g|}|L_g - g(x)|\\
+  																									 &< \frac{2}{|L_g|}|f(x) -
+  																									 L_f| + \frac{2
+  																									 |L_f|}{|L_g|^2}|L_g -
+  																									 g(x)|\\
+  																									 & \leq c(|f(x) - L_f| +
+  																									 |L_g - g(x)|)
+ \end{align*}
+ pro $c \coloneqq \max(2 / |L_g|, 2|L_f|/|L_g|^2)$.
+
+ Ať je nyní dáno $\varepsilon>0$. K číslu $\varepsilon / 2c$ existují z
+ \hyperref[def:oboustranna-limita-funkce]{definice limity} $\delta_1,\delta_2>0$
+ taková, že
+ \begin{align*}
+ 	\forall x \in R(a,\delta_1)&: |g(x) - L_g| < \frac{\varepsilon}{2c},\\
+ 	\forall x \in R(a,\delta_2)&: |f(x) - L_f| < \frac{\varepsilon}{2c}.
+ \end{align*}
+ Položíme-li nyní $\delta \coloneqq \min(\delta_1,\delta_2,\delta_g)$, pak pro
+ $x \in R(a,\delta)$ platí
+ \[
+  \left| \frac{f(x)}{g(x)} - \frac{L_f}{L_g} \right| < c (|f(x) - L_f| + |L_g -
+  g(x)|) < c \left(\frac{\varepsilon}{2c} + \frac{\varepsilon}{2c}\right) =
+  \varepsilon,
+ \]
+ což dokazuje rovnost $\lim_{x \to a} (f / g)(x) = L_f / L_g$.
+\end{thmproof}
+
+\begin{exercise}{}{aritmetika-limit}
+ Dokažte tvrzení (b) a (c) ve \myref{větě}{thm:aritmetika-limit-funkci}.
+\end{exercise}
