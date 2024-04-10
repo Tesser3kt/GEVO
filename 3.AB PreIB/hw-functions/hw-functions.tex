@@ -1,0 +1,206 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,decorations.text,
+ decorations.pathmorphing}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Math Homework -- PreIB 3.AB 3 \& 4}
+ \Large\textsf{Functions \& Linear Equations}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+ \hrule
+ \textbf{\clr{DON'T FORGET TO EXPLAIN STUFF AND INCLUDE COMPUTATIONS WHERE
+ APPROPRIATE!}}
+ \vspace{2ex}
+ \hrule
+\end{center}
+
+\section*{Functions \& Function Composition}
+
+You're given two functions -- a \clr{function} which receives a word and outputs
+the number of \emph{vowels} and \emph{consonants} (as a list of two numbers) in
+that word and another \clb{function} which receives a list of however many
+numbers and simply computes their sum. Meaning, if it receives a list
+$a,b,c,d,e$, it outputs $a + b + c + d + e$.
+\begin{center}
+ \begin{tikzpicture}
+  \node[rectangle,draw,inner sep=10pt] (f1) at (0,0) {\clr{function 1}};
+  \node[left=1cm of f1] (i1) {word};
+  \node[right=1cm of f1] (o1) {vowels,consonants};
+
+  \draw[-latex,thick] (i1) -- (f1);
+  \draw[-latex,thick] (f1) -- (o1);
+
+  \node[rectangle,draw,inner sep=10pt,below=.5cm of f1] (f2) {\clb{function 2}};
+  \node[left=1cm of f2] (i2) {list of numbers};
+  \node[right=1cm of f2] (o2) {sum of those numbers};
+
+  \draw[-latex,thick] (i2) -- (f2);
+  \draw[-latex,thick] (f2) -- (o2);
+ \end{tikzpicture}
+\end{center}
+\begin{enumerate}
+ \item (10 \%) In easy terms (you need like 4-5 words) describe the output of
+  the composition
+ \begin{center}
+  \begin{tikzpicture}
+   \node[rectangle,draw,inner sep=10pt] (f1) at (0,0) {\clr{function 1}};
+   \node[rectangle,draw,inner sep=10pt,right=1cm of f1] (f2) {\clb{function 2}};
+   
+   \node[left=1cm of f1] (i1) {word};
+   \node[right=1cm of f2] (o1) {?.};
+
+   \draw[-latex,thick] (i1) -- (f1);
+   \draw[-latex,thick] (f1) -- (f2);
+   \draw[-latex,thick] (f2) -- (o1);
+  \end{tikzpicture}
+ \end{center}
+\item (15 \%) Find and describe (using a diagram for example) \clg{third
+ function} such that the composition 
+ \begin{center}
+  \begin{tikzpicture}
+   \node[rectangle,draw,inner sep=10pt] (f1) at (0,0) {\clr{function 1}};
+   \node[rectangle,draw,inner sep=10pt,right=1cm of f1] (f3) {\clg{function 3}};
+   \node[rectangle,draw,inner sep=10pt,right=1cm of f3] (f2) {\clb{function 2}};
+   
+   \node[left=1cm of f1] (i1) {word};
+   \node[right=1cm of f2] (o1) {?};
+
+   \draw[-latex,thick] (i1) -- (f1);
+   \draw[-latex,thick] (f1) -- (f3);
+   \draw[-latex,thick] (f3) -- (f2);
+   \draw[-latex,thick] (f2) -- (o1);
+  \end{tikzpicture}
+ \end{center}
+ \textbf{outputs the number 0} whenever the given \emph{word} has the same
+ number of \emph{vowels} and \emph{consonants}.
+\item (15 \%) Given real functions $f(x) = (x-1)(x-2)$ and $g(x) = x + 3$,
+ compute $f+g$, $f \cdot g$, $f \circ g$ and $g \circ f$.
+\item (10 \%) Is it true that $(f \circ g)(0) = (g \circ f)(0)$?
+\end{enumerate}
+
+\section*{Linear Equations}
+
+Consider the system
+\[
+ \begin{array}{ccccc}
+  3x & + & y & = & 2,\\
+  -x & + & 2y & = & -3.
+ \end{array}
+\]
+\begin{enumerate}
+ \item (15 \%) Interpret both equations as linear functions in your chosen
+  variable and draw their graphs.
+ \item (10 \%) Compute (\textbf{both coordinates of}) the intersection of the
+  graphs from point 1.
+ \item (15 \%) Find another linear function $h$ whose graph intersects the
+  graphs of $f$ and $g$ at the point calculated in 2. Draw it.
+ \item (10 \%) Using only your \emph{reasoning} (that is, no computation) deduce
+  whether the system
+  \begin{align*}
+   y &= f(x),\\
+   y &= h(x)
+  \end{align*}
+  has the same solution as the original system. Explain.
+\end{enumerate}
+
+\end{document}
