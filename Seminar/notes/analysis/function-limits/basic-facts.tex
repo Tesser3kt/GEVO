@@ -244,6 +244,274 @@ součinu či podílu funkcí jako součet, součin či podíl limit těchto funk
  což dokazuje rovnost $\lim_{x \to a} (f / g)(x) = L_f / L_g$.
 \end{thmproof}
 
+\begin{warning}{}{definovanost-pravych-stran}
+ Předpoklad \emph{definovanosti} výsledného výrazu ve znění
+ \hyperref[thm:aritmetika-limit-funkci]{věty o aritmetice limit} je zásadní.
+
+ Uvažme funkce $f(x) = x + c$ pro libovolné $c \in \R$, $g(x) = -x$. Pak platí
+ \begin{align*}
+  \lim_{x \to \infty} f(x) &= \infty,\\
+  \lim_{x \to \infty} g(x) &= -\infty,\\
+  \lim_{x \to \infty} (f(x) + g(x)) &= c,
+ \end{align*}
+ ale $\lim_{x \to \infty} f(x) + \lim_{x \to \infty} g(x)$ není definován.
+\end{warning}
+
 \begin{exercise}{}{aritmetika-limit}
  Dokažte tvrzení (b) a (c) ve \myref{větě}{thm:aritmetika-limit-funkci}.
 \end{exercise}
+
+\begin{problem}{}{vypocet-pres-aritmetiku-limit}
+ Spočtěte
+ \[
+  \lim_{x \to \infty} \frac{(2x - 3)^{20} (3x + 2)^{30}}{(2x + 1)^{50}}.
+ \]
+\end{problem}
+\begin{probsol}
+ Jelikož limitním bodem je $\infty$, neliší se výpočet limity funkce v zásadě
+ nijak od výpočtu limity sesterské posloupnosti. Stále je třeba identifikovat a
+ vytknout \uv{nejrychleji rostoucí} členy z čitatele a jmenovatele zlomky a poté
+ se odkázat na \hyperref[thm:aritmetika-limit-funkci]{aritmetiku limit}.
+
+ Přímým dosazením zjistíme, že bez dalších úprav vychází limitní výraz $\infty /
+ \infty$, na jehož základě nelze nic rozhodnout. Upravujeme tudíž následující
+ způsobem:
+ \[
+  \frac{(2x-3)^{20}(3x+2)^{30}}{(2x+1)^{50}} = \frac{x^{20}(2 -
+  \frac{3}{x^{20}}) \cdot x^{30}(3 + \frac{2}{x^{30}})}{x^{50}(2 +
+ 	\frac{1}{x^{50}})} = \frac{x^{50}}{x^{50}} \cdot \frac{(2 - \frac{3}{x^{20}})(3
+ 	+ \frac{2}{x^{30}})}{2 + \frac{1}{x^{50}}}.
+ \]
+ Předpokládajíce definovanost výsledného výrazu (již je třeba ověřit až na
+ samotném konci výpočtu), smíme z
+ \hyperref[thm:aritmetika-limit-funkci]{aritmetiky limit} tvrdit, že
+ \[
+  \lim_{x \to \infty} \frac{(2x-3)^{20}(3x+2)^{30}}{(2x+1)^{50}} = \lim_{x \to
+  \infty} \frac{x^{50}}{x^{50}} \cdot \lim_{x \to \infty} \frac{(2 -
+  \frac{3}{x^{20}})(3 + \frac{2}{x^{30}})}{2 + \frac{1}{x^{50}}}.
+ \]
+ Zřejmě platí
+ \[
+  \lim_{x \to \infty} \frac{x^{50}}{x^{50}} = 1.
+ \]
+ Opět použitím \hyperref[thm:aritmetika-limit-funkci]{aritmetiky limit} můžeme
+ počítat
+ \[
+  \lim_{x \to \infty} \frac{(2 - x^{20})(3 + \frac{2}{x^{30}})}{2 +
+  \frac{1}{x^{50}}} = \frac{\lim_{x \to \infty} (2 - \frac{1}{x^{20}}) \cdot
+ 	\lim_{x \to \infty} (3 + \frac{2}{x^{30}})}{\lim_{x \to \infty} (2 +
+ 	\frac{1}{x^{50}})} = \frac{(2 - 0) \cdot (3 + 0)}{2 + 0} = 3.
+ \]
+ Celkem tedy
+ \[
+  \lim_{x \to \infty} \frac{(2x-3)^{20}(3x+2)^{30}}{(2x+1)^{50}} = 1 \cdot 3 =
+  3.
+ \]
+ Protože výsledný výraz je definován, byla
+ \hyperref[thm:aritmetika-limit-funkci]{věta o aritmetice limit} použita
+ korektně.
+\end{probsol}
+
+\begin{problem}{}{vypocet-pres-aritmetiku-limit-2}
+ Spočtěte
+ \[
+  \lim_{x \to 3} \frac{\sqrt{x+13} - 2 \sqrt{x+1}}{x^2 - 9}
+ \]
+\end{problem}
+\begin{probsol}
+ Úlohy na výpočet limit funkcí v bodech jiných než $ \pm \infty$ jsou
+ fundamentálně rozdílné od výpočtu limit posloupností. Nelze již rozumně hovořit
+ o \uv{rychlosti růstu některého členu} či podobných konceptech. Výpočet se
+ pochopitelně stále opírá o \hyperref[thm:aritmetika-limit-funkci]{větu o
+ aritmetice limit}, ale často dožaduje jiných algebraických úprav včetně dělení
+ mnohočlenů.
+
+ Dosazením $x = 3$ do zadaného výrazu získáme $0 / 0$, tedy je třeba pro výpočet
+ limity výraz nejprve upravit.
+
+ Zde postupujeme takto:
+ \begin{align*}
+  \frac{\sqrt{x + 13} - 2 \sqrt{x+1}}{x^2 - 9} &= \frac{\sqrt{x+13} - 2
+  \sqrt{x+1}}{(x-3)(x+3)} \cdot \frac{\sqrt{x+13} + 2 \sqrt{x+1}}{\sqrt{x + 13}
+ 	+ 2 \sqrt{x+1}}\\
+ 																							 &= \frac{(x+13) -
+ 																							 4(x+1)}{(x-3)(x+3)(\sqrt{x+13} +
+ 																							 2 \sqrt{x+1})}.
+ \end{align*}
+ Nyní,
+ \[
+  (x + 13) - 4(x + 1) = -3x + 9 = -3(x-3).
+ \]
+ Pročež,
+ \[
+ 	\frac{(x + 13) - 4(x + 1)}{(x-3)(x+3)(\sqrt{x+13} + 2 \sqrt{x+1})} =
+ 	\frac{-3}{(x+3)(\sqrt{x+13} + 2 \sqrt{x+1})}.
+ \]
+ Z \hyperref[thm:aritmetika-limit-funkci]{aritmetiky limit} máme
+ \begin{align*}
+  \lim_{x \to 3} \frac{\sqrt{x+13} - 2 \sqrt{x+1}}{x^2 - 9} &= \lim_{x \to 3}
+  \frac{-3}{(x+3)(\sqrt{x+13} + 2 \sqrt{x+1})}\\
+  																													&= \frac{-3}{(3 +
+  																													3)(\sqrt{3 + 13} + 2
+  																												 \sqrt{3 + 1})} =
+  																												 \frac{-3}{48}.
+ \end{align*}
+ Protože je konečný výraz definovaný, směli jsme použít
+ \hyperref[thm:aritmetika-limit-funkci]{větu o aritmetice limit}.
+\end{probsol}
+
+V důkazu \hyperref[thm:aritmetika-limit-funkci]{věty o aritmetice limit} jsme
+zmínili, že na jejím základě nelze nic rozhodnout v případě, že konečný výraz
+vyjde $a / 0$, kde $a \in \R^{*}$. K rozřešení právě těchto situací slouží
+následující tvrzení.
+
+\begin{proposition}{}{limita-a/0}
+ Ať $f,g$ jsou reálné funkce, $a \in \R^{*}$. Dále ať $\lim_{x \to a} f(x) =
+ A \in \R^{*}, A > 0$, $\lim_{x \to a} g(x) = 0$ a existuje prstencové okolí
+ bodu $a$, na němž je $g$ kladná.
+
+ Potom $\lim_{x \to a} f(x) / g(x) = \infty$.
+\end{proposition}
+\begin{propproof}
+ Ať je z předpokladu dáno $\eta>0$ takové, že pro $x \in R(a,\eta)$ je $g(x) >
+ 0$. Rozlišíme dva případy.
+
+ Prvním případ nastává, když $A \in \R$ je číslo. Mějme dáno $\varepsilon>0$.
+ Jelikož $\lim_{x \to a} f(x) = A$ a $A > 0$, nalezneme pro $A / 2$ číslo
+ $\delta_1 > 0$ takové, že pro $x \in R(a,\delta_1)$ platí
+ \[
+  f(x) \in B \left( A,\frac{A}{2} \right) = \left( \frac{A}{2}, \frac{3A}{2}
+  \right),
+ \]
+ čili $f(x) > A / 2$. Podobně, za předpokladu $\lim_{x \to a} g(x) = 0$
+ nalezneme $\delta_2>0$ takové, že pro $x \in R(a,\delta_2)$ platí
+ \[
+  g(x) \in B \left( 0,\frac{A}{2\varepsilon} \right) =
+  \left(-\frac{A}{2\varepsilon},\frac{A}{2\varepsilon}\right),
+ \]
+ tedy speciálně $g(x) < A / 2\varepsilon$, z čehož dostáváme $1 / g(x) >
+ 2\varepsilon / A$. Celkově pro $\delta \coloneqq \min(\delta_1,\delta_2,\eta)$
+ a $x \in R(a,\delta)$ můžeme počítat
+ \[
+  \left| \frac{f(x)}{g(x)} \right| = \frac{f(x)}{g(x)} > \frac{A}{2} \cdot
+  \frac{2\varepsilon}{A} = \varepsilon,
+ \]
+ kde první rovnost plyne z toho, že pro $x \in R(a,\delta)$ platí $f(x) > 0$ i
+ $g(x) > 0$. To dokazuje, že $\lim_{x \to a} f(x) / g(x) = \infty$ v případě
+ $A \in \R$.
+
+ Ošetřeme případ $A = \infty$. Argumentujíce analogicky předchozímu odstavci
+ nalezneme $\delta_1>0$ takové, že pro $R(a,\delta_1)$ platí $f(x) > 1$ a pro
+ dané $\varepsilon>0$ nalezneme $\delta_2>0$ takové, že pro $x \in
+ R(a,\delta_2)$ platí $g(x) < 1 / \varepsilon$, a tedy $1 / g(x) > \varepsilon$.
+ Potom, pro $x \in R(a,\min(\eta,\delta_1,\delta_2))$ platí
+ \[
+  \left| \frac{f(x)}{g(x)} \right| = \frac{f(x)}{g(x)} > 1 \cdot \varepsilon =
+  \varepsilon,
+ \]
+ což dokazuje opět, že $\lim_{x \to a} f(x) / g(x) =\infty$ i v případě $A =
+ \infty$. 
+
+ Tím je důkaz završen.
+\end{propproof}
+
+\begin{remark}{}{poznamka-k-a/0}
+ \hyperref[prop:limita-a/0]{Předchozí tvrzení} pochopitelně platí i při záměně
+ ostrých nerovností v jeho znění. Konkrétně, za předpokladů
+ \begin{itemize}
+  \item[($< >$)] $\lim_{x \to a} f(x) = A < 0$ a $g(x) > 0$ na $R(a,\eta)$ platí $\lim_{x
+   \to a} f(x) / g(x) = -\infty$;
+  \item[($> <$)] $\lim_{x \to a} f(x) = A > 0$ a $g(x) < 0$ na $R(a,\eta)$ platí $\lim_{x
+   \to a} f(x) / g(x) = -\infty$;
+  \item[($< <$)] $\lim_{x \to a} f(x) = A < 0$ a $g(x) < 0$ na $R(a,\eta)$ platí $\lim_{x
+   \to a} f(x) / g(x) = \infty$.
+ \end{itemize}
+ Důkazy všech těchto případů jsou identické důkazu
+ \hyperref[prop:limita-a/0]{původního tvrzení}.
+\end{remark}
+
+Posledním základním tvrzením o limitách funkcí je vztah limit a uspořádání
+reálných čísel, vlastně jakási varianta \myref{lemmatu}{lem:o-dvou-straznich}
+pro posloupnosti.
+
+\begin{theorem}{O srovnání}{o-srovnani}
+ Ať $a \in \R^{*}$ a $f,g,h$ jsou reálné funkce.
+ \begin{enumerate}[label=(\alph*)]
+  \item Pokud
+   \[
+    \lim_{x \to a} f(x) > \lim_{x \to a} g(x),
+   \]
+   pak existuje prstencové okolí bodu $a$, na němž $f > g$.
+  \item Existuje-li prstencové okolí bodu $a$, na němž platí $f \leq g$, pak
+   \[
+    \lim_{x \to a} f(x) \leq \lim_{x \to a} g(x).
+   \]
+  \item Existuje-li prstencové okolí $a$, na němž $f \leq h \leq g$ a $\lim_{x
+   \to a} f(x) = \lim_{x \to a} g(x) = A \in \R^{*}$, pak existuje rovněž
+   $\lim_{x \to a} h(x)$ a jest rovna $A$.
+ \end{enumerate}
+\end{theorem}
+
+\begin{thmproof}
+ Položme $L_f \coloneqq \lim_{x \to a} f(x)$ a $L_g \coloneqq \lim_{x \to a}
+ g(x)$.
+
+ Dokážeme (a). Protože $L_f > L_g$, existuje $\varepsilon > 0$ takové, že $L_f -
+ L_g > 2\varepsilon$. K tomuto $\varepsilon$ nalezneme z
+ \hyperref[def:oboustranna-limita-funkce]{definice limity} $\delta_f > 0$ a
+ $\delta_g > 0$ taková, že
+ \begin{align*}
+  \forall x \in R(a,\delta_f) &: f(x) \in B(L_f,\varepsilon),\\
+  \forall x \in R(a,\delta_g)&: g(x) \in B(L_g,\varepsilon).
+ \end{align*}
+ To ovšem znamená, že pro $x \in R(a,\min(\delta_f,\delta_g))$ platí jak
+ \[
+  f(x) > L_f - \varepsilon,
+ \]
+ tak
+ \[
+  g(x) < L_g + \varepsilon,
+ \]
+ čili
+ \[
+  f(x) - g(x) > L_f - \varepsilon - L_g - \varepsilon = L_f - L_g - 2\varepsilon
+  > 0,
+ \]
+ jak jsme chtěli.
+
+ Část (b) dokážeme sporem. Ať $L_f > L_g$. Podle (a) pak existuje prstencové
+ okolí $R(a,\delta)$ bodu $a$, na němž $f > g$. Ovšem, podle předpokladu
+ existuje rovněž okolí $R(a,\eta)$ bodu $a$, kde zase $f \leq g$. Vezmeme-li
+ tudíž $x \in R(a,\min(\delta,\eta))$, pak $f(x) > g(x) \geq f(x)$, což je spor.
+
+ V důkazu (c) rozlišíme dva případy. Položme $L \coloneqq L_f = L_g$ a ať
+ nejprve $L \in \R$. Pro dané $\varepsilon>0$ existují $\delta_f,\delta_g>0$
+ taková, že pro $x \in R(a,\delta_f)$ platí
+ \[
+  L - \varepsilon< f(x) < L + \varepsilon
+ \]
+ a pro $x \in R(a,\delta_g)$ zas
+ \[
+  L - \varepsilon < g(x) < L + \varepsilon.
+ \]
+ Z předpokladu existuje prstencové okolí $R(a,\eta)$, na němž $f \leq h \leq g$.
+ Pročež, pro $x \in R(a,\min(\delta_f,\delta_g,\eta))$ máme
+ \[
+  L - \varepsilon < f(x) \leq h(x) \leq g(x) < L + \varepsilon,
+ \]
+ z čehož plyne $h(x) \in B(L,\varepsilon)$, neboli $\lim_{x \to a} h(x) = L$.
+
+ Pro $L = \infty$ postupujeme jednodušeji, neboť stačí dolní odhad. K danému
+ $\varepsilon>0$ nalezneme $\delta>0$ takové, že pro $x \in R(a,\delta)$ platí
+ \[
+  f(x) > \frac{1}{\varepsilon}.
+ \]
+ Pak pro $x \in R(a,\min(\delta,\eta))$ máme odhad
+ \[
+  \frac{1}{\varepsilon} < f(x) \leq h(x),
+ \]
+ čili $h(x) \in B(\infty,\varepsilon)$, což dokazuje rovnost $\lim_{x \to a}
+ h(x) = \infty$. 
+
+ Případ $L = -\infty$ se ošetří horním odhadem funkcí $g$.
+\end{thmproof}
