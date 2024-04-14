@@ -419,19 +419,19 @@ následující tvrzení.
  \hyperref[prop:limita-a/0]{Předchozí tvrzení} pochopitelně platí i při záměně
  ostrých nerovností v jeho znění. Konkrétně, za předpokladů
  \begin{itemize}
-  \item[($< >$)] $\lim_{x \to a} f(x) = A < 0$ a $g(x) > 0$ na $R(a,\eta)$ platí $\lim_{x
-   \to a} f(x) / g(x) = -\infty$;
-  \item[($> <$)] $\lim_{x \to a} f(x) = A > 0$ a $g(x) < 0$ na $R(a,\eta)$ platí $\lim_{x
-   \to a} f(x) / g(x) = -\infty$;
-  \item[($< <$)] $\lim_{x \to a} f(x) = A < 0$ a $g(x) < 0$ na $R(a,\eta)$ platí $\lim_{x
-   \to a} f(x) / g(x) = \infty$.
+  \item[($< >$)] $\lim_{x \to a} f(x) = A < 0$ a $g(x) > 0$ na $R(a,\eta)$ platí
+   $\lim_{x \to a} f(x) / g(x) = -\infty$;
+  \item[($> <$)] $\lim_{x \to a} f(x) = A > 0$ a $g(x) < 0$ na $R(a,\eta)$ platí
+   $\lim_{x \to a} f(x) / g(x) = -\infty$;
+  \item[($< <$)] $\lim_{x \to a} f(x) = A < 0$ a $g(x) < 0$ na $R(a,\eta)$ platí
+   $\lim_{x \to a} f(x) / g(x) = \infty$.
  \end{itemize}
  Důkazy všech těchto případů jsou identické důkazu
  \hyperref[prop:limita-a/0]{původního tvrzení}.
 \end{remark}
 
 Posledním základním tvrzením o limitách funkcí je vztah limit a uspořádání
-reálných čísel, vlastně jakási varianta \myref{lemmatu}{lem:o-dvou-straznich}
+reálných čísel, vlastně jakási varianta \myref{lemmatu}{lem:o-dvou-straznicich}
 pro posloupnosti.
 
 \begin{theorem}{O srovnání}{o-srovnani}
@@ -515,3 +515,32 @@ pro posloupnosti.
 
  Případ $L = -\infty$ se ošetří horním odhadem funkcí $g$.
 \end{thmproof}
+
+\begin{exercise}{}{}
+ Spočtěte následující limity funkcí
+ \begin{align*}
+  &\lim_{x \to 1} \frac{3x^{4} - 4x^3 + 1}{(x-1)^2},\\
+  &\lim_{x \to 0} \frac{3x + \frac{2}{x}}{x + \frac{4}{x}},\\
+  &\lim_{x \to -\infty} \sqrt{x^2 + x} - x,\\
+  &\lim_{x \to \infty} \frac{\sqrt{x-1}-2x}{x-7}.
+ \end{align*}
+\end{exercise}
+
+Posledním tvrzením, které si v této sekci dokážeme, hovoří o způsobu výpočtu
+limit složených funkcí. Závěr jeho je velmi přirozený -- má-li funkce $g$ limitu
+$A$ v bodě $a$ a funkce $f$ limitu $B$ v bodě $A$, pak $f \circ g$ má limitu $B$
+v bodě $a$, jak by jeden čekal. Toto tvrzení má však své předpoklady; pro
+libovolné dvě funkce pravdivé není.
+
+% TODO move to different section
+\begin{theorem}{Limita složené funkce}{limita-slozene-funkce}
+ Ať $a,A,B \in \R^{*}$ a $f,g$ jsou reálné funkce. Nechť navíc platí
+ \[
+  \lim_{x \to a} g(x) = A \quad \text{a} \quad \lim_{y \to A} f(y) = B.
+ \]
+ Je-li splněna \textbf{aspoň jedna} z podmínek:
+ \begin{itemize}
+  \item [R] Existuje prstencové okolí $a$, na němž platí $g \neq A$.
+  \item 
+ \end{itemize}
+\end{theorem}

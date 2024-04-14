@@ -1,0 +1,227 @@
+\section{Spojité funkce}
+\label{sec:spojite-funkce}
+
+Vlastnost spojitosti funkce či zobrazení je zcela jistě tou nejdůležitější
+především v topologii (disciplíně zpytující \uv{tvar} prostoru), kde se vlastně
+s jinými zobrazením než spojitými vůbec nepracuje.
+
+Intuitivně je zobrazení \emph{spojité} v moment, kdy zobrazuje souvislé části
+prostoru na souvislé části prostoru. Souvislostí se zde myslí vlastnost
+konkrétní podmnožiny prostoru (třeba $\R^{n}$), kdy z každého bodu do každého
+jiného bodu existuje cesta (křivka v prostoru), která tuto podmnožinu neopustí
+(\myref{obrázek}{fig:souvisla-podmnozina}).
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}[scale=1.5]
+  \begin{scope}
+   \clip (5.3,5.2) rectangle (8.5,7.2);
+   \coordinate (N) at (8.5,10);
+   \coordinate (O) at (5.9,5.5);
+   \coordinate (P) at (6.6,5.4);
+   \coordinate (Q) at (7.6,6);
+   \coordinate (R) at (8.4,6.3);
+   \coordinate (S) at (8.1,7);
+   \coordinate (T) at (7.4,6.9);
+   \coordinate (U) at (6.4,6.6);
+   \draw[pattern=dots,pattern color=black!30] (O) to [closed, curve through =
+    {(O) (P) (Q) (R) (S) (T) (U)}] (O);
+
+   \tkzDefPoints{6/6/x,8/6.7/y}
+   \tkzDrawPoints[size=5,color=BrickRed](x,y)
+   \draw[thick,color=BrickRed] (x) to [curve through={(7,5.9) (7.5,6.8)}] (y);
+  \end{scope}
+ \end{tikzpicture}
+ \caption{Souvislá podmnožina $\R^2$.}
+ \label{fig:souvisla-podmnozina}
+\end{figure}
+
+Spojité zobrazení lze tudíž definovat tím způsobem, že dva obrazy bodů lze vždy
+spojit křivkou, která neopouští obraz souvislé podmnožiny, ve které leží jejich
+vzory. Jednodušeji, spojité zobrazení nesmí \uv{roztrhnout} souvislou podmnožinu
+prostoru, i když do ní může například \uv{udělat díry}.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}[scale=1]
+  \begin{scope}
+   \clip (5.3,5.2) rectangle (8.5,7.2);
+   \coordinate (N) at (8.5,10);
+   \coordinate (O) at (5.9,5.5);
+   \coordinate (P) at (6.6,5.4);
+   \coordinate (Q) at (7.6,6);
+   \coordinate (R) at (8.4,6.3);
+   \coordinate (S) at (8.1,7);
+   \coordinate (T) at (7.4,6.9);
+   \coordinate (U) at (6.4,6.6);
+   \draw[pattern=dots,pattern color=BrickRed!30] (O) to [closed, curve through =
+    {(O) (P) (Q) (R) (S) (T) (U)}] (O);
+
+   \tkzDefPoints{6/6/x,8/6.7/y}
+   \tkzDrawPoints[size=5,color=BrickRed](x,y)
+   \draw[thick,color=BrickRed] (x) to [curve through={(7,5.9) (7.5,6.8)}] (y);
+   \tkzLabelPoint[above=1mm](x){$\clr{x}$}
+   \tkzLabelPoint[below=1mm](y){$\clr{y}$}
+  \end{scope}
+  \draw[-latex,color=RoyalBlue,thick] (8.4,7.1) to [bend left=45]
+   node[midway,yshift=-3mm,color=RoyalBlue]{$f$} (10,7.1);
+  \begin{scope}
+   \clip (9.8,4.6) rectangle (15.2,8.2);
+   \coordinate (N) at (13,10);
+   \coordinate (O) at (13.5,5.5);
+   \coordinate (P) at (12,5.4);
+   \coordinate (Q) at (11,6);
+   \coordinate (R) at (10,6.3);
+   \coordinate (S) at (12,7);
+   \coordinate (T) at (14,8);
+   \coordinate (U) at (15,6.6);
+   \draw[pattern=dots,pattern color=RoyalBlue!30] (O) to [closed, curve through =
+    {(O) (P) (Q) (R) (S) (T) (U)}] (O);
+
+   \node[fill=white,draw,circle,minimum size=10mm] at (13, 6.5) {};
+   
+   \tkzDefPoints{11/6.5/x,14/6/y}
+   \tkzDrawPoints[size=5,color=RoyalBlue](x,y)
+   \draw[thick,color=RoyalBlue] (x) to [curve through={(12,6.6) (13,7.2)}] (y);
+   \tkzLabelPoint[left=1mm](x){$\clb{f(x)}$}
+   \tkzLabelPoint[below=1mm](y){$\clb{f(y)}$}
+  \end{scope}
+ \end{tikzpicture}
+ \caption{Spojité zobrazení $\clb{f}: \R^2 \to \R^2$.}
+ \label{fig:spojite-zobrazeni}
+\end{figure}
+
+V první dimenzi je situace pochopitelně výrazně jednodušší. Souvislou
+podmnožinou $\R$ je \emph{interval}, a tedy spojité zobrazení je takové, které
+zobrazuje interval na interval. Takto se však, primárně z~technických důvodů,
+spojité zobrazení obyčejně nedefinuje a vlastnost zachování intervalu se musí
+dokázat.
+
+Pojem \hyperref[def:oboustranna-limita-funkce]{limity funkce} umožňuje definovat
+spojitou funkci jako tu, která se v každém bodě blíží ke své skutečné hodnotě,
+tj. nedělá žádné \uv{skoky}.
+
+\begin{definition}{Spojitá funkce}{spojita-funkce}
+ Ať $a \in \R$. Řekneme, že reálná funkce $f$ je \emph{spojitá v bodě} $a$,
+ pokud
+ \[
+  \lim_{x \to a} f(x) = f(a).
+ \]
+\end{definition}
+
+\begin{remark}{Jednostranně spojitá funkce}{jednostranne-spojita-funkce}
+ Obdobně \hyperref[def:spojita-funkce]{předchozí definici} tvrdíme, že funkce
+ $f$ je \emph{spojitá zleva, resp. zprava, v bodě} $a \in \R$, pokud $\lim_{x
+ \to a^{-}} f(x) = f(a)$, resp. $\lim_{x \to a^{+}} f(x) = f(a)$. Ona funkce je
+ pak spojitá v bodě $a$, když je v $a$ spojitá zleva i zprava.
+\end{remark}
+
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}[b]{.49\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzInit[xmin=-1,xmax=5,ymin=-1,ymax=3]
+   \tkzDrawX[label=$\clr{x}$]
+   \tkzDrawY[label=$\clb{f(x)}$]
+   
+   \coordinate (f0) at (0,0);
+   \coordinate (f1) at (1,1);
+   \coordinate (f2) at (2,2);
+   \coordinate (f3) at (3,2);
+   \tkzDefPoint(3,0){a}
+   \tkzDefPoint(3,2){fa}
+   \tkzDrawSegment[dashed](a,fa)
+   \tkzDrawPoint[size=4,color=BrickRed](a)
+   \tkzLabelPoint[below=1mm](a){$\clr{a}$}
+   \tkzDrawPoint[size=4,color=RoyalBlue](fa)
+   \draw[thick,color=RoyalBlue] (f0) to [curve through={(f1) (f2)}] (f3);
+
+   \coordinate (f4) at (3,2.5);
+   \coordinate (f5) at (4.3,1);
+   \coordinate (f6) at (4.5,0);
+   \coordinate (f7) at (5,-0.5);
+   \draw[thick,color=RoyalBlue] (f4) to [curve through={(f5) (f6)}] (f7);
+   \tkzDefPoint(3,2.5){fa2}
+   \tkzDrawPoint[size=4,draw=RoyalBlue,thick,fill=white](fa2)
+  \end{tikzpicture}
+  \caption{Funkce $\clb{f}$ spojitá zleva (ale ne zprava) v bodě $\clr{a}$.}
+ \end{subfigure}
+ \begin{subfigure}[b]{.49\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzInit[xmin=-1,xmax=5,ymin=-1,ymax=3]
+   \tkzDrawX[label=$\clr{x}$]
+   \tkzDrawY[label=$\clb{f(x)}$]
+   
+   \coordinate (f0) at (0,0);
+   \coordinate (f1) at (1.5,1);
+   \coordinate (f2) at (2,1.5);
+   \coordinate (f3) at (3,1);
+   \tkzDefPoint(3,0){a}
+   \tkzDefPoint(3,1){fa}
+   \tkzDrawSegment[dashed](a,fa)
+   \tkzDrawPoint[size=4,color=BrickRed](a)
+   \tkzLabelPoint[below=1mm](a){$\clr{a}$}
+   \draw[thick,color=RoyalBlue] (f0) to [curve through={(f1) (f2)}] (f3);
+   \tkzDrawPoint[size=4,draw=RoyalBlue,thick,fill=white](fa)
+
+   \coordinate (f4) at (3,1.5);
+   \coordinate (f5) at (3.7,2);
+   \coordinate (f6) at (4.6,3);
+   \coordinate (f7) at (5,3);
+   \draw[thick,color=RoyalBlue] (f4) to [curve through={(f5) (f6)}] (f7);
+   \tkzDefPoint(3,1.5){fa2}
+   \tkzDrawPoint[size=4,color=RoyalBlue](fa2)
+  \end{tikzpicture}
+  \caption{Funkce $\clb{f}$ spojitá zprava (ale ne zleva) v bodě $\clr{a}$.}
+ \end{subfigure}
+ \caption{Jednostranná spojitost}
+ \label{fig:jednostranna-spojitost}
+\end{figure}
+
+\begin{definition}{Funkce spojitá na intervalu}{funkce-spojita-na-intervalu}
+ Ať $I \subseteq \R$ je interval. Řekneme, že reálná funkce $f$ je
+ \emph{spojitá na} $I$, je-li
+ \begin{itemize}
+  \item spojitá v každém vnitřním bodě $I$,
+  \item spojitá zprava v levém krajním bodě $I$, pokud tento leží v $I$ a
+  \item spojitá zleva v pravém krajním bodě $I$, pokud tento leží v $I$.
+ \end{itemize}
+\end{definition}
+
+Nyní se jmeme dokázat, že spojité funkce na intervalu (souvislé množině) mají
+skutečně ony přirozené vlastnosti, pomocí nichž jsme je popsali v úvodu do
+\hyperref[sec:spojite-funkce]{této sekce}. Konkrétně dokážeme, že spojité funkce
+zobrazují interval na interval. K tomu poslouží ještě jedno pomocné tvrzení,
+známé též pod přespříliš honosným názvem \uv{Bolzanova věta o nabývání
+mezihodnot}.
+
+\begin{theorem}{Bolzanova}{bolzanova}
+ Nechť $f$ je reálná funkce spojitá na $[a,b]$ a $f(a) < f(b)$. Potom pro každé
+ $y \in (f(a),f(b))$ existuje $x \in (a,b)$ takové, že $f(x) = y$.
+\end{theorem}
+\begin{thmproof}
+ Ať je $y \in (f(a),f(b))$ dáno. Označme
+ \[
+  M \coloneqq \{z \in [a,b] \mid f(z) < y\}.
+ \]
+ Ukážeme, že množina $M$ má konečné supremum. K tomu potřebujeme ověřit, že je
+ neprázdná a shora omezená. Protože $f(a) < y$, jistě $a \in M$. Podobně,
+ jelikož $y < f(b)$, je $b$ horní závorou $M$. Existuje tedy $\sup M$, které
+ označíme $S$. Jistě platí $S \in (a,b)$. Ukážeme, že $f(S) = y$ vyloučením
+ možností $f(S) < y$ a $f(S) > y$.
+
+ Ať nejprve $f(S) < y$. Protože $f$ je z předpokladu spojitá (čili $\lim_{c \to
+ S} f(c) = f(S) < y$), existuje $\varepsilon>0$ takové, že pro každé $c \in
+ (S,S+\varepsilon)$ platí $f(c) < y$. To je ovšem spor s tím, že $S$ je horní
+ závorou $M$. Nutně tedy $f(S) \geq y$.
+
+ Ať nyní $f(S) > y$. Opět ze spojitosti $f$ nalezneme $\varepsilon>0$ takové, že
+ pro $c \in (S-\varepsilon,S)$ platí $f(c) > y$. Dostáváme spor s tím, že $S$ je
+ \textbf{nejmenší} horní závorou $M$.
+
+ Celkem vedly obě ostré nerovnosti ke sporu, tudíž $f(S) = y$ a důkaz je hotov.
+\end{thmproof}
+
+
