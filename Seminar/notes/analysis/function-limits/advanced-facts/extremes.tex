@@ -1,0 +1,89 @@
+\subsection{Extrémy funkce}
+\label{ssec:extremy-funkce}
+
+V mnoha matematických i externích disciplínách jeden často hledá při studiu
+reálných funkcí body, v nichž je hodnota funkce největší či nejmenší. Obecně
+jsou maximalizační a minimalizační problémy jedny z nejčastěji řešených. Tyto
+problémy vedou přímo na výpočet tzv. \emph{derivací} reálných funkcí, jsoucích
+dychtivým čtenářům představeny v následující kapitole. Zde pouze definujeme
+lokální a globální extrémy funkcí a ukážeme, že spojité funkce na uzavřených
+intervalech nutně na týchž nabývají svých nejmenších i největších hodnot.
+%TODO odkaz
+
+\begin{definition}{Lokální a globální extrém}{lokalni-a-globalni-extrem}
+ Ať $f:M \to \R$ je reálná funkce a $X \subseteq M$. Řekneme, že funkce $f$ v
+ bodě $x \in X$ nabývá
+ \begin{itemize}
+  \item \emph{globálního maxima} na $X$, když pro každé $y \in X$ platí
+   $f(y) \leq f(x)$;
+  \item \emph{globálního minima} na $X$, když pro každé $y \in X$ platí $f(y)
+   \geq f(x)$;
+  \item \emph{lokálního maxima} na $X$, když existuje okolí bodu $x$, na němž
+   platí $f \leq f(x)$;
+  \item \emph{lokálního minima} na $X$, když existuje okolí bodu $x$, na němž
+   platí $f \geq f(x)$.
+ \end{itemize}
+ Souhrnně přezdíváme globálnímu minimu a maximu \emph{globální extrém} a
+ lokálnímu maximu a minimu \emph{lokální extrém}.
+\end{definition}
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=-3,xmax=3,ymin=-3,ymax=3]
+  \tkzDrawX[-latex]
+  \tkzDrawY[-latex]
+
+  \draw[thick,domain=-2.3:3,color=Fuchsia] plot [smooth] (\x, {0.5 * (\x*\x*\x
+   - \x*\x - 4*\x + 2)}) node[right] {$\clm{f}$};
+  \tkzDefPoints{-2.2/0/a,2.8/0/b}
+  \tkzDrawPoints[size=4,color=black](a,b)
+  \tkzLabelPoint[above](a){$a$}
+  \tkzLabelPoint[below](b){$b$}
+
+  \tkzDefPoints{-2.2/-2.344/fa,2.8/2.456/fb}
+  \tkzDrawSegments[dashed,thick](a,fa b,fb)
+  \tkzDrawPoints[size=6,color=BrickRed](fa,fb)
+
+  \tkzDefPoints{-0.867/2.032/fM,1.535/-1.44/fm}
+  \tkzDefPoints{-0.867/0/M,1.535/0/m}
+  \tkzDrawPoints[size=4,color=black](M,m)
+  \tkzLabelPoint[below](M){$M$}
+  \tkzLabelPoint[above](m){$m$}
+  \tkzDrawSegments[dashed,thick](M,fM m,fm)
+  \tkzDrawPoints[size=6,color=RoyalBlue](fM,fm)
+ \end{tikzpicture}
+ \caption{Lokální a globální extrémy funkce $\clm{f}$ na [a,b]. \clb{Lokálních
+  extrémů} nabývá $\clm{f}$ v bodech $m$ a $M$ a \clr{globálních extrémů} v
+  bodech $a$ a $b$.}
+ \label{fig:extremy}
+\end{figure}
+
+Jak jsme již zmínili v textu před definicí, spojité funkce nabývají na
+uzavřených intervalech globálních extrémů vždy.
+
+\begin{theorem}{Extrémy spojité funkce}{extremy-spojite-funkce}
+ Ať $f:[a,b] \to \R$ je spojitá funkce. Pak $f$ nabývá globálního minima a
+ maxima na $[a,b]$.
+\end{theorem}
+\begin{thmproof}
+ Dokážeme, že $f$ nabývá na $[a,b]$ globálního maxima. Pro globální minimum lze
+ důkaz vést obdobně.
+
+ Využijeme \hyperref[thm:heineho]{Heineho věty}. Nalezneme posloupnost, která se
+ uvnitř intervalu $f([a,b])$ blíží k supremu funkce $f$ na $[a,b]$ a ukážeme, že
+ vzory členů této posloupnosti posloupnosti z intervalu $[a,b]$ se blíží k bodu,
+ kde $f$ nabývá maxima.
+
+ Položme tedy $S \coloneqq \sup f([a,b])$. Sestrojíme posloupnost $y: \N \to
+ f([a,b])$, která konverguje k $S$. Je-li $S=\infty$, stačí položit třeba $y_n =
+ n$ pro všechna $n \in \N$. Předpokládejme, že $S \in \R$. Z~definice suprema
+ existuje pro každé $n \in \N$ prvek $z \in f([a,b])$ takový, že $S-1 / n < z
+ \leq S$. Položíme $y_n \coloneqq z$. Tím máme posloupnost $y_n$ s $\lim_{n \to
+ \infty} y_n = S$.
+
+ Z definice $f([a,b])$ nalezneme pro každé $y_n$ číslo $x_n \in [a,b]$, pro něž
+ $f(x_n) = y_n$. Posloupnost $x_n$ je omezená (leží uvnitř $[a,b]$), a tedy z
+ \hyperref[thm:bolzano-weierstrass]{Bolzanovy-Weierstraßovy} věty existuje její
+ 
+\end{thmproof}

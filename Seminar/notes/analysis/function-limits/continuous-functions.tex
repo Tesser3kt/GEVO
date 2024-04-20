@@ -224,4 +224,17 @@ mezihodnot}.
  Celkem vedly obě ostré nerovnosti ke sporu, tudíž $f(S) = y$ a důkaz je hotov.
 \end{thmproof}
 
+\begin{corollary}{}{}
+ Ať $f: I \to \R$ je funkce spojitá na intervalu $I \subseteq \R$. Pak $f(I)$ je
+ interval.
+\end{corollary}
+\begin{corproof}
+ Volme $y_1,y_2 \in f(I), y_1 < y_2$.
+
+ Protože $y_1,y_2 \in f(I)$, existují $x_1,x_2 \in I$ taková, že $f(x_1) = y_1$
+ a $f(x_2) = y_2$. Bez újmy na obecnosti předpokládejme, že $x_1 < x_2$. Potom z
+ \hyperref[thm:bolzanova]{Bolzanovy věty} pro každé $y \in (f(x_1),f(x_2))$
+ existuje $z \in (x_1,x_2)$ takové, že $f(z) = y$. Potom však z definice $y \in
+ f(I)$, a tedy je $f(I)$ interval.
+\end{corproof}
 

@@ -1,0 +1,360 @@
+\section{Hlubší poznatky o limitě funkce}
+\label{sec:hlubsi-poznatky-o-limite-funkce}
+
+Kapitolu o limitách funkcí dovršíme několika -- v dalším textu zásadními --
+tvrzeními. Některá z~nich se vížou na pojem
+\hyperref[def:spojita-funkce]{spojitosti funkce}, některá nikoliv. Ukážeme si
+rovněž souvislost limit funkcí s limitami posloupností; uzříme, že je to v
+jistém širém smyslu týž koncept.
+
+Nejprve se pozastavíme nad chováním limit funkcí vzhledem k jejich skládání. Je
+vskutku velmi přirozené -- má-li funkce $g$ limitu $A$ v bodě $a$ a funkce $f$
+limitu $B$ v bodě $A$, pak $f \circ g$ má limitu $B$ v bodě $a$, jak by jeden
+čekal. Toto tvrzení má však své předpoklady; pro libovolné dvě funkce pravdivé
+není.
+
+\begin{theorem}{Limita složené funkce}{limita-slozene-funkce}
+ Ať $a,A,B \in \R^{*}$ a $f,g$ jsou reálné funkce. Nechť navíc platí
+ \[
+  \lim_{x \to a} g(x) = A \quad \text{a} \quad \lim_{y \to A} f(y) = B.
+ \]
+ Je-li splněna \textbf{aspoň jedna} z podmínek:
+ \begin{itemize}
+  \item [(R)] existuje prstencové okolí $a$, na němž platí $g \neq A$;
+  \item [(S)] funkce $f$ je spojitá v $A$,
+ \end{itemize}
+ pak
+ \[
+  \lim_{x \to a} (f \circ g)(x) = B.
+ \]
+\end{theorem}
+\begin{thmproof}
+ Důkaz tvrzení není příliš obtížný, ale poněkud technický a alfabeticky náročný.
+ Potřebujeme ukázat, že pro libovolné $\varepsilon>0$ existuje $\delta>0$, že
+ pro $x \in R(a,\delta)$ máme $f(g(x)) \in B(B,\varepsilon)$. Nechť je tedy
+ $\varepsilon>0$ dáno.
+
+ Předpokládejme, že platí (R) a máme $\eta>0$ takové, že $g(x) \neq A$ pro $x
+ \in R(a,\eta)$. Ježto platí $\lim_{y \to A} f(y) = B$, existuje k danému
+ $\varepsilon>0$ číslo $\delta_f>0$ takové, že pro $y \in R(A,\delta_f)$ platí
+ $f(y) \in B(B,\varepsilon)$. K tomuto $\delta_f>0$ pak existuje $\delta_g>0$
+ takové, že pro $x \in R(a,\delta_g)$ platí $g(x) \in B(A,\delta_f)$. Volíme-li
+ nyní $\delta \coloneqq \min(\eta,\delta_g)$, pak pro $x \in R(a,\delta)$ platí
+ \[
+  g(x) \in B(A,\delta_f) \quad \text{i} \quad g(x) \neq A,
+ \]
+ kteréžtě dvě podmínce dávajíta celkem $g(x) \in B(A,\delta_f) \setminus \{A\} =
+ R(a,\delta_f)$. Potom však pro $x \in R(a,\delta)$ platí $g(x) \in
+ R(A,\delta_f)$, tudíž $f(g(x)) \in B(B,\varepsilon)$, jak jsme chtěli.
+  
+ Ať naopak platí (S). Pak můžeme pro spojitost $f$ v $A$ brát ve výroku
+ \[
+ \forall y \in R(A,\delta_f): f(y) \in B(B,\varepsilon)
+ \]
+ místo prstencového okolí $R(A,\delta_f)$ brát plné okolí $B(A,\delta_f)$, neboť
+ $f(A) = \lim_{y \to A} f(y) = B \in B(B,\varepsilon)$. Protože pro $x \in
+ R(a,\delta_g)$ však platí $g(x) \in B(A,\delta_f)$, máme rovněž $f(g(x)) \in
+ B(B,\varepsilon)$, čímž je důkaz hotov.  
+\end{thmproof}
+
+\begin{warning}{}{}
+ Platnost aspoň jedné z podmínek (R),(S) v
+ \hyperref[thm:limita-slozene-funkce]{předchozí větě} je nezanedbatelná.
+
+ Vezměme $f(y) = |\sign y|$ a $g(x) = 0$. Potom platí
+ \[
+  \lim_{y \to 0} f(y) = 1 \quad \text{a} \quad \lim_{x \to 0} g(x) = 0,
+ \]
+ ale $\lim_{x \to 0} (f \circ g)(x) = 0 \neq 1$. Závěr
+ \hyperref[thm:limita-slozene-funkce]{předchozí věty} je v tomto případě
+ neplatný pro to, že neexistuje okolí $a$, na němž $g \neq 0$ (tj. neplatí (R)),
+ ani není $f$ spojitá v $0$ (tj. neplatí (S)).
+\end{warning}
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}[scale=1.75]
+  \def\dg{0.8}
+  \def\df{0.7}
+  \def\eps{1}
+
+  \tkzDefPoints{0/0/a,2/1/A,4/2/B}
+  \tkzDrawPoint[size=4,color=BrickRed](a)
+  \tkzDrawPoint[size=4,color=RoyalBlue](A)
+  \tkzDrawPoint[size=4,color=ForestGreen](B)
+
+  \tkzLabelPoint[below=1mm](a){$\clr{a}$}
+  \tkzLabelPoint[below=1mm](A){$\clb{A}$}
+  \tkzLabelPoint[below=1mm](B){$\clg{B}$}
+  
+  \tkzDefCircle[R](a,\dg) \tkzGetPoint{ac}
+  \tkzDrawCircle[thick,color=BrickRed](a,ac)
+  \tkzDefCircle[R](A,\df) \tkzGetPoint{Ac}
+  \tkzDrawCircle[thick,color=RoyalBlue](A,Ac)
+  \tkzDefCircle[R](B,\dg) \tkzGetPoint{Bc}
+  \tkzDrawCircle[thick,color=ForestGreen](B,Bc)
+
+  \tkzDefPointOnCircle[through = center a angle 120 point ac]
+  \tkzGetPoint{ad}
+  \tkzDrawPoint[size=4,color=BrickRed](ad)
+  \tkzDrawSegment[color=BrickRed,dashed,thick](a,ad)
+  \tkzLabelSegment[below left](a,ad){$\clr{\delta_g}$}
+
+  \tkzDefPointOnCircle[through = center A angle 120 point Ac]
+  \tkzGetPoint{Ad}
+  \tkzDrawPoint[size=4,color=RoyalBlue](Ad)
+  \tkzDrawSegment[color=RoyalBlue,dashed,thick](A,Ad)
+  \tkzLabelSegment[below left](A,Ad){$\clb{\delta_f}$}
+
+  \tkzDefPointOnCircle[through = center B angle 120 point Bc]
+  \tkzGetPoint{Bd}
+  \tkzDrawPoint[size=4,color=ForestGreen](Bd)
+  \tkzDrawSegment[color=RoyalBlue,dashed,thick](B,Bd)
+  \tkzLabelSegment[below left](B,Bd){$\clg{\varepsilon}$}
+
+  \tkzDefPointOnCircle[through = center a angle 80 point ac]
+  \tkzGetPoint{ae}
+  \tkzDefPointOnCircle[through = center A angle 150 point Ac]
+  \tkzGetPoint{Ae}
+  \tkzDefPointOnCircle[through = center A angle 80 point Ac]
+  \tkzGetPoint{Af}
+  \tkzDefPointOnCircle[through = center B angle 150 point Bc]
+  \tkzGetPoint{Be}
+
+  \draw[-latex,shorten <=5pt,shorten >=5pt] (ae) to [bend left=45]
+   node[midway,yshift=2mm,xshift=-2mm] {$g$} (Ae);
+  \draw[-latex,shorten <=5pt,shorten >=5pt] (Af) to [bend left=45]
+   node[midway,yshift=2mm,xshift=-2mm] {$f$} (Be);
+
+  \tkzDefPoints{0.3/0.2/x,1.8/0.8/gx,4.3/2.5/fgx}
+  \tkzDrawPoints[size=4,color=black](x,gx,fgx)
+  \tkzLabelPoint[below=1mm](x){$x$}
+  \tkzLabelPoint[below=1mm](gx){$g(x)$}
+  \tkzLabelPoint[below=1mm](fgx){$f(g(x))$}
+ \end{tikzpicture}
+ \caption{Důkaz \hyperref[thm:limita-slozene-funkce]{věty o limitě složené
+ funkce}.}
+ \label{fig:limita-slozene-funkce}
+\end{figure}
+
+Pokračujeme vztahem limit posloupností a limit funkcí. Ukazuje se, že limity
+funkce mohu v principu nahradit limitou posloupnosti jejích funkčních hodnot.
+Toto tvrzení je zvlášť užitečné při důkazu neexistence limity funkce. Stačí
+totiž najít dvě posloupnosti, funkční hodnoty jejichž členů se blíží k rozdílným
+číslům.
+
+\begin{theorem}{Heineho}{heineho}
+ Ať $f$ je reálná funkce a $a,L \in \R^{*}$. Pak jsou následující výroky
+ ekvivalentní
+ \begin{enumerate}
+  \item $\lim_{x \to a} f(x) = L$.
+  \item Pro \textbf{každou} posloupnost $x:\N \to \R$ takovou, že
+  \begin{itemize}
+   \item $\lim_{n \to \infty} x_n = a$;
+   \item $x_n \neq a$ pro každé $n \in \N$,
+  \end{itemize}
+  platí $\lim_{n \to \infty} f(x_n) = L$.
+ \end{enumerate}
+\end{theorem}
+\begin{thmproof}
+ Dokážeme nejprve $(1) \Rightarrow (2)$. Ať je dáno $\varepsilon>0$. Potřebujeme
+ najít $n_0 \in \N$ takové, že pro $n \geq n_0$ je $|f(x_n) - L|<\varepsilon$.
+ Uvědomme si, že poslední výrok je ekvivalentní
+ \[
+  L -\varepsilon< f(x_n)<L+\varepsilon,
+ \]
+ neboli $f(x_n) \in B(L,\varepsilon)$. Z toho, že $\lim_{x \to a} f(x) = L$,
+ existuje $\delta>0$ takové, že pro $x \in R(a,\delta)$ platí $f(x) \in
+ B(L,\varepsilon)$. Ježto $\lim_{n \to \infty} x_n = a$, k tomuto $\delta>0$
+ existuje $n_0 \in \N$ takové, že
+ \[
+ \forall n \geq n_0: |x_n-a|<\delta,
+ \]
+ neboli $x_n \in B(a,\delta)$. Předpokládáme ovšem, že $x_n \neq a$ pro všechna
+ $n \in \N$, a tedy $x_n \in R(a,\delta)$, kdykoli $n \geq n_0$. Potom ale pro
+ $n \geq n_0$ rovněž $f(x_n) \in B(L,\varepsilon)$, čili $\lim_{n \to \infty}
+ f(x_n) = L$.
+
+ Místo přímého důkazu $(2) \Rightarrow (1)$ (který je zdlouhavý), dokážeme $\neg
+ (1) \Rightarrow \neg (2)$. Předpokládejme tedy, že $\lim_{x \to a} f(x)$ buď
+ neexistuje, nebo není rovna $L$. Chceme najít posloupnost $x:\N \to \R$, která
+ konverguje k $a$, žádný její člen není roven $a$, ale přesto $\lim_{n \to
+ \infty} f(x_n)$ opět buď neexistuje, nebo není rovna $L$.
+
+ Uvědomíme si nejprve přesně, jak zní \textbf{negace} výroku $\lim_{x \to a}
+ f(x) = L$. Tvrdíme, že
+ \[
+ \exists \varepsilon>0 \; \forall \delta>0 \; \exists x \in R(a,\delta): f(x)
+ \text{ není definováno} \vee f(x) \notin B(L,\varepsilon).
+ \]
+ Nalezněme tedy ono $\varepsilon>0$ z výroku výše. Pak pro každé $n \in \N$
+ existuje $x_n \in R(a,1 / n)$ pro které $f(x_n)$ není definováno, nebo neleží v
+ $B(L,\varepsilon)$. Vlastně jsme ve výroku výše položili $\delta \coloneqq 1 /
+ n$ postupně pro každé $n \in \N$. Sestrojili jsme pročež posloupnost $x_n$
+ takovou, že $\lim_{n \to \infty} x_n = a$ a $x_n \neq a$ pro všechna $n \in
+ \N$. Nicméně, jak jsme psali výše, pro každé $x_n$ buď $f(x_n)$ není
+ definováno, nebo neleží v $B(L,\varepsilon)$. To ovšem znamená, že $\lim_{n \to
+ \infty} f(x_n)$ buď neexistuje, nebo není rovna $L$. Platí tudíž předpoklady v
+ (2), ale nikoli závěr v (2), tj. platí $\neg (2)$.
+
+ Tím je důkaz hotov.
+\end{thmproof}
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=-1,xmax=5,ymin=-1,ymax=3]
+  \tkzDrawX[label=$\clr{x}$]
+  \tkzDrawY[label=$\clb{f(x)}$]
+  
+  \coordinate (f0) at (0,0);
+  \coordinate (f1) at (1,1);
+  \coordinate (f2) at (2,2);
+  \coordinate (f3) at (3,2);
+  \coordinate (f4) at (4,1);
+  \coordinate (f5) at (5,0);
+  \tkzDefPoint(3,0){a}
+  \tkzDefPoint(3,2){fa}
+  \tkzDefPoint(0,2){f}
+  \foreach \n/\d in
+  {1/1.9,2/2.3,3/2.4,4/2.5,5/2.65,6/2.7,7/2.85,8/2.88,9/2.91,10/2.94,11/2.96,12/2.98}
+  {
+   \tkzDefPoint(\d,0){x\n}
+   \tkzDrawPoint[color=black](x\n)
+  }
+  \tkzLabelPoint[below](x1){\footnotesize $x_1$}
+  \tkzLabelPoint[below](x2){\footnotesize $x_2$}
+  \tkzLabelPoint[below](x6){\footnotesize $\dots$}
+
+  \tkzDrawSegment[dashed](a,fa)
+  \tkzDrawPoint[size=4,color=BrickRed](a)
+  \tkzLabelPoint[below=1mm](a){$\clr{a}$}
+  \tkzDrawPoint[size=4,color=RoyalBlue](fa)
+  \draw[thick,color=RoyalBlue] (f0) to [curve through={(f1) (f2) (f3) (f4)}]
+   (f5);
+  \tkzDrawSegment[dashed](f,fa)
+  \tkzDrawPoint[size=4,color=RoyalBlue](f)
+  \tkzLabelPoint[left=1mm](f){$L$}
+
+  \tkzDefPoint(1.9,1.95){fx1}
+  \tkzDrawPoint[color=black](fx1)
+  \tkzDefPoint(2.3,2.09){fx2}
+  \tkzDrawPoint[color=black](fx2)
+  \tkzDefPoint(2.4,2.11){fx3}
+  \tkzDrawPoint[color=black](fx3)
+  \tkzDefPoint(2.5,2.11){fx4}
+  \tkzDrawPoint[color=black](fx4)
+  \tkzDefPoint(2.65,2.1){fx5}
+  \tkzDrawPoint[color=black](fx5)
+  \tkzDefPoint(2.7,2.09){fx6}
+  \tkzDrawPoint[color=black](fx6)
+  \tkzDefPoint(2.85,2.06){fx7}
+  \tkzDrawPoint[color=black](fx7)
+  \tkzDefPoint(2.88,2.05){fx8}
+  \tkzDrawPoint[color=black](fx8)
+
+  \tkzLabelPoint[above](fx1){\footnotesize $f(x_1)$}
+  \tkzLabelPoint[below](fx2){\footnotesize $f(x_2)$}
+ \end{tikzpicture}
+ \caption{Tvrzení (2) v \hyperref[thm:heineho]{Heineho větě}.}
+ \label{fig:heineho-veta}
+\end{figure}
+
+\begin{corollary}{Heineho věta pro spojitost}{heineho-veta-pro-spojitost}
+ Ať $a \in \R^{*}$ a $f$ je reálná funkce. Následující tvrzení jsou
+ ekvivalentní.
+ \begin{enumerate}
+  \item Funkce $f$ je spojitá v bodě $a$.
+  \item Pro každou posloupnost $x:\N \to \R$ s limitou $\lim_{n \to \infty} x_n
+   = a$ platí $\lim_{n \to \infty} f(x_n) = f(a)$.
+ \end{enumerate}
+\end{corollary}
+\begin{corproof}
+ Zkrátka použijeme \hyperref[thm:heineho]{Heineho} větu pro $L = f(a)$.
+ Poznamenejme pouze, že podmínka $x_n \neq a$ pro každé $n \in \N$ je zde
+ zbytečná, neboť $f$ je z předpokladu spojitá v $a$.
+\end{corproof}
+
+\begin{example}{}{}
+ V zájmu představení, jak se \hyperref[thm:heineho]{Heineho} věta používá pro
+ důkaz neexistence limity funkce, budeme drze předpokládat, že čtenáři byli již
+ seznámeni s funkcí $\sin:\R \to [-1,1]$. Její formální debut je v kapitole o
+ elementárních funkcích. %TODO odkaz
+
+ Ukážeme, že limita $\lim_{x \to \infty} \sin x$ neexistuje. Volme posloupnosti
+ \[
+  x_n \coloneqq 2\pi n \quad \text{a} \quad y_n \coloneqq 2\pi n + \pi / 2.
+ \]
+ Pak platí $\lim_{n \to \infty} x_n = \lim_{n \to \infty} y_n = \infty$, zřejmě
+ $x_n \neq \infty$ a $y_n \neq \infty$ pro každé $n \in \N$. Máme proto splněny
+ předpoklady tvrzení (2) z \hyperref[thm:heineho]{Heineho věty}. Platí však
+ \begin{align*}
+  \lim_{n \to \infty} \sin(x_n) &= \lim_{n \to \infty} \sin(2\pi n) = 0,\\
+  \lim_{n \to \infty} \sin(y_n) &= \lim_{n \to \infty} \sin(2\pi n + \pi / 2) =
+  1,
+ \end{align*}
+ a tedy jsme našli dvě posloupnosti, funkční hodnoty jejichž členů konvergují k
+ různým číslům. Podle \hyperref[thm:heineho]{Heineho věty} $\lim_{x \to \infty}
+ \sin x$ neexistuje.
+\end{example}
+
+Podobně jako monotónní posloupnosti mají vždy limitu (vizte
+\myref{lemma}{lem:limita-monotonni-posloupnosti}), stejně tak mono\-tónní funkce
+ji vždy mají. Řekneme, že reálná funkce $f$ je \emph{monotónní na intervalu}
+$I \subseteq \R$, když
+\begin{itemize}
+ \item[$(<)$] je $f$ \emph{rostoucí}, tj. $\forall x,y \in I: x<y \Rightarrow
+  f(x)<f(y)$,
+ \item[$(>)$] je $f$ \emph{klesající}, tj. $ \forall x,y \in I: x < y
+  \Rightarrow f(x) > f(y)$,
+ \item[$(\leq)$] je $f$ \emph{neklesající}, tj. $ \forall x,y \in I:x<y
+  \Rightarrow f(x) \leq f(y)$ nebo
+ \item[$(\geq)$] je $f$ \emph{nerostoucí}, tj. $ \forall x,y \in I:x<y
+  \Rightarrow f(x) \geq f(y)$.
+\end{itemize}
+\begin{theorem}{Limita monotónní funkce}{limita-monotonni-funkce}
+ Ať $(a,b) \subseteq \R^{*}$ a $f$ je monotónní na $(a,b)$. Potom,
+ \begin{enumerate}
+  \item je-li $f$ rostoucí nebo neklesající, tak
+  \[
+   \lim_{x \to a^{+}} f(x) = \inf f((a,b)) \quad \text{a} \quad \lim_{x \to
+   b^{-}} f(x) = \sup f((a,b));
+  \]
+ \item je-li $f$ klesající nebo nerostoucí, tak
+  \[
+   \lim_{x \to a^{+}} f(x) = \sup f((a,b)) \quad \text{a} \quad \lim_{x \to
+   b^{-}} f(x) = \inf f((a,b)).
+  \]
+ \end{enumerate}
+\end{theorem}
+\begin{thmproof}
+ Dokážeme pouze část (1), důkaz (2) je totožný.
+
+ Budeme nejprve předpokládat, že $f$ je zdola omezená a označíme $m \coloneqq
+ \inf f((a,b)) \in \R$. Ať je dáno $\varepsilon>0$. Z definice infima nalezneme
+ $y \in f((a,b))$ takové, že $y < m + \varepsilon$. Jelikož $y \in f((a,b))$,
+ existuje $x \in (a,b)$, že $f(x) = y$. Z toho, že $f$ je neklesající či
+ rostoucí plyne, že pro každé $z \in (a,x)$ je $f(z) \leq f(x) = y$.
+
+ Nalezneme $\delta>0$ takové, že $R_+(a,\delta) = (a,a+\delta) \subseteq (a,x)$.
+ Potom ale pro $z \in R_+(a,\delta)$ platí $f(z) \leq y < m+\varepsilon$. Ježto
+ nerovnost $f(z) > m-\varepsilon$ je zřejmá ($m$ je dolní závora $f$), máme
+ celkem pro $z \in R_+(a,\delta)$
+ \[
+  m -\varepsilon < f(z) < m + \varepsilon,
+ \]
+ čili $f(z) \in B(m,\varepsilon)$, jak bylo dokázati.
+
+ Ať nyní $f$ není zdola omezená na $(a,b)$. Pak $\inf f(a,b) = -\infty$ a pro
+ každé $\varepsilon>0$ nalezneme $z \in (a,b)$, pro nějž $f(z) < -1 /
+ \varepsilon$. To ovšem z definice znamená, že $\lim_{x \to a^{+}} f(x) =
+ -\infty = \inf f((a,b))$.
+
+ Důkaz faktu, že $\lim_{x \to b^{-}} f(x) = \sup f((a,b))$ lze vést obdobně.
+\end{thmproof}
+
+\begin{exercise}{}{}
+ Dokažte bod (2) ve \myref{větě}{thm:limita-monotonni-funkce}.
+\end{exercise}
+
+\input{function-limits/advanced-facts/extremes}

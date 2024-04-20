@@ -4,9 +4,9 @@
 Počneme nyní shrnovati intuitivně vcelku zřejmé výsledky o limitách reálných
 funkcí. Jakž jsme již vícekrát děli, ona \uv{intuitivní zřejmost} pravdivosti
 výroků nechce nabodnout k přeskoku či trivializaci jejich důkazů. Vodami
-nekonečnými radno broditi se ostražitě, bo tvrzení jako \emph{limita složené
-	funkce} % TODO
-ráda svědčí, že intuicí bez logiky člověk na břeh nedoplove.
+nekonečnými radno broditi se ostražitě, bo tvrzení jako
+\hyperref[thm:limita-slozene-funkce]{limita složené funkce} ráda svědčí, že
+intuicí bez logiky člověk na břeh nedoplove.
 
 Na první pád není překvapivé, že limita funkce je jednoznačně určena,
 pochopitelně za předpokladu její existence. Vyzýváme čtenáře, aby se při čtení
@@ -526,21 +526,3 @@ pro posloupnosti.
  \end{align*}
 \end{exercise}
 
-Posledním tvrzením, které si v této sekci dokážeme, hovoří o způsobu výpočtu
-limit složených funkcí. Závěr jeho je velmi přirozený -- má-li funkce $g$ limitu
-$A$ v bodě $a$ a funkce $f$ limitu $B$ v bodě $A$, pak $f \circ g$ má limitu $B$
-v bodě $a$, jak by jeden čekal. Toto tvrzení má však své předpoklady; pro
-libovolné dvě funkce pravdivé není.
-
-% TODO move to different section
-\begin{theorem}{Limita složené funkce}{limita-slozene-funkce}
- Ať $a,A,B \in \R^{*}$ a $f,g$ jsou reálné funkce. Nechť navíc platí
- \[
-  \lim_{x \to a} g(x) = A \quad \text{a} \quad \lim_{y \to A} f(y) = B.
- \]
- Je-li splněna \textbf{aspoň jedna} z podmínek:
- \begin{itemize}
-  \item [R] Existuje prstencové okolí $a$, na němž platí $g \neq A$.
-  \item 
- \end{itemize}
-\end{theorem}
