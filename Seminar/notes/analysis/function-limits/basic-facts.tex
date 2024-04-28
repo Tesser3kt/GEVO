@@ -23,12 +23,11 @@ důkazu drželi vizualizace oboustranné limity z
 	v zásadě totožný.
 
 	Pro spor budeme předpokládat, že $L$ i $L'$ jsou limity $f$ v bodě $a \in
-		\R^{*}$. Nejprve ošetříme případ, kdy $L,L' \in \R$. Bez újmy na obecnosti
-	smíme předpokládat, že $L > L'$. Volme $\varepsilon \coloneqq (L-L') / 3$. K
-	tomuto $\varepsilon$ existují z
-	\hyperref[def:oboustranna-limita-funkce]{definice limity} $\delta_1>0,
-		\delta_2>0$ takové,
-	že
+	\R^{*}$. Nejprve ošetříme případ, kdy $L,L' \in \R$. Bez újmy na obecnosti
+	smíme předpokládat, že $L > L'$. Volme $\varepsilon \coloneqq (L-L') / 3$ (ve
+	skutečnosti stačilo volit libovolné $\varepsilon < (L-L') / 2$). K tomuto
+	$\varepsilon$ existují z \hyperref[def:oboustranna-limita-funkce]{definice
+	limity} $\delta_1>0, \delta_2>0$ takové, že
 	\[
 		\forall x \in R(a,\delta_1): f(x) \in B(L,\varepsilon).
 	\]
@@ -62,7 +61,7 @@ důkazu drželi vizualizace oboustranné limity z
 
 	Nyní ať například $L = \infty$ a $L' \in \R$. Z
 	\hyperref[def:okoli-a-prstencove-okoli-bodu]{definice okolí} $B(L,\varepsilon)$
-	pro $L = \infty$, stačí nalézt $\varepsilon > 0$ takové, že
+	pro $L = \infty$ stačí nalézt $\varepsilon > 0$ takové, že
 	\[
 		\frac{1}{\varepsilon} > L' + \varepsilon,
 	\]
@@ -111,8 +110,7 @@ důkazu drželi vizualizace oboustranné limity z
 
 	\tkzDrawSegment[decorate,decoration={brace,
 				amplitude=10pt},color=Aquamarine,thick](L,Lp)
-	\tkzLabelSegment[right=3mm,color=Aquamarine](L,Lp){$\displaystyle
-			\frac{|L-L'|}{2}$}
+	\tkzLabelSegment[right=3mm,color=Aquamarine](L,Lp){$|L - L'|$}
 
 	\tkzDefPointOnCircle[R = center L angle 150 radius \eps] \tkzGetPoint{C}
 	\tkzDrawPoint[color=Magenta,size=3](C)
@@ -186,10 +184,11 @@ součinu či podílu funkcí jako součet, součin či podíl limit těchto funk
  rovnic, soustředíme se pouze na (nejzajímavější) případ (1).
 
  Ať tedy $L_f \in \R, L_g \in \R \setminus \{0\}$. Je nejprve dobré si uvědomit,
- že $L_f / L_g$ není definován \textbf{nikdy}, pokud $L_g = 0$, bez ohledu na
- hodnotu $L_f$. Totiž, hodnoty $g$ se mohou k $L_g$ limitně blížit zprava,
- zleva či střídavě z obou směrů. Nelze tudíž obecně určit, zda dělíme čím dál
- tím menším kladným číslem, či čím dál tím větším záporným číslem.
+ proč vynecháváme $0$ jako možnou hodnotu $L_g$. Totiž, $L_f / L_g$ není
+ definován \textbf{nikdy}, pokud $L_g = 0$, bez ohledu na hodnotu $L_f$. Hodnoty
+ $g$ se mohou k $L_g$ limitně blížit zprava, zleva či střídavě z obou směrů.
+ Nelze tudíž obecně určit, zda dělíme klesajícím kladným číslem, či rostoucím
+ záporným číslem.
 
  Položme $\varepsilon_g = |L_g| / 2$. K tomuto $\varepsilon_g$ existuje z
  \hyperref[def:oboustranna-limita-funkce]{definice limity} $\delta_g$ takové, že
@@ -270,7 +269,7 @@ součinu či podílu funkcí jako součet, součin či podíl limit těchto funk
 \begin{probsol}
  Jelikož limitním bodem je $\infty$, neliší se výpočet limity funkce v zásadě
  nijak od výpočtu limity sesterské posloupnosti. Stále je třeba identifikovat a
- vytknout \uv{nejrychleji rostoucí} členy z čitatele a jmenovatele zlomky a poté
+ vytknout \uv{nejrychleji rostoucí} členy z čitatele a jmenovatele zlomku a poté
  se odkázat na \hyperref[thm:aritmetika-limit-funkci]{aritmetiku limit}.
 
  Přímým dosazením zjistíme, že bez dalších úprav vychází limitní výraz $\infty /
@@ -319,12 +318,12 @@ součinu či podílu funkcí jako součet, součin či podíl limit těchto funk
  \]
 \end{problem}
 \begin{probsol}
- Úlohy na výpočet limit funkcí v bodech jiných než $ \pm \infty$ jsou
+ Úlohy na výpočet limit funkcí v bodech jiných než $ \pm \infty$ jsou však
  fundamentálně rozdílné od výpočtu limit posloupností. Nelze již rozumně hovořit
  o \uv{rychlosti růstu některého členu} či podobných konceptech. Výpočet se
  pochopitelně stále opírá o \hyperref[thm:aritmetika-limit-funkci]{větu o
- aritmetice limit}, ale často dožaduje jiných algebraických úprav včetně dělení
- mnohočlenů.
+ aritmetice limit}, ale často dožaduje jiných algebraických úprav -- včetně
+ dělení mnohočlenů.
 
  Dosazením $x = 3$ do zadaného výrazu získáme $0 / 0$, tedy je třeba pro výpočet
  limity výraz nejprve upravit.
@@ -376,7 +375,7 @@ následující tvrzení.
  Ať je z předpokladu dáno $\eta>0$ takové, že pro $x \in R(a,\eta)$ je $g(x) >
  0$. Rozlišíme dva případy.
 
- Prvním případ nastává, když $A \in \R$ je číslo. Mějme dáno $\varepsilon>0$.
+ První případ nastává, když $A \in \R$ je číslo. Mějme dáno $\varepsilon>0$.
  Jelikož $\lim_{x \to a} f(x) = A$ a $A > 0$, nalezneme pro $A / 2$ číslo
  $\delta_1 > 0$ takové, že pro $x \in R(a,\delta_1)$ platí
  \[
@@ -400,7 +399,7 @@ následující tvrzení.
  $g(x) > 0$. To dokazuje, že $\lim_{x \to a} f(x) / g(x) = \infty$ v případě
  $A \in \R$.
 
- Ošetřeme případ $A = \infty$. Argumentujíce analogicky předchozímu odstavci
+ Ošetřemež případ $A = \infty$. Argumentujíce analogicky předchozímu odstavci
  nalezneme $\delta_1>0$ takové, že pro $R(a,\delta_1)$ platí $f(x) > 1$ a pro
  dané $\varepsilon>0$ nalezneme $\delta_2>0$ takové, že pro $x \in
  R(a,\delta_2)$ platí $g(x) < 1 / \varepsilon$, a tedy $1 / g(x) > \varepsilon$.

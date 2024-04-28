@@ -53,7 +53,7 @@ intervalech nutně na týchž nabývají svých nejmenších i největších hod
   \tkzDrawSegments[dashed,thick](M,fM m,fm)
   \tkzDrawPoints[size=6,color=RoyalBlue](fM,fm)
  \end{tikzpicture}
- \caption{Lokální a globální extrémy funkce $\clm{f}$ na [a,b]. \clb{Lokálních
+ \caption{Lokální a globální extrémy funkce $\clm{f}$ na $[a,b]$. \clb{Lokálních
   extrémů} nabývá $\clm{f}$ v bodech $m$ a $M$ a \clr{globálních extrémů} v
   bodech $a$ a $b$.}
  \label{fig:extremy}
@@ -70,10 +70,10 @@ uzavřených intervalech globálních extrémů vždy.
  Dokážeme, že $f$ nabývá na $[a,b]$ globálního maxima. Pro globální minimum lze
  důkaz vést obdobně.
 
- Využijeme \hyperref[thm:heineho]{Heineho věty}. Nalezneme posloupnost, která se
- uvnitř intervalu $f([a,b])$ blíží k supremu funkce $f$ na $[a,b]$ a ukážeme, že
- vzory členů této posloupnosti posloupnosti z intervalu $[a,b]$ se blíží k bodu,
- kde $f$ nabývá maxima.
+ Využijeme \myref{důsledku}{cor:heineho-veta-pro-spojitost}. Nalezneme
+ posloupnost, která se uvnitř intervalu $f([a,b])$ blíží k~supremu funkce $f$ na
+ $[a,b]$ a ukážeme, že vzory členů této posloupnosti posloupnosti z~intervalu
+ $[a,b]$ se blíží k bodu, kde $f$ nabývá maxima.
 
  Položme tedy $S \coloneqq \sup f([a,b])$. Sestrojíme posloupnost $y: \N \to
  f([a,b])$, která konverguje k $S$. Je-li $S=\infty$, stačí položit třeba $y_n =
@@ -85,5 +85,26 @@ uzavřených intervalech globálních extrémů vždy.
  Z definice $f([a,b])$ nalezneme pro každé $y_n$ číslo $x_n \in [a,b]$, pro něž
  $f(x_n) = y_n$. Posloupnost $x_n$ je omezená (leží uvnitř $[a,b]$), a tedy z
  \hyperref[thm:bolzano-weierstrass]{Bolzanovy-Weierstraßovy} věty existuje její
- 
+ konvergentní podposloupnost. Můžeme pročež bez újmy na obecnosti předpokládat,
+ že sama $x_n$ konverguje. Položme $M \coloneqq \lim_{n \to \infty} x_n$. Ježto
+ $a \leq x_n \leq b$ pro všechna $n \in \N$, z
+ \myref{lemmatu}{lem:o-dvou-straznicich} plyne, že $M \in [a,b]$. Konečně, $f$
+ je z předpokladu spojitá, a tedy z
+ \myref{důsledku}{cor:heineho-veta-pro-spojitost} 
+ \[
+  f(M) = \lim_{n \to \infty} f(x_n) = \lim_{n \to \infty} y_n = S,
+ \]
+ čili $f$ nabývá v bodě $M$ maxima na $[a,b]$.
 \end{thmproof}
+
+\begin{corollary}{}{}
+ Je-li funkce $f$ spojitá na $[a,b]$, pak je tamže omezená.
+\end{corollary}
+\begin{corproof}
+ Z \myref{věty}{thm:extremy-spojite-funkce} plyne, že $f$ nabývá na $[a,b]$
+ minima $s$ a maxima $S$. Potom ale pro každé $x \in [a,b]$ platí
+ \[
+  s \leq f(x) \leq S,
+ \]
+ čili $f$ je na $[a,b]$ omezená.
+\end{corproof}

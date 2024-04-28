@@ -79,18 +79,20 @@ prstencové okolí} bodu $a$ se definují analogicky.
 \begin{remark}{}{okoli-a-prstencove-okoli-bodu}
  Písmena \emph{B} a \emph{R} v definici okolí a prstencového okolí pocházejí z
  angl. slov \textbf{b}all a \textbf{r}ing. Okolí se v~angličtině přezdívá
- \uv{ball} pro to, že okolí bodu $a$ je ve skutečnosti (jednodimenzionální) kruh
- s poloměrem $\varepsilon$ o středu $a$. Znázornění okolí bodu jako kruhu v
- rovině je vysoce účinným vizualizačním aparátem.
+ \emph{ball} pro to, že okolí bodu $a$ je ve skutečnosti (jednodimenzionální)
+ kruh s poloměrem $\varepsilon$ o středu $a$. Znázornění okolí bodu jako kruhu v
+ rovině je vysoce účinným vizualizačním aparátem. Naopak, slovo \emph{ring}
+ vskutku přirozeně značí kruh s \uv{dírou} (velikosti jednoho bodu) v jeho
+ středě. 
 
  Čtenáře možná zarazilo číslo $1 / \varepsilon$ v definici okolí bodu $\infty$.
  Důvod užití $1 / \varepsilon$ oproti prostému $\varepsilon$ je spíše
- intuitivního rázu. V definici limity a v následných tvrzení si matematici
+ intuitivního rázu. V definici limity a v následných tvrzeních si matematici
  obvykle představujeme pod $\varepsilon$ reálné číslo, které je \uv{nekonečně
  malé}. Chceme-li tedy, aby se \textbf{zmenšujícím se} $\varepsilon$ byla
- hodnota dané funkce stále blíže nekonečnu, musí se tato hodnota zvětšovat. Díky
- užité formulaci tomu tak je, neboť s menším $\varepsilon$ je číslo $1 /
- \varepsilon$ větší.
+ hodnota dané funkce stále blíže nekonečnu, musí se tato hodnota
+ \textbf{zvětšovat}. Díky užité formulaci tomu tak je, neboť s menším
+ $\varepsilon$ je číslo $1 / \varepsilon$ větší.
 \end{remark}
 
 \begin{figure}[ht]
@@ -316,11 +318,11 @@ dimenzích byl. Popsaná situace přímo souvisí s faktem, že první dimenze j
 geometrického pohledu \uv{degenerovaná} -- kružnice je pouze dvoubodovou
 množinou.
 
-Oboustranné limity souvisejí s jednostrannými velmi přirozeným způsobem.
+Oboustranné limity jsou spjaty jednostrannými velmi přirozeným způsobem.
 Existence oboustran\-né limity funkce v bodě je ekvivalentní existenci limity
-jak zleva tak zprava v témže bodě. Oboustrannou limitu vlastně dostaneme tak, že
-z levého a pravého okolí limitního bodu, ve kterém již je funkční hodnota blízko
-limitě, vybereme to menší.
+jak zleva, tak zprava, v témže bodě. Oboustrannou limitu vlastně dostaneme tak,
+že z levého a pravého prstencového okolí limitního bodu, ve kterém již je
+funkční hodnota blízko limitě, vybereme to menší.
 
 \begin{proposition}{Vztah jednostranných a oboustranných
  limit}{vztah-jednostrannych-a-oboustrannych-limit}
@@ -348,7 +350,6 @@ limitě, vybereme to menší.
   \forall x \in R_+(a,\delta_+) &: f(x) \in B(L,\varepsilon),\\
   \forall x \in R_-(a,\delta_-) &: f(x) \in B(L,\varepsilon).
  \end{align*}
-
  Ať $\delta \coloneqq \min(\delta_+,\delta_-)$. Pak $R(a,\delta) \subseteq
  R_+(a,\delta_+) \cup R_-(a,\delta_-)$, a tedy $\delta>0$ splňuje, že
  \[
@@ -383,7 +384,7 @@ limitě, vybereme to menší.
  0} f(x)$ neexistuje.
 
  Velmi obdobným argumentem ukážeme, že $\lim_{x \to 0^{+}} g(x) = \lim_{x \to
- 0^{-}} g(x) = 1$. Čili, podle
+ 0^{-}} g(x) = 1$. Nuže, podle
  \hyperref[prop:vztah-jednostrannych-a-oboustrannych-limit]{téhož tvrzení} platí
  $\lim_{x \to 0} g(x) = 1$.
 \end{example}
