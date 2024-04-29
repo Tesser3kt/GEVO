@@ -108,3 +108,34 @@ součty řad.
  \label{fig:periodicka-slozeno-rostouci}
 \end{figure}
 
+\begin{example}{Singularity funkce}{singularity-funkce}
+ Ať $a \in \R$ a $f$ je reálná funkce definovaná aspoň na prstencovém okolí bodu
+ $a$. Předpokládejme, že $f$ není spojitá v $a$. Pak řekneme, že $f$ má v $a$
+ \begin{itemize}
+  \item \textbf{odstranitelnou singularitu}, když existuje konečná
+   $\lim_{x \to a} f(x)$. V tomto případě můžeme dodefinovat $f(a) \coloneqq
+   \lim_{x \to a} f(x)$;
+  \item \textbf{pól}, když existují $\lim_{x \to a^{+}} f(x)$ a
+   $\lim_{x \to a^{-}} f(x)$, ale nejsou si rovny;
+  \item \textbf{neodstranitelnou singularitu}, když aspoň jedna z jednostranných
+   limit $f$ v bodě $a$ neexistuje.
+ \end{itemize}
+ Singularity funkcí tvoří důležitou část komplexní analýzy, kde poskytují obraz
+ zejména o stabilitě fyzikálních systému popsaných těmito funkcemi.
+ \emph{Odstranitelné singularity} jsou velmi stabilní a většinou způsobeny pouze
+ chybami v měření. \emph{Póly} jsou stabilní při vhodné aproximaci, avšak v
+ grafu komplexních funkcí jedné proměnné vypadají vlastně jako nekonečné stále
+ se zúžující tuby. Lze si je představovat například jako
+ \href{https://cs.wikipedia.org/wiki/Gabriel%C5%AFv_roh}{Gabrielův roh}. Vhodnou
+  aproximací je zde uříznutí tohoto tělesa ve zvolené \uv{výšce}. Konečně,
+  \emph{neodstranitelné singularity} jsou vskutku neodstranitelné. Dokonce platí
+  věta, že komplexní funkce jedné proměnné s neodstranitelnou singularitou
+  nabývají \textbf{úplně všech} hodnot z $\C$ na libovolně malém okolí této
+  singularity. Menší stability již dosáhnout nelze. Neodstranitelné singularity
+  si, tvrdíme, nelze ani rozumně představit.
+
+ Ukážeme, že aspoň pro funkce jedné \emph{reálné} proměnné, jimiž se v tomto
+ textu zabýváme, jsou množiny všech odstranitelných singularit i pólů spočetné.
+
+ Začněmež odstranitelnými singularitami. 
+\end{example}
