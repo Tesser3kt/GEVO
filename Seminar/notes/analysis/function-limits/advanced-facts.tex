@@ -29,12 +29,12 @@ není.
  \]
 \end{theorem}
 \begin{thmproof}
- Důkaz tvrzení není příliš obtížný, ale poněkud technický a alfabeticky náročný.
- Potřebujeme ukázat, že pro libovolné $\varepsilon>0$ existuje $\delta>0$, že
- pro $x \in R(a,\delta)$ máme $f(g(x)) \in B(B,\varepsilon)$. Nechť je tedy
- $\varepsilon>0$ dáno.
+ Důkaz tvrzení není příliš obtížný, ovšem poněkud technický a alfabeticky
+ tíživý. Potřebujeme ukázat, že pro libovolné $\varepsilon>0$ existuje
+ $\delta>0$ takové, že všechna $x \in R(a,\delta)$ splňují $f(g(x)) \in
+ B(B,\varepsilon)$. Nechť je tedy $\varepsilon>0$ dáno.
 
- Předpokládejme, že platí (R) a máme $\eta>0$ takové, že $g(x) \neq A$ pro $x
+ Předpokládejme, že platí (R) a máme $\eta>0$, pro něž $g(x) \neq A$, kdykoli $x
  \in R(a,\eta)$. Ježto platí $\lim_{y \to A} f(y) = B$, existuje k danému
  $\varepsilon>0$ číslo $\delta_f>0$ takové, že pro $y \in R(A,\delta_f)$ platí
  $f(y) \in B(B,\varepsilon)$. K tomuto $\delta_f>0$ pak existuje $\delta_g>0$
@@ -47,7 +47,7 @@ není.
  R(a,\delta_f)$. Potom však pro $x \in R(a,\delta)$ platí $g(x) \in
  R(A,\delta_f)$, tudíž $f(g(x)) \in B(B,\varepsilon)$, jak jsme chtěli.
   
- Ať naopak platí (S). Pak můžeme pro spojitost $f$ v $A$ brát ve výroku
+ Ať naopak platí (S). Pak smíme pro spojitost $f$ v $A$ ve výroku
  \[
  \forall y \in R(A,\delta_f): f(y) \in B(B,\varepsilon)
  \]
@@ -109,7 +109,7 @@ není.
   \tkzDefPointOnCircle[through = center B angle 120 point Bc]
   \tkzGetPoint{Bd}
   \tkzDrawPoint[size=4,color=ForestGreen](Bd)
-  \tkzDrawSegment[color=RoyalBlue,dashed,thick](B,Bd)
+  \tkzDrawSegment[color=ForestGreen,dashed,thick](B,Bd)
   \tkzLabelSegment[below left](B,Bd){$\clg{\varepsilon}$}
 
   \tkzDefPointOnCircle[through = center a angle 80 point ac]
@@ -137,15 +137,15 @@ není.
  \label{fig:limita-slozene-funkce}
 \end{figure}
 
-Pokračujeme vztahem limit posloupností a limit funkcí. Ukazuje se, že limity
-funkce mohu v principu nahradit limitou posloupnosti jejích funkčních hodnot.
-Toto tvrzení je zvlášť užitečné při důkazu neexistence limity funkce. Stačí
+Pokračujeme vztahem limit posloupností a limit funkcí. Ukazuje se, že limitu
+funkce možno v principu nahradit limitou posloupnosti jejích funkčních hodnot.
+Toto tvrzení je zvlášť užitečné při důkazu \emph{neexistence} oné limity. Stačí
 totiž najít dvě posloupnosti, funkční hodnoty jejichž členů se blíží k rozdílným
-číslům.
+číslům či kterákolivěk z nich neexistuje.
 
 \begin{theorem}{Heineho}{heineho}
  Ať $f$ je reálná funkce a $a,L \in \R^{*}$. Pak jsou následující výroky
- ekvivalentní
+ ekvivalentní.
  \begin{enumerate}
   \item $\lim_{x \to a} f(x) = L$.
   \item Pro \textbf{každou} posloupnost $x:\N \to \R$ takovou, že
@@ -164,9 +164,9 @@ totiž najít dvě posloupnosti, funkční hodnoty jejichž členů se blíží 
   L -\varepsilon< f(x_n)<L+\varepsilon,
  \]
  neboli $f(x_n) \in B(L,\varepsilon)$. Z toho, že $\lim_{x \to a} f(x) = L$,
- existuje $\delta>0$ takové, že pro $x \in R(a,\delta)$ platí $f(x) \in
- B(L,\varepsilon)$. Ježto $\lim_{n \to \infty} x_n = a$, k tomuto $\delta>0$
- existuje $n_0 \in \N$ takové, že
+ existuje $\delta>0$ takové, že všechna $x \in R(a,\delta)$ splňují $f(x) \in
+ B(L,\varepsilon)$. Ježto $\lim_{n \to \infty} x_n = a$, existuje k tomuto
+ $\delta>0$ index $n_0 \in \N$ takový, že
  \[
  \forall n \geq n_0: |x_n-a|<\delta,
  \]
@@ -229,12 +229,12 @@ totiž najít dvě posloupnosti, funkční hodnoty jejichž členů se blíží 
   \tkzDrawSegment[dashed](a,fa)
   \tkzDrawPoint[size=4,color=BrickRed](a)
   \tkzLabelPoint[below=1mm](a){$\clr{a}$}
-  \tkzDrawPoint[size=4,color=RoyalBlue](fa)
   \draw[thick,color=RoyalBlue] (f0) to [curve through={(f1) (f2) (f3) (f4)}]
    (f5);
   \tkzDrawSegment[dashed](f,fa)
   \tkzDrawPoint[size=4,color=RoyalBlue](f)
   \tkzLabelPoint[left=1mm](f){$L$}
+  \tkzDrawPoint[size=4,color=RoyalBlue](fa)
 
   \tkzDefPoint(1.9,1.95){fx1}
   \tkzDrawPoint[color=black](fx1)
@@ -276,17 +276,17 @@ totiž najít dvě posloupnosti, funkční hodnoty jejichž členů se blíží 
 \end{corproof}
 
 \begin{example}{}{}
- V zájmu představení, jak se \hyperref[thm:heineho]{Heineho} věta používá pro
- důkaz neexistence limity funkce, budeme drze předpokládat, že čtenáři byli již
- seznámeni s funkcí $\sin:\R \to [-1,1]$. Její formální debut je v kapitole o
- elementárních funkcích. %TODO odkaz
+ V zájmu nabytí představy, jak se \hyperref[thm:heineho]{Heineho} věta používá
+ pro důkaz neexistence limity funkce, budeme drze předpokládat, že čtenáři byli
+ již seznámeni s funkcí $\mathrm{sin}:\R \to [-1,1]$. Její formální debut dlí v
+ kapitole o elementárních funkcích. %TODO odkaz
 
  Ukážeme, že limita $\lim_{x \to \infty} \sin x$ neexistuje. Volme posloupnosti
  \[
   x_n \coloneqq 2\pi n \quad \text{a} \quad y_n \coloneqq 2\pi n + \pi / 2.
  \]
- Pak platí $\lim_{n \to \infty} x_n = \lim_{n \to \infty} y_n = \infty$, zřejmě
- $x_n \neq \infty$ a $y_n \neq \infty$ pro každé $n \in \N$. Máme proto splněny
+ Pak platí $\lim_{n \to \infty} x_n = \lim_{n \to \infty} y_n = \infty$ i zřejmě
+ $x_n \neq \infty$ a $y_n \neq \infty$ pro každé $n \in \N$. Jsou proto splněny
  předpoklady tvrzení (2) z \hyperref[thm:heineho]{Heineho věty}. Platí však
  \begin{align*}
   \lim_{n \to \infty} \sin(x_n) &= \lim_{n \to \infty} \sin(2\pi n) = 0,\\
@@ -300,8 +300,8 @@ totiž najít dvě posloupnosti, funkční hodnoty jejichž členů se blíží 
 
 Podobně jako monotónní posloupnosti mají vždy limitu (vizte
 \myref{lemma}{lem:limita-monotonni-posloupnosti}), stejně tak mono\-tónní funkce
-ji vždy mají. Řekneme, že reálná funkce $f$ je \emph{monotónní na intervalu}
-$I \subseteq \R$, když
+ji vždy mají. Tento přirozený pojem briskně představíme. Řčeme, že reálná funkce
+$f$ je \emph{monotónní na intervalu} $I \subseteq \R$, když
 \begin{itemize}
  \item[$(<)$] je $f$ \emph{rostoucí}, tj. $\forall x,y \in I: x<y \Rightarrow
   f(x)<f(y)$,
@@ -315,12 +315,12 @@ $I \subseteq \R$, když
 \begin{theorem}{Limita monotónní funkce}{limita-monotonni-funkce}
  Ať $(a,b) \subseteq \R^{*}$ a $f$ je monotónní na $(a,b)$. Potom,
  \begin{enumerate}
-  \item je-li $f$ rostoucí nebo neklesající, tak
+  \item jsouc $f$ rostoucí nebo neklesající má limity
   \[
    \lim_{x \to a^{+}} f(x) = \inf f((a,b)) \quad \text{a} \quad \lim_{x \to
    b^{-}} f(x) = \sup f((a,b));
   \]
- \item je-li $f$ klesající nebo nerostoucí, tak
+ \item jsouc $f$ klesající nebo nerostoucí má limity
   \[
    \lim_{x \to a^{+}} f(x) = \sup f((a,b)) \quad \text{a} \quad \lim_{x \to
    b^{-}} f(x) = \inf f((a,b)).

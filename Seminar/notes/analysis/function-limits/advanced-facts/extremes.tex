@@ -18,10 +18,10 @@ intervalech nutně na týchž nabývají svých nejmenších i největších hod
    $f(y) \leq f(x)$;
   \item \emph{globálního minima} na $X$, když pro každé $y \in X$ platí $f(y)
    \geq f(x)$;
-  \item \emph{lokálního maxima} na $X$, když existuje okolí bodu $x$, na němž
-   platí $f \leq f(x)$;
-  \item \emph{lokálního minima} na $X$, když existuje okolí bodu $x$, na němž
-   platí $f \geq f(x)$.
+  \item \emph{lokálního maxima}, když existuje okolí bodu $x$, na němž platí $f
+   \leq f(x)$;
+  \item \emph{lokálního minima}, když existuje okolí bodu $x$, na němž platí $f
+   \geq f(x)$.
  \end{itemize}
  Souhrnně přezdíváme globálnímu minimu a maximu \emph{globální extrém} a
  lokálnímu maximu a minimu \emph{lokální extrém}.
@@ -31,8 +31,8 @@ intervalech nutně na týchž nabývají svých nejmenších i největších hod
  \centering
  \begin{tikzpicture}
   \tkzInit[xmin=-3,xmax=3,ymin=-3,ymax=3]
-  \tkzDrawX[-latex]
-  \tkzDrawY[-latex]
+  \tkzDrawX[-latex,label=]
+  \tkzDrawY[-latex,label=]
 
   \draw[thick,domain=-2.3:3,color=Fuchsia] plot [smooth] (\x, {0.5 * (\x*\x*\x
    - \x*\x - 4*\x + 2)}) node[right] {$\clm{f}$};
@@ -59,7 +59,8 @@ intervalech nutně na týchž nabývají svých nejmenších i největších hod
  \label{fig:extremy}
 \end{figure}
 
-Jak jsme již zmínili v textu před definicí, spojité funkce nabývají na
+Jak jsme již zmínili v textu před
+\hyperref[def:lokalni-a-globalni-extrem]{definicí}, spojité funkce nabývají na
 uzavřených intervalech globálních extrémů vždy.
 
 \begin{theorem}{Extrémy spojité funkce}{extremy-spojite-funkce}
@@ -72,15 +73,15 @@ uzavřených intervalech globálních extrémů vždy.
 
  Využijeme \myref{důsledku}{cor:heineho-veta-pro-spojitost}. Nalezneme
  posloupnost, která se uvnitř intervalu $f([a,b])$ blíží k~supremu funkce $f$ na
- $[a,b]$ a ukážeme, že vzory členů této posloupnosti posloupnosti z~intervalu
- $[a,b]$ se blíží k bodu, kde $f$ nabývá maxima.
+ $[a,b]$ a ukážeme, že vzory členů této posloupnosti z~intervalu $[a,b]$ se
+ blíží k bodu, kde $f$ nabývá maxima.
 
  Položme tedy $S \coloneqq \sup f([a,b])$. Sestrojíme posloupnost $y: \N \to
  f([a,b])$, která konverguje k $S$. Je-li $S=\infty$, stačí položit třeba $y_n =
  n$ pro všechna $n \in \N$. Předpokládejme, že $S \in \R$. Z~definice suprema
  existuje pro každé $n \in \N$ prvek $z \in f([a,b])$ takový, že $S-1 / n < z
- \leq S$. Položíme $y_n \coloneqq z$. Tím máme posloupnost $y_n$ s $\lim_{n \to
- \infty} y_n = S$.
+ \leq S$. Položíme $y_n \coloneqq z$. Tím jsme dali vzrůst posloupnosti $y_n$ s
+ $\lim_{n \to \infty} y_n = S$.
 
  Z definice $f([a,b])$ nalezneme pro každé $y_n$ číslo $x_n \in [a,b]$, pro něž
  $f(x_n) = y_n$. Posloupnost $x_n$ je omezená (leží uvnitř $[a,b]$), a tedy z
@@ -89,7 +90,7 @@ uzavřených intervalech globálních extrémů vždy.
  že sama $x_n$ konverguje. Položme $M \coloneqq \lim_{n \to \infty} x_n$. Ježto
  $a \leq x_n \leq b$ pro všechna $n \in \N$, z
  \myref{lemmatu}{lem:o-dvou-straznicich} plyne, že $M \in [a,b]$. Konečně, $f$
- je z předpokladu spojitá, a tedy z
+ je z předpokladu spojitá, a tedy v závěsu
  \myref{důsledku}{cor:heineho-veta-pro-spojitost} 
  \[
   f(M) = \lim_{n \to \infty} f(x_n) = \lim_{n \to \infty} y_n = S,

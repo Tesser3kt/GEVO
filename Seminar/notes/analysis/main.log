@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.27)  27 APR 2024 19:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.7)  28 APR 2024 22:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -25,7 +25,7 @@ File: bk11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
 ) (./book-preamble.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2024/04/20 v24.4 The Babel package
+Package: babel 2024/03/29 v24.3 The Babel package
 \babel@savecnt=\count197
 \U@D=\dimen141
 \l@unhyphenated=\language89
@@ -80,7 +80,7 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layoutvoffset=\dimen149
 \Gm@dimlist=\toks20
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2024/04/23 v4.2 Extensive control of page headers and footers
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip50
 \f@nch@O@elh=\skip51
 \f@nch@O@erh=\skip52
@@ -398,7 +398,7 @@ LaTeX Font Info:    Redeclaring math accent \vec on input line 2048.
 LaTeX Info: Redefining \Bbbk on input line 2838.
 LaTeX Info: Redefining \not on input line 2986.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/libertine/libertine.sty
-Package: libertine 2024/04/23 (Bob Tennent) Supports Libertine and Biolinum fonts for all LaTeX engines.
+Package: libertine 2023/11/26 (Bob Tennent) Supports Libertine and Biolinum fonts for all LaTeX engines.
  (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifluatex.sty
@@ -437,7 +437,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
@@ -1232,7 +1232,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 6.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 17.28pt on input line 6.
-<moebius.png, id=63, 869.2475pt x 524.96124pt>
+<moebius.png, id=67, 869.2475pt x 524.96124pt>
 File: moebius.png Graphic file (type png)
 <use moebius.png>
 Package pdftex.def Info: moebius.png  used on input line 7.
@@ -1484,14 +1484,17 @@ LaTeX Warning: Hyper reference `lem:o-dvou-straznicich' on page 17 undefined on 
 LaTeX Warning: Reference `lem:o-dvou-straznicich' on page 17 undefined on input line 433.
 
 [17] [18]) (./function-limits/continuous-functions.tex [19]
-LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 187.
+LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 188.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
 File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 188.
+
+Underfull \vbox (badness 1152) has occurred while \output is active []
+
  [20]
-Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 232.
+Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 233.
 ) (./function-limits/advanced-facts.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1522,9 +1525,6 @@ LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
 (Font)              scaled to size 9.0pt on input line 225.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 9.0pt on input line 225.
-
-Underfull \vbox (badness 4647) has occurred while \output is active []
-
  [24]
 
 LaTeX Warning: Hyper reference `lem:limita-monotonni-posloupnosti' on page 25 undefined on input line 302.
@@ -1539,19 +1539,22 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 1.
 
 
-LaTeX Warning: Hyper reference `thm:bolzano-weierstrass' on page 26 undefined on input line 87.
+LaTeX Warning: Hyper reference `thm:bolzano-weierstrass' on page 26 undefined on input line 88.
 
 
-LaTeX Warning: Hyper reference `lem:o-dvou-straznicich' on page 26 undefined on input line 91.
+LaTeX Warning: Hyper reference `lem:o-dvou-straznicich' on page 26 undefined on input line 92.
 
 
-LaTeX Warning: Reference `lem:o-dvou-straznicich' on page 26 undefined on input line 91.
+LaTeX Warning: Reference `lem:o-dvou-straznicich' on page 26 undefined on input line 92.
 
-[26])))
+[26])) (./function-limits/some-problems.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27]))
 \tf@thm=\write6
 \openout6 = `main.thm'.
 
- [27] (./main.aux)
+ [28] [29] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1561,21 +1564,21 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2A3B907800F0CA90343E2B88A40EB50C;851.
+(rerunfilecheck)             Checksum: F3AFD1B9037BE4F52630194868E34838;1084.
  ) 
 Here is how much of TeX's memory you used:
- 43616 strings out of 474104
- 890468 string characters out of 5743473
+ 44711 strings out of 474104
+ 912925 string characters out of 5743474
  1974493 words of memory out of 5000000
- 64953 multiletter control sequences out of 15000+600000
+ 66040 multiletter control sequences out of 15000+600000
  788086 words of font info for 207 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,11n,122p,1190b,1207s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,11n,122p,1190b,1227s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (27 pages, 1048621 bytes).
+Output written on main.pdf (29 pages, 1083878 bytes).
 PDF statistics:
- 441 PDF objects out of 1000 (max. 8388607)
- 345 compressed objects within 4 object streams
- 115 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 465 PDF objects out of 1000 (max. 8388607)
+ 366 compressed objects within 4 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 214 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,225 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[english,czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,decorations.text,
+ decorations.pathmorphing}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref, amsthm]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Math Homework -- PreIB 3.AB 2 \& 3}\\
+ \Large\textsf{Trigonometric Functions}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+Pro $x,y>0$ platí
+\[
+ \lim_{p \to 0} \sqrt[p]{\frac{x^{p}+y^{p}}{2}} = \sqrt{xy}.
+\]
+\begin{proof}
+ Spočteme nejprve limitu zprava. Položíme $r \coloneqq 1 / p$ a počítáme
+ \[
+  \lim_{p \to 0^{+}} \sqrt[p]{\frac{x^{p} + y^{p}}{2}} = \lim_{r \to \infty}
+  \left( \frac{\sqrt[r]{x} + \sqrt[r]{y}}{2} \right)^r.
+ \]
+ Upravíme
+ \[
+  \left( \frac{\sqrt[r]{x} + \sqrt[r]{y}}{2} \right)^{r} = \frac{x}{2^{r}}\left(
+  1 + \sqrt[r]{\frac{y}{x}} \right)^{r}.
+ \]
+ Položme $a \coloneqq y / x$. Ukážeme, že
+ \[
+  \lim_{r \to \infty} \frac{(1 + \sqrt[r]{a})^{r}}{2^{r}\sqrt{a}} = 1.
+ \]
+ Protože $\log$ je spojitá funkce na $(0,\infty)$ a výraz v limitě je vždy
+ kladný, je tato rovna $1$, právě když
+ \[
+  \lim_{r \to \infty} \log \frac{(1 + \sqrt[r]{a})^{r}}{2^{r}\sqrt{a}} = 0.
+ \]
+ Opět upravíme
+ \begin{equation*}
+  \label{eq:1}
+  \tag{$\heartsuit$}
+  \log \frac{(1 + \sqrt[r]{a})^{r}}{2^{r}\sqrt{a}} = r \cdot \log \frac{1 +
+  \sqrt[r]{a}}{2 \sqrt[2r]{a}} = \frac{\log \frac{1 + \exp \left( \frac{1}{r}
+  \log a \right)}{2\exp \left( \frac{1}{2r} \log a \right)}}{\frac{1}{r}}.
+ \end{equation*}
+ Jelikož $\lim_{r \to \infty} 1 / r = 0$ a $\exp$ je spojitá na $\R$, platí
+ $\lim_{r \to \infty} \exp((1 / r) \log a) = 1$. Potom též
+ \[
+  \lim_{r \to \infty} \log \frac{1 + \exp \left( \frac{1}{r} \log a
+  \right)}{2\exp \left( \frac{1}{2r} \log a \right)} = \log \frac{1 + 1}{2} =
+  \log 1 = 0.
+ \]
+ Na limitu pro $r \to \infty$ výrazu \eqref{eq:1} lze proto použít l'Hospitalovo
+ pravidlo. Máme
+ \begin{align*}
+  \left( \frac{1}{r} \right)' &= -\frac{1}{r^2},\\
+  \exp'\left( \frac{1}{cr} \log a \right) &= -\frac{1}{cr^2}\log a \cdot \exp
+  \left( \frac{1}{cr} \log a \right) \quad \text{pro $c \neq 0$},
+ \end{align*}
+ čili
+ \begin{align*}
+  \left( \frac{1 + \exp \left( \frac{1}{r} \log a \right)}{2 \exp \left(
+   \frac{1}{2r} \log a \right)} \right)' &= \frac{\frac{-2\log a}{r^2}\exp
+   \left( \frac{1}{r}\log a + \frac{1}{2r} \log a \right) + \frac{\log
+   a}{r^2}\exp\left(\frac{1}{2r}\log a\right) \cdot \left(1 + \exp \left(
+  \frac{1}{r}\log a \right) \right)}{4 \exp \left( \frac{1}{r} \log a \right)}\\
+                                         &= \frac{\frac{\log a}{r^2} \left( -2a
+                                         - 2 \exp \left( \frac{3}{2r} \right) +
+                                       2a + \exp \left( \frac{1}{2r} \right) +
+                                     \exp \left( \frac{3}{2r}
+                                   \right)\right)}{4\exp \left( \frac{1}{r}\log
+                                   a\right)}\\
+                                         &= \frac{\frac{\log a}{r^2} \left(
+                                         \exp \left( \frac{1}{2r} \right) - \exp
+                                       \left( \frac{3}{2r}
+                                     \right)\right)}{4\exp \left(
+                                     \frac{1}{r}\log a \right)}.
+ \end{align*}
+ Odtud
+ \begin{align*}
+  \frac{\left( \log \frac{1 + \exp \left( \frac{1}{r} \log a \right)}{2 \exp
+   \left( \frac{1}{2r} \log a \right)} \right)'}{\left( \frac{1}{r} \right)'} 
+   &=
+   -r^2 \cdot \frac{2\exp \left(\frac{1}{2r} \log a \right)}{1 + \exp \left(
+    \frac{1}{r} \log a \right)} \cdot \frac{\frac{\log a}{r^2} \left( \exp
+    \left( \frac{1}{2r} \right) - \exp \left( \frac{3}{2r} \right)
+  \right)}{4\exp \left( \frac{1}{r}\log a \right)}\\
+   &= -\log a \cdot \frac{2\exp \left( \frac{1}{2r} \log a \right)}{1 + \exp
+   \left( \frac{1}{r} \log a \right)} \cdot \frac{\exp \left( \frac{1}{2r}
+  \right) - \exp \left( \frac{3}{2r} \right)}{4\exp \left( \frac{1}{r} \log a
+ \right)}.
+ \end{align*}
+ Protože
+ \[
+  \lim_{r \to \infty} \exp \left( \frac{1}{cr}\log a \right) = 1,
+ \]
+ spočteme
+ \[
+  \lim_{r \to \infty} -\log a \cdot \frac{2\exp \left( \frac{1}{2r} \log a
+  \right)}{1 + \exp \left( \frac{1}{r} \log a \right)} \cdot \frac{\exp \left(
+  \frac{1}{2r} \right) - \exp \left( \frac{3}{2r} \right)}{4\exp \left(
+\frac{1}{r} \log a \right)} = -\log a \cdot \frac{2 \cdot 1}{1 + 1} \cdot
+\frac{1 - 1}{4 \cdot 1} = 0,
+ \]
+ jak jsme chtěli.
+
+ Teď víme, že
+ \[
+  \lim_{r \to \infty} \frac{(1 + \sqrt[r]{a})^{r}}{2^{r}\sqrt{a}} = 1.
+ \]
+ Takže
+ \[
+  \lim_{p \to 0^{+}} \sqrt[p]{\frac{x^{p} + y^{p}}{2}} = \lim_{r \to \infty}
+  \frac{x}{2^{r}}\left(1 + \sqrt[r]{\frac{y}{x}} \right)^{r} = \lim_{r \to
+  \infty} \frac{x}{2^r} \cdot 2^{r} \sqrt{\frac{y}{x}} = \sqrt{xy},
+ \]
+ čímž je důkaz hotov pro limitu zprava.
+
+ Pro limitu zleva platí
+ \[
+  \lim_{p \to 0^{-}} \sqrt[p]{\frac{x^{p} + y^{p}}{2}} = \lim_{p \to 0^{+}}
+  \sqrt[-p]{\frac{x^{-p} + y^{-p}}{2}} = \lim_{p \to 0^{+}}
+  \frac{1}{\sqrt[p]{\frac{x^{-p} + y^{-p}}{2}}}.
+ \]
+ Po substituci $a \coloneqq x^{-1}$ a $b \coloneqq y^{-1}$ dostaneme
+ \[
+  \lim_{p \to 0^{+}} \frac{1}{\sqrt[p]{\frac{a^{p} + b^{p}}{2}}} =
+  \frac{1}{\sqrt{ab}} = \sqrt{xy},
+ \]
+ kde první rovnost plyne z předchozího výpočtu. Důkaz je hotov.
+\end{proof}
+
+\end{document}

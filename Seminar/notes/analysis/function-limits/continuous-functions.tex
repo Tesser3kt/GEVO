@@ -3,7 +3,7 @@
 
 Vlastnost spojitosti funkce či zobrazení je zcela jistě tou nejdůležitější
 především v topologii (disciplíně zpytující \uv{tvar} prostoru), kde se vlastně
-s jinými zobrazením než spojitými vůbec nepracuje.
+s jinými zobrazeními než spojitými v obec nepracuje.
 
 Intuitivně je zobrazení \emph{spojité} v moment, kdy zobrazuje souvislé části
 prostoru na souvislé části prostoru. Souvislostí se zde myslí vlastnost
@@ -36,8 +36,8 @@ jiného bodu existuje cesta (křivka v prostoru), která tuto podmnožinu neopus
  \label{fig:souvisla-podmnozina}
 \end{figure}
 
-Spojité zobrazení lze tudíž definovat tím způsobem, že dva obrazy bodů lze vždy
-spojit křivkou, která neopouští obraz souvislé podmnožiny, ve které leží jejich
+Spojité zobrazení lze tudíž definovat tím způsobem, že dva obrazy lze vždy
+spojit křivkou, která neopouští obraz souvislé podmnožiny obsahující jejich
 vzory. Jednodušeji, spojité zobrazení nesmí \uv{roztrhnout} souvislou podmnožinu
 prostoru, i když do ní může například \uv{udělat díry}.
 
@@ -93,8 +93,9 @@ prostoru, i když do ní může například \uv{udělat díry}.
 
 V první dimenzi je situace pochopitelně výrazně jednodušší. Souvislou
 podmnožinou $\R$ je \emph{interval}, a tedy spojité zobrazení je takové, které
-zobrazuje interval na interval. Takto se však, primárně z~technických důvodů,
-spojité zobrazení obyčejně nedefinuje a vlastnost zachování intervalu se musí
+zobrazuje interval na interval. Díry v intervalu zřejmě není možné dělat bez
+téhož kompletního roztržení. Takto se však, primárně z~důvodův technických,
+spojité zobrazení obyčejně nedefinuje a vlastnost zachování intervalu dlužno
 dokázat.
 
 Pojem \hyperref[def:oboustranna-limita-funkce]{limity funkce} umožňuje definovat
@@ -191,7 +192,7 @@ tj. nedělá žádné \uv{skoky}.
 \end{definition}
 
 Nyní se jmeme dokázat, že spojité funkce na intervalu (souvislé množině) mají
-skutečně ony přirozené vlastnosti, pomocí nichž jsme je popsali v úvodu do
+skutečně ony přirozené vlastnosti, jimiž jsme je popsali v úvodu do
 \hyperref[sec:spojite-funkce]{této sekce}. Konkrétně dokážeme, že spojité funkce
 zobrazují interval na interval. K tomu poslouží ještě jedno pomocné tvrzení,
 známé též pod přespříliš honosným názvem \uv{Bolzanova věta o nabývání
@@ -224,7 +225,7 @@ mezihodnot}.
  Celkem vedly obě ostré nerovnosti ke sporu, tudíž $f(S) = y$ a důkaz je hotov.
 \end{thmproof}
 
-\begin{corollary}{}{}
+\begin{corollary}{}{spojita-interval}
  Ať $f: I \to \R$ je funkce spojitá na intervalu $I \subseteq \R$. Pak $f(I)$ je
  interval.
 \end{corollary}

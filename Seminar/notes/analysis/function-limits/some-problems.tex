@@ -1,0 +1,110 @@
+\section{Vybrané úlohy o limitách funkcí}
+\label{sec:vybrane-ulohy-o-limitach-funkci}
+
+Účelem této \uv{přiložené} sekce je ukázat na vybraných příkladech a úlohách
+obvyklé metody práce s limitami funkcí. Doufáme, že čtenářům dobře poslouží při
+uchápění tohoto tématu, snad náročnějšího k vnětí než limity posloupností a
+součty řad.
+
+\begin{example}{}{periodicka-slozeno-rostouci}
+ Ať $g$ je rostoucí a spojitá funkce na $[1,\infty)$ s $\lim_{x \to \infty} g(x)
+ = \infty$ a $f$ je \textbf{nekonstantní periodická} funkce na $\R$. Pak
+ $\lim_{x \to \infty} (f \circ g)(x)$ neexistuje.
+
+ Pro důkaz neexistence limity máme (pochopitelně kromě samotné
+ \hyperref[def:oboustranna-limita-funkce]{definice}) zatím pouze dva nástroje --
+ \hyperref[def:jednostranna-limita-funkce]{jednostranné limity} a
+ \hyperref[thm:heineho]{Heineho větu}. Protože limitním bodem je $\infty$,
+ použití jednostranných limit není možné. Zkusíme tedy
+ \hyperref[thm:heineho]{Heineho větu}.
+
+ Nejprve si uvědomíme, že z \myref{důsledku}{cor:spojita-interval} je
+ $g([1,\infty))$ je interval. Tento navíc není shora omezen, bo $\lim_{x \to
+ \infty} g(x) = \infty$. Na oba tyto fakty se budeme vícekrát odvolávat. Označme
+ rovněž písmenem $p > 0$ periodu funkce $f$.
+
+ Položme nyní $x_0 \coloneqq 1$ a označme $y_0 \coloneqq g(x_0)$, $A \coloneqq
+ f(y_0)$. Induktivně sestrojíme posloupnosti $x:\N \to [1,\infty)$ a $y:\N \to
+ \R$. Předpokládejme, že jsou dány členy $x_0,\ldots,x_k$ a $y_0,\ldots,y_k$,
+ kde $y_i = g(x_i)$ pro každé $i \leq k$. Položíme $y_{k+1} \coloneqq y_k + p$.
+ Potom $f(y_{k+1}) = f(y_k)$. Protože $g([1,\infty)) = [y_0,\infty)$ a $y_{k+1}
+ > y_0$, nalezneme $x_{k+1} \in [1,\infty)$ takové, že $g(x_{k+1}) = y_{k+1}$.
+ Jelikož $g$ je rostoucí a
+ \[
+  g(x_{k+1}) = y_{k+1} > y_k = g(x_k),
+ \]
+ rovněž $x_{k+1} > x_k$. Celkem máme $x_{n+1} > x_n$ pro každé $n \in \N$, čili
+ $\lim_{n \to \infty} x_n = \infty$. Rovněž
+ \[
+  \lim_{n \to \infty} (f \circ g)(x_n) = \lim_{n \to \infty} f(y_n) = \lim_{n
+  \to \infty} A = A,
+ \]
+ neboť členy posloupnosti $y$ jsou od sebe vzdáleny o periodu $p$ funkce $f$.
+
+ Konečně, nalezneme jinou posloupnost $\tilde{x}:\N \to [1,\infty)$ takovou, že
+ $\lim_{n \to \infty} (f \circ g)(\tilde{x}_n) \neq A$, čímž završíme důkaz.
+ Volme libovolné $0 < \varepsilon < p$. K tomuto $\varepsilon$ nalezneme
+ $\delta>0$ takové, že
+ \[
+  |g(x_0 + \delta) - g(x_0)| < \varepsilon.
+ \]
+ Toto $\delta$ vskutku existuje pro to, že $g$ je rostoucí -- tudíž $g(x_0 +
+ \delta) > g(x_0)$ -- a spojitá -- tudíž dvě různé funkční hodnoty lze volit
+ nekonečně blízké.
+
+ Položíme $\tilde{x}_0 \coloneqq x_0 + \delta$ a $\tilde{y}_0 \coloneqq
+ g(\tilde{x}_0)$. Potom $f(\tilde{y}_0) = B \neq A$, ježto $\tilde{y}_0 \in
+ (y_0, y_0 + p)$. Podobně jako dříve sestrojíme posloupnost $\tilde{x}_n$
+ takovou, že $\lim_{n \to \infty} \tilde{x}_n = \infty$ a $(f \circ
+ g)(\tilde{x}_n) = B$ pro každé $n \in \N$.
+
+ Potom ale platí
+ \[
+  \lim_{n \to \infty} (f \circ g)(\tilde{x}_n) = B \neq A = \lim_{n \to \infty}
+  (f \circ g)(x_n),
+ \]
+ čili z \hyperref[thm:heineho]{Heineho věty} $\lim_{x \to \infty} (f \circ
+ g)(x)$ neexistuje.
+\end{example}
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=-1,xmax=8,ymin=-1.5,ymax=1.5]
+  \tkzDrawX[label=]
+  \tkzDrawY[label=]
+
+  \draw[color=Fuchsia,thick,smooth,domain=0:7.5,samples=1000] plot
+   (\x,{abs(sin(deg(\x)))}) node[above] {$\clm{f}$};
+  \tkzDefPoints{1.5708/0/y0,4.7124/0/y1}
+  \tkzDefPoints{2.6179/0/yt0,5.7596/0/yt1}
+  \tkzDefPoints{1.5708/1/A1,4.7124/1/A2}
+  \tkzDefPoints{2.6179/0.5/B1,5.7596/0.5/B2}
+
+  \tkzDrawSegments[dashed](y0,A1 y1,A2 yt0,B1 yt1,B2)
+
+  \tkzDrawPoints[size=4,color=BrickRed](y0,y1)
+  \tkzDrawPoints[size=4,color=RoyalBlue](yt0,yt1)
+
+  \tkzLabelPoint[below=1mm](y0){$\clr{y_0}$}
+  \tkzLabelPoint[below=1mm](y1){$\clr{y_1}$}
+  \tkzLabelPoint[below=1mm](yt0){$\clb{\tilde{y}_0}$}
+  \tkzLabelPoint[below=1mm](yt1){$\clb{\tilde{y}_1}$}
+
+  \tkzDrawPoints[size=4,color=Fuchsia](A1,A2,B1,B2)
+  \tkzLabelPoint[above=1mm](A1){$\clm{A}$}
+  \tkzLabelPoint[above=1mm](A2){$\clm{A}$}
+  \tkzLabelPoint[above=1mm](B1){$\clm{B}$}
+  \tkzLabelPoint[above=1mm](B2){$\clm{B}$}
+
+  \draw[decorate,decoration={brace,raise=6mm,mirror,amplitude=10pt}] (y0) --
+   (y1) node[pos=0.5,below=9mm] {$p$};
+  \draw[decorate,decoration={brace,raise=1.5mm,amplitude=5pt}] (y0) -- (yt0)
+   node[pos=0.5,above=2.5mm] {$\varepsilon$};
+ \end{tikzpicture}
+
+ \caption{Posloupnosti $\clr{y}$ a $\clb{\tilde{y}}$ z
+ \myref{příkladu}{exam:periodicka-slozeno-rostouci}.}
+ \label{fig:periodicka-slozeno-rostouci}
+\end{figure}
+
