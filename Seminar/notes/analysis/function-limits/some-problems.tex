@@ -109,8 +109,9 @@ součty řad.
 \end{figure}
 
 \begin{example}{Singularity funkce}{singularity-funkce}
- Ať $a \in \R$ a $f$ je reálná funkce definovaná aspoň na prstencovém okolí bodu
- $a$. Předpokládejme, že $f$ není spojitá v $a$. Pak řekneme, že $f$ má v $a$
+ Ať $a \in M$ a $f:M \to \R$ je reálná funkce definovaná aspoň na prstencovém
+ okolí bodu $a$. Předpokládejme, že $f$ není spojitá v $a$. Pak řekneme, že $f$
+ má v $a$
  \begin{itemize}
   \item \textbf{odstranitelnou singularitu}, když existuje konečná
    $\lim_{x \to a} f(x)$. V tomto případě můžeme dodefinovat $f(a) \coloneqq
@@ -137,5 +138,44 @@ součty řad.
  Ukážeme, že aspoň pro funkce jedné \emph{reálné} proměnné, jimiž se v tomto
  textu zabýváme, jsou množiny všech odstranitelných singularit i pólů spočetné.
 
- Začněmež odstranitelnými singularitami. 
+ Obě tvrzení můžeme dokázat současně spočítajíce všechny body $a \in \R$, v
+ nichž existují $\lim_{x \to a^{+}} f(x)$ i $\lim_{x \to a^{-}} f(x)$.
+ Nerovnají-li se tyto, jedná se o pól, jinak o odstranitelnou singularitu.
+
+ Položme
+ \[
+  S \coloneqq \{a \in \R \mid \lim_{x \to a^{+}} f(x) \text{ i } \lim_{x \to
+  a^{-}} f(x) \text{ existují}\}
+ \]
+ a vezměme libovolné $a \in S$. Protože existuje $\lim_{x \to a^{-}} f(x)$, musí
+ být $f$ na jistém levém prstencovém okolí $a$ spojitá. Existuje tedy
+ $\delta_a^{-}>0$ takové, že $f$ je spojitá v každém bodě $R_-(a,\delta_a^{-})$.
+ Podobně, z existence $\lim_{x \to a^{+}} f(x)$ nalezneme $\delta_a^{+} > 0$, že
+ $f(x)$ je spojitá všude na $R_+(a,\delta_a^{+})$. Položíme $\delta_a \coloneqq
+ \min(\delta_a^{+},\delta_a^{-})$. Pak je $f$ spojitá všude na $R(a,\delta_a)$.
+
+ Dále nahlédněme, že pro všechna $S \ni b \neq a$ platí $b \notin
+ R(a,\delta_a)$, jelikož $f$ není spojitá v $b$. Odtud plyne, že můžeme pro
+ každý pár $a,b \in S$ volit $\delta_a,\delta_b$ tak malá, že $R(a,\delta_a)
+ \cap R(b,\delta_b) = \emptyset$. Definujme zobrazení
+ \begin{align*}
+  \xi: S &\to \{R(a,\delta_a) \mid a \in S\},\\
+  a &\mapsto R(a,\delta_a).
+ \end{align*}
+ Zobrazení $\xi$ je zřejmě na, neboť každé prstencové okolí $R(a,\delta_a)$
+ přísluší nějaké singularitě $a \in S$. Je rovněž prosté, protože prstencová
+ okolí byla volena tak, že $R(a,\delta_a) \cap R(b,\delta_b) = \emptyset$,
+ kdykoli $a \neq b$. Tudíž, $S$ je spočetná právě tehdy, když $\{R(a,\delta_a)
+ \mid a \in S\}$ je spočetná.
+
+ Podle \myref{tvrzení}{prop:hustota-q-v-r} jsou $\Q$ hustá v $\R$, a tedy pro
+ každé $a \in S$ existuje racionální číslo $q_a \in R(a,\delta_a)$. Protože jsou
+ $R(a,\delta_a)$ vzájemně disjunktní, je rovněž zobrazení
+ \begin{align*}
+  \psi: \{R(a,\delta_a) \mid a \in S\} &\to \{q_a \mid a \in S\},\\
+  R(a,\delta_a) & \mapsto q_a
+ \end{align*}
+ bijekcí. Zřejmě $\{q_a \mid a \in S\} \subseteq \Q$, a tedy je tato množina
+ spočetná. To dokazuje, že $\{R(a,\delta_a) \mid a \in S\}$ a tím pádem i $S$
+ jsou spočetné.
 \end{example}

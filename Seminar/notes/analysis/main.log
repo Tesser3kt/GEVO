@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.16)  29 APR 2024 14:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.16)  30 APR 2024 15:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1549,13 +1549,20 @@ LaTeX Warning: Reference `lem:o-dvou-straznicich' on page 26 undefined on input 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [27]
+
+LaTeX Warning: Hyper reference `prop:hustota-q-v-r' on page 28 undefined on input line 171.
+
+
+LaTeX Warning: Reference `prop:hustota-q-v-r' on page 28 undefined on input line 171.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28]))
+ [28] [29]))
 \tf@thm=\write6
 \openout6 = `main.thm'.
 
- [29] (./main.aux)
+ [30] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1568,18 +1575,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: F3AFD1B9037BE4F52630194868E34838;1084.
  ) 
 Here is how much of TeX's memory you used:
- 44696 strings out of 474148
- 912603 string characters out of 5744901
+ 44699 strings out of 474148
+ 912646 string characters out of 5744901
  1973995 words of memory out of 5000000
- 65987 multiletter control sequences out of 15000+600000
+ 65989 multiletter control sequences out of 15000+600000
  788086 words of font info for 207 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,11n,122p,1190b,1227s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,11n,122p,1190b,1245s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (29 pages, 1087194 bytes).
+Output written on main.pdf (30 pages, 1092216 bytes).
 PDF statistics:
- 468 PDF objects out of 1000 (max. 8388607)
- 369 compressed objects within 4 object streams
- 121 named destinations out of 1000 (max. 500000)
+ 472 PDF objects out of 1000 (max. 8388607)
+ 372 compressed objects within 4 object streams
+ 122 named destinations out of 1000 (max. 500000)
  214 words of extra memory for PDF output out of 10000 (max. 10000000)
 

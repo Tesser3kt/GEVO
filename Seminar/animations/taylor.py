@@ -51,7 +51,7 @@ class Taylor(Scene):
             remainder_graph_1,
             label=MathTex("R_1(x) = |f(x) - T_1(x)|", font_size=36, color=YELLOW),
             x_val=2 / 3,
-        )
+        ).shift(0.3 * UP)
         self.play(Create(remainder_graph_1), Write(remainder_label_1))
         self.wait(2)
 
@@ -65,9 +65,9 @@ class Taylor(Scene):
         remainder_2_graph = FunctionGraph(remainder_2, color=YELLOW, x_range=[-0.99, 4])
         remainder_2_label = axes.get_graph_label(
             remainder_2_graph,
-            label=MathTex("R_2(x) = f(x) - T_2(x)", font_size=36, color=YELLOW),
+            label=MathTex("R_2(x) = |f(x) - T_2(x)|", font_size=36, color=YELLOW),
             x_val=2 / 3,
-        )
+        ).shift(0.3 * RIGHT)
 
         self.play(
             Transform(taylor_graph_1, taylor_graph_2),
@@ -91,14 +91,40 @@ class Taylor(Scene):
         remainder_3_graph = FunctionGraph(remainder_3, color=YELLOW, x_range=[-0.99, 4])
         remainder_3_label = axes.get_graph_label(
             remainder_3_graph,
-            label=MathTex("R_3(x) = f(x) - T_3(x)", font_size=36, color=YELLOW),
+            label=MathTex("R_3(x) = |f(x) - T_3(x)|", font_size=36, color=YELLOW),
             x_val=2 / 3,
-        ).shift(0.5 * DOWN)
+        ).shift(0.5 * UP)
 
         self.play(
             Transform(taylor_graph_1, taylor_graph_3),
             Transform(taylor_label_1, taylor_label_3),
             Transform(remainder_graph_1, remainder_3_graph),
             Transform(remainder_label_1, remainder_3_label),
+        )
+        self.wait(2)
+
+        # Taylor 4
+        taylor_graph_4 = FunctionGraph(taylor_4, color=ORANGE, x_range=[-4, 4])
+        taylor_label_4 = axes.get_graph_label(
+            taylor_graph_4,
+            label=MathTex(
+                "T_4(x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\frac{x^4}{4}",
+                font_size=36,
+                color=ORANGE,
+            ),
+            x_val=2 / 3,
+        ).shift(0.2 * RIGHT)
+        remainder_4_graph = FunctionGraph(remainder_4, color=YELLOW, x_range=[-0.99, 4])
+        remainder_4_label = axes.get_graph_label(
+            remainder_4_graph,
+            label=MathTex("R_4(x) = |f(x) - T_4(x)|", font_size=36, color=YELLOW),
+            x_val=2 / 3,
+        ).shift(0.5 * LEFT)
+
+        self.play(
+            Transform(taylor_graph_1, taylor_graph_4),
+            Transform(taylor_label_1, taylor_label_4),
+            Transform(remainder_graph_1, remainder_4_graph),
+            Transform(remainder_label_1, remainder_4_label),
         )
         self.wait(2)
