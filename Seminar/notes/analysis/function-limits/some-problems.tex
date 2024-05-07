@@ -138,44 +138,70 @@ součty řad.
  Ukážeme, že aspoň pro funkce jedné \emph{reálné} proměnné, jimiž se v tomto
  textu zabýváme, jsou množiny všech odstranitelných singularit i pólů spočetné.
 
- Obě tvrzení můžeme dokázat současně spočítajíce všechny body $a \in \R$, v
- nichž existují $\lim_{x \to a^{+}} f(x)$ i $\lim_{x \to a^{-}} f(x)$.
- Nerovnají-li se tyto, jedná se o pól, jinak o odstranitelnou singularitu.
-
- Položme
+ K důkazu prvního tvrzení uvažme množiny
  \[
-  S \coloneqq \{a \in \R \mid \lim_{x \to a^{+}} f(x) \text{ i } \lim_{x \to
-  a^{-}} f(x) \text{ existují}\}
+  A \coloneqq \{x \in \R \mid \lim_{t \to x} f(t) < f(x)\} \quad \text{a} \quad
+  B \coloneqq \{x \in \R \mid \lim_{t \to x} f(t) > f(x)\}.
  \]
- a vezměme libovolné $a \in S$. Protože existuje $\lim_{x \to a^{-}} f(x)$, musí
- být $f$ na jistém levém prstencovém okolí $a$ spojitá. Existuje tedy
- $\delta_a^{-}>0$ takové, že $f$ je spojitá v každém bodě $R_-(a,\delta_a^{-})$.
- Podobně, z existence $\lim_{x \to a^{+}} f(x)$ nalezneme $\delta_a^{+} > 0$, že
- $f(x)$ je spojitá všude na $R_+(a,\delta_a^{+})$. Položíme $\delta_a \coloneqq
- \min(\delta_a^{+},\delta_a^{-})$. Pak je $f$ spojitá všude na $R(a,\delta_a)$.
+ Platí, že množina odstranitelných singularit $f$ je rovna $A \cup B$. Zjevně
+ tedy stačí dokázat, že každá z obou množin je spočetná. Provedeme onen důkaz
+ pro množinu $A$, pro $B$ lze vést analogicky.
 
- Dále nahlédněme, že pro všechna $S \ni b \neq a$ platí $b \notin
- R(a,\delta_a)$, jelikož $f$ není spojitá v $b$. Odtud plyne, že můžeme pro
- každý pár $a,b \in S$ volit $\delta_a,\delta_b$ tak malá, že $R(a,\delta_a)
- \cap R(b,\delta_b) = \emptyset$. Definujme zobrazení
- \begin{align*}
-  \xi: S &\to \{R(a,\delta_a) \mid a \in S\},\\
-  a &\mapsto R(a,\delta_a).
- \end{align*}
- Zobrazení $\xi$ je zřejmě na, neboť každé prstencové okolí $R(a,\delta_a)$
- přísluší nějaké singularitě $a \in S$. Je rovněž prosté, protože prstencová
- okolí byla volena tak, že $R(a,\delta_a) \cap R(b,\delta_b) = \emptyset$,
- kdykoli $a \neq b$. Tudíž, $S$ je spočetná právě tehdy, když $\{R(a,\delta_a)
- \mid a \in S\}$ je spočetná.
+ Protože jsou \hyperref[cor:hustota-q-v-r]{$\Q$ hustá v $\R$}, nalezneme pro
+ každé $x \in A$ racionální číslo $r_x \in \Q$ takové, že
+ \[
+  \lim_{t \to x} f(t) < r_x < f(x).
+ \]
+ Pak platí $A = \bigcup_{r \in \Q} A_r$, kde
+ \[
+  A_r = \{x \in A \mid r_x = r\}.
+ \]
+ Dokážeme, že každá z množin $A_r$ je spočetná. Volme $r \in \Q$. Protože
+ $\lim_{t \to x} f(t) < r$ pro každé $x \in A_r$, nalezneme $\delta_x$ takové,
+ že pro $t \in R(x,\delta_x)$ platí $f(t) < r$. Dále nahlédneme, že pro každé
+ $x \neq y \in A_r$ platí
+ \[
+  (x - \frac{1}{2}\delta_x, x + \frac{1}{2}\delta_x) \cap
+  (y-\frac{1}{2}\delta_y,y+\frac{1}{2}\delta_y) = \emptyset.
+ \]
+ Pro spor ať platí opak. Nalezneme $x \neq y \in A_r$ taková, že $|x-y|<\delta_x
+ / 2 + \delta_y / 2$. Jest-li $\delta_x \leq \delta_y$, pak $|x-y| \leq
+ \delta_y$, čili $f(x) < r_y = r$, neboť $x \in P(y,\delta_y)$. Z definice $r_x$
+ však také $f(x) > r_x = r$, což je spor. Případ $\delta_x > \delta_y$ vede
+ rovněž ke sporu na základě obdobného argumentu. Odtud plyne, že $A_r$ je
+ spočetná, bo každý bod $A_r$ má kolem sebe okolí, v němž neleží žádné jiné body
+ $A_r$. To mimo jiné znamená, že bodů $A_r$ je nejvýše tolik, jak racionálních
+ čísel, tj. spočetně. Ježto $A = \bigcup_{r \in \Q} A_r$, je i $A$ spočetná.
 
- Podle \myref{tvrzení}{prop:hustota-q-v-r} jsou $\Q$ hustá v $\R$, a tedy pro
- každé $a \in S$ existuje racionální číslo $q_a \in R(a,\delta_a)$. Protože jsou
- $R(a,\delta_a)$ vzájemně disjunktní, je rovněž zobrazení
+ Nyní dokážeme, že $f$ má i spočetně pólů. Definujme opět množiny
  \begin{align*}
-  \psi: \{R(a,\delta_a) \mid a \in S\} &\to \{q_a \mid a \in S\},\\
-  R(a,\delta_a) & \mapsto q_a
+  U &\coloneqq \{x \in \R \mid \lim_{t \to x^{-}} f(t) < \lim_{t \to x^{+}}
+  f(t)\},\\
+   V &\coloneqq \{x \in \R \mid \lim_{t \to x^{-}} f(t) > \lim_{t \to x^{+}}
+   f(t)\}.
  \end{align*}
- bijekcí. Zřejmě $\{q_a \mid a \in S\} \subseteq \Q$, a tedy je tato množina
- spočetná. To dokazuje, že $\{R(a,\delta_a) \mid a \in S\}$ a tím pádem i $S$
- jsou spočetné.
+ Množina pólů funkce $f$ je rovna $U \cup V$. Je třeba ukázat, že každá z množin
+ $U,V$ je spočetná. Důkaz pro $U$ bude zjevně symetrický důkazu pro $V$, budeme
+ se tudíž zabývat pouze množinou $U$. Pro každé $x \in U$ nalezneme $r_x \in \Q$
+ takové, že
+ \[
+  \lim_{t \to x^{-}} f(t) < r_x < \lim_{t \to x^{+}} f(t).
+ \]
+ Pak jistě $U = \bigcup_{r \in \Q} U_r$, kde
+ \[
+  U_r \coloneqq \{x \in U \mid r_x = r\}.
+ \]
+ Ukážeme, že každá $U_r,r \in \Q$, je spočetná. Pro každé $x \in U_r$ nalezneme
+ $\delta_x>0$ takové, že
+ \begin{align*}
+  \forall t \in R_-(x,\delta_x)&: f(t) < r,\\
+  \forall t \in R_+(x,\delta_x)&:f(t) > r.
+ \end{align*}
+ Podobně jako v důkazu spočetnosti množiny odstranitelných singularit lze snadno
+ ukázat, že
+ \[
+  (x,x+\delta_x) \cap (y-\delta_y,y) = \emptyset
+ \]
+ pro každá dvě $x \neq y \in U_r$, z čehož plyne, že $U_r$ -- a posléze i $U$ --
+ je spočetná.
 \end{example}
