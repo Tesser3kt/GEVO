@@ -1,0 +1,173 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+\usepackage{circuitikz}
+\ctikzset{
+ logic ports=ieee,
+ logic ports/scale=0.7,
+}
+
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+% Title %
+\title{\Huge\textsf{Linear Equations}\\
+ \Large\textsf{Scales, Lines \& Functions}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\section*{Hardware -- úloha 2}
+
+Určete výstupy (všechny) nakresleného logického obvodu pro uvedené vstupy.
+Postup řešení musíte být schopni řádně vysvětlit.
+
+\begin{center}
+ \begin{circuitikz}
+  \node[circle,draw,thick,inner sep=2pt] (i1) at (0, 2) {};
+  \node[left=1mm of i1] {$\tb{0}$};
+
+  \node[circle,draw,thick,inner sep=2pt] (i2) at (0, 0) {};
+  \node[left=1mm of i2] {$\tb{1}$};
+
+  \node[circle,draw,thick,inner sep=2pt] (i3) at (0, -2) {};
+  \node[left=1mm of i3] {$\tb{0}$};
+
+  \node[and port,anchor=in 1] (AND1) at (3, 2) {};
+  \node[nand port,anchor=in 2] (NAND1) at (3, -2) {};
+  
+  \draw (i1) -- (AND1.in 1);
+  \draw (i3) -- (NAND1.in 2);
+  
+  \node[fill=black,draw,inner sep=3pt] (s1) at (2,0) {};
+  \draw (i2) -- (s1);
+  \draw (s1) |- (AND1.in 2);
+  \draw (s1) |- (NAND1.in 1);
+
+  \node[not port,anchor=in] (NOT1) at (3,0) {};
+  \draw (s1) -- (NOT1.in);
+  
+  \node[nand port,anchor=out] (NAND2) at (6.5,1) {};
+  \draw (AND1.out) |- (NAND2.in 1);
+  \draw (NOT1.out) |- (NAND2.in 2);
+  
+  \node[and port,anchor=in 2] (AND2) at (9, -1.8) {};
+  \node[fill=black,draw,inner sep=3pt] (s2) at (8,1) {};
+  
+  \draw (NAND2.out) -- (s2);
+  \draw (s2) |- (AND2.in 1);
+  \draw (NAND1.out) -- (AND2.in 2);
+  
+  \node[circle,draw,thick,inner sep=2pt] (o1) at (12, 1) {};
+  \node[right=1mm of o1] {$\tr{?}$};
+
+  \node[circle,draw,thick,inner sep=2pt] (o2) at (12, -1.6) {};
+  \node[right=1mm of o2] {$\tr{?}$};
+
+  \draw (s2) -- (o1);
+  \draw (AND2.out) -- (o2);
+ \end{circuitikz}
+\end{center}
+
+\begin{center}
+ \begin{circuitikz}
+  \node[and port] (AND) at (0,0) {};
+  \node[right=1mm of AND] {$=$};
+  \node[right=6mm of AND] {AND};
+
+  \node[not port] (NOT) at (4,0) {};
+  \node[right=1mm of NOT] {$=$};
+  \node[right=6mm of NOT] {NOT};
+
+  \node[nand port] (NAND) at (8,0) {};
+  \node[right=1mm of NAND] {$=$};
+  \node[right=6mm of NAND] {NAND};
+ \end{circuitikz}
+\end{center}
+\end{document}

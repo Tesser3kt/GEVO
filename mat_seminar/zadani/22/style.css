@@ -1,0 +1,42 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.content {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.slideshow-wrapper {
+	width: 800px;
+	padding: 32px;
+}
+
+.slideshow-buttons {
+	display: flex;
+	justify-content: center;
+}
+
+.slideshow img {
+	width: 800px;
+	object-fit: contain;
+	border: 2px solid gray;
+	margin-bottom: 16px;
+}
+
+.slideshow button {
+	height: 32px;
+	cursor: pointer;
+}
+
+#img-2 {
+	display: none;
+}
+
+button#right {
+	margin-left: 16px;
+}
