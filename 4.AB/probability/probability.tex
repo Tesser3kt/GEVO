@@ -2019,12 +2019,17 @@
  the number of successes).
  \vspace*{-1em}
  \begin{align*}
-  f(x) &= P(X = x) = \binom{n}{x} p^{x} (1-p)^{n-x},\\
-  F(x) &= P(X \leq x) = \sum_{k=0}^x \binom{n}{k} p^{k}(1-p)^{n-k},\\
+  f(x) &= P(X = k) = \binom{n}{k} p^{k} (1-p)^{n-k},\\
+  F(x) &= P(X \leq k) = \sum_{a=0}^k \binom{n}{k} p^{k}(1-p)^{n-k},\\
   E(X) &= \sum_{k=0}^n k \cdot f(k) = \sum_{k=0}^n k \cdot \binom{n}{k}
   p^{k}(1-p)^{n-k} = n \cdot p,\\
   \var(X) &= \sum_{k=0}^n (k-E(X))^2 \cdot f(k) = n \cdot p \cdot (1-p).
  \end{align*}
+\end{frame}
+
+\begin{frame}
+ \frametitle{The Multinomial Distribution}
+ The final `\alert{upgrade}' 
 \end{frame}
 
 \end{document}
