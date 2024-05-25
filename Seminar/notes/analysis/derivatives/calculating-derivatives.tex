@@ -1,0 +1,57 @@
+\section{Metody výpočtu derivací}
+\label{sec:metody-vypoctu-derivaci}
+
+Tato sekce shrnuje základní tvrzení, která činí z výpočtu derivací překvapivě
+silně algoritmický proces, přirozeně za předpokladu znalosti derivací jistých
+\uv{běžných} funkcí.
+
+Začneme tím, jak se derivace chová vzhledem ke součtu, součinu a podílu funkcí.
+
+\begin{theorem}{Aritmetika derivací}{aritmetika-derivaci}
+ Ať $f,g:M \to \R$ jsou reálné funkce a $a \in M$. Pak platí
+ \begin{enumerate}
+  \item $(f + g)'(a) = f'(a) + g'(a)$, dává-li pravá strana smysl;
+  \item $(f \cdot g)'(a) = f'(a)g(a) + f(a)g'(a)$, dává-li pravá strana smysl,
+   $g$ je spojitá v $a$ platí $g(a) \neq 0$;
+  \item $(f / g)'(a) = \frac{f'(a)g(a) - f(a)g'(a)}{g^2(a)}$, dává-li pravá
+   strana smysl a $f / g$ je spojitá v $a$.
+ \end{enumerate}
+\end{theorem}
+\begin{thmproof}
+ Podobně jako tomu bylo i v případě \hyperref[thm:aritmetika-limit]{věty o
+ aritmetice limit}, je důkaz tohoto tvrzení zdlouhavý a výpočetní. Důkaz bodu
+ (1) je triviální a bodu (2) snadný; jsou pročež přenechány čtenáři. Dokážeme
+ bod (3).
+
+ Protože $f / g$ je z předpokladu spojitá v $a$, nalezneme $\delta>0$ takové, že
+ $g$ je nenulová na $B(a,\delta)$. Pro $x \in B(a,\delta)$ počítáme
+ \begin{align*}
+  \frac{f(x)}{g(x)} - \frac{f(a)}{g(a)} &= \frac{f(x)g(a) -
+  f(a)g(x)}{g(x)g(a)}\\
+                                        &= \frac{f(x)g(a) - f(a)g(a) + f(a)g(a)
+                                        - f(a)g(x)}{g(x)g(a)}\\
+                                        &= \frac{1}{g(x)g(a)}\left( (f(x) -
+                                        f(a))g(a) - f(a)(g(x) - g(a)) \right).
+ \end{align*}
+ Pak
+ \begin{align*}
+  \left( \frac{f}{g} \right)'(a) &= \lim_{x \to a} \frac{1}{x-a}\left(
+  \frac{f(x)}{g(x)} - \frac{f(a)}{g(a)} \right)\\
+                                 &= \lim_{x \to a} \frac{1}{g(x)g(a)}\left(
+                                 \frac{f(x) - f(a)}{x-a}g(a) - f(a) \frac{g(x) -
+                                g(a)}{x-a} \right)\\
+                                 &= \lim_{x \to a} \frac{1}{g(x)g(a)}\left(
+                                 \lim_{x \to a} \frac{f(x) - f(a)}{x-a}g(a) -
+                                \lim_{x \to a} f(a) \frac{g(x) - g(a)}{x-a}
+                               \right)\\
+                                 &= \frac{1}{g^2(a)}\left( f'(a)g(a) - f(a)g'(a)
+                                 \right),
+ \end{align*}
+ čímž je důkaz hotov.
+\end{thmproof}
+
+\begin{exercise}{}{aritmetika-derivaci}
+ Dokažte body (1) a (2) ve \myref{větě}{thm:aritmetika-derivaci}.
+\end{exercise}
+
+

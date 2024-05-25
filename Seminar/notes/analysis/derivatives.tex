@@ -1,0 +1,216 @@
+\chapter{Derivace}
+\label{chap:derivace}
+
+% TODO
+\clr{\textbf{Tato kapitola se nachází v pracovní verzi. Neočekávajte obrázky,
+naopak očekávejte chyby a podivné formulace.}}
+
+Derivace funkce je vlastně \uv{velikost změny} funkce v daný okamžik. Takový
+pojem se může zdát dost neintuitivní -- \uv{Jak se může cosi měnit v jeden
+okamžik?} -- ale vskutku se s ním setkáváme běžně a divné nám to ani nepřijde.
+
+Kupříkladu rychlost je derivací polohy, tj. představuje velikost změny polohy v
+čase. Když automobilový tachometr ukazuje, že jedeme rychlostí 60 km/h, co to
+přesně znamená? Jak si mám představit, že \emph{teď} se moje poloha mění o 60
+kilometrů v rámci jedné hodiny? Jeden způsob vnímání dlí v obraze, že za příští
+hodinu urazím 60 km. Jako hrubá aproximace snad postačuje, ale je snad zřejmé,
+že pokud se moje rychlost během oné hodiny mění, změní se i výsledně uražená
+vzdálenost.
+
+Mnoho lidí, kteří se dívají za jízdy na tachometr, si pravděpodobně neuvědomuje,
+že rychlost jízdy je limitní pojem. Fakt, že \emph{přesně v tuto chvíli} jedu
+například právě 60 km/h znamená, že čím menší zlomek jedné hodiny nahlédnu do
+budoucnosti (či do minulosti), tím blíže bude velikost změny mojí polohy
+odpovídající zlomek 60 km. Za předpokladu, že moje rychlost není konstantní,
+nebude tato změna nikdy dokonale taková. Tudíž, vím-li, že se pohybuji rychlostí
+60 km/h, nevím toho v~principu mnoho. Nabývám tím pouze práva tvrdit, že se
+zmenšujícím se časovým rozdílem mezi přítomností a jistým okamžikem v budoucnu
+(či v minulu) klesá i rozdíl mezi skutečně překonanou vzdáleností a tou
+odpovídající uvedené rychlosti.
+
+Formalizace \emph{velikosti okamžité změny} není užitím
+\hyperref[def:oboustranna-limita-funkce]{pojmu limity funkce} nikterak obtížná.
+Před formální definicí si ji ukážeme na příkladě z předšedších odstavců. Ať je
+moje poloha v čase daná funkcí $p:[0,1] \to \R$, kde $p(0)$ je moje poloha na
+začátku cesty a $p(1)$ na jejím konci. Zanedbáme pro jednoduchost fakt, že
+polohu určuje pouze jediné reálné číslo místo své příslušné vícedimenzionální
+varianty.
+
+Co přesně myslíme rychlostí změny? Napovědí již použité jednotky -- km/h.
+\emph{Změna polohy} je zde rozdíl výsledné polohy od nynější za daný čas. Pro
+daný čas $t \in [0,1]$, pak \emph{změna polohy} v tomto čase za danou dobu $h
+\in [0,1]$ je
+\[
+ z_t(h) = \frac{p(t + h) - p(t)}{h}.
+\]
+
+Vskutku, ať například $t = 0$, tedy jsem na začátku cesty, třeba na třicátém
+kilometru dálnice, čili $p(0) = 30$. Pojedu jednu hodinu. V půli cesty se
+podívám na postranní milník a vidím, že jsem na stém kilometru téže dálnice,
+čili $p(1 / 2) = 100$. Urazil jsem tudíž za půl hodiny přesně 70 km. Z~těchto
+údajů soudím, že byla-li by moje rychlost konstantní, urazil bych 140 km za
+jednu hodinu. Vyjádřeno pomocí funkce změny, mám
+\[
+ z_0(1 / 2) = \frac{p(0 + 1 / 2) - p(0)}{1 / 2} = \frac{100 - 30}{1 / 2} = 140.
+\]
+Velikost okamžité změny funkce $p$ v daném čase $t$ bude pročež limita uvedené
+funkce $z$, jak se bude doba $h$ blížit $0$.
+
+Odstavce výše shrneme v následujících definicích.
+
+\begin{definition}{Funkce změny}{funkce-zmeny}
+ Ať $f:M \to \R$ je reálná funkce. \emph{Funkcí změny} $f$ v bodě $a \in M$
+ myslíme funkci $z_a:\R \to \R$ danou předpisem
+ \[
+  z_a(h) = \frac{f(a + h) - f(a)}{h}.
+ \]
+\end{definition}
+
+\begin{definition}{Derivace funkce}{derivace-funkce}
+ Ať $f:M \to \R$ je reálná funkce. \emph{Derivací}, nebo též \emph{funkcí
+ okamžité změny}, funkce $f$ v bodě $a \in M$ myslíme limitu
+ \[
+  \lim_{h \to 0} z_a(h) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h},
+ \]
+ pokud tato existuje. V takovém případě ji značíme $f'(a)$.
+\end{definition}
+
+\begin{remark}{Jednostranné derivace}{jednostranne-derivace}
+ Podobně lze rovněž definovat derivaci funkce $f$ v bodě $a$ zleva, resp.
+ zprava, jako
+ \[
+  \lim_{h \to 0^{-}} z_a(h), \text{ resp. } \lim_{h \to 0^{+}} z_a(h).
+ \]
+ Intuitivně tato aproximuje, jak se funkce $f$ před okamžikem měnila, resp. bude
+ za okamžik měnit. Přirozeně, derivace funkce existuje právě tehdy, když
+ existují jednostranné derivace a jsou si rovny.
+\end{remark}
+
+Přirozená substituce vede na alternativní vzorec pro výpočet $f'(a)$.
+
+\begin{lemma}{Alternativní vzorec derivace}{alternativni-vzorec-derivace}
+ Ať $f:M \to \R$ a $a \in M$. Pak $f'(a)$ existuje právě tehdy, když existuje
+ \[
+  \lim_{x \to a} \frac{f(x) - f(a)}{x - a}
+ \]
+ a v tomto případě se rovnají.
+\end{lemma}
+\begin{lemproof}
+ Dokážeme implikaci $( \Rightarrow )$. Ať existuje $f'(a)$. Položme
+ \[
+  F(h) \coloneqq \frac{f(a + h) - f(a)}{h},
+ \]
+ tj. $\lim_{h \to 0} F(h) = f'(a)$, a rovněž
+ \[
+  g(x) = x - a.
+ \]
+ Pak platí $\lim_{x \to a} g(x) = 0$ a $g$ je na okolí $a$ prostá. Z
+ \hyperref[thm:limita-slozene-funkce]{věty o limitě složené funkce} platí
+ \[
+  f'(a) = \lim_{h \to 0} F(h) = \lim_{x \to a} (F \circ g)(x) = \lim_{x \to a}
+  \frac{f(x) - f(a)}{x - a}.
+ \]
+
+ Pro důkaz $( \Leftarrow )$ předpokládejme, že existuje
+ \[
+  L \coloneqq \lim_{x \to a} \frac{f(x) - f(a)}{x - a}.
+ \]
+ Položme
+ \[
+  F(x) \coloneqq \frac{f(x) - f(a)}{x - a}
+ \]
+ a $g(h) = h + a$. Pak $\lim_{x \to a} F(x) = L$, $\lim_{h \to 0} g(h) = a$ a
+ $g$ je prostá na okolí $a$. Opět z \hyperref[thm:limita-slozene-funkce]{věty o
+ limitě složené funkce} dostaneme rovnost
+ \[
+  L = \lim_{x \to a} F(x) = \lim_{h \to 0} (F \circ g)(h) = \lim_{h \to 0}
+  \frac{f(a + h) - f(a)}{h} = f'(a),
+ \]
+ což zakončuje důkaz.
+\end{lemproof}
+
+\begin{problem}{Derivace konstantní funkce}{derivace-konstantni-funkce}
+ Ať $f(x) = c \in \R$ pro každé $x \in M$. Dokažte, že pak platí $f'(a) = 0$ pro
+ každé $a \in M$.
+\end{problem}
+\begin{probsol}
+ Platí
+ \[
+  f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a} = \lim_{x \to a} \frac{c -
+  c}{x - a} = \lim_{x \to a} \frac{0}{x-a} = 0,
+ \]
+ jak jsme chtěli.
+\end{probsol}
+
+\begin{problem}{Derivace polynomu}{derivace-polynomu}
+ Ať $f(x) \coloneqq x^{n}$, kde $n \in \N$. Dokažte, že $f'(a) = na^{n-1}$.
+\end{problem}
+\begin{probsol}
+ Počítáme
+ \[
+  f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a} = \lim_{x \to a} \frac{x^{n}
+  - a^{n}}{x - a}.
+ \]
+ Snadno ověříme, že platí
+ \[
+  x^{n} - a^{n} = (x - a)\left( \sum_{i=0}^{n-1} x^{i}a^{n-i} \right).
+ \]
+ Z čehož ihned
+ \[
+  \frac{x^{n} - a^{n}}{x - a} = \sum_{i=0}^{n-1} x^{i}a^{n-i},
+ \]
+ a tedy
+ \[
+  \lim_{x \to a} \frac{x^{n} - a^{n}}{x-a} = \lim_{x \to a} \sum_{i=0}^{n-1}
+  x^{i}a^{n-i} = \sum_{i=0}^{n-1} a^{i}a^{n-i} = \sum_{i=0}^{n-1} a^{n-1} =
+  na^{n-1},
+ \]
+ což bylo dokázati.
+\end{probsol}
+
+\begin{exercise}{}{derivace-absolutni-hodnoty}
+ Dokažte, že derivace funkce $f(x) = |x|$ v bodě $0$ neexistuje.
+\end{exercise}
+
+\begin{exercise}{}{derivace-signum}
+ Připomeňme, že funkce \emph{signum} je definována následovně.
+ \[
+  \sign(x) \coloneqq \begin{cases}
+   1,& \text{když } x > 0,\\
+   0,& \text{když } x = 0,\\
+   -1,& \text{když } x < 0.
+  \end{cases}
+ \]
+ Dokažte, že $\sign'(0) = \infty$.
+\end{exercise}
+
+\begin{lemma}{Vztah derivace a spojitosti}{vztah-derivace-a-spojitosti}
+ Ať $f:M \to \R$ je reálná funkce, $a \in M$ a existuje \textbf{konečná}
+ $f'(a)$. Pak je $f$ v bodě $a$ spojitá. 
+\end{lemma}
+\begin{lemproof}
+ Jelikož $f'(a)$ existuje konečná, z \hyperref[thm:aritmetika-limit]{věty o
+ aritmetice limit} plyne, že
+ \[
+  \lim_{x \to a} f'(a) \cdot (x - a) = 0.
+ \]
+ To ovšem znamená, že
+ \[
+  \lim_{x \to a} \frac{f(x) - f(a)}{x-a} \cdot (x-a) = \lim_{x \to a} f(x) -
+  f(a) = 0,
+ \]
+ z čehož ihned
+ \[
+  \lim_{x \to a} f(x) = f(a),
+ \]
+ čili $f$ je spojitá v $a$.
+\end{lemproof}
+
+\begin{warning}{}{spojitost-a-derivace}
+ Předpoklad nejen existence, ale i \textbf{konečnosti} derivace ve znění
+ \myref{lemmatu}{lem:vztah-derivace-a-spojitosti} nelze vynechat. Z
+ \myref{cvičení}{exer:derivace-signum} plyne, že $\sign'(0)$ existuje, ale
+ funkce $\sign$ zcela jistě není v bodě $0$ spojitá.
+\end{warning}
+
+\input{derivatives/calculating-derivatives}
