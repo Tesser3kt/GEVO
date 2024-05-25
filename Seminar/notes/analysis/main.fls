@@ -1,4 +1,4 @@
-PWD /home/tesserekt/source/repos/gevo/Seminar/notes/analysis
+PWD /home/tesserekt/source/repos/GEVO/Seminar/notes/analysis
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -396,6 +396,9 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-ellip
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-polygons.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-polygons.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-polygons.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-arcs.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-arcs.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-arcs.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-angles.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-angles.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-angles.tex
@@ -733,13 +736,18 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/libertine/LinLibertine
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_ki75ao.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/libertine/LinBiolinumTB-tlf-t1.vf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1--base.tfm
-OUTPUT main.thm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/libertinus-type1/LibertinusSerif-Regular-tlf-t1.vf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/libertinus-type1/LibertinusSerif-Regular-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/newtx/nxlmi5.vf
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/LibertineMathMI5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/NewTXMI5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/stxscr.tfm
+OUTPUT main.thm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb

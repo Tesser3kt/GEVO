@@ -1,5 +1,5 @@
-\section{Metody výpočtu derivací}
-\label{sec:metody-vypoctu-derivaci}
+\section{Základní poznatky o derivaci}
+\label{sec:zakladni-poznatky-o-derivaci}
 
 Tato sekce shrnuje základní tvrzení, která činí z výpočtu derivací překvapivě
 silně algoritmický proces, přirozeně za předpokladu znalosti derivací jistých
@@ -54,4 +54,105 @@ Začneme tím, jak se derivace chová vzhledem ke součtu, součinu a podílu fu
  Dokažte body (1) a (2) ve \myref{větě}{thm:aritmetika-derivaci}.
 \end{exercise}
 
+\begin{theorem}{Derivace inverzní funkce}{derivace-inverzni-funkce}
+ Ať $I \subseteq \R$ je interval a $f:I \to \R$ je spojitá a rostoucí či
+ klesající na $I$. Pak pro bod $a$ ve vnitřku $I$ platí:
+ \begin{enumerate}
+  \item Je-li $f'(a) \neq 0$, potom $(f^{-1})'(f(a)) = 1 / f'(a)$;
+  \item je-li $f'(a) = 0$, potom $(f^{-1})'(f(a)) = \infty$, když $f$ je
+   rostoucí, a $f^{-1}(f'(a)) = -\infty$, když $f$ je klesající.
+ \end{enumerate}
+\end{theorem}
 
+\begin{thmproof}
+ Předpokládejme, že $f$ je rostoucí. Pro klesající funkci lze důkaz vést
+ obdobně.
+
+ Protože $f$ je spojitá, je z \hyperref[thm:bolzanova]{Bolzanovy věty} $J
+ \coloneqq f(I)$ interval. Dále, ježto $a$ leží ve vnitřku $I$, leží rovněž
+ $f(a)$ ve vnitřku $J$. Existuje pročež $\varepsilon>0$ takové, že
+ $B(f(a),\varepsilon) \subseteq J$. Dále, $f$ je rostoucí, tedy speciálně
+ prostá, takže existuje $f^{-1}:J \to I$, která je (ze spojitosti $f$) rovněž
+ spojitá.
+
+ Volme nyní $\delta>0$ tak, aby $f(B(a,\delta)) \subseteq B(f(a),\varepsilon)$ a
+ pro $x \in B(a,\delta)$ definujme
+ \[
+  \varphi(x) \coloneqq \frac{f(x) - f(a)}{x - a}.
+ \]
+ Pak přirozeně $\lim_{x \to a} \varphi(x) = f'(a)$. Díky prostotě $f^{-1}$ na
+ $B(f(a),\varepsilon)$ lze díky \hyperref[thm:limita-slozene-funkce]{větě o
+ limitě složené funkce} počítat
+ \begin{equation}
+  \label{eq:derivace-inverzu}
+  \tag{$\heartsuit$}
+  \begin{split}
+   f'(a) &= \lim_{x \to a} \varphi(x) = \lim_{y \to f(a)} (\varphi \circ
+   f^{-1})(y)\\
+         &= \lim_{y \to f(a)} \frac{f(f^{-1}(y)) - f(a)}{f^{-1}(y) - a} = \lim_{y
+         \to f(a)} \frac{y - f(a)}{f^{-1}(y) - a}.
+  \end{split}
+ \end{equation}
+ Předpokládejme nejprve, že $f'(a) \neq 0$. Pak z
+ \hyperref[thm:aritmetika-limit-funkci]{věty o aritmetice limit} platí
+ \[
+  \frac{1}{f'(a)} = \lim_{y \to f(a)} \frac{f^{-1}(y) - a}{y - f(a)} = \lim_{y
+  \to f(a)} \frac{f^{-1}(y) - f^{-1}(f(a))}{y - f(a)} = (f^{-1})'(f(a)).
+ \]
+ 
+ Nyní ať $f'(a) = 0$. Pak díky~\eqref{eq:derivace-inverzu} máme
+ \[
+  \lim_{y \to f(a)} \frac{y-f(a)}{f^{-1}(y) - a} = \lim_{y \to f(a)}
+  \frac{y-f(a)}{f^{-1}(y) - f^{-1}(f(a))} = 0.
+ \]
+ Funkce
+ \[
+  \psi(y) \coloneqq \frac{y-f(a)}{f^{-1}(y) - f^{-1}(f(a))}
+ \]
+ je na okolí $R(f(a),\varepsilon)$ kladná, neboť $f^{-1}$ je rostoucí -- a tedy
+ $y - f(a) > 0 \Leftrightarrow f^{-1}(y) - f^{-1}(f(a)) > 0$. Podle
+ \myref{tvrzení}{prop:limita-a/0} platí
+ \[
+  (f^{-1})'(f(a)) = \lim_{y \to f(a)} \frac{f^{-1}(y) - f^{-1}(f(a))}{y - f(a)}
+  = \lim_{y \to f(a)} \frac{1}{\psi(y)} = \infty,
+ \]
+ což zakončuje důkaz.
+\end{thmproof}
+
+\begin{problem}{}{derivace-odmocniny}
+ Dokažte, že derivací funkce $x \mapsto \sqrt[n]{x}$ na intervalu $(0,\infty)$
+ je $x \mapsto \sqrt[n]{x} / nx$, kde $\N \ni n \geq 1$.
+\end{problem}
+\begin{probsol}
+ Funkce $f(x) = \sqrt[n]{x}$ je jistě spojitá a rostoucí na $(0,\infty)$. Její
+ inverzní funkcí je rovněž rostoucí a spojitá $f^{-1}(y) = y^{n}$, jejíž
+ derivací je $(f^{-1})'(y) = ny^{n-1}$. Podle
+ \hyperref[thm:derivace-inverzni-funkce]{věty o derivaci inverzní funkce} platí
+ pro $x \in (0,\infty)$
+ \[
+  f'(x) = \frac{1}{(f^{-1})'(f(x))} = \frac{1}{n f^{n-1}(x)} = \frac{1}{n
+  (\sqrt[n]{x})^{n-1}} = \frac{\sqrt[n]{x}}{nx},
+ \]
+ jak jsme chtěli.
+\end{probsol}
+
+Sekci zakončíme vztahem derivaci k extrémům původní funkce, který hraje stěžejní
+roli mimo jiné v optimalizačních problémech, bo často vedou na hledání
+minima/maxima jisté funkce.
+
+\begin{proposition}{Vztah derivace a extrému}{vztah-derivace-a-extremu}
+ Ať $f:M \to \R$ má v $a \in M$ lokální extrém. Pak $f'(a)$ buď neexistuje, nebo
+ je nulová.
+\end{proposition}
+\begin{propproof}
+ Dokážeme kontrapozitivní formu tvrzení. Budeme předpokládat, že $f'(a)$
+ existuje a je různá od nuly. Z toho odvodíme, že $f$ nemá v $a$ lokální extrém.
+
+ Ať nejprve $f'(a) > 0$. Pak existuje okolí $R(a,\delta)$, na němž platí
+ \[
+  \frac{f(x) - f(a)}{x - a} > 0.
+ \]
+ Odtud plyne, že $f(x) < f(a)$ pro $x \in (a - \delta,a)$ a $f(x) > f(a)$ pro $x
+ \in (a,a+\delta)$, čili $f$ nemá v~$a$ lokální extrém. Případ $f'(a) < 0$ se
+ ošetří obdobně.
+\end{propproof}
