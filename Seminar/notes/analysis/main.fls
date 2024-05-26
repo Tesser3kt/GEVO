@@ -742,6 +742,11 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/newtx/nxlmi5.vf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/LibertineMathMI5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/NewTXMI5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/stxscr.tfm
+INPUT ./derivatives/mean-value-theorems.tex
+INPUT ./derivatives/mean-value-theorems.tex
+INPUT ./derivatives/mean-value-theorems.tex
+INPUT ./derivatives/mean-value-theorems.tex
+INPUT derivatives/mean-value-theorems.tex
 OUTPUT main.thm
 INPUT main.aux
 INPUT ./main.out

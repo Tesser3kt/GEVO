@@ -1,0 +1,145 @@
+\section{Věty o střední hodnotě}
+\label{sec:vety-o-stredni-hodnote}
+
+Spojitá funkce, jež ve dvou různých bodech nabývá stejných hodnot, musí mít na
+nějakém místě mezi těmito body konstantní růst -- přestat růst a začít klesat či
+přestat klesat a začít růst. Spojitá funkce musí někde mezi libovolnými dvěma
+body mít tečnu rovnoběžnou k úsečce spojující odpovídající body v grafu této
+funkce. Stejný závěr platí i pro spojitou křivku v prostoru.
+
+Tato tvrzení souhrnně slují \emph{věty o střední hodnotě}. Přestože je jejich
+geometrický význam lákavý, samy o sobě mnoha účelům neslouží. Jejich důležitost
+dlí spíše v rozvoji další teorie derivací. Formulujeme a dokážeme si je.
+
+\begin{theorem}{Rolleova věta o střední hodnotě}{rolleova-veta-o-stredni-hodnote}
+ Ať $a < b$, $f:[a,b] \to \R$ je spojitá funkce, $f(a) = f(b)$ a $f$ má derivaci
+ v každém bodě $(a,b)$. Pak existuje $c \in (a,b)$ takové, že $f'(c) = 0$.
+\end{theorem}
+\begin{thmproof}
+ Podle \myref{věty}{thm:extremy-spojite-funkce} nabývá $f$ na $[a,b]$ svého
+ minima $m$ a maxima $M$. Pak zřejmě
+ \begin{equation*}
+  \label{eq:rolle}
+  \tag{$*$}
+  m \leq f(a) \leq f(b) \leq M.
+ \end{equation*}
+ Pokud $m = M$, pak je $f$ konstantní na $[a,b]$, a tudíž $f'(c) = 0$ dokonce
+ pro všechna $c \in (a,b)$.
+
+ Předpokládejme, že $m < M$. Pak musí být aspoň jedna z nerovností
+ v~\eqref{eq:rolle} ostrá. Bez újmy na obecnosti, ať $f(b) < M$. Ať $c \in
+ (a,b)$ je takové, že $f(c) = M$. Dle předpokladu nabývá $f$ v bodě $c$ maxima
+ na $[a,b]$, a tedy podle \myref{tvrzení}{prop:vztah-derivace-a-extremu} platí
+ $f'(c) = 0$. V případě, kdy $m < f(a)$ postupujeme obdobně.
+\end{thmproof}
+
+\begin{theorem}{Lagrangeova o střední hodnotě}{lagrangeova-o-stredni-hodnote}
+ Ať $a < b$ a $f:[a,b] \to \R$ je spojitá na $[a,b]$ majíc derivaci v každém
+ bodě $(a,b)$. Potom existuje $c$ takové, že
+ \[
+  f'(c) = \frac{f(b) - f(a)}{b - a}.
+ \]
+\end{theorem}
+\begin{thmproof}
+ Převedeme problém na použití
+ \hyperref[thm:rolleova-veta-o-stredni-hodnote]{Rolleovy věty}. Definujme funkci
+ \[
+  g(x) \coloneqq f(x) - \frac{f(b) - f(a)}{b-a} (x-a).
+ \]
+ Potom je $g$ spojitá na $[a,b]$, má derivaci v každém bodě $(a,b)$ a platí
+ $g(a) = g(b)$. Z \hyperref[thm:rolleova-veta-o-stredni-hodnote]{Rolleovy
+ věty} plyne, že existuje $c \in (a,b)$ takové, že $g'(c) = 0$. Tato rovnost
+ rozepsána znamená, že
+ \[
+  f'(c) - \frac{f(b) - f(a)}{b - a} = 0,
+ \]
+ čili
+ \[
+  f'(c) = \frac{f(b) - f(a)}{b-a},
+ \]
+ jak jsme chtěli.
+\end{thmproof}
+
+\begin{remark}{}{lagrangeova-veta}
+ \hyperref[thm:lagrangeova-o-stredni-hodnote]{Lagrangeova věta} říká, že v
+ jistém bodě $c \in (a,b)$ musí být derivace $f$ v bodě $c$ rovna směrnici
+ přímky spojující body $(a,f(a))$ a $(b,f(b))$.
+\end{remark}
+
+\begin{corollary}{Vztah derivace a monotonie}{vztah-derivace-a-monotonie}
+ Ať $I \subseteq \R$ je interval a $f:I \to \R$ je spojitá funkce majíc v každém
+ bodě $(a,b)$ kladnou, resp. zápornou, derivaci. Pak je $f$ rostoucí, resp.
+ klesající, na $I$.
+\end{corollary}
+\begin{corproof}
+ Volme $[a,b] \subseteq I$ libovolně a předpokládejme, že $f'$ je kladná na $I$.
+ Podle \hyperref[thm:lagrangeova-o-stredni-hodnote]{Lagrangeovy věty} existuje
+ $c \in (a,b)$ takové, že
+ \[
+  f'(c) = \frac{f(b) - f(a)}{b - a}.
+ \]
+ Ježto $f'(c) > 0$, plyne odtud, že $f(b) > f(a)$. Čili $f$ je rostoucí na
+ $[a,b]$. Jelikož $a < b \in I$ byla volena libovolně, je $f$ rostoucí na $I$.
+ Případ $f' < 0$ na $I$ se ošetří analogicky.
+\end{corproof}
+
+\begin{exercise}{}{derivace-nula-konstantni}
+ Použijte \myref{důsledek}{cor:vztah-derivace-a-monotonie} k důkazu, že spojitá
+ funkce $f:I \to \R$ mající nulovou derivaci na $I$, je konstantní.
+\end{exercise}
+
+\begin{theorem}{Cauchyho o střední hodnotě}{cauchyho-o-stredni-hodnote}
+ Ať $f,g$ jsou spojité funkce na $[a,b] \subseteq \R$, $f$ má v každém bodě
+ $(a,b)$ derivaci a $g$ má v každém bodě $(a,b)$ \textbf{konečnou nenulovou}
+ derivaci. Potom $g(a) \neq g(b)$ a existuje $c \in (a,b)$ takové, že
+ \[
+  \frac{f'(c)}{g'(c)} = \frac{f(b) - f(a)}{g(b) - g(a)}.
+ \]
+\end{theorem}
+\begin{thmproof}
+ Z \hyperref[thm:lagrangeova-o-stredni-hodnote]{Lagrangeovy věty} plyne
+ existence $d \in (a,b)$ takového, že
+ \[
+  g'(d) = \frac{g(b) - g(a)}{b - a}.
+ \]
+ Jelikož z předpokladu $g'(d) \neq 0$, rovněž $g(b) \neq g(a)$.
+
+ Opět převedeme problém na
+ \hyperref[thm:rolleova-veta-o-stredni-hodnote]{Rolleovu větu}. Definujme funkci
+ \[
+  \varphi(x) \coloneqq (f(x) - f(a))(g(b) - g(a)) - (g(x) - g(a))(f(b) - f(a)).
+ \]
+ Pak je $\varphi$ spojitá na $[a,b]$ (neboť $f$ a $g$ jsou tamže spojité) a má v
+ každém bodě $(a,b)$ derivaci -- to plyne z
+ \hyperref[thm:aritmetika-derivaci]{věty o aritmetice derivací} a faktu, že $f$
+ i $g$ mají na $(a,b)$ derivaci.
+
+ Navíc, $\varphi(a) = \varphi(b) = 0$. Z
+ \hyperref[thm:rolleova-veta-o-stredni-hodnote]{Rolleovy věty} existuje $c \in
+ (a,b)$ splňující $\varphi'(c) = 0$. Platí
+ \[
+  0 = \varphi'(c) = f'(c)(g(b) - g(a)) - g'(c)(f(b) - f(a)).
+ \]
+ Odtud úpravou
+ \[
+  \frac{f'(c)}{g'(c)} = \frac{f(b) - f(a)}{g(b) - g(a)},
+ \]
+ což zakončuje důkaz.
+\end{thmproof}
+\begin{remark}{}{cauchyho-veta}
+ \hyperref[thm:cauchyho-o-stredni-hodnote]{Cauchyho věta} říká, že křivka v
+ rovině $t \mapsto (f(t),g(t))$ má v jistém bodě $c \in (a,b)$ derivaci rovnou
+ směrnici přímky spojující body $(f(a),g(a))$ a $(f(b),g(b))$.
+\end{remark}
+\begin{remark}{}{vety-o-stredni-hodnote}
+ Uvědomme si, že \hyperref[thm:lagrangeova-o-stredni-hodnote]{Lagrangeova věta}
+ je speciálním případem \hyperref[thm:cauchyho-o-stredni-hodnote]{Cauchyho věty}
+ pro $g(x) = x$ a \hyperref[thm:rolleova-veta-o-stredni-hodnote]{Rolleova věta}
+ je zase speciálním případem
+ \hyperref[thm:lagrangeova-o-stredni-hodnote]{Lagrangeovy věty}, když $f(a) =
+ f(b)$. Ovšem, k důkazu jak
+ \hyperref[thm:lagrangeova-o-stredni-hodnote]{Lagrangeovy věty}, tak
+ \hyperref[thm:cauchyho-o-stredni-hodnote]{Cauchyho věty}, jsme použili téměř
+ výhradně \hyperref[thm:rolleova-veta-o-stredni-hodnote]{Rolleovu větu}. Jedná
+ se pročež o vzájemně ekvivalentní tvrzení, ač to tak na první pohled nevypadá.
+\end{remark}
