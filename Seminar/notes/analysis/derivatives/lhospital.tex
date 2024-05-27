@@ -1,0 +1,33 @@
+\section{l'Hospitalovo pravidlo}
+\label{sec:l'hospitalovo-pravidlo}
+
+Výpočet limit podílu funkcí patří k nejčastějším úlohám matematické analýzy.
+Limita podílu funkcí totiž v principu porovnává, o kolik je jedna funkce na
+okolí tohoto bodu větší než druhá. Je pročež základem aproximace funkcí na okolí
+bodu mnohem hezčími (například polynomiálními) funkcemi, jak bude vidno v
+kapitole o Taylorově polynomu. Následující věta -- všeobecně známa pod jménem
+\emph{l'Hospitalovo pravidlo} -- že limita podílu funkcí je (za jistých volných
+podmínek) rovna limitě podílu rychlosti jejich růstu.
+
+\begin{theorem}{l'Hospitalovo pravidlo}{l'hospitalovo-pravidlo}
+ Ať $a \in \R^{*}$, $f,g:M \to \R$ jsou reálné funkce a existuje $\lim_{x \to a}
+ f'(x) / g'(x)$. Jestliže platí buď
+ \begin{enumerate}[label=(\alph*)]
+  \item $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0$, nebo
+  \item $\lim_{x \to a} |g(x)| = \infty$,
+ \end{enumerate}
+ pak
+ \[
+  \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}.
+ \]
+\end{theorem}
+\begin{thmproof}
+ Položme $L \coloneqq \lim_{x \to a} f'(x) / g'(x)$. Budeme postupovat vcelku
+ přirozeně -- sevřeme podíl $f(x) / g(x)$ pro vhodná $x$ v nekonečně malém
+ intervalu $(\alpha,\beta)$ okolo $L$. Ačkoli idea je tato přímočará, její
+ realizace je mírně technická. Pro přehlednost do důkazu vložíme pomocné lemma.
+
+ \begin{lemma*}{pomocné}
+  
+ \end{lemma*}
+\end{thmproof}

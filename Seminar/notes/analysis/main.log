@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.24)  26 MAY 2024 18:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.24)  27 MAY 2024 18:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1234,7 +1234,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 6.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 17.28pt on input line 6.
-<moebius.png, id=55, 869.2475pt x 524.96124pt>
+<moebius.png, id=59, 869.2475pt x 524.96124pt>
 File: moebius.png Graphic file (type png)
 <use moebius.png>
 Package pdftex.def Info: moebius.png  used on input line 7.
@@ -1417,11 +1417,11 @@ LaTeX Warning: Reference `thm:extremy-spojite-funkce' on page 13 undefined on in
 
 [13]
 Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 75.
- [14]))
+ [14]) (./derivatives/lhospital.tex [15]))
 \tf@thm=\write6
 \openout6 = `main.thm'.
 
- [15] (./main.aux)
+ [16] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1431,21 +1431,21 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BE74DEFE63AA8D41266C262566CD3A22;477.
+(rerunfilecheck)             Checksum: D6EB3D5ABC3989755F41F399C074ED22;644.
  ) 
 Here is how much of TeX's memory you used:
- 42454 strings out of 473993
- 870609 string characters out of 5741040
+ 42481 strings out of 473993
+ 871167 string characters out of 5741040
  1960904 words of memory out of 5000000
- 63977 multiletter control sequences out of 15000+600000
+ 63995 multiletter control sequences out of 15000+600000
  696909 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,17n,120p,1190b,1227s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,17n,120p,1190b,1635s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (15 pages, 977899 bytes).
+Output written on main.pdf (16 pages, 989121 bytes).
 PDF statistics:
- 308 PDF objects out of 1000 (max. 8388607)
- 229 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 186 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 322 PDF objects out of 1000 (max. 8388607)
+ 242 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 194 words of extra memory for PDF output out of 10000 (max. 10000000)
 
