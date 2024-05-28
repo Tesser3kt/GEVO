@@ -9,7 +9,7 @@ kapitole o Taylorově polynomu. Následující věta -- všeobecně známa pod j
 \emph{l'Hospitalovo pravidlo} -- že limita podílu funkcí je (za jistých volných
 podmínek) rovna limitě podílu rychlosti jejich růstu.
 
-\begin{theorem}{l'Hospitalovo pravidlo}{l'hospitalovo-pravidlo}
+\begin{theorem}{l'Hospitalovo pravidlo}{lhospitalovo-pravidlo}
  Ať $a \in \R^{*}$, $f,g:M \to \R$ jsou reálné funkce a existuje $\lim_{x \to a}
  f'(x) / g'(x)$. Jestliže platí buď
  \begin{enumerate}[label=(\alph*)]
@@ -21,13 +21,122 @@ podmínek) rovna limitě podílu rychlosti jejich růstu.
   \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}.
  \]
 \end{theorem}
-\begin{thmproof}
- Položme $L \coloneqq \lim_{x \to a} f'(x) / g'(x)$. Budeme postupovat vcelku
- přirozeně -- sevřeme podíl $f(x) / g(x)$ pro vhodná $x$ v nekonečně malém
- intervalu $(\alpha,\beta)$ okolo $L$. Ačkoli idea je tato přímočará, její
- realizace je mírně technická. Pro přehlednost do důkazu vložíme pomocné lemma.
 
- \begin{lemma*}{pomocné}
-  
- \end{lemma*}
+
+Položme $L \coloneqq \lim_{x \to a} f'(x) / g'(x)$. Budeme postupovat vcelku
+přirozeně -- sevřeme podíl $f(x) / g(x)$ pro vhodná $x$ v nekonečně malém
+intervalu $(\alpha,\beta)$ okolo $L$. Ačkoli idea je tato přímočará, její
+realizace je mírně technická. Pro přehlednost povedeme důkaz přes následující
+pomocné lemma.
+
+\begin{lemma*}{pomocné}
+ \begin{enumerate}
+  \item Pro každé $\alpha > L$ existuje $\delta>0$ takové, že
+  \[
+   \forall x \in R(a,\delta): \frac{f(x)}{g(x)} < \alpha.
+  \]
+ \item Pro každé $\beta < L$ existuje $\delta>0$ takové, že
+ \[
+  \forall x \in R(a,\delta): \frac{f(x)}{g(x)} > \beta.
+ \]
+ \end{enumerate}
+\end{lemma*}
+\begin{lemproof}
+ Dokážeme část (1), důkaz (2) je analogický.
+
+ Ať je $\alpha > L$ dáno. Volme $r \in (L,\alpha)$. Díky předpokladu existence
+ limity $\lim_{x \to a} f'(x) / g'(x)$ existuje okolí $R(a,\delta_1)$ takové,
+ že $f$ i $g$ jsou definovány na $R(a,\delta_1)$, $f$ má tamže konečnou
+ derivaci a $g$ konečnou nenulovou derivaci. Navíc lze $\delta_1$ volit
+ dostatečně malé, aby
+ \[
+  \frac{f'(x)}{g'(x)} < r \quad \forall x \in R(a,\delta_1).
+ \]
+ 
+ Volme libovolná $x < y \in R(a,\delta_1)$. Podle
+ \hyperref[thm:cauchyho-o-stredni-hodnote]{Cauchyho věty} existuje $c \in
+ (x,y)$ splňující
+ \[
+  \frac{f'(c)}{g'(c)} = \frac{f(x) - f(y)}{g(x) - g(y)}.
+ \]
+ Potom tedy pro každý pár $x<y \in R(a,\delta_1)$ platí
+ \[
+  \frac{f(x) - f(y)}{g(x) - g(y)} < r.
+ \]
+ 
+ Předpokládejme nyní, že platí podmínka (a) ve znění
+ \hyperref[thm:lhospitalovo-pravidlo]{věty}, tj. předpokládejme rovnosti
+ \[
+  \lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0.
+ \]
+ Pak pro fixní $y \in (a,a+\delta_1)$ dostaneme
+ \[
+  \lim_{x \to a} \frac{f(x) - f(y)}{g(x) - g(y)} = \frac{f(y)}{g(y)} \leq r <
+  \alpha
+ \]
+ a pro $\tilde{y} \in (a-\delta_1,a)$ zase
+ \[
+  \lim_{x \to a} \frac{f(\tilde{y}) - f(x)}{g(\tilde{y}) - g(x)} =
+  \frac{f(\tilde{y})}{g(\tilde{y})} \leq r <
+  \alpha.
+ \]
+ Celkově tedy nerovnost $f(y) / g(y) < \alpha$ platí pro každé $y \in
+ R(a,\delta_1)$.
+
+ Konečně, ať platí podmínka (b), tj. $\lim_{x \to a} |g(x)| = \infty$. Volme
+ pevné $\tilde{y} \in (a,a+\delta_1)$. Pak
+ \begin{align*}
+  \lim_{x \to a} r \left( 1 - \frac{g(\tilde{y})}{g(x)} \right) +
+  \frac{f(\tilde{y})}{g(x)} = r \cdot (1 - 0) + 0 = r < \alpha.
+ \end{align*}
+ Existuje tudíž $\delta_2 \in (0,\delta_1)$ takové, že pro každé $x \in
+ (a,a+\delta_2)$
+ \[
+  r \left( 1 - \frac{g(\tilde{y})}{g(x)} \right) + \frac{f(\tilde{y})}{g(x)} <
+  \alpha.
+ \]
+ Navíc, díky podmínce (b) lze volit $\delta_2$ dostatečně malé, aby
+ \[
+  \frac{g(\tilde{y})}{g(x)} < 1 \quad \forall x \in (a,a+\delta_2).
+ \]
+ Pro $x \in (a,a+\delta_2)$ počítejme
+ \begin{align*}
+  \frac{f(x)}{g(x)} &= \frac{f(x) - f(\tilde{y})}{g(x)} +
+  \frac{f(\tilde{y})}{g(x)}\\
+                    &= \frac{f(x) - f(\tilde{y})}{g(x) - g(\tilde{y})} \cdot
+                    \frac{g(x) - g(\tilde{y)}}{g(x)} +
+                    \frac{f(\tilde{y})}{g(x)}\\
+                    &= \frac{f(x) - f(\tilde{y})}{g(x) - g(\tilde{y})} \left( 1
+                    - \frac{g(\tilde{y})}{g(x)}\right) +
+                    \frac{f(\tilde{y})}{g(x)}.
+ \end{align*}
+ Můžeme odhadnout
+ \[
+  \frac{f(x)}{g(x)} = \frac{f(x) - f(\tilde{y})}{g(x) - g(\tilde{y})} \left( 1 -
+  \frac{g(\tilde{y})}{g(x)}\right) + \frac{f(\tilde{y})}{g(x)} < r \left( 1 -
+ \frac{g(\tilde{y})}{g(x)} \right) + \frac{f(\tilde{y})}{g(x)} < \alpha.
+ \]
+ Podobně dokážeme i rovnost $f(x) / g(x) < \alpha$ v případě, kdy $x$ je z
+ vhodného levého prstencového okolí $a$.
+
+Jelikož důkaz části (b) je zcela symetrický, je pomocné lemma dokázáno. 
+\end{lemproof}
+
+\begin{thmproof}[\myref{věty}{thm:lhospitalovo-pravidlo}]
+ Je-li $L = -\infty$, resp. $L = \infty$, pak tvrzení plyne ihned z části (1),
+ resp. části (2), \emph{pomocného lemmatu}.
+
+ Ať $L \in \R$. Volme $\varepsilon>0$ a pro $\alpha \coloneqq L+\varepsilon$
+ nalezněme z \emph{pomocného lemmatu}, části (1), $\delta>0$ takové, že pro $x
+ \in R(a,\delta)$ platí $f(x) / g(x) < \alpha$. Podobně nalezněme, z
+ \emph{pomocného lemmatu} části (2) pro $\beta \coloneqq L-\varepsilon$, číslo
+ $\delta'>0$ takové, že pro $x \in R(a,\delta')$ platí $f(x) / g(x) > \beta$.
+ Pak ale pro $x \in R(a,\min(\delta,\delta'))$ máme
+ \[
+  \frac{f(x)}{g(x)} \in (\beta,\alpha) = (L-\varepsilon,L+\varepsilon),
+ \]
+ čili $\lim_{x \to a} f(x) / g(x) = L$.
 \end{thmproof}
+
+Použití l'Hospitalova pravidla pro výpočet limit ponecháme do kapitoly o
+elementárních funkcích.

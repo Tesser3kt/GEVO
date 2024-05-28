@@ -1,0 +1,188 @@
+\section{Exponenciála a logaritmus}
+\label{sec:exponenciala-a-logaritmus}
+
+První na seznamu je \emph{exponenciála} -- funkce spojitého růstu. Toto
+pojmenování ještě níže odůvodníme. Nyní přikročíme k definici. Pro stručnost
+zápisu, budeme v následujícím textu používat konvenci, že $0^{0} = 1$.
+
+\begin{definition}{Exponenciála}{exponenciala}
+ Pro $x \in \R$ definujeme
+ \[
+  \exp x \coloneqq \sum_{n=0}^{\infty} \frac{x^{n}}{n!}.
+ \]
+\end{definition}
+
+Jak jsme čtenáře vystříhali, musíme nyní na krátkou chvíli odbočit k číselným
+řadám, abychom uměli v obec dokázat, že právě definovaná
+\hyperref[def:exponenciala]{exponenciála} je skutečně reálnou funkcí.
+
+\begin{definition}{Absolutní konvergence řady}{absolutni-konvergence-rady}
+ Ať $\sum_{n=0}^{\infty} a_n$ je číselná řada, kde $a_n \in \R$. Řekneme, že
+ $\sum_{n=0}^{\infty} a_n$ \emph{absolutně konverguje}, když konverguje řada
+ $\sum_{n=0}^{\infty} |a_n|$.
+\end{definition}
+
+\begin{lemma}{}{absolutni-konvergence-a-konvergence}
+ Každá absolutně konvergentní řada je konvergentní.
+\end{lemma}
+\begin{lemproof}
+ Ať je $\varepsilon>0$ dáno. Předpokládejme, že $\sum_{n=0}^{\infty} |a_n|$
+ konverguje. Nalezneme $n_0 \in \N$ takové, že pro $m \geq n \geq n_0$ platí
+ \[
+  \left|\sum_{k=n}^m |a_k| \right| = \sum_{k=n}^m |a_k|<\varepsilon.
+ \]
+ Potom ale z \hyperref[lem:trojuhelnikova-nerovnost]{trojúhelníkové nerovnosti}
+ platí
+ \[
+  \left| \sum_{k=n}^m a_k \right| \leq \sum_{k=n}^m |a_k|<\varepsilon,
+ \]
+ čili $\sum_{n=0}^{\infty} a_n$ konverguje.
+\end{lemproof}
+
+\begin{definition}{Cauchyho součin řad}{cauchyho-soucin-rad}
+ Ať $\sum_{n=0}^{\infty} a_n$ a $\sum_{n=0}^{\infty} b_n$ jsou číselné řady.
+ Jejich \emph{Cauchyho součinem} myslíme číselnou řadu
+ \[
+  \sum_{n=0}^{\infty} \sum_{k=0}^n a_{n-k}b_k.
+ \]
+\end{definition}
+\begin{theorem}{Mertensova}{mertensova}
+ Ať $\sum_{n=0}^{\infty} a_n, \sum_{n=0}^{\infty} b_n$ jsou \emph{konvergentní}
+ číselné řady, přičemž $\sum_{n=0}^{\infty} a_n$ je navíc absolutně
+ konvergentní. Potom $\sum_{n=0}^{\infty} \sum_{k=0}^n a_{n-k}b_k$ konverguje a
+ platí
+ \[
+  \left( \sum_{n=0}^{\infty} a_n \right) \left( \sum_{n=0}^{\infty} b_n \right)
+  = \sum_{n=0}^{\infty} \sum_{k=0}^n a_{n-k}b_k.
+ \]
+\end{theorem}
+
+\begin{theorem}{Vlastnosti exponenciály}{vlastnosti-exponencialy}
+ Funkce $\exp$ je dobře definována a platí
+  \begin{enumerate}[label=(E\arabic*)]
+   \item $\exp(x + y) = \exp x \cdot \exp y$;
+   \item $\lim_{x \to 0} \frac{\exp x - 1}{x} = 0$.
+  \end{enumerate}
+\end{theorem}
+\begin{thmproof}
+ \emph{Dobrá definovanost} zde znamená, že řada $\sum_{n=0}^{\infty} x_n / n!$
+ konverguje pro každé $x \in \R$. Ukážeme, že konverguje absolutně. Je-li $x =
+ 0$, pak řada konverguje zřejmě. Volme tedy $x \in \R \setminus \{0\}$. Potom
+ \[
+  \lim_{n \to \infty} \frac{\left| \frac{x^{n+1}}{(n+1)!} \right|}{\left|
+  \frac{x^{n}}{n!} \right|} = \lim_{n \to \infty} \frac{|x|}{n+1} = 0,
+ \]
+ čili podle \myref{věty}{thm:dalembertovo-podilove-kriterium} řada
+ $\sum_{n=0}^{\infty} |x^{n}|/n!$ konverguje, což znamená, že konverguje i
+ $\sum_{n=0}^{\infty} x^{n}/n!$.
+
+ Dokážeme vlastnost (E1). Počítáme
+ \begin{align*}
+  \exp(x+y) &= \sum_{n=0}^{\infty} \frac{(x+y)^{n}}{n!} = \sum_{n=0}^{\infty}
+  \sum_{k=0}^n \binom{n}{k} \frac{x^{n-k}y^{k}}{n!} = \sum_{n=0}^{\infty}
+  \sum_{k=0}^n \frac{n!}{(n-k)!k!} \frac{x^{n-k}y^{k}}{n!}\\
+            &= \sum_{n=0}^{\infty} \sum_{k=0}^{n} \frac{x^{n-k}}{(n-k)!}
+            \frac{y^{k}}{k!}.
+ \end{align*}
+ Všimněme si, že poslední řada je \hyperref[def:cauchyho-soucin-rad]{Cauchyho
+ součinem} řad $\sum_{n=0}^{\infty} x^{n} / n!$ a $\sum_{n=0}^{\infty} y^{n} /
+ n!$. Protože jsou obě tyto řady (podle výše dokázaného) absolutně konvergentní,
+ platí z \hyperref[thm:mertensova]{Mertensovy věty}
+ \[
+  \exp(x+y) = \sum_{n=0}^{\infty} \sum_{k=0}^n
+  \frac{x^{n-k}}{(n-k)!}\frac{y^{k}}{k!} = \left( \sum_{n=0}^{\infty}
+  \frac{x^{n}}{n!} \right) \left( \sum_{n=0}^{\infty} \frac{y^{n}}{n!} \right) =
+  \exp x \cdot \exp y.
+ \]
+
+ Nyní vlastnost (E2). Pro $x \in (-1,1)$ odhadujme
+ \begin{align*}
+  \left| \frac{\exp x - 1}{x} - 1 \right| &= \left| \frac{\exp x - 1 - x}{x}
+  \right| = \frac{1}{|x|} \left| \sum_{n=0}^{\infty}\frac{x^{n}}{n!} \clr{- x -
+  1} \right| = \frac{1}{|x|} \left| \sum_{\clr{n=2}}^{\infty} \frac{x^{n}}{n!}
+  \right| \\
+                                          &= |x| \left| \sum_{n=2}^{\infty}
+                                          \frac{x^{n-2}}{n!} \right| \leq |x|
+                                          \left| \sum_{n=2}^{\infty}
+                                          \frac{1}{n!} \right| = c \cdot |x|,
+ \end{align*}
+ kde $c > 0$ je hodnota součtu řady $\sum_{n=0}^{\infty} 1 / n!$, která zjevně
+ konverguje (například díky nerovnosti $1 / n! \leq 1 / n^2$). Jelikož $\lim_{x
+ \to 0} c \cdot |x| = 0$, plyne odtud ihned, že
+ \[
+  \lim_{x \to 0} \left| \frac{\exp x - 1}{x} -1\right| = 0,
+ \]
+ z čehož zase
+ \[
+  \lim_{x \to 0} \frac{\exp x - 1}{x} = 1.
+ \]
+ Tím je důkaz završen.
+\end{thmproof}
+
+Ihned si odvodíme další vlastnosti exponenciály plynoucí z (E1) a (E2). Postupně
+dokážeme, že pro každé $x \in \R$ platí následující.
+\begin{enumerate}[label=(E\arabic*)]
+ \setcounter{enumi}{2}
+ \item $\exp 0 = 1$;
+ \item $\exp' x = \exp x$;
+ \item $\exp(-x) = 1 / \exp(x)$;
+ \item $\exp x > 0$;
+ \item $\exp$ je spojitá na $\R$;
+ \item $\exp$ je rostoucí na $\R$;
+ \item $\lim_{x \to \infty} \exp x = \infty$ a $\lim_{x \to -\infty} \exp x =
+  0$;
+ \item $\img \exp = (0,\infty)$.
+\end{enumerate}
+
+Z (E1) platí $\exp(0 + x) = \exp 0 \cdot \exp x$. Protože zřejmě existuje $x \in
+\R$, pro něž $\exp x \neq 0$, plyne odtud $\exp 0 = 1$, tj. vlastnost (E3).
+
+Pro důkaz (E4) počítáme
+\begin{align*}
+ \lim_{h \to 0} \frac{\exp (x + h) - \exp h}{h} &\clr{~=~} \lim_{h \to 0}
+ \frac{\exp h \cdot \exp x - \exp h}{h} = \lim_{h \to 0} \frac{(\exp h - 1)\exp
+ x}{h}\\
+                                                &= \exp x \cdot \lim_{h \to 0}
+                                                \frac{\exp h - 1}{h} \clb{~=~}
+                                                \exp x \cdot 1 = \exp x,
+\end{align*}
+kde jsme v \clr{červené} rovnosti použili vlastnost (E1) a v \clb{modré} zas
+vlastnost (E2).
+
+Pokračujeme vlastností (E5). Z (E1) máme
+\[
+ \exp(x + (-x)) = \exp x \cdot \exp(-x).
+\]
+Protože z (E3) je $\exp(x + (-x)) = \exp 0 = 1$, dostáváme
+\[
+ 1 = \exp x \cdot \exp(-x),
+\]
+čili
+\[
+ \exp(-x) = \frac{1}{\exp x}.
+\]
+
+Ježto má řada $\sum_{n=0}^{\infty} x^{n} / n!$ zjevně kladný součet pro $x > 0$,
+plyne (E6) přímo z právě dokázané (E5).
+
+Vlastnost (E7) je okamžitým důsledkem vlastnosti (E4), díky níž má $\exp$
+konečnou derivaci na $\R$, a tudíž je podle
+\myref{lemmatu}{lem:vztah-derivace-a-spojitosti} tamže spojitá.
+
+Vlastnost (E8) je důsledkem vlastností (E4) a (E6), neboť funkce majíc na
+intervalu (v tomto případě celém $\R$) kladnou derivaci, je na tomto intervalu
+-- podle \myref{důsledku}{cor:vztah-derivace-a-monotonie} -- rostoucí.
+
+Platí $\exp 1 = \sum_{n=0}^{\infty} \frac{1}{n!} = 1 + \sum_{n=1}^{\infty}
+\frac{1}{n!} > 1$, čili z vlastnosti (E1) plyne, že $\exp$ není shora omezená,
+neboť $\exp(x+1) = \exp x \cdot \exp 1 > \exp x$ pro každé $x \in \R$. To spolu
+s vlastnostmi (E7) a (E8) dává $\lim_{x \to \infty} \exp x = \infty$. Dále,
+použitím (E5),
+\[
+ \lim_{x \to -\infty} \exp x = \lim_{x \to \infty} \exp(-x) = \lim_{x \to
+ \infty} \frac{1}{\exp x} = 0,
+\]
+což dokazuje (E9).
+
+Konečně, vlastnost (E10) plyne z (E9) a \hyperref[thm:bolzanova]{Bolzanovy
+věty}.

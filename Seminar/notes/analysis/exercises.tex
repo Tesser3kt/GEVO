@@ -122,22 +122,41 @@
    \]
    pak řada $\sum_{n = 0}^{\infty} a_n$ diverguje.
   \end{enumerate}
+\end{enumerate}
 
 \section*{\nameref*{chap:limity-funkci}}
 
- \begin{enumerate}
-  \item Dokažte, že pro reálnou funkci $f$ a $a \in \R^{*}$ platí
-   \[
-    \lim_{x \to a} f(x) = 0 \Leftrightarrow \lim_{x \to a} |f(x)| = 0.
-   \]
-  \item Dokažte tvrzení (b) a (c) ve \myref{větě}{thm:aritmetika-limit-funkci}.
-  \item Spočtěte následující limity funkcí
-   \begin{align*}
-    &\lim_{x \to 1} \frac{3x^{4} - 4x^3 + 1}{(x-1)^2},\\
-    &\lim_{x \to 0} \frac{3x + \frac{2}{x}}{x + \frac{4}{x}},\\
-    &\lim_{x \to -\infty} \sqrt{x^2 + x} - x,\\
-    &\lim_{x \to \infty} \frac{\sqrt{x-1}-2x}{x-7}.
-   \end{align*}
-  \item Dokažte bod (2) ve \myref{větě}{thm:limita-monotonni-funkce}.
- \end{enumerate}
+\begin{enumerate}
+ \item Dokažte, že pro reálnou funkci $f$ a $a \in \R^{*}$ platí
+  \[
+   \lim_{x \to a} f(x) = 0 \Leftrightarrow \lim_{x \to a} |f(x)| = 0.
+  \]
+ \item Dokažte tvrzení (b) a (c) ve \myref{větě}{thm:aritmetika-limit-funkci}.
+ \item Spočtěte následující limity funkcí
+  \begin{align*}
+   &\lim_{x \to 1} \frac{3x^{4} - 4x^3 + 1}{(x-1)^2},\\
+   &\lim_{x \to 0} \frac{3x + \frac{2}{x}}{x + \frac{4}{x}},\\
+   &\lim_{x \to -\infty} \sqrt{x^2 + x} - x,\\
+   &\lim_{x \to \infty} \frac{\sqrt{x-1}-2x}{x-7}.
+  \end{align*}
+ \item Dokažte bod (2) ve \myref{větě}{thm:limita-monotonni-funkce}.
+\end{enumerate}
+
+\section*{\nameref*{chap:derivace}}
+\begin{enumerate}
+ \item Dokažte, že derivace funkce $f(x) = |x|$ v bodě $0$ neexistuje.
+ \item Připomeňme, že funkce \emph{signum} je definována následovně.
+  \[
+   \sign(x) \coloneqq \begin{cases}
+    1,& \text{když } x > 0,\\
+    0,& \text{když } x = 0,\\
+    -1,& \text{když } x < 0.
+   \end{cases}
+  \]
+  Dokažte, že $\sign'(0) = \infty$.
+ \item Dokažte body (1) a (2) ve \myref{větě}{thm:aritmetika-derivaci}.
+ \item Nalezněte lokální i globální extrémy funkce $f(x) = 2 x^{3} - 3 x^{2} - 12 x -
+  4$.
+ \item Použijte \myref{důsledek}{cor:vztah-derivace-a-monotonie} k důkazu, že
+  spojitá funkce $f:I \to \R$ mající nulovou derivaci na $I$, je konstantní.
 \end{enumerate}
