@@ -186,3 +186,162 @@ což dokazuje (E9).
 
 Konečně, vlastnost (E10) plyne z (E9) a \hyperref[thm:bolzanova]{Bolzanovy
 věty}.
+
+\begin{example}{}{exponenciala-populace}
+ V úvodu do této sekce jsme nazvali exponenciálu \uv{funkcí spojitého růstu}.
+ Tuto intuici nyní částečně formalizujeme. Dalšího pohledu nabudeme po definici
+ obecné mocniny.
+ % TODO odkaz
+
+ Uvažme následující přímočarý populační model. V čase $t \in (0,\infty)$ je
+ počet jedinců dán funkcí $P(t)$. Množství nově narozených jedinců závisí pouze
+ na počtu právě žijících a na konstantě $r \in [0,\infty)$ -- zvané
+ \emph{reproduction rate} -- která značí, kolik nových jedinců se narodí za
+ jednoho právě živého. Vnímáme-li derivaci $P'(t)$ jako \emph{rychlost růstu}
+ populace v čase $t$, pak dostáváme diferenciální rovnici
+ \[
+  P'(t) = r \cdot P(t),
+ \]
+ jelikož v čase $t$ se podle našeho modelu narodí $r$ jedinců za každého živého.
+ Díky vlastnosti (E4) vidíme, že například funkce $P(t) = \exp(rt)$ řeší rovnici
+ výše. Teorii diferenciálních rovnic v tomto textu probírat nebudeme, bez důkazu
+ však zmíníme, že řešení takto triviálních rovnic až na konstantu určena
+ jednoznačně. V tomto jednoduchém populačním modelu je tudíž počet živých
+ jedinců v čase $t$ dán funkcí $t \mapsto \exp(rt).$
+\end{example}
+
+Na závěr si dokážeme jeden možná překvapivý fakt, že vlastnosti (E1) a (E2) již
+určují funkci $\exp$ jednoznačně.
+
+\begin{theorem}{Jednoznačnost exponenciály}{jednoznacnost-exponencialy}
+ Existuje právě jedna funkce definovaná na celém $\R$ splňující (E1) a (E2).
+\end{theorem}
+\begin{thmproof}
+ Existenci jsme dokázali konstruktivně. Dokážeme jednoznačnost. Ať $f:\R \to \R$
+ splňuje (E1) a (E2). Ukážeme, že $f = \exp$.
+
+ Z úvah výše plyne, že $f$ splňuje rovněž vlastnosti (E3) - (E10), protože k
+ jejich důkazu byly použity pouze (E1) a (E2). Platí tedy $f(0) = 1$ a $f'(x) =
+ f(x)$. Jelikož $\exp x \neq 0$ pro všechna $x \in \R$, máme z
+ \hyperref[thm:aritmetika-derivaci]{věty o aritmetice derivací}
+ \[
+  \left( \frac{f}{\exp} \right)'(x) = \frac{f'(x) \exp x - f(x) \exp'x}{\exp^2
+  x} = \frac{f(x) \exp x - f(x) \exp x}{\exp^2 x} = 0.
+ \]
+ Podle \myref{cvičení}{exer:derivace-nula-konstantni} je $f / \exp$ konstatní
+ funkce, čili existuje $c \in \R$ takové, že $f(x) / \exp x = c$ pro každé
+ $c \in \R$. Dosazením $x = 0$ zjistíme, že $c = f(0) / \exp 0 = 1$, čili $c =
+ 1$ a $f = \exp$.
+\end{thmproof}
+
+\subsection{Logaritmus}
+\label{ssec:logaritmus}
+
+Jelikož je funkce $\exp$ spojitá a rostoucí na $\R$, má na celém $\R$ inverzní
+funkci, které přezdíváme \emph{logaritmus} a značíme ji $\log$. Z vlastností
+$\exp$ ihned plyne, že $\log$ je reálná funkce $(0,\infty) \to \R$. Na rozdíl od
+$\exp$ však $\log$ není dána číselnou řadou -- aspoň ne pro všechna $x \in
+(0,\infty)$, více v kapitole o Taylorově polynomu.
+%TODO odkaz
+
+Vlastnosti exponenciály nám rovnou umožňují do značné míry prozkoumat k ní
+inverzní funkci.
+
+\begin{proposition}{Vlastnosti logaritmu}{vlastnosti-logaritmu}
+ Pro každá $x,y \in (0,\infty)$ platí
+ \begin{enumerate}[label=(L\arabic*)]
+  \item $\log$ je spojitá a rostoucí na $(0,\infty)$;
+  \item $\log(xy) = \log x + \log y$;
+  \item $\log'x = 1 / x$;
+  \item $\lim_{x \to 0^{+}} \log x = -\infty$ a $\lim_{x \to \infty} \log x =
+   \infty$.
+ \end{enumerate}
+\end{proposition}
+\begin{propproof}
+ \hspace*{\fill}
+ \begin{enumerate}[label=(L\arabic*)]
+  \item Plyne ihned z faktu, že $\exp$ je spojitá a rostoucí.
+  \item Užitím vlastností exponenciály spočteme
+  \[
+   xy = \exp(\log x) \cdot \exp(\log y) = \exp(\log x + \log y),
+  \]
+  z čehož po aplikace $\log$ na obě strany rovnosti plyne
+  \[
+   \log(xy) = \log x + \log y.
+  \]
+ \item Podle \hyperref[thm:derivace-inverzni-funkce]{věty o derivaci inverzní
+  funkce} platí
+  \[
+   \log'x = \frac{1}{\exp'(\log x)} = \frac{1}{\exp(\log x)} = \frac{1}{x}.
+  \]
+ \item Protože $\img \log = \R$, není $\log$ zdola ani shora omezená. Z (L1)
+  plyne kýžený závěr.
+ \end{enumerate}
+\end{propproof}
+
+\subsection{Obecná mocnina}
+\label{ssec:obecna-mocnina}
+
+Užitím funkcí $\log$ a $\exp$ definujeme pro $a \in (0,\infty)$ a $b \in \R$
+výraz $a^{b}$ předpisem
+\[
+ a^{b} \coloneqq \exp(b \cdot \log a).
+\]
+Stojí za to věnovat krátkou chvíli ověření, že tato funkce odpovídá naší
+představě \emph{mocniny} v případě, kdy $b = n \in \N$. Máme
+\[
+ a^{n} = \exp(n \cdot \log a) = \exp \left( \sum_{k=1}^n \log a \right) =
+ \prod_{k=1}^n \exp(\log(a)) = \prod_{k=1}^n a,
+\]
+tedy $a^{n}$ je vskutku $a$ $n$-krát vynásobené samo sebou.
+
+\begin{warning}{}{obecna-mocnina}
+ Uvědomme si, že $a^{b}$ je definováno pouze pro $a \in (0,\infty)$. Pro $a \leq
+ 0$ není tato funkce nad reálnými čísly rozumně definovatelná. Důvod je mimo
+ jiné následující: pro $n$ sudé a $a < 0$ je $a^{n} > 0$, ale $a^{n+1} < 0$.
+ Tedy, měla-li by $a^{b}$ být spojitá funkce, pak by pro každé $n \in \N$ a $a <
+ 0$ existovalo $\xi \in (n,n+1)$ takové, že $a^{\xi} = 0$. Mocninná funkce, jež
+ je nulová pro nekonečně mnoho čísel je i pro matematiky zřejmě příliš divoká
+ představa.
+
+ Poznamenejme však, že nad komplexními čísly je funkce $\log$ definována i pro
+ záporná reálná čísla, tedy $a^{b}$ dává -- se stejnou definicí -- smysl pro
+ všechna $a,b \in \C$.
+\end{warning}
+
+Z vlastností $\log$ a $\exp$ plynou ihned vlastnosti obecné mocniny. Jelikož
+její definice dává vzniknout \textbf{dvěma} reálným funkcím, konkrétně
+\[
+ f(x) = a^{x} \text{ pro } x \in \R \quad \text{a} \quad g(x) = x^{b} \text{
+ pro } x \in (0,\infty),
+\]
+musíme tyto při zkoumání vlastností obecné mocniny pochopitelně rozlišovat. Aby
+nedošlo ke zmatení, budeme tyto funkce značit zkrátka jako $x \mapsto a^{x}$ a
+$x \mapsto x^{b}$, kde $a \in (0,\infty)$ a $b \in \R$ jsou fixní.
+
+\begin{proposition}{Vlastnosti obecné mocniny}{vlastnosti-obecne-mocniny}
+ Pro všechna $a \in (0,\infty), b \in \R$ platí
+ \begin{enumerate}[label=(O\arabic*)]
+  \item Funkce $x \mapsto a^{x}$ i $x \mapsto x^{b}$ jsou spojité na svých
+   doménách.
+  \item Funkce $x \mapsto a^{x}$ je na celém $\R$ 
+   \begin{itemize}
+    \item rostoucí pro $a > 1$,
+    \item konstantní pro $a = 1$,
+    \item klesající pro $a < 1$.
+   \end{itemize}
+  \item Funkce $x \mapsto x^{b}$ je rostoucí na $(0,\infty)$.
+  \item $(x \mapsto a^{x})' = (x \mapsto a^{x} \log a)$.
+  \item $(x \mapsto x^{b})' = (x \mapsto bx^{b-1})$.
+  \item $\lim_{x \to \infty} a^{x} = \infty$ a $\lim_{x \to -\infty} a^{x} = 0$.
+  \item Pokud $b \neq 0$, pak $\lim_{x \to 0^{+}} x^{b} = 0$ a $\lim_{x \to
+   \infty} x^{b} = \infty$.
+  \item $\log(a^{b}) = b \cdot \log a$.
+ \end{enumerate}
+\end{proposition}
+\begin{propproof}
+ \hspace*{\fill}
+ \begin{enumerate}[label=(O\arabic*)]
+  \item 
+ \end{enumerate}
+\end{propproof}

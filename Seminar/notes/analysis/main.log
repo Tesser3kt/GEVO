@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.24)  28 MAY 2024 21:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.24)  29 MAY 2024 15:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1234,7 +1234,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 6.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 17.28pt on input line 6.
-<moebius.png, id=51, 869.2475pt x 524.96124pt>
+<moebius.png, id=59, 869.2475pt x 524.96124pt>
 File: moebius.png Graphic file (type png)
 <use moebius.png>
 Package pdftex.def Info: moebius.png  used on input line 7.
@@ -1387,11 +1387,42 @@ LaTeX Warning: Reference `cor:vztah-derivace-a-monotonie' on page 10 undefined o
 
 LaTeX Warning: Hyper reference `thm:bolzanova' on page 10 undefined on input line 188.
 
+[10]
+
+LaTeX Warning: Hyper reference `thm:aritmetika-derivaci' on page 11 undefined on input line 226.
+
+
+LaTeX Warning: Hyper reference `exer:derivace-nula-konstantni' on page 11 undefined on input line 231.
+
+
+LaTeX Warning: Reference `exer:derivace-nula-konstantni' on page 11 undefined on input line 231.
+
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 237.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 237.
+[11]
+Package hyperref Info: bookmark level for unknown propproof defaults to 0 on input line 261.
+
+
+LaTeX Warning: Hyper reference `thm:derivace-inverzni-funkce' on page 12 undefined on input line 273.
+
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 315.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 6.1pt on input line 315.
+[12]
+LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 329.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
+File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/LinuxLibertineT-TLF.
+)
+LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.95pt on input line 329.
 ))
 \tf@thm=\write6
 \openout6 = `main.thm'.
 
- [10] (./main.aux)
+ [13{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1401,21 +1432,21 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B5097AC21B2666D3DDD06E8565594629;330.
+(rerunfilecheck)             Checksum: E81B7160E73C5C1C7C0D5D48344D56DC;578.
  ) 
 Here is how much of TeX's memory you used:
- 42322 strings out of 473993
- 867761 string characters out of 5741040
- 1961904 words of memory out of 5000000
- 63882 multiletter control sequences out of 15000+600000
- 681768 words of font info for 119 fonts, out of 8000000 for 9000
+ 42431 strings out of 473993
+ 870140 string characters out of 5741040
+ 1960904 words of memory out of 5000000
+ 63954 multiletter control sequences out of 15000+600000
+ 702271 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,11n,120p,1190b,1119s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,12n,120p,1190b,1229s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (10 pages, 912453 bytes).
+Output written on main.pdf (13 pages, 932462 bytes).
 PDF statistics:
- 218 PDF objects out of 1000 (max. 8388607)
- 147 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 278 PDF objects out of 1000 (max. 8388607)
+ 202 compressed objects within 3 object streams
+ 63 named destinations out of 1000 (max. 500000)
+ 194 words of extra memory for PDF output out of 10000 (max. 10000000)
 
