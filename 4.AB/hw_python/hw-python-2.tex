@@ -1,0 +1,138 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Page Layout %
+\usepackage[margin=1.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=0pt}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes,calc}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Homework -- PreIB 3.AB 4}\\
+ \Large\textsf{Triangulations and Symmetries of Regular Polygons}
+ \author{Áďa Klepáčů}
+ \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\begin{document}
+
+\thispagestyle{fancy}
+
+Napište program \textbf{v Pythonu} (nebo v jiném programovacím jazyce, pokud
+chcete), který řeší následující úlohy.
+
+\section*{DNA}
+
+V řetězcích deoxyribonukleové kyseliny jsou symboly \texttt{A} a \texttt{T}
+komplementární a stejně tak symboly \texttt{C} a \texttt{G}. Napište funkci,
+která dostane jednu část DNA (jako \texttt{string}) a vrátí její komplementární
+část, tj. prohodí mezi sebou \texttt{A} a \texttt{T}, \texttt{C} a \texttt{G}.
+
+\emph{Příklady:}
+\begin{itemize}
+ \item Komplement k řetězci \texttt{ATTGC} je \texttt{TAACG}.
+ \item Komplement k řetězci \texttt{GTAT} je \texttt{CATA}.
+\end{itemize}
+
+\section*{Růst populace}
+
+V malé vesničce je na začátku roku \texttt{1000} obyvatel. Průměrně vzroste
+každým rokem její populace o \texttt{2 \%} a navíc se přistěhuje \texttt{50}
+nových obyvatel. Napište funkci, která dostane parametrem budoucí počet obyvatel
+(jako \texttt{int}) a vrátí počet let, za který přeroste populace vesničky tento
+daný počet obyvatel.
+
+\emph{Příklad:} Když je zadaný budoucí počet obyvatel \texttt{1200}, pak
+populace doroste tohoto počtu za 3 roky.
+\begin{itemize}
+ \item Po 1. roce je ve vesničce \texttt{1000 * 1.02 + 50 = 1070} obyvatel.
+ \item Po 2. roce je ve vesničce \texttt{1070 * 1.02 + 50 = 1141} obyvatel.
+ \item Po 3. roce je ve vesničce \texttt{1141 * 1.02 + 50 = 1213} obyvatel.
+\end{itemize}
+
+\end{document}
