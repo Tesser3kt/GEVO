@@ -1,4 +1,201 @@
 \section{Goniometrické funkce}
 \label{sec:goniometricke-funkce}
 
+Název \uv{úhloměrné} funkce je zastaralý a nepřesný. Funkce $\sin$ a $\cos$,
+které se jmeme definovati, úspěšně modelují fyzikální jevy jakkoli související s
+vibrací či vlněním. Jak si brzy rozmyslíme, jsou to ve skutečnosti funkce v
+zásadě exponenciální. To by nemělo být na druhý pohled až tak překvapivé --
+vibrace jsou v zásadě jen periodicky se střídající růst a pokles.
 
+\begin{definition}{Goniometrické funkce}{goniometricke-funkce}
+ Pro $x \in \R$ definujeme funkce
+ \begin{align*}
+  \sin x & \coloneqq \sum_{n=0}^{\infty} (-1)^{n} \frac{x^{2n+1}}{(2n+1)!},\\
+  \cos x & \coloneqq \sum_{n=0}^{\infty} (-1)^{n} \frac{x^{2n}}{(2n)!}.
+ \end{align*}
+\end{definition}
+
+\begin{theorem}{Vlastnosti goniometrických
+funkcí}{vlastnosti-goniometrickych-funkci}
+ Funkce $\sin$ a $\cos$ jsou dobře definované a splňují:
+ \begin{enumerate}[label=(G\arabic*)]
+  \item $ \forall x,y \in \R:$
+  \begin{align*}
+   \sin(x+y) &= \sin x \cos y + \sin y \cos x,\\
+   \cos(x+y) &= \cos x \cos y - \sin x \sin y;
+  \end{align*}
+ \item $\sin$ je lichá a $\cos$ je sudá funkce;
+ \item $ \exists \pi \in \R$ takové, že $\sin$ je rostoucí na $[0,\pi / 2]$,
+  $\sin(0) = 0$ a $\sin(\pi / 2) = 1$.
+ \item $\sin'(0) = 1$.
+ \end{enumerate}
+\end{theorem}
+
+K důkazu použijeme následující pomocné lemma.
+
+\begin{lemma*}{Pomocné}
+ Ať $x \in \R$. Pak existuje $C > 0$ takové, že pro každé $n \in \N$ a každé
+ $h \in (-1,1)$ platí nerovnost
+ \[
+  |(x+h)^{n} - x^{n} - nhx^{n-1}| \leq h^2C^{n}.
+ \]
+\end{lemma*}
+\begin{lemproof}
+ Položme $C \coloneqq 2(|x| + 1)$. Pro $n = 1$ máme
+ \[
+  |(x+h)^{1} - x^{1} - hx^{0}| = |x + h - x - h| = 0 \leq 2h^2 (|x| + 1)
+ \]
+ pro každé $h \in (-1,1)$.
+ 
+ Pro $n \geq 2$ lze použít binomickou větu a počítat
+ \begin{equation*}
+  \label{eq:sin-derivative}
+  \tag{$\triangle$}
+  (x+h)^{n} - x^{n} - nhx^{n-1} = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} h^{k}
+  \clr{-~x^{n} - nhx^{n-1}} = \sum_{\clr{k=2}}^{n} \binom{n}{k} x^{n-k}h^{k}.
+ \end{equation*}
+ Protože $|x| + 1 \geq |x|$ pro každé $x \in \R$, platí $(|x| + 1)^{n} \geq
+ |x|^{k}$, kdykoli $k \leq n$. Rovněž, z~předpokladu $|h|<1$, a tedy naopak
+ platí $|h|^{k} \leq |h|^{n}$ pro $k \leq n$. Užitím \clb{těchto nerovností} a
+ rovnosti~\eqref{eq:sin-derivative} můžeme odhadnout
+ \begin{align*}
+  |(x+h)^{n} - x^{n} - nhx^{n-1}| & \leq \sum_{k=2}^{n}
+  \binom{n}{k}|x|^{n-k}|h|^{k} \clb{~\leq} \sum_{k=2}^{n} \binom{n}{k} (|x| +
+  1)^{n}h^2\\
+                                  & \leq h^2(|x| + 1)^{n} \sum_{k=0}^{n}
+                                  \binom{n}{k} = h^2(|x| + 1)^{n} 2^{n} =
+                                  h^2C^{n},
+ \end{align*}
+ čímž je důkaz hotov.
+\end{lemproof}
+
+\begin{thmproof}[\myref{Věty}{thm:vlastnosti-goniometrickych-funkci}]
+ Je zřejmé, že řady
+ \[
+  \sum_{n=0}^{\infty} (-1)^{n} \frac{x^{2n+1}}{(2n+1)!} \quad \text{a} \quad
+  \sum_{n=0}^{\infty} (-1)^{n} \frac{x^{2n}}{(2n)!}
+ \]
+ konvergují absolutně (použitím stejného argumentu jako v důkazu korektnosti
+ exponenciály ve \myref{větě}{thm:vlastnosti-exponencialy}). Podle
+ \myref{lemmatu}{lem:absolutni-konvergence-a-konvergence} jsou obě řady rovněž
+ konvergentní pro každé $x \in \R$, což dokazuje dobrou definovanost obou
+ funkcí.
+
+ Ukážeme nejprve, že $\sin'x = \cos x$. Volme pevné $x \in \R$. Pro $h \in
+ (-1,1)$ platí
+ \begin{align*}
+  \sin(x+h) - \sin x - h \cos x &= \sum_{n=0}^{\infty} (-1)^{n}\left(
+  \frac{(x+h)^{2n+1} - x^{2n+1}}{(2n+1)!} - \frac{hx^{2n}}{(2n)!}\right)\\
+  &= \sum_{n=0}^{\infty} \frac{(-1)^{n}}{(2n+1)!} ((x+h)^{2n+1} - x^{2n+1} -
+  h(2n+1)x^{2n}).
+ \end{align*}
+ Z \textbf{pomocného lemmatu} nalezneme $C > 0$ takové, že
+ \[
+  |(x+h)^{2n+1} - x^{2n+1} - h(2n+1)x^{2n}| \leq C^{2n+1}h^2.
+ \]
+ Pak
+ \[
+  |\sin(x+h) - \sin x - h\cos x| \leq \sum_{n=0}^{\infty}
+  \frac{C^{2n+1}}{(2n+1)!}h^2 = h^2 \sum_{n=0}^{\infty}
+  \frac{C^{2n+1}}{(2n+1)!}.
+ \]
+ Řada $\sum_{n=0}^{\infty} C^{2n+1} / (2n+1)!$ je konvergentní, a tedy
+ \[
+  \lim_{h \to 0} \left|\frac{\sin(x+h) - \sin x - h \cos x}{h}\right| = 0,
+ \]
+ z čehož ihned
+ \[
+  \sin'x = \lim_{h \to 0} \frac{\sin(x+h)-\sin x}{h} = \cos x.
+ \]
+
+ Pro důkaz (G1) volme pevné $a \in \R$ a položme
+ \[
+  \psi(x) \coloneqq (\sin(x + a) - \sin x \cos a - \sin a \cos x)^2
+  + (\cos(x + a) - \cos x \cos a + \sin a \sin x)^2.
+ \]
+ Snadno spočteme, že $\psi'(x) = 0$ pro každé $x \in \R$, a tedy je díky
+ \myref{cvičení}{exer:derivace-nula-konstantni} $\psi$ konstantní na $\R$.
+ Dosazením dostaneme, že
+ \begin{align*}
+  \sin(0) &= \sum_{n=0}^{\infty} (-1)^{n} \frac{0^{2n+1}}{(2n+1)!} = 0,\\
+  \cos(0) &= \sum_{n=0}^{\infty} (-1)^{n} \frac{0^{2n}}{(2n)!} =
+  (-1)^{0}\frac{0^{0}}{0!} + \sum_{n=1}^{\infty} (-1)^{n}\frac{0^{2n}}{(2n!)} =
+  1.
+ \end{align*}
+ Díky těmto rovnostem spočteme $\psi(0) = 0$. Z toho, že $\psi$ je konstantní,
+ plyne, že $\psi(x) = 0$ pro každé $x \in \R$. To dokazuje obě rovnosti v (G1),
+ neboť $\psi$ je nulová funkce, jež je zároveň součtem čtverců, které musejí být
+ tudíž oba nulové.
+
+ Vlastnost (G2) je vidět ihned z definice, neboť proměnná $x$ se v definici
+ $\sin$ objevuje pouze v~liché mocnině a v definici $\cos$ pouze v sudé.
+
+ Vlastnost (G3) dokazovat nebudeme. Je výpočetně náročná a neintuitivní.
+
+ Již víme, že $\sin'(x) = \cos x$ a že $\cos(0) = 1$. Odtud (G4).
+\end{thmproof}
+
+\begin{remark}{}{sin-cos-jako-exp}
+ V úvodu jsme zmínili, že $\sin$ a $\cos$ jsou vlastně exponenciální funkce.
+ Vskutku, když se jeden zadívá na jejich řady, vidí (až na znaménko $(-1)^{n}$
+ zařizující právě onen \uv{růst a pokles}) v~zásadě exponenciální funkci.
+ Konkrétně, $\sin$ je rozdílem \emph{lichých} částí exponenciály a $\cos$ těch
+ \emph{sudých}. Rozdělme $\exp x$ na čtyři části podle zbytku po dělení indexu
+ $n$ čtyřmi.
+ \[
+  \exp x = \clr{\sum_{n \bmod 4 = 0} \frac{x^{n}}{n!}}~+ \clb{\sum_{n \bmod 4 =
+  1} \frac{x^{n}}{n!}}~+\clg{\sum_{n \bmod 4 = 2} \frac{x^{n}}{n!}}~+\clm{\sum_{n \bmod 4 =
+  3} \frac{x^{n}}{n!}}
+ \]
+ Označme tyto části $\clr{\exp_0}, \clb{\exp_1}, \clg{\exp_2}$ a $\clm{\exp_3}$.
+ Všimněme si, že když $n \bmod 4 = a$, pak $n = 4k + a$ pro nějaké $k \in \N$.
+ Čili například $\clg{\exp_2}$ lze zapsat ve tvaru
+ \[
+  \clg{\exp_2}(x) = \sum_{k=0}^{\infty} \frac{x^{4k + 2}}{(4k + 2)!}
+ \]
+ Tvrdíme, že $\sin = \clb{\exp_1} - \clm{\exp_3}$ a $\cos = \clr{\exp_0} -
+ \clg{\exp_2}$. Vskutku, když je $n$ liché, pak $2n+1 \bmod 4 = 3$ (protože $4
+ \nmid 2n$) a když je $n$ sudé, tak $2n + 1 \bmod 4 = 1$. Čili, pro $n$ lichá je
+ $2n + 1$ tvaru $4k+3$ a pro $n$ sudá zase tvaru $4k+1$. Můžeme tedy psát
+ \begin{align*}
+  \clb{\exp_1}(x) - \clm{\exp_3}(x) &= \sum_{k=0}^{\infty}
+  \frac{x^{4k+1}}{(4k+1)!} - \sum_{k=0}^{\infty} \frac{x^{4k+3}}{(4k+3)!}\\
+                                    &=\sum_{n \text{ sudé}}
+                                    \frac{x^{2n+1}}{(2n+1)!} - \sum_{n \text{
+                                    liché}} \frac{x^{2n+1}}{(2n+1)!} =
+                                    \sum_{n=0}^{\infty}
+                                    (-1)^{n}\frac{x^{2n+1}}{(2n+1)!} = \sin x,
+ \end{align*}
+ neboť $(-1)^{n}$ je rovno $1$ pro $n$ sudé a $-1$ pro $n$ liché. Podobně
+ odvodíme i vztah pro $\cos$.
+\end{remark}
+
+\begin{definition}{Tangens a kotangens}{tangens-a-kotangens}
+ Definujeme goniometrické funkce $\tan$ a $\cot$ předpisy
+ \[
+  \tan x = \frac{\sin x}{\cos x}, \quad \cot x = \frac{\cos x}{\sin x}.
+ \]
+ Funkce $\tan$ je definována pro $x \neq n\pi + \pi / 2$, kde je funkce
+ $\cos$ nulová, a $\cot$ je definována pro $x$ různé od násobků $\pi$.
+\end{definition}
+
+Zformulujeme si několik vlastností funkcí $\tan$ a $\cot$, ale dokazovat je
+nebudeme. Důkazy se významně neliší od již spatřených důkazů jiných
+elementárních funkcí.
+
+\begin{proposition}{Vlastnosti tangenty a kotangenty}{vlastnosti-tangenty-a-kotangenty}
+ Platí:
+ \begin{enumerate}[label=(G\arabic*)]
+  \setcounter{enumi}{4}
+  \item $\tan$ i $\cot$ jsou spojité na svých doménách;
+  \item $\tan$ i $\cot$ jsou liché;
+  \item $\tan'x = 1 / \cos^2 x$ a $\cot'x = - 1 / \sin^2 x$;
+  \item $\tan \frac{\pi}{4} = \cot \frac{\pi}{4} = 1$;
+  \item $\lim_{x \to \frac{\pi}{2}^{-}} \tan x = \infty$ a $\lim_{x \to
+   \frac{\pi}{2}^{+}} \tan x = -\infty$.
+  \item $\lim_{x \to 0^{+}} \cot x = \infty$ a $\lim_{x \to \pi^{-}} \cot x =
+   -\infty$.
+  \item $\tan$ je rostoucí na $(-\pi / 2, \pi / 2)$ a $\cot$ je klesající na
+   $(0,\pi)$.
+ \end{enumerate}
+\end{proposition}
