@@ -330,18 +330,67 @@ $x \mapsto x^{b}$, kde $a \in (0,\infty)$ a $b \in \R$ jsou fixní.
     \item konstantní pro $a = 1$,
     \item klesající pro $a < 1$.
    \end{itemize}
-  \item Funkce $x \mapsto x^{b}$ je rostoucí na $(0,\infty)$.
+  \item Funkce $x \mapsto x^{b}$ je na $(0,\infty)$
+   \begin{itemize}
+    \item rostoucí pro $b > 0$,
+    \item konstantní pro $b = 0$,
+    \item klesající pro $b < 0$.
+   \end{itemize}
   \item $(x \mapsto a^{x})' = (x \mapsto a^{x} \log a)$.
   \item $(x \mapsto x^{b})' = (x \mapsto bx^{b-1})$.
-  \item $\lim_{x \to \infty} a^{x} = \infty$ a $\lim_{x \to -\infty} a^{x} = 0$.
-  \item Pokud $b \neq 0$, pak $\lim_{x \to 0^{+}} x^{b} = 0$ a $\lim_{x \to
-   \infty} x^{b} = \infty$.
+  \item Je-li
+   \begin{itemize}
+    \item $a > 1$, pak $\lim_{x \to \infty} a^{x} = \infty$ a $\lim_{x \to
+     -\infty} a^{x} = 0$;
+    \item $a < 1$, pak $\lim_{x \to \infty} a^{x} = 0$ a $\lim_{x \to -\infty}
+     a^{x} = \infty$;
+   \end{itemize}
+  \item Je-li 
+   \begin{itemize}
+    \item $b > 0$, pak $\lim_{x \to 0^{+}} x^{b} = 0$ a $\lim_{x \to \infty}
+     x^{b} = \infty$.
+    \item $b < 0$, pak $\lim_{x \to 0^{+}} x^{b} = \infty$ a $\lim_{x \to
+     \infty} x^{b} = 0$.
+   \end{itemize}
   \item $\log(a^{b}) = b \cdot \log a$.
  \end{enumerate}
 \end{proposition}
 \begin{propproof}
- \hspace*{\fill}
+ Vlastnosti (O2), (O3), (O6) a (O7) dokážeme pouze v případě, že $a > 1$ a $b >
+ 0$. Důkaz tvrzení v případech $a < 1$ a $b < 0$ plyne ihned z rovnosti
+ $\exp(-x) = 1 / \exp x$ pro $x \in \R$.
+  
  \begin{enumerate}[label=(O\arabic*)]
-  \item 
+  \item Jelikož $a^{b} = \exp(b \log a)$ plyne spojitost obou funkcí ze
+   spojitosti $\exp$ a $\log$.
+  \item Platí $a^{x} = \exp(x \log a)$. Protože $a > 1$, je $\log a > 0$. Funkce
+   $\exp$ je rostoucí, a tedy je rostoucí rovněž $a \mapsto a^{x}$.
+  \item Máme $x^{b} = \exp(b \log x)$. Jelikož je $b$ z předpokladu kladné a
+   $\log$ je rostoucí, je $x \mapsto x^{b}$ též rostoucí.
+  \item Počítáme
+   \[
+    (a^{x})' = (\exp(x \log a))' = \exp'(x \log a) \cdot (x \log a)' = \exp(x
+    \log a) \cdot \log a = a^{x} \log a.
+   \]
+  \item Opět počítáme
+   \[
+    (x^{b})' = (\exp(b\log x))' = \exp'(b \log x) \cdot (b\log x)' = \exp(b \log
+    x) \cdot \frac{b}{x} = \frac{bx^{b}}{x} = bx^{b-1}.
+   \]
+  \item Podobně jako v důkazu (O2) plyne z $a > 1$, že $\log a > 0$. Potom jsou
+   ale limity v $ \pm \infty$ funkce $a^{x} = \exp(x \log a)$ stejné jako tytéž
+   limity funkce $\exp x$. Odtud tvrzení.
+  \item Jelikož je $b > 0$, máme z \hyperref[thm:limita-slozene-funkce]{věty o
+   limitě složené funkce} 
+   \begin{align*}
+    \lim_{x \to 0^{+}} x^{b} &= \lim_{x \to 0^{+}} \exp(b \cdot \log x) = \lim_{y
+    \to -\infty} \exp(b \cdot y) = 0,\\
+     \lim_{x \to \infty} x^{b} &= \lim_{x \to \infty} \exp(b \cdot \log x) =
+     \lim_{y \to \infty} \exp(b \cdot y) = \infty.
+   \end{align*}
+  \item Jest
+   \[
+    \log(a^{b}) = \log(\exp(b \cdot \log a)) = b \cdot \log a. \qedhere
+   \]
  \end{enumerate}
 \end{propproof}
