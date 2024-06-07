@@ -394,3 +394,68 @@ $x \mapsto x^{b}$, kde $a \in (0,\infty)$ a $b \in \R$ jsou fixní.
    \]
  \end{enumerate}
 \end{propproof}
+
+\begin{example}{Exponenciála jako funkce růstu podruhé}{exp-rust-podruhe}
+ V \myref{příkladě}{exam:exponenciala-populace} jsme slíbili čtenářům ještě
+ jeden pohled na exponenciálu jako na funkci \uv{spojitého} růstu. Uvažme
+ následující obvyklý finanční model.
+
+ Naším prvotním vkladem na spořící účet je částka $P > 0$. Ve smlouvě k účtu je
+ uvedeno, že z něj nesmíme vybírat po dobu pěti let za roční úrokové sazby 5 \%.
+ Tedy, každý rok se právě uložená částka na účtu zvýší o přesně 5 \%. Když
+ chceme vypočítat, kolik budeme mít na účtu za oněch pět let, stačí provést
+ snadný výpočet
+ \[
+  P \cdot 1.05 \cdot 1.05 \cdot 1.05 \cdot 1.05 \cdot 1.05 = P \cdot 1.05^{5}.
+ \]
+ V zájmu rozšíření tohoto příkladu si zapíšeme tentýž výsledek jako
+ \[
+  P \cdot \left( 1 + 0.05 \right)^{5}.
+ \]
+ 
+ Tento model však předpokládá úročení uložené částky jednou ročně. Když bude
+ však úročení probíhat například měsíčně, pak se roční úroková sazba samozřejmě
+ rozdělí dvanácti, avšak výpočet úročení je rovněž třeba provést dvanáctkrát do
+ roka. Finální částkou po pěti letech bude tudíž
+ \[
+  P \cdot \left(\left( 1 + \frac{0.05}{12} \right)^{12}\right)^{5} = P \cdot
+  \left( 1 + \frac{0.05}{12} \right)^{60}.
+ \]
+ 
+ S postupným zkracováním úrokového období se nabízí otázka, jaká by byla finální
+ částka, kdyby se původní vklad úročil \uv{nekonečněkrát} do roka, tj. uložená
+ částka by se zvyšovala doslova v každém okamžiku (tedy \uv{spojitě}). Odpovědí
+ je výraz
+ \[
+  \lim_{n \to \infty} P \cdot \left( 1 + \frac{0.05}{n} \right)^{n}.
+ \]
+ 
+ Ukážeme, že touto limitou je hodnota funkce $\exp$ v bodě $0.05$. Obecněji,
+ spočteme, že
+ \begin{equation*}
+  \label{eq:exp-as-lim}
+  \tag{$\spadesuit$}
+  \lim_{n \to \infty} \left( 1 + \frac{x}{n} \right)^{n} = \exp x.
+ \end{equation*}
+
+ Výpočet je to v celku triviální. Z definice obecné mocniny a
+ \hyperref[cor:heineho-veta-pro-spojitost]{Heineho věty} platí
+ \[
+  \lim_{n \to \infty} \left( 1 + \frac{x}{n} \right)^{n} = \lim_{n \to \infty}
+  \exp \left( n \log \left( 1 + \frac{x}{n} \right) \right) = \exp \left(
+  \lim_{n \to \infty} n \log \left(1 + \frac{x}{n}\right) \right).
+ \]
+ Stačí tedy ukázat, že
+ \[
+  \lim_{n \to \infty} n \log \left( 1+\frac{x}{n} \right) = x.
+ \]
+ Užitím \hyperref[thm:lhospital]{l'Hospitalova pravidla} dostaneme (derivujeme
+ podle $n$ -- to smíme opět díky \hyperref[thm:heineho]{Heineho větě})
+ \[
+  \lim_{n \to \infty} n \log \left( 1+\frac{x}{n} \right) = \lim_{n \to \infty}
+  \frac{\log \left( 1 + \frac{x}{n} \right)}{\frac{1}{n}} = \lim_{n \to \infty}
+  \frac{1}{1+\frac{x}{n}} \cdot \frac{-x}{n^2} \cdot (-n^2) = \lim_{n \to
+  \infty} \frac{nx}{n + x} = x.
+ \]
+ Tím je rovnost~\eqref{eq:exp-as-lim} dokázána.
+\end{example}
