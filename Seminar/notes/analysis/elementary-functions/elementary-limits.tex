@@ -8,3 +8,93 @@ funkcí. Samotné řešení pak obvykle zahrnuje převod výrazu do tvaru, v ně
 naň uplatnit jisté \uv{známé} limity, případně použít
 \hyperref[thm:lhospital]{l'Hospitalova pravidla}.
 
+\begin{proposition}{Běžné limity}{bezne-limity}
+ Platí
+ \begingroup
+ \addtolength{\jot}{3mm}
+ \begin{align}
+  \lim_{x \to 0} \frac{\sin x}{x} &= 1,\tag{a}\\
+  \lim_{x \to 0} \frac{1-\cos x}{x^2} &= \frac{1}{2},\tag{b}\\
+  \lim_{x \to 0} \frac{\exp x - 1}{x} &= 1,\tag{c}\\
+  \lim_{x \to 0} \frac{\log(1+x)}{x} &= 1.\tag{d}
+ \end{align}
+ \endgroup
+\end{proposition}
+\begin{propproof}
+ K výpočtu všech limit lze použít \hyperref[thm:lhospital]{l'Hospitalova
+ pravidla}. Máme
+ \begingroup
+ \addtolength{\jot}{3mm}
+ \begin{align}
+  \lim_{x \to 0} \frac{\sin x}{x} &= \lim_{x \to 0} \frac{\cos x}{1} = \cos(0) =
+  1,\tag{a}\\
+  \lim_{x \to 0} \frac{1-\cos x}{x^2} &= \lim_{x \to 0} \frac{\sin x}{2x} =
+  \frac{1}{2} \lim_{x \to 0} \frac{\sin x}{x} \overset{\text{(a)}}{=}
+  \frac{1}{2},\tag{b}\\
+  \lim_{x \to 0} \frac{\exp x - 1}{x} &= \lim_{x \to 0} \frac{\exp x}{1} =
+  \exp(0) = 1,\tag{c}\\
+  \lim_{x \to 0} \frac{\log(1+x)}{x} &= \lim_{x \to 0} \frac{\frac{1}{1+x}}{1} =
+  1.\tag{d}
+ \end{align}
+ \endgroup
+ Tím je důkaz hotov.
+\end{propproof}
+
+Aplikujeme nyní \myref{tvrzení}{prop:bezne-limity} k výpočtu některých limit
+kombinací elementárních funkcí.
+
+\begin{problem}{}{elementarni-limity-1}
+ Spočtěte
+ \[
+  \lim_{x \to 0} \frac{\cos(\sin x) - 1}{\log(\sqrt{1 + x^2})}.
+ \]
+\end{problem}
+\begin{probsol}
+ Zřejmě platí
+ \[
+  \lim_{x \to 0} \cos(\sin x) - 1 = \lim_{x \to 0} \log(\sqrt{1 + x^2}) = 0,
+ \]
+ je tedy třeba výraz nejprve upravit. \hyperref[thm:lhospital]{l'Hospitalovo
+ pravidlo} zde pravděpodobně není vhodným prostředkem, neboť derivace obou
+ funkcí jsou značně komplikované. Učiníme nejprve úpravu
+ \[
+  \frac{\cos(\sin x) - 1}{\log(\sqrt{1 + x^2})} = \frac{\cos(\sin x) -
+  1}{\sin^2 x} \cdot \frac{\sin^2 x}{\log(\sqrt{1 + x^2})}.
+ \]
+ Protože $\lim_{x \to 0} \sin x / x = 1$, platí z
+ \hyperref[thm:limita-slozene-funkce]{věty o limitě složené funkce}
+ \[
+  \lim_{x \to 0} \frac{\cos(\sin x) - 1}{\sin^2 x} = \lim_{y \to 0} \frac{\cos y
+  - 1}{y^2} = -\frac{1}{2}.
+ \]
+ Dále máme (z \hyperref[prop:vlastnosti-logaritmu]{vlastností logaritmu})
+ \[
+  \frac{\sin^2 x}{\log(\sqrt{1 + x^2})} = \frac{\sin^2 x}{x^2} \cdot
+  \frac{x^2}{\frac{1}{2}\log(1 + x^2)} = 2 \cdot \frac{\sin x}{x} \cdot
+  \frac{\sin x}{x} \cdot \frac{x^2}{\log(1 + x^2)}.
+ \]
+ Opět z \hyperref[thm:limita-slozene-funkce]{věty o limitě složené funkce} jest
+ \[
+  \lim_{x \to 0} \frac{x^2}{\log(1 + x^2)} = \lim_{y \to 0} \frac{y}{\log(1 +
+  y)} = 1.
+ \]
+ Celkem tedy,
+ \[
+  \lim_{x \to 0} \frac{\sin^2 x}{\log(\sqrt{1 + x^2})} = 2 \cdot \lim_{x \to 0}
+  \frac{\sin x}{x} \cdot \lim_{x \to 0} \frac{\sin x}{x} \cdot \lim_{x \to 0}
+  \frac{x^2}{\log(1 + x^2)} = 2 \cdot 1 \cdot 1 \cdot 1 = 2.
+ \]
+ Spolu s předchozím výpočtem dostaneme
+ \[
+  \lim_{x \to 0} \frac{\cos(\sin x) - 1}{\log(\sqrt{1 + x^2})} = -\frac{1}{2}
+  \cdot 2 = -1.
+ \]
+\end{probsol}
+
+\begin{problem}{}{elementarni-limity-2}
+ Spočtěte
+ \[
+  \lim_{x \to \infty} \sqrt{\log \left( 1 + \frac{3}{x} \right)} \cdot
+  \log^2(1+x^3).
+ \]
+\end{problem}
