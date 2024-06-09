@@ -91,6 +91,40 @@ kombinací elementárních funkcí.
  \]
 \end{probsol}
 
+Před další úlohou spočteme další obecně užitečnou limitu.
+\begin{lemma}{}{log-podle-x}
+ Pro každá $\alpha>0,\beta>0$ platí
+ \[
+  \lim_{x \to \infty} \frac{\log^{\alpha}x}{x^{\beta}} = 0.
+ \]
+\end{lemma}
+\begin{lemproof}
+ Protože $\lim_{x \to \infty} x^{\beta} = \infty$, použijeme
+ \hyperref[thm:lhospital]{l'Hospitalovo pravidlo}. Dostaneme
+ \[
+  \lim_{x \to \infty} \frac{\log^{\alpha} x}{x^{\beta}} = \frac{\alpha}{\beta}
+  \cdot \frac{\log^{\alpha - 1}x \cdot \frac{1}{x}}{x^{\beta - 1}} =
+  \frac{\alpha}{\beta} \cdot \frac{\log^{\alpha-1} x}{x^{\beta}}.
+ \]
+ Snadno nahlédneme, že se každým použitím \hyperref[thm:lhospital]{l'Hospitalova
+ pravidla} mocnina u $\log$ sníží o $1$ (dokud je větší než $0$) a mocnina u $x$
+ zůstane stejná. Nalezneme tedy $n \in \N$ takové, že $\alpha - n \in (-1,0]$.
+ Iterovaným použitím \hyperref[thm:lhospital]{l'Hospitalova pravidla} upravíme
+ původní limitu na
+ \[
+  \lim_{x \to \infty} \frac{\prod_{i=0}^{n-1} \alpha - i}{\beta^{n}} \cdot
+  \frac{\log^{\alpha - n} x}{x^{\beta}} = \frac{\prod_{i=0}^{n-1} \alpha -
+  i}{\beta^{n}} \cdot \lim_{x \to \infty} \frac{1}{\log^{n-\alpha}x \cdot
+  x^{\beta}}.
+ \]
+ Jelikož $n-\alpha \geq 0$ a $\beta>0$, dostáváme, že
+ \[
+  \lim_{x \to \infty} \log^{n-\alpha}x \cdot x^{\beta} = \lim_{x \to \infty}
+  \log^{n-\alpha}x \cdot \lim_{x \to \infty} x^{\beta} = \infty,
+ \]
+ z čehož již plyne dokazovaná rovnost.
+\end{lemproof}
+
 \begin{problem}{}{elementarni-limity-2}
  Spočtěte
  \[
@@ -98,3 +132,46 @@ kombinací elementárních funkcí.
   \log^2(1+x^3).
  \]
 \end{problem}
+\begin{probsol}
+ Upravíme
+ \[
+  \sqrt{\log \left( 1 + \frac{3}{x} \right)} \cdot \log^2(1+x^3) =
+  \frac{\sqrt{\log \left( 1 + \frac{3}{x} \right)}}{\sqrt{\frac{3}{x}}} \cdot
+  \sqrt{\frac{3}{x}} \cdot \log^2(1 + x^3).
+ \]
+ Jelikož
+ \[
+  \frac{\sqrt{\log \left( 1 + \frac{3}{x} \right)}}{\sqrt{\frac{3}{x}}} =
+  \sqrt{\frac{\log \left(1 + \frac{3}{x}\right)}{\frac{3}{x}}}
+ \]
+ a $\lim_{x \to \infty} 3 / x = 0$, plyne z \hyperref[prop:bezne-limity]{běžných
+ limit} a z \hyperref[thm:limita-slozene-funkce]{věty o limitě složené funkce},
+ že
+ \[
+  \lim_{x \to \infty} \frac{\sqrt{\log \left( 1 + \frac{3}{x}
+  \right)}}{\sqrt{\frac{3}{x}}} = \sqrt{1} = 1.
+ \]
+ Dále,
+ \[
+  \sqrt{\frac{3}{x}} \cdot \log^2(1 + x^3) = \frac{\log^2(1 +
+  x^3)}{\sqrt{\frac{x}{3}}} = \frac{\log^2(1 + x^3)}{\sqrt[6]{1+x^3}} \cdot
+  \frac{\sqrt[6]{1+x^3}}{\sqrt{\frac{x}{3}}}.
+ \]
+ Podle \hyperref[lem:log-podle-x]{předchozího lemmatu} (a
+ \hyperref[thm:limita-slozene-funkce]{věty o limitě složené funkce}) platí
+ \[
+  \lim_{x \to \infty} \frac{\log^2(1 + x^3)}{\sqrt[6]{1+x^3}} = 0.
+ \]
+ Jelikož
+ \[
+  \lim_{x \to \infty} \frac{\sqrt[6]{1+x^3}}{\sqrt{\frac{x}{3}}} = \lim_{x \to
+  \infty} \frac{\sqrt{x} \sqrt[6]{\frac{1}{x^3} +
+  1}}{\sqrt{x}\sqrt{\frac{1}{3}}} = \sqrt{3},
+ \]
+ dostáváme celkem, že
+ \[
+  \lim_{x \to \infty} \sqrt{\log \left( 1+\frac{3}{x} \right)} \cdot \log^2(1 +
+  x^3) = 1 \cdot 0 \cdot \sqrt{3} = 0.
+ \]
+\end{probsol}
+
