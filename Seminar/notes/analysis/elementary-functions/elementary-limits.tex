@@ -175,3 +175,26 @@ Před další úlohou spočteme další obecně užitečnou limitu.
  \]
 \end{probsol}
 
+\begin{problem}{}{elementarni-limity-3}
+ Spočtěte
+ \[
+  \lim_{x \to 0^{+}} \left( \frac{4^{x} + 5^{x} + 6^{x}}{3}
+  \right)^{\frac{1}{x}}.
+ \]
+\end{problem}
+\begin{probsol}
+ Z definice obecné mocniny máme
+ \[
+  \left( \frac{4^{x} + 5^{x} + 6^{x}}{3} \right)^{\frac{1}{x}} = \exp \left(
+  \frac{1}{x} \cdot \log \left( \frac{4^{x} + 5^{x} + 6^{x}}{3} \right)
+ \right).
+ \]
+ Spočteme
+ \[
+  \lim_{x \to 0^{+}} \frac{1}{x} \cdot \log \left( \frac{4^{x} + 5^{x} +
+  6^{x}}{3} \right)
+ \]
+ a výslednou limitu dostaneme přes \hyperref[thm:limita-slozene-funkce]{větu o
+ limitě složené funkce}.
+
+\end{probsol}
