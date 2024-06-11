@@ -1,0 +1,44 @@
+\chapter{Taylorův polynom}
+\label{chap:tayloruv-polynom}
+
+% TODO
+\clr{\textbf{Tato kapitola se nachází v pracovní verzi. Neočekávejte obrázky,
+		naopak očekávejte chyby a podivné formulace.}}
+
+Polynomy jsou hezké funkce. Dají se donekonečna derivovat -- všechny tyto
+derivace jsou navíc spojité -- pomocí
+\href{https://en.wikipedia.org/wiki/Horner%27s_method}{Hornerova schématu} se
+ snadno počítá jejich hodnota v daném bodě a stejně snadno se hledají jejich
+ kořeny -- body, kde jsou nulové. Není proto překvapivé, že se matematici již
+ dlouho snaží aproximovat hodnoty nepolynomiálních funkcí (jako $\exp$, $\log$
+ atd.) hodnotami polynomů. V této kapitole si ujasníme, co vlastně myslíme
+ \emph{aproximací}, jak jednu konkrétní sestrojit a (aspoň povrchově), k čemu je
+ dobrá.
+
+\begin{definition}{Polynomiální funkce}{polynomialni-funkce}
+ Řekneme, že funkce $f:\R \to \R$ je \emph{polynomiální}, když existuje $n \in
+ \N$ a koeficienty $a_i \in \R, i \leq n$, takové, že
+ \[
+  f(x) = \sum_{i=0}^{n} a_i x^{i} \quad \forall x \in \R.
+ \]
+\end{definition}
+
+\begin{remark}{}{polynom-vs-polynomialni-funkce}
+ Striktně vzato je rozdíl mezi \emph{polynomem} a \emph{polynomiální funkcí}.
+ Polynom je formální výraz tvaru
+ \[
+  \sum_{i=0}^{n} a_i x^{i},
+ \]
+ kde $x$ je pouze symbol a nepředstavuje žádnou hodnotu. Polynomiální funkce je
+ pak funkce, která vlastně dosazuje do nějakého polynomu za $x$ číslo.
+
+ My však těchto rozdílů dbát nebudeme a slovy \emph{polynom} i
+ \emph{polynomiální funkce} budeme mínit objekt z
+ \myref{definice}{def:polynomialni-funkce}.
+\end{remark}
+
+Co vlastně znamená \emph{aproximovat} funkci? Funkci $\exp$ můžeme například na
+intervalu $[0,1]$ aproximovat číslem $-69$, ale intuice čtenářům, doufáme,
+napovídá, že toto není \uv{dobrá} aproximace. Jistě nemůžeme obecně doufat v
+aproximaci funkce polynomem na celé její doméně; smysluplným však zdá sebe býti
+snažit se aproximovat na okolí zvoleného bodu.

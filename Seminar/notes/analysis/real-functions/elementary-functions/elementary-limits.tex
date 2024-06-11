@@ -6,7 +6,7 @@ Nejtěžšími (ale zároveň nejužitečnějšími) úlohami na vyřešení jso
 racionálních kombinací (tj. součtů, násobků a především podílů) elementárních
 funkcí. Samotné řešení pak obvykle zahrnuje převod výrazu do tvaru, v němž lze
 naň uplatnit jisté \uv{známé} limity, případně použít
-\hyperref[thm:lhospital]{l'Hospitalova pravidla}.
+\hyperref[thm:lhospitalovo-pravidlo]{l'Hospitalova pravidla}.
 
 \begin{proposition}{Běžné limity}{bezne-limity}
  Platí
@@ -21,8 +21,8 @@ naň uplatnit jisté \uv{známé} limity, případně použít
  \endgroup
 \end{proposition}
 \begin{propproof}
- K výpočtu všech limit lze použít \hyperref[thm:lhospital]{l'Hospitalova
- pravidla}. Máme
+ K výpočtu všech limit lze použít
+ \hyperref[thm:lhospitalovo-pravidlo]{l'Hospitalova pravidla}. Máme
  \begingroup
  \addtolength{\jot}{3mm}
  \begin{align}
@@ -54,9 +54,10 @@ kombinací elementárních funkcí.
  \[
   \lim_{x \to 0} \cos(\sin x) - 1 = \lim_{x \to 0} \log(\sqrt{1 + x^2}) = 0,
  \]
- je tedy třeba výraz nejprve upravit. \hyperref[thm:lhospital]{l'Hospitalovo
- pravidlo} zde pravděpodobně není vhodným prostředkem, neboť derivace obou
- funkcí jsou značně komplikované. Učiníme nejprve úpravu
+ je tedy třeba výraz nejprve upravit.
+ \hyperref[thm:lhospitalovo-pravidlo]{l'Hospitalovo pravidlo} zde pravděpodobně
+ není vhodným prostředkem, neboť derivace obou funkcí jsou značně komplikované.
+ Učiníme nejprve úpravu
  \[
   \frac{\cos(\sin x) - 1}{\log(\sqrt{1 + x^2})} = \frac{\cos(\sin x) -
   1}{\sin^2 x} \cdot \frac{\sin^2 x}{\log(\sqrt{1 + x^2})}.
@@ -100,17 +101,18 @@ Před další úlohou spočteme další obecně užitečnou limitu.
 \end{lemma}
 \begin{lemproof}
  Protože $\lim_{x \to \infty} x^{\beta} = \infty$, použijeme
- \hyperref[thm:lhospital]{l'Hospitalovo pravidlo}. Dostaneme
+ \hyperref[thm:lhospitalovo-pravidlo]{l'Hospitalovo pravidlo}. Dostaneme
  \[
   \lim_{x \to \infty} \frac{\log^{\alpha} x}{x^{\beta}} = \frac{\alpha}{\beta}
   \cdot \frac{\log^{\alpha - 1}x \cdot \frac{1}{x}}{x^{\beta - 1}} =
   \frac{\alpha}{\beta} \cdot \frac{\log^{\alpha-1} x}{x^{\beta}}.
  \]
- Snadno nahlédneme, že se každým použitím \hyperref[thm:lhospital]{l'Hospitalova
- pravidla} mocnina u $\log$ sníží o $1$ (dokud je větší než $0$) a mocnina u $x$
- zůstane stejná. Nalezneme tedy $n \in \N$ takové, že $\alpha - n \in (-1,0]$.
- Iterovaným použitím \hyperref[thm:lhospital]{l'Hospitalova pravidla} upravíme
- původní limitu na
+ Snadno nahlédneme, že se každým použitím
+ \hyperref[thm:lhospitalovo-pravidlo]{l'Hospitalova pravidla} mocnina u $\log$
+ sníží o $1$ (dokud je větší než $0$) a mocnina u $x$ zůstane stejná. Nalezneme
+ tedy $n \in \N$ takové, že $\alpha - n \in (-1,0]$. Iterovaným použitím
+ \hyperref[thm:lhospitalovo-pravidlo]{l'Hospitalova pravidla} upravíme původní
+ limitu na
  \[
   \lim_{x \to \infty} \frac{\prod_{i=0}^{n-1} \alpha - i}{\beta^{n}} \cdot
   \frac{\log^{\alpha - n} x}{x^{\beta}} = \frac{\prod_{i=0}^{n-1} \alpha -
@@ -197,4 +199,48 @@ Před další úlohou spočteme další obecně užitečnou limitu.
  a výslednou limitu dostaneme přes \hyperref[thm:limita-slozene-funkce]{větu o
  limitě složené funkce}.
 
+ Jelikož
+ \[
+  \lim_{x \to 0^{+}} \log \left( \frac{4^{x} + 5^{x} + 6^{x}}{3} \right) =
+  \lim_{x \to 0^{+}} x = 0,
+ \]
+ lze použít \hyperref[thm:lhospitalovo-pravidlo]{l'Hospitalovo pravidlo}. Podle
+ něj a \hyperref[prop:vlastnosti-obecne-mocniny]{vlastností obecné mocniny}
+ platí
+ \begin{align*}
+  \lim_{x \to 0^{+}} \frac{\log \left( \frac{4^{x} + 5^{x} + 6^{x}}{3}
+  \right)}{x} &= \lim_{x \to 0^{+}} \frac{3}{4^{x} + 5^{x} + 6^{x}} \cdot
+  \frac{4^{x} \log 4 + 5^{x} \log 5 + 6^{x} \log 6}{3}\\
+              &= \frac{3}{1 + 1 + 1} \cdot \frac{\log 4 + \log 5 + \log 6}{3} =
+              \frac{\log 120}{3}.
+ \end{align*}
+ Nyní můžeme dopočíst
+ \begin{align*}
+  \lim_{x \to 0^{+}} \exp \left( \frac{1}{x} \cdot \log \left( \frac{4^{x} +
+   5^{x} + 6^{x}}{3} \right) \right) &= \exp \left( \lim_{x \to 0^{+}}
+ \frac{1}{x} \cdot \log \left( \frac{4^{x} + 5^{x} + 6^{x}}{3} \right) \right)\\
+                                     &= \exp \left( \frac{\log 120}{3} \right) =
+                                     120 - \exp 3.
+ \end{align*}
 \end{probsol}
+
+\begin{exercise}{Pár limit elementárních funkcí}{par-limit-elementarnich-funkci}
+ Spočtěte následující limity.
+ {\everymath={\displaystyle}
+  \arraycolsep=1em
+  \[
+   \begin{array}{lll}
+    \lim_{x \to 3 \pi / 2} (4x^2 - 9\pi^2) \frac{\cos x}{1 + \sin x} & \lim_{x
+    \to 0} \frac{1 - \cos(\arctan x)}{x^2} & \lim_{x \to \infty} \arcsin \left(
+    \frac{1-x}{1+x}\right)\\[2em]
+    \lim_{x \to 0^{+}} \frac{\exp \left( \frac{\sin x}{2} \right) - \cos
+    (\sqrt{x})}{\log^2(1 + \sqrt{x})} & \lim_{x \to 1^{-}} \frac{\sqrt{\exp 2 -
+   \exp 2x}}{\arccos x} & \lim_{x \to 0} \frac{\sqrt{x \sin x}}{\exp(x^2) -
+   1}\\[2em]
+   \lim_{x \to 0^{+}} \left( 1 - \sqrt{\arcsin x} \right)^{\frac{1}{\sqrt[4]{1 -
+ \cos x}}} & \lim_{x \to \infty} \left( \frac{x+2}{2x-1} \right)^{x^2} & \lim_{x
+ \to 0} (1 + x^2)^{\cot^2 x}
+   \end{array}
+  \]
+ }
+\end{exercise}

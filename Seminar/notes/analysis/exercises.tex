@@ -1,3 +1,4 @@
+\bookmarksetup{startatroot}
 \chapter*{Seznam cvičení}
 \addcontentsline{toc}{chapter}{Seznam cvičení}
 
@@ -159,4 +160,26 @@
   4$.
  \item Použijte \myref{důsledek}{cor:vztah-derivace-a-monotonie} k důkazu, že
   spojitá funkce $f:I \to \R$ mající nulovou derivaci na $I$, je konstantní.
+\end{enumerate}
+
+\section*{\nameref*{chap:elementarni-funkce}}
+\begin{enumerate}
+ \item Spočtěte následující limity.
+  {\everymath={\displaystyle}
+   \arraycolsep=1em
+   \[
+    \begin{array}{lll}
+     \lim_{x \to 3 \pi / 2} (4x^2 - 9\pi^2) \frac{\cos x}{1 + \sin x} & \lim_{x
+     \to 0} \frac{1 - \cos(\arctan x)}{x^2} & \lim_{x \to \infty} \arcsin \left(
+     \frac{1-x}{1+x}\right)\\[2em]
+     \lim_{x \to 0^{+}} \frac{\exp \left( \frac{\sin x}{2} \right) - \cos
+     (\sqrt{x})}{\log^2(1 + \sqrt{x})} & \lim_{x \to 1^{-}} \frac{\sqrt{\exp 2 -
+    \exp 2x}}{\arccos x} & \lim_{x \to 0} \frac{\sqrt{x \sin x}}{\exp(x^2) -
+    1}\\[2em]
+    \lim_{x \to 0^{+}} \left( 1 - \sqrt{\arcsin x} \right)^{\frac{1}{\sqrt[4]{1 -
+  \cos x}}} & \lim_{x \to \infty} \left( \frac{x+2}{2x-1} \right)^{x^2} & \lim_{x
+  \to 0} (1 + x^2)^{\cot^2 x}
+    \end{array}
+   \]
+  }
 \end{enumerate}
