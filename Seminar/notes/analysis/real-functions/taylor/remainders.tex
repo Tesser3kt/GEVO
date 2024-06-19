@@ -1,0 +1,66 @@
+\section{Tvary zbytku}
+\label{sec:tvary-zbytku}
+
+V této sekci spočteme tzv. \uv{tvary zbytku} Taylorova polynomu. Jsou to výrazy,
+které vyjadřují -- aspoň řádově -- velikost chyby při aproximace funkce
+Taylorovým polynomem na okolí daného bodu. Budou se hodit primárně při zpytu
+poloměru okolí, na němž můžeme stále tvrdit, že Taylorův polynom aproximuje
+funkci \uv{dobře}.
+
+\begin{theorem}{Obecný tvar zbytku}{obecny-tvar-zbytku}
+ Ať $a, x \in \R$ a $f$ má na $[a,x]$ konečné derivace do řádu $n+1$ včetně. Ať
+ je dále $\varphi$ libovolná spojitá funkce na $[a,x]$ s konečnou první derivací
+ na $(a,x)$. Pak existuje $\xi \in (a,x)$ takové, že
+ \[
+  f(x) - T^{f,a}_n(x) = \frac{1}{n!}\frac{\varphi(x) -
+  \varphi(a)}{\varphi^{(1)}(\xi)}f^{(n+1)}(\xi)(x-\xi)^{n}.
+ \]
+\end{theorem}
+\begin{thmproof}
+ Definujme funkci $F: [a,x] \to \R$ předpisem
+ \[
+  F(t) \coloneqq f(x) - (f(t) + f^{(1)}(t)(x-t) + \frac{1}{2}f^{(2)}(t)(x-t)^2 +
+  \ldots + \frac{1}{n!}f^{(n)}(t)(x-t)^{n}.
+ \]
+ Pak je $F$ spojitá na $[a,x]$ a $F^{(1)}$ existuje konečná na $(a,x)$. Podle
+ \hyperref[thm:cauchyho-o-stredni-hodnote]{Cauchyho věty o střední hodnotě}
+ existuje $\xi \in (a,x)$ takové, že
+ \begin{equation}
+  \label{eq:obecny-zbytek}
+  \tag{$\diamondsuit$}
+  \frac{F(x) - F(a)}{\varphi(x) - \varphi(a)} =
+  \frac{F^{(1)}(\xi)}{\varphi^{(1)}(\xi)}.
+ \end{equation}
+ 
+ Snadno spočteme, že
+ \begin{align*}
+  F^{(1)}(\xi) &= -f^{(1)}(\xi) + f^{(1)}(\xi) - f^{(2)}(\xi) + f^{(2)}(\xi) -
+  \ldots - \frac{1}{n!}f^{(n+1)}(\xi)(x-\xi)^{n}\\
+               &= -\frac{1}{n!}f^{(n+1)}(\xi)(x - \xi)^{n}.
+ \end{align*}
+ Zřejmě $F(x) = 0$ a $F(a) = f(x) - T^{f,a}_n(x)$. Čili z
+ rovnosti~\eqref{eq:obecny-zbytek} máme
+ \[
+  \frac{T^{f,a}_n(x) - f(x)}{\varphi(x) - \varphi(a)} =
+  -\frac{1}{\varphi^{(1)}(x)} \left( \frac{1}{n!} f^{(n+1)}(\xi)(x-\xi)^{n}
+  \right).
+ \]
+ Odtud přímočarou úpravou plyne tvrzení.
+\end{thmproof}
+
+Uvědomme si, že ve \myref{větě}{thm:obecny-tvar-zbytku} je $\varphi$ \emph{zcela
+libovolná funkce} s dodatečnými podmínkami spojitosti a diferencovatelnosti. Tím
+máme k dispozici celou třídu vyjádření zbytků Taylorova polynomu pouhým
+dosazováním za $\varphi$. Dvě konkrétní dosazení (jež sobě dokonce vysloužila
+jména) se nám budou v dalším textu hodit více než jiná.
+
+\begin{corollary}{Lagrangeův tvar zbytku}{lagrangeuv-tvar-zbytku}
+ Ať $f$ je spojitá na $[a,x]$ a má konečné derivace na $(a,x)$ do řádu $n+1$
+ včetně. Pak existuje $\xi \in (a,x)$ takové, že
+ \[
+  f(x) - T^{f,a}_n(x) = \frac{1}{(n+1)!}f^{(n+1)}(\xi)(x-a)^{n+1}.
+ \]
+\end{corollary}
+\begin{corproof}
+ Plyne z dosazení $\varphi(t) \coloneqq $
+\end{corproof}

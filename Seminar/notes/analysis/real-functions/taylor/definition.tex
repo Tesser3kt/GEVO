@@ -1,0 +1,97 @@
+\section{Definice Taylorova polynomu}
+\label{sec:definice-taylorova-polynomu}
+
+\begin{definition}{Taylorův polynom}{tayloruv-polynom}
+ Ať $f:M \to \R$ je reálná funkce, majíc konečné derivace všech řádů do $n \in
+ \N$ včetně, a $a \in M$. Pak \emph{Taylorovým polynomem stupně $n$ funkce $f$ v
+ bodě $a$} rozumíme polynom
+ \[
+  T^{f,a}_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^{k}.
+ \]
+\end{definition}
+
+\begin{lemma}{Derivace Taylorova polynomu}{derivace-taylorova-polynomu}
+ Platí
+ \[
+  (T^{f,a}_n)^{(1)} = T^{f^{(1)},a}_{n-1}.
+ \]
+\end{lemma}
+\begin{lemproof}
+ Z \hyperref[def:tayloruv-polynom]{definice Taylorova polynomu} počítáme
+ \begin{align*}
+  (T^{f,a}_n)^{(1)}(x) &= \left( \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^{k}
+  \right)^{(1)} = \sum_{k=1}^n \frac{k \cdot f^{(k)}(a)}{k!}(x-a)^{k-1}\\
+                       &= \sum_{k=1}^{n} \frac{f^{(k)}(a)}{(k-1)!}(x-a)^{k-1}
+                       = \sum_{k=0}^{n-1} \frac{(f^{(1)})^{(k)}}{k!}(x-a)^{k} =
+                       T^{f^{(1)},a}_{n-1}(x).
+ \end{align*}
+\end{lemproof}
+
+\begin{proposition}{Aproximace Taylorovým polynomem}{aproximace-taylorovym-polynomem}
+ Ať $f:M \to \R$ je reálná funkce, majíc konečné derivace do řádu $n \in \N$
+ včetně, a $a \in M$. Pak je $T^{f,a}_n$ aproximací $f$ stupně $n$ na okolí $a$.
+\end{proposition}
+\begin{propproof}
+ Budeme postupovat indukcí podle stupně $n \in \N$. Již víme, že pro $n = 1$ je
+ $T^{f,a}_1(x) = f(a) + f^{(1)}(a)(x-a)$ lineární aproximací $f$ na okolí $a$.
+
+ Pro $n > 1$ máme z \hyperref[thm:lhospitalovo-pravidlo]{l'Hospitalova pravidla}
+ a \hyperref[lem:derivace-taylorova-polynomu]{předchozího lemmatu}
+ \[
+  \lim_{x \to a} \frac{f(x) - T^{f,a}_n(x)}{(x-a)^{n}} = \lim_{x \to a}
+  \frac{f^{(1)}(x) - T^{f^{(1)},a}_{n-1}(x)}{n(x-a)^{n-1}}.
+ \]
+ Protože $f^{(1)}$ je reálná funkce a má konečné derivace do řádu $n-1$ včetně,
+ je z indukčního předpokladu $T^{f^{(1)},a}_{n-1}$ aproximací $f^{(1)}$ stupně
+ $n-1$ na okolí $a$. Platí pročež
+ \[
+  \lim_{x \to a} \frac{f^{(1)}(x) - T^{f^{(1)},a}_{n-1}(x)}{n(x-a)^{n-1}} = 0,
+ \]
+ a tedy i
+ \[
+  \lim_{x \to a} \frac{f(x) - T^{f,a}_n(x)}{(x-a)^{n}} = 0,
+ \]
+ jak jsme chtěli.
+\end{propproof}
+
+Překvapivé možná je, že Taylorův polynom je \emph{jedinou} aproximací funkce $f$
+stupně $n$ polynomem stupně nejvýše $n$. K důkazu tohoto faktu si pomůžeme
+jedním technickým lemmatem.
+
+\begin{lemma}{}{nulovy-polynom}
+ Ať $n \in \N$ a $Q$ je polynom stupně nejvýše $n$. Platí-li $\lim_{x \to a}
+ Q(x) / (x-a)^{n} = 0$, pak $Q = 0$.
+\end{lemma}
+
+\begin{lemproof}
+ Budeme pro spor předpokládat, že $Q$ není nulový. Bez důkazu využijeme tvrzení,
+ že když $a$ je kořenem $Q$, pak $x - a \mid Q$. Protože $\lim_{x \to a} Q(x) /
+ (x-a)^{n}$, jistě platí $Q(a) = 0$, čili existuje $k \in \N$ takové, že $Q(x) =
+ (x-a)^{k} \cdot R(x)$, kde $R$ je polynom nemaje kořen $a$. Pak ale
+ \[
+  \lim_{x \to a} \frac{Q(x)}{(x-a)^{n}} = \lim_{x \to a}
+  \frac{R(x)}{(x-a)^{n-k}}.
+ \]
+ Tato limita buď neexistuje (pokud $k < n$), nebo je rovna $R(a) \neq 0$ (pokud
+ $k = n$). V obou případech je nenulová, což je spor.
+\end{lemproof}
+
+\begin{theorem}{Jednoznačnost Taylorova polynomu}{jednoznacnost-taylorova-polynomu}
+ Ať $f:M \to \R$ je funkce, majíc konečné derivace do řádu $n \in \N$ včetně, a
+ $a \in M$. Předpokládejme, že $P$ je polynom stupně nejvýše $n$, jenž je rovněž
+ aproximací $f$ na okolí $a$ stupně $n$. Pak $P = T^{f,a}_n$.
+\end{theorem}
+\begin{thmproof}
+ Podle \myref{tvrzení}{prop:aproximace-taylorovym-polynomem} platí
+ \[
+  \lim_{x \to a} \frac{f(x) - T^{f,a}_n(x)}{(x-a)^{n}} = 0.
+ \]
+ Z předpokladu a \hyperref[thm:aritmetika-limit]{věty o aritmetice limit}
+ \[
+  \lim_{x \to a} \frac{T^{f,a}_n(x) - P(x)}{(x-a)^{n}} = \lim_{x \to a}
+  \frac{T^{f,a}_n(x) - f(x)}{(x-a)^{n}} + \lim_{x \to a} \frac{f(x) -
+  P(x)}{(x-a)^{n}} = 0 + 0 = 0,
+ \]
+ čili podle \myref{lemmatu}{lem:nulovy-polynom} jest $P - T^{f,a}_n = 0$. 
+\end{thmproof}
+

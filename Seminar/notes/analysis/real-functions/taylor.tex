@@ -42,3 +42,115 @@ intervalu $[0,1]$ aproximovat číslem $-69$, ale intuice čtenářům, doufáme
 napovídá, že toto není \uv{dobrá} aproximace. Jistě nemůžeme obecně doufat v
 aproximaci funkce polynomem na celé její doméně; smysluplným však zdá sebe býti
 snažit se aproximovat na okolí zvoleného bodu.
+
+Úspěšnost polynomiální aproximace má dobrý smysl měřit rovněž polynomem. Totiž,
+z výpočetních důvodů často potřebujeme omezit stupeň (nejvyšší mocninu)
+aproximujícího polynomu. Přejeme si, aby chyba aproximace polynomem stupně $n$
+na okolí daného bodu klesala (při blížení se k~tomuto bodu) aspoň tak rychle,
+jak nejrychleji může polynom stupně $n$ na okolí nějakého bodu k~$0$ klesat. Je
+patrné, že nejrychleji ze všech polynomů stupně $n$ klesá na okolí bodu $a$ k
+nule polynom $(x-a)^{n}$, neb má v $a$ $n$-násobný kořen. Ukážeme, že ve
+skutečnosti můžeme požadovat, aby chyba aproximace na okolí $a$ klesala k $0$
+ještě rychleji.
+
+\begin{definition}{Aproximace stupně $n$}{aproximace-stupne-n}
+ Ať $f:M \to \R$ je reálná funkce, $a \in M$ a $n \in \N$. Řekneme, že polynom
+ $P$ je \emph{aproximací $f$ na okolí $a$ stupně $n$}, když
+ \[
+  \lim_{x \to a} \frac{f(x) - P(x)}{(x-a)^{n}} = 0.
+ \]
+ Vyjádřeno slovy: $P$ je aproximací $f$ na okolí $a$ stupně $n$, když chyba
+ aproximace na okolí $a$ klesá k $0$ rychleji, než $(x-a)^{n}$.
+\end{definition}
+
+Pojďme si nyní rozmyslet, jak aproximace $f$ hledat. Začněme nejjednodušším
+případem -- lineární aproximací (tj. aproximací stupně $1$) polynomem rovněž
+stupně nejvýše $1$, tedy \uv{přímkou}. Položme tedy $P(x) \coloneqq \psi x +
+\omega$ a počítejme
+\[
+ \lim_{x \to a} \frac{f(x) - P(x)}{x - a} = \lim_{x \to a} \frac{f(x) - \psi x -
+ \omega}{x - a} = 0.
+\]
+Poslední rovnost bystrým čtenářům připomene \hyperref[def:derivace]{definici
+derivace}. Vskutku, přepokládáme-li, že existuje konečná $f'(a)$, pak můžeme
+poslední limitu upravit do tvaru
+\[
+ \lim_{x \to a} \frac{f(x) - \psi x - \omega}{x - a} = \lim_{x \to a} \frac{f(x)
+ - f(a)}{x-a} - \lim_{x \to a} \frac{\psi x + \omega - f(a)}{x-a} = f'(a) -
+ \lim_{x \to a} \frac{\psi x + \omega - f(a)}{x - a}.
+\]
+Náš úkol je tímto výrazně zjednodušen. Potřebujeme, aby se poslední limita
+rovnala konstantě $f'(a)$. Toho lze docílit více způsoby; ten nejvíce přímočarý
+je snad zařídit, aby se čitatel zlomku rovnal $f'(a)(x-a)$, neboť zřejmě
+\[
+ \lim_{x \to a} \frac{f'(a)(x-a)}{x-a} = f'(a).
+\]
+Odtud plyne rovnost
+\[
+ \psi x + \omega - f(a) = f'(a)(x-a),
+\]
+ze které již snadno
+\begin{align*}
+ \psi &= f'(a),\\
+ \omega &= f(a) - a \cdot f'(a),
+\end{align*}
+čili
+\[
+ P(x) = \psi x + \omega = f'(a)(x - a) + f(a)
+\]
+je lineární aproximací funkce $f$ na okolí $a$. Funkci $P(x)$ se obvykle
+přezdívá \emph{tečna ke grafu} funkce $f$ v bodě $a$, neboť je to přímka, která
+prochází bodem $(a,f(a))$ a na okolí $a$ roste stejně rychle jako $f$.
+
+\begin{definition}{Derivace vyšších řádů}{derivace-vyssich-radu}
+ Ať $f:M \to \R$ je reálná funkce. Induktivně definujeme \emph{$n$-tou derivaci
+ funkce $f$ v bodě $a$} předpisem
+ \[
+  f^{(n)}(a) \coloneqq \lim_{h \to 0} \frac{f^{(n-1)}(a + h) - f^{(n -
+  1)}(a)}{h} = \lim_{x \to a} \frac{f^{(n-1)}(x) - f^{(n-1)}(a)}{x-a},
+ \]
+ kde $f^{(0)} \coloneqq f$.
+\end{definition}
+
+\begin{remark}{Značení derivací}{znaceni-derivaci}
+ V této kapitole budeme vždy $n$-tou derivaci (vizte
+ \myref{definici}{def:derivace-vyssich-radu}) funkce $f$ značit symbolem
+ $f^{(n)}$, a to i tehdy, když je tato derivace první. Místo $f'$ tedy dočasně 
+ píšeme $f^{(1)}$.
+\end{remark}
+
+Podobným postupem je možné hledat aproximace vyšších stupňů. Hledáme-li polynom
+$Q(x)$ stupně nejvýše $2$ splňující
+\[
+ \lim_{x \to a} \frac{f(x) - Q(x)}{(x-a)^2},
+\]
+upravíme nejprve tuto limitu na
+\[
+ \lim_{x \to a} \frac{\frac{f(x) - Q(x)}{x-a}}{x-a}.
+\]
+Již totiž víme, že $P(x) = f'(a)(x-a) + f(a)$ je lineární aproximací funkce $f$
+na okolí $a$. Budeme tedy směle předpokládat, že $Q(x) = P(x) + R(x)$ a
+spočteme, čemu se rovná polynom $R(x)$. Počítáme
+\[
+ \lim_{x \to a} \frac{\frac{f(x) - Q(x)}{x-a}}{x-a} = \lim_{x \to a} \frac{f(x)
+ - P(x)}{(x-a)^2} - \lim_{x \to a} \frac{R(x)}{(x-a)^2}.
+\]
+Užitím \hyperref[thm:lhospitalovo-pravidlo]{l'Hospitalova pravidla} spočteme
+\[
+ \lim_{x \to a} \frac{f(x) - P(x)}{(x-a)^2} = \lim_{x \to a} \frac{f(x) - f(a) -
+ f^{(1)}(a)(x-a)}{(x-a)^2} = \lim_{x \to a} \frac{f^{(1)}(x) -
+f^{(1)}(a)}{2(x-a)} = \frac{f^{(2)}(a)}{2}.
+\]
+Chceme tudíž, aby platilo
+\[
+ \lim_{x \to a} \frac{R(x)}{(x-a)^2} = \frac{f^{(2)}(a)}{2},
+\]
+z čehož plyne přirozená volba
+\[
+ R(x) \coloneqq \frac{f^{(2)}(a)}{2}(x-a)^2.
+\]
+
+Iterováním tohoto postupu se dostaneme k tzv. \emph{Taylorovu polynomu}.
+
+\input{real-functions/taylor/definition}
+\input{real-functions/taylor/remainders}
