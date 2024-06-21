@@ -1,0 +1,138 @@
+\chapter{Primitivní funkce}
+\label{chap:primitivni-funkce}
+
+% TODO
+\clr{\textbf{Tato kapitola se nachází v pracovní verzi. Neočekávejte obrázky,
+		naopak očekávejte chyby a podivné formulace.}}
+
+% TODO odkaz
+Příčina vzniku \emph{primitivní funkce} (též \emph{integrálu}) reálné funkce je
+veskrze fyzikální, jak bude objasněno v příští kapitole. My, majíce k dispozici
+již úplnou teorii integrálu, půjdeme směrem opačným jejímu původnímu vývoji.
+Začneme tedy definicí a základními vlastnostmi primitivních funkcí (vlastně
+\emph{antiderivací}) a teprve poté si vysvětlíme jejich fyzikálně-geometrický
+význam.
+
+\begin{definition}{Primitivní funkce}{primitivni-funkce}
+ Ať $(a,b) \subseteq \R$ je interval a $f:(a,b) \to \R$ reálná funkce. Řekneme,
+ že $F:(a,b) \to \R$ je \emph{primitivní} k $f$ na $(a,b)$, když platí $F'(x) =
+ f(x)$ pro všechna $x \in (a,b)$. Je-li interval zřejmý z~kontextu, píšeme též
+ $F = \int f$ nebo \uv{úplněji} $F(x) = \int f(x) \, \mathrm{d}x$ pro $x \in
+ (a,b)$.
+\end{definition}
+
+\begin{remark}{Proč otevřený interval?}{proc-otevreny-interval}
+ Primitivní funkci definujeme pouze na \textbf{otevřeném intervalu}. Důvod tomu
+ není nikterak hluboký, spíše technický. Při definici na uzavřeném intervalu
+ bychom totiž museli v jeho krajních bodech uvažovat jednostranné derivace a tím
+ zkomplikovat zápis i budoucí diskuse vlastností primitivních funkcí.
+\end{remark}
+
+Je zajímavé, že \uv{akce derivace} funkce způsobuje ztrátu pouze
+\emph{konstantního} množství dat o této funkci. To se projevuje tak, že dvě
+primitivní funkce na témže intervalu k téže funkci se liší pouze o konstantu.
+
+\begin{lemma}{Jednoznačnost primitivní funkce}{jednoznacnost-primitivni-funkce}
+ Ať $F,G:(a,b) \to \R$ jsou primitivní k $f:(a,b) \to \R$ na $(a,b)$. Pak
+ existuje $c \in \R$ takové, že $F(x) = G(x) + c$ pro $x \in (a,b)$.
+\end{lemma}
+\begin{lemproof}
+ Položme $H(x) \coloneqq F(x) - G(x)$ pro $x \in (a,b)$. Potom
+ \[
+  H'(x) = (F(x) - G(x))' = f(x) - f(x) = 0,
+ \]
+ tedy je podle \myref{cvičení}{exer:derivace-nula-konstantni} $H$ konstantní na
+ $(a,b)$. Odtud tvrzení.
+\end{lemproof}
+
+\begin{remark}{}{seru-na-konstanty}
+ V závěsu \hyperref[lem:jednoznacnost-primitivni-funkce]{předchozího lemmatu}
+ budeme symbolem $\int f$ označovat \emph{kteroukoli} primitivní funkci k $f$ na
+ daném intervalu a rozlišující konstantu zanedbáme. Formalizmem nakažený čtenář
+ může přemýšlet o symbolu $\int f$ jako značícím \emph{třídu ekvivalence} všech
+ funkcí jsoucích primitivních k $f$, kde relací je zde pochopitelně rovnost až
+ na konstantu.
+\end{remark}
+
+\begin{example}{}{integral-polynomu}
+ Platí
+ \[
+  \int x^{\alpha} \, \mathrm{d}x = 
+  \begin{cases}
+   \frac{1}{\alpha+1}x^{\alpha+1},& \alpha \neq -1,\\
+   \log x,& \alpha = -1.
+  \end{cases}
+ \]
+ Vskutku, máme $\log'x = 1 / x$ a
+ \[
+  \left( \frac{1}{\alpha+1}x^{\alpha+1} \right)' =
+  \frac{\alpha+1}{\alpha+1}x^{\alpha+1-1} = x^{\alpha}
+ \]
+ pro $\alpha \neq -1$.
+\end{example}
+
+\begin{theorem}{Aritmetika primitivních funkcí}{aritmetika-primitivnich-funkci}
+ Ať $f,g:(a,b) \to \R$ a $F:(a,b) \to \R$, resp. $G:(a,b) \to \R$, je primitivní
+ k $f$, resp. ke $g$, na $(a,b)$. Ať dále $c,d \in \R$. Pak je $cF + dG$
+ primitivní k $cf + dg$ na $(a,b)$.
+\end{theorem}
+\begin{thmproof}
+ Zřejmý, z \hyperref[thm:aritmetika-derivaci]{věty o aritmetice derivací}.
+ Ponechán jako snadné cvičení.
+\end{thmproof}
+\begin{exercise}{}{aritmetika-primitivnich-funkci}
+ Dokažte \hyperref[thm:aritmetika-primitivnich-funkci]{větu o aritmetice
+ primitivních funkcí}.
+\end{exercise}
+
+% TODO odkaz
+Kompletní charakteristika funkcí, k nímž na jistém intervalu existuje
+primitivní, je stále otevřeným problémem matematické analýzy. My si pouze
+uvedeme, a v sekci o Riemannově integrálu, dokážeme, že spojité funkce
+primitivní funkci mají vždy. Ovšem, tato podmínka je pouze postačující, nikoli
+nutná. Existuje mnoho nespojitých funkcí, k nímž primitivní funkce existuje
+rovněž.
+
+\begin{theorem}{Spojitost a existence primitivní funkce}{spojitost-a-existence-primitivni-funkce}
+ Ať $f:(a,b) \to \R$ je spojitá na $(a,b)$. Pak má na tomto intervalu primitivní
+ funkci.
+\end{theorem}
+\begin{thmproof}
+ % TODO odkaz
+ Vyplyne ze základní věty kalkulu.
+\end{thmproof}
+
+Je ovšem známo mnoho vlastností, které funkce, majíc na jistém intervalu
+primitivní funkci, splňovat musejí. Jedna z nich je tzv. \emph{Darbouxova
+vlastnost} -- vlastnost funkce zobrazovat interval na interval, která je slabší
+než spojitost, ale přesto do značné míry omezující.
+
+\begin{theorem}{Darbouxova}{darbouxova}
+ Ať má $f$ na $(a,b)$ primitivní funkci $F$. Pak pro každý interval $I \subseteq
+ (a,b)$ platí, že $f(I)$ je rovněž interval.
+\end{theorem}
+\begin{thmproof}
+ Volme interval $I \subseteq (a,b)$ libovolně a nechť $y_1,y_2 \in f(I)$. Je
+ třeba ukázat, že je-li $y_1 < z < y_2$, pak $z \in f(I)$.
+
+ Položme $H(x) \coloneqq F(x) - zx$, $x \in (a,b)$. Pak platí $H'(x) = f(x) -
+ z$. Nalezněme z definice $f(I)$ čísla $x_1,x_2 \in I$ taková, že $f(x_1) = y_1$
+ a $f(x_2) = y_2$. Protože má $H$ na $(a,b)$ konečnou derivaci, je na tomto
+ intervalu podle \myref{lemmatu}{lem:vztah-derivace-a-spojitosti} spojitá.
+ Jelikož $[x_1,x_2] \subseteq (a,b)$, nabývá podle
+ \myref{věty}{thm:extremy-spojite-funkce} funkce $H$ na $[x_1,x_2]$ minima. Ať
+ je tomu tak v bodě $x_0$.
+
+ Ukážeme, že $x_0$ není ani jeden z bodů $x_1$, $x_2$. Máme $H'(x_1) = f(x_1) -
+ z = y_1 - z < 0$, tj.
+ \[
+  \lim_{x \to x_1} \frac{H(x) - H(x_1)}{x - x_1} < 0,
+ \]
+ a tedy existuje okolí bodu $x_1$ na němž platí $H(x) < H(x_1)$. Ergo, $x_1$
+ není bodem minima $H$ na $[x_1,x_2]$. Podobně odvodíme, že ani $x_2$ není bodem
+ minima $H$. Pak je ale $x_0 \in (x_1,x_2)$ a podle
+ \myref{tvrzení}{prop:vztah-derivace-a-extremu} platí $H'(x_0) = 0$, neboli
+ $f(x_0) = z$, což dokazuje výrok $z \in f(I)$.
+\end{thmproof}
+
+\input{real-functions/antiderivative/computation}

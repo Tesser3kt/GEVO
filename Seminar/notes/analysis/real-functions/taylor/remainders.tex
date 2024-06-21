@@ -62,5 +62,17 @@ jména) se nám budou v dalším textu hodit více než jiná.
  \]
 \end{corollary}
 \begin{corproof}
- Plyne z dosazení $\varphi(t) \coloneqq $
+ Plyne z dosazení $\varphi(t) = (x-t)^{n+1}$ ve
+ \myref{větě}{thm:obecny-tvar-zbytku}.
+\end{corproof}
+
+\begin{corollary}{Cauchyho tvar zbytku}{cauchyho-tvar-zbytku}
+ Ať $f$ je spojitá na $[a,x]$ a má konečné derivace na $(a,x)$ do řádu $n + 1$
+ včetně. Pak existuje $\xi \in (a,x)$ takové, že
+ \[
+  f(x) - T^{f,a}_n(x) = \frac{1}{n!}f^{(n+1)}(\xi)(x-\xi)^{n}(x-a).
+ \]
+\end{corollary}
+\begin{corproof}
+ Plyne z \myref{věty}{thm:obecny-tvar-zbytku} dosazením $\varphi(t) = t$.
 \end{corproof}

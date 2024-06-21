@@ -1,0 +1,501 @@
+\section{Výpočet primitivních funkcí}
+\label{sec:vypocet-primitivnich-funkci}
+
+Na rozdíl od výpočtu derivace funkce, je hledání funkce primitivní téměř vždy
+silně nedeterministický úkon. Existují pomůcky k jejich výpočtu, jimž je tato
+sekce ovšem věnována, avšak mnohdy musí jeden pracovat v jistém smyslu
+\uv{zpětně}, tj. očekávat jistý výsledek a zpytovanou funkci upravit do tvaru,
+která co nejblíže odpovídá derivaci právě tohoto očekávaného výsledku. Situaci
+nezjednodušuje to, že mnoho (i snadno vyjádřitelných funkcí) nemá primitivní
+funkci zapsatelnou použitím pouze funkcí elementárních. Jako příklad vezměme
+funkci $\exp(x^2)$, která je na $\R$ spojitá, a tedy má, podle
+\myref{věty}{thm:spojitost-a-existence-primitivni-funkce} na $\R$ primitivní
+funkci. Avšak, a to bylo jest dokázáno, tato funkce nemá vyjádření pomocí
+elementárních funkcí.
+
+Základními nástroji pro výpočet primitivních funkcí jsou \emph{integrace per
+partes} a \emph{substituční věty}. Uvedeme a dokážeme všechny.
+
+\begin{theorem}{Integrace per partes}{integrace-per-partes}
+ Ať $f,g:(a,b) \to \R$ jsou reálné funkce, $F$ je primitivní k $f$ a $G$
+ primitivní ke $g$ na $(a,b)$. Pak platí
+ \[
+  \int (f \cdot G) = F \cdot G - \int (F \cdot g).
+ \]
+\end{theorem}
+\begin{thmproof}
+ Funkce $F$ i $G$ jsou spojité, protože mají podle předpokladu konečné derivace
+ na $(a,b)$. Funkce $f$ i $g$ mají z předpokladu primitivní funkce, takže i
+ funkce $f \cdot G$ a $F \cdot g$ mají primitivní funkce na $(a,b)$.
+
+ Položme $H \coloneqq \int (F \cdot g)$. Pak z
+ \hyperref[thm:aritmetika-derivaci]{aritmetiky derivací}
+ \[
+  (F \cdot G - H)' = f \cdot G + F \cdot g - F \cdot g = f \cdot G,
+ \]
+ což dokazuje kýženou rovnost.
+\end{thmproof}
+
+\begin{remark}{}{integral-derivace-lomeno-funkce}
+ Pro další výpočty bude dobré si povšimnout, že pro libovolnou reálnou funkci
+ $f$ platí
+ \[
+  \int \frac{f'(x)}{f(x)} \, \mathrm{d}x = \log(f(x)).
+ \]
+ Vskutku, plyne to z přímočarého výpočtu využívajícího
+ \hyperref[thm:derivace-slozene-funkce]{větu o derivaci složené funkce}:
+ \[
+  (\log(f(x)))' = f'(x) \cdot \log'f(x) = f'(x) \cdot \frac{1}{f(x)}.
+ \]
+\end{remark}
+
+\begin{example}{}{integral-arctan}
+ Použitím \myref{věty}{thm:integrace-per-partes} spočteme
+ \[
+  \int \arctan x \, \mathrm{d}x
+ \]
+ pro $x \in (-\pi / 2, \pi / 2)$.
+
+ Čtenáři použitím \hyperref[thm:derivace-inverzni-funkce]{věty o derivaci
+ inverzní funkce} sobě snadno ověří, že
+ \[
+  \arctan'x = \frac{1}{1+x^2}.
+ \]
+ Označme $f(x) \coloneqq 1$ a $G(x) \coloneqq \arctan x$. Pak ve značení
+ \myref{věty}{thm:integrace-per-partes} jest $F(x) = x$ a $g(x) = 1 / (1 +
+ x^2)$. Počítáme
+ \begin{align*}
+  \int f(x)G(x) \, \mathrm{d}x &= F(x)G(x) - \int F(x)g(x) \, \mathrm{d}x\\
+                               &= x \cdot \arctan x - \int \frac{x}{1+x^2} \,
+                               \mathrm{d}x.
+ \end{align*}
+ Protože $(1+x^2)' = 2x$, poslední integrál snadno spočteme úpravou
+ \[
+  \int \frac{x}{1+x^2} \, \mathrm{d}x = \frac{1}{2} \int \frac{2x}{1+x^2} \,
+  \mathrm{d}x = \frac{1}{2}\log(1+x^2).
+ \]
+ Celkem tedy máme
+ \[
+  \int \arctan x \, \mathrm{d}x = x \cdot \arctan x - \frac{1}{2}\log(1+x^2).
+ \]
+\end{example}
+
+\begin{problem}{}{integral-xex}
+ Pro $x \in \R$ spočtěte
+ \[
+  \int x\exp x \, \mathrm{d}x.
+ \]
+\end{problem}
+\begin{probsol}
+ Protože funkce $\exp x$ se nemění derivací či integrací, je dobré si před
+ použitím \hyperref[thm:integrace-per-partes]{integrace per partes} rozmyslet,
+ zda je druhou funkci jednodušší integrovat či derivovat. Zde platí $x' = 1$,
+ tedy budeme $x$ derivovat a $\exp x$ integrovat. Ve značení
+ \myref{věty}{thm:integrace-per-partes} máme $f(x) = \exp x$ a $G(x) = x$. Pak
+ $F(x) = \exp x$ a $g(x) = 1$. Odtud,
+ \begin{align*}
+  \int f(x) G(x) \, \mathrm{d}x &= F(x)G(x) - \int F(x)g(x) \, \mathrm{d}x\\
+                                &= \exp x \cdot x - \int \exp x \cdot 1 \,
+                                \mathrm{d}x = x \exp x - \exp x,
+ \end{align*}
+ čímž je výpočet završen.
+\end{probsol}
+
+\begin{exercise}{}{per-partes}
+ Spočtěte
+ \[
+  \int \frac{\log^2 x}{x^2} \, \mathrm{d}x.
+ \]
+\end{exercise}
+
+\begin{theorem}{první o substituci}{prvni-o-substituci}
+ Ať $a < b,\alpha < \beta \in \R$, $f:(a,b) \to \R$ je reálná funkce, $F$ je
+ primitivní k $f$ na $(a,b)$ a $\varphi:(\alpha,\beta) \to (a,b)$ je reálná
+ funkce s~konečnou $\varphi'$ na $(\alpha,\beta)$. Potom
+ \[
+  \int (f \circ \varphi)(t) \cdot \varphi'(t) \, \mathrm{d}t = (F \circ
+  \varphi)(t).
+ \]
+\end{theorem}
+\begin{thmproof}
+ Podle \hyperref[thm:derivace-slozene-funkce]{věty o derivaci složené funkce}
+ platí
+ \[
+  (F \circ \varphi)'(t) = F'(\varphi(t)) \cdot \varphi'(t) = f(\varphi(t)) \cdot
+  \varphi'(t),
+ \]
+ což dokazuje tvrzení.
+\end{thmproof}
+\begin{problem}{}{substituce-1}
+ Spočtěte
+ \[
+  \int \sin^{4}t \cos t \, \mathrm{d}t.
+ \]
+\end{problem}
+\begin{probsol}
+ Položme $f(x) = x^{4}$ a $\varphi(t) = \sin t$. Pak $F(x) = x^{5} / 5$,
+ $\varphi'(t) = \cos t$ a
+ \[
+  f(\varphi(t)) \cdot \varphi'(t) = \sin^{4}t \cos t.
+ \]
+ Podle \hyperref[thm:prvni-o-substituci]{první věty o substituci} platí
+ \[
+  \int \sin^{4}t \cos t \, \mathrm{d}t = \int f(\varphi(t)) \cdot \varphi'(t) \,
+  \mathrm{d}t = F(\varphi(t)) = \frac{\sin^{5} t}{5}.
+ \]
+\end{probsol}
+\begin{exercise}{}{substituce-1}
+ Spočtěte
+ \[
+  \int \frac{x}{\sqrt{2 + 5x^2}} \, \mathrm{d}x.
+ \]
+\end{exercise}
+\begin{exercise}{}{substituce-2}
+ Spočtěte
+ \[
+  \int \frac{1}{\sqrt{8 + 6x - 9x^2}} \, \mathrm{d}x.
+ \]
+ \textbf{Hint}: platí $\arcsin'x = 1 / \sqrt{1 - x^2}$.
+\end{exercise}
+
+\begin{theorem}{druhá o substituci}{druha-o-substituci}
+ Ať $a < b, \alpha < \beta \in \R$, $f:(a,b) \to \R$, $\varphi:(\alpha,\beta)
+ \to (a,b)$ je na a má na $(\alpha,\beta)$ konečnou nenulovou derivaci. Platí-li
+ pro každé $t \in (\alpha,\beta)$ rovnost
+ \[
+  \int f(\varphi(t)) \cdot \varphi'(t) \, \mathrm{d}t = G(t), 
+ \]
+ pak
+ \[
+  \int f(x) \, \mathrm{d}x = (G \circ \varphi^{-1})(x)
+ \]
+ pro $x \in (a,b)$.
+\end{theorem}
+\begin{thmproof}
+ Protože $\varphi'$ má na $(\alpha,\beta)$ primitivní funkci, zobrazuje podle
+ \hyperref[thm:darbouxova]{Darbouxovy věty} interval na interval. Z předpokladu
+ je $\varphi'$ nenulová, což spolu s předchozí větou implikuje, že buď
+ $\varphi'>0$ nebo $\varphi'<0$ na celém $(\alpha,\beta)$. V prvním případě je
+ $\varphi$ podle \myref{důsledku}{cor:vztah-derivace-a-monotonie} buď rostoucí,
+ nebo klesající, na $(\alpha,\beta)$. V každém případě je prostá, a tedy
+ existuje $\varphi^{-1}:(a,b) \to (\alpha,\beta)$.
+
+ Podle \hyperref[thm:derivace-inverzni-funkce]{věty o derivaci inverzní funkce}
+ a též \hyperref[thm:derivace-slozene-funkce]{věty o derivaci složené funkce}
+ platí pro $x \in (a,b)$
+ \begin{align*}
+  (G \circ \varphi ^{-1})'(x) &= G'(\varphi ^{-1}(x)) \cdot (\varphi ^{-1})'(x)\\
+                              &= f(\varphi(\varphi ^{-1}(x))) \cdot
+                              \varphi'(\varphi ^{-1}(x)) \cdot (\varphi
+                              ^{-1})'(x)\\
+                              &= f(x) \cdot \varphi'(\varphi ^{-1}(x)) \cdot
+                              \frac{1}{\varphi'(\varphi ^{-1}(x))} = f(x),
+ \end{align*}
+ jak bylo jest dokázati.
+\end{thmproof}
+\begin{example}{}{substituce-3}
+ Pro $x \in (-1,1)$ platí
+ \[
+  \int \sqrt{1-x^2} \, \mathrm{d}x = \frac{1}{2}\arcsin x + \frac{1}{4}\sin(2
+  \arcsin x).
+ \]
+
+ Vskutku, položme $f(x) = \sqrt{1-x^2}$, $(\alpha,\beta) = (-\pi / 2,\pi / 2)$ a
+ $\varphi(t) = \sin t$. Pak $\varphi:(-\pi / 2,\pi / 2) \to (-1,1)$ je na a
+ platí $\varphi'(t) = \cos t \neq 0$ pro $t \in (-\pi / 2, \pi / 2)$. Dále
+ $\varphi ^{-1}(x) = \arcsin x$ a
+ \[
+  \int f(\varphi(t)) \cdot \varphi'(t) \, \mathrm{d}t = \int \sqrt{1 - \sin^2
+  t} \cdot \cos t \, \mathrm{d}t = \int \cos^2 t \, \mathrm{d}t.
+ \]
+ Užitím \hyperref[thm:vlastnosti-goniometrickych-funkci]{vlastností
+ goniometrických funkcí} se snadno ověří, že
+ \[
+  \cos^2 t = \frac{1}{2}(1 + \cos 2t).
+ \]
+ Odtud
+ \[
+  \int \cos^2 t \, \mathrm{d}t = \int \frac{1}{2} \, \mathrm{d}t + \int
+  \frac{1}{2}\cos 2t \, \mathrm{d}t = \frac{1}{2}t + \frac{1}{4}\sin 2t.
+ \]
+ Čili, ve značení \hyperref[thm:druha-o-substituci]{druhé věty o substituci}
+ jest
+ \[
+  G(t) = \frac{1}{2}t + \frac{1}{4}\sin 2t.
+ \]
+ Podle téže věty máme 
+ \[
+  \int \sqrt{1-x^2} \, \mathrm{d}x = \int f(x) \, \mathrm{d}x = G(\varphi
+  ^{-1}(x)) = \frac{1}{2}\arcsin x + \frac{1}{4}\sin(2\arcsin x).
+ \]
+\end{example}
+
+\subsection{Integrace racionálních funkcí}
+\label{ssec:integrace-racionalnich-funkci}
+
+Mezi funkce, jež umíme \uv{algoritmicky} integrovat, patří (dle
+\myref{příkladu}{exam:integral-polynomu}) jistě funkce polynomiální. Zvlášť
+užitečné v závěsu vět o substituci je rovněž umět algoritmicky integrovat funkce
+\emph{racionální}, tedy reálné funkce tvaru $R(x) = p(x) / q(x($, kde $p,q$ jsou
+polynomy.
+
+Rádi bychom uměli libovolnou racionální funkci rozložit na součet výrazně
+jednodušších racionálních funkcí, jejichž integrály umíme spočítat. To lze,
+metodou slující \emph{rozklad na parciální zlomky}.
+
+\begin{remark}{}{rozklad-realneho-polynomu}
+ V následující větě použijeme sebou nedokázané tvrzení z algebry, že každý
+ reálný polynom se rozkládá na součin lineárních a kvadratických činitelů. Tedy,
+ je-li $p(x)$ polynom, pak existuje konstanta $c \in \R$ a pro vhodná $k,l \in
+ \N$ čísla $a_1,\ldots,a_k,\alpha_1,\ldots,\alpha_l,\beta_1,\ldots,\beta_l \in
+ \R$ a přirozená čísla $n_1,\ldots,n_k,m_1,\ldots,m_l \in \N$ splňující
+ \[
+  p(x) = c(x-a_1)^{n_1}(x-a_2)^{n_2} \cdots (x-a_k)^{n_k}(x^2 + \alpha_1 x +
+  \beta_1)^{m_1} \cdots (x^2 + \alpha_l x + \beta_l)^{m_l},
+ \]
+ kde všechny $x^2 + \alpha_i x + \beta_i$ nemají reálný kořen.
+\end{remark}
+
+\begin{theorem}{Rozklad na parciální zlomky}{rozklad-na-parcialni-zlomky}
+ Ať $p(x),q(x)$ jsou polynomy a $q$ je rozložený jako v
+ \hyperref[rmrk:rozklad-realneho-polynomu]{poznámce výše}. Pak existují
+ \emph{jednoznačně určená} čísla
+ \begin{align*}
+  A_1^{1},A_2^{1},\ldots,A_{n_1}^{1},A_1^{2},A_2^{2},\ldots,A_{n_2}^{2},A_1^{3},A_2^{3},\ldots,A_{1}^{k},\ldots,A_{n_k}^{k}
+  & \in \R,\\
+  B_1^{1},B_2^{1},\ldots,B_{m_1}^{1},B_1^{2},B_2^{2},\ldots,B_{m_2}^{2},B_1^{3},B_2^{3},\ldots,B_{1}^l,\ldots,B_{m_l}^{l}
+  & \in \R,\\
+  C_1^{1},C_2^{1},\ldots,C_{m_1}^{1},C_1^{2},C_2^{2},\ldots,C_{m_2}^{2},C_1^{3},C_2^{3},\ldots,C_{1}^l,\ldots,C_{m_l}^{l}
+  & \in \R,
+ \end{align*}
+ taková, že
+ \begin{align*}
+  \frac{p(x)}{q(x)} &= \frac{A^{1}_1}{x - a_1} + \frac{A_2^{1}}{(x - a_1)^2} +
+  \cdots + \frac{A_{n_1}^{1}}{(x-a_1)^{n_1}} + \frac{A_1^{2}}{x-a_2} + \cdots +
+  \frac{A_{n_2}^{2}}{(x-a_2)^{n_2}} + \cdots +
+  \frac{A_{n_k}^{k}}{(x-a_k)^{n_k}}\\
+  &+ \frac{B_1^{1}x + C_1^{1}}{x^2 + \alpha_1x + \beta_1} + \frac{B_2^{1}x +
+  C_2^{1}}{(x^2 + \alpha_1x + \beta_1)^2} + \cdots + \frac{B_{m_1}^{1}x +
+  C^{1}_{m_1}}{(x^2 + \alpha_1x + \beta_1)^{m_1}} + \frac{B_1^{2}x +
+  C_1^{2}}{x^2 + \alpha_2x + \beta_2}\\
+  &+ \cdots + \frac{B_{m_2}^{2}x + C_{m_2}^{2}}{(x^2 + \alpha_2 x +
+  \beta_2)^{m_2}} + \cdots + \frac{B_{m_l}^{l}x + C_{m_l}^{l}}{(x^2 + \alpha_l x
+  + \beta_l)^{m_l}}\\
+  &= \sum_{i=1}^k \sum_{j=1}^{n_i} \frac{A_j^{i}}{(x - a_i)^{j}} + \sum_{i=1}^l
+  \sum_{j=1}^{m_i} \frac{B_j^{i}x + C_j^{i}}{(x^2 + \alpha_i x + \beta_i)^{j}}.
+ \end{align*}
+\end{theorem}
+\begin{thmproof}
+ Triviální, indukcí podle stupně $q$. Ale moc písmenek.
+\end{thmproof}
+
+\begin{example}{}{rozklad-na-parcialni-zlomky-1}
+ Rozložíme
+ \[
+  \frac{p(x)}{q(x)} = \frac{3x^3 - 3x^2 + 4x + 10}{(x - 2)^{2}(x^2 + 2x + 2)}
+ \]
+ na parciální zlomky. Podle \myref{věty}{thm:rozklad-na-parcialni-zlomky}
+ existují čísla $A_1,A_2,B,C \in \R$ taková, že
+ \begin{equation*}
+  \label{eq:parcialni-zlomky}
+  \tag{$\heartsuit$}
+  \frac{3x^3 - 3x^2 + 4x + 10}{(x-2)^2(x^2 + 2x + 2)} = \frac{A_1}{x - 2} + \frac{A_2}{(x-2)^2}
+  + \frac{Bx + C}{x^2 + 2x + 2}.
+ \end{equation*}
+ Tato čísla nalezneme porovnáním koeficientů obou stran po roznásobení
+ jmenovatelem a vyřešením získané soustavy rovnic.
+
+ Roznásobením obou stran~\eqref{eq:parcialni-zlomky} polynomem $q(x)$ dostaneme
+ \[
+  3x^3 - 3x^2 + 4x + 10 = A_1(x-2)(x^2 + 2x + 2) + A_2(x^2 + 2x + 2) + (Bx +
+  C)(x-2)^2.
+ \]
+ Tato rovnost musí platit pro všechna $x \in \R$, speciálně tedy pro $x = 2$.
+ Dosazením dostaneme první rovnici
+ \[
+  3 \cdot 2^3 - 3 \cdot 2^2 + 4 \cdot 2 + 10 = A_2(2^2 + 2 \cdot 2 + 2),
+ \]
+ z níž ihned $A_2 = 3$. Nyní dosaďme například $x = 0$. Dosazení dá
+ \[
+  4 = -4A_1 + 4C.
+ \]
+ Volbami $x = 1$ a $x = 3$ dostaneme další dvě rovnice
+ \begin{align*}
+  -1 &= -5A_1 + B + C,\\
+  25 &= 17A_1 + 3B + C.
+ \end{align*}
+ Snadno spočteme, že řešením soustavy těchto tří rovnic je $A_1 = 1, B = 2$ a $C
+ = 2$. Platí tedy
+ \[
+  \frac{3x^3 - 3x^2 + 4x + 10}{(x-2)^2(x^2 + 2x + 2)} = \frac{1}{x - 2} +
+  \frac{3}{(x-2)^2} + \frac{2x + 2}{x^2 + 2x + 2}.
+ \]
+\end{example}
+
+Pochopitelně, rozklad na parciální zlomky nám není mnoho užitečný, neumíme-li
+spočítat integrály typu
+\[
+ \int \frac{A}{(x - a)^{k}} \, \mathrm{d}x \quad \text{a} \quad \int \frac{Bx +
+ C}{(x^2 +\alpha x + \beta)^{l}} \, \mathrm{d}x, 
+\]
+pro $a,\alpha,\beta,A,B,C \in \R$ a $k,l \in \N$. První z těchto integrálů už
+jsme v zásadě spočetli v \myref{příkladě}{exam:integral-polynomu}. Druhý je na
+výpočet výrazně těžší a hledaná primitivní funkce se nejsnadněji zapisuje
+rekurzivně.
+
+Čtenáři snadno ověří, že
+\[
+ \int \frac{A}{(x - a)^{k}} \, \mathrm{d}x = \begin{cases}
+  \frac{A}{(1 - k)(x - a)^{k-1}},& k > 1,\\
+  A\log|x - a|, & k = 1.
+ \end{cases}
+\]
+Integrál druhého typu nejprve rozložíme
+\[
+ \int \frac{Bx + C}{(x^2 + \alpha x + \beta)^{l}} \, \mathrm{d}x =
+ \frac{B}{2}\int \frac{2x + \alpha}{(x^2 + \alpha x + \beta)^{l}} \, \mathrm{d}x
+ + \left( C - \frac{B\alpha}{2} \right) \int \frac{1}{(x^2 + \alpha x +
+ \beta)^{l}} \, \mathrm{d}x.
+\]
+Protože $(x^2 + \alpha x + \beta)' = 2x + \alpha$, je první z těchto integrálů
+rovněž spočten přímočaře. Vskutku,
+\[
+ \int \frac{2x + \alpha}{(x^2 + \alpha x + \beta)^{l}} \, \mathrm{d}x = \begin{cases}
+  \frac{1}{1 - l} \cdot \frac{1}{(x^2 + \alpha x + \beta)^{l-1}}, & l > 1,\\
+  \log(x^2 + \alpha x + \beta), & l = 1.
+ \end{cases}
+\]
+
+Výraz v druhém integrálu nejprve upravíme
+\[
+ \frac{1}{(x^2 + \alpha x + \beta)^{l}} = \frac{1}{\left( \left( x +
+ \frac{\alpha}{2} \right)^2 + \beta - \frac{\alpha^2}{4} \right)^{l}} =
+ \frac{1}{\left( \beta - \frac{\alpha^2}{4} \right)^{l}} \cdot \frac{1}{\left( 1
+ + \left( \frac{x + \frac{\alpha}{2}}{\sqrt{\beta - \frac{\alpha^2}{4}}}
+ \right)^2\right)^{l}}.
+\]
+
+Položíme-li nyní $\varphi(x) \coloneqq \frac{x + \alpha / 2}{\sqrt{\beta -
+\alpha^2 / 4}}$ a pro strohost zápisu označíme $t = \varphi(x)$, pak z
+\hyperref[thm:prvni-o-substituci]{první věty o substituci} platí
+\[
+ \int \frac{1}{(x^2 + \alpha x + \beta)^{l}} \, \mathrm{d}x = \frac{1}{\left(
+ \beta - \frac{\alpha^2}{4} \right)^{l}} \int \frac{1}{(1+t^2)^{l}} \,
+ \mathrm{d}t. 
+\]
+Označme
+\[
+ I_l \coloneqq \int \frac{1}{(1+t^2)^{l}} \, \mathrm{d}t.
+\]
+
+\begin{lemma}{}{vypocet-integralu-Il}
+ Platí
+ \[
+  I_{l+1} = \frac{t}{2l(1 + t^2)^{l}} + \frac{2l - 1}{2l}I_l
+ \]
+ pro $t \in \R$, přičemž $I_1 = \arctan t$.
+\end{lemma}
+\begin{lemproof}
+ Jistě
+ \[
+  I_1 = \int \frac{1}{1+t^2} \, \mathrm{d}t = \arctan t.
+ \]
+ pro $t \in \R$.
+
+ Dále, pro každé $l \in \N$ je $t \mapsto 1 / (1+t^2)^{l}$ spojitá funkce na
+ $\R$, tudíž má podle \myref{věty}{thm:spojitost-a-existence-primitivni-funkce}
+ primitivní funkci na celém $\R$.
+ 
+ Z \hyperref[thm:integrace-per-partes]{věty o integraci per partes} platí
+ \[
+  \int 1 \cdot \frac{1}{(1 + t^2)^{l}} \, \mathrm{d}t = \frac{t}{(1 + t^2)^{l}}
+  - \int \frac{-2lt^2}{(1+t^2)^{l+1}} \, \mathrm{d}t = \frac{t}{(1 + t^2)^{l}} +
+  2l \int \frac{t^2}{(1 + t^2)^{l+1}} \, \mathrm{d}t. 
+ \]
+ Dále spočteme
+ \[
+  \int \frac{t^2}{(1 + t^2)^{l+1}} \, \mathrm{d}t = \int \frac{1}{(1 + t^2)^{l}}
+  \, \mathrm{d}t - \int \frac{1}{(1 + t^2)^{l+1}} \, \mathrm{d}t = I_l -
+  I_{l+1}.  
+ \]
+ To nám dává rovnost
+ \[
+  I_l = \int \frac{1}{(1+t^2)^{l}} \, \mathrm{d}t = \frac{t}{(1+t^2)^{l}} + 2l
+  \int \frac{t^2}{(1+t^2)^{l+1}} \, \mathrm{d}t = \frac{t}{(1 + t^2)^{l}} +
+  2l(I_l - I_{l+1}),
+ \]
+ z níž již snadnou úpravou plyne tvrzení.
+\end{lemproof}
+
+\begin{problem}{}{rozklad-na-parcialni-zlomky-2}
+ Spočtěte
+ \[
+  \int \frac{1}{1 + x^{4}} \, \mathrm{d}x.
+ \]
+\end{problem}
+\begin{probsol}
+ Nejprve rozložíme
+ \[
+  x^{4} + 1 = (x^2 + 1)^2 - 2x^2 = (x^2 + \sqrt{2}x + 1)(x^2 - \sqrt{2}x + 1).
+ \]
+ Podle \hyperref[thm:rozklad-na-parcialni-zlomky]{věty o rozkladu na parciální
+ zlomky} existují $B_1,C_1,B_2,C_2 \in \R$ taková, že
+ \[
+  \frac{1}{x^{4} + 1} = \frac{B_1x + C_1}{x^2 + \sqrt{2}x + 1} + \frac{B_2x +
+  C_2}{x^2 - \sqrt{2}x + 1}.
+ \]
+ Roznásobením této rovnosti polynomem $x^{4} + 1$ získáme
+ \[
+  1 = (B_1x + C_1)(x^2 + \sqrt{2}x + 1) + (B_2x + C_2)(x^2 - \sqrt{2}x + 1).
+ \]
+ Postupným dosazením čtyř libovolných hodnot za $x$ dostaneme soustavu čtyř
+ lineárních rovnic s řešením
+ \[
+  B_1 = \frac{1}{2 \sqrt{2}}, \; C_1 = \frac{1}{2}, \; B_2 = -\frac{1}{2
+  \sqrt{2}}, \; C_2 = \frac{1}{2}.
+ \]
+ Čili,
+ \[
+  \int \frac{1}{1+x^{4}} \, \mathrm{d}x = \int \frac{\frac{1}{2 \sqrt{2}}x +
+  \frac{1}{2}}{x^2 + \sqrt{2}x + 1} \, \mathrm{d}x + \int \frac{-\frac{1}{2
+  \sqrt{2}}x + \frac{1}{2}}{x^2 - \sqrt{2}x + 1} \, \mathrm{d}x.
+ \]
+ První integrál rozložíme jako
+ \[
+  \int \frac{\frac{1}{2 \sqrt{2}}x + \frac{1}{2}}{x^2 + \sqrt{2}x + 1} \,
+  \mathrm{d}x = \int \frac{\frac{1}{4 \sqrt{2}}(2x + \sqrt{2})}{x^2 + \sqrt{2}x
+  + 1} \, \mathrm{d}x + \int \frac{\frac{1}{4}}{x^2 + \sqrt{2}x + 1} \,
+  \mathrm{d}x.
+ \]
+ Snadno spočteme, že
+ \[
+  \int \frac{\frac{1}{4 \sqrt{2}}(2x + \sqrt{2})}{x^2 + \sqrt{2}x + 1} \,
+  \mathrm{d}x = \frac{1}{4 \sqrt{2}}\log(x^2 + \sqrt{2}x + 1).
+ \]
+ Dále,
+ \[
+  \int \frac{\frac{1}{4}}{x^2 + \sqrt{2}x + 1} \, \mathrm{d}x = \frac{1}{2}\int
+  \frac{1}{(\sqrt{2}x + 1)^2 + 1}\, \mathrm{d}x = \frac{1}{2
+  \sqrt{2}}\arctan(\sqrt{2}x + 1).
+ \]
+
+ Obdobným postupem dostaneme i primitivní funkci
+ \[
+  \int \frac{-\frac{1}{2 \sqrt{2}}x + \frac{1}{2}}{x^2 - \sqrt{2}x + 1} \,
+  \mathrm{d}x = -\log(x^2 - \sqrt{2}x + 1) + \frac{1}{2
+  \sqrt{2}}\arctan(\sqrt{2}x - 1).
+ \]
+ Celkem tedy
+ \begin{align*}
+  \int \frac{1}{x^{4} + 1} \, \mathrm{d}x &= \frac{1}{4 \sqrt{2}}(\log(x^2 +
+  \sqrt{2}x + 1) - \log(x^2 - \sqrt{2}x + 1))\\
+  &+ \frac{1}{2 \sqrt{2}}(\arctan(\sqrt{2}x + 1) + \arctan(\sqrt{2}x - 1)).
+ \end{align*}
+\end{probsol}
+
+\begin{exercise}{}{rozklad-na-parcialni-zlomky-3}
+ Spočtěte
+ \[
+  \int \frac{1}{x(1+x)(1 + x + x^2)} \, \mathrm{d}x. 
+ \]
+\end{exercise}

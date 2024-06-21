@@ -1,0 +1,162 @@
+\section{Taylorova řada}
+\label{sec:taylorova-rada}
+
+Když už víme, že Taylorův polynom je nejlepší možnou aproximací stupně $n$
+nějaké funkce $f$ na okolí daného bodu polynomem stupně nejvýše $n$, je
+přirozené se ptát, co se stane, nahradíme-li tento polynom nekonečnou řadou se
+stejnými koeficienty? Rozumná, však naivní, domněnka zní, že taková řada
+aproximuje danou funkci \emph{nekonečně dobře}, to jest je jí přímo rovna. Lze
+snad každou reálnou funkci zapsat nekonečnou řadou?
+
+Jak je tomu u spousty nadějných domněnek, odpověď zní důrazně \textbf{ne}.
+Ovšem, mnoho dostatečně hezkých funkcí lze zapsat nekonečnou řadou aspoň na
+nějakém okolí zvolených bodů. Částečně překvapivé snad je, že samotná
+konvergence takové řady nestačí k tomu, aby byla rovna aproximované funkci.
+
+Nebudeme do této problematiky zabíhat hlouběji, rozmyslíme si pouze jeden
+význačný příklad.
+
+\begin{definition}{Taylorova řada}{taylorova-rada}
+ Ať $f: M \to \R$ je reálná funkce mající derivace všech řádů v $a \in M$. Pak
+ nekonečnou řadu
+ \[
+  \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^{n}
+ \]
+ nazýváme \emph{Taylorovou řadou} funkce $f$ v bodě $a$.
+\end{definition}
+
+\begin{warning}{}{taylorova-rada-neaproximuje}
+ Bohužel existují nekonečně diferencovatelné funkce, kterým jejich Taylorova
+ řada odpovídá pouze v jediném bodě, ale nikoli na sebemenším okolí tohoto bodu.
+ Uvažme například
+ \[
+  f(x) = \begin{cases}
+   \exp \left( -\frac{1}{x^2} \right), & x \neq 0,\\
+   0,& x = 0.
+  \end{cases}
+ \]
+ Protože $\lim_{x \to 0} \exp\left(-1 / x^2\right) = 0$, je $f$ spojitá v bodě
+ $0$ a zřejmě je tam nekonečně diferencovatelná. Platí
+ \[
+  \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!}x^{n} = 0,
+ \]
+ neboť $f^{(n)}(0) = 0$ pro každé $n \in \N$. Avšak $f(x) \neq 0$ pro libovolné
+ $x \neq 0$.
+\end{warning}
+
+\begin{remark}{}{funkce-danou-radou}
+ Taylorova řada funkce definované součtem nekonečné řady je (zřejmě z podstaty
+ věci) přesně tato řada. Tento fakt nebudeme dokazovat; pro elementární funkce
+ jej ponecháme jako snadné cvičení.
+\end{remark}
+
+\begin{exercise}{}{taylorovy-rady-exp-sin-cos}
+ Dokažte, že Taylorovy řady elementárních funkcí $\exp$, $\sin$ a $\cos$ jsou
+ přesně řady z jejich definic.
+\end{exercise}
+
+Zbytek sekce věnujeme studiu Taylorovy řady funkce $\log$. Na rozdíl od svého
+inverzu není $\log$ dána nekonečnou řadou. Existuje však relativně malé okolí
+bodu $1$, kde je $\log$ shodná se svojí Taylorovou řadou. Pro snadnost výpočtů
+budeme však místo bodu $1$ uvažovat bod $0$ a místo $\log x$ funkci $\log(1+x)$.
+Tento přístup je zjevně ekvivalentní původnímu.
+
+\begin{theorem}{Taylorova řada funkce $\log$}{taylorova-rada-funkce-log}
+ Pro $x \in (-1,1]$ platí
+ \[
+  \log(1+x) = \sum_{n=1}^{\infty} (-1)^{n-1}\frac{x^{n}}{n}.
+ \]
+\end{theorem}
+\begin{thmproof}
+ Nejprve ukážeme, že uvedená řada je vskutku Taylorovou řadou funkce $\log$ v
+ bodě $0$.
+
+ Položme $f(x) = \log(1+x)$. Indukcí ověříme, že
+ \[
+  f^{(n)}(x) = (-1)^{n-1}\frac{(n-1)!}{(1 + x)^{n}}.
+ \]
+ Jistě
+ \[
+  f^{(1)}(x) = \frac{1}{1 + x} = (-1)^{0} \cdot \frac{0!}{(1+x)^{1}}.
+ \]
+ Dále, z indukčního předpokladu
+ \begin{align*}
+  f^{(n+1)}(0) &= (f^{(n)})^{(1)}(0) = \left((-1)^{n-1} \cdot
+  \frac{(n-1)!}{(1+x)^{n}}\right)^{(1)}\\ 
+               &= -n \cdot (-1)^{n-1} \cdot
+               \frac{(n-1)!}{(1+x)^{n+1}} = (-1)^{n} \cdot \frac{n!}{(1+x)^{n+1}},
+ \end{align*}
+ tedy závěr platí.
+
+ Odtud ihned plyne, že $f^{(n)}(0) = (-1)^{n-1}(n-1)!$. Čili, Taylorovou řadou
+ funkce $\log(1+x)$ v~bodě $0$ je vskutku
+ \[
+  \sum_{n=1}^{\infty} \frac{f^{(n)}(0)}{n!}x^{n} = \sum_{n=0}^{\infty}
+  (-1)^{n-1}\frac{(n-1)!}{n!}x^{n} = \sum_{n=0}^{\infty}
+  (-1)^{n-1}\frac{x^{n}}{n}.
+ \]
+
+ Pokračujme druhou částí tvrzení. Je zřejmé, že pro $|x| > 1$ tato řada není ani
+ konvergentní, neboť neplatí $\lim_{n \to \infty} x^{n} / n = 0$. Pro $x = -1$
+ máme
+ \[
+  (-1)^{n-1}\frac{(-1)^{n}}{n} = (-1)^{2n-1}\frac{1}{n} = -\frac{1}{n}
+ \]
+ a řada $\sum_{n=1}^{\infty} -1 / n$ je divergentní. Konečně, pro $x \in (-1,1]$
+ řada vskutku konvergentní je. Plyne to však z tvrzení o konvergenci obecných
+ řad, jež jsme si nedokázali; stavíme tudíž tento fakt na slepé víře.
+
+ Nyní dokážeme, že je na tomto intervalu rovna $\log(1+x)$. K tomu stačí ověřit,
+ že chyba aproximace
+ \begin{equation*}
+  \label{eq:chyba-log}
+  \tag{$\clubsuit$}
+  |\log(1+x) - T^{\log(1+x),0}_n(x)| = \left| \log(1+x) - \sum_{k=1}^n
+  (-1)^{k-1}\frac{x^{k}}{k}\right|
+ \end{equation*}
+ jde pro $n \to \infty$ k $0$.
+
+ Ať je nejprve $x \in [0,1]$. Podle \myref{důsledku}{cor:lagrangeuv-tvar-zbytku}
+ existuje pro každé $n \in N$ číslo $\xi_n \in [0,x)$ takové, že
+ \[
+  \eqref{eq:chyba-log} = \left| \frac{1}{(n+1)!}f^{(n+1)}(\xi_n)x^{n} \right|,
+ \]
+ kde opět $f(x) = \log(1 + x)$. Využitím výpočtu $f^{(n+1)}$ výše a odhadu $0
+ \leq x / (1 + \xi_n) \leq 1$ spočteme
+ \begin{align*}
+  \eqref{eq:chyba-log} = \left| \frac{1}{(n+1)!}f^{(n+1)}(\xi_n)x^{n} \right| &=
+ \left| \frac{1}{(n+1)!}(-1)^{n}\frac{n!}{(1+\xi_n)^{n+1}}x^{n+1} \right) \\
+                                                       &=
+  \frac{1}{n+1} \left( \frac{x}{1+\xi_n} \right)^{n+1} \leq \frac{1}{n+1}
+  \overset{n \to \infty}{\longrightarrow} 0,
+ \end{align*}
+ jak jsme chtěli.
+
+ Konečně, ať $x \in (-1,0)$. Nyní naopak použijeme
+ \myref{důsledek}{cor:cauchyho-tvar-zbytku} a pro každé $n \in \N$ nalezneme
+ $\xi_n \in (x,0)$ splňující
+ \[
+  \eqref{eq:chyba-log} = \left| \frac{1}{n!}f^{(n+1)}(\xi_n)x(x-\xi_n)^{n}
+  \right|.
+ \]
+ Jelikož $\xi_n \in (-1,0)$, platí pro $x \in (-1,0)$ odhad
+ \[
+  \frac{1+x}{1+\xi_n} \geq 1 + x,
+ \]
+ z nějž úpravou
+ \[
+  1 - \frac{1+x}{1 + \xi_n} \leq -x.
+ \]
+ Čili,
+ \begin{align*}
+  \eqref{eq:chyba-log} &= \left| \frac{1}{n!}f^{(n+1)}(\xi_n)x(x-\xi_n)^{n}
+  \right| = \left| \frac{1}{n!}(-1)^{n}\frac{n!}{(1+\xi_n)^{n+1}}x(x-\xi_n)^{n}
+  \right| \\
+  &= |x|\frac{(\xi_n - x)^n}{(1 + \xi_n)^{n+1}} = \frac{|x|}{1 + \xi_n} \left(
+  \frac{\xi_n - x}{1 + \xi_n} \right)^{n} = \frac{|x|}{1 + \xi_n} \left( 1 -
+ \frac{1 + x}{1 + \xi_n} \right)\\
+  & \leq (-x)^{n}\frac{|x|}{1 + \xi_n} = \frac{|x|^{n+1}}{1 + \xi_n}
+  \overset{n \to \infty}{\longrightarrow} 0,
+ \end{align*}
+ což zakončuje důkaz kýžené rovnosti pro $x \in (-1,0)$ a tím i důkaz celé věty.
+\end{thmproof}
