@@ -1,0 +1,322 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[english,czech]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+% Colors %
+\usepackage[dvipsnames]{xcolor}
+
+% Colored boxes %
+\usepackage[many]{tcolorbox}
+
+% Page Layout %
+\usepackage[margin=.5in]{geometry}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\setlist{topsep=6pt}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+\tikzset{
+  vertex/.style = {shape=circle,fill,text=white,minimum size=9pt,inner
+  sep=1pt}
+}
+
+% Theorems
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{thmtools}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem*{solution}{Possible solution.}
+
+% Title %
+\title{\Huge\textsf{Ústní zkouška}\\
+ \Large\textsf{z Úvodu do matematické analýzy, části prvé}\\
+ \vspace*{1em}
+ Verze: r3kt\\
+ \author{Přednášející: His Divine Wisdom Sir Adam Clypatch}
+ \date{19. ledna 2024}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ linktoc=all,
+ linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\img}{im}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\codom}{codom}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\clr}{\textcolor{red}}
+\newcommand{\clb}{\textcolor{blue}}
+\newcommand{\clg}{\textcolor{green}}
+\newcommand{\clm}{\textcolor{magenta}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Table array stretch
+\renewcommand{\arraystretch}{1.5}
+
+% Document %
+\pagestyle{empty}
+
+\newcommand{\defthis}[1]{%
+\par Definujte tento pojem: \emph{#1}.%
+\vspace{\parskip}%
+\hrule%
+}
+
+\newcommand{\provethisez}[1]{%
+\par Dokažte následující (snadné) tvrzení.\\[.5em]%
+\emph{#1}%
+\vspace{\parskip}%
+\hrule%
+}
+
+\newcommand{\calcthislimez}[1]{%
+\par Spočtěte následující limitu.\\[.5em]%
+\emph{#1}%
+\vspace{\parskip}%
+\hrule%
+}
+
+\newcommand{\calcthisderez}[1]{%
+\par Spočtěte derivaci následující funkce.\\[.5em]%
+\emph{#1}%
+\vspace{\parskip}%
+\hrule%
+}
+
+\newcommand{\calcthisintez}[1]{%
+\par Spočtěte následující integrál.\\[.5em]%
+\emph{#1}%
+\vspace{\parskip}%
+\hrule%
+}
+
+\begin{document}
+ \hrule
+ \defthis{oboustranná limita funkce}
+ \defthis{spojitost funkce v bodě}
+ \defthis{extrém reálné funkce na intervalu}
+ \defthis{derivace reálné funkce v bodě}
+ \defthis{exponenciála a logaritmus}
+ \defthis{funkce sinus a cosinus}
+ \defthis{obecná mocnina}
+ \defthis{Taylorův polynom daného stupně reálné funkce v bodě}
+ \defthis{Symbol malé $o$}
+ \defthis{primitivní funkce na intervalu}
+
+ \clearpage
+ 
+ \hrule
+ \provethisez{
+  Ať má reálná funkce $f$ \textbf{konečnou} limitu v bodě $a \in
+  \R^{*}$. Pak je $f$ na jistém prstencovém okolí $a$ omezená.
+ }
+ \provethisez{
+  Ať $a \in \R^{*}$ a $f,g$ jsou reálné funkce. Platí-li
+  \[
+   \lim_{x \to a} f(x) > \lim_{x \to a} g(x),
+  \]
+  pak $f(x) > g(x)$ pro každé $x$ z jistého prstencového okolí $a$.
+ }
+ \provethisez{
+  Existují reálné funkce $f,g$ a čísla $a,A,B \in \R^{*}$, že
+  \[
+   \lim_{x \to a} g(x) = A \quad \text{a} \quad \lim_{y \to A} f(y) = B,
+  \]
+  ale přesto $\lim_{x \to a} (f \circ g)(x) \neq B$.
+ }
+ \provethisez{
+  Reálná funkce spojitá na uzavřeném intervalu je na něm omezená.
+ }
+ \provethisez{
+  Ať $f$ je reálná funkce, $a \in \R$ a existuje $f'(a)$. Pak existuje
+  \[
+   \lim_{x \to a} \frac{f(x) - f(a)}{x - a}
+  \]
+  a je rovna $f'(a)$.
+ }
+ \provethisez{
+  Ať $f$ je reálná funkce, $a \in \R$ a existuje konečná $f'(a)$. Pak je $f$ v
+  bodě $a$ spojitá.
+ }
+ \provethisez{
+  Ať má funkce $f$ v bodě $a$ extrém a ať $f'(a)$ existuje. Pak $f'(a) = 0$.
+ }
+ \provethisez{
+  Ať $I \subseteq \R$ je interval a funkce $f$ má všude na $I$ zápornou
+  derivaci. Pak je $f$ na $I$ klesající.\\
+  \textbf{Hint}: Lagrangeova věta o střední hodnotě.
+ }
+ \provethisez{
+  Pro všechna $x \in \R$ platí $\exp'x = \exp x$.\\
+  \textbf{Hint}: Použijte rovnosti
+  \[
+   \exp(x + y) = \exp x \cdot \exp y \quad \text{a} \quad \lim_{x \to 0}
+   \frac{\exp x - 1}{x} = 1.
+  \]
+ }
+ \provethisez{
+  Pro všechna $x,y > 0$ platí
+  \[
+   \log(xy) = \log x + \log y.
+  \]
+  \textbf{Hint}: Vlastnosti exponenciály.
+ }
+
+ \clearpage
+ \hrule
+ \provethisez{
+  Ať $n \in \N$ a $f:M \to \R$ má v $a \in M$ derivace všech řádů do $n$ včetně.
+  Pak
+  \[
+   \lim_{x \to a} \frac{f(x) - T^{f,a}_n(x)}{(x-a)^{n}} = 0.
+  \]
+  \textbf{Hint}: Indukcí podle $n$ užitím rovnosti $(T^{f,a}_n)' =
+  T^{f',a}_{n-1}$.
+ }
+ \provethisez{
+  Jsou-li $f_1,f_2,g_1,g_2$ reálné funkce a $f_1 = o(g_1), f_2 = o(g_2)$, pak
+  $f_1f_2 = o(g_1g_2)$.
+ }
+ \provethisez{
+  Ať $f,g:(a,b) \to \R$ jsou reálné funkce a $F,G$ jsou primitivní k $f,g$ na
+  $(a,b)$. Pak
+  \[
+   \int fG = FG - \int Fg.
+  \]
+ }
+ \provethisez{
+  Ať $a < b, \alpha < \beta \in \R$, $f:(a,b) \to \R$ a
+  $\varphi:(\alpha,\beta) \to (a,b)$ jsou reálné funkce, přičemž $\varphi'$
+  existuje konečná na $(a,b)$. Ať $F$ je primitivní k $f$ na $(a,b)$. Pak
+  \[
+   \int (f \circ \varphi)(t) \cdot \varphi'(t) \, \mathrm{d}t = (F \circ
+   \varphi)(t)
+  \]
+  pro $t \in (\alpha,\beta)$.
+ }
+
+ \clearpage
+ \hrule
+ \calcthislimez{
+  \[
+   \lim_{x \to 1} \frac{x^{2} - 1}{2 x^{2} - x - 1}.
+  \]
+ }
+ \calcthislimez{
+  \[
+   \lim_{x \to 1} \frac{x^{m} - 1}{x^{n} - 1},
+  \]
+  kde $m,n \in \N$.
+ }
+ \calcthisderez{
+  \[
+   f(x) = \frac{\exp x - \exp (-x)}{\exp x + \exp(-x)}.
+  \]
+ }
+ \calcthisderez{
+  \[
+   f(x) = \log(\log x - 3) + \arcsin \left( \frac{x-5}{2} \right).
+  \]
+ }
+ \calcthislimez{
+  \[
+   \lim_{x \to 0} \frac{\tan x - x}{x - \sin x}.
+  \]
+ }
+ \calcthislimez{
+  \[
+   \lim_{x \to 0^{+}} x^{x}.
+  \]
+ }
+ \calcthislimez{
+  \[
+   \lim_{x \to 0} \frac{\cos x - \exp(-x^2 / 2)}{x^{4}}.
+  \]
+ }
+ \calcthislimez{
+  \[
+   \lim_{x \to 0} \frac{\log(\cos x)}{x^2}.
+  \]
+ }
+ \calcthisintez{
+  \[
+   \int \frac{\exp x}{2 + \exp x} \, \mathrm{d}x
+  \]
+  pro $x \in \R$.
+ }
+ 
+ \clearpage
+ \hrule
+ \calcthisintez{
+  \[
+   \int \arcsin x \, \mathrm{d}x
+  \]
+  pro $x \in (-1,1)$.
+ }
+ \calcthisintez{
+  \[
+   \int \frac{\log^2 x}{x} \, \mathrm{d}x
+  \]
+  pro $x > 0$.
+ }
+ \calcthisintez{
+  \[
+   \int \frac{x^2}{(x^2 + 2x + 2)^2} \, \mathrm{d}x
+  \]
+  pro $x \in \R$.
+ }
+\end{document}
