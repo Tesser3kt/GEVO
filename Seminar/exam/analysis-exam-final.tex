@@ -31,7 +31,7 @@
 \usepackage{subcaption}
 \usepackage{wrapfig}
 \usepackage{enumitem}
-\setlist{topsep=6pt}
+\setlist{topsep=0pt}
 \setlist[enumerate,1]{label=(\arabic*)}
 
 \usepackage{tikz}
@@ -118,6 +118,13 @@
 
 \newcommand{\provethisez}[1]{%
 \par Dokažte následující (snadné) tvrzení.\\[.5em]%
+\emph{#1}%
+\vspace{\parskip}%
+\hrule%
+}
+
+\newcommand{\provethishard}[1]{%
+\par Dokažte následující tvrzení.\\[.5em]%
 \emph{#1}%
 \vspace{\parskip}%
 \hrule%
@@ -319,4 +326,77 @@
   \]
   pro $x \in \R$.
  }
+
+ \clearpage
+ \hrule
+ \provethishard{
+  Ať $f:\R \to \R$ je funkce. Potom je množina
+  \[
+   M \coloneqq \{x \in \R \mid f \text{ má v } x \text{ ostré lokální maximum}\}
+  \]
+  spočetná.\\
+  \textbf{Návod}:
+  \begin{enumerate}
+   \item Z definice extrému existuje pro každé $x \in M$ okolí $P(x,\delta_x)$,
+    na němž platí $f(y) < f(x), y \in P(x,\delta_x)$. Volme
+    \[
+     M_n \coloneqq \left\{x \in M \mid \delta_x > \frac{1}{n}\right\}.
+    \]
+    Pro každé $n \in \N$ najděte nalezněte číslo $\eta_n$ takové, že
+    \[
+     M_n = \coprod_{x \in M_n} B(x,\eta_n).
+    \]
+   \item Dokažte, že $M_n$, jakožto disjunktní sjednocení otevřených intervalů,
+    je spočetná.
+   \item Dokažte, že $M$ je spočetná.
+  \end{enumerate}
+ }
+ 
+  Řekneme, že bod $a \in M$ je \textbf{inflexním bodem} funkce $f:M \to \R$,
+  jestliže existuje konečná $f'(a)$ a $\delta>0$ takové, že buď
+  \[
+   \forall x \in (a-\delta,a): f(x) > T^{f,a}_1(x) \quad \text{a} \quad \forall
+   x \in (a,a+\delta): f(x) < T^{f,a}_1(x),
+  \]
+  nebo
+  \[
+   \forall x \in (a-\delta,a): f(x) < T^{f,a}_1(x) \quad \text{a} \quad \forall
+   x \in (a,a+\delta): f(x) > T^{f,a}_1(x).
+  \]
+  Slovy: bod $a$ je inflexním bodem $f$, když hodnoty $f$ v bodech vlevo od $a$
+  leží pod, resp. nad, tečnou $f$ v bodě $a$ a hodnoty $f$ v bodech vpravo od
+  $a$ leží nad, resp. pod, tečnou $f$ v bodě $a$.
+
+  \emph{Dokažte, že když $a$ je inflexním bodem $f$, pak $f''(a)$ buď neexistuje
+  nebo je rovna $0$.}\\
+  \emph{
+   \textbf{Návod}: Uvažujte pro spor, že třeba $f''(a) > 0$, pak použijte
+   definici derivace a Lagrangeovu větu o střední hodnotě, abyste ukázali, že
+   $a$ není inflexním bodem.
+  }
+  \vspace{\parskip}
+  \hrule
+  \emph{Ať $f:(a,b) \to \R$ je spojitá a $\varphi:(a,b) \to \R$ má konečnou nenulovou
+  derivaci všude na $(a,b)$. Potom je $\varphi((a,b))$ interval; označíme jej
+  $(\alpha,\beta)$. Položme $g(t) \coloneqq (f \circ \varphi ^{-1})(t) \cdot
+  (\varphi ^{-1})'(t)$ a nechť $G$ je primitivní ke $g$ na $(\alpha,\beta)$.
+  Dokažte, že pak}
+  \[
+   \int f(x) \, \mathrm{d}x = (G \circ \varphi)(x)
+  \]
+  \emph{pro $x \in (a,b)$.}\\
+  \emph{\textbf{Návod}:
+  \begin{enumerate}
+   \item Použitím Darbouxovy vlastnosti (tj. vlastnosti zobrazování intervalu na
+    interval) spojitých funkcí k důkazu, že
+    \begin{enumerate}
+     \item $\varphi((a,b))$ je vskutku interval;
+     \item platí buď $\varphi' > 0$ nebo $\varphi' < 0$ na celém $(a,b)$.
+    \end{enumerate}
+   \item Dokažte, že existuje $\varphi ^{-1}:(\alpha,\beta) \to (a,b)$.
+   \item Zaderivujte si.
+  \end{enumerate}
+ }
+ \vspace{\parskip}
+ \hrule
 \end{document}
