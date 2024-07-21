@@ -3,7 +3,7 @@
 
 V této sekci si ukážeme velmi intuitivní způsob, jak počítat \emph{orientovanou}
 plochu sevřenou grafem dané funkce a osou $x$. Spojením \emph{orientovaná
-plocha} zde neznačí to, jež bychom přirozeně nazvali \uv{obsahem} útvaru mezi
+	plocha} zde neznačí to, jež bychom přirozeně nazvali \uv{obsahem} útvaru mezi
 grafem funkce a osou $x$, nýbrž rozdíl obsahu útvaru takto vzniknuvšího
 \textbf{nad} osou $x$ a toho \textbf{pod} osou $x$. Fyzikální využití takového
 konceptu jsou výrazně širší.
@@ -21,32 +21,32 @@ právě plochou pod grafem funkce. K formalizaci tohoto odstavce potřebujeme
 několik úvodních definic.
 
 \begin{definition}{Dělení intervalu}{deleni-intervalu}
- Ať $[a,b] \subseteq \R$ je interval. Jeho \emph{dělením} nazveme libovolnou
- konečnou posloupnost $x_0,\ldots,x_n$ pro $n \in \N$, kde $x_0 = a, x_n = b$ a
- platí $x_{i-1} < x_{i}$ pro každé $1 \leq i \leq n$.
+	Ať $[a,b] \subseteq \R$ je interval. Jeho \emph{dělením} nazveme libovolnou
+	konečnou posloupnost $x_0,\ldots,x_n$ pro $n \in \N$, kde $x_0 = a, x_n = b$ a
+	platí $x_{i-1} < x_{i}$ pro každé $1 \leq i \leq n$.
 
- Takovou posloupnost značíme $D = (x_i)_{i=0}^{n}$ a délku nejdelšího intervalu
- tvaru $[x_i,x_{i+1}]$ nazveme \emph{normou} $D$, značenou
- \[
-  \|D\| \coloneqq \max_{1 \leq i \leq n} (x_{i} - x_{i-1}).
- \]
- Jsou-li $D',D$ dvě dělení $[a,b]$, pak říkáme, že $D'$ \emph{zjemňuje} $D$
- (značíme $D' \leq D$), patří-li každý dělící bod $D$ rovněž do $D'$.
- Speciálně, $D$ zjemňuje samo sebe.
+	Takovou posloupnost značíme $D = (x_i)_{i=0}^{n}$ a délku nejdelšího intervalu
+	tvaru $[x_i,x_{i+1}]$ nazveme \emph{normou} $D$, značenou
+	\[
+		\|D\| \coloneqq \max_{1 \leq i \leq n} (x_{i} - x_{i-1}).
+	\]
+	Jsou-li $D',D$ dvě dělení $[a,b]$, pak říkáme, že $D'$ \emph{zjemňuje} $D$
+	(značíme $D' \leq D$), patří-li každý dělící bod $D$ rovněž do $D'$.
+	Speciálně, $D$ zjemňuje samo sebe.
 \end{definition}
 
 \begin{definition}{Horní a dolní součty}{horni-a-dolni-soucty}
- Ať $[a,b] \subseteq \R$ je interval, $f:[a,b] \to \R$ \textbf{omezená} funkce a
- $D$ dělení $[a,b]$. Definujeme hodnotu
- \begin{align*}
-  \overline{S}(f,D) &\coloneqq \sum_{i=0}^n \sup_{[x_{i-1},x_i]} f \cdot (x_i -
-  x_{i-1}), \text{ resp.}\\
-  \underline{S}(f,D) & \coloneqq \sum_{i=0}^n \inf_{[x_{i-1},x_i]} f \cdot (x_i
-  - x_{i-1}),
- \end{align*}
- a nazýváme ji \emph{horním}, resp. \emph{dolním}, součtem $f$ při dělení $D$.
- Zde výraz $\sup_{[x_{i-1},x_i]} f$, resp. $\inf_{[x_{i-1},x_i]} f$, značí
- supremum, resp. infimum, funkce $f$ na intervalu $[x_{i-1},x_i]$.
+	Ať $[a,b] \subseteq \R$ je interval, $f:[a,b] \to \R$ \textbf{omezená} funkce a
+	$D$ dělení $[a,b]$. Definujeme hodnotu
+	\begin{align*}
+		\overline{S}(f,D)  & \coloneqq \sum_{i=0}^n \sup_{[x_{i-1},x_i]} f \cdot (x_i -
+		x_{i-1}), \text{ resp.}                                                         \\
+		\underline{S}(f,D) & \coloneqq \sum_{i=0}^n \inf_{[x_{i-1},x_i]} f \cdot (x_i
+		- x_{i-1}),
+	\end{align*}
+	a nazýváme ji \emph{horním}, resp. \emph{dolním}, součtem $f$ při dělení $D$.
+	Zde výraz $\sup_{[x_{i-1},x_i]} f$, resp. $\inf_{[x_{i-1},x_i]} f$, značí
+	supremum, resp. infimum, funkce $f$ na intervalu $[x_{i-1},x_i]$.
 \end{definition}
 
 Užitím \hyperref[def:horni-a-dolni-soucty]{horních a dolních součtů} je již
@@ -60,41 +60,56 @@ Nyní vezmeme \emph{nejlepší možné} aproximace plochy pod grafem $f$ seshora
 zespoda. Uděláme to tak, že \uv{vyzkoušíme} úplně všechna dělení $[a,b]$ a z
 nich vybereme to, jež dává nejmenší horní součty. Formálně, vezmeme infimum
 horních součtů přes všechna možná dělení $[a,b]$. Z druhé strany zase supremum
-dolních součtů přes všechna dělení. Je dobré si rozmyslet, že je-li plocha pod
-grafem funkce \uv{aproximovatelná} pomocí obdélníků, pak tento postup skutečně
-dává kýženou hodnotu orientované plochy.
+dolních součtů přes všechna dělení $[a,b]$. Je dobré si rozmyslet, že je-li
+plocha pod grafem funkce \uv{aproximovatelná} pomocí obdélníků, pak tento postup
+skutečně dává kýženou hodnotu orientované plochy.
 
 \begin{definition}{Riemannův integrál}{riemannuv-integral}
- Ať $[a,b] \subseteq \R$ je interval a $f:[a,b] \to \R$ \textbf{omezená} funkce.
- Definujeme hodnotu
- \begin{align*}
-  \overline{\int_a^{b}} f &\coloneqq \inf \{\overline{S}(f,D) \mid D \text{
-  dělení } [a,b]\}, \text{ resp.},\\
-   \underline{\int_{a}^{b}} f &\coloneqq \sup \{\underline{S}(f,D) \mid D \text{
-   dělení } [a,b]\},
- \end{align*}
- a nazýváme ji \emph{horním Riemannovým integrálem}, resp. \emph{dolním
- Riemannovým integrálem}, funkce $f$ na $[a,b]$.
+	Ať $[a,b] \subseteq \R$ je interval a $f:[a,b] \to \R$ \textbf{omezená} funkce.
+	Definujeme hodnotu
+	\begin{align*}
+		\overline{\int_a^{b}} f    & \coloneqq \inf \{\overline{S}(f,D) \mid D \text{
+		dělení } [a,b]\}, \text{ resp.},                                               \\
+		\underline{\int_{a}^{b}} f & \coloneqq \sup \{\underline{S}(f,D) \mid D \text{
+			dělení } [a,b]\},
+	\end{align*}
+	a nazýváme ji \emph{horním Riemannovým integrálem}, resp. \emph{dolním
+		Riemannovým integrálem}, funkce $f$ na $[a,b]$.
 
- Platí-li
- \[
-  \overline{\int_{a}^{b}} f = \underline{\int_{a}^{b}} f,
- \]
- říkáme, že funkce $f$ \emph{má Riemannův integrál} na $[a,b]$, což značíme
- $f \in \mathcal{R}(a,b)$. Společnou hodnotu obou integrálů značíme zkrátka
- $\int_{a}^{b} f$ a říkáme ji \emph{Riemannův integrál} funkce $f$ na $[a,b]$.
+	Platí-li
+	\[
+		\overline{\int_{a}^{b}} f = \underline{\int_{a}^{b}} f,
+	\]
+	říkáme, že funkce $f$ \emph{má Riemannův integrál} na $[a,b]$, což symbolicky
+	značíme $f \in \mathcal{R}(a,b)$. Společnou hodnotu obou integrálů poté
+	zkrátka $\int_{a}^{b} f$ a říkáme jí \emph{Riemannův integrál} funkce $f$ na
+	$[a,b]$.
 \end{definition}
 
 \begin{warning}{}{spojita-funkce-a-uzavreny-interval}
- Riemannův integrál je definován pouze pro \textbf{omezenou} funkci na
- \textbf{uzavřeném intervalu}.
+	Riemannův integrál je definován pouze pro \textbf{omezenou} funkci na
+	\textbf{uzavřeném} intervalu.
 
- Důvodem předpokladu omezenosti je potřeba dobré definovanosti horních a dolních
- součtů. U neomezených funkcí mohou být hodnoty $\sup_{[x_{i-1},x_i]} f$ a
- $\inf_{[x_{i-1},x_i]} f$ totiž nekonečné.
+	Důvodem předpokladu omezenosti je potřeba dobré definovanosti horních a dolních
+	součtů. U neomezených funkcí mohou být hodnoty $\sup_{[x_{i-1},x_i]} f$ a
+	$\inf_{[x_{i-1},x_i]} f$ totiž nekonečné.
 
- Předpoklad uzavřenosti intervalu existuje v zásadě ze stejného důvodu. Při
- definici dělení otevřeného intervalu a následně součtů dané funkce při tomto
- dělení by byl jeden nucen studovat limitní chování takové funkce v jeho
- krajních bodech.
+	Předpoklad uzavřenosti intervalu existuje v zásadě ze stejného důvodu. Při
+	definici dělení otevřeného intervalu a následně součtů dané funkce při tomto
+	dělení by byl jeden nucen studovat limitní chování takové funkce v jeho
+	krajních bodech.
 \end{warning}
+
+Následuje několik tvrzení o vlastnostech dělení uzavřených intervalů a
+Riemannova integrálu, která později pomohou sloučit tento s konceptem primitivní
+funkce.
+
+\begin{lemma}{Vlastnosti dělení}{vlastnosti-deleni}
+	Nechť $[a,b] \subseteq \R$ je interval.
+	\begin{enumerate}[label=(\alph*),topsep=0pt]
+		\item Ať $D,D'$ jsou dělení $[a,b]$ a $D' \leq D$. Potom
+		      \[
+			      \underline{S}(f,D) \leq \underline{S}(f,D') \leq
+		      \]
+	\end{enumerate}
+\end{lemma}
