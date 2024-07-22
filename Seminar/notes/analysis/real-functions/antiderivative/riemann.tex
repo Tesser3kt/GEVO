@@ -105,11 +105,338 @@ Riemannova integrálu, která později pomohou sloučit tento s konceptem primit
 funkce.
 
 \begin{lemma}{Vlastnosti dělení}{vlastnosti-deleni}
-	Nechť $[a,b] \subseteq \R$ je interval.
-	\begin{enumerate}[label=(\alph*),topsep=0pt]
-		\item Ať $D,D'$ jsou dělení $[a,b]$ a $D' \leq D$. Potom
-		      \[
-			      \underline{S}(f,D) \leq \underline{S}(f,D') \leq
-		      \]
-	\end{enumerate}
+ Nechť $[a,b] \subseteq \R$ je interval a $f:[a,b] \to \R$ omezená funkce.
+ \begin{enumerate}[label=(\alph*),topsep=0pt]
+	\item Ať $D,D'$ jsou dělení $[a,b]$ a $D' \leq D$. Potom
+	\[
+	 \underline{S}(f,D) \leq \underline{S}(f,D') \leq \overline{S}(f,D') \leq
+	 \overline{S}(f,D).
+	\]
+ 	\item Ať $D_1,D_2$ jsou libovolná dělení $[a,b]$. Pak
+ 	\[
+   \underline{S}(f,D_1) \leq \overline{S}(f,D_2)
+ 	\]
+ 	\item Platí
+ 	\[
+	 \underline{\int_{a}^{b}} f \leq \overline{\int_{a}^{b}} f.
+ 	\]
+ \end{enumerate}
 \end{lemma}
+\begin{lemproof}
+ Bod (a) dokážeme v případě, kdy $D'$ má oproti $D$ přesně jeden dělící bod
+ navíc. Zbytek důkazu je triviální využití indukce. Poznamenejme, že prostřední
+ nerovnost (tj. $\underline{S}(f,D') \leq \overline{S}(f,D')$) plyne přímo z
+ \hyperref[def:horni-a-dolni-soucty]{definice}. Označme $D = (x_i)_{i=0}^{n}$ a
+ ať $D'$ má navíc dělící bod ${y \in (x_{i-1},x_i)}$ pro jisté $i \in
+ \{1,\ldots,n\}$. Potom
+ \begin{align*}
+  \underline{S}(f,D') - \underline{S}(f,D) &= \inf_{[x_{i-1},y]} f \cdot (y -
+  x_{i-1}) + \inf_{[y,x_i]} f \cdot (x_i - y) - \inf_{[x_{i-1},x_i]} f \cdot
+  (x_i - x_{i-1}),
+ \end{align*}
+ neboť $\underline{S}(f,D)$ sdílí s $\underline{S}(f,D')$ všechny sčítance typu
+ $\inf_{[x_{j-1},x_j]} f \cdot (x_j - x_{j-1})$ pro $j \neq i$. Jistě platí
+ \[
+  \inf_{[x_{i-1},x_i]} f \leq \inf_{[x_{i-1},y]} f \quad \text{a} \quad
+  \inf_{[x_{i-1},x_i]} f \leq \inf_{[y,x_i]} f,
+ \]
+ čili lze odhadnout
+ \begin{align*}
+  \underline{S}(f,D') - \underline{S}(f,D) &= \inf_{[x_{i-1},y]} f \cdot (y -
+  x_{i-1}) + \inf_{[y,x_i]} f \cdot (x_i - y) - \inf_{[x_{i-1},x_i]} f \cdot
+  (x_i - x_{i-1})\\
+  																				 & \geq \inf_{[x_{i-1},x_i]} f \cdot
+  																				 (y - x_{i-1} + x_i - y - x_i +
+  																				 x_{i-1}) = 0,
+ \end{align*}
+ což po přeuspořádání dá ihned
+ \[
+  \underline{S}(f,D') \geq \underline{S}(f,D).
+ \]
+ Třetí nerovnost, $\overline{S}(f,D') \leq \overline{S}(f,D)$, se dokáže
+ obdobně.
+
+ Pro důkaz (b) uvažme dělení $D$ zjemňující jak $D_1$, tak $D_2$. Potom podle
+ bodu (a) platí
+ \[
+  \underline{S}(f,D_1) \leq \underline{S}(f,D) \leq \overline{S}(f,D) \leq
+  \overline{S}(f,D_2),
+ \]
+ což je přímo dokazovaná nerovnost.
+
+ Bod (c) plyne okamžitě z (b) a \hyperref[def:riemannuv-integral]{definice
+ Riemannova integrálu}.
+\end{lemproof}
+
+Znění \hyperref[lem:vlastnosti-deleni]{předchozího lemmatu} je vyjádření
+geometricky intuitivního faktu, že libovolný odhad plochy pod funkcí
+posloupností obdélníků seshora je vždy vyšší než odhad téhož posloupností
+obdélníku zespoda. Jeden přímočarý důsledek je následující.
+
+\begin{corollary}{}{}
+ Ať $[a,b] \subseteq \R$ je interval a $f:[a,b] \to \R$ omezená funkce. Položme
+ $m \coloneqq \inf_{[a,b]}f$ a $M \coloneqq \sup_{[a,b]}f$. Pak pro libovolné
+ $D$ dělení $[a,b]$ platí
+ \[
+  m(b-a) \overset{(1)}{ \leq } \underline{S}(f,D) \overset{(2)}{ \leq }
+  \underline{\int_{a}^{b}} f \overset{(3)}{ \leq }  \overline{\int_{a}^{b}} f
+  \overset{(4)}{ \leq } \overline{S}(f,D) \overset{(5)}{ \leq } M(b-a).
+ \]
+\end{corollary}
+\begin{corproof}
+ Nerovnosti (2), (3) a (4) plynou ihned z definic.
+
+ Dále pak (1), resp. (5), plyne okamžitě z
+ \hyperref[lem:vlastnosti-deleni]{předchozího lemmatu} dosazením za $D_1$, resp.
+ za $D_2$, triviální dělení $D' \coloneqq (x_0,x_1) = (a,b)$. Platí totiž
+ \[
+  \underline{S}(f,D') = \inf_{[a,b]}f \cdot (b-a) = m(b-a) \quad \text{a} \quad
+  \overline{S}(f,D') = \sup_{[a,b]}f \cdot (b-a) = M(b-a).
+ \]
+\end{corproof}
+
+Nyní dokážeme technické tvrzení, které nám posléze umožní Riemannův integrál z
+definice počítat. Je vyjádřením idey, že dolní, resp. horní, Riemannův integrál
+lze libovolně dobře aproximovat dolním, resp. horním, součtem přes vhodné dělení
+příslušného intervalu. Vzhledem k definici dolního, resp. horního, Riemannova
+integrálu jako suprema dolních, resp. infima horních, součtů snad není tento
+fakt příliš překvapivý. Dlužno podotknout, že platnost podobných tvrzení se
+obyčejně stanovuje důkazovou technikou \emph{mávnutí ruky}, ne však při
+bakalářském studiu.
+
+\begin{theorem}{Aproximace Riemannova integrálu}{aproximace-riemannova-integralu}
+ Ať $[a,b] \subseteq \R$ je interval a $f:[a,b] \to \R$ omezená funkce. Pak pro
+ $\varepsilon>0$ libovolně malé existuje $\delta>0$ takové, že kdykoli je $D =
+ (x_i)_{i=0}^{n}$ dělení $[a,b]$ s normou $\|D\|<\delta$, pak
+ \begin{align}
+  \overline{\int_{a}^{b}} f & \leq \overline{S}(f,D) \leq
+  \overline{\int_{a}^{b}} f + \varepsilon, \label{eq:riemann-approx-low}\\
+  \underline{\int_{a}^{b}} f & \geq \underline{S}(f,D) \geq
+  \underline{\int_{a}^{b}} f - \varepsilon. \label{eq:riemann-approx-high}
+ \end{align}
+\end{theorem}
+\begin{thmproof}
+ Poznamenejme, že omezenost $f$ na $[a,b]$ dává existenci čísla $K>0$ takového,
+ že $|f(x)| < K$ pro $x \in [a,b]$. Speciálně tedy $\sup_{[a,b]} f \leq K$ a
+ $\inf_{[a,b]} f \geq -K$.
+
+ Dokážeme například pár nerovností v \eqref{eq:riemann-approx-low}. Nerovnosti v
+ \eqref{eq:riemann-approx-high} se dokazují analogicky. Všimněme si nejprve, že
+ první nerovnost v $\eqref{eq:riemann-approx-low}$ plyne ihned z
+ \hyperref[def:riemannuv-integral]{definice Riemannova integrálu}. Důkaz té
+ druhé je poněkud komplikovaný. Totiž, připomeňme zmíněnou definici:
+ \[
+  \overline{\int_{a}^{b}} f = \inf \{\overline{S}(f,D) \mid D \text{ dělení }
+  [a,b]\}.
+ \]
+ Z definice infima existuje nějaký prvek množiny napravo, tedy nějaké dělení
+ $D_0$ intervalu $[a,b]$, takové, že
+ \[
+  \overline{S}(f,D_0) < \overline{\int_{a}^{b}} f + \varepsilon,
+ \]
+ protože $\overline{\int_{a}^{b}} f$ je \emph{nejmenší} dolní závorou množiny
+ horních součtů přes všechna možná dělení intervalu $[a,b]$. Proč toto není
+ konec důkazu? Protože o normě $D_0$ nemůžeme říct vůbec nic. My nepotřebujeme
+ nalézt dělení, které dobře (závisle na $\varepsilon$) aproximuje
+ $\overline{\int_{a}^{b}} f$, ale ukázat, že \emph{úplně každé} dělení s
+ dostatečně malou normou jej aproximuje dobře. Ukážeme, že (až na konstantu)
+ stačí, aby tato norma byla maximálně tak velká jako délka nejmenšího z dělících
+ intervalů v~$D_0$.
+
+ Označme tedy $D_0 = (x_i)_{i=0}^{n}$, nechť $\mu(D_0) \coloneqq \min \{x_i -
+ x_{i-1} \mid 1 \leq i \leq n\}$ a položme $\delta_1 \coloneqq \min
+ \{\mu(D_0),\varepsilon\}$. Ať je nyní $D$ libovolné dělení $[a,b]$ s
+ $\|D\|<\delta_1$. Definujme nové dělení $P$ intervalu $[a,b]$ sestávající ze
+ všech dělících bodů $D$ i $D_0$. Neformálně můžeme psát $P = D \cup D_0$. Pro
+ pohodlí označme písmenem $\mathcal{D}$ množinu všech intervalů v dělení $D$ a
+ $\mathcal{P}$ množinu všech intervalů v dělení $P$. Z~definice
+ \begin{align*}
+  \overline{S}(f,D) &= \sum_{I \in \mathcal{D}} \sup_I f \cdot \ell(I),\\
+  \overline{S}(f,P) &= \sum_{I \in \mathcal{P}} \sup_I f \cdot \ell(I),
+ \end{align*}
+ kde, připomeňme, $\ell(I)$ značí délku intervalu $I$.
+
+ Vezměme libovolný $I \in \mathcal{D}$. Mohou nastat dva případy:
+ \begin{enumerate}
+  \item $I$ leží rovněž v $\mathcal{P}$. Potom je sčítanec $\sup_I f \cdot
+   \ell(I)$ přítomen jak v součtu $\overline{S}(f,D)$, tak
+   v~$\overline{S}(f,P)$.
+  \item $I$ neleží v $\mathcal{P}$. Pak vnitřek tohoto intervalu protíná nějaký
+   dělící interval v $D_0$. To jest, existuje index $j \in \{0,\ldots,n\}$
+   takový, že $x_j$ leží ve vnitřku (není krajním bodem) intervalu $I$. Jelikož
+   bylo však $D$ zvoleno tak, že $\|D\| < \mu(D_0)$ -- slovy, nejdelší interval
+   v $D$ je kratší než nejkratší interval v $D_0$ -- existuje takový index $j$
+   \emph{právě jeden}.
+ \end{enumerate}
+ Nadále předpokládejme, že nastal případ (2) a označme $I = [\alpha,\beta]$. Pak
+ $x_j \in (\alpha,\beta)$. V $\overline{S}(f,D)$ se nachází sčítanec $\sup_I f
+ \cdot (\beta - \alpha)$, zatímco v $\overline{S}(f,P)$ na místě tohoto sčítance
+ máme
+ \[
+  \sup_{[\alpha,x_j]} f \cdot (x_j - \alpha) + \sup_{[x_j,\beta]} f \cdot
+  (\beta - x_j).
+ \]
+ Jejich rozdíl odhadneme
+ \begin{align*}
+  |\sup_{[\alpha,\beta]} f \cdot (\beta - \alpha) - (\sup_{[\alpha,x_j]} f \cdot
+  (x_j - \alpha) + \sup_{[x_j,\beta]} f \cdot (\beta - x_j))| \\
+  \leq K(\beta-\alpha) + K(x_j - \alpha) + K(\beta - x_j) = 2K(\beta-\alpha)
+  \leq 2K \cdot \|D\|.
+ \end{align*}
+ Protože $D_0$ má $n+1$ dělících bodů, může případ (2) nastat pro maximálně $n$
+ intervalů z $\mathcal{D}$. Celkem tedy
+ \[
+  |\overline{S}(f,D) - \overline{S}(f,P)| \leq 2K \cdot n \cdot \|D\|
+ \]
+ a speciálně $\overline{S}(f,D) \leq \overline{S}(f,P) + 2Kn \|D\|$. Odtud již
+ přímočaře spočteme
+ \[
+  \overline{\int_{a}^{b}} f \leq \overline{S}(f,D) \leq \overline{S}(f,P) + 2Kn
+  \|D\| = \overline{S}(f,D_0) + 2Kn\varepsilon < \overline{\int_{a}^{b}} f +
+  (2Kn + 1)\varepsilon,
+ \]
+ kde předposlední nerovnost plyne z toho, že $P \leq D_0$ a z volby $\|D\| <
+ \varepsilon$ a poslední nerovnost z volby $D_0$ na začátku důkazu. Protože $2Kn
+ + 1$ je konstanta nezávislá na $\varepsilon$, je tímto důkaz
+ \eqref{eq:riemann-approx-low} dokončen.
+
+ Podobně bychom nalezli $\delta_2>0$, pro něž platí
+ \eqref{eq:riemann-approx-high}. Volba $\delta \coloneqq
+ \min(\delta_1,\delta_2)$ zakončuje důkaz.
+\end{thmproof}
+
+Nyní si zformulujeme dva důsledky právě dokázané věty, které nám umožní hodnotu
+Riemannova integrálu spočíst jako limitu posloupnosti horních (či dolních)
+součtů přes dělení se stále menší normou.
+
+\begin{corollary}{}{riemann-vypocet}
+ Ať $[a,b] \subseteq \R$ je interval, $f:[a,b] \to \R$ omezená funkce a
+ $\{D_n\}_{n=0}^{\infty}$ posloupnost dělení $[a,b]$ splňující $\lim_{n \to
+ \infty} \|D_n\| = 0$. Potom
+ \[
+  \overline{\int_{a}^{b}} f = \lim_{n \to \infty} \overline{S}(f,D_n) \quad
+  \text{a} \quad \underline{\int_{a}^{b}} f = \lim_{n \to \infty}
+  \underline{S}(f,D_n).
+ \]
+\end{corollary}
+\begin{corproof}
+ Ať je dáno $\varepsilon>0$. Podle
+ \myref{věty}{thm:aproximace-riemannova-integralu} k němu existuje $\delta>0$,
+ že pro každé dělení $D$ s~$\|D\|<\delta$ platí
+ \[
+  \overline{S}(f,D) < \overline{\int_{a}^{b}} f + \varepsilon.
+ \]
+ Nalezněme index $n_0 \in \N$ takový, že pro $n \geq n_0$ je $\|D_n\| < \delta$.
+ Pak ale rovněž pro každé $n \geq n_0$ máme odhady
+ \[
+  \overline{\int_{a}^{b}} f \leq \overline{S}(f,D_n) < \overline{\int_{a}^{b}} f
+  + \varepsilon,
+ \]
+ což dokazuje, že
+ \[
+  \lim_{n \to \infty} \overline{S}(f,D_n) = \overline{\int_{a}^{b}} f.
+ \]
+ Druhá rovnost se dokáže obdobně.
+\end{corproof}
+
+\begin{corollary}{}{riemann-existence}
+ Ať $[a,b] \subseteq \R$ je interval, $f:[a,b] \to \R$ omezená funkce a
+ $\{D_n\}_{n=0}^{\infty}$ posloupnost dělení taková, že
+ \[
+  \lim_{n \to \infty} \overline{S}(f,D_n) = \lim_{n \to \infty}
+  \underline{S}(f,D_n).
+ \]
+ Potom $f \in \mathcal{R}(a,b)$ a platí
+ \[
+  \int_{a}^{b} f = \lim_{n \to \infty} \overline{S}(f,D_n) = \lim_{n \to \infty}
+  \underline{S}(f,D_n).
+ \]
+\end{corollary}
+\begin{corproof}
+ Pro každé $n \in \N$ platí
+ \[
+  \underline{S}(f,D_n) \leq \underline{\int_{a}^{b}} f \leq
+  \overline{\int_{a}^{b}} f \leq \overline{S}(f,D_n),
+ \]
+ což podle \myref{lemmatu}{lem:o-dvou-straznicich} znamená, že
+ \[
+  \underline{\int_{a}^{b}} f = \overline{\int_{a}^{b}} f = \lim_{n \to \infty}
+  \overline{S}(f,D_n) = \lim_{n \to \infty} \underline{S}(f,D_n),
+ \]
+ jak jsme chtěli.
+\end{corproof}
+
+\begin{example}{}{}
+ Poslední dva důsledky dávají vcelku přímočarý, ač výpočetně obvykle nesnadný
+ postup výpočtu Riemannova integrálu. Vypadá následovně.
+ \begin{enumerate}
+  \item Nalezneme posloupnost dělení $[a,b]$ s klesající normou. Volba
+   \uv{vhodné} posloupnosti dělení závisí velmi na zadané funkci. Možností je
+   nespočetně.
+  \item Pomocí \myref{důsledku}{cor:riemann-existence} dokážeme, že Riemannův
+   integrál z $f$ na $[a,b]$ existuje.
+  \item \myref{Důsledek}{cor:riemann-vypocet} pak říká, že jeho hodnota je rovna
+   limitě horních, nebo dolních, součtů přes zvolenou posloupnost dělení.
+ \end{enumerate}
+ Body (2) a (3) všedně splývají v jeden, neboť bod (2) káže ukázat, že
+ \[
+  \lim_{n \to \infty} \overline{S}(f,D_n) = \lim_{n \to \infty}
+  \underline{S}(f,D_n),
+ \]
+ což obvykle zahrnuje explicitní výpočet obou limit jsoucí obsahem bodu (3).
+
+ Navržený postup vykreslíme výpočtem integrálu
+ \[
+  \int_{0}^{1} x^2 \, \mathrm{d}x.
+ \]
+ Volme například posloupnost rovnoměrných dělení intervalu $[0,1]$ danou
+ předpisem
+ \[
+  D_n \coloneqq \left\{\frac{i}{n}\right\}_{i=0}^n.
+ \]
+ Protože $f(x) = x^2$ je rostoucí spojitá funkce na $[0,1]$ je její infimum na
+ každém dělícím intervalu přesně její hodnota v levém krajním bodě a její
+ supremum zase ta v pravém. Délka každého intervalu v $D_n$ je přesně $1 / n$,
+ takže pro $n \in \N$ dostáváme
+ \begin{align*}
+  \underline{S}(f,D_n) &= \sum_{i=1}^{n} f \left( \frac{i-1}{n} \right) \cdot
+  \frac{1}{n} = \sum_{i=1}^{n} \left( \frac{i-1}{n} \right)^2 \cdot
+  \frac{1}{n};\\
+  \overline{S}(f,D_n) &= \sum_{i=1}^{n} f \left( \frac{i}{n} \right)^2 \cdot
+  \frac{1}{n} = \sum_{i=1}^{n} \left( \frac{i}{n} \right)^2 \cdot \frac{1}{n}.
+ \end{align*}
+ Upravíme
+ \[
+  \underline{S}(f,D_n) = \sum_{i = 1}^{n} \left( \frac{i-1}{n} \right)^2 \cdot
+  \frac{1}{n} = \frac{1}{n^3} \cdot \sum_{i=0}^{n-1} i^2.
+ \]
+ Snadná indukce dá
+ \[
+  \sum_{i=0}^{n-1} i^2 = n(n-1)(2n-1)
+ \]
+ pro každé $n \geq 1$. Čili,
+ \[
+  \lim_{n \to \infty} \underline{S}(f,D_n) = \lim_{n \to \infty}
+  \frac{n(n-1)(2n-1)}{n^3} = \frac{1}{3}.
+ \]
+ Podobně spočteme, že rovněž
+ \[
+  \lim_{n \to \infty} \overline{S}(f,D_n) = \lim_{n \to \infty}
+  \frac{n(n+1)(2n+1)}{6n^3} = \frac{1}{3}.
+ \]
+ 
+ Podle \myref{důsledku}{cor:riemann-existence} existuje Riemannův integrál z
+ funkce $f$ na $[0,1]$. \myref{Důsledek}{cor:riemann-vypocet} pak dává, že
+ \[
+  \int_{0}^{1} x^2 \, \mathrm{d}x = \lim_{n \to \infty} \overline{S}(f,D_n) =
+  \lim_{n \to \infty} \underline{S}(f,D_n) = \frac{1}{3}.
+ \]
+\end{example}
+
+\begin{exercise}{}{}
+ Spočtěte následující Riemannovy integrály:
+ \begin{enumerate}
+  \item z funkce $f(x) = x^3$ na intervalu $[0,1]$;
+  \item z funkce 
+ \end{enumerate}
+\end{exercise}

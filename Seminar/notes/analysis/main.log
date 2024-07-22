@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.20)  21 JUL 2024 10:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.5)  22 JUL 2024 14:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -60,7 +60,7 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
+Package: hyperref 2024-05-23 v7.01i Hypertext links for LaTeX
  (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
@@ -104,7 +104,7 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \Hy@linkcounter=\count274
 \Hy@pagecounter=\count275
  (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-05-23 v7.01i Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -113,7 +113,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 \Hy@SavedSpaceFactor=\count276
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-05-23 v7.01i Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -156,7 +156,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2024-07-10 v7.01j Hyperref driver for pdfTeX
+File: hpdftex.def 2024-05-23 v7.01i Hyperref driver for pdfTeX
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -192,7 +192,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen154
 \Gm@dimlist=\toks20
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2024/07/18 v4.3 Extensive control of page headers and footers
+Package: fancyhdr 2024/04/23 v4.2 Extensive control of page headers and footers
 \f@nch@headwidth=\skip52
 \f@nch@O@elh=\skip53
 \f@nch@O@erh=\skip54
@@ -386,8 +386,8 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 
 IV
 (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/newtxmath.sty
-Package: newtxmath 2024/07/05 v1.752
- `newtxmath' v1.752, 2024/07/05 Math macros based originally on txfonts (msharpe) (/usr/local/texlive/2024/texmf-dist/tex/latex/oberdiek/centernot.sty
+Package: newtxmath 2024/06/18 v1.75
+ `newtxmath' v1.75, 2024/06/18 Math macros based originally on txfonts (msharpe) (/usr/local/texlive/2024/texmf-dist/tex/latex/oberdiek/centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
 \tx@cntz=\count309
@@ -991,7 +991,7 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count355
 \enitdp@description=\count356
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2024/07/10 version 6.3.0 text color boxes
+Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
  (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks65
@@ -1016,9 +1016,9 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@temp=\box82
 \tcb@temp=\box83
  (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
-Library (tcolorbox): 'tcbtheorems.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.2.0'
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
-Library (tcolorbox): 'tcbbreakable.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
 (/usr/local/texlive/2024/texmf-dist/tex/latex/pdfcol/pdfcol.sty
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
@@ -1027,13 +1027,13 @@ Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
 \tcb@totalupperbox=\box85
 \tcb@totallowerbox=\box86
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
-Library (tcolorbox): 'tcbraster.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbraster.code.tex' version '6.2.0'
 \c@tcbrastercolumn=\count360
 \c@tcbrasterrow=\count361
 \c@tcbrasternum=\count362
 \c@tcbraster=\count363
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
-Library (tcolorbox): 'tcbskins.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbskins.code.tex' version '6.2.0'
 (/usr/local/texlive/2024/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
 Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
  (/usr/local/texlive/2024/texmf-dist/tex/latex/tikzfill/tikzfill-common.sty
@@ -1042,19 +1042,19 @@ Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
 \l__tikzfill_img_box=\box87
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
-Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
-Library (tcolorbox): 'tcbhooks.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.2.0'
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
-Library (tcolorbox): 'tcbfitting.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.2.0'
 \tcbfitdim=\dimen352
 \tcb@lowerfitdim=\dimen353
 \tcb@upperfitdim=\dimen354
 \tcb@cur@hbadness=\count364
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
-Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.2.0'
 (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
-Library (tcolorbox): 'tcblistings.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcblistings.code.tex' version '6.2.0'
 (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count365
 \lst@gtempboxa=\box88
@@ -1080,25 +1080,25 @@ File: listings.cfg 2024/05/25 1.10b listings configuration
 ))
 Package: listings 2024/05/25 1.10b (Carsten Heinz)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcblistingscore.code.tex
-Library (tcolorbox): 'tcblistingscore.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.2.0'
 (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
-Library (tcolorbox): 'tcbprocessing.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.2.0'
 )
 \c@tcblisting=\count373
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
 Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
-Library (tcolorbox): 'tcbexternal.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.2.0'
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbmagazine.code.tex
-Library (tcolorbox): 'tcbmagazine.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.2.0'
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbvignette.code.tex
-Library (tcolorbox): 'tcbvignette.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.2.0'
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
 File: tikzlibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
 File: pgflibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
-Library (tcolorbox): 'tcbposter.code.tex' version '6.3.0'
+Library (tcolorbox): 'tcbposter.code.tex' version '6.2.0'
 ))
 \c@tcb@cnt@theorem=\count374
 \c@currthmproofctr=\count375
@@ -1305,7 +1305,7 @@ LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
 (Font)              scaled to size 6.1pt on input line 4.
 LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 4.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/gelasiomath/untxmia.fd
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
 )
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
@@ -1822,13 +1822,33 @@ Underfull \vbox (badness 1571) has occurred while \output is active []
 
 
 
-[86])))
+[86]
+
+[87]
+Underfull \vbox (badness 2460) has occurred while \output is active []
+
+
+
+[88]
+
+[89]
+
+[90]
+
+LaTeX Warning: Hyper reference `lem:o-dvou-straznicich' on page 91 undefined on input line 361.
+
+
+LaTeX Warning: Reference `lem:o-dvou-straznicich' on page 91 undefined on input line 361.
+
+
+
+[91])))
 \tf@thm=\write5
 \openout5 = `main.thm'.
 
 
 
-[87] (./main.aux)
+[92] (./main.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2020/03/25>
@@ -1839,18 +1859,18 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 45780 strings out of 473584
- 935423 string characters out of 5728334
+ 45807 strings out of 473584
+ 935297 string characters out of 5728335
  1980905 words of memory out of 5000000
- 67251 multiletter control sequences out of 15000+600000
+ 67252 multiletter control sequences out of 15000+600000
  815566 words of font info for 243 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,17n,125p,1190b,1246s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,17n,125p,1190b,1229s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTBI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (87 pages, 1355356 bytes).
+Output written on main.pdf (92 pages, 1380376 bytes).
 PDF statistics:
- 1286 PDF objects out of 1440 (max. 8388607)
- 1100 compressed objects within 11 object streams
- 436 named destinations out of 1000 (max. 500000)
+ 1353 PDF objects out of 1440 (max. 8388607)
+ 1158 compressed objects within 12 object streams
+ 463 named destinations out of 1000 (max. 500000)
  374 words of extra memory for PDF output out of 10000 (max. 10000000)
 
