@@ -1,0 +1,273 @@
+\section{Newtonův integrál}
+\label{sec:newtonuv-integral}
+
+\hyperref[thm:zakladni-veta-kalkulu]{Základní věta kalkulu} nabízí druhou metodu
+výpočtu orientované plochy pod danou funkcí. Jsou-li splněny její předpoklady,
+pak
+\begin{equation}
+ \label{eq:newtonuv-integral}
+ \int_{a}^{b} f = F(b) - F(a)
+\end{equation}
+pro reálnou funkci $F$ definovanou jako $F(x) \coloneqq \int_{c}^{x} f$ s jistou
+konstantou $c \in (a,b)$ a všechna $x \in [a,b]$. Přestože historicky je
+\uv{definice} integrálu v \eqref{eq:newtonuv-integral} ta původní, my k ní
+docházíme teprve prostřednictvím integrálu Riemannova. Lze tvrdit, že tato cesta
+je více přirozená, stavějíc intuitivní definici plochy před tu odvozenou z
+vlastností primitivních funkcí, jež -- na první pohled zcela jistě -- s
+orientovanou plochou nikterak nesouvisí.
+
+Výhodou takto definovaného integrálu je jeho existence i pro jisté neomezené
+funkce na otevřených intervalech -- v \eqref{eq:newtonuv-integral} lze totiž
+nahradit $F(b)$ a $F(a)$ příslušnými jednostrannými limitami, jak též záhy
+učiníme. Na druhou stranu se takto omezujeme na funkce, k nimž existuje funkce
+primitivní. Takto definovaný integrál sluje \emph{Newtonův}.
+
+\begin{definition}{Newtonův integrál}{newtonuv-integral}
+ Ať $a,b \in \R^{*}$. Řekneme, že funkce $f:(a,b) \to \R$ je \emph{newtonovsky}
+ integrovatelná, píšeme $f \in \mathcal{N}(a,b)$, pakližeť
+ \begin{enumerate}
+  \item má funkce $f$ na $(a,b)$ primitivní funkci $F$,
+  \item rozdíl $\lim_{x \to b^{-}} F(x) - \lim_{x \to a^{+}} F(x)$ je definován.
+ \end{enumerate}
+ Jsou-li splněny obě podmínky, je tento rozdíl nazýván hodnotou \emph{Newtonova
+ integrálu} z funkce $f$ na $(a,b)$. Symbolicky
+ \[
+  (\mathcal{N}) \int_{a}^{b} f \coloneqq \lim_{x \to b^{-}} F(x) - \lim_{x \to
+  a^{+}} F(x).
+ \]
+ Pro stručnost zápisu budeme nadále onen rozdíl značit symbolem $[F]_a^{b}$.
+\end{definition}
+
+\begin{remark}{}{newtonuv-integral}
+ V dalším textu budeme muset jistou chvíli rozlišovat mezi Newtonovým a
+ Riemannovým integrálem -- přinejmenším, dokud neukážeme jejich ekvivalenci pro
+ funkce newtonovsky i riemannovsky integrovatelné. Učiníme to uvedením písmene
+ $(\mathcal{N})$ či $(\mathcal{R})$ před samotný symbol integrálu, jako v
+ \hyperref[def:newtonuv-integral]{předchozí definici}, v případě, že uvažovaný
+ typ integrálu není zřejmý z kontextu. V celém zbytku oddílu, není-li uvedeno
+ jinak, značí symbol $\int_{a}^{b}$ integrál \emph{Newtonův}.
+\end{remark}
+
+\begin{warning}{}{newtonuv-integral-nekonecno}
+ Je dobré vzít na mysl, že Newtonův integrál z dané funkce může být i nekonečný.
+ Podmínkou jeho existence byla pouze \emph{definovanost} výrazu $[F]_a^{b}$,
+ nikoli jeho \emph{konečnost}. V této souvislosti si všimněme, že jeho meze
+ mohou z \hyperref[def:newtonuv-integral]{definice} nabývat i hodnot $ \pm
+ \infty$. Tím se přímo liší od integrálu Riemannova, neboť omezenost funkce v
+ tomto případě konečnost horních i dolních součtů zaručuje.
+\end{warning}
+
+\begin{example}{}{newtonuv-integral-polynomu}
+ Platí
+ \[
+  \int_{0}^{1} x^{\alpha} \, \mathrm{d}x = \begin{cases}
+   \left[ \frac{1}{\alpha+1}x^{\alpha+1} \right]_0^{1} = \frac{1}{\alpha+1},
+   & \quad \text{pro } \alpha \in (-1,\infty); \\
+   \left[ \frac{1}{\alpha+1}x^{\alpha+1} \right]_0^{1} = -\infty, & \quad
+   \text{pro } \alpha \in (-\infty,-1); \\
+   [\log x]_0^{1} = \infty,& \quad \text{pro } \alpha = -1.
+  \end{cases}
+ \]
+ Vskutku, primitivní funkce k $x^{\alpha}$ byla spočtena v
+ \myref{příkladě}{exam:integral-polynomu} a výpočet příslušných limit je
+ triviální.
+\end{example}
+
+\begin{example}{}{newton-vs-riemann}
+ \begin{enumerate}
+  \item Funkce $f(x) = 1 / x$ je na intervalu $(0,1)$ newtonovsky
+   integrovatelná, konkrétně
+   \[
+    (\mathcal{N}) \int_{0}^{1} \frac{1}{x} \, \mathrm{d}x = \infty,
+   \]
+   podle \myref{příkladu}{exam:newtonuv-integral-polynomu} pro $\alpha = -1$,
+   ale není na $[0,1]$ riemannovsky integrovatelná, protože na tomto intervalu
+   není omezená.
+  \item Naopak, funkce $\sign x$ je na intervalu $[-1,1]$ riemannovsky
+   integrovatelná, díky \myref{tvrzení}{prop:integrovatelnost-monotonni-funkce},
+   protože je na $[-1,1]$ monotónní. Avšak, na $(-1,1)$ newtonovsky
+   integrovatelná není, neboť nemá na celém tomto intervalu primitivní funkci.
+ \end{enumerate}
+\end{example}
+
+Newtonův integrál je člověku výpočetně bližší než integrál Riemannův; je k němu
+třeba umět hledat primitivní funkci. Naopak, Riemannův integrál je mnohem blíže
+způsobu, kterým počítače vyhodnocují integrály, neboť limity konvergentních
+posloupností (v tomto případě součtů přes zjemňující se dělení) se aproximují
+triviálně. Je rozumné se domnívat, že metody výpočtu primitivních funkcí
+představené v \myref{sekci}{sec:vypocet-primitivnich-funkci} lze úspěšně použít
+i k výpočtu Newtonových integrálů.
+
+\begin{theorem}{Linearita Newtonova integrálu}{linearita-newtonova-integralu}
+ Ať $a,b \in \R^{*}, f,g \in \mathcal{N}(a,b)$ a $c \in \R$. Pak $f + g, cf \in
+ \mathcal{N}(a,b)$ a platí
+ \begin{align*}
+  \int_{a}^{b} f(x) + g(x) \, \mathrm{d}x &= \int_{a}^{b} f(x) \, \mathrm{d}x +
+  \int_{a}^{b} g(x) \, \mathrm{d}x.\\
+  \int_{a}^{b} cf(x) \, \mathrm{d}x &= c \int_{a}^{b} f(x) \, \mathrm{d}x.
+ \end{align*}
+\end{theorem}
+\begin{thmproof}
+ Ať $F,G$ jsou primitivní k $f,g$ na $(a,b)$. Potom jsou $F + G$ a $cF$
+ primitivní k $f + g$ a $cf$ na $(a,b)$ a z
+ \hyperref[thm:aritmetika-limit-funkci]{věty o aritmetice limit} máme
+ \[
+  [F + G]_a^{b} = [F]_a^{b} + [G]_a^{b} \quad \text{a} \quad [cF]_a^{b} =
+  c[F]_a^{b}.
+ \]
+ Odtud,
+ \begin{align*}
+  \int_{a}^{b} f(x) + g(x) \, \mathrm{d}x 
+  &= [F + G]_a^{b} = [F]_a^{b} + [G]_a^{b} = \int_{a}^{b} f(x) \, \mathrm{d}x +
+  \int_{a}^{b} g(x) \, \mathrm{d}x,\\
+  \int_{a}^{b} cf(x) \, \mathrm{d}x 
+  &= [cF]_a^{b} = c[F]_a^{b} = c \int_{a}^{b} f(x) \, \mathrm{d}x,
+ \end{align*}
+ jak bylo dokázati.
+\end{thmproof}
+
+\begin{theorem}{Per partes pro Newtonův integrál}{per-partes-pro-newtonuv-integral}
+ Ať $a,b \in \R^{*}$, $f,g:(a,b) \to \R$ jsou reálné funkce a $F$, resp. $G$, je
+ primitivní k $f$, resp. $g$, na $(a,b)$ Potom platí
+ \[
+  \int_{a}^{b} f(x)G(x) \, \mathrm{d}x = [FG]_{a}^{b} - \int_{a}^{b} F(x)g(x) \,
+  \mathrm{d}x,
+ \]
+ dává-li pravá strana smysl.
+\end{theorem}
+\begin{thmproof}
+ Protože pravá strana je z předpokladu dobře definována, existuje primitivní
+ funkce k $Fg$ na $(a,b)$. Označme ji $H$. Platí
+ \[
+  (FG - H)' = fG + Fg - Fg = fG,
+ \]
+ čili $FG - H$ je primitivní k $fG$ na $(a,b)$. Dále
+ \begin{align*}
+  \int_{a}^{b} f(x)G(x) \, \mathrm{d}x
+  &= [FG - H]_a^{b} = \lim_{x \to b^{+}} (F(x)G(x) - H(x)) - \lim_{x \to a^{+}}
+  (F(x)G(x) - H(x))\\
+  &= \lim_{x \to b^{-}} F(x)G(x) - \lim_{x \to b^{-}} F(x)G(x) - (\lim_{x \to
+  b^{-}} H(x) - \lim_{x \to a^{+}} H(x))\\
+  &= [FG]_a^{b} - [H]_a^{b} = [FG]_a^{b} - \int_{a}^{b} F(x)g(x) \,
+  \mathrm{d}x,
+ \end{align*}
+ čímž je důkaz hotov.
+\end{thmproof}
+
+\begin{theorem}{Substituce pro Newtonův integrál}{substituce-pro-newtonuv-integral}
+ Nechť $a,b,\alpha,\beta \in \R^{*}$, $f:(a,b) \to \R$ a $\varphi:(\alpha,\beta)
+ \to (a,b)$. Ať má $\varphi$ dále konečnou nenulovou derivaci na
+ $(\alpha,\beta)$ a platí $\varphi((\alpha,\beta)) = (a,b)$. Potom
+ \[
+  \int_{a}^{b} f(x) \, \mathrm{d}x = \int_{\alpha}^{\beta} (f \circ \varphi)(t)
+  |\varphi'(t)|\,
+  \mathrm{d}t,
+ \]
+ dává-li aspoň jedna strana smysl.
+\end{theorem}
+\begin{thmproof}
+ Funkce $\varphi$ má na $(\alpha,\beta)$ z předpokladu konečnou derivaci. Z
+ \myref{věty}{thm:darbouxova} je $\varphi'((\alpha,\beta))$ interval a opět z
+ předpokladu $0 \notin \varphi'((\alpha,\beta))$. Tedy, $\varphi'$ je na
+ $(\alpha,\beta)$ buď záporná, nebo kladná. Bez újmy na obecnosti budeme
+ předpokládat, že $\varphi' > 0$ na $(\alpha,\beta)$, čili $\varphi$ je na
+ $(\alpha,\beta)$ rostoucí. Rozlišíme dvě možnosti: budeme předpokládat, že
+ existuje levá strana rovnosti a dokážeme existenci integrálu na pravé straně, a
+ naopak.
+
+ Ať nejprve existuje $\int_{a}^{b} f$. Pak má $f$ na $(a,b)$ primitivní funkci
+ $F$ a existují limity $\lim_{x \to a^{+}} F(x)$ i $\lim_{x \to b^{-}} F(x)$. Z
+ \hyperref[thm:derivace-slozene-funkce]{věty o derivaci složené funkce}
+ ($\varphi$ je rostoucí, tedy prostá), má i $(f \circ \varphi) \cdot \varphi'$
+ na intervalu $(\alpha,\beta)$ primitivní funkci, konkrétně funkci $F \circ
+ \varphi$. Platí
+ \[
+  \lim_{t \to \beta^{-}} \varphi(t) = b \quad \text{a} \quad \lim_{t \to \alpha
+  ^{+}} \varphi(t) = a.
+ \]
+ Z \hyperref[thm:limita-slozene-funkce]{věty o limitě složené funkce} (opět,
+ $\varphi$ je prostá) máme
+ \[
+  \lim_{t \to \beta^{-}} (F \circ \varphi)(t) = \lim_{x \to b^{-}} F(x) \quad
+  \text{a} \quad \lim_{t \to \alpha ^{+}} (F \circ \varphi)(t) = \lim_{x \to
+  a^{+}} F(x).
+ \]
+ Můžeme pročež počítat
+ \begin{align*}
+  \int_{\alpha}^{\beta} (f \circ \varphi)(t)|\varphi'(t)| \, \mathrm{d}t 
+  &= \int_{\alpha}^{\beta} (f \circ \varphi)(t) \varphi'(t) \, \mathrm{d}t =
+  [F \circ \varphi]_{\alpha}^{\beta}\\
+  &= [F]_a^{b} = \int_{a}^{b} f(x) \, \mathrm{d}x.
+ \end{align*}
+
+ Nyní ať existuje $\int_{\alpha}^{\beta} (f \circ \varphi) \cdot |\varphi'|$.
+ Označme $G$ primitivní funkci k $(f \circ \varphi) \cdot |\varphi'| = (f \circ
+ \varphi) \cdot \varphi'$. Z \hyperref[thm:druha-o-substituci]{druhé věty o
+ substituci} plyne, že $G \circ \varphi ^{-1}$ je primitivní k $f$ na $(a,b)$.
+ Platí
+ \[
+  \lim_{x \to a^{+}} \varphi ^{-1}(x) = \alpha \quad \text{a} \quad \lim_{x \to
+  b^{-}} \varphi ^{-1}(x) = \beta,
+ \]
+ a tedy
+ \[
+  \lim_{x \to a^{+}} (G \circ \varphi ^{-1})(x) = \lim_{t \to \alpha ^{+}}
+  G(t) \quad \text{a} \quad \lim_{x \to b^{-}} (G \circ \varphi ^{-1})(x) =
+  \lim_{t \to b^{-}} G(t).
+ \]
+ Dopočteme
+ \[
+  \int_{a}^{b} f(x) \, \mathrm{d}x = [G \circ \varphi ^{-1}]_a^{b} =
+  [G]_{\alpha}^{\beta} = \int_{\alpha}^{\beta} (f \circ \varphi)(t)|\varphi'(t)|
+  \, \mathrm{d}t,
+ \]
+ jak jsme chtěli.
+\end{thmproof}
+
+\begin{problem}{}{newtonuv-integral-1}
+ Spočtěte
+ \[
+  \int_{-1}^{1} x^2 \exp(-x) \, \mathrm{d}x.
+ \]
+\end{problem}
+\begin{probsol}
+ Položme $f(x) = \exp(-x)$ a $G(x) = x^2$. Pak $F(x) = -\exp(-x)$ a $g(x) = 2x$.
+ Podle \myref{věty}{thm:per-partes-pro-newtonuv-integral} platí
+ \[
+  \int_{-1}^{1} x^2 \exp(-x) \, \mathrm{d}x = [-x^2 \exp(-x)]_{-1}^{1} -
+  \int_{-1}^{1} -2x \exp(-x) \, \mathrm{d}x.
+ \]
+ Jistě
+ \[
+  [-x^2 \exp(-x)]_{-1}^{1} = -1 \cdot \exp(-1) - (-1)\exp(1) = -\frac{1}{e} + e.
+ \]
+ Z \hyperref[thm:linearita-newtonova-integralu]{linearity integrálu} platí
+ \[
+  \int_{-1}^{1} -2x \exp(-x) \, \mathrm{d}x = -2 \int_{-1}^{1} x \exp(-x) \,
+  \mathrm{d}x.
+ \]
+ Opětovným použitím \hyperref[thm:per-partes-pro-newtonuv-integral]{per partes}
+ dostaneme
+ \[
+  \int_{-1}^{1} x \exp(-x) \, \mathrm{d}x = [-x \exp(-x)]_{-1}^{1} -
+  \int_{-1}^{1} -\exp(-x) \, \mathrm{d}x.
+ \]
+ Snadno spočteme, že
+ \begin{align*}
+  [-x \exp(-x)]_{-1}^{1} &= -1 \cdot \exp(-1) - 1 \cdot \exp(1) = -\frac{1}{e} -
+  e,\\
+  \int_{-1}^{1} -\exp(-x) \, \mathrm{d}x &= [\exp(-x)]_{-1}^{1} = \exp(-1) -
+  \exp(1) = \frac{1}{e} - e.
+ \end{align*}
+ Celkem tedy,
+ \[
+  \int_{-1}^{1} x\exp(-x) \, \mathrm{d}x = -\frac{1}{e} - e - \frac{1}{e} + e =
+  -\frac{2}{e}.
+ \]
+ Dopočteme,
+ \begin{align*}
+  \int_{-1}^{1} x^2\exp(-x) \, \mathrm{d}x 
+  &= [-x^2 \exp(-x)]_{-1}^{1} - \int_{-1}^{1} -2x \exp(-x) \, \mathrm{d}x\\
+  &= -\frac{1}{e} + e + 2 \left( -\frac{2}{e} \right) = -\frac{5}{e} + e.
+ \end{align*}
+\end{probsol}

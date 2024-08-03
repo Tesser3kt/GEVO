@@ -437,6 +437,633 @@ součtů přes dělení se stále menší normou.
  Spočtěte následující Riemannovy integrály:
  \begin{enumerate}
   \item z funkce $f(x) = x^3$ na intervalu $[0,1]$;
-  \item z funkce 
+  \item z funkce $f(x) = 7x + 2$ na intervalu $[-2,3]$.
  \end{enumerate}
 \end{exercise}
+
+\subsection{Integrovatelné funkce}
+\label{ssec:integrovatelne-funkce}
+
+Chvíli se budeme zabývat nalezením jistých obecných kritérií pro funkce, jejichž
+splnění již zaručuje existenci jejich Riemannova integrálu. Snad překvapivě,
+kompletní charakterizace integrovatelných funkcí je otevřený problém a žádný
+jejich přímočarý popis není znám. My si ukážeme, že dvě důležité třídy funkcí --
+spojité a monotónní -- integrovatelné vždy jsou.
+
+Za tímto účelem vyžadujeme jedno technické lemma.
+
+\begin{lemma}{Kritérium existence integrálu}{kriterium-existence-integralu}
+ Ať $[a,b] \subseteq \R$ je interval a $f:[a,b] \to \R$ je omezená funkce. Pak
+ jsou následující tvrzení ekvivalentní.
+ \begin{enumerate}
+  \item $f \in \mathcal{R}(a,b)$;
+  \item Pro každé $\varepsilon>0$ existuje $D$, dělení $[a,b]$, takové, že
+  \[
+   \overline{S}(f,D) - \underline{S}(f,D) < \varepsilon.
+  \]
+ \end{enumerate}
+\end{lemma}
+\begin{lemproof}
+ Začneme implikací $(1) \Rightarrow (2)$. Ať tedy $f \in \mathcal{R}(a,b)$ a
+ $\varepsilon>0$ je dáno. Z definic suprema a infima nalezneme dělení $D_1$ a
+ $D_2$ taková, že
+ \[
+  \overline{S}(f,D_1) < \overline{\int_{a}^{b}} f + \varepsilon = \int_{a}^{b} f
+  + \varepsilon \quad \text{a} \quad \underline{S}(f,D_2) >
+  \underline{\int_{a}^{b}} f - \varepsilon = \int_{a}^{b} f - \varepsilon.
+ \]
+ Nechť $D$ je dělení zjemňující $D_1$ i $D_2$. Potom podle
+ \myref{lemmatu}{lem:vlastnosti-deleni} platí
+ \begin{align*}
+  \overline{S}(f,D) - \underline{S}(f,D) &\leq \overline{S}(f,D_1) -
+  \underline{S}(f,D_2)\\
+                                         & \leq \int_{a}^{b} f + \varepsilon -
+                                         \int_{a}^{b} f + \varepsilon =
+                                         2\varepsilon,
+ \end{align*}
+ jak jsme chtěli.
+
+ Pro důkaz $(2) \Rightarrow (1)$ mějme rovněž dáno $\varepsilon>0$ a nalezněme
+ dělení $D$ splňující
+ \[
+  \overline{S}(f,D) - \underline{S}(f,D) < \varepsilon.
+ \]
+ Potom ale
+ \[
+  0 \leq \overline{\int_{a}^{b}} f - \underline{\int_{a}^{b}} f \leq
+  \overline{S}(f,D) - \underline{S}(f,D) < \varepsilon,
+ \]
+ čili
+ \[
+  \overline{\int_{a}^{b}} f = \underline{\int_{a}^{b}} f,
+ \]
+ což znamená, že $f \in \mathcal{R}(a,b)$.
+\end{lemproof}
+
+Užitím \hyperref[lem:kriterium-existence-integralu]{tohoto lemmatu} můžeme ihned
+dokázat, že monotónní funkce jsou vždy integrovatelné.
+
+\begin{proposition}{Integrovatelnost monotónní funkce}{integrovatelnost-monotonni-funkce}
+ Ať $f$ je monotónní funkce na intervalu $[a,b]$. Pak $f \in \mathcal{R}(a,b)$.
+\end{proposition}
+\begin{propproof}
+ Předpokládejme například, že $f$ je neklesající. Zbylé tři případy se dokazují
+ v zásadě stejně. Funkce $f$ je v tomto případě jistě omezená, neboť $f(a) \leq
+ f(x) \leq f(b)$ pro každé $x \in [a,b]$. Nyní využijeme
+ \myref{lemma}{lem:kriterium-existence-integralu}. Ať je tedy $\varepsilon>0$
+ dáno. Nalezneme $n \in \N$ dostatečně velké, aby
+ \[
+  \frac{(b-a)(f(b) - f(a))}{n} < \varepsilon.
+ \]
+ Zde $(b-a)(f(b) - f(a))$ je obsah obdélníku obklopujícího celou plochu pod $f$
+ na $[a,b]$, neboť $f$ je neklesající. Volba řečeného $n \in \N$ představuje
+ jeho rozdělení na dostatečně mnoho proužků, aby každý jeden proužek měl obsah
+ nižší než dané číslo $\varepsilon$. Volme dělení $D = (x_i)_{i=0}^{n}$ tak, aby
+ dolní rohy těchto proužků byly přesně dělícími body; symbolicky
+ \[
+  x_i \coloneqq a + \frac{b-a}{n}i, \; \text{pro } i \in \{0,\ldots,n\}.
+ \]
+ Nahlédněme, že z monotonie $f$ plynou rovnosti
+ \[
+  \sup_{[x_{i-1},x_i]} f = f(x_i) \quad \text{a} \quad \inf_{[x_{i-1},x_i]} f =
+  f(x_{i-1})
+ \]
+ pro každé $i \in \{1,\ldots,n\}$. Pročež můžeme odhadnout
+ \begin{align*}
+  \overline{S}(f,D) - \underline{S}(f,D) &= \sum_{i = 1}^{n}
+  \sup_{[x_{i-1},x_i]}f \cdot (x_i - x_{i-1}) - \sum_{i = 1}^{n}
+  \inf_{[x_{i-1},x_i]}f \cdot (x_i - x_{i-1})\\
+                                         &= \sum_{i = 1}^{n}
+                                         (\sup_{[x_{i-1},x_i]} f-
+                                         \inf_{[x_{i-1},x_i]}f)(x_i - x_{i-1})\\
+                                         &= \sum_{i = 1}^{n} (f(x_i) -
+                                         f(x_{i-1}))(x_i - x_{i-1}) = \sum_{i =
+                                         1}^{n} (f(x_i) - f(x_{i-1}))
+                                         \frac{b-a}{n}\\
+                                         &= (f(b) - f(a))
+                                         \frac{b-a}{n}<\varepsilon,
+ \end{align*}
+ což podle \myref{lemmatu}{lem:kriterium-existence-integralu} znamená, že
+ $f \in \mathcal{R}(a,b)$.
+\end{propproof}
+
+Abychom rovněž dokázali, že spojité funkce jsou integrovatelné, odbočíme na
+krátkou chvíli k~pojmu \emph{stejnosměrně spojité} funkce. Jde o pojem důležitý
+primárně při studiu funkcí daných nekonečným součtem (jakými jsou například
+funkce elementární) a je ten vlastně zesílením vlastnosti spojitosti o
+požadavek, že daná funkce \uv{roste všude stejně rychle}. Z toho důvodu nedává
+pojem stejnosměrné spojitosti \emph{v bodě} žádný smysl, nýbrž je potřeba určit
+interval, na němž má být funkce stejnosměrně spojitá. Uvedeme nyní definici a
+srovnáme ji s již známou limitní definicí spojitosti.
+
+\begin{definition}{Stejnoměrná spojitost}{stejnomerna-spojitost}
+ Ať $I \subseteq \R$ je interval. Řekneme, že funkce $f:I \to \R$ je
+ \emph{stejnoměrně spojitá} na $I$, pokud
+ \begin{equation}
+  \label{eq:stejnomerna-spojitost}
+  \forall \varepsilon>0 \; \exists \delta>0 \; \forall x,y \in I :|x-y|<\delta
+  \Rightarrow |f(x) - f(y)|<\varepsilon.
+ \end{equation}
+\end{definition}
+
+Onen zásadní rozdíl mezi spojitostí a stejnoměrnou spojitostí funkce dlí ve
+faktu, že spojitost je vlastnost \emph{lokální}, ovšem stejnoměrná spojitost je
+vlastnost \emph{globální}. Abychom toto nahlédli, přepíšeme definici spojitosti
+funkce na intervalu, aby byla co nejblíže definici spojitosti stejnoměrné.
+
+Funkce $f:I \to \R$ je spojitá na $I$, když je spojitá v každém jeho bodě (zde
+se projevuje ona \uv{lokálnost}), tedy, když pro každé $y \in I$ platí, že
+\[
+ \lim_{x \to y} f(x) = f(y).
+\]
+
+Přepsáno přes \hyperref[def:limita-funkce]{definici limity}, tento výrok zní
+\[
+ \forall y \in I \; \forall \varepsilon>0 \; \exists \delta>0 \; \forall x \in
+ R(y,\delta) : f(x) \in B(f(y),\varepsilon).
+\]
+Můžeme výrok dále přepsat v absolutních hodnotách s užitím implikace.
+\[
+ \forall y \in I \; \forall \varepsilon>0 \; \exists \delta>0 \; \forall x \in I
+ : |x - y| < \delta \Rightarrow |f(x) - f(y)| < \varepsilon.
+\]
+Srovnejte výrok výše s \eqref{eq:stejnomerna-spojitost}. Liší se pouze pozicí
+termu $ \forall y \in I$. Tento zdánlivě bezvýznamný rozdíl je však zásadní.
+Značí totiž, že čísla $\varepsilon$ i $\delta$ v definici spojitosti závisejí na
+volbě bodu $y \in I$, kolem nějž spojitost funkce \uv{měříme}, zatímco v
+definici \emph{stejnoměrné} spojitosti nesmí rozdíl hodnot funkce $f$ v
+libovolných dvou bodech vzdálených maximálně $\delta$ překročit $\varepsilon$.
+Druhá vlastnost je tudíž závislá na volbě vzdálenosti $\varepsilon$ a naopak
+zcela oddělena od volby konkrétního páru bodů v intervalu $I$.
+
+\begin{example}{}{stejnomerna-spojitost}
+ Stejnoměrná spojitost je zřejmě (aspoň \emph{intuitivně} zřejmě) silnější
+ vlastnost než pouhá spojitost. Rigorózní důkaz následuje. Například funkce
+ $f(x) = 1 / x$ je \emph{spojitá} na intervalu $(0,1)$, ale není tamže
+ \emph{stejnoměrně spojitá}.
+
+ Vskutku, platí, že
+ \[
+  \lim_{x \to y} \frac{1}{x} = \frac{1}{y}
+ \]
+ pro každé $y \in (0,1)$. Naopak, volme třeba $\varepsilon \coloneqq 1$. Pak
+ žádná volba $\delta>0$ nezaručí, že $|1 / x - 1 / y| < 1$, kdykoli
+ $|x-y|<\delta$. Problém, je totiž v tom, že čím blíže jsme bodu $0$, tím
+ rychleji se od sebe funkční hodnoty v různých bodech vzdalují. Formálně, ať je
+ dána libovolná vzdálenost $\delta>0$. Nalezneme $n \in \N$ takové, že $1 / n <
+ \delta$. Potom pro $x = 1 / n$ a $y = 1 / (n + 1)$ platí
+ \[
+  |x - y| = \left| \frac{1}{n} - \frac{1}{n+1} \right| = \left| \frac{1}{n(n+1)}
+  \right| < \delta,
+ \]
+ ale přesto
+ \[
+  \left| \frac{1}{x} - \frac{1}{y} \right| = \left| n - (n + 1) \right| = 1
+  \not< \varepsilon.
+ \]
+ Tedy, $1 / x$ není stejnoměrně spojitá na $(0,1)$.
+\end{example}
+
+Stejnoměrně spojité funkce jsou vždy spojité, ale, jak jsme právě viděli,
+opačná implikace neplatí. Uvedli jsme je však z toho důvodu, že jest-li $I$
+\emph{uzavřený} interval, pak opačná implikace pravdivosti nabývá.
+
+\begin{proposition}{}{stejno-implikuje-spojita}
+ Každá stejnoměrně spojitá funkce je spojitá.
+\end{proposition}
+\begin{propproof}
+ Ať $I \subseteq \R$ je interval a $f:I \to \R$ je stejnoměrně spojitá na $I$.
+ Ukážeme, že $f$ je spojitá v každém bodě $a \in I$. Ať je vzdálenost
+ $\varepsilon>0$ dána. Pro toto $\varepsilon$ existuje z
+ \hyperref[def:stejnomerna-spojitost]{definice stejnoměrné spojitosti}
+ $\delta>0$ takové, že pro každá dvě $x,y \in I$ s $|x-y|<\delta$ je $|f(x) -
+ f(y)|<\varepsilon$. Speciálně, volbou $y \coloneqq a$ dostaneme, že
+ $|x-a|<\delta$ implikuje $|f(x) - f(a)|<\varepsilon$. To je ale pouze přepis
+ výroku, že pro všechna $x \in B(a,\delta)$ je $f(x) \in B(f(a),\varepsilon)$,
+ čili $\lim_{x \to a} f(x) = f(a)$ a $f$ je spojitá v $a$.
+\end{propproof}
+
+\begin{theorem}{}{stejno-spojita-na-uzavrenem}
+ Je-li $I = [a,b]$ uzavřený interval, pak $f$ je stejnoměrně spojitá na $I$,
+ právě když je na $I$ spojitá.
+\end{theorem}
+\begin{thmproof}
+ Z \myref{tvrzení}{prop:stejno-implikuje-spojita} víme, že je-li $f$ na $I$
+ stejnoměrně spojitá, pak je tamže spojitá. Dokážeme opačnou implikaci tak, že z
+ stejnoměrné nespojitosti $f$ odvodíme nespojitost.
+
+ Ať tedy $f$ není stejnoměrně spojitá na $[a,b]$, to jest,
+ \begin{equation}
+  \label{eq:not-stejnomerne-spojita}
+  \exists \varepsilon>0 \; \forall \delta>0 \; \exists x,y \in [a,b] : |x-y|
+  <\delta \wedge |f(x) - f(y)| \geq \varepsilon.
+ \end{equation}
+ Dokážeme, že existuje bod $x \in [a,b]$ takový, že $\lim_{t \to x} f(t) \neq
+ f(x)$ použitím \hyperref[cor:heineho-pro-spojitost]{Heineho věty}. Mějme
+ $\varepsilon>0$ z výroku \eqref{eq:not-stejnomerne-spojita}. Pak pro každé
+ $n \in \N$ dostaneme volbou $\delta \coloneqq 1 / n$ existenci bodů $x_n,y_n
+ \in [a,b]$ takových, že
+ \[
+  |x_n - y_n|<\frac{1}{n} \wedge |f(x_n) - f(y_n)| \geq \varepsilon.
+ \]
+ Protože $a \leq x_n \leq b$ pro každé $n \in \N$ je posloupnost $x_n$ omezená.
+ Díky \hyperref[thm:bolzano-weierstrass]{Bolzanově-Weierstraßově větě} můžeme
+ předpokládat, že je konvergentní. Z \myref{lemmatu}{lem:o-dvou-straznicich}
+ platí $x \coloneqq \lim_{n \to \infty} x_n \in [a,b]$. Jelikož
+ \[
+  |x-y_n| \leq |x-x_n| + |x_n-y_n| \leq |x-x_n| + \frac{1}{n},
+ \]
+ neboli $\lim_{n \to \infty} |x-y_n| = 0$, rovněž $\lim_{n \to \infty} y_n = x$.
+ Pro spor předpokládejme, že $f$ je spojitá v~$x$. Podle
+ \hyperref[cor:heineho-pro-spojitost]{Heineho věty} platí
+ \[
+  f(x) = \lim_{n \to \infty} f(x_n) = \lim_{n \to \infty} f(y_n).
+ \]
+ Pro každé $n \in \N$ máme
+ \[
+  0 \leq |f(x_n) - f(y_n)| \leq |f(x_n) - f(x)| + |f(x) - f(y_n)|,
+ \]
+ ale také
+ \[
+  \lim_{n \to \infty} (|f(x_n) - f(x)| + |f(x) - f(y_n)|) = 0,
+ \]
+ odkud
+ \[
+  \lim_{n \to \infty} |f(x_n) - f(y_n)| = 0,
+ \]
+ což je ve sporu s tím, že $|f(x_n) - f(y_n)| \geq \varepsilon$ pro každé $n \in
+ \N$. Tedy, $f$ není spojitá v $x$, což zakončuje důkaz.
+\end{thmproof}
+
+Závěrem pododdílu konečně dokážeme, že spojité funkce jsou integrovatelné.
+
+\begin{theorem}{Integrovatelnost spojité funkce}{integrovatelnost-spojite-funkce}
+ Ať je $f$ spojitá na $[a,b]$. Pak $f \in \mathcal{R}(a,b)$.
+\end{theorem}
+\begin{thmproof}
+ Podle \myref{věty}{thm:extremy-spojite-funkce} nabývá $f$ na $[a,b]$ maxima i
+ minima, tudíž je na $[a,b]$ omezená. Ať je dáno $\varepsilon>0$. Nalezneme
+ dělení $D$ takové, že
+ \[
+  \overline{S}(f,D) - \underline{S}(f,D) < \varepsilon.
+ \]
+ Tím bude díky \myref{lemmatu}{lem:kriterium-existence-integralu} důkaz hotov.
+
+ Podle \myref{věty}{thm:stejno-spojita-na-uzavrenem} je $f$ stejnosměrně spojitá
+ na $[a,b]$. Čili k danému $\varepsilon$ existuje $\delta>0$ takové, že pro $x,y
+ \in [a,b]$ platí $|x-y|<\delta \Rightarrow |f(x) - f(y)|<\varepsilon$. Volme
+ libovolné dělení $D = (x_i)_{i=0}^n$ intervalu $[a,b]$ s $\|D\|<\delta$.
+ Protože $f$ nabývá na každém z dělících intervalů $[x_{i-1},x_i]$ minima i
+ maxima (speciálně tedy \textbf{konečného} infima i suprema), platí díky
+ stejnoměrně spojitosti
+ \[
+  \sup_{[x_{i-1},x_i]}f - \inf_{[x_{i-1},x_i]}f < \varepsilon
+ \]
+ pro každé $i \in \{1,\ldots,n\}$. Počítáme
+ \begin{align*}
+  \overline{S}(f,D) - \underline{S}(f,D) &= \sum_{i = 1}^{n}
+  (\sup_{[x_{i-1},x_i]}f - \inf_{[x_{i-1},x_i]} f)(x_i - x_{i-1})\\
+                                         &< \sum_{i = 1}^{n} \varepsilon(x_{i-1}
+                                         - x_i) = \varepsilon(b-a),
+ \end{align*}
+ což bylo dokázati.
+\end{thmproof}
+
+\subsection{Základní věta kalkulu}
+\label{ssec:zakladni-veta-kalkulu}
+
+Zbytek oddílu o Riemannově integrálu věnován jest důkazu \emph{základní věty
+kalkulu} -- tvrzení o souvislosti mezi primitivní funkcí a Riemannovým integrál
+její derivace. Vlastně říká, že hodnota primitivní funkce v bodě je orientovanou
+plochou pod její derivací od nějakého konstantního bodu do tohoto. K jeho důkazu
+potřebujeme jen pár základní aritmetických vlastností Riemannova integrálu.
+
+\begin{theorem}{Linearita Riemannova integrálu}{linearita-riemannova-integralu}
+ Ať $f,g:[a,b] \to \R$ jsou integrovatelné funkce na $[a,b]$ a $\alpha \in \R$.
+ Pak jsou $f + g$ i $\alpha f$ integrovatelné na $[a,b]$ a platí
+ \begin{enumerate}
+  \item $\int_{a}^{b} (f + g) = \int_{a}^{b} f + \int_{a}^{b} g$;
+  \item $\int_{a}^{b} \alpha f = \alpha \int_{a}^{b} f$.
+ \end{enumerate}
+\end{theorem}
+\begin{thmproof}
+ Dokážeme vzorec (1). Ježto $f$ i $g$ jsou funkce omezené na $[a,b]$, je taktéž
+ $f+g$ omezená na $[a,b]$. Snadno nahlédneme, že pro libovolný interval $I
+ \subseteq \R$ platí nerovnosti
+ \begin{align*}
+  \inf_I f + \inf_I g & \leq \inf_I (f + g),\\
+  \sup_I f + \sup_I g & \geq \sup_I (f + g).
+ \end{align*}
+ Odtud plyne, že pro libovolné dělení $D$ intervalu $[a,b]$ máme
+ \begin{equation}
+  \label{eq:linearita-odhady}
+  \underline{S}(f,D) + \underline{S}(g,D) \leq \underline{S}(f+g,D) \leq
+  \overline{S}(f+g,D) \leq \overline{S}(f,D) + \overline{S}(g,D).
+ \end{equation}
+ Volme posloupnost dělení $\{D_n\}_{n=0}^{\infty}$ s $\lim_{n \to \infty}
+ \|D_n\| = 0$. Podle \myref{důsledku}{cor:riemann-vypocet} a
+ \hyperref[thm:aritmetika-limit-funkci]{věty o aritmetice limit} jest
+ \[
+  \lim_{n \to \infty} \underline{S}(f,D_n) + \underline{S}(g,D_n) = \int_{a}^{b}
+  f + \int_{a}^{b} g = \lim_{n \to \infty} \overline{S}(f,D_n) +
+  \overline{S}(g,D_n),
+ \]
+ čili z nerovností \eqref{eq:linearita-odhady} užitím
+ \myref{lemmatu}{lem:o-dvou-straznicich} rovněž
+ \[
+  \lim_{n \to \infty} \overline{S}(f + g,D_n) = \lim_{n \to \infty}
+  \underline{S}(f+g,D_n) = \int_{a}^{b} f + \int_{a}^{b} g.
+ \]
+ Podle \myref{důsledku}{cor:riemann-existence} nyní platí $f + g \in
+ \mathcal{R}(a,b)$ a
+ \[
+  \int_{a}^{b} (f + g) = \lim_{n \to \infty} \overline{S}(f+g,D_n) = \lim_{n \to
+  \infty} \underline{S}(f+g,D_n) = \int_{a}^{b} f + \int_{a}^{b} g,
+ \]
+ jak jsme chtěli.
+
+ Platnost vzorce (2) se ověří podobně a její důkaz je přenechán čtenáři.
+\end{thmproof}
+
+\begin{exercise}{}{linearita-riemannova-integralu}
+ Dokažte vzorec (2) ve \myref{větě}{thm:linearita-riemannova-integralu}.
+\end{exercise}
+
+\begin{theorem}{Pár vlastností Riemannova integrálu}{par-vlastnosti-riemannova-integralu}
+ Ať $f,g:[a,b] \to \R$ jsou integrovatelné na $[a,b]$ a $c \in (a,b)$. Potom
+ platí následující.
+ \begin{enumerate}
+  \item Je-li $f \leq g$ na $[a,b]$, pak $\int_{a}^{b} f \leq \int_{a}^{b} g$;
+  \item $\int_{a}^{b} f = \int_{a}^{c} f + \int_{c}^{b} f$;
+  \item $\left| \int_{a}^{b} f \right| \leq \int_{a}^{b} |f|$.
+ \end{enumerate}
+\end{theorem}
+\begin{thmproof}
+ Tvrzení (1) je triviální. Z $f \leq g$ na $[a,b]$ plyne, že pro každý interval
+ $I \subseteq [a,b]$ jest $\sup_I f \leq \sup_I g$ i $\inf_I f \leq \inf_I g$, a
+ tedy pro každé dělení $D$ platí odhady
+ \[
+  \underline{S}(f,D) \leq \underline{S}(g,D) \quad \text{a} \quad
+  \overline{S}(f,D) \leq \overline{S}(g,D),
+ \]
+ odkud již plyne tvrzení.
+
+ Pro důkaz (2) volme posloupnost $\{D_{n}^{1}\}_{n=0}^{\infty}$ dělení intervalu
+ $[a,c]$ a posloupnost $\{D^2_n\}_{n=0}^{\infty}$ intervalu $[c,b]$ s $\lim_{n
+ \to \infty} \|D^1_n\| = \lim_{n \to \infty} \|D^2_n\| = 0$. Potom posloupnost
+ dělení $D_n$ intervalu $[a,b]$ sestávajíc z~dělících bodů $D^{1}_n$ a $D^2_n$
+ splňuje $\lim_{n \to \infty} \|D_n\| = 0$.
+
+ Předpokládejme nejprve, že $f \in \mathcal{R}(a,b)$. Ukážeme, že $f \in
+ \mathcal{R}(a,c) \cap \mathcal{R}(c,b)$ přes
+ \myref{lemma}{lem:kriterium-existence-integralu}. Ať je $\varepsilon>0$ dáno.
+ Nalezneme $\delta>0$ takové, že pro každé dělení $D$ intervalu $[a,b]$ s
+ $\|D\|<\delta$ jest
+ \[
+  \overline{S}(f,D) - \underline{S}(f,D) < \varepsilon.
+ \]
+ Tedy, existuje rovněž $n_0 \in \N$ takové, že pro $n \geq n_0$ máme
+ \[
+  \overline{S}(f,D_n) - \underline{S}(f,D_n) < \varepsilon.
+ \]
+ Z definice $D_n$ jest
+ \[
+  \overline{S}(f,D_n) = \overline{S}(f,D_n^1) + \overline{S}(f,D_n^2) \quad
+  \text{a} \quad \underline{S}(f,D_n) = \underline{S}(f,D_n^{1}) +
+  \underline{S}(f,D_n^2).
+ \]
+ Pak
+ \[
+  \overline{S}(f,D_n) - \underline{S}(f,D_n) = (\overline{S}(f,D_n^{1}) -
+  \underline{S}(f,D_n^{1})) + (\overline{S}(f,D_n^2) - \underline{S}(f,D_n^2)) <
+  \varepsilon.
+ \]
+ Protože $\overline{S}(f,D_n^{i}) - \underline{S}(f,D_n^{i})$, kde $i = 1,2$, je
+ kladné číslo, plyne z předchozího, že
+ \[
+  \overline{S}(f,D_n^{1}) - \underline{S}(f,D_n^{1}) < \varepsilon \quad
+  \text{i} \quad \overline{S}(f,D_n^2) - \underline{S}(f,D_n^2)<\varepsilon,
+ \]
+ čili $f \in \mathcal{R}(a,c)$ i $f \in \mathcal{R}(c,b)$. Z
+ \myref{důsledku}{cor:riemann-vypocet} a \hyperref[thm:aritmetika-limit]{věty o
+ aritmetice limit} dopočteme
+ \[
+  \int_{a}^{b} f = \lim_{n \to \infty} \overline{S}(f,D_n) = \lim_{n \to \infty}
+  \overline{S}(f,D_n^{1}) + \lim_{n \to \infty} \overline{S}(f,D_n^2) =
+  \int_{a}^{c} f + \int_{c}^{b} f.
+ \]
+ Je-li naopak $f \in \mathcal{R}(a,c) \cap \mathcal{R}(c,b)$, pak zcela
+ obráceným argumentem ukážeme, že $f \in \mathcal{R}(a,b)$, a stejný výpočet pak
+ dokončuje důkaz vzorce (2).
+
+ Vzorec (3) plyne z triviálního pozorování, že
+ \[
+  \sup_I |f| - \inf_I |f| \leq \sup_I f - \inf_I f,
+ \]
+ který přenecháme k ověření čtenáři. Odtud
+ \[
+  \overline{S}(|f|,D) - \underline{S}(|f|,D) \leq \overline{S}(f,D) -
+  \underline{S}(f,D)
+ \]
+ pro libovolné dělení $D$. Je-li tedy $f \in \mathcal{R}(a,b)$ pak z
+ \myref{lemmatu}{lem:kriterium-existence-integralu} rovněž $|f| \in
+ \mathcal{R}(a,b)$, neboť pro dané $\varepsilon>0$, $\delta>0$ a dělení $D$ s
+ $\|D\|< \delta$ máme
+ \[
+  \overline{S}(|f|,D) - \underline{S}(|f|,D) \leq \overline{S}(f,D) -
+  \underline{S}(f,D) < \varepsilon.
+ \]
+ Dále, jistě platí
+ \[
+  \int_{a}^{b} f \leq \overline{S}(f,D) \leq \overline{S}(|f|,D),
+ \]
+ čili
+ \[
+  \int_{a}^{b} f \leq \int_{a}^{b} |f|.
+ \]
+ Podle \myref{věty}{thm:linearita-riemannova-integralu} je funkce $-f$
+ integrovatelná a jejím dosazením do rovnosti výše obdržíme
+ \[
+  - \int_{a}^{b} f = \int_{a}^{b} -f \leq \int_{a}^{b} |-f| = \int_{a}^{b} |f|.
+ \]
+ Sloučení obou nerovností dává konečně
+ \[
+  \left| \int_{a}^{b} f \right| \leq \int_{a}^{b} |f|,
+ \]
+ čímž je důkaz hotov.
+\end{thmproof}
+
+\begin{exercise}{}{}
+ Dokažte, že pro každý interval $I \subseteq \R$ a omezenou funkci $f:I \to \R$
+ platí
+ \[
+  \sup_I |f| - \inf_I |f| \leq \sup_I f - \inf_I f.
+ \]
+\end{exercise}
+
+\begin{theorem}{Základní věta kalkulu}{zakladni-veta-kalkulu}
+ Ať $I \subseteq \R$ je interval a $f:I \to \R$ je funkce integrovatelná na
+ každém podintervalu $[a,b] \subseteq I$. Pak pro libovolné $c \in I$ je funkce
+ \[
+  F(x) \coloneqq \int_{c}^{x} f(t) \, \mathrm{d}t
+ \]
+ spojitá na $I$ a pro všechna $x_0 \in I$, v nichž je $f$ spojitá, platí
+ $F'(x_0) = f(x_0)$.
+\end{theorem}
+
+\begin{thmproof}
+ Nejprve ukážeme, že $F$ je spojitá na $I$. Ať $y_0 \in I$ leží ve vnitřku $I$
+ (pro krajní body bychom postupovali obdobně, akorát bychom nahradili příslušné
+ limity jednostrannými variantami). Díky tomuto předpokladu lze nalézt
+ $\delta>0$ takové, že $[y_0-\delta,y_0+\delta] \subseteq I$. Podle předpokladu
+ je $f$ integrovatelná na $[y_0-\delta,y_0+\delta]$, tedy je tamže omezená
+ například číslem $K>0$. Pro $y \in [y_0-\delta,y_0+\delta]$ odhadujme
+ \[
+  |F(y) - F(y_0)| = \left| \int_{c}^{y} f - \int_{c}^{y_0} f \right|
+  \overset{(\alpha)}{=} \left| \int_{y}^{y_0} f \right| \overset{(\beta)}{ \leq
+  } \int_{y}^{y_0} |f| \leq K|y-y_0|,
+ \]
+ kde rovnost $(\alpha)$ plyne z
+ \myref{věty}{thm:par-vlastnosti-riemannova-integralu}, části (2), a nerovnost
+ $(\beta)$ z téže věty, části (3). Odtud
+ \[
+  \lim_{y \to y_0} |F(y) - F(y_0)| = 0,
+ \]
+ čili $\lim_{y \to y_0} F(y) = F(y_0)$ a $F$ je spojitá v $y_0$.
+
+ Pokračujme důkazem, že v bodech spojitosti $f$ platí $F' = f$. Ať je tedy
+ $x_0 \in I$ takovým bodem. Volme $\varepsilon>0$. K němu z
+ \hyperref[def:oboustranna-limita-funkce]{definice limity} existuje $\delta>0$
+ takové, že pro $x \in B(x_0,\delta)$ jest $|f(x) - f(x_0)|<\varepsilon$.
+ Počítejme (opět za pomoci
+ \myref{věty}{thm:par-vlastnosti-riemannova-integralu})
+ \begin{align*}
+  \left| \frac{F(x) - F(x_0)}{x - x_0} - f(x_0) \right| 
+  &= \left|\frac{1}{x-x_0} \int_{x_0}^{x} f(t) \, \mathrm{d}t - f(x_0) \right|
+  \\
+  &= \frac{1}{|x-x_0|} \left| \int_{x_0}^{x} f(t) \, \mathrm{d}t -
+  \int_{x_0}^{x} f(x_0) \, \mathrm{d}t \right| \\
+  & \leq \frac{1}{|x-x_0|} \left| \int_{x_0}^{x} |f(t) - f(x_0)| \, \mathrm{d}t
+  \right| \\
+  &< \frac{1}{|x-x_0|} \left| \int_{x_0}^{x} \varepsilon \, \mathrm{d}t \right|
+  = \varepsilon.
+ \end{align*}
+ Z tohoto výpočtu plyne, že
+ \[
+  \lim_{x \to x_0} \left| \frac{F(x) - F(x_0)}{x - x_0} - f(x_0) \right| = 0,
+ \]
+ neboli
+ \[
+  F'(x_0) = \lim_{x \to x_0} \frac{F(x) - F(x_0)}{x - x_0} = f(x_0),
+ \]
+ jak jsme chtěli.
+\end{thmproof}
+
+\begin{remark}{}{zakladni-veta-kalkulu}
+ \hyperref[thm:zakladni-veta-kalkulu]{Základní věta kalkulu} dává mimo jiné
+ geometrický pohled na fakt, že se dvě různé primitivní funkce liší o konstantu.
+ Vyjadřují totiž orientovanou plochu pod svojí derivací od dvou různých
+ počátečních bodů.
+\end{remark}
+
+% TODO odkaz
+Koncem oddílu uvedeme technické lemma, které později použijeme k důkazu
+ekvivalence Newtonova a Riemannova integrálu.
+
+\begin{lemma}{}{charakterizace-integrovatelnosti}
+ Ať $f:[a,b] \to \R$ je funkce (ne nutně omezená). Pak jsou následující výroky
+ ekvivalentní.
+ \begin{enumerate}
+  \item $f \in \mathcal{R}(a,b)$;
+  \item Existuje číslo $I \in \R$ takové, že pro libovolné $\varepsilon>0$
+   existuje $\delta>0$ splňující: kdykoli je $D = (x_i)_{i=0}^{n}$ dělení
+   $[a,b]$ s $\|D\|<\delta$ a $t_i \in [x_{i-1},x_i], i \in \{1,\ldots,n\},$
+   libovolné body ležící v~dělících intervalech, tak
+   \begin{equation}
+    \label{eq:charakterizace-integrovatelnosti}
+    \left| \sum_{i = 1}^{n} f(t_i)(x_i - x_{i-1}) - I \right| < \varepsilon.
+   \end{equation}
+ \end{enumerate}
+\end{lemma}
+\begin{lemproof}
+ Dokážeme implikaci $(1) \Rightarrow (2)$. Ať $f \in \mathcal{R}(a,b)$ a položme
+ $I \coloneqq \int_{a}^{b} f$. Nechť je $\varepsilon>0$ dáno. Podle
+ \myref{lemmatu}{lem:kriterium-existence-integralu} existuje k tomuto
+ $\varepsilon>0$ číslo $\delta>0$ takové, že pro každé dělení $D =
+ (x_i)_{i=0}^{n}$ s
+ $\|D\|<\delta$ platí
+ \[
+  I - \varepsilon = \int_{a}^{b} f - \varepsilon < \underline{S}(f,D) \leq
+  \overline{S}(f,D) < \int_{a}^{b} f + \varepsilon = I +\varepsilon.
+ \]
+ Pro každé $i \in \{1,\ldots,n\}$ a $t_i \in [x_{i-1},x_i]$ zřejmě platí
+ \[
+  \inf_{[x_{i-1},x_i]} f \leq f(t_i) \leq \sup_{[x_{i-1},x_i]}f,
+ \]
+ čili
+ \[
+  I - \varepsilon < \underline{S}(f,D) \leq \sum_{i = 1}^{n} f(t_i)(x_i -
+  x_{i-1}) \leq \overline{S}(f,D) < I + \varepsilon,
+ \]
+ takže \eqref{eq:charakterizace-integrovatelnosti} platí.
+
+ Ad $(2) \Rightarrow (1)$. Nejprve je třeba ukázat, že $f$ je omezená. Pro
+ $\varepsilon \coloneqq 1$ nalezneme z platnosti výroku (2) číslo $\delta>0$
+ takové, že pro jakoukoli volbu $t_i \in [x_{i-1},x_i]$ jest
+ \[
+  \left| \sum_{i = 1}^{n} f(t_i)(x_i - x_{i-1}) \right|<\varepsilon.
+ \]
+ Položme
+ \begin{align*}
+  \mu(D) &\coloneqq \min \{x_i - x_{i-1} \mid \in \{1,\ldots,n\}\},\\
+  K & \coloneqq \max \{|f(x_i) \mid i \in \{0,\ldots,n\}\}.
+ \end{align*}
+ Ať $t \in [a,b]$. Nalezneme index $j \in \{1,\ldots,n\}$ takový, že $t \in
+ [x_{j-1},x_j]$. Volme body
+ \[
+  t_i \coloneqq \begin{cases}
+   t,& i = j,\\
+   x_i,& i \neq j.
+  \end{cases}
+ \]
+ Potom můžeme odhadnout
+ \begin{align*}
+  |f(t)(x_j - x_{j-1})| &= \left| \sum_{i = 1}^{n} f(t_i)(x_i - x_{i-1}) - I + I
+  - \sum_{i \neq j} f(x_i)(x_i - x_{i-1}) \right| \\
+  & \leq \left| \sum_{i = 1}^{n} f(t_i)(x_i - x_{i-1}) - I \right| + |I| +
+  \sum_{i = 1}^{n} |f(x_i)(x_i - x_{i-1})| \\
+  & \leq 1 + |I| + \sum_{i=1}^{n} K(x_i - x_{i-1}) = 1 + |I| + K(b-a).
+ \end{align*}
+ Odtud,
+ \[
+  |f(t)| \leq \frac{1}{\mu(D)}(1 + |I| + K(b-a)),
+ \]
+ čili $f$ je omezená, neboť $t \in [a,b]$ bylo voleno libovolně.
+
+ Pro důkaz integrovatelnosti $f$ použijeme opět
+ \myref{lemma}{lem:kriterium-existence-integralu}. Ať je nyní $\varepsilon>0$
+ dáno libovolné a nalezněme z (2) číslo $\delta>0$ a mějme určeno dělení $D =
+ (x_i)_{i=0}^{n}$ splňující $\|D\|<\delta$. Z definice suprema nalezněme body
+ $t_i \in [x_{i-1},x_i]$ takové, že
+ \[
+  \sup_{[x_{i-1},x_i]} f < f(t_i) + \varepsilon
+ \]
+ pro každé $i \in \{1,\ldots,n\}$. Pak
+ \begin{align*}
+  \overline{S}(f,D) &= \sum_{i = 1}^{n} \sup_{[x_{i-1},x_i]} f \cdot (x_i -
+  x_{i-1}) < \sum_{i = 1}^{n} (f(t_i) + \varepsilon)(x_i - x_{i-1})\\
+                    &= \sum_{i = 1}^{n} f(t_i)(x_i - x_{i-1}) + \varepsilon(b-a)
+                    < I + \varepsilon + \varepsilon(b-a).
+ \end{align*}
+ Podobně odhadneme i
+ \[
+  \underline{S}(f,D) > I - \varepsilon - \varepsilon(b-a).
+ \]
+ Celkem dostaneme, že
+ \[
+  \overline{S}(f,D) - \underline{S}(f,D) < 2(1 + b - a)\varepsilon,
+ \]
+ takže $f \in \mathcal{R}(a,b)$ z
+ \myref{lemmatu}{lem:kriterium-existence-integralu}.
+\end{lemproof}
+
