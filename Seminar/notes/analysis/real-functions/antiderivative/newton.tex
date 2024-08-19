@@ -271,3 +271,129 @@ i k výpočtu Newtonových integrálů.
   &= -\frac{1}{e} + e + 2 \left( -\frac{2}{e} \right) = -\frac{5}{e} + e.
  \end{align*}
 \end{probsol}
+
+\begin{problem}{}{newtonuv-integral-2}
+ Spočtěte
+ \[
+  \int_{1}^{2} \frac{3x^2}{x^3 - 1} \, \mathrm{d}x.
+ \]
+\end{problem}
+\begin{probsol}
+ Rozložíme $3x^2 / (x^3 - 1)$ na parciální zlomky. Podle
+ \myref{věty}{thm:rozklad-na-parcialni-zlomky} existují čísla $A,B,C \in \R$
+ taková, že
+ \[
+  \frac{3x^2}{x^3 - 1} = \frac{A}{x+1} + \frac{Bx + C}{x^2 - x + 1}.
+ \]
+ Roznásobení dá
+ \[
+  3x^2 = A(x^2 - x + 1) + (Bx + C)(x + 1).
+ \]
+ Dosazením $x = -1$ dostaneme $A = 1$. Potom
+ \[
+  2x^2 = Bx^2 + (B + C - 1)x + (C + 1). 
+ \]
+ Srovnáním koeficientů zjistíme, že musí platit $B = 2$ a $C = -1$. Tím
+ dostáváme rozklad
+ \[
+  \frac{3x^2}{x^3 - 1} = \frac{1}{x+1} + \frac{2x - 1}{x^2 - x + 1}.
+ \]
+ Z \hyperref[thm:linearita-newtonova-integralu]{linearity integrálu} tudíž
+ \[
+  \int_{1}^{2} \frac{3x^2}{x^3 - 1} \, \mathrm{d}x = \int_{1}^{2} \frac{1}{x+1}
+  \, \mathrm{d}x + \int_{1}^{2} \frac{2x - 1}{x^2 - x + 1} \, \mathrm{d}x.
+ \]
+ Podle \myref{příkladu}{exam:newtonuv-integral-polynomu} jest
+ \[
+  \int_{1}^{2} \frac{1}{x+1} \, \mathrm{d}x = \left[ \log|x+1|\right]_1^{2} =
+  \log 3 - \log 2.
+ \]
+ Dále si všimneme, že $(x^2 - x + 1)' = 2x - 1$, a navíc je $x^2 - x + 1$ na
+ $(1,2)$ kladná. Odtud plyne, že $\log(x^2 - x + 1)$ je primitivní k $(2x - 1) /
+ (x^2 - x + 1)$ na $(1,2)$, čili
+ \[
+  \int_{1}^{2} \frac{2x - 1}{x^2 - x + 1} \, \mathrm{d}x = \left[ \log(x^2 - x +
+  1)\right]_1^{2} = \log 3 - \log 1 = \log 3.
+ \]
+ Celkem tedy
+ \[
+  \int_{1}^{2} \frac{3x^2}{x^3 - 1} \, \mathrm{d}x = 2 \log 3 - \log 2. 
+ \]
+\end{probsol}
+
+\begin{exercise}{}{newtonovy-integraly}
+ Spočtěte následující Newtonovy integrály.
+ {\everymath={\displaystyle}
+  \arraycolsep=1em
+  \[
+   \begin{array}{ll}
+    \int_{0}^{\frac{\pi}{4}} \sqrt{\cos x - \cos^3 x} \, \mathrm{d}x &
+    \int_{0}^{1} x^2 \sqrt{1 - x^2} \, \mathrm{d}x\\[2em]
+    \int_{1}^{2} \frac{1}{x\log x} \, \mathrm{d}x & \int_{1}^{\infty}
+    \frac{\exp(-\sqrt{x})}{\sqrt{x}} \, \mathrm{d}x
+   \end{array}
+  \]
+ }
+\end{exercise}
+
+Naším posledním počinem v kapitole o primitivních funkcích a vlastně i v celém
+tomto skromném úvodu do disciplíny matematické analýzy bude důkaz ekvivalence
+Newtonova a Riemannova integrálu na intervalu, kde je daná funkce riemannovsky i
+newtonovsky integrovatelná. Zde přichází.
+
+\begin{theorem}{Ekvivalence Newtonova a Riemannova integrálu}{ekvivalence-newtonova-a-riemannova-integralu}
+ Ať $f:[a,b] \to \R$ je reálná funkce a $f \in \mathcal{R}(a,b) \cap
+ \mathcal{N}(a,b)$. Potom
+ \[
+  (\mathcal{R}) \int_{a}^{b} f = (\mathcal{N})\int_{a}^{b} f.
+ \]
+\end{theorem}
+\begin{thmproof}
+ Použijeme \myref{lemma}{lem:charakterizace-integrovatelnosti}. Z předpokladu je
+ $f \in \mathcal{R}(a,b)$, tedy pro dané $\varepsilon>0$ existuje $\delta>0$
+ takové, že kdykoli je $D = (x_i)_{i=0}^{n}$ dělení $[a,b]$ s $\|D\|<\delta$,
+ pak pro libovolné body $t_i \in [x_{i-1},x_i]$, $i \in \{1,\ldots,n\}$, platí
+ odhad
+ \[
+  \left| \sum_{i = 1}^{n} f(t_i)(x_i - x_{i-1}) - (\mathcal{R})\int_{a}^{b} f
+  \right| < \varepsilon.
+ \]
+ Vezměme pročež nějaké takové dělení $D$ s $\|D\|<\delta$. Ať je $F$ primitivní
+ k $f$ na $(a,b)$ -- ta existuje, protože $f \in \mathcal{N}(a,b)$. Z
+ newtonovské integrovatelnosti $f$ rovněž plyne, že $\lim_{x \to b^{-}} F(x)$ a
+ $\lim_{x \to a^{+}} F(x)$ existují konečné a $F$ je spojitá a omezená na
+ $(a,b)$. Definujme novou funkci $H:[a,b] \to \R$ předpisem
+ \[
+  H(x) \coloneqq \begin{cases}
+   \lim_{x \to a^{+}} F(x),& x = a,\\
+   F(x), & x \in (a,b),\\
+   \lim_{x \to b^{-}} F(x), & x = b.
+  \end{cases}
+ \]
+ Funkce $H$ je vlastně \uv{dodefinováním} funkce $F$ jejími limitami v krajních
+ bodech $[a,b]$. Zřejmě pro každé $c \in (a,b)$ platí $H'(c) = F'(c) = f(c)$.
+ Nyní využijeme \hyperref[thm:lagrangeova-o-stredni-hodnote]{Lagrangeovy věty o
+ střední hodnotě}. Podle ní existuje pro každé $i \in \{1,\ldots,n\}$ bod
+ $t_i \in (x_{i-1},x_i)$ takový, že
+ \[
+  H(x_i) - H(x_{i-1}) = H'(t_i)(x_i - x_{i-1}) = f(t_i)(x_i - x_{i-1}).
+ \]
+ Pak ale můžeme počítat
+ \begin{align*}
+  (\mathcal{N})\int_{a}^{b} f 
+  &= \lim_{x \to b^{-}} F(x) - \lim_{x \to a^{+}} F(x) = H(b) - H(a)\\
+  &= \sum_{i = 1}^{n} H(x_i) - H(x_{i-1}) = \sum_{i = 1}^{n} f(t_i)(x_i -
+  x_{i-1}).
+ \end{align*}
+ Odtud ihned plyne odhad
+ \[
+  \left| (\mathcal{N})\int_{a}^{b} f - (\mathcal{R})\int_{a}^{b} f\right| =
+  \left| \sum_{i = 1}^{n} f(t_i)(x_i - x_{i-1}) - (\mathcal{R}) \int_{a}^{b} f
+  \right| < \varepsilon.
+ \]
+ Jelikož $\varepsilon>0$ bylo voleno libovolně, znamená nerovnost výše, že
+ \[
+  (\mathcal{N}) \int_{a}^{b} f = (\mathcal{R}) \int_{a}^{b} f,
+ \]
+ jak bylo jest dokázati.
+\end{thmproof}

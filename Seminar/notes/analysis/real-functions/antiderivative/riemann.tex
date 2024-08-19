@@ -577,7 +577,8 @@ se projevuje ona \uv{lokálnost}), tedy, když pro každé $y \in I$ platí, že
  \lim_{x \to y} f(x) = f(y).
 \]
 
-Přepsáno přes \hyperref[def:limita-funkce]{definici limity}, tento výrok zní
+Přepsáno přes \hyperref[def:oboustranna-limita-funkce]{definici limity}, tento
+výrok zní
 \[
  \forall y \in I \; \forall \varepsilon>0 \; \exists \delta>0 \; \forall x \in
  R(y,\delta) : f(x) \in B(f(y),\varepsilon).
@@ -659,23 +660,24 @@ opačná implikace neplatí. Uvedli jsme je však z toho důvodu, že jest-li $I
   <\delta \wedge |f(x) - f(y)| \geq \varepsilon.
  \end{equation}
  Dokážeme, že existuje bod $x \in [a,b]$ takový, že $\lim_{t \to x} f(t) \neq
- f(x)$ použitím \hyperref[cor:heineho-pro-spojitost]{Heineho věty}. Mějme
- $\varepsilon>0$ z výroku \eqref{eq:not-stejnomerne-spojita}. Pak pro každé
- $n \in \N$ dostaneme volbou $\delta \coloneqq 1 / n$ existenci bodů $x_n,y_n
- \in [a,b]$ takových, že
+ f(x)$ použitím \hyperref[cor:heineho-veta-pro-spojitost]{Heineho věty}. Mějme
+ $\varepsilon>0$ z výroku \eqref{eq:not-stejnomerne-spojita}. Pak pro každé $n
+ \in \N$ dostaneme volbou $\delta \coloneqq 1 / n$ existenci bodů $x_n,y_n \in
+ [a,b]$ takových, že
  \[
   |x_n - y_n|<\frac{1}{n} \wedge |f(x_n) - f(y_n)| \geq \varepsilon.
  \]
  Protože $a \leq x_n \leq b$ pro každé $n \in \N$ je posloupnost $x_n$ omezená.
- Díky \hyperref[thm:bolzano-weierstrass]{Bolzanově-Weierstraßově větě} můžeme
- předpokládat, že je konvergentní. Z \myref{lemmatu}{lem:o-dvou-straznicich}
- platí $x \coloneqq \lim_{n \to \infty} x_n \in [a,b]$. Jelikož
+ Díky \hyperref[thm:bolzanova-weierstrassova]{Bolzanově-Weierstraßově větě}
+ můžeme předpokládat, že je konvergentní. Z
+ \myref{lemmatu}{lem:o-dvou-straznicich} platí $x \coloneqq \lim_{n \to \infty}
+ x_n \in [a,b]$. Jelikož
  \[
   |x-y_n| \leq |x-x_n| + |x_n-y_n| \leq |x-x_n| + \frac{1}{n},
  \]
  neboli $\lim_{n \to \infty} |x-y_n| = 0$, rovněž $\lim_{n \to \infty} y_n = x$.
  Pro spor předpokládejme, že $f$ je spojitá v~$x$. Podle
- \hyperref[cor:heineho-pro-spojitost]{Heineho věty} platí
+ \hyperref[cor:heineho-veta-pro-spojitost]{Heineho věty} platí
  \[
   f(x) = \lim_{n \to \infty} f(x_n) = \lim_{n \to \infty} f(y_n).
  \]

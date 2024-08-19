@@ -1,0 +1,94 @@
+\chapter{Linear Systems}
+\label{chap:linear-systems}
+
+Linear systems are by definition sets of linear equations, that is, of equations
+which relate present variables in a \emph{linear} way. It is important to
+understand what this means. Spelled out, an expression on either side of any of
+the equations is formed \emph{solely} by
+\begin{enumerate}
+ \item multiplying the variables by a given number (\textbf{not another
+  variable}),
+ \item adding these multiples together.
+\end{enumerate}
+Any such combination where variables are only allowed to be multiplied by a
+constant and added is called a \emph{linear combination}. This term is extremely
+important and ubiquitous throughout the text; hence, it warrants an isolated
+definition. 
+
+\begin{definition}{Linear combination}{linear-combination}
+ Let $x_1,\ldots,x_n$ where $n \in \N$ be variables. Their \emph{linear
+ combination} is any expression of the form
+ \[
+  a_1x_1 + a_2x_2 + \cdots + a_n x_n
+ \]
+ where $a_1,\ldots,a_n$ are numbers.
+\end{definition}
+
+\begin{remark}{}{linear-combination}
+ In the \hyperref[def:linear-combination]{definition above}, we have
+ deliberately not specified what type of \emph{numbers} we mean. In the future,
+ we shall work extensively with real and complex numbers as well as elements of
+ other fields, which dear readers might not have even recognised as `numbers'
+ thus far. The only important concept in this regard is the clear distinction
+ between a \emph{number} (later \emph{scalar}) and a \emph{variable} (later
+ \emph{vector}).
+\end{remark}
+
+\begin{example}{}{linear-combination}
+ Consider the variables $x,y$ and $z$. The expression
+ \[
+  3x + 2y - 0.5z
+ \]
+ \textbf{is} their linear combination whereas
+ \[
+  5x + 3y - yz + 7z^2
+ \]
+ \textbf{is not}.
+\end{example}
+
+To reiterate, a \emph{linear system} is any set of equations featuring only
+linear combinations of variables, these equations are consequently called
+\emph{linear} as well. A \emph{solution} of a linear system is the set of all
+possible substitutions of numbers (in place of variables) which make the
+equations true.
+
+It is clear that every linear equation can be rearranged to
+\[
+ a_1 x_1 + \cdots + a_n x_n = c
+\]
+for some variables $x_1,\ldots,x_n$ and numbers $a_1,\ldots,a_n,c$, by simple
+subtraction. This is how we shall define it, for simplicity.
+
+\begin{definition}{Linear equation}{linear-equation}
+ Any equation of the form
+ \begin{equation}
+  \label{eq:linear-equation}
+  a_1x_1 + a_2x_2 + \cdots + a_n x_n = c
+ \end{equation}
+ where $x_1,\ldots,x_n$ are variables and $a_1,\ldots,a_n,c$ are numbers, is
+ called \emph{linear}. A \emph{solution} of a linear equation is an $n$-tuple
+ $(b_1,\ldots,b_n)$ of numbers such that under the substitutions $x_i \coloneqq
+ b_i$, for $i \in \{1,\ldots,n\}$, the equation~\eqref{eq:linear-equation} is
+ satisfied.
+\end{definition}
+
+\begin{definition}{Linear system}{linear-system}
+ Any set of linear equations in the given variables $x_1,\ldots,x_n$ is called a
+ \emph{linear system}. A \emph{solution} of a linear system is an $n$-tuple
+ $(b_1,\ldots,b_n)$ which solves every linear equation in the set.
+\end{definition}
+
+%TODO reference
+We proceed to discuss two trivial examples, which readers might have discussed
+in high school, that naturally lead to linear systems. More sophisticated
+examples are presented in the applications section.
+
+\begin{example}{Static equations}{static-equations}
+ Suppose we have three objects -- one with a mass of $2$ and the other two with
+ masses unknown. Experimentation produces these two balances
+ \begin{center}
+  \begin{tikzpicture}
+   
+  \end{tikzpicture}
+ \end{center}
+\end{example}
