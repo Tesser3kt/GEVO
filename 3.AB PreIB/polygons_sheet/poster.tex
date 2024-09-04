@@ -1,0 +1,726 @@
+% Unofficial University of Cambridge Poster Template
+% https://github.com/andiac/gemini-cam
+% a fork of https://github.com/anishathalye/gemini
+% also refer to https://github.com/k4rtik/uchicago-poster
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[orientation=portrait,size=a2,scale=1.15]{beamerposter}
+\usetheme{gemini}
+\usepackage[dvipsnames]{xcolor}
+\usecolortheme{nott}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{patterns,decorations.pathmorphing}
+\usepackage{tkz-euclide}
+\tikzset{point style/.style = {%
+  draw = black,
+  inner sep = 0pt,
+  shape = circle,
+  minimum size = 5pt,
+  fill = black
+ }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.45\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+\newcommand{\bfalert}[1]{\textbf{\alert{#1}}}
+
+% ====================
+% Title
+% ====================
+
+\title{Polygons \& Transformations Cheatsheet}
+
+\author{3.AB PreIB Math}
+
+\institute[shortinst]{Adam Klepáč}
+
+% ====================
+% Footer (optional)
+% ====================
+
+% \footercontent{
+%   \href{https://utfpr.edu.br/ct/ppgca}{utfpr.edu.br/ct/ppgca} \hfill
+%   Mostra de Trabalhos do PPGCA --- TechTalks 2024 \hfill
+%   \href{mailto:ppgca-ct@utfpr.edu.br}{ppgca-ct@utfpr.edu.br}}
+% (can be left out to remove footer)
+
+
+% ====================
+% Logo (optional)
+% ====================
+
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=2.5cm]{logos/logo-white.png}}
+% \logoleft{\hspace{20ex}\includegraphics[height=3.5cm]{logos/ppgca-logo.png}}
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+% Refer to https://github.com/k4rtik/uchicago-poster
+% logo: https://www.cam.ac.uk/brand-resources/about-the-logo/logo-downloads
+% \addtobeamertemplate{headline}{}
+% {
+%     \begin{tikzpicture}[remember picture,overlay]
+%       \node [anchor=north west, inner sep=3cm] at ([xshift=-2.5cm,yshift=1.75cm]current page.north west)
+%       {\includegraphics[height=7cm]{logos/unott-logo.eps}}; 
+%     \end{tikzpicture}
+% }
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+  \begin{block}{Polygons}
+
+   Polygon is a \bfalert{closed} 2D shape \bfalert{made only of segments}. We
+   call the endpoints of those segments, \bfalert{vertices}, and the segments
+   themselves, \bfalert{edges}.
+
+   \textbf{Examples}
+   \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{.23\textwidth}
+     \centering
+     \begin{tikzpicture}
+      \tkzDefPoint(0:1){A}
+      \tkzDefPoint(110:2){B}
+      \tkzDefPoint(180:1){C}
+
+      \tkzDrawPoints(A,B,C);
+      \tkzDrawSegments[thick](A,B B,C C,A);
+     \end{tikzpicture}
+     \caption*{Triangle}
+    \end{subfigure}
+    \begin{subfigure}[b]{.23\textwidth}
+     \centering
+     \begin{tikzpicture}
+      \tkzDefPoint(0:1){A}
+      \tkzDefPoint(60:1.5){B}
+      \tkzDefPoint(130:2.5){C}
+      \tkzDefPoint(180:1){D}
+
+      \tkzDrawPoints(A,B,C,D);
+      \tkzDrawSegments[thick](A,B B,C C,D D,A);
+     \end{tikzpicture}
+     \caption*{Quadrilateral}
+    \end{subfigure}
+    \begin{subfigure}[b]{.23\textwidth}
+     \centering
+     \begin{tikzpicture}
+      \tkzDefPoint(0:1){A}
+      \tkzDefPoint(50:2){B}
+      \tkzDefPoint(90:2){C}
+      \tkzDefPoint(120:2){D}
+      \tkzDefPoint(180:1){E}
+
+      \tkzDrawPoints(A,B,C,D,E);
+      \tkzDrawSegments[thick](A,B B,C C,D D,E E,A);
+     \end{tikzpicture}
+     \caption*{Pentagon}
+    \end{subfigure}
+    \begin{subfigure}[b]{.27\textwidth}
+     \centering
+     \begin{tikzpicture}
+      \tkzDefPoint(0:1){A}
+      \tkzDefPoint(13:2){B}
+      \tkzDefPoint(30:2.5){C}
+      \tkzDefPoint(50:2){D}
+      \tkzDefPoint(70:1){E}
+      \tkzDefPoint(86:2){F}
+      \tkzDefPoint(97:1.5){G}
+      \tkzDefPoint(109:2){H}
+      \tkzDefPoint(121:2){I}
+      \tkzDefPoint(140:1.5){J}
+      \tkzDefPoint(160:1){K}
+      \tkzDefPoint(180:1){L}
+
+      \tkzDrawPoints(A,B,C,D,E,F,G,H,I,J,K,L);
+      \tkzDrawSegments[thick](A,B B,C C,D D,E E,F F,G G,H H,I I,J J,K K,L L,A);
+     \end{tikzpicture}
+     \caption*{Dodecagon}
+    \end{subfigure}
+   \end{figure}
+   Polygons with $n$ sides are called \bfalert{$n$-gons}.
+
+   \textbf{Counterexamples}
+   \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{.32\textwidth}
+     \centering
+     \begin{tikzpicture}
+      \tkzDefPoint(0:1){A}
+      \tkzDefPoint(90:1){B}
+      \tkzDefPoint(150:1){C}
+
+      \tkzDrawPoints(A,B,C);
+      \tkzDrawSegments[thick](A,B B,C);
+     \end{tikzpicture}
+     \caption*{Not closed}
+    \end{subfigure}
+    \begin{subfigure}[b]{.32\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=2]
+      \tkzDefPoint(0,0){A1}
+      \tkzDefPoint(0,1){B1}
+      \tkzDefPoint(1,1){C1}
+      \tkzDefPoint(1,0){D1}
+
+      \tkzDefPoint(0.5,0.3){A2}
+      \tkzDefPoint(0.5,1.3){B2}
+      \tkzDefPoint(1.5,1.3){C2}
+      \tkzDefPoint(1.5,0.3){D2}
+      \tkzDrawPoints(A1,B1,C1,D1,A2,B2,C2,D2)
+
+      \tkzDrawSegments[thick](A1,B1 B1,C1 C1,D1 D1,A1 B2,C2 C2,D2 B1,B2 C1,C2 D1,D2)
+      \tkzDrawSegments[dashed,thick](A2,B2 D2,A2 A1,A2)
+     \end{tikzpicture}
+     \caption*{3D}
+    \end{subfigure}
+    \begin{subfigure}[b]{.32\textwidth}
+     \centering
+     \begin{tikzpicture}
+      \tkzDefPoint(0:1){A}
+      \tkzDefPoint(180:1){B}
+      \tkzDefPoint(90:1){P}
+
+      \tkzDrawPoints(A,B)
+      \tkzDrawArc[thick](P,A)(B)
+      \tkzDrawSegment[thick](A,B)
+     \end{tikzpicture}
+     \caption*{Not straight}
+    \end{subfigure}
+   \end{figure}
+  \end{block}
+
+  \begin{block}{Convex Polygons}
+
+   A polygon is called \bfalert{convex} if it has no internal angle greater than
+   180$^{\circ}$.
+   \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{.35\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=1.5]
+      \tkzDefPoint(0:1){A}
+      \tkzDefPoint(50:2){B}
+      \tkzDefPoint(90:2){C}
+      \tkzDefPoint(120:2){D}
+      \tkzDefPoint(180:1){E}
+
+      \tkzDrawPoints[color=gevoblue](A,B,C,D,E);
+      \tkzDrawSegments[color=gevoblue,thick](A,B B,C C,D D,E E,A);
+     \end{tikzpicture}
+     \caption*{\textcolor{gevoblue}{Convex}}
+    \end{subfigure}
+    \begin{subfigure}[b]{.35\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=1.5]
+      \tkzDefPoint(0,0){A}
+      \tkzDefPoint(2,0){B}
+      \tkzDefPoint(2,2){C}
+      \tkzDefPoint(1,1){D}
+      \tkzDefPoint(0,2){E}
+
+      \tkzDrawPoints[color=gevored](A,B,C,D,E)
+      \tkzDrawSegments[color=gevored,thick](A,B B,C C,D D,E E,A)
+
+      \tkzMarkAngle[color=gevored,size=0.65,thick](E,D,C)
+      \tkzLabelAngle[color=gevored,pos=0.25](E,D,C){\footnotesize $>\!\!180^{\circ}$}
+     \end{tikzpicture}
+     \caption*{\textcolor{gevored}{NOT convex}}
+    \end{subfigure}
+   \end{figure}
+
+   \textbf{Special types of convex polygons}
+   \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{.3\textwidth}
+     \begin{tikzpicture}[scale=2]
+      \tkzDefPoint(0,0){A}
+      \tkzDefPoint(0.3,1){B}
+      \tkzDefPoint(1,1){C}
+      \tkzDefPoint(2,0){D}
+
+      \tkzDrawPolygon[thick](A,B,C,D)
+      \tkzDrawSegments[ultra thick,gevodarkblue](B,C A,D)
+      \tkzDrawPoints(A,B,C,D)
+     \end{tikzpicture}
+     \caption*{\alert{Trapezoid/Trapezium}\\ 
+      A convex quadrilateral with at least two parallel sides.}
+    \end{subfigure}
+    \begin{subfigure}[b]{.3\textwidth}
+     \begin{tikzpicture}[scale=2]
+      \tkzDefPoint(0,0){A}
+      \tkzDefPoint(0.5,0.75){B}
+      \tkzDefPoint(2,0.75){C}
+      \tkzDefPoint(1.5,0){D}
+
+      \tkzDrawSegments[ultra thick,gevodarkblue](B,C A,D)
+      \tkzDrawSegments[ultra thick,gevodarkred](A,B C,D)
+      \tkzDrawPoints(A,B,C,D)
+     \end{tikzpicture}
+     \caption*{\alert{Parallelogram}\\
+      A convex quadrilateral with two pairs of parallel sides.}
+    \end{subfigure}
+    \begin{subfigure}[b]{.3\textwidth}
+     \begin{tikzpicture}[scale=2]
+      \clip (-0.04,-0.04) rectangle (1.44,0.79);
+      \tkzDefPoint(0,0){A}
+      \tkzDefPoint(0.5,0.75){B}
+      \tkzDefPoint(1.4,0.75){C}
+      \tkzDefPoint(0.9,0){D}
+
+      \tkzDrawPolygon[ultra thick,gevodarkblue](A,B,C,D)
+      \tkzDrawPoints(A,B,C,D)
+      \tkzDrawSegments[thick](A,C B,D)
+      \tkzInterLL(A,C)(B,D) \tkzGetPoint{O}
+      \tkzMarkAngle[size=0.2](A,O,D)
+      \tkzLabelAngle[pos=0.1](A,O,D){$ \cdot $}
+     \end{tikzpicture}
+     \caption*{\alert{Rhombus}\\
+     An \textbf{equilateral} (all sides of the same length) parallelogram.}
+    \end{subfigure}
+   \end{figure}
+  \end{block}
+
+  \begin{exampleblock}{Diagonals \& Triangulations}
+
+   A \bfalert{diagonal} in a \textbf{convex} polygon is a segment connecting two
+   of its \textbf{non-adjacent} vertices.
+   \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+     \tkzDefPoint(0,0){A}
+     \tkzDefPoint(-1,0.5){B}
+     \tkzDefPoint(0.3,2){C}
+     \tkzDefPoint(2,1){D}
+     \tkzDefPoint(2,0.5){E}
+     \tkzDefPoint(1.5,0){F}
+     \tkzDrawPolygon(A,B,C,D,E,F)
+     \tkzDrawSegment[color=gevored,ultra thick](A,D)
+     \tkzDrawPoints(A,B,C,D,E,F)
+    \end{tikzpicture}
+    \caption*{\textcolor{gevored}{Diagonal} in a convex hexagon.}
+   \end{figure}
+
+   A \bfalert{triangulation} of a \textbf{convex} polygon is its division into
+   triangles by \textbf{non-intersecting} diagonals.
+
+   \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{.2\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=0.875]
+      \tkzDefPoint(-45:1){A}
+      \tkzDefPoint(-135:1){B}
+      \tkzDefPoint(135:1){C}
+      \tkzDefPoint(45:1){D}
+
+      \tkzDrawPolygon(A,B,C,D)
+      \tkzDrawSegment[ultra thick,gevored](A,C)
+      \tkzDrawPoints(A,B,C,D)
+     \end{tikzpicture}
+    \end{subfigure}
+    \begin{subfigure}[b]{.2\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=0.7]
+      \tkzDefPoint(0:1){A}
+      \tkzDefPoint(60:1){B}
+      \tkzDefPoint(120:1){C}
+      \tkzDefPoint(180:1){D}
+      \tkzDefPoint(240:1){E}
+      \tkzDefPoint(300:1){F}
+
+      \tkzDrawPolygon(A,B,C,D,E,F)
+      \tkzDrawSegments[ultra thick,color=gevored](A,C D,F A,D)
+      \tkzDrawPoints(A,B,C,D,E,F)
+     \end{tikzpicture}
+    \end{subfigure}
+    \begin{subfigure}[b]{.2\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=0.7]
+      \tkzDefPoint(0:1){A}
+      \tkzDefPoint(60:1){B}
+      \tkzDefPoint(120:1){C}
+      \tkzDefPoint(180:1){D}
+      \tkzDefPoint(240:1){E}
+      \tkzDefPoint(300:1){F}
+
+      \tkzDrawPolygon(A,B,C,D,E,F)
+      \tkzDrawSegments[ultra thick,color=gevored](B,D D,F B,F)
+      \tkzDrawPoints(A,B,C,D,E,F)
+     \end{tikzpicture}
+    \end{subfigure}
+    \caption*{Examples of \textcolor{gevored}{triangulations}.}
+   \end{figure}
+
+   \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{.2\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=0.875]
+      \tkzDefPoint(-45:1){A}
+      \tkzDefPoint(-135:1){B}
+      \tkzDefPoint(135:1){C}
+      \tkzDefPoint(45:1){D}
+
+      \tkzDrawPolygon(A,B,C,D)
+      \tkzDrawSegments[ultra thick,gevored](A,C B,D)
+      \tkzDrawPoints(A,B,C,D)
+     \end{tikzpicture}
+    \end{subfigure}
+    \begin{subfigure}[b]{.2\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=0.7]
+      \tkzDefPoint(0:1){A}
+      \tkzDefPoint(60:1){B}
+      \tkzDefPoint(120:1){C}
+      \tkzDefPoint(180:1){D}
+      \tkzDefPoint(240:1){E}
+      \tkzDefPoint(300:1){F}
+
+      \tkzDrawPolygon(A,B,C,D,E,F)
+      \tkzDrawSegments[ultra thick,color=gevored](A,C A,E)
+      \tkzDrawPoints(A,B,C,D,E,F)
+     \end{tikzpicture}
+    \end{subfigure}
+    \begin{subfigure}[b]{.2\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=0.7]
+      \tkzDefPoint(0:1){A}
+      \tkzDefPoint(60:1){B}
+      \tkzDefPoint(120:1){C}
+      \tkzDefPoint(180:1){D}
+      \tkzDefPoint(240:1){E}
+      \tkzDefPoint(300:1){F}
+
+      \tkzDrawPolygon(A,B,C,D,E,F)
+      \tkzDrawSegments[ultra thick,color=gevored](B,E C,F B,F)
+      \tkzDrawPoints(A,B,C,D,E,F)
+     \end{tikzpicture}
+    \end{subfigure}
+    \caption*{Counterexamples of \textcolor{gevored}{triangulations}.}
+   \end{figure}
+
+   The total number of different triangulations of a convex $n$-gon is
+   \[
+    \frac{n \cdot (n+1) \cdot \ldots \cdot (2n - 4)}{(n-2)!},
+   \]
+   which you \textbf{of course don't have to remember}. Interestingly enough,
+   every triangulation can be transformed into any other by a series of
+   \bfalert{flips}.
+
+   A \bfalert{flip} is a swap of one diagonal for the other in a chosen
+   quadrilateral so that the \textbf{result is again a triangulation}.
+   \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{.4\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=0.7]
+      \begin{scope}
+       \tkzDefPoint(0:1){A}
+       \tkzDefPoint(60:1){B}
+       \tkzDefPoint(120:1){C}
+       \tkzDefPoint(180:1){D}
+       \tkzDefPoint(240:1){E}
+       \tkzDefPoint(300:1){F}
+
+       \tkzDrawPolygon(A,B,C,D,E,F)
+       \tkzDrawPolygon[fill,pattern={north west lines},pattern
+       color=black!50](B,D,E,F)
+       \tkzDrawSegments[ultra thick,color=gevored](B,D B,F)
+       \tkzDrawSegment[ultra thick,color=gevodarkblue](D,F)
+       \tkzDrawPoints(A,B,C,D,E,F)
+      \end{scope}
+      \begin{scope}[xshift=2cm]
+       \draw[ultra thick,gevodarkblue,->] (0,0) -- (2,0);
+      \end{scope}
+      \begin{scope}[xshift=6cm]
+       \tkzDefPoint(0:1){A}
+       \tkzDefPoint(60:1){B}
+       \tkzDefPoint(120:1){C}
+       \tkzDefPoint(180:1){D}
+       \tkzDefPoint(240:1){E}
+       \tkzDefPoint(300:1){F}
+
+       \tkzDrawPolygon(A,B,C,D,E,F)
+       \tkzDrawPolygon[fill,pattern={north west lines},pattern
+       color=black!50](B,D,E,F)
+       \tkzDrawSegments[ultra thick,color=gevored](B,D B,F)
+       \tkzDrawSegment[ultra thick,color=gevodarkblue](B,E)
+       \tkzDrawPoints(A,B,C,D,E,F)
+      \end{scope}
+     \end{tikzpicture}
+    \end{subfigure}
+    \begin{subfigure}[b]{.4\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=0.7]
+      \begin{scope}[rotate=18]
+       \tkzDefPoint(0:1){A}
+       \tkzDefPoint(72:1){B}
+       \tkzDefPoint(144:1){C}
+       \tkzDefPoint(216:1){D}
+       \tkzDefPoint(288:1){E}
+
+       \tkzDrawPolygon(A,B,C,D,E)
+       \tkzDrawPolygon[fill,pattern={north west lines},pattern
+       color=black!50](A,C,D,E)
+       \tkzDrawSegment[ultra thick,color=gevored](A,C)
+       \tkzDrawSegment[ultra thick,color=gevodarkblue](A,D)
+       \tkzDrawPoints(A,B,C,D,E)
+      \end{scope}
+      \begin{scope}[xshift=2cm]
+       \draw[ultra thick,gevodarkblue,->] (0,0) -- (2,0);
+      \end{scope}
+      \begin{scope}[xshift=6cm,rotate=18]
+       \tkzDefPoint(0:1){A}
+       \tkzDefPoint(72:1){B}
+       \tkzDefPoint(144:1){C}
+       \tkzDefPoint(216:1){D}
+       \tkzDefPoint(288:1){E}
+
+       \tkzDrawPolygon(A,B,C,D,E)
+       \tkzDrawPolygon[fill,pattern={north west lines},pattern
+       color=black!50](A,C,D,E)
+       \tkzDrawSegment[ultra thick,color=gevored](A,C)
+       \tkzDrawSegment[ultra thick,color=gevodarkblue](C,E)
+       \tkzDrawPoints(A,B,C,D,E)
+      \end{scope}
+     \end{tikzpicture}
+    \end{subfigure}
+    \caption*{Examples of \textcolor{gevodarkblue}{flips}.}
+   \end{figure}
+
+   \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{.4\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=0.7]
+      \begin{scope}
+       \tkzDefPoint(0:1){A}
+       \tkzDefPoint(60:1){B}
+       \tkzDefPoint(120:1){C}
+       \tkzDefPoint(180:1){D}
+       \tkzDefPoint(240:1){E}
+       \tkzDefPoint(300:1){F}
+
+       \tkzDrawPolygon(A,B,C,D,E,F)
+       \tkzDrawSegments[ultra thick,color=gevored](B,D B,F)
+       \tkzDrawSegment[ultra thick,color=gevodarkblue](D,F)
+       \tkzDrawPoints(A,B,C,D,E,F)
+      \end{scope}
+      \begin{scope}[xshift=2cm]
+       \draw[ultra thick,gevodarkblue,->,decorate,decoration={zigzag}] (0,0) --
+        (2,0);
+       \draw[ultra thick,gevored,rotate around={45:(1,0)}] (0.5,0) -- (1.5,0);
+       \draw[ultra thick,gevored,rotate around={-45:(1,0)}] (0.5,0) -- (1.5,0);
+      \end{scope}
+      \begin{scope}[xshift=6cm]
+       \tkzDefPoint(0:1){A}
+       \tkzDefPoint(60:1){B}
+       \tkzDefPoint(120:1){C}
+       \tkzDefPoint(180:1){D}
+       \tkzDefPoint(240:1){E}
+       \tkzDefPoint(300:1){F}
+
+       \tkzDrawPolygon(A,B,C,D,E,F)
+       \tkzDrawSegments[ultra thick,color=gevored](B,D B,F)
+       \tkzDrawSegment[ultra thick,color=gevodarkblue](A,E)
+       \tkzDrawPoints(A,B,C,D,E,F)
+      \end{scope}
+     \end{tikzpicture}
+    \end{subfigure}
+    \begin{subfigure}[b]{.4\textwidth}
+     \centering
+     \begin{tikzpicture}[scale=0.7]
+      \begin{scope}[rotate=18]
+       \tkzDefPoint(0:1){A}
+       \tkzDefPoint(72:1){B}
+       \tkzDefPoint(144:1){C}
+       \tkzDefPoint(216:1){D}
+       \tkzDefPoint(288:1){E}
+
+       \tkzDrawPolygon(A,B,C,D,E)
+       \tkzDrawSegment[ultra thick,color=gevored](A,C)
+       \tkzDrawSegment[ultra thick,color=gevodarkblue](A,D)
+       \tkzDrawPoints(A,B,C,D,E)
+      \end{scope}
+      \begin{scope}[xshift=2cm]
+       \draw[ultra thick,gevodarkblue,->,decorate,decoration={zigzag}] (0,0) --
+        (2,0);
+       \draw[ultra thick,gevored,rotate around={45:(1,0)}] (0.5,0) -- (1.5,0);
+       \draw[ultra thick,gevored,rotate around={-45:(1,0)}] (0.5,0) -- (1.5,0);
+      \end{scope}
+      \begin{scope}[xshift=6cm,rotate=18]
+       \tkzDefPoint(0:1){A}
+       \tkzDefPoint(72:1){B}
+       \tkzDefPoint(144:1){C}
+       \tkzDefPoint(216:1){D}
+       \tkzDefPoint(288:1){E}
+
+       \tkzDrawPolygon(A,B,C,D,E)
+       \tkzDrawSegment[ultra thick,color=gevored](A,C)
+       \tkzDrawSegment[ultra thick,color=gevodarkblue](B,E)
+       \tkzDrawPoints(A,B,C,D,E)
+      \end{scope}
+     \end{tikzpicture}
+    \end{subfigure}
+    \caption*{Counterexamples of \textcolor{gevodarkblue}{flips}.}
+   \end{figure}
+  \end{exampleblock}
+
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+  \begin{block}{A block containing an enumerated list}
+
+    Vivamus congue volutpat elit non semper. Praesent molestie nec erat ac
+    interdum. In quis suscipit erat. \textbf{Phasellus mauris felis, molestie
+    ac pharetra quis}, tempus nec ante. Donec finibus ante vel purus mollis
+    fermentum. 
+
+    \begin{enumerate}
+      \item \textbf{Morbi mauris purus}, egestas at vehicula et, convallis
+        accumsan orci. Orci varius natoque penatibus et magnis dis parturient
+        montes, nascetur ridiculus mus.
+      \item \textbf{Cras vehicula blandit urna ut maximus}. Aliquam blandit nec
+        massa ac sollicitudin. Curabitur cursus, metus nec imperdiet bibendum,
+        velit lectus faucibus dolor, quis gravida metus mauris gravida turpis.
+      \item \textbf{Vestibulum et massa diam}. Phasellus fermentum augue non
+        nulla accumsan, non rhoncus lectus condimentum.
+    \end{enumerate}
+
+  \end{block}
+
+  \begin{block}{Fusce aliquam magna velit}
+
+    Et rutrum ex euismod vel. Pellentesque ultricies, velit in fermentum
+    vestibulum, lectus nisi pretium nibh, sit amet aliquam lectus augue vel
+    velit. Suspendisse rhoncus massa porttitor augue feugiat molestie. Sed
+    molestie ut orci nec malesuada. Sed ultricies feugiat est fringilla
+    posuere.
+
+    \begin{figure}
+      \centering
+      \begin{tikzpicture}[scale=0.75]
+        \begin{axis}[
+            scale only axis,
+            no markers,
+            domain=0:2*pi,
+            samples=100,
+            axis lines=center,
+            axis line style={-},
+            ticks=none]
+          \addplot[red] {sin(deg(x))};
+          \addplot[blue] {cos(deg(x))};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Another figure caption.}
+    \end{figure}
+
+  \end{block}
+
+  \begin{block}{Nam cursus consequat egestas}
+
+    Etiam sit amet tempus lorem, aliquet condimentum velit. Donec et nibh
+    consequat, sagittis ex eget, dictum orci. Etiam quis semper ante. Ut eu
+    mauris purus. Proin nec consectetur ligula. Mauris pretium molestie
+    ullamcorper. Integer nisi neque, aliquet et odio non, sagittis porta justo.
+
+    \begin{itemize}
+      \item \textbf{Sed consequat} id ante vel efficitur. Praesent congue massa
+        sed est scelerisque, elementum mollis augue iaculis.
+        \begin{itemize}
+          \item In sed est finibus, vulputate
+            nunc gravida, pulvinar lorem. In maximus nunc dolor, sed auctor eros
+            porttitor quis.
+          \item Fusce ornare dignissim nisi. Nam sit amet risus vel lacus
+            tempor tincidunt eu a arcu.
+          \item Donec rhoncus vestibulum erat, quis aliquam leo
+            gravida egestas.
+        \end{itemize}
+      \item \textbf{Pellentesque facilisis dolor in leo} bibendum congue.
+        Maecenas congue finibus justo, vitae eleifend urna facilisis at.
+    \end{itemize}
+
+  \end{block}
+
+  
+  \begin{exampleblock}{A highlighted block containing some math}
+
+    A different kind of highlighted block.
+
+    $$
+    \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
+    $$
+
+    Interdum et malesuada fames $\{1, 4, 9, \ldots\}$ ac ante ipsum primis in
+    faucibus. Cras eleifend dolor eu nulla suscipit suscipit. Sed lobortis non
+    felis id vulputate.
+
+    \heading{A heading inside a block}
+
+    Praesent consectetur mi $x^2 + y^2$ metus, nec vestibulum justo viverra
+    nec. Proin eget nulla pretium, egestas magna aliquam, mollis neque. Vivamus
+    dictum $\mathbf{u}^\intercal\mathbf{v}$ sagittis odio, vel porta erat
+    congue sed. Maecenas ut dolor quis arcu auctor porttitor.
+
+    \heading{Another heading inside a block}
+
+    Sed augue erat, scelerisque a purus ultricies, placerat porttitor neque.
+    Donec $P(y \mid x)$ fermentum consectetur $\nabla_x P(y \mid x)$ sapien
+    sagittis egestas. Duis eget leo euismod nunc viverra imperdiet nec id
+    justo.
+
+  \end{exampleblock}
+
+ 
+
+  \begin{block}{References (opcional)}
+
+    \nocite{*}
+    \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
+
+  \end{block}
+
+\end{column}
+\separatorcolumn
+
+
+
+\end{columns}
+\end{frame}
+
+\end{document}

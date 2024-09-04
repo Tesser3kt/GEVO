@@ -16,7 +16,7 @@ important and ubiquitous throughout the text; hence, it warrants an isolated
 definition. 
 
 \begin{definition}{Linear combination}{linear-combination}
- Let $x_1,\ldots,x_n$ where $n \in \N$ be variables. Their \emph{linear
+ Let $x_1,\ldots,x_n$ with $n \in \N$ be variables. Their \emph{linear
  combination} is any expression of the form
  \[
   a_1x_1 + a_2x_2 + \cdots + a_n x_n
@@ -47,7 +47,7 @@ definition.
 \end{example}
 
 To reiterate, a \emph{linear system} is any set of equations featuring only
-linear combinations of variables, these equations are consequently called
+linear combinations of variables; these equations are consequently called
 \emph{linear} as well. A \emph{solution} of a linear system is the set of all
 possible substitutions of numbers (in place of variables) which make the
 equations true.
@@ -85,10 +85,123 @@ examples are presented in the applications section.
 
 \begin{example}{Static equations}{static-equations}
  Suppose we have three objects -- one with a mass of $2$ and the other two with
- masses unknown. Experimentation produces these two balances
- \begin{center}
-  \begin{tikzpicture}
-   
-  \end{tikzpicture}
- \end{center}
+ masses unknown. Experimentation produces these two balances.
+ \begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \node[isosceles triangle, draw, fill=black!30, anchor=left corner, shape
+     border rotate=90, minimum height=5mm, minimum width=1cm, isosceles
+     triangle stretches] (base) at (0,0) {};
+    \coordinate[left=3 of base.north] (left);
+    \coordinate[right=3 of base.north] (right);
+    \draw (left) -- (right);
+
+    \node[circle,draw,left=0.75cm of base.north,minimum height=6mm,inner
+     sep=0,yshift=3mm] (x) {$x$};
+    \node[circle,draw,left=2cm of base.north,minimum height=4mm,inner
+     sep=0,yshift=2mm] (y) {$y$};
+    \node[circle,draw,right=2.5cm of base.north,minimum height=5mm,inner
+     sep=0,yshift=2.5mm] (two) {$2$};
+
+    \coordinate[above=2cm of base.north] (above);
+    \draw[dashed] (base.north) -- (above);
+    \draw[dashed] (x.north) -- ($(above) - (1.05,0)$);
+    \draw[dashed] (y.north) -- ($(above) - (2.2,0)$);
+    \draw[dashed] (two.north) -- ($(above) + (2.75,0)$);
+
+    \draw[<->,thick] ($(x.north) + (0,0.5)$) to
+     node[midway,circle,fill=white,inner sep=1pt] {$15$} ($(x.north) +
+     (1.05,0.5)$);
+    \draw[<->,thick] ($(y.north) + (0,1.25)$) to
+     node[midway,circle,fill=white,inner sep=1pt] {$40$} ($(y.north) +
+     (2.2,1.25)$);
+    \draw[<->,thick] ($(two.north) + (0,1.15)$) to
+     node[midway,circle,fill=white,inner sep=1pt] {$50$} ($(two.north) +
+     (-2.75,1.15)$);
+   \end{tikzpicture}
+  \end{subfigure}
+  \hspace*{\fill}
+  \begin{subfigure}[b]{.45\textwidth}
+   \centering
+   \begin{tikzpicture}
+    \node[isosceles triangle, draw, fill=black!30, anchor=left corner, shape
+     border rotate=90, minimum height=5mm, minimum width=1cm, isosceles
+     triangle stretches] (base) at (0,0) {};
+    \coordinate[left=3 of base.north] (left);
+    \coordinate[right=3 of base.north] (right);
+    \draw (left) -- (right);
+
+    \node[circle,draw,left=1.25cm of base.north,minimum height=6mm,inner
+     sep=0,yshift=3mm] (x) {$x$};
+    \node[circle,draw,right=2.5cm of base.north,minimum height=4mm,inner
+     sep=0,yshift=2mm] (y) {$y$};
+    \node[circle,draw,right=1.25cm of base.north,minimum height=5mm,inner
+     sep=0,yshift=2.5mm] (two) {$2$};
+
+    \coordinate[above=2cm of base.north] (above);
+    \draw[dashed] (base.north) -- (above);
+    \draw[dashed] (x.north) -- ($(above) - (1.55,0)$);
+    \draw[dashed] (y.north) -- ($(above) + (2.7,0)$);
+    \draw[dashed] (two.north) -- ($(above) + (1.5,0)$);
+
+    \draw[<->,thick] ($(x.north) + (0,1.05)$) to
+     node[midway,circle,fill=white,inner sep=1pt] {$25$} ($(x.north) +
+     (1.55,1.05)$);
+    \draw[<->,thick] ($(y.north) + (0,1.25)$) to
+     node[midway,circle,fill=white,inner sep=1pt] {$50$} ($(y.north) +
+     (-2.7,1.25)$);
+    \draw[<->,thick] ($(two.north) + (0,0.6)$) to
+     node[midway,circle,fill=white,inner sep=1pt] {$25$} ($(two.north) +
+     (-1.5,0.6)$);
+   \end{tikzpicture}
+  \end{subfigure}
+ \end{figure}
+
+ For the weights to be in balance, the sum of \emph{moments} on either side of
+ the scales must be identical. A \emph{moment} of an object is its distance from
+ the centre of the scales times its mass. This condition yields a system of two
+ linear equations
+ \[
+  \begin{array}{ccccccc}
+   15x & + & 40y & = & 50 \cdot 2, & &\\
+       &   & 25x & = & 25 \cdot 2 & + & 50y.
+  \end{array}
+ \]
+ Or, after rearrangement (to stay true to \hyperref[def:linear-equation]{our
+ definition of linear equation}),
+ \[
+  \begin{array}{ccccc}
+   15x & + & 40y & = & 50 \cdot 2,\\
+   25x & - & 50y & = & 25 \cdot 2.
+  \end{array}
+ \]
 \end{example}
+
+\begin{example}{Chemical reactions}{chemical-reactions}
+ Toluene, $\mathtt{C_7 H_8}$, mixes (under right conditions) with nitric acid,
+ $\mathtt{HNO_3}$, to produce trinitrotoluene (widely known as TNT),
+ $\mathtt{C_7H_5O_6N_3}$, along with dihydrogen monoxide, $\mathtt{H_2O}$. If we
+ want this chemical reaction to occur successfully, we must (among other things)
+ ascertain we mix the constituents in the right proportion. In pseudo-chemical
+ notation, the reaction to take place can be written as
+ \[
+  x \cdot \mathtt{C_7H_8} + y \cdot \mathtt{HNO_3} \longrightarrow z \cdot
+  \mathtt{C_7H_5O_6N_3} + w \cdot \mathtt{H_2O}.
+ \]
+ Comparing the number of atoms of each element before the reaction and
+ afterwards (which must remain identical owing to the conservation of energy)
+ yields the system
+ \[
+  \begin{array}{cccccccc}
+   \mathtt{H}: & 8x & + & 1y & = & 5z & + & 2w,\\
+   \mathtt{C}: & 7x &   &    & = & 7z,&   &\\
+   \mathtt{N}: &    &   & 1y & = & 3z,&   &\\
+   \mathtt{O}: &    &   & 3y & = & 6z & + & 1w.
+  \end{array}
+ \]
+\end{example}
+
+In the next section, we devise an algorithm to solve any system of linear
+equations.
