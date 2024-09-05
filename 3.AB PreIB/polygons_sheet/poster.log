@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.8.5)  4 SEP 2024 18:53
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.8.5)  5 SEP 2024 19:39
  restricted system commands enabled.
 **poster.tex
 (./poster.tex
@@ -857,7 +857,7 @@ Package beamerposter Info: checking size input, please wait. on input line 130.
 Package beamerposter Info: the input a2\ 3\ was correct, we proceed. on input l
 ine 130.
 Package beamerposter Info: finished size input check. on input line 130.
-Package beamerposter Info: myfontscale=1.15 on input line 130.
+Package beamerposter Info: myfontscale=1 on input line 130.
  ( FP-UPN
 ( FP-MUL ) ( FP-ROUND ) )
 \tmp=\dimen294
@@ -865,7 +865,7 @@ Package beamerposter Info: paperwidth=1195.01575pt, paperheight=1690.09352pt on
  input line 173.
 Package beamerposter Info: textwidth=1166.56299pt, textheight=1661.64076pt on i
 nput line 174.
-Package beamerposter Info: fontscale=0.5, myfontscale=0.58 on input line 175.
+Package beamerposter Info: fontscale=0.5, myfontscale=0.50 on input line 175.
  ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL
 ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL )
 ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL )
@@ -1654,37 +1654,37 @@ Package caption Info: New subtype `subtable' on input line 238.
 <logos/logo-white.png, id=10, 218.31563pt x 153.57375pt>
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 77.
+Package luatex.def Info: logos/logo-white.png  used on input line 80.
 (luatex.def)             Requested size: 101.1193pt x 71.13188pt.
 
 (./poster.aux)
 \openout1 = poster.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 87.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
-4.
+7.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1742,7 +1742,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 84.
+Package hyperref Info: Link coloring OFF on input line 87.
 
 (./poster.out) (./poster.out)
 \@outlinefile=\write5
@@ -1779,200 +1779,193 @@ enefit from \pgfplotsset{compat=1.18} (current compat level: 1.14).
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (./poster.nav)
-LaTeX Font Info:    Calculating math sizes for size <6.96> on input line 84.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
-4.
+7.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
-4.
+7.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-84.
+87.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6.96> on input line 84.
+(Font)              <6> on input line 87.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <4.87198> on input line 84.
-LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <3.48> on input line 84.
+(Font)              <5> on input line 87.
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 84.
+Package luatex.def Info: logos/logo-white.png  used on input line 87.
 (luatex.def)             Requested size: 101.1193pt x 71.13188pt.
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 724.
+Package luatex.def Info: logos/logo-white.png  used on input line 712.
 (luatex.def)             Requested size: 101.1193pt x 71.13188pt.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
-LaTeX Font Info:    Calculating math sizes for size <14.43> on input line 724.
+LaTeX Font Info:    Calculating math sizes for size <12.44> on input line 712.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <7.215> on input line 724.
+(Font)              <6.22> on input line 712.
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
-LaTeX Font Info:    Calculating math sizes for size <10.02> on input line 724.
+LaTeX Font Info:    Calculating math sizes for size <8.64> on input line 712.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <7.01396> on input line 724.
+(Font)              <6.04796> on input line 712.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <5.01> on input line 724.
+(Font)              <4.31999> on input line 712.
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 7
-24.
+12.
 See the caption package documentation for explanation.
 
 (./poster.bbl)
-Overfull \vbox (2.20262pt too high) detected at line 724
- []
-
-
 
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 724.
+Package luatex.def Info: logos/logo-white.png  used on input line 712.
 (luatex.def)             Requested size: 101.1193pt x 71.13188pt.
 [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -2009,40 +2002,37 @@ Package rerunfilecheck Info: File `poster.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 46460 strings out of 475910
- 596176,1977958 words of node,token memory allocated
- 175130 words of node memory still in use:
-   2160 hlist, 82 vlist, 99 rule, 390 disc, 148 local_par, 28 math, 6919 glue, 7
-17 kern, 438 penalty, 4078 glyph, 11297 attribute, 82 glue_spec, 11297 attribute
-_list, 4 write, 6401 pdf_literal, 1 pdf_dest, 478 pdf_colorstack, 1 pdf_setmatri
+ 46025 strings out of 475910
+ 596134,1977958 words of node,token memory allocated
+ 166319 words of node memory still in use:
+   2336 hlist, 71 vlist, 81 rule, 198 disc, 120 local_par, 24 math, 7153 glue, 4
+20 kern, 364 penalty, 1971 glyph, 12472 attribute, 82 glue_spec, 12472 attribute
+_list, 4 write, 7309 pdf_literal, 1 pdf_dest, 370 pdf_colorstack, 1 pdf_setmatri
 x, 1 pdf_save, 1 pdf_restore nodes
-   avail lists: 2:340,3:20541,4:1557,5:2181,6:447,7:33187,8:28,9:7137,10:17,11:1
-170
- 67521 multiletter control sequences out of 65536+600000
- 115 fonts using 18726791 bytes
- 128i,20n,136p,1184b,2960s stack positions out of 10000i,1000n,20000p,200000b,200000s
+   avail lists: 1:1,2:340,3:23043,4:1233,5:1290,6:363,7:27556,8:29,9:7578,10:10,
+11:594
+ 67086 multiletter control sequences out of 65536+600000
+ 103 fonts using 17414071 bytes
+ 128i,20n,136p,1184b,2227s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/truetype/typoland/lato/Lato-LightItali
-c.ttf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/loc
-al/texlive/2024/texmf-dist/fonts/truetype/typoland/lato/Lato-Bold.ttf>{/usr/loca
-l/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2
-024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2024/texmf-d
-ist/fonts/truetype/typoland/lato/Lato-Regular.ttf></usr/local/texlive/2024/texmf
--dist/fonts/truetype/typoland/lato/Lato-Light.ttf></usr/local/texlive/2024/texmf
--dist/fonts/opentype/impallari/raleway/Raleway-Regular.otf></usr/local/texlive/2
-024/texmf-dist/fonts/opentype/impallari/raleway/Raleway-Bold.otf></usr/local/tex
-live/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texli
-ve/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/tex
-mf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fon
-ts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/pu
-blic/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr1
-2.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/l
-ocal/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texliv
-e/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2024/texmf
--dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on poster.pdf (1 page, 184809 bytes).
+c.ttf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/loc
+al/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/
+2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2024/texmf-
+dist/fonts/truetype/typoland/lato/Lato-Regular.ttf></usr/local/texlive/2024/texm
+f-dist/fonts/truetype/typoland/lato/Lato-Light.ttf></usr/local/texlive/2024/texm
+f-dist/fonts/opentype/impallari/raleway/Raleway-Regular.otf></usr/local/texlive/
+2024/texmf-dist/fonts/opentype/impallari/raleway/Raleway-Bold.otf></usr/local/te
+xlive/2024/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2024/
+texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2024/texmf-dist/f
+onts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/p
+ublic/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy
+10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr
+/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texli
+ve/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on poster.pdf (1 page, 123166 bytes).
 
-PDF statistics: 112 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+PDF statistics: 97 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  4 named destinations out of 1000 (max. 131072)
  21 words of extra memory for PDF output out of 10000 (max. 100000000)
 
