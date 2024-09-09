@@ -3,8 +3,8 @@ from PIL import Image, ImageDraw
 
 
 def plane_transformation(x, y):
-    x_ = (np.sin(x) + np.cos(y)) * 100 + 300
-    y_ = (np.cos(x) + np.sin(y)) * 100 + 300
+    x_ = (2 * x - y) / 3 + 200
+    y_ = (x + 2 * y) / 2 - 100
     return x_, y_
 
 

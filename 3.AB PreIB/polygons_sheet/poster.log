@@ -1,9 +1,9 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.30)  6 SEP 2024 11:04
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.8.5)  8 SEP 2024 20:22
  restricted system commands enabled.
 **poster.tex
 (./poster.tex
 LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
+L3 programming layer <2024-07-20>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 2.76 ConTeXt Lua libraries -- extended c
@@ -399,7 +399,7 @@ Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-05-23 v7.01i Hypertext links for LaTeX
+Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
@@ -451,7 +451,7 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 \Hy@pagecounter=\count307
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-05-23 v7.01i Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
@@ -459,7 +459,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 \Hy@SavedSpaceFactor=\count308
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-05-23 v7.01i Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `final' set `true' on input line 4040.
 Package hyperref Info: Option `bookmarks' set `true' on input line 4040.
@@ -506,7 +506,7 @@ Package hyperref Message: Stopped early.
 )
 Package hyperref Info: Driver (autodetected): hluatex.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hluatex.def
-File: hluatex.def 2024-05-23 v7.01i Hyperref driver for luaTeX
+File: hluatex.def 2024-07-10 v7.01j Hyperref driver for luaTeX
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
@@ -854,18 +854,19 @@ nput line 130.
 Package beamerposter Info: finished orientation check. on input line 130.
 Package beamerposter Info: checking size input, please wait. on input line 130.
 
-Package beamerposter Info: the input a2\ 3\ was correct, we proceed. on input l
+Package beamerposter Info: the input a1\ 2\ was correct, we proceed. on input l
 ine 130.
 Package beamerposter Info: finished size input check. on input line 130.
 Package beamerposter Info: myfontscale=1 on input line 130.
  ( FP-UPN
 ( FP-MUL ) ( FP-ROUND ) )
 \tmp=\dimen294
-Package beamerposter Info: paperwidth=1195.01575pt, paperheight=1690.09352pt on
+Package beamerposter Info: paperwidth=1690.09352pt, paperheight=2392.87694pt on
  input line 173.
-Package beamerposter Info: textwidth=1166.56299pt, textheight=1661.64076pt on i
+Package beamerposter Info: textwidth=1661.64076pt, textheight=2364.42418pt on i
 nput line 174.
-Package beamerposter Info: fontscale=0.5, myfontscale=0.50 on input line 175.
+Package beamerposter Info: fontscale=0.70710678, myfontscale=0.71 on input line
+ 175.
  ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL
 ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL )
 ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL )
@@ -917,7 +918,7 @@ Package: changepage 2009/10/20 v1.0c check page and change page layout
 (/usr/local/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec.sty
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-05-27 L3 programming layer (loader) 
+Package: expl3 2024-07-20 L3 programming layer (loader) 
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
@@ -963,6 +964,15 @@ LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count369
 \calc@Cskip=\skip82
+)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip83
+\enit@outerparindent=\dimen301
+\enit@toks=\toks49
+\enit@inbox=\box78
+\enit@count@id=\count370
+\enitdp@description=\count371
 )
 luaotfload | cache : Lookup cache loaded from /home/tesserekt/.texlive2024/texmf
 -var/luatex-cache/generic/names/luaotfload-lookup-cache.luc.
@@ -1142,9 +1152,9 @@ t;+tlig;"
 (fontspec)             <->"name:Lato-Italic:mode=node;script=latn;language=dflt
 ;+tlig;"
 
-\logoleftwidth=\skip83
-\logorightwidth=\skip84
-\maxlogowidth=\skip85
+\logoleftwidth=\skip84
+\logorightwidth=\skip85
+\maxlogowidth=\skip86
 )
 (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
@@ -1152,23 +1162,23 @@ File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 (./beamercolorthemenott.sty)
 (/usr/local/texlive/2024/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen301
-\lightrulewidth=\dimen302
-\cmidrulewidth=\dimen303
-\belowrulesep=\dimen304
-\belowbottomsep=\dimen305
-\aboverulesep=\dimen306
-\abovetopsep=\dimen307
-\cmidrulesep=\dimen308
-\cmidrulekern=\dimen309
-\defaultaddspace=\dimen310
-\@cmidla=\count370
-\@cmidlb=\count371
-\@aboverulesep=\dimen311
-\@belowrulesep=\dimen312
-\@thisruleclass=\count372
-\@lastruleclass=\count373
-\@thisrulewidth=\dimen313
+\heavyrulewidth=\dimen302
+\lightrulewidth=\dimen303
+\cmidrulewidth=\dimen304
+\belowrulesep=\dimen305
+\belowbottomsep=\dimen306
+\aboverulesep=\dimen307
+\abovetopsep=\dimen308
+\cmidrulesep=\dimen309
+\cmidrulekern=\dimen310
+\defaultaddspace=\dimen311
+\@cmidla=\count372
+\@cmidlb=\count373
+\@aboverulesep=\dimen312
+\@belowrulesep=\dimen313
+\@thisruleclass=\count374
+\@lastruleclass=\count375
+\@thisrulewidth=\dimen314
 )
 (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
@@ -1177,7 +1187,7 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
 e.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box78
+\pgfnodeparttextbox=\box79
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
 tex
@@ -1186,8 +1196,8 @@ File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen314
-\pgf@nodesepend=\dimen315
+\pgf@nodesepstart=\dimen315
+\pgf@nodesepend=\dimen316
 )
 (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -1-18.sty
@@ -1196,10 +1206,10 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen316
-\pgffor@skip=\dimen317
-\pgffor@stack=\toks49
-\pgffor@toks=\toks50
+\pgffor@iter=\dimen317
+\pgffor@skip=\dimen318
+\pgffor@stack=\toks50
+\pgffor@toks=\toks51
 ))
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
 e.tex
@@ -1208,34 +1218,34 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count374
-\pgfplotmarksize=\dimen318
+\pgf@plot@mark@count=\count376
+\pgfplotmarksize=\dimen319
 )
-\tikz@lastx=\dimen319
-\tikz@lasty=\dimen320
-\tikz@lastxsaved=\dimen321
-\tikz@lastysaved=\dimen322
-\tikz@lastmovetox=\dimen323
-\tikz@lastmovetoy=\dimen324
-\tikzleveldistance=\dimen325
-\tikzsiblingdistance=\dimen326
-\tikz@figbox=\box79
-\tikz@figbox@bg=\box80
-\tikz@tempbox=\box81
-\tikz@tempbox@bg=\box82
-\tikztreelevel=\count375
-\tikznumberofchildren=\count376
-\tikznumberofcurrentchild=\count377
-\tikz@fig@count=\count378
+\tikz@lastx=\dimen320
+\tikz@lasty=\dimen321
+\tikz@lastxsaved=\dimen322
+\tikz@lastysaved=\dimen323
+\tikz@lastmovetox=\dimen324
+\tikz@lastmovetoy=\dimen325
+\tikzleveldistance=\dimen326
+\tikzsiblingdistance=\dimen327
+\tikz@figbox=\box80
+\tikz@figbox@bg=\box81
+\tikz@tempbox=\box82
+\tikz@tempbox@bg=\box83
+\tikztreelevel=\count377
+\tikznumberofchildren=\count378
+\tikznumberofcurrentchild=\count379
+\tikz@fig@count=\count380
 
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count379
-\pgfmatrixcurrentcolumn=\count380
-\pgf@matrix@numberofcolumns=\count381
+\pgfmatrixcurrentrow=\count381
+\pgfmatrixcurrentcolumn=\count382
+\pgf@matrix@numberofcolumns=\count383
 )
-\tikz@expandcount=\count382
+\tikz@expandcount=\count384
 
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -1255,16 +1265,16 @@ s/tikzlibrarydecorations.pathmorphing.code.tex
 s/tikzlibrarydecorations.code.tex
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
 s.code.tex
-\pgfdecoratedcompleteddistance=\dimen327
-\pgfdecoratedremainingdistance=\dimen328
-\pgfdecoratedinputsegmentcompleteddistance=\dimen329
-\pgfdecoratedinputsegmentremainingdistance=\dimen330
-\pgf@decorate@distancetomove=\dimen331
-\pgf@decorate@repeatstate=\count383
-\pgfdecorationsegmentamplitude=\dimen332
-\pgfdecorationsegmentlength=\dimen333
+\pgfdecoratedcompleteddistance=\dimen328
+\pgfdecoratedremainingdistance=\dimen329
+\pgfdecoratedinputsegmentcompleteddistance=\dimen330
+\pgfdecoratedinputsegmentremainingdistance=\dimen331
+\pgf@decorate@distancetomove=\dimen332
+\pgf@decorate@repeatstate=\count385
+\pgfdecorationsegmentamplitude=\dimen333
+\pgfdecorationsegmentlength=\dimen334
 )
-\tikz@lib@dec@box=\box83
+\tikz@lib@dec@box=\box84
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.pathmorphing.code.tex))
@@ -1283,21 +1293,21 @@ File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
 code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen334
+\arrowsize=\dimen335
 ))
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
 meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen335
-\pgfarrowlength=\dimen336
-\pgfarrowwidth=\dimen337
-\pgfarrowlinewidth=\dimen338
+\pgfarrowinset=\dimen336
+\pgfarrowlength=\dimen337
+\pgfarrowwidth=\dimen338
+\pgfarrowlinewidth=\dimen339
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@layerbox@background=\box84
-\pgf@layerboxsaved@background=\box85
+\pgf@layerbox@background=\box85
+\pgf@layerboxsaved@background=\box86
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarycalc.code.tex
@@ -1319,9 +1329,9 @@ brarydecorations.shapes.code.tex))
 s/tikzlibrarydecorations.text.code.tex
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.text.code.tex
-\pgf@lib@dec@text@box=\box86
+\pgf@lib@dec@text@box=\box87
 )
-\tikz@lib@dec@te@box=\box87
+\tikz@lib@dec@te@box=\box88
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryintersections.code.tex
@@ -1329,15 +1339,15 @@ s/tikzlibraryintersections.code.tex
 ctions.code.tex
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.cod
 e.tex)
-\pgf@intersect@solutions=\count384
+\pgf@intersect@solutions=\count386
 ))
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarymath.code.tex
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryfpu.code.tex)
-\tikz@math@for@depth=\count385
-\tikz@math@dimen=\dimen339
-\tikz@math@toks=\toks51
+\tikz@math@for@depth=\count387
+\tikz@math@dimen=\dimen340
+\tikz@math@toks=\toks52
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryplotmarks.code.tex
@@ -1373,18 +1383,18 @@ Package: xfp 2024-05-08 L3 Floating point unit
 (/usr/local/texlive/2024/texmf-dist/tex/latex/xpatch/xpatch.sty
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 )
-\tkzRadius=\dimen340
-\tkzLength=\dimen341
-\tkz@radi=\dimen342
-\tkz@ax=\dimen343
-\tkz@ay=\dimen344
-\tkz@bx=\dimen345
-\tkz@by=\dimen346
-\tkz@cx=\dimen347
-\tkz@cy=\dimen348
-\tkz@dx=\dimen349
-\tkz@dy=\dimen350
-\tkz@cntmk=\count386
+\tkzRadius=\dimen341
+\tkzLength=\dimen342
+\tkz@radi=\dimen343
+\tkz@ax=\dimen344
+\tkz@ay=\dimen345
+\tkz@bx=\dimen346
+\tkz@by=\dimen347
+\tkz@cx=\dimen348
+\tkz@cy=\dimen349
+\tkz@dx=\dimen350
+\tkz@dy=\dimen351
+\tkz@cntmk=\count388
 
 Local configuration file tkz-euclide.cfg found and used
 (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-euclide.cfg
@@ -1518,12 +1528,12 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
 Package pgfplots info on input line 124: Initializing with LUA version Lua 5.3
 \pgfplots@luabackend@table=\catcodetable14
-\t@pgfplots@toka=\toks52
-\t@pgfplots@tokb=\toks53
-\t@pgfplots@tokc=\toks54
-\pgfplots@tmpa=\dimen351
-\c@pgfplots@coordindex=\count387
-\c@pgfplots@scanlineindex=\count388
+\t@pgfplots@toka=\toks53
+\t@pgfplots@tokb=\toks54
+\t@pgfplots@tokc=\toks55
+\pgfplots@tmpa=\dimen352
+\c@pgfplots@coordindex=\count389
+\c@pgfplots@scanlineindex=\count390
 
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric
 .code.tex))
@@ -1532,9 +1542,9 @@ ode.tex)
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
 soldpgfsupp_loader.code.tex
 Package pgfplots: loading complementary utilities for your pgf version...
-\t@pgf@toka=\toks55
-\t@pgf@tokb=\toks56
-\t@pgf@tokc=\toks57
+\t@pgf@toka=\toks56
+\t@pgf@tokb=\toks57
+\t@pgf@tokc=\toks58
 
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
 soldpgfsupp_pgfutil-common-lists.tex)
@@ -1554,14 +1564,14 @@ liststructure.code.tex)
 liststructureext.code.tex)
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 array.code.tex
-\c@pgfplotsarray@tmp=\count389
+\c@pgfplotsarray@tmp=\count391
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 matrix.code.tex)
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
 shared.code.tex
-\c@pgfplotstable@counta=\count390
-\t@pgfplotstable@a=\toks58
+\c@pgfplotstable@counta=\count392
+\t@pgfplotstable@a=\toks59
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 deque.code.tex)
@@ -1573,7 +1583,7 @@ ta.code.tex))
 .code.tex)
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplot
 s.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count391
+\c@pgfplotslibrarysurf@no=\count393
 
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots
 .surfshading.pgfsys-luatex.def)))
@@ -1603,13 +1613,13 @@ tex)
 x)
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplo
 ts.contourlua.code.tex)
-\pgfplots@numplots=\count392
-\pgfplots@xmin@reg=\dimen352
-\pgfplots@xmax@reg=\dimen353
-\pgfplots@ymin@reg=\dimen354
-\pgfplots@ymax@reg=\dimen355
-\pgfplots@zmin@reg=\dimen356
-\pgfplots@zmax@reg=\dimen357
+\pgfplots@numplots=\count394
+\pgfplots@xmin@reg=\dimen353
+\pgfplots@xmax@reg=\dimen354
+\pgfplots@ymin@reg=\dimen355
+\pgfplots@ymax@reg=\dimen356
+\pgfplots@zmin@reg=\dimen357
+\pgfplots@zmax@reg=\dimen358
 ))
 (/usr/local/texlive/2024/texmf-dist/tex/latex/anyfontsize/anyfontsize.sty
 Package: anyfontsize 2007/11/22 anyfontsize.sty by pts
@@ -1619,25 +1629,25 @@ Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen358
-\captionmargin=\dimen359
-\caption@leftmargin=\dimen360
-\caption@rightmargin=\dimen361
-\caption@width=\dimen362
-\caption@indent=\dimen363
-\caption@parindent=\dimen364
-\caption@hangindent=\dimen365
+\caption@tempdima=\dimen359
+\captionmargin=\dimen360
+\caption@leftmargin=\dimen361
+\caption@rightmargin=\dimen362
+\caption@width=\dimen363
+\caption@indent=\dimen364
+\caption@parindent=\dimen365
+\caption@hangindent=\dimen366
 Package caption Info: beamer document class detected.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption-beamer.sto
 File: caption-beamer.sto 2022/01/06 v2.0c Adaption of the caption package to th
 e beamer document classes (AR)
 ))
-\c@caption@flags=\count393
-\c@continuedfloat=\count394
+\c@caption@flags=\count395
+\c@continuedfloat=\count396
 Package caption Info: changepage package is loaded.
-\caption@adjustwidth@hsize=\dimen366
-\caption@adjustwidth@linewidth=\dimen367
+\caption@adjustwidth@hsize=\dimen367
+\caption@adjustwidth@linewidth=\dimen368
 Package caption Info: hyperref package is loaded.
 Package caption Info: Hyperref support is turned off
 (caption)             because hyperref has stopped early.
@@ -1645,17 +1655,17 @@ Package caption Info: Hyperref support is turned off
 (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count395
+\c@subfigure=\count397
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count396
+\c@subtable=\count398
 )
-\sepwidth=\skip86
-\colwidth=\skip87
+\sepwidth=\skip87
+\colwidth=\skip88
 <logos/logo-white.png, id=10, 218.31563pt x 153.57375pt>
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
 Package luatex.def Info: logos/logo-white.png  used on input line 80.
-(luatex.def)             Requested size: 101.1193pt x 71.13188pt.
+(luatex.def)             Requested size: 141.567pt x 99.58464pt.
 
 (./poster.aux)
 \openout1 = poster.aux
@@ -1694,12 +1704,12 @@ LaTeX Font Info:    ... okay on input line 87.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
-* h-part:(L,W,R)=(28.45274pt, 1138.11026pt, 28.45274pt)
-* v-part:(T,H,B)=(0.0pt, 1690.09352pt, 0.0pt)
-* \paperwidth=1195.01575pt
-* \paperheight=1690.09352pt
-* \textwidth=1138.11026pt
-* \textheight=1661.6408pt
+* h-part:(L,W,R)=(28.45274pt, 1633.18803pt, 28.45274pt)
+* v-part:(T,H,B)=(0.0pt, 2392.87694pt, 0.0pt)
+* \paperwidth=1690.09352pt
+* \paperheight=2392.87694pt
+* \textwidth=1633.18803pt
+* \textheight=2364.42421pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
 * \topmargin=-72.26999pt
@@ -1722,17 +1732,17 @@ LaTeX Font Info:    ... okay on input line 87.
 
 (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count397
-\scratchdimen=\dimen368
-\scratchbox=\box88
-\nofMPsegments=\count398
-\nofMParguments=\count399
-\everyMPshowfont=\toks59
-\MPscratchCnt=\count400
-\MPscratchDim=\dimen369
-\MPnumerator=\count401
-\makeMPintoPDFobject=\count402
-\everyMPtoPDFconversion=\toks60
+\scratchcounter=\count399
+\scratchdimen=\dimen369
+\scratchbox=\box89
+\nofMPsegments=\count400
+\nofMParguments=\count401
+\everyMPshowfont=\toks60
+\MPscratchCnt=\count402
+\MPscratchDim=\dimen370
+\MPnumerator=\count403
+\makeMPintoPDFobject=\count404
+\everyMPtoPDFconversion=\toks61
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1779,6 +1789,7 @@ enefit from \pgfplotsset{compat=1.18} (current compat level: 1.14).
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (./poster.nav)
+LaTeX Font Info:    Calculating math sizes for size <8.52> on input line 87.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
 7.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
@@ -1797,186 +1808,242 @@ LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6> on input line 87.
+(Font)              <5.96397> on input line 87.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <5> on input line 87.
+(Font)              <4.26> on input line 87.
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
 Package luatex.def Info: logos/logo-white.png  used on input line 87.
-(luatex.def)             Requested size: 101.1193pt x 71.13188pt.
+(luatex.def)             Requested size: 141.567pt x 99.58464pt.
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 724.
-(luatex.def)             Requested size: 101.1193pt x 71.13188pt.
+Package luatex.def Info: logos/logo-white.png  used on input line 970.
+(luatex.def)             Requested size: 141.567pt x 99.58464pt.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
-LaTeX Font Info:    Calculating math sizes for size <12.44> on input line 724.
+LaTeX Font Info:    Calculating math sizes for size <17.66> on input line 970.
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
+See the caption package documentation for explanation.
+
+LaTeX Font Info:    Calculating math sizes for size <12.27> on input line 970.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6.22> on input line 724.
+(Font)              <6.135> on input line 970.
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
-See the caption package documentation for explanation.
-
-LaTeX Font Info:    Calculating math sizes for size <8.64> on input line 724.
-LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6.04796> on input line 724.
-LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <4.31999> on input line 724.
-
-Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 7
-24.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 9
+70.
 See the caption package documentation for explanation.
 
 <grid.png, id=15, 602.25pt x 602.25pt>
 File: grid.png Graphic file (type png)
 <use grid.png>
-Package luatex.def Info: grid.png  used on input line 724.
-(luatex.def)             Requested size: 161.32767pt x 161.32312pt.
-LaTeX Font Info:    Calculating math sizes for size <10.37> on input line 724.
+Package luatex.def Info: grid.png  used on input line 970.
+(luatex.def)             Requested size: 152.10506pt x 152.10597pt.
+<transformed_grid_2.png, id=16, 602.25pt x 602.25pt>
+File: transformed_grid_2.png Graphic file (type png)
+<use transformed_grid_2.png>
+Package luatex.def Info: transformed_grid_2.png  used on input line 970.
+(luatex.def)             Requested size: 152.10506pt x 152.10597pt.
+LaTeX Font Info:    Calculating math sizes for size <14.73> on input line 970.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <7.25896> on input line 724.
-LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <5.185> on input line 724.
+(Font)              <7.36499> on input line 970.
+File: grid.png Graphic file (type png)
+<use grid.png>
+Package luatex.def Info: grid.png  used on input line 970.
+(luatex.def)             Requested size: 152.10506pt x 152.10597pt.
+<transformed_grid_1.png, id=17, 602.25pt x 602.25pt>
+File: transformed_grid_1.png Graphic file (type png)
+<use transformed_grid_1.png>
+Package luatex.def Info: transformed_grid_1.png  used on input line 970.
+(luatex.def)             Requested size: 152.10506pt x 152.10597pt.
 (./poster.bbl)
 
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 724.
-(luatex.def)             Requested size: 101.1193pt x 71.13188pt.
+Package luatex.def Info: logos/logo-white.png  used on input line 970.
+(luatex.def)             Requested size: 141.567pt x 99.58464pt.
 [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
@@ -1992,7 +2059,8 @@ Missing character: There is no ; (U+003B) in font nullfont!
 Missing character: There is no ; (U+003B) in font nullfont!
 Missing character: There is no ; (U+003B) in font nullfont!
 Missing character: There is no ; (U+003B) in font nullfont!
-<./logos/logo-white.png><./grid.png>]
+<./logos/logo-white.png><./grid.png><./transformed_grid_2.png><./transformed_gri
+d_1.png>]
 \tf@nav=\write6
 
 \openout6 = poster.nav
@@ -2012,39 +2080,38 @@ Package rerunfilecheck Info: File `poster.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 46053 strings out of 475915
- 596121,1977958 words of node,token memory allocated
- 168814 words of node memory still in use:
-   2358 hlist, 73 vlist, 85 rule, 210 disc, 125 local_par, 26 math, 7224 glue, 4
-52 kern, 387 penalty, 2131 glyph, 12517 attribute, 82 glue_spec, 12517 attribute
-_list, 4 write, 7309 pdf_literal, 1 pdf_dest, 378 pdf_colorstack, 2 pdf_setmatri
-x, 2 pdf_save, 2 pdf_restore nodes
-   avail lists: 1:2,2:340,3:23121,4:1257,5:1386,6:378,7:28255,8:42,9:7662,10:10,
-11:630
- 67107 multiletter control sequences out of 65536+600000
- 119 fonts using 18470007 bytes
- 128i,20n,136p,1184b,2227s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 46645 strings out of 475910
+ 931489,2373549 words of node,token memory allocated
+ 244843 words of node memory still in use:
+   3389 hlist, 104 vlist, 122 rule, 331 disc, 180 local_par, 74 math, 10616 glue
+, 730 kern, 567 penalty, 3438 glyph, 17646 attribute, 82 glue_spec, 17646 attrib
+ute_list, 4 write, 9946 pdf_literal, 1 pdf_dest, 594 pdf_colorstack, 5 pdf_setma
+trix, 5 pdf_save, 5 pdf_restore nodes
+   avail lists: 2:340,3:31599,4:1905,5:2220,6:543,7:42496,8:42,9:10959,10:10,11:
+993
+ 67693 multiletter control sequences out of 65536+600000
+ 128 fonts using 19049903 bytes
+ 128i,20n,136p,1184b,2608s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/truetype/typoland/lato/Lato-LightItali
-c.ttf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
+c.ttf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr
 /local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/
-2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2024/texmf-
+2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2024/texmf-
 dist/fonts/truetype/typoland/lato/Lato-Regular.ttf></usr/local/texlive/2024/texm
 f-dist/fonts/truetype/typoland/lato/Lato-Light.ttf></usr/local/texlive/2024/texm
 f-dist/fonts/opentype/impallari/raleway/Raleway-Regular.otf></usr/local/texlive/
 2024/texmf-dist/fonts/opentype/impallari/raleway/Raleway-Bold.otf></usr/local/te
-xlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/
-texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2024/texmf-dist/
-fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/
-public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lm
-r12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr
-/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texl
-ive/2024/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2024/tex
-mf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2024/texmf-dist/font
-s/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on poster.pdf (1 page, 153454 bytes).
+xlive/2024/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2024/
+texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/f
+onts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/p
+ublic/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr
+9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr
+/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texli
+ve/2024/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2024/texm
+f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on poster.pdf (1 page, 232889 bytes).
 
-PDF statistics: 106 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+PDF statistics: 104 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  4 named destinations out of 1000 (max. 131072)
  21 words of extra memory for PDF output out of 10000 (max. 100000000)
 
