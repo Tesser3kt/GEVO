@@ -11,7 +11,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[orientation=portrait,size=a1,scale=1]{beamerposter}
+\usepackage[orientation=portrait,size=custom,width=120,height=120,scale=1]{beamerposter}
 \usetheme{gemini}
 \usepackage[dvipsnames]{xcolor}
 \usecolortheme{nott}
@@ -26,6 +26,12 @@
   shape = circle,
   minimum size = 5pt,
   fill = black
+ },
+ every picture/.append style = {
+  scale = 1.5
+ },
+ every node/.append style={
+  scale=1.5
  }
 }
 \usepackage{pgfplots}
@@ -42,8 +48,8 @@
 % (N+1)*\sepwidth + N*\colwidth = \paperwidth
 \newlength{\sepwidth}
 \newlength{\colwidth}
-\setlength{\sepwidth}{0.025\paperwidth}
-\setlength{\colwidth}{0.45\paperwidth}
+\setlength{\sepwidth}{0.01\paperwidth}
+\setlength{\colwidth}{0.32\paperwidth}
 
 \newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
 \newcommand{\bfalert}[1]{\textbf{\alert{#1}}}
@@ -822,7 +828,7 @@
      \tkzDrawPoints[color=gevodarkblue](A',C',D',E')
      \tkzDrawPoint[color=gevored](B)
      \tkzMarkAngle[thick,color=gevored,size=1](C,B,C')
-    \tkzLabelAngle[pos=0.5,color=gevored,xshift=-1mm](C,B,C'){\footnotesize
+    \tkzLabelAngle[pos=0.5,color=gevored,xshift=-1mm](C,B,C'){\tiny
     $60^{\circ}$}
     \end{tikzpicture}
    \end{subfigure}
@@ -921,12 +927,12 @@
      \tkzDrawPoints(A,B)
      \tkzDrawPoint[color=gevored](C)
      \tkzDrawArc[color=gevored,thick,<-,delta=-10](O,B)(C)
-     \tkzLabelArc[gevored,xshift=-5mm](O,B,C){\footnotesize $120^{ \circ }$}
+     \tkzLabelArc[gevored,xshift=-6mm](O,B,C){\footnotesize $120^{ \circ }$}
      \tkzDrawArc[color=gevored,thick,<-,delta=-10](O,A)(B)
      \tkzDrawArc[color=gevored,thick,<-,delta=-10](O,C)(A)
-     \tkzLabelArc[gevored,yshift=-3mm,xshift=1mm](O,C,A){\footnotesize $360^{
+     \tkzLabelArc[gevored,yshift=-4mm,xshift=1mm](O,C,A){\footnotesize $360^{
      \circ }$}
-     \tkzLabelArc[gevored,xshift=2.3cm,yshift=1cm](O,A,B){\footnotesize $240^{
+     \tkzLabelArc[gevored,xshift=2.5cm,yshift=1.04cm](O,A,B){\footnotesize $240^{
      \circ }$}
     \end{tikzpicture}
    \end{subfigure}
@@ -941,7 +947,7 @@
       \tkzGetPoint{S\p\q}
      }
      \tkzDefPoint(0,0){O}
-     \tkzDrawPolygon(A,B,C,D,E)
+     \tkzDrawPolygon[thick](A,B,C,D,E)
      \tkzDrawLine[thick,color=gevored,dashed](SEA,C)
      \tkzDrawLine[thick,color=gevored,dashed](SAB,D)
      \tkzDrawLine[thick,color=gevored,dashed](SBC,E)
@@ -953,18 +959,218 @@
 
    \caption*{Examples of regular polygon \alert{symmetries}.}
   \end{figure}
+
+  Moreover, symmetries (being functions) can be \bfalert{chained} or
+  \bfalert{composed}, creating new symmetries. We'll label rotations by the
+  letter $r$ and reflections by $s$. A \bfalert{chain} or \bfalert{composition}
+  is read left-to-right, that is, $sr$ means `apply $s$ first, then $r$'.
+  \begin{figure}[H]
+   \centering
+   \begin{tikzpicture}[every node/.style = {scale=1.2}]
+    \foreach \an/\name in {0/a,60/b,120/c,180/d,240/e,300/f} {
+     \tkzDefPoint(\an:1){\name}
+    }
+    \tkzDrawPolygon[thick](a,b,c,d,e,f)
+    \tkzLabelPoint[right](a){$1$}
+    \tkzLabelPoint[above right](b){$2$}
+    \tkzLabelPoint[above left](c){$3$}
+    \tkzLabelPoint[left](d){$4$}
+    \tkzLabelPoint[below left](e){$5$}
+    \tkzLabelPoint[below right](f){$6$}
+
+    \tkzDrawLine[dashed,thick,gevored,add=.5 and .5](c,f)
+    \tkzDrawPoints(a,b,c,d,e,f)
+
+    \coordinate (h1) at ($(a) + (0.5,0.5)$);
+    \coordinate (h2) at ($(h1) + (2,0)$);
+    
+    \draw[thick,gevored,-Latex,bend left=30] (h1) to
+     node[midway,gevored,yshift=3mm] {$s$} (h2);
+
+    \tkzDefPoint(6,0){a1}
+    \tkzDefPointsBy[translation=from a to a1](b,c,d,e,f){b1,c1,d1,e1,f1}
+    \tkzDrawPolygon[thick](a1,b1,c1,d1,e1,f1)
+    \tkzLabelPoint[right](a1){$5$}
+    \tkzLabelPoint[above right](b1){$4$}
+    \tkzLabelPoint[above left](c1){$3$}
+    \tkzLabelPoint[left](d1){$2$}
+    \tkzLabelPoint[below left](e1){$1$}
+    \tkzLabelPoint[below right](f1){$6$}
+    \tkzDrawPoints(a1,b1,c1,d1,e1,f1)
+
+    \tkzDefPoint(5,0){o}
+    \tkzDrawPoint[fill=none,gevodarkblue,thick](o)
+    \tkzDrawArc[R,thick,gevodarkblue,->](o,0.5)(0,120)
+
+    \coordinate (g1) at ($(a1) + (0.5,0.5)$);
+    \coordinate (g2) at ($(g1) + (2,0)$);
+
+    \draw[thick,gevodarkblue,-Latex,bend left=30] (g1) to
+     node[midway,gevodarkblue,yshift=3mm] {$r$} (g2);
+
+    \tkzDefPoint(11,0){a2}
+    \tkzDefPointsBy[translation=from a1 to a2](b1,c1,d1,e1,f1){b2,c2,d2,e2,f2}
+    \tkzDrawPolygon[thick](a2,b2,c2,d2,e2,f2)
+    \tkzLabelPoint[right](a2){$1$}
+    \tkzLabelPoint[above right](b2){$6$}
+    \tkzLabelPoint[above left](c2){$5$}
+    \tkzLabelPoint[left](d2){$4$}
+    \tkzLabelPoint[below left](e2){$3$}
+    \tkzLabelPoint[below right](f2){$2$}
+    \tkzDrawPoints(a2,b2,c2,d2,e2,f2)
+
+    \tkzDrawLine[thick,dotted,add=.5 and .5,nottblue](a2,d2)
+    \tkzLabelLine[pos=-0.3,nottblue,yshift=3mm](a2,d2){$?$}
+    \tkzDrawPoints(a2,b2,c2,d2,e2,f2)
+   \end{tikzpicture}
+   \caption*{Example of the composition $\mathbf{sr}$ of a reflection
+   $\textcolor{gevored}{s}$ and a rotation $\textcolor{gevodarkblue}{r}$.}
+  \end{figure}
+
+  \textbf{The order of composition matters!}
+  \begin{figure}[H]
+   \centering
+   \begin{tikzpicture}[scale=0.9,every node/.style = {scale=0.9}]
+    \begin{scope}
+     \foreach \an/\name in {0/a,60/b,120/c,180/d,240/e,300/f} {
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e,f)
+     \tkzLabelPoint[right](a){$1$}
+     \tkzLabelPoint[above right](b){$2$}
+     \tkzLabelPoint[above left](c){$3$}
+     \tkzLabelPoint[left](d){$4$}
+     \tkzLabelPoint[below left](e){$5$}
+     \tkzLabelPoint[below right](f){$6$}
+
+     \tkzDrawLine[dashed,thick,gevored,add=.5 and .5](b,e)
+     \tkzDrawPoints(a,b,c,d,e,f)
+
+     \coordinate (h1) at ($(a) + (0.5,0.5)$);
+     \coordinate (h2) at ($(h1) + (1,0)$);
+     
+     \draw[thick,gevored,-Latex,bend left=30] (h1) to
+      node[midway,gevored,yshift=3mm] {$s$} (h2);
+
+     \tkzDefPoint(5,0){a1}
+     \tkzDefPointsBy[translation=from a to a1](b,c,d,e,f){b1,c1,d1,e1,f1}
+     \tkzDrawPolygon[thick](a1,b1,c1,d1,e1,f1)
+     \tkzLabelPoint[right](a1){$3$}
+     \tkzLabelPoint[above right](b1){$2$}
+     \tkzLabelPoint[above left](c1){$1$}
+     \tkzLabelPoint[left](d1){$6$}
+     \tkzLabelPoint[below left](e1){$5$}
+     \tkzLabelPoint[below right](f1){$4$}
+     \tkzDrawPoints(a1,b1,c1,d1,e1,f1)
+
+     \tkzDefPoint(4,0){o}
+     \tkzDrawPoint[fill=none,gevodarkblue,thick](o)
+     \tkzDrawArc[R,thick,gevodarkblue,->](o,0.5)(0,240)
+
+     \coordinate (g1) at ($(a1) + (0.5,0.5)$);
+     \coordinate (g2) at ($(g1) + (1,0)$);
+
+     \draw[thick,gevodarkblue,-Latex,bend left=30] (g1) to
+      node[midway,gevodarkblue,yshift=3mm] {$r$} (g2);
+
+     \tkzDefPoint(9,0){a2}
+     \tkzDefPointsBy[translation=from a1 to a2](b1,c1,d1,e1,f1){b2,c2,d2,e2,f2}
+     \tkzDrawPolygon[thick](a2,b2,c2,d2,e2,f2)
+     \tkzLabelPoint[right](a2){$1$}
+     \tkzLabelPoint[above right](b2){$6$}
+     \tkzLabelPoint[above left](c2){$5$}
+     \tkzLabelPoint[left](d2){$4$}
+     \tkzLabelPoint[below left](e2){$3$}
+     \tkzLabelPoint[below right](f2){$2$}
+     \tkzDrawPoints(a2,b2,c2,d2,e2,f2)
+     
+     \tkzDrawLine[ultra thick,dotted,add=.5 and .5,nottblue](a2,d2)
+     \tkzDrawPoints(a2,b2,c2,d2,e2,f2)
+    \end{scope}
+    \begin{scope}[xshift=11.3cm]
+     \node at (0,0) {\huge $ \neq $};
+    \end{scope}
+    \begin{scope}[xshift=14cm]
+     \foreach \an/\name in {0/a,60/b,120/c,180/d,240/e,300/f} {
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e,f)
+     \tkzLabelPoint[right](a){$1$}
+     \tkzLabelPoint[above right](b){$2$}
+     \tkzLabelPoint[above left](c){$3$}
+     \tkzLabelPoint[left](d){$4$}
+     \tkzLabelPoint[below left](e){$5$}
+     \tkzLabelPoint[below right](f){$6$}
+
+     \tkzDefPoint(0,0){o}
+     \tkzDrawPoint[fill=none,gevodarkblue,thick](o)
+     \tkzDrawArc[R,thick,gevodarkblue,->](o,0.5)(0,240)
+
+     \tkzDrawPoints(a,b,c,d,e,f)
+
+     \coordinate (h1) at ($(a) + (0.5,0.5)$);
+     \coordinate (h2) at ($(h1) + (1,0)$);
+     
+     \draw[thick,gevodarkblue,-Latex,bend left=30] (h1) to
+      node[midway,gevodarkblue,yshift=3mm] {$r$} (h2);
+
+     \tkzDefPoint(5,0){a1}
+     \tkzDefPointsBy[translation=from a to a1](b,c,d,e,f){b1,c1,d1,e1,f1}
+     \tkzDrawPolygon[thick](a1,b1,c1,d1,e1,f1)
+     \tkzLabelPoint[right](a1){$3$}
+     \tkzLabelPoint[above right](b1){$4$}
+     \tkzLabelPoint[above left](c1){$5$}
+     \tkzLabelPoint[left](d1){$6$}
+     \tkzLabelPoint[below left](e1){$1$}
+     \tkzLabelPoint[below right](f1){$2$}
+     \tkzDrawPoints(a1,b1,c1,d1,e1,f1)
+
+     \tkzDrawLine[dashed,thick,gevored,add=.5 and .5](b1,e1)
+
+     \coordinate (g1) at ($(a1) + (0.5,0.5)$);
+     \coordinate (g2) at ($(g1) + (1,0)$);
+
+     \draw[thick,gevored,-Latex,bend left=30] (g1) to
+      node[midway,gevored,yshift=3mm] {$s$} (g2);
+
+     \tkzDefPoint(9,0){a2}
+     \tkzDefPointsBy[translation=from a1 to a2](b1,c1,d1,e1,f1){b2,c2,d2,e2,f2}
+     \tkzDrawPolygon[thick](a2,b2,c2,d2,e2,f2)
+     \tkzLabelPoint[right](a2){$5$}
+     \tkzLabelPoint[above right](b2){$4$}
+     \tkzLabelPoint[above left](c2){$3$}
+     \tkzLabelPoint[left](d2){$2$}
+     \tkzLabelPoint[below left](e2){$1$}
+     \tkzLabelPoint[below right](f2){$6$}
+     \tkzDrawPoints(a2,b2,c2,d2,e2,f2)
+     
+     \tkzDrawLine[ultra thick,dotted,add=.5 and .5,nottblue](c2,f2)
+     \tkzDrawPoints(a2,b2,c2,d2,e2,f2)
+    \end{scope}
+   \end{tikzpicture}
+  \end{figure}
+  In general, a composition of
+  \begin{itemize}[label=\textcolor{gevodarkblue}{\textbullet},leftmargin=3ex]
+   \item a \textbf{rotation} and a \textbf{rotation} is again a
+    \textbf{rotation},
+   \item a \textbf{rotation} and a \textbf{reflection} (in any order) is a
+    \textbf{reflection},
+   \item a \textbf{reflection} and a \textbf{reflection} is a \textbf{rotation}.
+  \end{itemize}
  \end{alertblock}
-
-  \begin{block}{References (opcional)}
-
-    \nocite{*}
-    \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
-
-  \end{block}
 
 \end{column}
 \separatorcolumn
 
+\begin{column}{\colwidth}
+
+ \begin{block}{References (opcional)}
+  \nocite{*}
+  \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
+ \end{block}
+
+\end{column}
+\separatorcolumn
 
 \end{columns}
 \end{frame}
