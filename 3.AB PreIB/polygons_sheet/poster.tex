@@ -1164,9 +1164,250 @@
 
 \begin{column}{\colwidth}
 
- \begin{block}{References (opcional)}
-  \nocite{*}
-  \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
+ \begin{block}{Generating Symmetries}
+  \textbf{Question}: If I can compose symmetries, how many (and which)
+  symmetries are enough to generate (create by composition) all the others?
+
+  \textbf{Answer}: Just two are enough. Basically, I need to be able to generate
+  the smallest rotation (that is, rotation by $360^{ \circ } / n$) and any
+  reflection. Composing these two gives me all the other rotations and
+  reflections.
+
+  Let's see this on a regular pentagon. Here, $\textcolor{gevodarkblue}{r}$
+  denotes the rotation by $360^{ \circ } / 5 = 72^{ \circ }$ and
+  $\textcolor{gevored}{s}$ denotes the `vertical' reflection.
+  \begin{figure}[H]
+   \centering
+   \begin{subfigure}[b]{.3\textwidth}
+    \centering
+    \begin{tikzpicture}
+     \foreach \n/\name in {1/a,2/b,3/c,4/d,5/e} {
+      \pgfmathsetmacro{\an}{(\n - 1) * 72 + 18}
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e)
+
+     \tkzDefPoint(0,0){o}
+     \tkzDrawPoint[fill=none,gevodarkblue,thick](o)
+     \tkzDrawArc[R,thick,gevodarkblue,arrows={->[width=10pt,length=8pt]}](o,0.5)(18,90)
+
+     \tkzDrawPoints(a,b,c,d,e)
+
+    \end{tikzpicture}
+    \caption*{Rotation by $72^{ \circ }$, denoted
+    $\textcolor{gevodarkblue}{r}$.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.3\textwidth}
+    \centering
+    \begin{tikzpicture}
+     \foreach \n/\name in {1/a,2/b,3/c,4/d,5/e} {
+      \pgfmathsetmacro{\an}{(\n - 1) * 72 + 18}
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e)
+
+     \tkzDefPoint(0,0){o}
+     \tkzDrawPoint[fill=none,gevodarkblue,thick](o)
+     \tkzDrawArc[R,thick,gevodarkblue,arrows={->[width=10pt,length=8pt]}](o,0.5)(18,162)
+
+     \tkzDrawPoints(a,b,c,d,e)
+
+    \end{tikzpicture}
+    \caption*{The composition $\textcolor{gevodarkblue}{rr} =
+    \textcolor{gevodarkblue}{r^2}$.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.3\textwidth}
+    \centering
+    \begin{tikzpicture}
+     \foreach \n/\name in {1/a,2/b,3/c,4/d,5/e} {
+      \pgfmathsetmacro{\an}{(\n - 1) * 72 + 18}
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e)
+
+     \tkzDefPoint(0,0){o}
+     \tkzDrawPoint[fill=none,gevodarkblue,thick](o)
+     \tkzDrawArc[R,thick,gevodarkblue,arrows={->[width=10pt,length=8pt]}](o,0.5)(18,234)
+
+     \tkzDrawPoints(a,b,c,d,e)
+
+    \end{tikzpicture}
+    \caption*{The composition $\textcolor{gevodarkblue}{r^3}$.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.3\textwidth}
+    \centering
+    \begin{tikzpicture}
+     \foreach \n/\name in {1/a,2/b,3/c,4/d,5/e} {
+      \pgfmathsetmacro{\an}{(\n - 1) * 72 + 18}
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e)
+
+     \tkzDefPoint(0,0){o}
+     \tkzDrawPoint[fill=none,gevodarkblue,thick](o)
+     \tkzDrawArc[R,thick,gevodarkblue,arrows={->[width=10pt,length=8pt]}](o,0.5)(18,306)
+
+     \tkzDrawPoints(a,b,c,d,e)
+
+    \end{tikzpicture}
+    \caption*{The composition $\textcolor{gevodarkblue}{r^4}$.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.3\textwidth}
+    \centering
+    \begin{tikzpicture}
+     \foreach \n/\name in {1/a,2/b,3/c,4/d,5/e} {
+      \pgfmathsetmacro{\an}{(\n - 1) * 72 + 18}
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e)
+
+     \tkzDefPoint(0,0){o}
+     \tkzDrawPoint[fill=none,gevodarkblue,thick](o)
+     \tkzDrawArc[R,thick,gevodarkblue,arrows={->[width=10pt,length=8pt]}](o,0.5)(18,378)
+
+     \tkzDrawPoints(a,b,c,d,e)
+
+    \end{tikzpicture}
+    \caption*{The composition $\textcolor{gevodarkblue}{r^5}$.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.3\textwidth}
+    \centering
+    \begin{tikzpicture}
+     \foreach \n/\name in {1/a,2/b,3/c,4/d,5/e} {
+      \pgfmathsetmacro{\an}{(\n - 1) * 72 + 18}
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e)
+
+
+     \tkzDefMidPoint(d,e)\tkzGetPoint{m}
+     \tkzDrawLine[dashed,thick,gevored,add=.25 and .25](b,m)
+     \tkzDrawPoints(a,b,c,d,e)
+
+    \end{tikzpicture}
+    \caption*{`Vertical' reflection, denoted $\textcolor{gevored}{s}$.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.3\textwidth}
+    \centering
+    \begin{tikzpicture}
+     \foreach \n/\name in {1/a,2/b,3/c,4/d,5/e} {
+      \pgfmathsetmacro{\an}{(\n - 1) * 72 + 18}
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e)
+
+
+     \tkzDefMidPoint(a,b)\tkzGetPoint{m}
+     \tkzDrawLine[dashed,thick,gevored,add=.25 and .25](d,m)
+     \tkzDrawPoints(a,b,c,d,e)
+
+    \end{tikzpicture}
+    \caption*{The composition
+    $\textcolor{gevodarkblue}{r}\textcolor{gevored}{s}$.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.3\textwidth}
+    \centering
+    \begin{tikzpicture}
+     \foreach \n/\name in {1/a,2/b,3/c,4/d,5/e} {
+      \pgfmathsetmacro{\an}{(\n - 1) * 72 + 18}
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e)
+
+
+     \tkzDefMidPoint(c,d)\tkzGetPoint{m}
+     \tkzDrawLine[dashed,thick,gevored,add=.25 and .25](a,m)
+     \tkzDrawPoints(a,b,c,d,e)
+
+    \end{tikzpicture}
+    \caption*{The composition
+    $\textcolor{gevodarkblue}{r^2}\textcolor{gevored}{s}$.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.3\textwidth}
+    \centering
+    \begin{tikzpicture}
+     \foreach \n/\name in {1/a,2/b,3/c,4/d,5/e} {
+      \pgfmathsetmacro{\an}{(\n - 1) * 72 + 18}
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e)
+
+
+     \tkzDefMidPoint(a,e)\tkzGetPoint{m}
+     \tkzDrawLine[dashed,thick,gevored,add=.25 and .25](c,m)
+     \tkzDrawPoints(a,b,c,d,e)
+
+    \end{tikzpicture}
+    \caption*{The composition
+    $\textcolor{gevodarkblue}{r^3}\textcolor{gevored}{s}$.}
+   \end{subfigure}
+   \begin{subfigure}[b]{.3\textwidth}
+    \centering
+    \begin{tikzpicture}
+     \foreach \n/\name in {1/a,2/b,3/c,4/d,5/e} {
+      \pgfmathsetmacro{\an}{(\n - 1) * 72 + 18}
+      \tkzDefPoint(\an:1){\name}
+     }
+     \tkzDrawPolygon[thick](a,b,c,d,e)
+
+
+     \tkzDefMidPoint(b,c)\tkzGetPoint{m}
+     \tkzDrawLine[dashed,thick,gevored,add=.25 and .25](e,m)
+     \tkzDrawPoints(a,b,c,d,e)
+
+    \end{tikzpicture}
+    \caption*{The composition
+    $\textcolor{gevodarkblue}{r^4}\textcolor{gevored}{s}$.}
+   \end{subfigure}
+   \caption*{All symmetries of the regular pentagon written as compositions of
+   $\textcolor{gevodarkblue}{r}$ and $\textcolor{gevored}{s}$.}
+  \end{figure}
+
+  \textbf{Question}: Given two symmetries, how do I know I can generate the rest
+  using only these two?
+
+  \textbf{Answer}: It of course depends on their type.
+  \begin{itemize}[label=\textcolor{gevodarkblue}{\textbullet},leftmargin=3ex]
+   \item If I'm given 2 rotations, I can never generate all symmetries because
+    composing rotations doesn't yield a reflection.
+   \item If I'm given a rotation and a reflection, then the rotation must be by
+    $k \cdot 360^{ \circ } / n$ with $k$ \textbf{coprime to} $n$. Otherwise I can
+    never generate the rotation by $360^{ \circ } / n$. The reflection can be of
+    any kind.
+   \item If I'm given two reflections, their composition must be a rotation by $k
+    \cdot 360^{ \circ } / n$ with $k$ \textbf{coprime to} $n$ for the same reason
+    as above.
+  \end{itemize}
+ \end{block}
+
+ \begin{block}{Vocabulary}
+   \begin{center}
+   {\def\arraystretch{1.2}\tabcolsep=10pt
+    \begin{tabular}{c | c | p{.5\textwidth}}
+     \textbf{English} & \textbf{Czech} & \textbf{Definition}\\
+     \toprule
+     Segment & Úsečka & Straight finite line connecting two points.\\
+     Polygon & Mnohoúhelník & Closed 2D shape made of segments.\\
+     Vertex & Vrchol & Any of the endpoints of the segments forming a polygon.\\
+     Edge & Hrana & Any of the segments forming a polygon.\\
+     Triangle & Trojúhelník & A polygon with 3 vertices.\\
+     Quadrilateral & Čtyřúhelník & A polygon with 4 vertices.\\
+     Internal/External angle & Vnitřní/Vnější úhel & The angle on the
+     inside/outside of a polygon formed by its edges.\\
+     Convex & Konvexní & A polygon whose internal angles don't exceed 180$^{
+     \circ }$.\\
+     Equilateral & Rovnostranný & Describes a polygon with all sides of equal
+     length.\\
+     Trapezoid & Lichoběžník & A quadrilateral with a pair of parallel sides.\\
+     Parallelogram & Rovnoběžník & A quadrilateral with two pairs of parallel
+     sides.\\
+     Rhombus & Kosočtverec & An equilateral parallelogram.\\
+     Regular & Pravidelný & Describes an equilateral polygon with all angles of
+     the same size.\\
+     Square & Čtverec & A regular quadrilateral.
+    \end{tabular}
+   }
+   \end{center}
  \end{block}
 
 \end{column}
