@@ -72,11 +72,37 @@ subtraction. This is how we shall define it, for simplicity.
  satisfied.
 \end{definition}
 
+\begin{example}{}{linear-equation}
+ The equation
+ \[
+  3x_1 - 2x_2 + 4x_3 + x_4 = 5
+ \]
+ is \hyperref[def:linear-equation]{linear} in variables $x_1,x_2,x_3$ and $x_4$.
+ On the contrary,
+ \[
+  3x_1x_2 - 4x_3^2 = 10
+ \]
+ is \textbf{not} linear.
+\end{example}
+
 \begin{definition}{Linear system}{linear-system}
  Any set of linear equations in the given variables $x_1,\ldots,x_n$ is called a
  \emph{linear system}. A \emph{solution} of a linear system is an $n$-tuple
  $(b_1,\ldots,b_n)$ which solves every linear equation in the set.
 \end{definition}
+
+\begin{example}{}{linear-system}
+ The set of equations
+ \[
+  \begin{array}{rcrcrcr}
+   3x_1 & - & x_2 & + & 2x_3 &= &1\\
+   x_1 & & & - & x_3 &= &-1 \\
+   2x_1 & - & 3x_2 & + & 3x_3 & = & 0
+  \end{array}
+ \]
+ is a \hyperref[def:linear-system]{linear system} whose solution is the triple
+ $(0,1,1)$.
+\end{example}
 
 %TODO reference
 We proceed to discuss two trivial examples, which readers might have discussed
@@ -205,3 +231,5 @@ examples are presented in the applications section.
 
 In the next section, we devise an algorithm to solve any system of linear
 equations.
+
+\input{linear-systems/gauss-jordan}

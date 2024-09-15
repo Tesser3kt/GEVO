@@ -42,6 +42,7 @@
 % Fonts %
 \usepackage[libertine]{newtx}
 \usepackage[makeroom]{cancel} % crossing out stuff
+\renewcommand*{\ttdefault}{lmvtt}
 
 % Use AMS fonts for mathbb %
 \DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
@@ -185,7 +186,7 @@
 }
 
 % Theorems %
-\newtcbtheorem[number within=section]{theorem}{Věta}{thmbox=Orange}{thm}
+\newtcbtheorem[number within=section]{theorem}{Theorem}{thmbox=Orange}{thm}
 \newtcbtheorem[use counter
 from=theorem]{proposition}{Proposition}{thmbox=RoyalBlue}{prop}
 \newtcbtheorem[use counter
@@ -245,3 +246,4 @@ from=theorem]{exercise}{Exercise}{defbox=darkgray}{exer}
 
 % Extra custom commands %
 \newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
+
