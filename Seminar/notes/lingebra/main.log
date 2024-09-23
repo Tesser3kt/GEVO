@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.31)  15 SEP 2024 11:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.17)  23 SEP 2024 21:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,7 +6,7 @@ entering extended mode
 **main.tex
 (./main.tex
 LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-08-16>
+L3 programming layer <2024-08-30>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2024/02/08 v1.4n Standard LaTeX document class
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/bk11.clo
@@ -25,7 +25,7 @@ File: bk11.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip50
 \bibindent=\dimen141
 ) (./book-preamble.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2024/08/18 v24.8 The Babel package
+Package: babel 2024/08/29 v24.9 The Babel package
 \babel@savecnt=\count269
 \U@D=\dimen142
 \l@unhyphenated=\language89
@@ -814,7 +814,7 @@ File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarythrough.code.tex
 File: tikzlibrarythrough.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/xfp/xfp.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-08-16 L3 programming layer (loader) 
+Package: expl3 2024-08-30 L3 programming layer (loader) 
  (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count336
@@ -1490,31 +1490,35 @@ Package hyperref Info: bookmark level for unknown thmproof defaults to 0 on inpu
 
 [12]
 
-[13]))
+[13]
+
+[14]
+
+[15]))
 \tf@thm=\write5
 \openout5 = `main.thm'.
 
 
 
-[14] (./main.aux)
+[16] (./main.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 44534 strings out of 473579
- 927076 string characters out of 5728234
- 1960957 words of memory out of 5000000
- 66463 multiletter control sequences out of 15000+600000
+ 44550 strings out of 473579
+ 927386 string characters out of 5728234
+ 1361532 words of memory out of 5000000
+ 66471 multiletter control sequences out of 15000+600000
  715462 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,12n,120p,1190b,1447s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmvtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (14 pages, 576336 bytes).
+Output written on main.pdf (16 pages, 583586 bytes).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 193 compressed objects within 2 object streams
- 48 named destinations out of 1000 (max. 500000)
+ 288 PDF objects out of 1000 (max. 8388607)
+ 212 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 

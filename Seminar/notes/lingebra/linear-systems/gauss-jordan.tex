@@ -3,9 +3,9 @@
 
 Probably the most well-known algorithm for solving a
 \hyperref[def:linear-system]{linear system} is the \emph{Gauss-Jordan
-Elimination}. As its name partially implies, its heart lies in the
-\emph{elimination} of variables one by one, until only a single linear equation
-in one variable stands unsolved. This is done by applying different
+elimination}. As its name partially implies, its heart lies in the successive
+\emph{elimination} of variables until only a single linear equation in one
+variable stands unsolved. This is done by applying different
 \emph{transformations} to the initial system that are guaranteed not to alter
 the solution. We're going to solve a linear system first and describe the
 general method second.
@@ -32,7 +32,7 @@ general method second.
       \frac{1}{3}x_1 & + & 2x_2 & & & = & 3\\
       x_1 & + & 5x_2 & - & 2x_3 & = & 2\\
       & & & & 3x_3 & = & 9
-     \end{array}.
+     \end{array}
    $};
   \coordinate (eqsw) at ($(eq.south west) + (-0.2,0.36)$);
   \coordinate (eqnw) at ($(eq.north west) - (0.2,0.36)$);
@@ -40,7 +40,7 @@ general method second.
   \node at (-4.9,0) {\footnotesize \texttt{Swapped first and third row.}};
   \end{tikzpicture}
  \end{center}
- Next, we shall scale the first row by a factor of $3$.
+ Next, we scale the first row by a factor of $3$.
  \begin{center}
   \begin{tikzpicture}
    \node (eq) at (0,0) {$
@@ -48,7 +48,7 @@ general method second.
       x_1 & + & 6x_2 & & & = & 9\\
       x_1 & + & 5x_2 & - & 2x_3 & = & 2\\
       & & & & 3x_3 & = & 9
-     \end{array}.
+     \end{array}
    $};
   \coordinate (eqnw) at ($(eq.north west) - (0.2,0.36)$);
   \coordinate (start) at ($(eqnw) - (1,0)$);
@@ -68,7 +68,7 @@ general method second.
       x_1 & + & 6x_2 & & & = & 9\\
        & - & x_2 & - & 2x_3 & = & -7\\
       & & & & 3x_3 & = & 9
-     \end{array}.
+     \end{array}
    $};
   \coordinate (row1) at ($(eq.north west) - (0.2,0.36)$);
   \coordinate (row2) at ($(eq.west) - (0.2,0)$);
@@ -134,8 +134,8 @@ solutions of the initial system.
  \]
  of $m$ equations in variables $x_1,\ldots,x_n$ and let $(b_1,\ldots,b_n)$ be
  one of its solutions. Choose a constant $k$ and add the $k$-multiple of the
- $i$-th equation to the $j$-th equations for some $i,j \in \{1,\ldots,m\}$.
- Hence, the $j$-th equation of the system gets replaced by
+ $i$-th equation to the $j$-th equation for some indices $i \neq j \in
+ \{1,\ldots,m\}$. Hence, the $j$-th equation of the system gets replaced by
  \[
   (a_{j,1} + k \cdot a_{i,1})x_1 + (a_{j,2} + k \cdot a_{i,2})x_2 + \cdots +
   (a_{j,n} + k \cdot a_{i,n})x_n = c_j + k \cdot c_i,
@@ -173,9 +173,9 @@ solutions of the initial system.
 
 As we've seen in \myref{problem}{prob:gauss-jordan-elimination}, the application
 of transformations (1) - (3) has its purpose in preparing the system for a final
-back-substitution, where the values of all variables in a row save the first one
-are known beforehand. A system which is `ready' to be solved by
-back-substitution is said to be in \emph{echelon form}.
+back-substitution, where the values of all variables save the first in a row are
+known beforehand. A system which is `ready' to be solved by back-substitution is
+said to be in \emph{echelon form}.
 
 \begin{definition}{Echelon form}{echelon-form}
  In each row of a \hyperref[def:linear-system]{linear system}, the first
@@ -290,10 +290,10 @@ variables. This of course need not be the case in general. Thankfully,
 Gauss-Jordan elimination can \emph{always} be used to determine the solution set
 of a \hyperref[def:linear-system]{linear system}. However, this set can also be
 empty or infinite in cases where the number of variables doesn't match the
-number of equations. The following two examples illustrate this.
+number of equations. The following examples illustrate this.
 
-\begin{example}{}{echelon-form-3}
- The following system has more equations than variables.
+\begin{example}{}{overdetermined-system-1}
+ This system has more equations than variables.
  \begin{equation}
   \label{eq:overdetermined-system}
   \begin{array}{rcrcr}
@@ -313,14 +313,14 @@ number of equations. The following two examples illustrate this.
  is a \hyperref[def:linear-combination]{linear combination} of the other two.
 
  To draw a `real-life' simile, imagine the price of an apple being \$5/kg and
- that of bananas \$1.5/kg. Saying that 3 kg of apples and 4 kg of bananas cost,
- say, \$30 is simply false because we can calculate that this amount actually
- costs \$21. The third condition on the price of apples and bananas contradicted
- the previous two; just as a third equation in a
- \hyperref[def:linear-system]{linear system} in two variables can contradict the
- first two equations. We tend to call such systems \emph{overdetermined} and
- will in time dedicate a section to finding a `good' approximation of their
- solution.
+ that of bananas, \$1.5/kg. Saying that 3 kg of apples and 4 kg of bananas cost,
+ say, \$30 is simply false because we can calculate (by the information ere
+ provided) that this amount actually costs \$21. The third condition on the
+ price of apples and bananas contradicted the previous two; just as a third
+ equation in a \hyperref[def:linear-system]{linear system} in two variables can
+ contradict the first two equations. We tend to call such systems
+ \emph{overdetermined} and will in time dedicate a section to finding a `good'
+ approximation of their solution.
 
  To solve the system~\eqref{eq:overdetermined-system}, we transform it into
  echelon form. First, we subtract twice the first row from the other two.
@@ -368,8 +368,131 @@ number of equations. The following two examples illustrate this.
   \end{tikzpicture}
  \end{center}
  Clearly, the third equation is \emph{redundant} because it provides no
- condition on the values of the variables. Back-substitution yields $x_2 = 1$
- and $x_1 = -2$. As we've claimed (but not yet proven), row \texttt{III} is
+ condition binding the values of the variables. Back-substitution yields $x_2 =
+ 1$ and $x_1 = -2$. As we've claimed (but not yet proven), row \texttt{III} is
  indeed a linear combination of rows \texttt{I} and \texttt{II}. In this
  particular case, it holds that $\mathtt{(2 / 5)I + (4 / 5)II = III}$.
 \end{example}
+
+\begin{example}{}{overdetermined-system-2}
+ Contrast this system with the system~\eqref{eq:overdetermined-system} from
+ \myref{example}{exam:overdetermined-system-1}.
+ \[
+  \begin{array}{rcrcr}
+    x_1 & + & 3x_2 & = & 1\\
+    2x_1 & + & x_2 & = & -3\\
+    2x_1 & + & 2x_2 & = & 0
+  \end{array}
+ \]
+ In this case, the exact same row operations transform the system into
+ \[
+  \begin{array}{rcrcr}
+    x_1 & + & 3x_2 & = & 1\\
+    & & -5x_2 & = & -5\\
+    & & 0 & = & 2
+  \end{array},
+ \]
+ which clearly has no solution. This is a case of one equation of the system
+ contradicting the other two.
+\end{example}
+
+Naturally, the ambitious, purposeful and \emph{overdetermined} systems have
+their disinterested and vagrant sisters -- the \emph{underdetermined} systems.
+We style such the systems that are short on the number of variables as compared
+to the number of equations. As an example, consider the system
+\begin{equation}
+ \label{eq:underdetermined-system}
+ \begin{array}{r c r c r c r}
+  x_1 & + & x_2 & + & x_3 & = & 0\\
+      &   & x_2 & + & x_3 & = & 0
+ \end{array},
+\end{equation}
+which already \textbf{is} in \hyperref[def:echelon-form]{echelon form}. In spite
+of that, the typical back-substitution method is (without needed alterations)
+rendered unusable by the presence of two variables in the last row.
+
+The system~\eqref{eq:underdetermined-system} is \emph{underdetermined} in the
+sense that not enough equations are present to pinpoint a \textbf{unique}
+solution. Quite the opposite, this system has infinitely many solutions that all
+depend on as many parameters as many equations are missing to bind the values of
+the variables completely -- in this case, \emph{one}.
+
+In cases like these, one typically proceeds the following way: let one of the
+variables (say, $x_3$) in the last equation be \emph{a parameter}. For the sake
+of clarity, we shall rename $x_3$ to $t$ to highlight its updated social status.
+The system thus looks like this.
+\[
+ \begin{array}{r c r c r c r}
+  x_1 & + & x_2 & + & t & = & 0\\
+      &   & x_2 & + & t & = & 0
+ \end{array}
+\]
+Now, $t$ is no longer a variable so the system is no longer underdetermined. We
+solve it briskly by setting $x_2 = -t$ and substituting this into the first
+equation to obtain $x_1=0$. Therefore, the solution to the
+system~\eqref{eq:underdetermined-system} is $(0,-t,t)$.
+
+The dependence of the system's solution on a parameter naturally means that its
+solution set is infinite. Any choice for the value of $t$ gives one particular
+solution -- say $(0,-1,1)$ or $(0,0,0)$.
+
+We close the section off with a few exercises. The next section is dedicated to
+the geometric interpretation of linear systems.
+
+\begin{exercise}{}{linear-system-1}
+ Use Gauss-Jordan elimination to solve the following system.
+ \[
+  \begin{array}{r c r c r c r}
+   x_1 & &  & - & x_3 & = & 0\\
+   3x_1 & + & x_2 & & & = & 1\\
+   -x_1 & + & x_2 & + & x_3 & = & 4
+  \end{array}
+ \]
+\end{exercise}
+
+\begin{exercise}{}{linear-system-2}
+ Each of the following systems is in echelon form. Determine their number of
+ solutions (without calculation).
+ \begin{center}
+  \begin{tikzpicture}
+   \node at (0,0) {$
+    \begin{array}{r c r c r}
+     2x_1 & + & 2x_2 & = & 4\\
+      & & x_2 & = & 1\\
+       & & 0 & = & 4
+    \end{array}
+    $};
+   \node at (-4,0) {$
+    \begin{array}{r c r c r}
+     -3x_1 & + & 2x_2 & = & 0\\
+      & - & 2x_2 & = & 0\\
+      & & & &
+    \end{array}
+    $};
+   \node at (4,0) {$
+    \begin{array}{r c r c r}
+     2x_1 & + & x_2 & = & 4\\
+      & & & &\\
+      & & & &
+    \end{array}
+    $};
+  \end{tikzpicture}
+ \end{center}
+\end{exercise}
+
+\begin{exercise}{}{linear-system-3}
+ Find the values of $a,b$ and $c$ that cause the graph of $f(x) = ax^2 + bx + c$
+ to pass through the points $(1,2)$, $(-1,6)$ and $(2,3)$.
+\end{exercise}
+
+\begin{exercise}{}{linear-system-4}
+ Show that for all numbers $a,b,c,d,j,k$ such that $ad - bc \neq 0$, the system
+ \[
+  \begin{array}{r c r c r}
+   ax_1 & + & bx_2 & = & j\\
+   cx_1 & + & dx_2 & = &k\\
+    & & & &
+  \end{array}
+ \]
+ has a \emph{unique} solution.
+\end{exercise}
