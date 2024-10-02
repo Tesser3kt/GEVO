@@ -1,0 +1,107 @@
+\section{Visualizing Linear Systems}
+\label{sec:visualizing-linear-systems}
+
+In this, rather informal, section, we present a way to visualize linear systems
+in two and three variables and their solutions. Why two and three, you ask? The
+number of variables in a linear equation determines the \emph{dimension} of the
+\emph{geometric object} described by this equation. We shall soon provide the
+necessary definitions to make rigorous sense of the sentence previous.
+Intuitively, each variable represents a new `direction' we're allowed to move
+in. Therefore, linear equations in two variables live in two-dimensional spaces
+and linear equations in three variables occupy three dimensions.
+
+Nonetheless, the equations themselves (if non-trivial) never describe objects of
+the maximal possible dimension but of the dimension lower by one. This is
+because they establish a relationship between the variables -- a relationship
+where one variable grows entirely dependent on the rest, essentially `locking' a
+single direction of movement. Think of it like this: a linear equation is a sort
+of order, telling you that for every step forward you must also make two steps
+to the right and so rendering you unable to ever walk straight ahead again.
+
+We proceed to show that the objects described by linear equations in two
+variables are \emph{straight lines}. Said `objects described' are formally the
+sets of points satisfying given equation. For instance, the object described by
+the equation $3x + 2y = 4$ is the set
+\[
+ L \coloneqq \{(x,y) \in \R^2 \mid 3x + 2y = 4\}.
+\]
+Before we move on, we need establish an important fact. What is a \emph{straight
+line} \textbf{exactly}? Wishing not to cheat and define straight line as the
+object described by a linear equation, we employ a more geometric approach to
+the definition. As we hope dear readers agree, a (one-dimensional) object is
+\emph{straight} if moving along it requires `keeping the initial direction',
+that is, always moving the same number of steps upward for a given number of
+steps rightward, or vice versa. In other words, the \emph{ratio} between the
+number of steps upward and rightward must remain constant. We encourage kind
+readers to absorb that this particular property is what distinguishes
+\emph{curved} objects from \emph{straight} ones.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=-1,xmax=5,ymin=-1,ymax=2]
+  \tkzDrawX
+  \tkzDrawY
+
+  \tkzDefPoints{0/0/A,2/1/B,1.5/0.75/C,3.5/1.75/D,3.5/0.75/E}
+  \tkzDrawLine[color=BrickRed,thick,add=.5 and 1](A,B)
+  \tkzDrawPoint[size=4,color=RoyalBlue](E)
+  \tkzDrawSegments[dashed,thick,color=RoyalBlue](C,E D,E)
+  \tkzDrawPoints[size=4,color=BrickRed](C,D)
+  \tkzLabelPoint[above,color=BrickRed,xshift=-3mm,yshift=1mm](C){$(x_1,y_1)$}
+  \tkzLabelPoint[above,color=BrickRed,xshift=-3mm,yshift=1mm](D){$(x_2,y_2)$}
+  \tkzLabelSegment[right,color=RoyalBlue](D,E){$\Delta y = y_2 - y_1$}
+  \tkzLabelSegment[below,color=RoyalBlue](C,E){$\Delta x = x_2 - x_1$}
+ \end{tikzpicture}
+ \caption{The `definition' of straightness. The ratio $\clb{\Delta y / \Delta
+  x}$ must remain \textbf{constant}. It is habitually referred to as the
+  \emph{slope} of the line.}
+ \label{fig:straight-line}
+\end{figure}
+
+\myref{Figure}{fig:straight-line} inspires the following definition.
+
+\begin{definition}{Straight line}{straight-line}
+ An \textbf{infinite} subset $L \subseteq \R^2$ is called a \emph{straight line}
+ if for all triples of points $(x_1,y_1)$, $(x_2,y_2)$, $(x_3,y_3) \in L$ it
+ holds true that either
+ \begin{equation}
+  \label{eq:straight-line}
+  \frac{y_2 - y_1}{x_2 - x_1} = \frac{y_3 - y_2}{x_3 - x_2},
+ \end{equation}
+ or $x_1 = x_2 = x_3$ (a vertical line).
+\end{definition}
+
+We proceed to show that the all the points in the plane satisfying a linear
+equation form a \hyperref[def:straight-line]{straight line}. This is exceedingly
+easy. Suppose we have three solutions $(x_1,y_1),(x_2,y_2)$ and $(x_3,y_3)$
+satisfying the equation $ax + by = c$, where $a,b,c \in \R$ and at least one of
+$a$, $b$ is not zero. In other words, we have $ax_i + by_i = c$ for $i \in
+\{1,2,3\}$.
+
+We've had to exclude the case $a = b = 0$ because the set of solutions of the
+linear equation $0 = c$ is never a straight line. If $c \neq 0$, it is empty,
+and if $c = 0$, it equals $\R^2$.
+
+Assume first that $b = 0$. Then, $x_i = c / a$ and so $x_1 = x_2 = x_3$. Hence,
+in this case, the set of solutions is indeed a straight line.
+
+In case $b \neq 0$, we may rearrange
+\[
+ y_i = \frac{c - ax_i}{b}.
+\]
+Plugging this into~\eqref{eq:straight-line} gives
+\begin{equation}
+ \label{eq:straight-line-sub}
+ \frac{(c - ax_2) - (c - ax_1)}{b(x_2 - x_1)} = \frac{(c - ax_3) - (c -
+ ax_1)}{b(x_3 - x_1)}.
+\end{equation}
+Simple calculation yields
+\[
+ \frac{(c - ax_2) - (c - ax_1)}{b(x_2 - x_1)} = \frac{a(x_1 - x_2)}{b(x_2 -
+ x_1)} = - \frac{a}{b}
+\]
+and similarly for $(y_3 - y_1) / (x_3 - x_1)$. Hence, both sides
+of~\eqref{eq:straight-line-sub} equal $-a / b$ and the proof is complete.
+
+\input{linear-systems/visualization/2d}
