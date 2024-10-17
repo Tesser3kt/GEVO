@@ -57,18 +57,22 @@
 \usepackage{tikz}
 \usepackage{tkz-euclide}
 \usetikzlibrary{%
- arrows.meta,
+ arrows,
  positioning,
  intersections,
  perspective,
- patterns,
+ patterns.meta,
  calc,
  hobby,
- shapes
+ shapes,
+ 3d
 }
 \tikzset{
   vertex/.style = {shape=circle,fill,text=white,minimum size=6pt,inner sep=1pt}
 }
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
 
 % Tables %
 \usepackage{booktabs}

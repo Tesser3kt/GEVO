@@ -1,0 +1,231 @@
+\subsection{Three-dimensional Linear Systems}
+\label{ssec:three-dimensional-linear-systems}
+
+Stepping up the game a little, we're taking a look at linear systems in three
+variables. Just as a linear equations in two variables are lines in the real
+plane, linear equations in three variables depict geometric objects called
+`planes' in the three-dimensional real space, $\R^3$. They form the last class
+of linear systems that can be efficiently visualized; with linear systems in
+more variables being generally out of our perceptive reach.
+
+Planes are the \emph{straight} objects in three-dimensional kind of sense. They
+lock one direction of movement by making one variable wholly dependent on the
+other two. An illustration is provided in \myref{figure}{fig:plane}.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \begin{axis}[
+   view={60}{10},
+   xlabel={$x$},
+   ylabel={$y$},
+   zlabel={$z$},
+   zlabel style={rotate=90},
+   xtick=\empty,
+   ytick=\empty,
+   ztick=\empty,
+   xmin=-3,
+   xmax=3,
+   ymin=-5,
+   ymax=5
+  ]
+   \addplot3[
+    surf,
+    colormap/hot,
+    shader=faceted interp,
+    ]({x}, {y}, {(2*x - y + 3) / 3});
+  \end{axis}
+ \end{tikzpicture}
+
+ \caption{A \clb{plane} defined by the equation $2x - y - 3z = -3$.}
+ \label{fig:plane}
+\end{figure}
+
+An \emph{underdetermined} system in three variables can contain either one or
+two linear equations. In the former case, only one variable is dependent on the
+other two -- we shall often call the independent variables by names such as
+\emph{free variables} or \emph{parameters}. Both these names signify that a
+substitution of any pair of real numbers in lieu of the two \emph{free
+variables} yields a solution of the system.
+
+For instance, the linear equation in \myref{figure}{fig:plane} is effectively a
+linear system in three variables. We can choose any of the three variables to be
+dependent and leave the other two free, giving thus three different descriptions
+of \emph{the same} solution set. The following
+equation~\eqref{eq:three-vars-one-eq} shows all of them with the chosen
+dependent variable written on the left in typewriter font.
+\begin{equation}
+ \label{eq:three-vars-one-eq}
+ \begin{array}{r l}
+  \mathtt{x:} & \left\{ \left( \frac{y + 3z - 3}{2}, y, z \right) \mid y,z \in \R
+  \right\}\\[1em]
+  \mathtt{y:} & \left\{ \left( x, 2x - 3z + 3, z \right) \mid x,z \in \R
+  \right\}\\[1em]
+   \mathtt{z:} & \left\{ \left( x, y, \frac{2x - y + 3}{3} \right) \mid x,y \in
+   \R \right\}
+ \end{array}
+\end{equation}
+
+Linear systems in three variables and two equations are also underdetermined.
+Geometrically, they correspond to arrangements of two planes in space. Those two
+planes can either be parallel -- leading to the system having no solution -- or
+not -- intersecting in a straight line describable as a set of triples with
+exactly one free variable. Just as has been the case with two-dimensional linear
+systems, putting the system in question into echelon form reveals its geometric
+nature.
+
+Indeed, consider the system
+\begin{equation}
+ \label{eq:two-parallel-planes}
+ \begin{array}{r c r c r c r}
+  x & - & y & + & 2z & = & 2\\
+  2x & - & 2y & + & 4z & = & 9
+ \end{array}.
+\end{equation}
+Subtracting $\mathtt{II - 2 \cdot I}$ produces
+\[
+ \begin{array}{r c r c r c r}
+  x & - & y & + & 2z & = & 2\\
+    &   &   &   &  0 & = & 5
+ \end{array},
+\]
+clearly a system with no solution. As expected, the two corresponding planes are
+parallel to each other. See them depicted in
+\myref{figure}{fig:two-parallel-planes}.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \begin{axis}[
+   view={-60}{20},
+   xlabel={$x$},
+   ylabel={$y$},
+   zlabel={$z$},
+   zlabel style={rotate=90},
+   xtick=\empty,
+   ytick=\empty,
+   ztick=\empty,
+   xmin=-3,
+   xmax=3,
+   ymin=-5,
+   ymax=5
+  ]
+   \addplot3[
+    surf,
+    colormap/hot,
+    shader=faceted interp,
+   ]({x}, {y}, {(2 - x + y) / 2});
+   \addplot3[
+    surf,
+    colormap/viridis,
+    shader=faceted interp,
+    opacity=0.7,
+   ]({x}, {y}, {(9 - 2*x + 2*y) / 4});
+  \end{axis}
+ \end{tikzpicture}
+
+ \caption{The two parallel planes from the
+ system~\eqref{eq:two-parallel-planes}.}
+ \label{fig:two-parallel-planes}
+\end{figure}
+
+A system of two non-parallel planes is presented below.
+\begin{equation}
+ \label{eq:two-non-parallel-planes}
+ \begin{array}{r c r c r c r}
+  x & - & y & + & 2z & = & 2\\
+  2x & + & 3y & - & z & = & -1
+ \end{array}
+\end{equation}
+By subtracting, once again, $\mathtt{II - 2 \cdot I}$, we put into the following
+reduced echelon form.
+\[
+ \begin{array}{r c r c r c r}
+  x & - & y & + & 2z & = & 2\\
+    &   & 5y & - & 5z & = & -5
+ \end{array}
+\]
+The algorithm of Gauss-Jordan elimination limits our choice of free variables to
+the ones left in the last row. We are hence to set either $y$ or $z$ loose while
+caging the latter. Custom dictates to label all variables but the first of the
+last row as \emph{parameters}, making $z$ the victor. The rest is just
+back-substitution. We calculate $y = z - 1$ and substitute into the first
+equation to receive
+\[
+ x - (z - 1) + 2z = 2, \quad \text{hence} \quad x = 1 - z.
+\]
+It follows that one possible description of the solution set of the
+system~\eqref{eq:two-non-parallel-planes} is
+\[
+ \left\{ (1 - z, z - 1, z) \mid z \in \R\right\}.
+\]
+See it depicted in \myref{figure}{fig:two-non-parallel-planes}.
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \begin{axis}[
+   view={60}{10},
+   xlabel={$x$},
+   ylabel={$y$},
+   zlabel={$z$},
+   zlabel style={rotate=90},
+   xtick=\empty,
+   ytick=\empty,
+   ztick=\empty,
+   xmin=-3,
+   xmax=3,
+   ymin=-5,
+   ymax=5
+  ]
+   \addplot3[
+    surf,
+    colormap/hot,
+    shader=faceted interp,
+   ]({x}, {y}, {2*x + 3*y + 1});
+   \addplot3[
+    surf,
+    colormap/viridis,
+    shader=faceted interp,
+    opacity=0.6
+   ]({x}, {y}, {(2 - x + y) / 2});
+  \addplot3[
+   color=BrickRed,
+   thick,
+   smooth
+  ]({x},{-x},{1-x});
+  \end{axis}
+ \end{tikzpicture}
+
+ \caption{The two non-parallel planes from the
+ system~\eqref{eq:two-non-parallel-planes} and their \clr{intersection}.}
+ \label{fig:two-non-parallel-planes}
+\end{figure}
+
+Reaching the apex of `ideal' linear systems in three variables and three
+equations, we stop to ponder the number of arrangements of three planes in
+three-dimensional space. There are two obvious ones:
+\begin{enumerate}
+ \item All three planes are parallel to each other.
+ \item Only two planes are parallel to each other.
+\end{enumerate}
+Corresponding to (1), resp. (2), is a linear system with two equations, resp.
+one equation, with no solution.
+
+As an example, consider the system
+\begin{equation}
+ \label{eq:two-parallel-one-not}
+ \begin{array}{r c r c r c r}
+  -x & + & 2y & - & z & = & 4\\
+  x & - & 3y & + & z & = & 1\\
+  x & - & 2y & + & z & = & 3
+ \end{array}.
+\end{equation}
+Its echelon form looks like this:
+\[
+ \begin{array}{r c r c r c r}
+  -x & + & 2y & - & z & = & 4\\
+  x & - & 3y & + & z & = & 1\\
+  x & - & 2y & + & z & = & 3
+ \end{array}.
+\]
+

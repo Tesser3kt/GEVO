@@ -1,7 +1,7 @@
 \subsection{Two-dimensional Linear Systems}
 \label{ssec:two-dimensional-linear-systems}
 
-We dedicate a section to the visualization of linear systems in two variables
+We dedicate a subsection to the visualization of linear systems in two variables
 and their solutions. As already established, a linear equation in two variables
 represents a \hyperref[def:straight-line]{straight line}. A solution to a linear
 system in two variables is a pair of real numbers (equivalently, a point in the
@@ -167,12 +167,21 @@ As yet another example, we present in all its glory the system
  \end{array}.
 \]
 By swapping $\mathtt{I}$ with $\mathtt{II}$, then subtracting $\mathtt{II} -
-2\mathtt{I}$ and $\mathtt{III} - 3\mathtt{I}$, we get
+\mathtt{2I}$ and $\mathtt{III} - \mathtt{3I}$, we get
 \[
  \begin{array}{r c r c r}
   x & & & = & 2\\
-  2x & + & y & = & 5\\
-  3x & - & y & = & 0
+  & & y & = & 1\\
+  & - & y & = & -6
  \end{array}.
 \]
+Each of the equations has a solution but the conditions bestowed on $y$ by
+equations $\mathtt{II}$ and $\mathtt{III}$ are contradictory. Meaning, any pair
+of equations in the system can be satisfied simultaneously but all three
+equations can't. This is the situation depicted in
+\myref{figure}{fig:arrangement-of-lines}, (c).
 
+\begin{exercise}{}{arrangement-of-lines}
+ Find examples of linear systems of three equations in two variables that
+ correspond to parts (b) and (d) of \myref{figure}{fig:arrangement-of-lines}.
+\end{exercise}
