@@ -70,9 +70,9 @@ Linear systems in three variables and two equations are also underdetermined.
 Geometrically, they correspond to arrangements of two planes in space. Those two
 planes can either be parallel -- leading to the system having no solution -- or
 not -- intersecting in a straight line describable as a set of triples with
-exactly one free variable. Just as has been the case with two-dimensional linear
-systems, putting the system in question into echelon form reveals its geometric
-nature.
+exactly one free variable. In a case similar to two-dimensional linear systems,
+putting the system in question into echelon form \emph{can} reveal (albeit not
+always) its geometric nature.
 
 Indeed, consider the system
 \begin{equation}
@@ -89,8 +89,8 @@ Subtracting $\mathtt{II - 2 \cdot I}$ produces
     &   &   &   &  0 & = & 5
  \end{array},
 \]
-clearly a system with no solution. As expected, the two corresponding planes are
-parallel to each other. See them depicted in
+clearly a system with no solution. Subsequently, the two corresponding planes
+are parallel to each other. See them depicted in
 \myref{figure}{fig:two-parallel-planes}.
 
 \begin{figure}[ht]
@@ -138,7 +138,7 @@ A system of two non-parallel planes is presented below.
  \end{array}
 \end{equation}
 By subtracting, once again, $\mathtt{II - 2 \cdot I}$, we put into the following
-reduced echelon form.
+echelon form.
 \[
  \begin{array}{r c r c r c r}
   x & - & y & + & 2z & = & 2\\
@@ -154,7 +154,7 @@ equation to receive
 \[
  x - (z - 1) + 2z = 2, \quad \text{hence} \quad x = 1 - z.
 \]
-It follows that one possible description of the solution set of the
+It follows that \emph{one possible} description of the solution set of the
 system~\eqref{eq:two-non-parallel-planes} is
 \[
  \left\{ (1 - z, z - 1, z) \mid z \in \R\right\}.
@@ -216,7 +216,7 @@ As an example, consider the system
  \label{eq:two-parallel-one-not}
  \begin{array}{r c r c r c r}
   -x & + & 2y & - & z & = & 4\\
-  x & - & 3y & + & z & = & 1\\
+  x & - & 6y & + & z & = & 1\\
   x & - & 2y & + & z & = & 3
  \end{array}.
 \end{equation}
@@ -224,8 +224,89 @@ Its echelon form looks like this:
 \[
  \begin{array}{r c r c r c r}
   -x & + & 2y & - & z & = & 4\\
-  x & - & 3y & + & z & = & 1\\
-  x & - & 2y & + & z & = & 3
+     & & -4y & & & = & 5\\
+     & & & & 0 & = & 7
+ \end{array}.
+\]
+Clearly, the third equation has no solution while the second does. This
+particular system's geometrical interpretation aligns with case (2) above. It is
+shown in \myref{figure}{fig:two-parallel-one-not}.
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \begin{axis}[
+   view={110}{-10},
+   xlabel={$x$},
+   ylabel={$y$},
+   zlabel={$z$},
+   zlabel style={rotate=90},
+   xtick=\empty,
+   ytick=\empty,
+   ztick=\empty,
+   xmin=-3,
+   xmax=3,
+   ymin=-5,
+   ymax=5
+  ]
+   \addplot3[
+    surf,
+    colormap/hot,
+    shader=faceted interp
+   ]({x}, {y}, {-x + 6*y + 1});
+   \addplot3[
+    surf,
+    colormap/viridis,
+    shader=faceted interp,
+    opacity=0.6
+   ]({x}, {y}, {-x + 2*y - 4});
+   \addplot3[
+    surf,
+    colormap/viridis,
+    shader=faceted interp,
+    opacity=0.6
+   ]({x}, {y}, {-x + 2*y + 3});
+   \addplot3[
+    color=BrickRed,
+    thick,
+    smooth
+   ]({x},{1/2},{4-x});
+   \addplot3[
+    color=BrickRed,
+    thick,
+    smooth
+   ]({x},{-5/4},{-x - 13/2});
+  \end{axis}
+ \end{tikzpicture}
+
+ \caption{Depiction of the system~\eqref{eq:two-parallel-one-not}.}
+ \label{fig:two-parallel-one-not}
+\end{figure}
+
+Finally, there are three other possible arrangements of three planes in space:
+\begin{enumerate}
+ \setcounter{enumi}{2}
+ \item non-parallel planes that fail to have a common intersection (the
+  so-often-called `tent' configuration);
+ \item non-parallel planes that meet in a single point;
+ \item non-parallel planes that meet in a single line.
+\end{enumerate}
+Of course, as always, the echelon form of a linear system can be used to
+distinctively label it as any of these cases. For example, the echelon form of
+the system
+\begin{equation}
+ \label{eq:tent}
+ \begin{array}{r c r c r c r}
+  x & + & 2y & - & z & = & -1\\
+  2x & - & 3y & + & 2z & = & 4\\
+  -x & + & 5y & - & 3z & = & 10
+ \end{array}
+\end{equation}
+can easily be computed to be
+\[
+ \begin{array}{r c r c r c r}
+  x & + & 2y & - & z & = & -1\\
+    & & -7y & + & 4z & = & 6\\
+    & & & & 0 & = & 15
  \end{array}.
 \]
 
