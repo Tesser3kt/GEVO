@@ -74,7 +74,7 @@ exactly one free variable. In a case similar to two-dimensional linear systems,
 putting the system in question into echelon form \emph{can} reveal (albeit not
 always) its geometric nature.
 
-Indeed, consider the system
+Consider the system
 \begin{equation}
  \label{eq:two-parallel-planes}
  \begin{array}{r c r c r c r}
@@ -145,10 +145,10 @@ echelon form.
     &   & 5y & - & 5z & = & -5
  \end{array}
 \]
-The algorithm of Gauss-Jordan elimination limits our choice of free variables to
-the ones left in the last row. We are hence to set either $y$ or $z$ loose while
-caging the latter. Custom dictates to label all variables but the first of the
-last row as \emph{parameters}, making $z$ the victor. The rest is just
+The algorithm of Gauss-Jordan elimination limits our choice of parameters to the
+ones left in the last row. We are hence to set either $y$ or $z$ loose while
+caging the latter. Custom dictates to label as parameters all variables but the
+first of the last row, making $z$ the victor. The rest is just
 back-substitution. We calculate $y = z - 1$ and substitute into the first
 equation to receive
 \[
@@ -228,9 +228,15 @@ Its echelon form looks like this:
      & & & & 0 & = & 7
  \end{array}.
 \]
-Clearly, the third equation has no solution while the second does. This
-particular system's geometrical interpretation aligns with case (2) above. It is
-shown in \myref{figure}{fig:two-parallel-one-not}.
+Clearly, the third equation has no solution while the second does. This fact
+alone, alas, carries not the full picture. To successfully determine that this
+system corresponds to case (2) above, one need additionally take note of the
+fact that the left side of row $\mathtt{III}$ of~\eqref{eq:two-parallel-one-not}
+is a $(-1)$-multiple of row $\mathtt{I}$, meaning the two planes in question are
+parallel.
+
+The system~\eqref{eq:two-parallel-one-not} is shown in
+\myref{figure}{fig:two-parallel-one-not}.
 \begin{figure}[ht]
  \centering
  \begin{tikzpicture}
@@ -290,15 +296,14 @@ Finally, there are three other possible arrangements of three planes in space:
  \item non-parallel planes that meet in a single point;
  \item non-parallel planes that meet in a single line.
 \end{enumerate}
-Of course, as always, the echelon form of a linear system can be used to
-distinctively label it as any of these cases. For example, the echelon form of
-the system
+The echelon form of a linear system is not enough to distinguish case (2) from
+case (3). For instance, the echelon form of the system
 \begin{equation}
  \label{eq:tent}
  \begin{array}{r c r c r c r}
   x & + & 2y & - & z & = & -1\\
   2x & - & 3y & + & 2z & = & 4\\
-  -x & + & 5y & - & 3z & = & 10
+  -x & + & 5y & - & 3z & = & 0
  \end{array}
 \end{equation}
 can easily be computed to be
@@ -306,7 +311,106 @@ can easily be computed to be
  \begin{array}{r c r c r c r}
   x & + & 2y & - & z & = & -1\\
     & & -7y & + & 4z & = & 6\\
-    & & & & 0 & = & 15
+    & & & & 0 & = & 5
  \end{array}.
 \]
+Notice the likeness to the echelon form of the previously studied
+system~\eqref{eq:two-parallel-one-not}. One equation without solution, two
+solvable. Its visual representation is to be found in
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \begin{axis}[
+   view={40}{-10},
+   xlabel={$x$},
+   ylabel={$y$},
+   zlabel={$z$},
+   zlabel style={rotate=90},
+   xtick=\empty,
+   ytick=\empty,
+   ztick=\empty,
+   xmin=-3,
+   xmax=3,
+   ymin=-5,
+   ymax=5
+  ]
+   \addplot3[
+    surf,
+    colormap/viridis,
+    shader=faceted interp,
+    opacity=0.6
+   ]({x}, {y}, {(4 - 2*x + 3*y) / 2});
+   \addplot3[
+    surf,
+    colormap/viridis,
+    shader=faceted interp,
+    opacity=0.6
+   ]({x}, {y}, {(-x + 5*y) / 3});
+   \addplot3[
+    surf,
+    colormap/hot,
+    shader=faceted interp,
+    opacity=0.6
+   ]({x}, {y}, {x + 2*y + 1});
+   \addplot3[
+    color=BrickRed,
+    thick,
+    smooth
+   ]({x},{2-4*x},{-7*x+5});
+   \addplot3[
+    color=BrickRed,
+    thick,
+    smooth
+   ]({x},{-4*x - 3},{-7*x - 5});
+   \addplot3[
+    color=BrickRed,
+    thick,
+    smooth
+   ]({x},{-4*x + 12},{-7*x + 20});
+  \end{axis}
+ \end{tikzpicture}
 
+ \caption{Example of the `tent' arrangement of planes in~\eqref{eq:tent}.}
+ \label{fig:tent-configuration}
+\end{figure}
+
+Without delving into visualisations of linear systems in three variables and
+more than three equations -- which do not actually bring anything new to the
+table -- we conclude the section with a few exercises.
+
+\begin{exercise}{}{}
+ Draw the following linear systems.
+ \[
+  \begin{array}{r c r c r}
+   2x & + & y & = & 1\\
+   3x & + & 2y & = & 3
+  \end{array}
+  \hspace{3em}
+  \begin{array}{r c r c r}
+   -x & + & y & = & 2\\
+   2x & - & 2y & = & 5
+  \end{array}
+  \hspace{3em}
+  \begin{array}{r c r c r}
+   -x & - & y & = & 1\\
+   3x & + & 2y & = & 0
+  \end{array}
+ \]
+\end{exercise}
+
+\begin{exercise}{}{}
+ Without depicting them visually, determine the arrangement of planes
+ corresponding to the linear system below.
+ \[
+  \begin{array}{r c r c r c r}
+   2x & - & y & + & z & = & 3\\
+   x & - & 3y & + & 4z & = & 1\\
+   x & + & 2y & - & 3z & = & 2
+  \end{array}
+ \]
+\end{exercise}
+
+\begin{exercise}{}{}
+ Find linear systems in three variables and three equations corresponding to
+ cases (1), (4) and (5) in the text above.
+\end{exercise}
