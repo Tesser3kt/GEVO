@@ -1,0 +1,166 @@
+\section{Describing Solution Sets of Linear Systems}
+\label{sec:describing-solution-sets-of-linear-systems}
+
+In \myref{section}{sec:visualization}, we studied specific (simple) classes of
+linear systems and touched upon a few important concepts, including, but not
+limited to, \emph{parameters}, \emph{free variables}, \emph{underdetermined} and
+\emph{overdetermined} systems.
+
+We continue down this road and bring a general description of solution sets of
+linear systems. Before we formulate the result we shall endeavour to prove in
+this section, we introduce a few pieces of notation which are going to allow us
+to manipulate linear systems more efficiently. Do note that behind these mere
+`pieces of notation' there lies hidden a much deeper geometric meaning, to be
+uncovered in later chapters.
+
+\begin{definition}{Matrix}{matrix}
+ An $m \times n$ \emph{matrix} is an array of numbers with $m$ rows and $n$
+ columns. The numbers are then called \emph{entries} of the matrix.
+\end{definition}
+
+Matrices allow us to write linear systems in a much more succinct manner. For
+example, the system
+\[
+ \begin{array}{r c r c r}
+  -x & + & y & = & 2\\
+  2x & - & 2y & = & 5
+ \end{array}
+\]
+can be written using a matrix like this:
+\[
+ \left(
+  \begin{matrix*}[r]
+   -1 & 1\\
+   2 & -2
+  \end{matrix*}
+  \hspace{1mm}
+ \right|
+ \left.
+  \begin{matrix*}[r]
+   2\\
+   5
+  \end{matrix*}
+ \right),
+\]
+abusing the fact that the same variables are located in a single column and each
+row is a single linear equation. The bar on the right side simply serves to
+divide left sides of the equations from right ones.
+
+Matrices make Gauss-Jordan elimination easier to perform and keep track of its
+progress. The matrix of the eliminated system looks like this
+\[
+ \left(
+  \begin{matrix*}[r]
+   -1 & 1\\
+   0 & 0
+  \end{matrix*}
+  \hspace{1mm}
+ \right|
+ \left.
+  \begin{matrix*}[r]
+   2\\
+   9
+  \end{matrix*}
+ \right)
+\]
+and has been reached by the row operation $\mathtt{II + 2I}$.
+
+Certain matrices are special (for reasons soon to be revealed) and we call them
+\emph{vectors}.
+
+\begin{definition}{Vector}{vector}
+ A \emph{column vector} is an $n \times 1$ matrix (that is, matrix with a single
+ column) and a \emph{row vector} is a $1 \times n$ matrix (a matrix with a
+ single row). As column vectors are the `default', we call them simply
+ \emph{vectors}.
+\end{definition}
+
+There exists an obvious bijection between tuples $(v_1,\ldots,v_n)$ and column
+vectors $\mathbf{v} = \begin{psmallmatrix} v_1\\[-4pt]\vdots\\v_n
+\end{psmallmatrix}$. Consequently, we say that a vector $\mathbf{v}$ with
+entries $v_1,\ldots,v_n$ \emph{solves} a linear equation
+\[
+ a_1x_1 + a_2x_2 + \ldots + a_nx_n = c
+\]
+if the tuple $(v_1,\ldots,v_n)$ does.
+
+The addition of vectors and their multiplication by a number are defined
+naturally.
+
+\begin{definition}{Adding vectors}{adding-vectors}
+ Given vectors
+ \[
+  \mathbf{u} =
+  \begin{pmatrix}
+   u_1\\
+   u_2\\
+   \vdots\\
+   u_n
+  \end{pmatrix}
+  \quad \text{and} \quad 
+  \mathbf{v} = 
+  \begin{pmatrix}
+   v_1\\
+   v_2\\
+   \vdots\\
+   v_n
+  \end{pmatrix},
+ \]
+ their \emph{sum} is defined as the vector
+ \[
+  \mathbf{u} + \mathbf{v} \coloneqq 
+  \begin{pmatrix}
+   u_1 + v_1\\
+   u_2 + v_2\\
+   \vdots\\
+   u_n + v_n
+  \end{pmatrix}.
+ \]
+\end{definition}
+
+\begin{definition}{Multiplying vector by a number}{multiplying-vector-by-a-number}
+ Given a vector
+ \[
+  \mathbf{v} = 
+  \begin{pmatrix}
+   v_1\\
+   v_2\\
+   \vdots\\
+   v_n
+  \end{pmatrix}
+ \]
+ and a number $c$, the \emph{scalar $c$-multiple of $\mathbf{v}$} is the vector
+ \[
+  c \mathbf{v} \coloneqq 
+  \begin{pmatrix}
+   cv_1\\
+   cv_2\\
+   \vdots\\
+   cv_n
+  \end{pmatrix}.
+ \]
+ The multiplying number $c$ is often referred to as a \emph{scalar}.
+\end{definition}
+
+We further need to discuss the concept of \emph{free variables} and
+\emph{parameters}.
+
+In the \hyperref[sec:visualization]{previous section}, we described the solution
+set of the system~\eqref{eq:two-vars-one-eq} using three different ways. In each
+case, two of the variables were independent and the third was their linear
+combination. We style the two independent variables, \emph{parameters}. Vaguely
+said, a \emph{parameter} is a variable on the value thereof other variables
+depend. 
+
+We're now equipped to formulate a result about the `shape' of a linear system's
+solution set with a rather far-reaching importance.
+
+\begin{theorem}{Solution set of a linear system}{solution-set-of-a-linear-system}
+ The solution set of every linear system can be written in the form
+ \[
+  \{\mathbf{u} + t_1 \mathbf{v_1} + t_2 \mathbf{v_2} + \ldots +
+  t_n\mathbf{v_n}\},
+ \]
+ where $\mathbf{u}$ is a particular solution, $\mathbf{v_1},\ldots,\mathbf{v_n}$
+ are vectors.
+\end{theorem}
