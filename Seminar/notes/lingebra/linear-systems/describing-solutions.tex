@@ -42,12 +42,13 @@ can be written using a matrix like this:
   \end{matrix*}
  \right),
 \]
-abusing the fact that the same variables are located in a single column and each
+abusing the fact that the same variables are piled in a single column and each
 row is a single linear equation. The bar on the right side simply serves to
 divide left sides of the equations from right ones.
 
-Matrices make Gauss-Jordan elimination easier to perform and keep track of its
-progress. The matrix of the eliminated system looks like this
+Matrices make (amongst other things) Gauss-Jordan elimination easier to perform
+and keep track of its progress. The matrix of the eliminated system looks like
+this
 \[
  \left(
   \begin{matrix*}[r]
@@ -150,7 +151,120 @@ set of the system~\eqref{eq:two-vars-one-eq} using three different ways. In each
 case, two of the variables were independent and the third was their linear
 combination. We style the two independent variables, \emph{parameters}. Vaguely
 said, a \emph{parameter} is a variable on the value thereof other variables
-depend. 
+depend.
+
+The question arises: `Which variables to choose as \emph{parameters}?' The
+answer descends: `Why, of course, my child, choose the \emph{free variables}!'
+After the process of Gauss-Jordan elimination, a preceding row always has more
+variables present than its neighbour downstairs. Occasionally, the number of
+additional variables is larger than one. It is clear that in such cases,
+back-substitution cannot determine the values of those additional variables
+exactly (as it leads to a linear equation in more than one variable). All save
+one of those variables are to be chosen as \emph{parameters} and serve the noble
+purpose of describing the value of the last variable standing. Custom dictates
+that all but the leftmost variable in such a row are labelled \emph{free} and
+the leftmost variable called a \emph{pivot}. In light of this, the heavenly
+answer can be decrypted -- the \emph{free} variables shall serve as
+\emph{parameters} and the value of the \emph{pivot} written as a linear
+combination of free variables.
+
+To understand explicitly the preceding paragraph, consider the eliminated system
+\[
+ \left(
+  \begin{matrix*}[r]
+   1 & 2 & -1 & 3\\
+   0 & 0 & 1 & 1\\
+   0 & 0 & 0 & 0
+  \end{matrix*}
+  \hspace{1mm}
+ \right|
+ \left.
+  \begin{matrix*}[r]
+   1\\
+   4\\
+   0
+  \end{matrix*}
+ \right).
+\]
+Row $\mathtt{II}$ has two more variables than row $\mathtt{III}$ and row
+$\mathtt{I}$ also wins by two variables over row $\mathtt{II}$. As the holy text
+states, the variable $x_4$ of the fourth column is \emph{free}, whereas $x_3$ is
+a \emph{pivot}. Therefore, $x_4$ now serves as a parameter and from row
+$\mathtt{II}$ we get the relation
+\[
+ x_3 = -x_4 + 4.
+\]
+Row $\mathtt{I}$ brings in a new free variable -- $x_2$ -- and a new pivot --
+$x_1$. Using the fact that $x_3$, the pivot from row $\mathtt{II}$, is already
+expressed as a linear combination of free variables, we substitute into row
+$\mathtt{I}$ to get
+\[
+ x_1 + 2x_2 - (-x_4 + 4) + 3x_4 = 1.
+\]
+A tiny bit of cheap computation yields
+\[
+ x_1 = -2x_2 -4x_4 + 5.
+\]
+Hence, all the pivots of the systems are expressed as linear combinations of
+free variables. The set of solutions of this system can be described as the set
+of quadruples $(-2x_2 - 4x_4 + 5, x_2, -x_4 + 4, x_4)$.
+
+Visualisation of the concepts of pivots and free variables is provided in
+\myref{figure}{fig:free-and-pivots}.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}[baseline={(5,0)}]
+  \newlength{\mysep}
+  \setlength{\mysep}{4mm}
+  \node at (-0.5,-0.8) {$\left(\vphantom{\rule{0pt}{1.5cm}}\right.$};
+  \node at (4.1,-0.8) {$\left.\vphantom{\rule{0pt}{1.5cm}}\right)$};
+  
+  % Pivots
+  \node[fill=BrickRed,inner sep=.5\mysep] at (0, 0) {};
+  \node[fill=BrickRed,inner sep=.5\mysep] at (2\mysep, -\mysep) {};
+  \node[fill=BrickRed,inner sep=.5\mysep] at (3\mysep, -2\mysep) {};
+  \node[fill=BrickRed,inner sep=.5\mysep] at (6\mysep, -3\mysep) {};
+  \node[fill=BrickRed,inner sep=.5\mysep] at (8\mysep, -4\mysep) {};
+
+  % Free variables
+  \foreach \x in {1, 4, 5, 7, 9} {
+   \node[fill=RoyalBlue,inner sep=.5\mysep] at (\x*\mysep,0) {};
+  }
+  \foreach \x in {4, 5, 7, 9} {
+   \node[fill=RoyalBlue,inner sep=.5\mysep] at (\x*\mysep,-\mysep) {};
+  }
+  \foreach \x in {4, 5, 7, 9} {
+   \node[fill=RoyalBlue,inner sep=.5\mysep] at (\x*\mysep,-2\mysep) {};
+  }
+  \foreach \x in {7, 9} {
+   \node[fill=RoyalBlue,inner sep=.5\mysep] at (\x*\mysep,-3\mysep) {};
+  }
+  \foreach \x in {9} {
+   \node[fill=RoyalBlue,inner sep=.5\mysep] at (\x*\mysep,-4\mysep) {};
+  }
+  
+  % Lower pivots
+  \foreach \x in {2, 3, 6, 8} {
+   \node[fill=ForestGreen,inner sep=.5\mysep] at (\x*\mysep,0) {};
+  }
+  \foreach \x in {3, 6, 8} {
+   \node[fill=ForestGreen,inner sep=.5\mysep] at (\x*\mysep,-\mysep) {};
+  }
+  \foreach \x in {6, 8} {
+   \node[fill=ForestGreen,inner sep=.5\mysep] at (\x*\mysep,-2\mysep) {};
+  }
+  \foreach \x in {8} {
+   \node[fill=ForestGreen,inner sep=.5\mysep] at (\x*\mysep,-3\mysep) {};
+  }
+ \end{tikzpicture}
+ \caption{Visual depiction of an eliminated matrix. \clr{Red} variables are
+  pivots, \clb{blue} ones are free and \clg{green} ones are pivots from lower
+  rows.}
+ \label{fig:free-and-pivots}
+\end{figure}
+
+% --------------
 
 We're now equipped to formulate a result about the `shape' of a linear system's
 solution set with a rather far-reaching importance.
