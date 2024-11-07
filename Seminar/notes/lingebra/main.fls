@@ -810,9 +810,14 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/newtx/nxlmi5.vf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/LibertineMathMI5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/NewTXMI5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/stxscr.tfm
-OUTPUT main.thm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/libertinus-type1/LibertinusSerif-Bold-tlf-t1.vf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/libertinus-type1/LibertinusSerif-Bold-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/libertine/LinLibertineT-tlf-sc-t1.vf
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/libertine/LinLibertineT-tlf-sc-t1--base.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxsy7.vf
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txsys.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txex-bar.tfm
+OUTPUT main.thm
 INPUT main.aux
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb
@@ -828,4 +833,5 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb

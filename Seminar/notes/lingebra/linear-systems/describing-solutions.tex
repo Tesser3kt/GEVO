@@ -264,6 +264,106 @@ Visualisation of the concepts of pivots and free variables is provided in
  \label{fig:free-and-pivots}
 \end{figure}
 
+Using \hyperref[def:vector]{vectors}, the solution set of the currently studied
+system can be expressed quite elegantly. First, the quadruple $(-2x_2 - 4x_4 +
+5, x_2,-x_4 + 4,x_4)$ corresponds to the column vector
+\[
+ \begin{pmatrix}
+  -2x_2 - 4x_4 + 5\\
+  x_2\\
+  -x_4 + 4\\
+  x_4
+ \end{pmatrix}.
+\]
+This vector can be further broken down into three vectors, two for the free
+variables and one for the constants. Explicitly,
+\[
+ \begin{pmatrix}
+  -2x_2 - 4x_4 + 5\\
+  x_2\\
+  -x_4 + 4\\
+  x_4
+ \end{pmatrix} = x_2
+ \begin{pmatrix}
+  -2\\
+  1\\
+  0\\
+  0
+ \end{pmatrix} + x_4
+ \begin{pmatrix}
+  -4\\
+  0\\
+  -1\\
+  1
+ \end{pmatrix} + 
+ \begin{pmatrix}
+  5\\
+  0\\
+  4\\
+  0
+ \end{pmatrix}.
+\]
+Take note that the last vector is a \emph{particular} solution of the system
+obtained by setting $x_2 = x_4 = 0$. Adding random multiples of the vectors
+\[
+ \begin{pmatrix}
+  -2\\
+  1\\
+  0\\
+  0
+ \end{pmatrix} \quad \text{and} \quad 
+ \begin{pmatrix}
+  -4\\
+  0\\
+  -1\\
+  1
+ \end{pmatrix}
+\]
+to this particular solution generates more solutions of the system.
+
+Let's make another example, shall we? In this eliminated system of two equations
+in three variables,
+\[
+ \left(
+  \begin{matrix*}[r]
+   1 & 1 & -1\\
+   0 & 0 & 2 \\
+  \end{matrix*}
+  \hspace{1mm}
+ \right|
+ \left.
+  \begin{matrix*}[r]
+   2\\
+   2
+  \end{matrix*}
+ \right),
+\]
+the variables $x_1$ and $x_3$ are pivots and $x_2$ is free. Judging from the
+previous example, we should be able to express its solution as $\mathbf{u} + x_2
+\mathbf{v}$ where $\mathbf{u}$ and $\mathbf{v}$ are vectors and, furthermore,
+$\mathbf{u}$ is some particular solution of the system at hand.
+
+Indeed, choosing $x_2$ to be a parameter, back-substitution yields $x_3 = 1$ and
+$x_1 = 2 - x_2 + x_3 = -x_2 + 3$. Hence, every vector of the shape
+\[
+ \begin{pmatrix}
+  -x_2 + 3\\
+  x_2\\
+  1
+ \end{pmatrix} = x_2
+ \begin{pmatrix}
+  -1\\
+  1\\
+  0
+ \end{pmatrix} + 
+ \begin{pmatrix}
+  3\\
+  0\\
+  1
+ \end{pmatrix}
+\]
+solves the system.
+
 % --------------
 
 We're now equipped to formulate a result about the `shape' of a linear system's
@@ -273,8 +373,112 @@ solution set with a rather far-reaching importance.
  The solution set of every linear system can be written in the form
  \[
   \{\mathbf{u} + t_1 \mathbf{v_1} + t_2 \mathbf{v_2} + \ldots +
-  t_n\mathbf{v_n}\},
+  t_l\mathbf{v_l}\},
  \]
- where $\mathbf{u}$ is a particular solution, $\mathbf{v_1},\ldots,\mathbf{v_n}$
- are vectors.
+ where $\mathbf{u}$ is a particular solution, $\mathbf{v_1},\ldots,\mathbf{v_l}$
+ are vectors and $t_1,\ldots,t_l$ are parameters corresponding to the free
+ variables of the eliminated system.
 \end{theorem}
+
+Before the proof, we formulate an immediate corollary.
+
+\begin{corollary}{Number of solutions of a linear system}{number-of-solutions-of-a-linear-system}
+ Every linear system has zero, one or infinitely many solutions.
+\end{corollary}
+\begin{corproof}
+ Referring to the form of the solution set of a linear system from
+ \myref{theorem}{thm:solution-set-of-a-linear-system}, we distinguish three
+ cases:
+ \begin{enumerate}
+  \item The vector $\mathbf{u}$ doesn't exist, therefore the system has \emph{no
+   solution}.
+  \item The vector $\mathbf{u}$ exists and there are no free variables (only
+   pivots) in the eliminated system. In this case, the solution is
+   \emph{unique}.
+  \item The vector $\mathbf{u}$ exists and there is at least one free variable
+   to be found in the eliminated system. In this case, the substitution of any
+   number in place of the free variables generates a solution. Hence, there are
+   \emph{infinitely many}.
+ \end{enumerate}
+\end{corproof}
+
+On our way to the proof of \myref{theorem}{thm:solution-set-of-a-linear-system},
+we make a preparatory step. We call a linear system \emph{homogeneous} if the
+right side of its every equation is $0$. Concretely, a \emph{homogeneous} linear
+system assumes the form
+\[
+ \begin{array}{r c r c c c r c r}
+  a_{11}x_1 & + & a_{12}x_2 & + & \ldots & + & a_{1n}x_n & = & 0\\
+  a_{21}x_1 & + & a_{22}x_2 & + & \ldots & + & a_{2n}x_n & = & 0\\
+            &   &           &   &        &   &           & \vdots & \\
+  a_{m1}x_1 & + & a_{m2}x_2 & + & \ldots & + & a_{mn}x_n & = & 0.
+ \end{array}
+\]
+Notice that this system always has at least one solution, namely the vector
+$\mathbf{0}$ -- the vector whose every entry is $0$. We shall first prove the
+following proposition.
+
+\begin{proposition}{Solution set of a homogeneous linear system}{solution-set-of-a-homogeneous-linear-system}
+ The solution set of a \emph{homogeneous} linear system can be written in the
+ form
+ \[
+  \{t_1 \mathbf{v_1} + t_2 \mathbf{v_2} + \ldots + t_l\mathbf{v_l}\},
+ \]
+ where $\mathbf{v_1},\ldots,\mathbf{v_l}$ are vectors and $t_1,\ldots,t_l$ are
+ parameters corresponding to the free variables of the eliminated system.
+\end{proposition}
+\begin{propproof}
+ We consider a homogeneous linear system as above:
+\begin{equation}
+ \label{eq:hom-lin-sys}
+ \begin{array}{r c r c c c r c r}
+  a_{1,1}x_1 & + & a_{1,2}x_2 & + & \ldots & + & a_{1,n}x_n & = & 0\\
+  a_{2,1}x_1 & + & a_{2,2}x_2 & + & \ldots & + & a_{2,n}x_n & = & 0\\
+            &   &           &   &        &   &           & \vdots & \\
+  a_{m,1}x_1 & + & a_{m,2}x_2 & + & \ldots & + & a_{m,n}x_n & = & 0.
+ \end{array}
+\end{equation}
+ Firstly, in the light of \myref{theorem}{thm:gauss-jordan}, we may assume that
+ the system has been reduced to echelon form. We shall prove that every pivot
+ can be written as a linear combination of free variables by induction on the
+ number $k$ of rows (counting from the bottom) already substituted into. This
+ basically mimics the traditional back-substitution process.
+
+ Without loss of generality, we may also assume that no rows full of zeroes are
+ left at the bottom of the system, as those can be ignored. Hence, the last row
+ of the eliminated linear system looks like this:
+ \[
+  a_{m,j}x_j + a_{m,j+1}x_{j+1} + \ldots + a_{m,n}x_n = 0
+ \]
+ for adequate $1 \leq j \leq n$ and $a_{m,j} \neq 0$. Here, $x_j$ is the pivot
+ and $x_{j+1},\ldots,x_n$ are free. This gives the expression
+ \[
+  x_j = -\frac{1}{a_{m,j}}(a_{m,j+1}x_{j+1} + \ldots + a_{m,n}x_n)
+ \]
+ of the pivot $x_j$ as a linear combination of the free variables
+ $x_{j+1},\ldots,x_n$. So, the result holds for $k = 0$.
+
+ Now, supposing all pivots in the last $k$ rows of the
+ system~\eqref{eq:hom-lin-sys} have been written as linear combinations of free
+ variables, we write the pivot of the $(m-k)$-th row (or $(k+1)$-st from the
+ bottom) also as a linear combination of free variables. Again, there exists
+ some smallest $1 \leq i \leq n$ such that $a_{m-k,i} \neq 0$. The $(m-k)$-th
+ row is thus
+ \[
+  a_{m-k,i}x_i + a_{m-k,i+1}x_{i+1} + \ldots + a_{m-k,n}x_n = 0.
+ \]
+ Performing an analogous computation gives
+ \begin{equation}
+  \label{eq:row-m-k}
+  x_i = - \frac{1}{a_{m-k}}(a_{m-k,i+1}x_{i+1} + \ldots + a_{m-k,n}x_n).
+ \end{equation}
+ All the variables found on the right side of~\eqref{eq:row-m-k} are either free
+ or pivots from lower rows. However, by induction hypothesis, all pivots from
+ lower rows have already been expressed as linear combinations of free
+ variables. Simple substitution now yields an expression of $x_i$ as a linear
+ combination of free variables. With $l$ denoting the number of free variables
+ of the eliminated system and splitting the solution vector into a sum of scalar
+ multiples of free variables, the result is proven.
+\end{propproof}
+
+
