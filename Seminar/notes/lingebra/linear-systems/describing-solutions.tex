@@ -1,10 +1,10 @@
 \section{Describing Solution Sets of Linear Systems}
 \label{sec:describing-solution-sets-of-linear-systems}
 
-In \myref{section}{sec:visualization}, we studied specific (simple) classes of
-linear systems and touched upon a few important concepts, including, but not
-limited to, \emph{parameters}, \emph{free variables}, \emph{underdetermined} and
-\emph{overdetermined} systems.
+In \myref{section}{sec:visualizing-linear-systems}, we studied specific (simple)
+classes of linear systems and touched upon a few important concepts, including,
+but not limited to, \emph{parameters}, \emph{free variables},
+\emph{underdetermined} and \emph{overdetermined} systems.
 
 We continue down this road and bring a general description of solution sets of
 linear systems. Before we formulate the result we shall endeavour to prove in
@@ -146,12 +146,12 @@ naturally.
 We further need to discuss the concept of \emph{free variables} and
 \emph{parameters}.
 
-In the \hyperref[sec:visualization]{previous section}, we described the solution
-set of the system~\eqref{eq:two-vars-one-eq} using three different ways. In each
-case, two of the variables were independent and the third was their linear
-combination. We style the two independent variables, \emph{parameters}. Vaguely
-said, a \emph{parameter} is a variable on the value thereof other variables
-depend.
+In the \hyperref[sec:visualizing-linear-systems]{previous section}, we described
+the solution set of the system~\eqref{eq:three-vars-one-eq} using three
+different ways. In each case, two of the variables were independent and the
+third was their linear combination. We style the two independent variables,
+\emph{parameters}. Vaguely said, a \emph{parameter} is a variable on the value
+whereof other variables depend.
 
 The question arises: `Which variables to choose as \emph{parameters}?' The
 answer descends: `Why, of course, my child, choose the \emph{free variables}!'
@@ -165,7 +165,7 @@ purpose of describing the value of the last variable standing. Custom dictates
 that all but the leftmost variable in such a row are labelled \emph{free} and
 the leftmost variable called a \emph{pivot}. In light of this, the heavenly
 answer can be decrypted -- the \emph{free} variables shall serve as
-\emph{parameters} and the value of the \emph{pivot} written as a linear
+\emph{parameters} and the value of the \emph{pivot} be written as a linear
 combination of free variables.
 
 To understand explicitly the preceding paragraph, consider the eliminated system
@@ -205,7 +205,7 @@ A tiny bit of cheap computation yields
 \[
  x_1 = -2x_2 -4x_4 + 5.
 \]
-Hence, all the pivots of the systems are expressed as linear combinations of
+Thereby, all the pivots of the system are expressed as linear combinations of
 free variables. The set of solutions of this system can be described as the set
 of quadruples $(-2x_2 - 4x_4 + 5, x_2, -x_4 + 4, x_4)$.
 
@@ -407,7 +407,7 @@ we make a preparatory step. We call a linear system \emph{homogeneous} if the
 right side of its every equation is $0$. Concretely, a \emph{homogeneous} linear
 system assumes the form
 \[
- \begin{array}{r c r c c c r c r}
+ \begin{array}{r c r c c c r c l}
   a_{11}x_1 & + & a_{12}x_2 & + & \ldots & + & a_{1n}x_n & = & 0\\
   a_{21}x_1 & + & a_{22}x_2 & + & \ldots & + & a_{2n}x_n & = & 0\\
             &   &           &   &        &   &           & \vdots & \\
@@ -431,7 +431,7 @@ following proposition.
  We consider a homogeneous linear system as above:
 \begin{equation}
  \label{eq:hom-lin-sys}
- \begin{array}{r c r c c c r c r}
+ \begin{array}{r c r c c c r c l}
   a_{1,1}x_1 & + & a_{1,2}x_2 & + & \ldots & + & a_{1,n}x_n & = & 0\\
   a_{2,1}x_1 & + & a_{2,2}x_2 & + & \ldots & + & a_{2,n}x_n & = & 0\\
             &   &           &   &        &   &           & \vdots & \\
@@ -442,7 +442,8 @@ following proposition.
  the system has been reduced to echelon form. We shall prove that every pivot
  can be written as a linear combination of free variables by induction on the
  number $k$ of rows (counting from the bottom) already substituted into. This
- basically mimics the traditional back-substitution process.
+ approach basically mimics and formalises the traditional back-substitution
+ process.
 
  Without loss of generality, we may also assume that no rows full of zeroes are
  left at the bottom of the system, as those can be ignored. Hence, the last row
@@ -459,9 +460,9 @@ following proposition.
  $x_{j+1},\ldots,x_n$. So, the result holds for $k = 0$.
 
  Now, supposing all pivots in the last $k$ rows of the
- system~\eqref{eq:hom-lin-sys} have been written as linear combinations of free
- variables, we write the pivot of the $(m-k)$-th row (or $(k+1)$-st from the
- bottom) also as a linear combination of free variables. Again, there exists
+ system~\eqref{eq:hom-lin-sys} have been expressed as linear combinations of
+ free variables, we write the pivot of the $(m-k)$-th row (or $(k+1)$-st from
+ the bottom) also as a linear combination of free variables. Again, there exists
  some smallest $1 \leq i \leq n$ such that $a_{m-k,i} \neq 0$. The $(m-k)$-th
  row is thus
  \[
@@ -473,12 +474,255 @@ following proposition.
   x_i = - \frac{1}{a_{m-k}}(a_{m-k,i+1}x_{i+1} + \ldots + a_{m-k,n}x_n).
  \end{equation}
  All the variables found on the right side of~\eqref{eq:row-m-k} are either free
- or pivots from lower rows. However, by induction hypothesis, all pivots from
- lower rows have already been expressed as linear combinations of free
+ or pivots from lower rows. However, by the induction hypothesis, all pivots
+ from lower rows have already been expressed as linear combinations of free
  variables. Simple substitution now yields an expression of $x_i$ as a linear
  combination of free variables. With $l$ denoting the number of free variables
- of the eliminated system and splitting the solution vector into a sum of scalar
- multiples of free variables, the result is proven.
+ of the eliminated system and with the solution vector having been split into a
+ sum of scalar multiples of free variables, the result is proven.
 \end{propproof}
 
+\begin{remark}{}{homogeneous-solutions}
+ By \myref{proposition}{prop:solution-set-of-a-homogeneous-linear-system} above,
+ a \emph{homogeneous linear system} has either one or infinitely many solutions
+ since the $n$-tuple $(0,0,\ldots,0)$ always solves it.
+\end{remark}
 
+\begin{example}{}{homogeneous-linear-1}
+ The echelon form of the homogeneous linear system
+ \[
+  \left(
+   \begin{matrix*}[r]
+    1 & 4 & 2\\
+    -2 & -3 & 1\\
+    3 & 7 & 1
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    0\\
+    0\\
+    0
+   \end{matrix*}
+  \right)
+ \]
+ is equal to
+ \[
+  \left(
+   \begin{matrix*}[r]
+    1 & 4 & 2\\
+    0 & 5 & 5\\
+    0 & 0 & 0
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    0\\
+    0\\
+    0
+   \end{matrix*}
+  \right).
+ \]
+ Hence, the variables $x_1$ and $x_2$ are \emph{pivots} and $x_3$ is
+ \emph{free}. Back-substitution gives $x_2 = -x_3$ and $x_1 = 2x_3$. The
+ solution set of this system is thus given by all the vectors
+ \[
+  \begin{pmatrix}
+   2x_3\\
+   -x_3\\
+   x_3
+  \end{pmatrix} = x_3
+  \begin{pmatrix}
+   2\\
+   -1\\
+   1
+  \end{pmatrix}.
+ \]
+ In the notation of
+ \myref{proposition}{prop:solution-set-of-a-homogeneous-linear-system}, we'd
+ have
+ \[
+  t_1 = x_3 \quad \text{and} \quad \mathbf{v}_1 =
+  \begin{pmatrix}
+   2\\
+   -1\\
+   1
+  \end{pmatrix}.
+ \]
+\end{example}
+
+We've reached the climax of the section -- the proof of
+\myref{theorem}{thm:solution-set-of-a-linear-system}. Armed with
+\myref{proposition}{prop:solution-set-of-a-homogeneous-linear-system}, it
+behoves us to merely work a link between the solution set of a linear system and
+its corresponding homogeneous system.
+
+\begin{thmproof}[of \myref{theorem}{thm:solution-set-of-a-linear-system}]
+ Let
+ \begin{equation}
+  \label{eq:lin-sys}
+  \begin{array}{r c r c c c r c l}
+   a_{1,1}x_1 & + & a_{1,2}x_2 & + & \ldots & + & a_{1,n}x_n & = & c_1\\
+   a_{2,1}x_1 & + & a_{2,2}x_2 & + & \ldots & + & a_{2,n}x_n & = & c_2\\
+             &   &           &   &        &   &           & \vdots & \\
+   a_{m,1}x_1 & + & a_{m,2}x_2 & + & \ldots & + & a_{m,n}x_n & = & c_m.
+  \end{array}
+ \end{equation}
+ be the linear system in question. We proceed to show that its every solution is
+ of the form $\mathbf{u} + \mathbf{h}$, where $\mathbf{u}$ is a particular
+ solution and $\mathbf{h}$ is a solution of the corresponding homogeneous linear
+ system (as in~\eqref{eq:hom-lin-sys}), and that, contrariwise, for every
+ solution $\mathbf{h}$ of the homogeneous linear system, the vector $\mathbf{u}
+ + \mathbf{h}$ solves the system~\eqref{eq:lin-sys}, assuming $\mathbf{u}$ does.
+
+ Let's start with the former. Denote by $\mathbf{u}$ any fixed solution of
+ system~\eqref{eq:lin-sys}. We want to show that any other solution $\mathbf{v}$
+ of the same system can be written as $\mathbf{v} = \mathbf{u} + \mathbf{h}$
+ where $\mathbf{h}$ solves the corresponding homogeneous linear
+ system~\eqref{eq:hom-lin-sys}. For this, it is clearly enough to show that
+ $\mathbf{h} \coloneqq \mathbf{v} - \mathbf{u}$ solves the
+ system~\eqref{eq:hom-lin-sys}. Substituting $x_i \coloneqq h_i = v_i - u_i$
+ into the left side of the $j$-th equation of~\eqref{eq:hom-lin-sys} yields
+ \[
+  a_{j,1}(v_1 - u_1) + a_{j,2}(v_2 - u_2) + \ldots + a_{j,n}(v_n - u_n),
+ \]
+ which can be broken into
+ \[
+  (a_{j,1}v_1 + \ldots + a_{j,n}v_n) - (a_{j,1}u_1 + \ldots + a_{j,n}u_n).
+ \]
+ As both $\mathbf{u}$ and $\mathbf{v}$ solve~\eqref{eq:lin-sys}, we know that
+ \[
+  a_{j,1}v_1 + \ldots + a_{j,n}v_n = c_j = a_{j,1}u_1 + \ldots + a_{j,n}u_n,
+ \]
+ and thus
+ \[
+  (a_{j,1}v_1 + \ldots + a_{j,n}v_n) - (a_{j,1}u_1 + \ldots + a_{j,n}u_n) = c_j
+  - c_j = 0.
+ \]
+ This is true for all $1 \leq j \leq m$, hence the result.
+
+ As for the inverse inclusion, we must show that $\mathbf{u} + \mathbf{h}$ where
+ $\mathbf{h}$ is an arbitrary solution of~\eqref{eq:hom-lin-sys} also
+ solves~\eqref{eq:lin-sys}, assuming that $\mathbf{u}$ solves it. This time, we
+ substitute $x_i \coloneqq u_i + h_i$ into the left side of the $j$-th equation
+ of~\eqref{eq:lin-sys} and get
+ \begin{equation}
+  \label{eq:part+hom}
+  a_{j,1}(u_1 + h_1) + \ldots + a_{j,n}(u_n + h_n) = (a_{j,1}u_1 + \ldots +
+  a_{j,n}u_n) + (a_{j,1}h_1 + \ldots + a_{j,n}h_n).
+ \end{equation}
+ We know that
+ \[
+  \begin{array}{r c c c r c l}
+   a_{j,1}u_1 & + & \ldots & + & a_{j,n}u_n & = & c_j,\\
+   a_{j,1}h_1 & + & \ldots & + & a_{j,n}h_n & = & 0.
+  \end{array}
+ \]
+ Thus, the expression~\eqref{eq:part+hom} equals $c_j + 0 = c_j$ and $\mathbf{u}
+ + \mathbf{h}$ solves the $j$-th equations of~\eqref{eq:lin-sys}. Again, this
+ being true for all $1 \leq j \leq m$ proves this inclusion and with it, the
+ theorem.
+\end{thmproof}
+
+\begin{example}{}{linear-system-1}
+ We change the right side of the system from
+ \myref{example}{exam:homogeneous-linear-1} to produce
+ \[
+  \left(
+   \begin{matrix*}[r]
+    1 & 4 & 2\\
+    -2 & -3 & 1\\
+    3 & 7 & 1
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    5\\
+    0\\
+    5
+   \end{matrix*}
+  \right),
+ \]
+ and after elimination:
+ \[
+  \left(
+   \begin{matrix*}[r]
+    1 & 4 & 2\\
+    0 & 5 & 5\\
+    0 & 0 & 0
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    5\\
+    10\\
+    0
+   \end{matrix*}
+  \right).
+ \]
+ Typical back-substitution yields $x_2 = 2 - x_3$ and $x_1 = -3 + 2x_3$. The
+ solution can thus be written as
+ \[
+  \begin{pmatrix}
+   -3\\
+   2\\
+   0
+  \end{pmatrix} + x_3
+  \begin{pmatrix}
+   2\\
+   -1\\
+   1
+  \end{pmatrix},
+ \]
+ where $\mathbf{u} = \begin{psmallmatrix} -3 \\ 2 \\ 0 \end{psmallmatrix}$ is a
+ particular solution of the system and $\mathbf{h} = x_3\begin{psmallmatrix} 2
+ \\ -1 \\ 1 \end{psmallmatrix}$ is for any $x_3$ a solution of the corresponding
+ homogeneous linear system from \myref{example}{exam:homogeneous-linear-1}.
+\end{example}
+
+\begin{exercise}{}{describing-solution-set}
+ Solve each of the systems below using matrix notation. Write the solution in
+ the form of \myref{theorem}{thm:solution-set-of-a-linear-system}.
+ \[
+  \begin{array}[t]{r c r c r}
+   3x & + & 6y & = & 18\\
+   x & + & 2y & = & 6
+  \end{array} \hspace{2em}
+  \begin{array}[t]{r c r c r}
+   x & + & y & = & 1\\
+   x & - & y & = & -1
+  \end{array} \hspace{2em}
+  \begin{array}[t]{r c r c r c r c r}
+   x_1 & + & 2x_2 & - & x_3 & & & = & 3\\
+   2x_1 & + & x_2 & & & + & x_4 & = & 4\\
+   x_1 & - & x_2 & + & x_3 & + & x_4 & = & 1
+  \end{array}
+ \]
+\end{exercise}
+
+\begin{exercise}{}{conic-section}
+ Show that any five points in the plane $\R^2$ lie on a common \emph{conic
+ section}, that is, they all satisfy an equation of the form
+ \[
+  ax^2 + by^2 + cxy + dx + ey + f = 0
+ \]
+ for some $a,\ldots,f \in \R$.
+\end{exercise}
+
+\begin{exercise}{}{homogeneous-system-solutions}
+ Prove that if $\mathbf{s}$ and $\mathbf{t}$ are solutions of a homogeneous
+ linear system, then so are
+ \begin{enumerate}
+  \item $\mathbf{s} + \mathbf{t}$,
+  \item $3 \mathbf{s}$,
+  \item $k \mathbf{s} + m \mathbf{t}$ for any numbers $k,m$.
+ \end{enumerate}
+ What is wrong with the following argument: `These three show that if a
+ homogeneous system has one solution, then it has many solutions -- any multiple
+ of a solution is another solution, and any sum of solutions is also a solution
+ -- so there are no homogeneous linear systems with exactly one solution.'?
+\end{exercise}
