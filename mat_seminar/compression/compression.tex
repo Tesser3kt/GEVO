@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt,svgnames,handout]{beamer}
+\documentclass[aspectratio=169,11pt,svgnames]{beamer}
 
 \usepackage[czech]{babel}
 \usepackage[czech=quotes]{csquotes}
@@ -89,6 +89,7 @@ centered, draw=black, fill=Green!30]
   \pause
   \item Druhá možnost je \alert{ztrátová komprese}, kdy jsou některé části
    souboru trochu změněny pro usnadnění komprese za cenu ztráty přesnosti.
+  \pause
   \item Můžeme uložit mnohem více souborů, když jsou komprimované.
   \pause
   \item Komprimované soubory se též rychleji přenášejí mezi počítači.
@@ -128,14 +129,14 @@ centered, draw=black, fill=Green!30]
 \end{frame}
 
 \begin{frame}
- \frametitle{Run-length komprimace}
+ \frametitle{Run-length komprese}
  Tato posloupnost zabírá $16 \cdot 3 = 48\,B$, protože každý pixel zabírá
  $3\,B$, jeden byte pro každou barevnou složku.
  \begin{center}
   \includegraphics[width=.5\textwidth]{image-4.pdf}
  \end{center}
  \pause
- Jeden způsob komprimace (tzv. \alert{run-length} komprimace) využívá toho, že
+ Jeden způsob komprese (tzv. \alert{run-length} komprese) využívá toho, že
  se některé pixely po sobě opakují.
  \pause
  Není proto třeba si pamatovat každý pixel zvlášť, ale jenom jeden + záznam o
@@ -143,7 +144,7 @@ centered, draw=black, fill=Green!30]
 \end{frame}
 
 \begin{frame}
- \frametitle{Run-length komprimace}
+ \frametitle{Run-length komprese}
  Na obrázku
  \begin{center}
   \includegraphics[width=8cm]{image-4.pdf}
@@ -159,7 +160,7 @@ centered, draw=black, fill=Green!30]
 \end{frame}
 
 \begin{frame}
- \frametitle{Run-length komprimace}
+ \frametitle{Run-length komprese}
  Jediným rozumným řešením je před každou posloupnost stejných pixelů napsat
  číslo, které říká, kolik jich následuje.
  \pause
@@ -367,13 +368,13 @@ centered, draw=black, fill=Green!30]
  \vspace*{-1em}
  \begin{itemize}[label=\textbullet]
   \item Nejběžnější formáty, ve kterých se ukládají audio soubory \alert{bez
-   jakékoli komprimace}, jsou \alert{WAV} (.wav, Wave Audio File Format) nebo
+   jakékoli komprese}, jsou \alert{WAV} (.wav, Wave Audio File Format) nebo
    \alert{AIFF} (.aiff, Audio Interchange File Format).
   \item Bezztrátově komprimované audio se ukládá v mnoha různých formátech.
    Nejčastěji asi jako
    \begin{itemize}[label=\textemdash]
     \item \alert{FLAC} (.flac, Free Lossless Audio Codec), který používá metodu
-     komprimace podobnou Huffmanově stromu;
+     komprese podobnou Huffmanově stromu;
     \pause
     \item \alert{Monkey's Audio} (.ape) je nejnovější bezztrátová formát audia a
      využívá složitý algoritmus pro kódování. Tím dosahuje nejmenší velikosti
@@ -486,7 +487,7 @@ centered, draw=black, fill=Green!30]
 
 \begin{frame}
  \frametitle{Video -- formáty}
- Kvůli paměťové náročnosti se formáty bezztrátové komprimace videa téměř
+ Kvůli paměťové náročnosti se formáty bezztrátové komprese videa téměř
  nepoužívají. \pause Za zmínku stojí například formáty používané ve filmovém
  průmyslu určené k archivaci, jako
  \begin{itemize}[label=\textbullet]
