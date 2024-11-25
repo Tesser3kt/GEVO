@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.17)  5 NOV 2024 19:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.17)  14 NOV 2024 19:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1442,7 +1442,7 @@ Underfull \vbox (badness 2057) has occurred while \output is active []
 LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 209.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
-) (./linear-systems/describing-solutions.tex
+) (./linear-systems/gauss-jordan.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
@@ -1450,70 +1450,166 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
 
-
-LaTeX Warning: Hyper reference `sec:visualization' on page 9 undefined on input line 4.
-
-
-LaTeX Warning: Reference `sec:visualization' on page 9 undefined on input line 4.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [9]
+Package hyperref Info: bookmark level for unknown probsol defaults to 0 on input line 24.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 40.
+LaTeX Font Info:    Trying to load font information for T1+lmvtt on input line 40.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmvtt.fd
+File: t1lmvtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
+(Font)              scaled to size 7.3pt on input line 56.
+LaTeX Font Info:    Font shape `T1/MinLibertinus/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 7.3pt on input line 56.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 7.3pt on input line 56.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 7.3pt on input line 56.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 7.3pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 7.3pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 7.3pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 7.3pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+
+
+[10{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+Package hyperref Info: bookmark level for unknown thmproof defaults to 0 on input line 123.
+
+
+[11]
+
+[12]
+
+[13]
+
+[14]
+
+[15]) (./linear-systems/visualization.tex
+
+[16] (./linear-systems/visualization/2d.tex
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+
+
+[17]
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 80.
+
+
+[18]) (./linear-systems/visualization/3d.tex
+
+[19]
+
+[20]
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 155.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 6.1pt on input line 155.
+
+
+[21]
+
+[22]
+
+[23])) (./linear-systems/describing-solutions.tex
+
+[24]
 LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
 (Font)              scaled to size 10.95pt on input line 80.
 LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
 (Font)              scaled to size 8.0pt on input line 80.
 LaTeX Font Info:    Font shape `T1/MinLibertinus/b/n' will be
 (Font)              scaled to size 6.1pt on input line 80.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 101.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.1pt on input line 101.
 
 
-[10{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_sfissr.enc}]
-
-LaTeX Warning: Hyper reference `sec:visualization' on page 11 undefined on input line 149.
-
-
-LaTeX Warning: Reference `eq:two-vars-one-eq' on page 11 undefined on input line 150.
-
-
-
-[11]
+[25{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_sfissr.enc}]
 \mysep=\skip80
-))
+
+
+[26]
+Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 389.
+
+
+[27]
+Package hyperref Info: bookmark level for unknown propproof defaults to 0 on input line 431.
+
+
+[28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[29]
+
+[30]
+
+[31]))
 \tf@thm=\write5
 \openout5 = `main.thm'.
 
 
 
-[12] (./main.aux)
+[32] (./main.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 53765 strings out of 473579
- 1247943 string characters out of 5728234
- 1778598 words of memory out of 5000000
- 75580 multiletter control sequences out of 15000+600000
- 705248 words of font info for 121 fonts, out of 8000000 for 9000
+ 54860 strings out of 473579
+ 1272646 string characters out of 5728234
+ 3754687 words of memory out of 5000000
+ 76556 multiletter control sequences out of 15000+600000
+ 758280 words of font info for 164 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,12n,120p,1190b,1459s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (12 pages, 620111 bytes).
+ 94i,12n,120p,1190b,2830s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmvtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on main.pdf (32 pages, 13243210 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 158 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 25994 PDF objects out of 26593 (max. 8388607)
+ 13090 compressed objects within 131 object streams
+ 128 named destinations out of 1000 (max. 500000)
+ 88914 words of extra memory for PDF output out of 89155 (max. 10000000)
 
