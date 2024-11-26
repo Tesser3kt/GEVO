@@ -1,0 +1,113 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% LaTeX 3
+\usepackage{xparse}
+
+% TikZ
+\usepackage{tikz}
+\usetikzlibrary{calc, fit, positioning, tikzmark}
+
+\makeatletter
+\newcommand{\gettikzxy}[3]{%
+  \tikz@scan@one@point\pgfutil@firstofone#1\relax
+  \edef#2{\the\pgf@x}%
+  \edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\NewDocumentCommand \jesum {mmm}
+{
+ \begin{tikzpicture}[baseline=-.5ex]
+  \node (exp) {$\displaystyle #1$};
+  
+  % Frame
+  \draw (exp.north west) to node[midway,yshift=2mm]{\footnotesize $#3$}
+   (exp.north east);
+  \draw (exp.south west) to node[midway,yshift=-2mm]{\footnotesize $#2$}
+   (exp.south east);
+  
+  \draw (exp.south east) -- ++(0,0.15);
+  \draw (exp.north east) -- ++(0,-0.15);
+
+  % Sigma
+  \gettikzxy{(exp.north west)}{\x}{\y};
+  \gettikzxy{(exp.south west)}{\bx}{\by};
+  
+  \coordinate (a) at ($\reflectbox{(}exp.north west\reflectbox{)} + {\y-\by}*\reflectbox{(}-0.02,0\reflectbox{)}$);
+  \coordinate (b) at ($\reflectbox{(}exp.south west\reflectbox{)} + {\y-\by}*\reflectbox{(}-0.02,0\reflectbox{)}$);
+
+  \coordinate (a2) at ($\reflectbox{(}a\reflectbox{)}+{\y-\by}*\reflectbox{(}0.015,0\reflectbox{)}$);
+  \gettikzxy{(a2)}{\ax}{\ay};
+  \gettikzxy{(exp.center)}{\cx}{\cy};
+  \coordinate (c) at (\ax,\cy);
+
+  \draw (exp.north west) -- (a);
+  \draw (exp.south west) -- (b);
+  \draw (a) -- (c);
+  \draw (c) -- (b);
+ \end{tikzpicture}
+}
+
+\NewDocumentCommand \jeprod {mmm}
+{
+ \begin{tikzpicture}[baseline=-.5ex]
+
+  % Bound and expression nodes
+  \node (exp) {$\displaystyle #1$};
+  \node [anchor=north east,minimum width=.7cm] (lower) at (exp.north west)
+   {\footnotesize $#2$};
+  \node [anchor=north west,minimum width=.7cm] (upper) at (exp.north east)
+   {\footnotesize $#3$};
+
+  % Calculating coordinates
+  \coordinate (la) at (exp.north west);
+  \gettikzxy{(la)}{\lax}{\lay};
+  \gettikzxy{(exp.south west)}{\lbx}{\lby};
+
+  \coordinate (ua) at (exp.north east);
+  \gettikzxy{(ua)}{\uax}{\uay};
+  \gettikzxy{(exp.south east)}{\ubx}{\uby};
+
+  % Pi frame
+  \draw (lower.north west) -- (upper.north east);
+
+  \draw (la) -- (\lax,\lby);
+
+  \draw (ua) -- (\uax,\uby);
+
+  % Pi decorations
+  \draw (lower.north west) -- ++(0,-.2);
+  \draw (upper.north east) -- ++(0,-.2);
+  \draw ($\reflectbox{(}exp.south west\reflectbox{)} + \reflectbox{(}-0.1,0\reflectbox{)}$) -- ($\reflectbox{(}exp.south west\reflectbox{)} + \reflectbox{(}0.1,0\reflectbox{)}$);
+  \draw ($\reflectbox{(}exp.south east\reflectbox{)} + \reflectbox{(}-0.1,0\reflectbox{)}$) -- ($\reflectbox{(}exp.south east\reflectbox{)} + \reflectbox{(}0.1,0\reflectbox{)}$);
+ \end{tikzpicture}
+}
+
+\begin{document}
+ Definice násobení mnohočlenů:
+ \[
+  \reflectbox{\left(} \reflectbox{\sum}{p_ix^{i}}{i=0}{n} \reflectbox{\right)} \cdot \reflectbox{\left(} \reflectbox{\sum}{q_jx^{j}}{j=0}{m}
+  \reflectbox{\right)} = \reflectbox{\sum}{\reflectbox{\left(}\reflectbox{\sum}{p_lq_{k-l}}{l=0}{k}\reflectbox{\right)}x^{k}}{k=0}{n+m}.
+ \]
+ Definice determinantu:
+ \[
+  \det A \coloneqq \reflectbox{\sum}{\reflectbox{\prod}{a_{i,\sigma(i\reflectbox{)}}}{i=1}{n}}{\sigma \in S_n}{}.
+ \]
+ Náhodnej součin:
+ \[
+  \reflectbox{\prod}{\reflectbox{(}5y-3\reflectbox{)} \cdot \reflectbox{\prod}{\frac{2x-3}{5x^2 - 6}}{x=0}{\infty}}{y=8}{5 \cdot
+  10^{17}}.
+ \]
+\end{document}

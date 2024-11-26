@@ -1,0 +1,37 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech]{babel}
+% Fonts %
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% LaTeX 3
+\usepackage{xparse}
+
+% TikZ
+\usepackage{tikz}
+\usetikzlibrary{calc, fit, positioning, tikzmark}
+
+\begin{document}
+ Definice násobení mnohočlenů:
+ \[
+  \left( \sum{p_ix^{i}}{i=0}{n} \right) \cdot \left( \sum{q_jx^{j}}{j=0}{m}
+  \right) = \sum{\left(\sum{p_lq_{k-l}}{l=0}{k}\right)x^{k}}{k=0}{n+m}.
+ \]
+ Definice determinantu:
+ \[
+  \det A \coloneqq \sum{\prod{a_{i,\sigma(i)}}{i=1}{n}}{\sigma \in S_n}{}.
+ \]
+ Náhodnej součin:
+ \[
+  \prod{(5y-3) \cdot \prod{\frac{2x-3}{5x^2 - 6}}{x=0}{\infty}}{y=8}{5 \cdot
+  10^{17}}.
+ \]
+\end{document}

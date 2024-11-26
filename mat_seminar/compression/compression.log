@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  14 NOV 2024 12:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.17)  25 NOV 2024 08:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,7 +6,7 @@ entering extended mode
 **compression.tex
 (./compression.tex
 LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
+L3 programming layer <2024-08-30>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2024/01/06 v3.71 A class for typesetting presentations
 (/usr/local/texlive/2024/texmf-dist/tex/latex/beamer/beamerbasemodes.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -275,7 +275,7 @@ Package: xxcolor 2003/10/24 ver 0.1
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-05-23 v7.01i Hypertext links for LaTeX
+Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
  (/usr/local/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -312,7 +312,7 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \Hy@linkcounter=\count308
 \Hy@pagecounter=\count309
  (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-05-23 v7.01i Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -320,7 +320,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count310
  (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-05-23 v7.01i Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -364,7 +364,7 @@ Package hyperref Message: Stopped early.
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2024-05-23 v7.01i Hyperref driver for pdfTeX
+File: hpdftex.def 2024-07-10 v7.01j Hyperref driver for pdfTeX
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -541,13 +541,13 @@ Package: amsthm 2020/05/29 v2.20.6
 \beamer@dima=\dimen293
 \beamer@dimb=\dimen294
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2024/06/02 v24.6 The Babel package
+Package: babel 2024/08/29 v24.9 The Babel package
 \babel@savecnt=\count343
 \U@D=\dimen295
 \l@unhyphenated=\language89
  (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
-LaTeX Info: Redefining \textlatin on input line 3930.
+LaTeX Info: Redefining \textlatin on input line 3933.
 \bbl@dirlevel=\count344
  (/usr/local/texlive/2024/texmf-dist/tex/generic/babel-czech/czech.ldf
 Language: czech 2008/07/06 v3.1a Czech support from the babel system
@@ -689,7 +689,7 @@ Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 \pgfopts@list@add@a@toks=\toks52
 \pgfopts@list@add@b@toks=\toks53
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
+Package: tcolorbox 2024/07/10 version 6.3.0 text color boxes
  (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks54
@@ -1207,60 +1207,20 @@ Package pdftex.def Info: logo.png  used on input line 99.
 [3
 
 {/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/sourcesanspro/a_5ponh6.enc}]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 99.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[4
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 99.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[5
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 99.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[6
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 99.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[7
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 99.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[8
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 101.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
 
 
-[9
+[4
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 111.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<image-1.pdf, id=91, 871.69604pt x 275.14859pt>
+<image-1.pdf, id=65, 871.69604pt x 275.14859pt>
 File: image-1.pdf Graphic file (type pdf)
 <use image-1.pdf>
 Package pdftex.def Info: image-1.pdf  used on input line 111.
@@ -1271,14 +1231,14 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 111.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[10
+[5
 
  <./image-1.pdf>]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 120.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<image-2.pdf, id=105, 871.69604pt x 275.14859pt>
+<image-2.pdf, id=79, 871.69604pt x 275.14859pt>
 File: image-2.pdf Graphic file (type pdf)
 <use image-2.pdf>
 Package pdftex.def Info: image-2.pdf  used on input line 120.
@@ -1289,14 +1249,14 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 120.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[11
+[6
 
  <./image-2.pdf>]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 129.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<image-3.pdf, id=118, 871.69604pt x 275.14859pt>
+<image-3.pdf, id=92, 871.69604pt x 275.14859pt>
 File: image-3.pdf Graphic file (type pdf)
 <use image-3.pdf>
 Package pdftex.def Info: image-3.pdf  used on input line 129.
@@ -1307,7 +1267,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 129.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[12
+[7
 
  <./image-3.pdf>]
 File: logo.png Graphic file (type png)
@@ -1334,7 +1294,7 @@ LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/it' aliased to
 (Font)              `T1/SourceSansPro-TLF/regular/it' on input line 144.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/it' will be
 (Font)              scaled to size 6.0pt on input line 144.
-<image-4.pdf, id=139, 442.02956pt x 28.90588pt>
+<image-4.pdf, id=114, 442.02956pt x 28.90588pt>
 File: image-4.pdf Graphic file (type pdf)
 <use image-4.pdf>
 Package pdftex.def Info: image-4.pdf  used on input line 144.
@@ -1345,35 +1305,9 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 144.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[13
+[8
 
  <./image-4.pdf>]
-File: image-4.pdf Graphic file (type pdf)
-<use image-4.pdf>
-Package pdftex.def Info: image-4.pdf  used on input line 144.
-(pdftex.def)             Requested size: 204.85846pt x 13.39655pt.
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 144.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[14
-
-]
-File: image-4.pdf Graphic file (type pdf)
-<use image-4.pdf>
-Package pdftex.def Info: image-4.pdf  used on input line 144.
-(pdftex.def)             Requested size: 204.85846pt x 13.39655pt.
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 144.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[15
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 160.
@@ -1382,7 +1316,7 @@ File: image-4.pdf Graphic file (type pdf)
 <use image-4.pdf>
 Package pdftex.def Info: image-4.pdf  used on input line 160.
 (pdftex.def)             Requested size: 227.62204pt x 14.88515pt.
-<image-5.pdf, id=161, 303.81186pt x 28.90588pt>
+<image-5.pdf, id=124, 303.81186pt x 28.90588pt>
 File: image-5.pdf Graphic file (type pdf)
 <use image-5.pdf>
 Package pdftex.def Info: image-5.pdf  used on input line 160.
@@ -1393,26 +1327,9 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 160.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[16
+[9
 
  <./image-5.pdf>]
-File: image-4.pdf Graphic file (type pdf)
-<use image-4.pdf>
-Package pdftex.def Info: image-4.pdf  used on input line 160.
-(pdftex.def)             Requested size: 227.62204pt x 14.88515pt.
-File: image-5.pdf Graphic file (type pdf)
-<use image-5.pdf>
-Package pdftex.def Info: image-5.pdf  used on input line 160.
-(pdftex.def)             Requested size: 156.49014pt x 14.88956pt.
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 160.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[17
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 186.
@@ -1421,7 +1338,7 @@ File: image-4.pdf Graphic file (type pdf)
 <use image-4.pdf>
 Package pdftex.def Info: image-4.pdf  used on input line 186.
 (pdftex.def)             Requested size: 227.62204pt x 14.88515pt.
-<image-6.pdf, id=187, 332.54594pt x 28.8053pt>
+<image-6.pdf, id=145, 332.54594pt x 28.8053pt>
 File: image-6.pdf Graphic file (type pdf)
 <use image-6.pdf>
 Package pdftex.def Info: image-6.pdf  used on input line 186.
@@ -1436,114 +1353,9 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 186.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[18
+[10
 
  <./image-6.pdf>]
-File: image-4.pdf Graphic file (type pdf)
-<use image-4.pdf>
-Package pdftex.def Info: image-4.pdf  used on input line 186.
-(pdftex.def)             Requested size: 227.62204pt x 14.88515pt.
-File: image-6.pdf Graphic file (type pdf)
-<use image-6.pdf>
-Package pdftex.def Info: image-6.pdf  used on input line 186.
-(pdftex.def)             Requested size: 170.71652pt x 14.78807pt.
-
-Overfull \vbox (12.06677pt too high) detected at line 186
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 186.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[19
-
-]
-File: image-4.pdf Graphic file (type pdf)
-<use image-4.pdf>
-Package pdftex.def Info: image-4.pdf  used on input line 186.
-(pdftex.def)             Requested size: 227.62204pt x 14.88515pt.
-File: image-6.pdf Graphic file (type pdf)
-<use image-6.pdf>
-Package pdftex.def Info: image-6.pdf  used on input line 186.
-(pdftex.def)             Requested size: 170.71652pt x 14.78807pt.
-
-Overfull \vbox (12.06677pt too high) detected at line 186
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 186.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[20
-
-]
-File: image-4.pdf Graphic file (type pdf)
-<use image-4.pdf>
-Package pdftex.def Info: image-4.pdf  used on input line 186.
-(pdftex.def)             Requested size: 227.62204pt x 14.88515pt.
-File: image-6.pdf Graphic file (type pdf)
-<use image-6.pdf>
-Package pdftex.def Info: image-6.pdf  used on input line 186.
-(pdftex.def)             Requested size: 170.71652pt x 14.78807pt.
-
-Overfull \vbox (12.06677pt too high) detected at line 186
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 186.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[21
-
-]
-File: image-4.pdf Graphic file (type pdf)
-<use image-4.pdf>
-Package pdftex.def Info: image-4.pdf  used on input line 186.
-(pdftex.def)             Requested size: 227.62204pt x 14.88515pt.
-File: image-6.pdf Graphic file (type pdf)
-<use image-6.pdf>
-Package pdftex.def Info: image-6.pdf  used on input line 186.
-(pdftex.def)             Requested size: 170.71652pt x 14.78807pt.
-
-Overfull \vbox (12.06677pt too high) detected at line 186
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 186.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[22
-
-]
-File: image-4.pdf Graphic file (type pdf)
-<use image-4.pdf>
-Package pdftex.def Info: image-4.pdf  used on input line 186.
-(pdftex.def)             Requested size: 227.62204pt x 14.88515pt.
-File: image-6.pdf Graphic file (type pdf)
-<use image-6.pdf>
-Package pdftex.def Info: image-6.pdf  used on input line 186.
-(pdftex.def)             Requested size: 170.71652pt x 14.78807pt.
-
-Overfull \vbox (12.06677pt too high) detected at line 186
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 186.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[23
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 200.
@@ -1554,31 +1366,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 200.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[24
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 200.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[25
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 200.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[26
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 200.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[27
+[11
 
 ]
 File: logo.png Graphic file (type png)
@@ -1589,7 +1377,7 @@ File: image-4.pdf Graphic file (type pdf)
 <use image-4.pdf>
 Package pdftex.def Info: image-4.pdf  used on input line 214.
 (pdftex.def)             Requested size: 227.62204pt x 14.88515pt.
-<image-7.pdf, id=295, 442.02956pt x 64.10399pt>
+<image-7.pdf, id=212, 442.02956pt x 64.10399pt>
 File: image-7.pdf Graphic file (type pdf)
 <use image-7.pdf>
 Package pdftex.def Info: image-7.pdf  used on input line 214.
@@ -1600,19 +1388,19 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 214.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[28
+[12
 
  <./image-7.pdf>]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 230.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<tree-1.pdf, id=309, 314.52492pt x 73.04616pt>
+<tree-1.pdf, id=225, 314.52492pt x 73.04616pt>
 File: tree-1.pdf Graphic file (type pdf)
 <use tree-1.pdf>
 Package pdftex.def Info: tree-1.pdf  used on input line 230.
 (pdftex.def)             Requested size: 170.71652pt x 39.64828pt.
-<tree-2.pdf, id=310, 244.31442pt x 87.70088pt>
+<tree-2.pdf, id=226, 244.31442pt x 87.70088pt>
 File: tree-2.pdf Graphic file (type pdf)
 <use tree-2.pdf>
 Package pdftex.def Info: tree-2.pdf  used on input line 230.
@@ -1623,34 +1411,17 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 230.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[29
+[13
 
  <./tree-1.pdf> <./tree-2.pdf
 
 pdfTeX warning: pdflatex (file ./tree-2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-File: tree-1.pdf Graphic file (type pdf)
-<use tree-1.pdf>
-Package pdftex.def Info: tree-1.pdf  used on input line 230.
-(pdftex.def)             Requested size: 170.71652pt x 39.64828pt.
-File: tree-2.pdf Graphic file (type pdf)
-<use tree-2.pdf>
-Package pdftex.def Info: tree-2.pdf  used on input line 230.
-(pdftex.def)             Requested size: 128.0374pt x 45.96066pt.
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 230.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[30
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 240.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<tree-3.pdf, id=403, 174.56628pt x 113.99841pt>
+<tree-3.pdf, id=316, 174.56628pt x 113.99841pt>
 File: tree-3.pdf Graphic file (type pdf)
 <use tree-3.pdf>
 Package pdftex.def Info: tree-3.pdf  used on input line 240.
@@ -1661,14 +1432,14 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 240.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[31
+[14
 
  <./tree-3.pdf>]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 250.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<tree-4.pdf, id=439, 122.7029pt x 140.60135pt>
+<tree-4.pdf, id=351, 122.7029pt x 140.60135pt>
 File: tree-4.pdf Graphic file (type pdf)
 <use tree-4.pdf>
 Package pdftex.def Info: tree-4.pdf  used on input line 250.
@@ -1679,14 +1450,14 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 250.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[32
+[15
 
  <./tree-4.pdf>]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 269.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<tree-5.pdf, id=467, 122.7029pt x 140.60135pt>
+<tree-5.pdf, id=378, 122.7029pt x 140.60135pt>
 File: tree-5.pdf Graphic file (type pdf)
 <use tree-5.pdf>
 Package pdftex.def Info: tree-5.pdf  used on input line 269.
@@ -1701,26 +1472,9 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 269.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[33
+[16
 
  <./tree-5.pdf>]
-File: tree-5.pdf Graphic file (type pdf)
-<use tree-5.pdf>
-Package pdftex.def Info: tree-5.pdf  used on input line 269.
-(pdftex.def)             Requested size: 71.13188pt x 81.51236pt.
-
-Overfull \vbox (3.03238pt too high) detected at line 269
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 269.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[34
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 293.
@@ -1729,7 +1483,7 @@ File: image-7.pdf Graphic file (type pdf)
 <use image-7.pdf>
 Package pdftex.def Info: image-7.pdf  used on input line 293.
 (pdftex.def)             Requested size: 227.62204pt x 33.01048pt.
-<tree-6.pdf, id=499, 221.98068pt x 28.90588pt>
+<tree-6.pdf, id=405, 221.98068pt x 28.90588pt>
 File: tree-6.pdf Graphic file (type pdf)
 <use tree-6.pdf>
 Package pdftex.def Info: tree-6.pdf  used on input line 293.
@@ -1744,56 +1498,14 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 293.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[35
+[17
 
  <./tree-6.pdf>]
-File: image-7.pdf Graphic file (type pdf)
-<use image-7.pdf>
-Package pdftex.def Info: image-7.pdf  used on input line 293.
-(pdftex.def)             Requested size: 227.62204pt x 33.01048pt.
-File: tree-6.pdf Graphic file (type pdf)
-<use tree-6.pdf>
-Package pdftex.def Info: tree-6.pdf  used on input line 293.
-(pdftex.def)             Requested size: 227.62204pt x 29.64194pt.
-
-Overfull \vbox (13.08867pt too high) detected at line 293
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 293.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[36
-
-]
-File: image-7.pdf Graphic file (type pdf)
-<use image-7.pdf>
-Package pdftex.def Info: image-7.pdf  used on input line 293.
-(pdftex.def)             Requested size: 227.62204pt x 33.01048pt.
-File: tree-6.pdf Graphic file (type pdf)
-<use tree-6.pdf>
-Package pdftex.def Info: tree-6.pdf  used on input line 293.
-(pdftex.def)             Requested size: 227.62204pt x 29.64194pt.
-
-Overfull \vbox (13.08867pt too high) detected at line 293
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 293.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[37
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 310.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<tree-7.pdf, id=523, 386.35304pt x 28.78065pt>
+<tree-7.pdf, id=418, 386.35304pt x 28.78065pt>
 File: tree-7.pdf Graphic file (type pdf)
 <use tree-7.pdf>
 Package pdftex.def Info: tree-7.pdf  used on input line 310.
@@ -1808,94 +1520,9 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 310.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[38
+[18
 
  <./tree-7.pdf>]
-File: tree-7.pdf Graphic file (type pdf)
-<use tree-7.pdf>
-Package pdftex.def Info: tree-7.pdf  used on input line 310.
-(pdftex.def)             Requested size: 409.71692pt x 30.52138pt.
-
-Overfull \vbox (6.79596pt too high) detected at line 310
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 310.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[39
-
-]
-File: tree-7.pdf Graphic file (type pdf)
-<use tree-7.pdf>
-Package pdftex.def Info: tree-7.pdf  used on input line 310.
-(pdftex.def)             Requested size: 409.71692pt x 30.52138pt.
-
-Overfull \vbox (6.79596pt too high) detected at line 310
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 310.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[40
-
-]
-File: tree-7.pdf Graphic file (type pdf)
-<use tree-7.pdf>
-Package pdftex.def Info: tree-7.pdf  used on input line 310.
-(pdftex.def)             Requested size: 409.71692pt x 30.52138pt.
-
-Overfull \vbox (6.79596pt too high) detected at line 310
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 310.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[41
-
-]
-File: tree-7.pdf Graphic file (type pdf)
-<use tree-7.pdf>
-Package pdftex.def Info: tree-7.pdf  used on input line 310.
-(pdftex.def)             Requested size: 409.71692pt x 30.52138pt.
-
-Overfull \vbox (6.79596pt too high) detected at line 310
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 310.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[42
-
-]
-File: tree-7.pdf Graphic file (type pdf)
-<use tree-7.pdf>
-Package pdftex.def Info: tree-7.pdf  used on input line 310.
-(pdftex.def)             Requested size: 409.71692pt x 30.52138pt.
-
-Overfull \vbox (6.79596pt too high) detected at line 310
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 310.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[43
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 316.
@@ -1910,14 +1537,14 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 316.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[44
+[19
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 326.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<amplitude.pdf, id=567, 205.00507pt x 138.7645pt>
+<amplitude.pdf, id=437, 205.00507pt x 138.7645pt>
 File: amplitude.pdf Graphic file (type pdf)
 <use amplitude.pdf>
 Package pdftex.def Info: amplitude.pdf  used on input line 326.
@@ -1928,22 +1555,9 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 326.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[45
+[20
 
  <./amplitude.pdf>]
-File: amplitude.pdf Graphic file (type pdf)
-<use amplitude.pdf>
-Package pdftex.def Info: amplitude.pdf  used on input line 326.
-(pdftex.def)             Requested size: 170.71652pt x 115.55562pt.
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 326.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[46
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 354.
@@ -1958,55 +1572,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 354.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[47
-
-]
-Overfull \vbox (17.83543pt too high) detected at line 354
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 354.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[48
-
-]
-Overfull \vbox (17.83543pt too high) detected at line 354
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 354.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[49
-
-]
-Overfull \vbox (17.83543pt too high) detected at line 354
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 354.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[50
-
-]
-Overfull \vbox (17.83543pt too high) detected at line 354
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 354.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[51
+[21
 
 ]
 File: logo.png Graphic file (type png)
@@ -2019,23 +1585,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 364.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[52
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 364.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[53
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 364.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[54
+[22
 
 ]
 File: logo.png Graphic file (type png)
@@ -2052,31 +1602,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 389.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[55
-
-]
-Overfull \vbox (17.15146pt too high) detected at line 389
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 389.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[56
-
-]
-Overfull \vbox (17.15146pt too high) detected at line 389
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 389.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[57
+[23
 
 ]
 File: logo.png Graphic file (type png)
@@ -2089,39 +1615,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 413.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[58
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 413.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[59
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 413.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[60
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 413.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[61
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 413.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[62
+[24
 
 ]
 File: logo.png Graphic file (type png)
@@ -2138,19 +1632,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 433.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[63
-
-]
-Overfull \vbox (2.30502pt too high) detected at line 433
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 433.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[64
+[25
 
 ]
 File: logo.png Graphic file (type png)
@@ -2163,7 +1645,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 444.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[65
+[26
 
 ]
 File: logo.png Graphic file (type png)
@@ -2176,23 +1658,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 459.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[66
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 459.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[67
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 459.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[68
+[27
 
 ]
 File: logo.png Graphic file (type png)
@@ -2205,23 +1671,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 476.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[69
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 476.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[70
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 476.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[71
+[28
 
 ]
 File: logo.png Graphic file (type png)
@@ -2234,15 +1684,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 486.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[72
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 486.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[73
+[29
 
 ]
 File: logo.png Graphic file (type png)
@@ -2255,23 +1697,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 502.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[74
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 502.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[75
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 502.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[76
+[30
 
 ]
 File: logo.png Graphic file (type png)
@@ -2280,7 +1706,7 @@ Package pdftex.def Info: logo.png  used on input line 504.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
 
 
-[77
+[31
 
 ]
 File: logo.png Graphic file (type png)
@@ -2293,22 +1719,14 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 514.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[78
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 514.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[79
+[32
 
 ]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 525.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<lossy-1.pdf, id=768, 102.71822pt x 102.71822pt>
+<lossy-1.pdf, id=523, 102.71822pt x 102.71822pt>
 File: lossy-1.pdf Graphic file (type pdf)
 <use lossy-1.pdf>
 Package pdftex.def Info: lossy-1.pdf  used on input line 525.
@@ -2319,32 +1737,19 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 525.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[80
+[33
 
  <./lossy-1.pdf>]
-File: lossy-1.pdf Graphic file (type pdf)
-<use lossy-1.pdf>
-Package pdftex.def Info: lossy-1.pdf  used on input line 525.
-(pdftex.def)             Requested size: 85.35826pt x 85.36267pt.
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 525.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[81
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 542.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<lossy-2.pdf, id=780, 102.71822pt x 102.71822pt>
+<lossy-2.pdf, id=530, 102.71822pt x 102.71822pt>
 File: lossy-2.pdf Graphic file (type pdf)
 <use lossy-2.pdf>
 Package pdftex.def Info: lossy-2.pdf  used on input line 542.
 (pdftex.def)             Requested size: 85.35826pt x 85.36267pt.
-<lossy-3.pdf, id=781, 222.34465pt x 28.5828pt>
+<lossy-3.pdf, id=531, 222.34465pt x 28.5828pt>
 File: lossy-3.pdf Graphic file (type pdf)
 <use lossy-3.pdf>
 Package pdftex.def Info: lossy-3.pdf  used on input line 542.
@@ -2359,43 +1764,22 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 542.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[82
+[34
 
  <./lossy-2.pdf> <./lossy-3.pdf
 
 pdfTeX warning: pdflatex (file ./lossy-3.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-File: lossy-2.pdf Graphic file (type pdf)
-<use lossy-2.pdf>
-Package pdftex.def Info: lossy-2.pdf  used on input line 542.
-(pdftex.def)             Requested size: 85.35826pt x 85.36267pt.
-File: lossy-3.pdf Graphic file (type pdf)
-<use lossy-3.pdf>
-Package pdftex.def Info: lossy-3.pdf  used on input line 542.
-(pdftex.def)             Requested size: 142.26378pt x 18.28812pt.
-
-Overfull \vbox (0.19067pt too high) detected at line 542
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 542.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[83
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 558.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-<lossy-4.pdf, id=832, 102.71822pt x 102.71822pt>
+<lossy-4.pdf, id=577, 102.71822pt x 102.71822pt>
 File: lossy-4.pdf Graphic file (type pdf)
 <use lossy-4.pdf>
 Package pdftex.def Info: lossy-4.pdf  used on input line 558.
 (pdftex.def)             Requested size: 85.35826pt x 85.36267pt.
-<lossy-5.pdf, id=833, 56.94975pt x 29.4366pt>
+<lossy-5.pdf, id=578, 56.94975pt x 29.4366pt>
 File: lossy-5.pdf Graphic file (type pdf)
 <use lossy-5.pdf>
 Package pdftex.def Info: lossy-5.pdf  used on input line 558.
@@ -2410,33 +1794,12 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 558.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[84
+[35
 
  <./lossy-4.pdf> <./lossy-5.pdf
 
 pdfTeX warning: pdflatex (file ./lossy-5.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-File: lossy-4.pdf Graphic file (type pdf)
-<use lossy-4.pdf>
-Package pdftex.def Info: lossy-4.pdf  used on input line 558.
-(pdftex.def)             Requested size: 85.35826pt x 85.36267pt.
-File: lossy-5.pdf Graphic file (type pdf)
-<use lossy-5.pdf>
-Package pdftex.def Info: lossy-5.pdf  used on input line 558.
-(pdftex.def)             Requested size: 42.67912pt x 22.06032pt.
-
-Overfull \vbox (4.07239pt too high) detected at line 558
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 558.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[85
-
-]
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 578.
@@ -2447,15 +1810,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 578.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[86
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 578.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[87
+[36
 
 ]
 File: logo.png Graphic file (type png)
@@ -2468,15 +1823,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 594.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[88
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 594.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[89
+[37
 
 ]
 File: logo.png Graphic file (type png)
@@ -2489,31 +1836,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 612.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[90
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 612.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[91
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 612.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[92
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 612.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[93
+[38
 
 ]
 File: logo.png Graphic file (type png)
@@ -2530,19 +1853,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 636.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[94
-
-]
-Overfull \vbox (18.03253pt too high) detected at line 636
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 636.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[95
+[39
 
 ]
 File: logo.png Graphic file (type png)
@@ -2559,19 +1870,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 656.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[96
-
-]
-Overfull \vbox (2.19551pt too high) detected at line 656
- []
-
-
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 656.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[97
+[40
 
 ]
 File: logo.png Graphic file (type png)
@@ -2584,15 +1883,7 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 674.
 (pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[98
-
-]
-
-File: logo.png Graphic file (type png)
-<use logo.png>
-Package pdftex.def Info: logo.png  used on input line 674.
-(pdftex.def)             Requested size: 45.52718pt x 32.02412pt.
-[99
+[41
 
 ]
 \tf@nav=\write6
@@ -2607,24 +1898,24 @@ Package pdftex.def Info: logo.png  used on input line 674.
  (./compression.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
+L3 programming layer <2024-08-30>
  ***********
 Package rerunfilecheck Info: File `compression.out' has not changed.
-(rerunfilecheck)             Checksum: E874C6A7264A6C96D22E2D9A2453F8AD;454.
+(rerunfilecheck)             Checksum: ECAF5A55922D25EA2E0EE71D041F1F54;454.
  ) 
 Here is how much of TeX's memory you used:
- 33639 strings out of 473584
- 678493 string characters out of 5728334
- 1945905 words of memory out of 5000000
- 55679 multiletter control sequences out of 15000+600000
+ 33549 strings out of 473579
+ 678277 string characters out of 5728234
+ 1079841 words of memory out of 5000000
+ 55710 multiletter control sequences out of 15000+600000
  705293 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,1886b,993s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-It.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Semibold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on compression.pdf (99 pages, 6854263 bytes).
+Output written on compression.pdf (41 pages, 6634770 bytes).
 PDF statistics:
- 1013 PDF objects out of 1200 (max. 8388607)
- 762 compressed objects within 8 object streams
- 204 named destinations out of 1000 (max. 500000)
+ 687 PDF objects out of 1000 (max. 8388607)
+ 497 compressed objects within 5 object streams
+ 88 named destinations out of 1000 (max. 500000)
  195 words of extra memory for PDF output out of 10000 (max. 10000000)
 
