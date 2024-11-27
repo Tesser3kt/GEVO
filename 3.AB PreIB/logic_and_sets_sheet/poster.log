@@ -1,9 +1,9 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.30)  27 NOV 2024 12:06
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.9.17)  27 NOV 2024 20:11
  restricted system commands enabled.
 **poster.tex
 (./poster.tex
 LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
+L3 programming layer <2024-08-30>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 2.76 ConTeXt Lua libraries -- extended c
@@ -399,7 +399,7 @@ Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-05-23 v7.01i Hypertext links for LaTeX
+Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
@@ -451,7 +451,7 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 \Hy@pagecounter=\count307
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-05-23 v7.01i Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
@@ -459,7 +459,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 \Hy@SavedSpaceFactor=\count308
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-05-23 v7.01i Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `final' set `true' on input line 4040.
 Package hyperref Info: Option `bookmarks' set `true' on input line 4040.
@@ -506,7 +506,7 @@ Package hyperref Message: Stopped early.
 )
 Package hyperref Info: Driver (autodetected): hluatex.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hluatex.def
-File: hluatex.def 2024-05-23 v7.01i Hyperref driver for luaTeX
+File: hluatex.def 2024-07-10 v7.01j Hyperref driver for luaTeX
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
@@ -858,15 +858,15 @@ Package beamerposter Info: the input custom\ 6\ was correct, we proceed. on inp
 ut line 130.
 Package beamerposter Info: finished size input check. on input line 130.
 Package beamerposter Info: custom poster width=120 on input line 130.
-Package beamerposter Info: custom poster height=120 on input line 130.
+Package beamerposter Info: custom poster height=100 on input line 130.
 Package beamerposter Info: myfontscale=1 on input line 130.
  ( FP-UPN
 ( FP-MUL ) ( FP-ROUND ) )
 \tmp=\dimen294
  ( FP-UPN ( FP-SUB ) ) ( FP-UPN ( FP-SUB ) )
-Package beamerposter Info: paperwidth=3414.3307pt, paperheight=3414.3307pt on i
-nput line 173.
-Package beamerposter Info: textwidth=3385.87794pt, textheight=3385.87794pt on i
+Package beamerposter Info: paperwidth=3414.3307pt, paperheight=2845.27559pt on 
+input line 173.
+Package beamerposter Info: textwidth=3385.87794pt, textheight=2816.82283pt on i
 nput line 174.
 Package beamerposter Info: fontscale=1.0, myfontscale=1.00 on input line 175.
  ( FP-UPN
@@ -920,7 +920,7 @@ Package: changepage 2009/10/20 v1.0c check page and change page layout
 (/usr/local/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec.sty
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-05-27 L3 programming layer (loader) 
+Package: expl3 2024-08-30 L3 programming layer (loader) 
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
@@ -928,7 +928,7 @@ File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
 Inserting `l3color' in `luaotfload.parse_color'.
 \l__pdf_internal_box=\box77
 ))
-Package: xparse 2024-05-08 L3 Experimental document command parser
+Package: xparse 2024-08-16 L3 Experimental document command parser
 )
 Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
 Lua module: fontspec 2024/05/11 2.9e Font selection for XeLaTeX and LuaLaTeX (/
@@ -1380,7 +1380,7 @@ s/tikzlibrarythrough.code.tex
 File: tikzlibrarythrough.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
-Package: xfp 2024-05-08 L3 Floating point unit
+Package: xfp 2024-08-16 L3 Floating point unit
 )
 (/usr/local/texlive/2024/texmf-dist/tex/latex/xpatch/xpatch.sty
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
@@ -1707,11 +1707,11 @@ LaTeX Font Info:    ... okay on input line 93.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
 * h-part:(L,W,R)=(28.45274pt, 3357.42522pt, 28.45274pt)
-* v-part:(T,H,B)=(0.0pt, 3414.3307pt, 0.0pt)
+* v-part:(T,H,B)=(0.0pt, 2845.27559pt, 0.0pt)
 * \paperwidth=3414.3307pt
-* \paperheight=3414.3307pt
+* \paperheight=2845.27559pt
 * \textwidth=3357.42522pt
-* \textheight=3385.87798pt
+* \textheight=2816.82286pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
 * \topmargin=-72.26999pt
@@ -1816,13 +1816,13 @@ Package luatex.def Info: logos/logo-white.png  used on input line 93.
 (luatex.def)             Requested size: 141.567pt x 99.58464pt.
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 209.
+Package luatex.def Info: logos/logo-white.png  used on input line 239.
 (luatex.def)             Requested size: 141.567pt x 99.58464pt.
 
 
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 209.
+Package luatex.def Info: logos/logo-white.png  used on input line 239.
 (luatex.def)             Requested size: 141.567pt x 99.58464pt.
 [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1846,15 +1846,16 @@ Package rerunfilecheck Info: File `poster.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 45881 strings out of 475915
- 156268,1977958 words of node,token memory allocated
- 34510 words of node memory still in use:
-   241 hlist, 29 vlist, 20 rule, 179 disc, 39 local_par, 76 math, 866 glue, 406 
-kern, 119 penalty, 2361 glyph, 681 attribute, 82 glue_spec, 681 attribute_list, 
-4 write, 112 pdf_literal, 158 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf
-_restore nodes
-   avail lists: 2:340,3:717,4:597,5:1248,6:120,7:10021,8:10,9:978,10:19,11:537
- 66938 multiletter control sequences out of 65536+600000
+ 45885 strings out of 475910
+ 195338,1977958 words of node,token memory allocated
+ 47314 words of node memory still in use:
+   343 hlist, 36 vlist, 72 rule, 230 disc, 52 local_par, 98 math, 1435 glue, 500
+ kern, 144 penalty, 3019 glyph, 960 attribute, 82 glue_spec, 960 attribute_list,
+ 4 write, 128 pdf_literal, 224 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pd
+f_restore nodes
+   avail lists: 1:1,2:340,3:840,4:795,5:1530,6:159,7:13768,8:10,9:1461,10:19,11:
+690
+ 66947 multiletter control sequences out of 65536+600000
  94 fonts using 16388943 bytes
  128i,20n,116p,1184b,1318s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local
@@ -1868,7 +1869,7 @@ f-dist/fonts/opentype/impallari/raleway/Raleway-Regular.otf></usr/local/texlive/
 xlive/2024/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2024/
 texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/f
 onts/type1/public/lm/lmsy10.pfb>
-Output written on poster.pdf (1 page, 81320 bytes).
+Output written on poster.pdf (1 page, 84291 bytes).
 
 PDF statistics: 75 PDF objects out of 1000 (max. 8388607)
  45 compressed objects within 1 object stream

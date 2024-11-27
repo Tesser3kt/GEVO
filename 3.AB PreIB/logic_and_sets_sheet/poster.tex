@@ -11,7 +11,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[orientation=portrait,size=custom,width=120,height=120,scale=1]{beamerposter}
+\usepackage[orientation=portrait,size=custom,width=120,height=100,scale=1]{beamerposter}
 \usetheme{gemini}
 \usepackage[dvipsnames]{xcolor}
 \usecolortheme{nott}
@@ -116,7 +116,7 @@
   \begin{itemize}[label=\textbullet,left=24pt]
    \item `\textbf{Cats are black.}' is a proposition;
    \item `\textbf{How are you?}' is \emph{not} a proposition;
-   \item `\textbf{We will have colonised Mars by 2500.} is also a proposition.
+   \item `\textbf{We will have colonised Mars by 2500.}' is also a proposition.
   \end{itemize}
  \end{block}
  As the third example suggests, we need not necessarily know whether a
@@ -186,14 +186,44 @@
     home, then it's raining outside.
   \end{itemize}
  \end{exampleblock}
+
+ \begin{block}{Truth Tables}
+  A conjunction of propositions being true or false based on whether its
+  constituent propositions are true or false can be summarized using so-called
+  \alert{truth table}. It is basically just a table that lists all the
+  possibilities of $p$ and $q$ being true or false and the resulting truth value
+  of their conjunctions.
+
+  For the basic logical conjunctions from above, it can look like this (we
+  represent \alert{true} by \alert{1} and \alert{false} by \alert{0}):
+  \begin{center}
+   \begin{tabular}{c | c | c | c | c | c | c | c}
+    $p$ & $q$ & $\neg p$ & $\neg q$ & $p \wedge q$ & $p \vee q$ & $p \Rightarrow
+    q$ & $p \Leftrightarrow q$\\
+    \toprule
+    0 & 0 & 1 & 1 & 0 & 0 & 1 & 1\\
+    \midrule
+    0 & 1 & 1 & 0 & 0 & 1 & 1 & 0\\
+    \midrule
+    1 & 0 & 0 & 1 & 0 & 1 & 0 & 0\\
+    \midrule
+    1 & 1 & 0 & 0 & 1 & 1 & 1 & 1
+   \end{tabular}
+  \end{center}
+ \end{block}
 \end{column}
 
 \separatorcolumn
 
 \begin{column}{\colwidth}
 
+\begin{exampleblock}{Sets}
+ \alert{Sets} are the `stuff' that makes up the world of mathematics. Their
+ basic characteristics and properties are described using \alert{logic}.
 
-
+ Sets cannot be defined inside set theory but we interpret them as \emph{groups
+ of things}. 
+\end{exampleblock}
 
 \end{column}
 \separatorcolumn
