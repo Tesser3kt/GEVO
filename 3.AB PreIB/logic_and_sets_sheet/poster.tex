@@ -1,0 +1,211 @@
+% Unofficial University of Cambridge Poster Template
+% https://github.com/andiac/gemini-cam
+% a fork of https://github.com/anishathalye/gemini
+% also refer to https://github.com/k4rtik/uchicago-poster
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[orientation=portrait,size=custom,width=120,height=120,scale=1]{beamerposter}
+\usetheme{gemini}
+\usepackage[dvipsnames]{xcolor}
+\usecolortheme{nott}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{patterns,decorations.pathmorphing}
+\usepackage{tkz-euclide}
+\tikzset{point style/.style = {%
+  draw = black,
+  inner sep = 0pt,
+  shape = circle,
+  minimum size = 5pt,
+  fill = black
+ },
+ every picture/.append style = {
+  scale = 1.5
+ },
+ every node/.append style={
+  scale=1.5
+ }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.01\paperwidth}
+\setlength{\colwidth}{0.32\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+\newcommand{\bfalert}[1]{\textbf{\alert{#1}}}
+
+% Math shortcuts
+\newcommand{\R}{\mathbb{R}}
+
+% ====================
+% Title
+% ====================
+
+\title{Logic \& Set Theory Cheatsheet}
+
+\author{3.AB PreIB Math}
+
+\institute[shortinst]{Adam Klepáč}
+
+% ====================
+% Footer (optional)
+% ====================
+
+% \footercontent{
+%   \href{https://utfpr.edu.br/ct/ppgca}{utfpr.edu.br/ct/ppgca} \hfill
+%   Mostra de Trabalhos do PPGCA --- TechTalks 2024 \hfill
+%   \href{mailto:ppgca-ct@utfpr.edu.br}{ppgca-ct@utfpr.edu.br}}
+% (can be left out to remove footer)
+
+
+% ====================
+% Logo (optional)
+% ====================
+
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=3.5cm]{logos/logo-white.png}}
+% \logoleft{\hspace{20ex}\includegraphics[height=3.5cm]{logos/ppgca-logo.png}}
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+% Refer to https://github.com/k4rtik/uchicago-poster
+% logo: https://www.cam.ac.uk/brand-resources/about-the-logo/logo-downloads
+% \addtobeamertemplate{headline}{}
+% {
+%     \begin{tikzpicture}[remember picture,overlay]
+%       \node [anchor=north west, inner sep=3cm] at ([xshift=-2.5cm,yshift=1.75cm]current page.north west)
+%       {\includegraphics[height=7cm]{logos/unott-logo.eps}}; 
+%     \end{tikzpicture}
+% }
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+ \begin{block}{Logic}
+  \alert{Logic} is the language of mathematics. It uses \alert{propositions} to
+  talk about sets.
+
+  Propositions are sentences which can be either true or false. For example
+  \begin{itemize}[label=\textbullet,left=24pt]
+   \item `\textbf{Cats are black.}' is a proposition;
+   \item `\textbf{How are you?}' is \emph{not} a proposition;
+   \item `\textbf{We will have colonised Mars by 2500.} is also a proposition.
+  \end{itemize}
+ \end{block}
+ As the third example suggests, we need not necessarily know whether a
+ proposition is true or false -- it remains a proposition anyway.
+
+ \vspace{1em}
+
+ \begin{exampleblock}{Logical Conjunctions}
+  Propositions can be joined together using \alert{logical conjunctions}. They
+  pretty much correspond to the conjunctions of natural language. Let us
+  consider two propositions:
+  \begin{align*}
+   p &= \text{`It's raining outside.'}\\
+   q &= \text{`I'll stay at home.'}
+  \end{align*}
+  \begin{itemize}[left=40pt]
+   \item[($ \wedge $)] Logical \alert{and} forms a proposition that is only
+    \alert{true} if both of its constituents are also \alert{true}. In natural
+    language, the proposition $p \wedge q$ can be expressed as
+    \[
+     p \alert{ \wedge } q = \text{`It's raining outside \alert{and} I'll stay at
+     home.'}
+    \]
+   \item[($ \vee $)] Logical \alert{or} forms a proposition that is \alert{true}
+    if at least one of its constituents is \alert{true}. In natural language,
+    the proposition $p \vee q$ can be expressed as
+    \[
+     p \alert{ \vee } q = \text{`It's raining outside \alert{or} I'll stay at
+     home.'}
+    \]
+    In mathematical logic, \alert{or} is \textbf{not exclusive}! This means that
+    $p \alert{ \vee } q$ is true even if both $p$ and $q$ are true.
+   \item[($\neg $)] Logical \alert{not} isn't strictly speaking a conjunction
+    but I include it anyway. It reverses the truth value of a proposition. For
+    example, the proposition $\alert{\neg }p$ can be read as
+    \[
+     \alert{\neg }p = \text{`It's \alert{not} raining outside.'}
+    \]
+    It follows that $\alert{\neg }p$ is \alert{true} exactly when $p$ is
+    \alert{false} and vice versa.
+   \item[($ \Rightarrow $)] Logical \alert{implication} is a conjunction that
+    makes the first proposition into an \emph{assumption} or \emph{premise} and
+    the second one into a \emph{conclusion}. The proposition $p \alert{
+    \Rightarrow } q$ is read in multiple ways, to list a few: 
+    \begin{align*}
+     p \alert{ \Rightarrow } q &= \text{`\alert{If} it's raining outside,
+    \alert{then} I'll stay at home.'}\\
+     p \alert{ \Rightarrow } q &= \text{`It raining outside \alert{implies that}
+     I'll stay at home.'}\\
+     p \alert{ \Rightarrow } q &= \text{`\alert{Assuming} it's raining outside,
+     I'll stay at home.'}\\
+    \end{align*}
+    The implication is tricky. It's true if both $p$ and $q$ are true and false
+    if $p$ is true but $q$ is false. However, it is \alert{always true} if $p$
+    is \alert{false}. That is because, in mathematical logic, whatever follows
+    from a lie is automatically true.
+   \item[($ \Leftrightarrow $)] Logical \alert{equivalence} is true only if both
+    propositions have the \alert{same truth value} -- they're both true or both
+    false. In natural language, it is typically read like this:
+    \[
+     p \alert{ \Leftrightarrow }q = \text{`It's raining \alert{if and only if}
+     I stay at home.'}
+    \]
+    Equivalence is basically just a two-way implication. The proposition $p$ is
+    both a premise and a conclusion to $q$ and $q$ is both a premise and a
+    conclusion to $p$. If it's raining outside, I stay at home and if I stay at
+    home, then it's raining outside.
+  \end{itemize}
+ \end{exampleblock}
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+
+
+
+\end{column}
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+
+
+\end{column}
+\separatorcolumn
+
+\end{columns}
+\end{frame}
+
+\end{document}
