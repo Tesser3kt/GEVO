@@ -1,9 +1,9 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.9.17)  27 NOV 2024 20:11
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.30)  28 NOV 2024 15:43
  restricted system commands enabled.
 **poster.tex
 (./poster.tex
 LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-08-30>
+L3 programming layer <2024-05-27>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 2.76 ConTeXt Lua libraries -- extended c
@@ -399,7 +399,7 @@ Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
+Package: hyperref 2024-05-23 v7.01i Hypertext links for LaTeX
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
@@ -451,7 +451,7 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 \Hy@pagecounter=\count307
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-05-23 v7.01i Hyperref: PDFDocEncoding definition (HO)
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
@@ -459,7 +459,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 \Hy@SavedSpaceFactor=\count308
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-05-23 v7.01i Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `final' set `true' on input line 4040.
 Package hyperref Info: Option `bookmarks' set `true' on input line 4040.
@@ -506,7 +506,7 @@ Package hyperref Message: Stopped early.
 )
 Package hyperref Info: Driver (autodetected): hluatex.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hluatex.def
-File: hluatex.def 2024-07-10 v7.01j Hyperref driver for luaTeX
+File: hluatex.def 2024-05-23 v7.01i Hyperref driver for luaTeX
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
@@ -920,7 +920,7 @@ Package: changepage 2009/10/20 v1.0c check page and change page layout
 (/usr/local/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec.sty
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-08-30 L3 programming layer (loader) 
+Package: expl3 2024-05-27 L3 programming layer (loader) 
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
@@ -928,7 +928,7 @@ File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
 Inserting `l3color' in `luaotfload.parse_color'.
 \l__pdf_internal_box=\box77
 ))
-Package: xparse 2024-08-16 L3 Experimental document command parser
+Package: xparse 2024-05-08 L3 Experimental document command parser
 )
 Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
 Lua module: fontspec 2024/05/11 2.9e Font selection for XeLaTeX and LuaLaTeX (/
@@ -1280,6 +1280,14 @@ s.code.tex
 )
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.pathmorphing.code.tex))
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
 (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-euclide.sty
 2024/04/19 5.10c tkz-euclide.sty
 Package: tkz-euclide  2024/04/19 5.10c for pure Euclidean Geometry 
@@ -1380,7 +1388,7 @@ s/tikzlibrarythrough.code.tex
 File: tikzlibrarythrough.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
-Package: xfp 2024-08-16 L3 Floating point unit
+Package: xfp 2024-05-08 L3 Floating point unit
 )
 (/usr/local/texlive/2024/texmf-dist/tex/latex/xpatch/xpatch.sty
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
@@ -1666,37 +1674,37 @@ Package caption Info: New subtype `subtable' on input line 238.
 <logos/logo-white.png, id=10, 218.31563pt x 153.57375pt>
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 86.
+Package luatex.def Info: logos/logo-white.png  used on input line 111.
 (luatex.def)             Requested size: 141.567pt x 99.58464pt.
 
 (./poster.aux)
 \openout1 = poster.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 9
-3.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
+18.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1754,7 +1762,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 93.
+Package hyperref Info: Link coloring OFF on input line 118.
 
 (./poster.out) (./poster.out)
 \@outlinefile=\write5
@@ -1791,38 +1799,38 @@ enefit from \pgfplotsset{compat=1.18} (current compat level: 1.14).
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (./poster.nav)
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
-3.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+18.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
-3.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+18.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-93.
+118.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6> on input line 93.
+(Font)              <6> on input line 118.
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 93.
+Package luatex.def Info: logos/logo-white.png  used on input line 118.
 (luatex.def)             Requested size: 141.567pt x 99.58464pt.
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 239.
+Package luatex.def Info: logos/logo-white.png  used on input line 426.
 (luatex.def)             Requested size: 141.567pt x 99.58464pt.
 
 
 File: logos/logo-white.png Graphic file (type png)
 <use logos/logo-white.png>
-Package luatex.def Info: logos/logo-white.png  used on input line 239.
+Package luatex.def Info: logos/logo-white.png  used on input line 426.
 (luatex.def)             Requested size: 141.567pt x 99.58464pt.
 [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1846,18 +1854,18 @@ Package rerunfilecheck Info: File `poster.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 45885 strings out of 475910
- 195338,1977958 words of node,token memory allocated
- 47314 words of node memory still in use:
-   343 hlist, 36 vlist, 72 rule, 230 disc, 52 local_par, 98 math, 1435 glue, 500
- kern, 144 penalty, 3019 glyph, 960 attribute, 82 glue_spec, 960 attribute_list,
- 4 write, 128 pdf_literal, 224 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pd
-f_restore nodes
-   avail lists: 1:1,2:340,3:840,4:795,5:1530,6:159,7:13768,8:10,9:1461,10:19,11:
-690
- 66947 multiletter control sequences out of 65536+600000
- 94 fonts using 16388943 bytes
- 128i,20n,116p,1184b,1318s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 46506 strings out of 475915
+ 476935,1977958 words of node,token memory allocated
+ 129694 words of node memory still in use:
+   1318 hlist, 45 vlist, 84 rule, 482 disc, 88 local_par, 261 math, 3711 glue, 1
+068 kern, 289 penalty, 6474 glyph, 5260 attribute, 82 glue_spec, 5260 attribute_
+list, 4 write, 2797 pdf_literal, 396 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save
+, 1 pdf_restore nodes
+   avail lists: 2:340,3:9282,4:1311,5:3234,6:267,7:31450,8:42,9:4449,10:19,11:14
+46
+ 67549 multiletter control sequences out of 65536+600000
+ 100 fonts using 16782047 bytes
+ 128i,20n,116p,1184b,1763s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local
 /texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2024/t
 exmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2024/texmf-dist/f
@@ -1868,11 +1876,12 @@ f-dist/fonts/opentype/impallari/raleway/Raleway-Regular.otf></usr/local/texlive/
 2024/texmf-dist/fonts/opentype/impallari/raleway/Raleway-Bold.otf></usr/local/te
 xlive/2024/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2024/
 texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/f
-onts/type1/public/lm/lmsy10.pfb>
-Output written on poster.pdf (1 page, 84291 bytes).
+onts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb>
+Output written on poster.pdf (1 page, 104244 bytes).
 
-PDF statistics: 75 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+PDF statistics: 79 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  3 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

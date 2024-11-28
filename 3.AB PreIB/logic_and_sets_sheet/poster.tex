@@ -18,7 +18,7 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tikz}
-\usetikzlibrary{patterns,decorations.pathmorphing}
+\usetikzlibrary{patterns,decorations.pathmorphing,shapes.geometric}
 \usepackage{tkz-euclide}
 \tikzset{point style/.style = {%
   draw = black,
@@ -56,6 +56,31 @@
 
 % Math shortcuts
 \newcommand{\R}{\mathbb{R}}
+
+% Inline shapes
+\newcommand{\mysquare}{\tikz[baseline=-7pt]{%
+  \node[rectangle,draw,thick,inner sep=6pt] at (0,0) {};
+}}
+\newcommand{\mytria}{\tikz[baseline=-3.25pt]{%
+  \node[isosceles triangle,isosceles triangle apex angle=60,draw,thick,inner
+  sep=3.25pt,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycirc}{\tikz[baseline=-7pt]{%
+  \node[circle,draw,thick,inner sep=4.5pt,baseline=0.5ex,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycross}{\tikz[baseline=-7pt,scale=0.2]{%
+  \draw[thick] (-1,1) -- (1,-1);
+  \draw[thick] (-1,-1) -- (1,1);
+}}
+
+% Colors %
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
 
 % ====================
 % Title
@@ -222,15 +247,178 @@
  basic characteristics and properties are described using \alert{logic}.
 
  Sets cannot be defined inside set theory but we interpret them as \emph{groups
- of things}. 
+ of things}.
+
+ There's only one foundational \emph{proposition} related to set theory -- the
+ proposition `\alert{An object is an element of a set.}' If we label the object
+ in question $x$ and the set $A$, this proposition is written as $x \in A$ (the
+ symbol $ \in $ is just the letter `e' in `element'). Combining these
+ propositions using logical conjunctions allows for various set-theoretic
+ constructions.
+
+ If a set $A$ has, for example, exactly three elements -- $\mysquare$, $\mytria$
+ and $\mycirc$, I can write it as a list of these three elements inside curly
+ brackets $\{\}$. In this case,
+ \[
+  A = \{\mysquare,\mytria,\mycirc\}.
+ \]
+
+ A few \alert{warnings} about sets:
+ \begin{itemize}[label=\textbullet,left=24pt]
+  \item \textbf{Sets are not ordered}. There is nothing like a `first', `second'
+   or `last' element of a set. Either an object \textbf{is} inside a set or it
+   \textbf{isn't}. Nothing else. For example, the three sets below are
+   \alert{exactly the same}, only written differently.
+   \[
+    \{\mysquare,\mytria,\mycirc\} = \{\mycirc,\mytria,\mysquare\} =
+    \{\mytria,\mysquare,\mycirc\}
+   \]
+  \item \textbf{Elements of sets have no frequency}. Again, an element either is
+   inside a set or not. It cannot be \alert{twice} in a set, for example. The
+   three sets below are exactly the same.
+   \[
+    \{\mysquare,\mytria,\mycirc\} =
+    \{\mysquare,\mytria,\mycirc,\mytria,\mycirc\} = \{
+    \mytria,\mysquare,\mysquare,\mytria,\mycirc,\mytria\}
+   \]
+ \end{itemize}
 \end{exampleblock}
 
+\begin{alertblock}{Set Operations}
+ Using logical conjunctions, we form new sets from existing ones. Consider two
+ sets -- $A$ and $B$.
+ \begin{itemize}[left=40pt]
+  \item[($ \cap $)] I can form the set of all objects $x$ that satisfy the
+   proposition $x \in A \wedge x \in B$, that is all objects that \alert{lie in
+   both $A$ and $B$}. This set is called the \alert{intersection} of $A$ and $B$
+   and written $A \cap B$. For example,
+   \[
+    \{\mycirc,\mytria,\mysquare\} \cap \{\mycross,\mycirc,\mysquare, \sim \} =
+    \{\mycirc,\mysquare\}.
+   \]
+  \item[($ \cup $)] I can form the set of all objects that satisfy the
+   proposition $x \in A \vee x \in B$, the set of all objects that \alert{lie in
+   $A$ or in $B$}. It is called the \alert{union} of $A$ and $B$ and denoted
+   $A \cup B$. All elements of $A \cup B$ can be found \emph{only} in $A$,
+   \emph{only} in B or in \emph{both} $A$ and $B$. For example,
+   \[
+    \{\mycirc,\mytria,\mysquare\} \cup \{\mycross,\mycirc,\mysquare, \sim \} =
+    \{\mycirc,\mytria,\mysquare,\mycross, \sim \}.
+   \]
+  \item[($ \Rightarrow $)] Implication is a little different from intersection
+   and union. It describes a lot of different sets with one logical proposition.
+   I ask: `Which sets $A$ satisfy the proposition $x \in A \Rightarrow x \in
+   B$?' In other words, which sets $A$ \alert{have all their elements contained}
+   in the set $B$? The answer is that $A$ must be a subset of $B$ and we denote
+   that fact by $A \subseteq B$. The set $A$ is only allowed to have elements
+   which also lie in $B$ but not necessarily all of them. All the subsets of $B
+   = \{\mytria,\mycirc\}$ are listed below.
+   \[
+    \emptyset, \{\mytria\}, \{\mycirc\}, \{\mytria,\mycirc\},
+   \]
+   where $\emptyset$ is the \alert{empty set}, a set containing no elements.
+  \item[($ \Leftrightarrow $)] Equivalence defines \alert{equality} on sets. If
+   sets $A$ and $B$ must satisfy the proposition $x \in A \Leftrightarrow x \in
+   B$, then they must be equal because all the elements of $A$ lie in $B$ and
+   all elements of $B$ lie in $A$. That is, $A = B$.
+ \end{itemize}
+\end{alertblock}
+
+\begin{block}{Drawing Sets}
+ Set operations can be visualized using so-called \emph{Venn diagrams}. This
+ just means using circles to represent the sets in questions. For example, two
+ sets -- $\clr{A}$ and $\clb{B}$ can be drawn like this:
+ \begin{center}
+  \begin{tikzpicture}[scale=0.5]
+   \fill[BrickRed,fill opacity=0.25] (180:1.5) circle (2);
+   \fill[RoyalBlue,fill opacity=0.25] (0:1.5) circle (2);
+   \draw[BrickRed,thick] (180:1.5) circle (2);
+   \draw[RoyalBlue,thick] (0:1.5) circle (2);
+   \node at (150:4.3) {\footnotesize $\clr{A}$};
+   \node at (30:4.3) {\footnotesize $\clb{B}$};
+  \end{tikzpicture}
+ \end{center}
+ In these pictures, one can easily visualize the operations of union and
+ intersection. The union $\clg{A \cup B}$ is the entire area covered by
+ $\clr{A}$ and $\clb{B}$. It looks like this:
+ \begin{center}
+  \begin{tikzpicture}[scale=0.5]
+   \def\firstcircle{(180:1.5) circle (2)}
+   \def\secondcircle{(0:1.5) circle (2)}
+   \filldraw[thick,ForestGreen] \firstcircle; 
+   \filldraw[thick,ForestGreen] \secondcircle;
+   \node at (90:3) {\footnotesize $\clg{A \cup B}$};
+  \end{tikzpicture}
+ \end{center}
+ The intersection $\clm{A \cap B}$ is the `strip' in the middle, the area which
+ is shared between both $\clr{A}$ and $\clb{B}$. It can be depicted like this:
+ \begin{center}
+  \begin{tikzpicture}[scale=0.5]
+   \def\firstcircle{(180:1.5) circle (2)}
+   \def\secondcircle{(0:1.5) circle (2)}
+   
+   \fill[BrickRed,fill opacity=0.25] \firstcircle;
+   \fill[RoyalBlue,fill opacity=0.25] \secondcircle;
+   \draw[BrickRed,thick] \firstcircle;
+   \draw[RoyalBlue,thick] \secondcircle;
+
+   \begin{scope}
+    \clip \firstcircle;
+    \fill[white] \secondcircle;
+    \filldraw[thick,Fuchsia] \secondcircle;
+   \end{scope}
+   \begin{scope}
+    \clip \secondcircle;
+    \draw[Fuchsia,thick] \firstcircle;
+   \end{scope}
+   \node at (90:3) {\footnotesize $\clm{A \cap B}$};
+  \end{tikzpicture}
+ \end{center}
+\end{block}
 \end{column}
 \separatorcolumn
 
 \begin{column}{\colwidth}
 
+\begin{alertblock}{Products of Sets \& Relations}
+ Before introducing \emph{products} of sets, we must define a \emph{pair}.
+ Simply said, a \alert{pair} of objects $(a,b)$ is just a set containing $a$ and
+ $b$ \textbf{with ordering}, that is, $a$ is the \textbf{first} element of
+ $(a,b)$ and $b$ is \textbf{second}. This means that $(a,b) \neq (b,a)$ because
+ the order is not the same.
 
+ Now, the \alert{product} of sets $A$ and $B$, denoted $A \times B$, is the set
+ of all pairs $(a,b)$ where $a \in A$ and $b \in B$. For example, if
+ \[
+  A = \{\mycirc,\mytria\} \quad \text{and} \quad B = \{\mytria,\mycross, \sim
+  \},
+ \]
+ then
+ \[
+  A \times B = \{(\mycirc,\mytria),(\mycirc,\mycross),(\mycirc, \sim),
+  (\mytria,\mytria), (\mytria,\mycross), (\mytria, \sim)\}.
+ \]
+ Notice that $A \times B \neq B \times A$ because the \textbf{order} of elements
+ in a pair \textbf{matters}. In this case,
+ \[
+  B \times A = \{(\mytria,\mycirc), (\mytria,\mytria), (\mycross,\mycirc),
+  (\mycross,\mytria), ( \sim, \mycirc), ( \sim, \mytria)\}.
+ \]
+
+ As another example, consider the \emph{real plane} -- the set of all points
+ with two coordinates. That is simply the set of pairs of real numbers, $\R
+ \times \R$.
+
+ The mathematical way to define a \alert{relation} between two sets is to simply
+ \textbf{list all the elements that are related}. Said formally, a relation $R$
+ is a subset $R \subseteq A \times B$. For example,
+ \[
+  \{(\mytria,\mycross),(\mytria, \sim )\} \subseteq \{\mycirc,\mytria\} \times
+  \{\mytria,\mycross, \sim\}
+ \]
+ is a relation between the sets $A$ and $B$ from above. It literally says that
+ $\mytria$ is related to $\mycross$ and $ \sim $.
+\end{alertblock}
 
 \end{column}
 \separatorcolumn
