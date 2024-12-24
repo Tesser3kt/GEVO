@@ -13,4 +13,114 @@ operating systems following the
 \href{https://doc.sagemath.org/html/en/installation/index.html}{official guide}.
 
 SageMath is essentially a terminal-based software and out of the box offers no
-graphical user interface. Upon launch, 
+graphical user interface. Upon launch, the user is greeted by a screen similar
+to this one:
+\begin{Verbatim}
+┌────────────────────────────────────────────────────────────────────┐
+│ SageMath version 10.4, Release Date: 2024-07-19                    │
+│ Using Python 3.12.8. Type "help()" for help.                       │
+└────────────────────────────────────────────────────────────────────┘
+sage:
+\end{Verbatim}
+SageMath is mainly built upon C and Python and is \emph{interpreted}, meaning
+every piece of code is immediately run without a need for compilation.
+
+Before we focus on applications of linear systems in fields like
+\emph{economics} and \emph{physics}, we need to learn to solve them using
+SageMath. By far the simplest way to encode linear systems is using matrix
+notation. SageMath features the \texttt{Matrix} class which hosts a plethora of
+methods for matrix manipulation we are going to make great use of in time.
+
+\myref{Example}{exam:static-equations} contains the system
+\[
+ \left(
+  \begin{matrix*}[r]
+   15 & 40\\
+   25 & -50
+  \end{matrix*}
+  \hspace{1mm}
+ \right|
+ \left.
+  \begin{matrix*}[r]
+   100\\
+   50
+  \end{matrix*}
+ \right).
+\]
+Let us solve it using SageMath. The \texttt{Matrix} class expects a matrix to be
+defined as a list of rows which are themselves lists of elements. In addition,
+we may specify the number set wherein the elements lie. For example,
+\begin{Verbatim}
+sage: A = \clb{Matrix(}ZZ, [
+....:     [\clr{15}, \clr{40}],
+....:     [\clr{25}, \clr{-50}],
+....: ]\clb{)}
+\end{Verbatim}
+creates the matrix
+\[
+ \left(
+  \begin{matrix*}[r]
+   15 & 40\\
+   25 & -50
+  \end{matrix*}
+ \right)
+\]
+with entries in $\Z$, the integers. This has a caveat. When we tell SageMath our
+matrix contains entries \emph{exclusively} in $\Z$, it will fulfil our wish with
+utmost conscientiousness. This means that \texttt{A} can never contain anything
+but integers. A problem might emerge should we wish to put it into echelon form
+for example. Gauss-Jordan elimination of the matrix \texttt{A} would clearly
+require subtracting $(25 / 15)$-multiple of row \texttt{I} from row \texttt{II}.
+Assuming the entries of \texttt{A} are solely integers, such an operation is not
+permitted. The \texttt{Matrix} class has an in-built method for Gauss-Jordan
+elimination. Let us try to use it.
+\begin{Verbatim}
+sage: A.\clb{echelon_form()}
+[  \clr{5} \clr{130}]
+[  \clr{0} \clr{350}]
+\end{Verbatim}
+The result is somewhat unexpected. Thankfully or unfortunately, SageMath is
+clever enough to know that simply following the algorithm of the Gauss-Jordan
+elimination does not yield an integer matrix. So, it instead follows the
+algorithm and then multiplies the matrix by the least common multiple of the
+denominators of all entries in order to yield an integer matrix. Beware however,
+that trying to solve linear systems whose solutions are rational with integer
+matrices might result in an error. To stay in the clear, we instead use the real
+numbers throughout the calculation. Not specifying the number set would lead to
+SageMath `guessing' it based on the values of the entries -- which are all
+integral.
+
+We thus rewrite our matrix \texttt{A} like this:
+\begin{Verbatim}
+sage: A = Matrix(\clb{RR}, [
+....:     [\clr{15}, \clr{40}],
+....:     [\clr{25}, \clr{-50}],
+....: ])
+\end{Verbatim}
+We will also create a \texttt{vector} (a \texttt{Matrix} with a single row
+basically) of the right hand side of the studied system.
+\begin{Verbatim}
+sage: b = \clb{vector(}RR, [\clr{100}, \clr{50}]\clb{)}
+\end{Verbatim}
+The \texttt{Matrix} method for solving a system with a given \texttt{vector} of
+right hand side is called \texttt{solve\_right}. Using it gives
+\begin{Verbatim}
+sage: A.\clb{solve_right(}b\clb{)}
+(\clr{4.00000000000000}, \clr{1.00000000000000})
+\end{Verbatim}
+Since we explicitly required SageMath solve the system over the real numbers, it
+returned the solution as a pair of decimals rounded based on a default precision
+parameter. We would instead prefer to write the solution as $(4,1)$. Should we
+wish to record the solution as a pair of fractions or integers instead, we would
+need to define \texttt{A} and \texttt{b} over $\Q$.
+\begin{Verbatim}
+sage: A = Matrix(\clb{QQ}, [
+....:     [\clr{15}, \clr{40}],
+....:     [\clr{25}, \clr{-50}],
+....: ])
+sage: b = vector(\clb{QQ}, [\clr{100}, \clr{50}])
+sage: A.solve_right(b)
+(\clr{4}, \clr{1})
+\end{Verbatim}
+
+\input{linear-systems/applications/numerical-stability}
