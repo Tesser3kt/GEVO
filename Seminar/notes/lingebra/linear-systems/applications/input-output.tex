@@ -1,0 +1,148 @@
+\subsection{Input-Output Analysis}
+\label{ssec:input-output-analysis}
+
+A place where linear systems naturally flourish is \emph{economics}. Put
+briefly, economy is a network of mutually influenced industries. An important
+observation is that this `influence' is mostly of \emph{linear} nature. We take
+as an example the \emph{steel} and \emph{automobile} industries. Both of these
+industries use its own output and the other industry's output to optimize
+production. The steel industry might use steel to produce factories, and use
+cars for the transport of goods between them. Similarly, the automobile industry
+uses its own cars to transports its other cars and uses steel to produce them in
+the first place. In economics, we're typically interested in predicting the
+future value of an industry. However, in cases like these, it isn't intuitively
+evident how the total value of steel used by external actors (meaning not the
+steel or automobile industries) would influence the system, for example.
+
+Suppose we accumulated the following data:
+\begin{table}[ht]
+ \centering
+ \begin{tabular}{r | r | r | r | r}
+  & \textbf{used by steel} & \textbf{used by auto} & \textbf{used by others} &
+  \textbf{total}\\
+  \toprule
+  value of steel (in billions of \$) & 6.90 & 1.28 & 10.51 & 18.69 \\
+  value of auto (in billions of \$) & 2.24 & 4.40 & 7.63 & 14.27
+ \end{tabular}
+
+ \caption{The annual summary of the value of steel and automobile industries.}
+ \label{table:steel-and-automobile}
+\end{table}
+
+Based on this data, how ought we to attempt to predict the total values of steel
+and automobile industries based on shifting external demand? First and foremost,
+why do we care primarily about external demand? The answer is simple. As long as
+external demand stays stable, it is improbable that the automobile industry
+would suddenly produce more cars or that the steel industry more steel. It is
+indeed mostly individual customers and other affiliated industries which cause a
+change in production.
+
+Suppose that the value of steel and automobile industries used externally in the
+next year shifts by $d_s$ and $d_a$, respectively. How does this affect their
+total value? To answer this, we need observe that the steel and automobile
+industries form a linear system. Under the premise that the steel industry uses
+the same \emph{fraction} of its own output and the automobile industry also uses
+the same fraction of the steel industry output as this year, we can predict its
+value next year (which we denote $s$) to equal
+\[
+ s = (6.90 / 18.69)s + (1.28 / 14.27)a + (10.51 + d_s).
+\]
+This formula essentially says the obvious:
+\begin{align*}
+ \text{next year's value of steel} &= \text{next year's value of steel used by
+ steel}\\
+                                   &+ \text{next year's value of steel used by
+                                   auto}\\
+                                   &+ \text{next year's value of steel used by
+                                   others}.
+\end{align*}
+We are just predicting the next year values based on this year's ones while
+keeping the ratios of output distribution stable.
+
+Similarly, the equation for the predicted next year's total automobile industry
+value (denoted $a$) is
+\[
+ a = (2.24 / 18.69)s + (4.40 / 14.27)a + (7.63 + d_a).
+\]
+Both of these linear equations put together form the linear system
+\[
+ \begin{array}{r c r c r c r}
+  s & = & (6.90 / 18.69)s & + & (1.28 / 14.27)a & + & (10.51 + d_s)\\
+  a & = & (2.24 / 18.69)s & + & (4.40 / 14.27)a & + & (7.63 + d_a)
+ \end{array}
+\]
+An easy computation and rearrangement gives
+\[
+ \begin{array}{r c r c r}
+  (11.79 / 18.69)s & - & (1.28 / 14.27)a & = & (10.51 + d_s)\\
+  -(2.24 / 18.69)s & + & (9.87 / 14.27)a & = & (7.63 + d_a)
+ \end{array}
+\]
+As we did many a time already, we collect the equations into a matrix $A$ and a
+vector $b$ like so:
+\[
+ A = \left( 
+  \begin{matrix*}[r]
+   11.79 / 18.69 & -1.28 / 14.27\\
+   -2.24 / 18.69 & 9.87 / 14.27
+  \end{matrix*}
+ \right), \quad \mathbf{b} = \left( 
+  \begin{matrix*}[r]
+   10.51 + d_s\\
+   7.63 + d_a
+  \end{matrix*}
+ \right).
+\]
+Fortunately, SageMath has in-built support for variables. We can thus let it
+solve the system for us and represent the solution in terms of variables $d_s$
+and $d_a$.
+\begin{Verbatim}
+sage: \clr{var}(\clbr{'ds da'})
+(\clbr{ds}, \clbr{da})
+sage: A = \clb{Matrix}([
+....:     [\clr{11.79/18.69}, \clr{-1.28/14.27}],
+....:     [\clr{-2.24/18.69}, \clr{9.87/14.27}],
+....: ])
+sage: b = \clb{vector}([\clr{10.51} + \clbr{ds}, \clr{7.63} + \clbr{da}])
+sage: sol = A.\clr{solve_right}(b)
+(\clr{0.210776906804487}*\clbr{da} + \clr{1.62528755481273}*\clbr{ds} + \clr{18.6900000000000},
+\clr{1.48231851778104}*\clbr{da} + \clr{0.281627945702251}*\clbr{ds} + \clr{14.2700000000000})
+\end{Verbatim}
+We can now easily get a solution for \emph{concrete} values of $d_s$ and $d_a$
+by using SageMath's symbolic substitution capabilities. For example, if we
+expect the external output value of automobile industry will rise by $d_a =
+0.05$ and the external output value of steel will fall by $0.10$, that is $d_s =
+-0.10$, we can calculate the predicted future total values of the industries by
+setting
+\begin{Verbatim}
+sage: sol(\clbr{da}=\clr{0.05},\clbr{ds}=\clr{-0.10})
+(\clr{18.5380100898590}, \clr{14.3159531313188})
+\end{Verbatim}
+In this case, we predict the total value of the steel industry to fall by about
+$\$ 0.15$ billion and the value of the automobile industry to rise by roughly
+$\$ 0.045$ billion.
+
+\begin{exercise}{}{input-output}
+ Predict next year's total productions of each of the three sectors of the
+ hypothetical economy shown in \myref{table}{table:hypothetical-economy}.
+ \begin{table}[H]
+  \centering
+  \begin{tabular}{l | r | r | r | r | r}
+   value of / \textbf{used by} & \textbf{farm} & \textbf{rail} &
+   \textbf{shipping} & \textbf{others} & \textbf{total}\\
+   \toprule
+   farm & 25 & 50 & 100 & & 800\\
+   rail & 25 & 50 & 50 & & 300\\
+   shipping & 15 & 10 & 0 & & 500
+  \end{tabular}
+  \caption{The output data of a hypothetical economy.}
+  \label{table:hypothetical-economy}
+ \end{table}
+ if next year's external demands are as stated.
+ \begin{enumerate}[label=(\alph*)]
+  \item 625 for farm, 200 for rail, 475 for shipping,
+  \item 650 for farm, 150 for rail, 450 for shipping.
+ \end{enumerate}
+ Can you solve the system with data presented in (a) and (b) simultaneously by
+ making the given external demands into parameters?
+\end{exercise}

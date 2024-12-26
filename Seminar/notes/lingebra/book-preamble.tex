@@ -2,7 +2,6 @@
 \usepackage[czech,english]{babel}
 
 % Encoding %
-\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
 % Turn off Czech hyphens %
@@ -73,6 +72,7 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepgfplotslibrary{fillbetween}
+\usepackage{circuitikz}
 
 % Tables %
 \usepackage{booktabs}
@@ -99,7 +99,14 @@
 \setlist[enumerate,2]{label=(\alph*)}
 
 % Code insertion %
-% \usepackage{minted}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{pmboxdraw}
+\setmonofont[Scale=0.9]{Cascadia Code}
+\fvset{baselinestretch=0.8,vspace=0pt,commandchars=\\\{\}}
+
+% Algorithms %
+\usepackage[ruled]{algorithm2e}
 
 % Math Operators %
 \DeclareMathOperator{\dom}{dom}
@@ -158,7 +165,6 @@
   separator sign none,
   description font=\normalfont\sffamily,
   fontupper=\itshape,
-  graphical environment=tikzpicture,
   topsep at break=0pt
  }
 }
@@ -187,7 +193,6 @@
   colback=white,
   sharp corners,
   breakable,
-  graphical environment=tikzpicture,
   topsep at break=0pt
  }
 }
@@ -253,4 +258,3 @@ from=theorem]{exercise}{Exercise}{defbox=darkgray}{exer}
 
 % Extra custom commands %
 \newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
-

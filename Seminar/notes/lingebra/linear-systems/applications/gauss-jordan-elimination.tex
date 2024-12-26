@@ -1,0 +1,181 @@
+\subsection{Gauss-Jordan Elimination Revisited}
+\label{ssec:gauss-jordan-elimination-revisited}
+
+Here, we provide a fully algorithmic description of the Gauss-Jordan elimination
+algorithm discussed in \myref{section}{sec:gauss-jordan-elimination} and also
+one possible way of encoding it in SageMath. Here goes nothing.
+\begin{algorithm}[H]
+ \SetAlgoVlined
+ \SetKwInOut{Input}{input}
+ \SetKwInOut{Output}{output}
+
+ \Input{An $n \times m$ matrix $A = (a_{i,j})_{i=1,j=1}^{n,m}$ with real
+ entries.}
+ \Output{The matrix $A$ in echelon form.}
+ \BlankLine
+ \tcc{Row to be used for elimination of other rows.}
+ $r \leftarrow 1$;\\
+
+ \BlankLine
+ \tcc{Traverse the columns.}
+ \For {$c \in \{1,\ldots,m\}$}{
+  \tcc{Find the row (below $r$) with maximal value in column $c$. Denote by $b$
+  the row with the maximal currently known value.}
+  $b \leftarrow r$;\\
+  \tcc{Traverse the rows below $r$.}
+  \For {$i \in \{r+1,\ldots,n\}$} {
+   \If {$|a_{i,c}| > |a_{b,c}|$} {
+    \tcc{Found a row with higher value in column $c$. Replace $b$ with $i$.}
+    $b \leftarrow i$;
+   }
+  }
+  \tcc{If $a_{b,c} = 0$, then move to next column since this column is full of
+  zeroes.}
+  \If {$a_{b,c} = 0$} {
+   continue;
+  }
+  \BlankLine
+  swap rows with indices $r$ and $b$;\\
+  \tcc{Eliminate variables in column $c$ in all rows below $r$.}
+  \For {$i \in \{r+1,\ldots,n\}$} {
+   \For {$j \in \{c,\ldots,m\}$} {
+    $a_{i,j} \leftarrow a_{i,j} - \frac{a_{i,c}}{a_{r,c}} a_{r,j}$;
+   }
+  }
+  \BlankLine
+  \tcc{Row $r$ now contains the pivot in column $c$ so it will remain the same
+  for the rest of the algorithm. Move to the next row.}
+  $r \leftarrow r + 1$;
+ }
+ \BlankLine
+ \Return{$A$};
+ \caption{Gauss-Jordan Elimination.}
+ \label{algo:gauss-jordan-elimination}
+\end{algorithm}
+
+\begin{example}{}{gauss-jordan-elimination}
+ Let's put the matrix
+ \[
+  A = \left( 
+   \begin{matrix*}[r]
+    2 & 0 & 1\\
+    -1 & 1 & 1\\
+    4 & 2 & 2
+   \end{matrix*}
+  \right)
+ \]
+ into echelon form using \myref{algorithm}{algo:gauss-jordan-elimination}. At
+ first, we have $r = 1$ and $c = 1$. Going through rows $2$ and $3$, we see that
+ the number with the highest value in column $1$ lies in row $3$. Hence, we
+ first swap row $1$ with row $3$.
+ \[
+  A = \left( 
+   \begin{matrix*}[r]
+    4 & 2 & 2\\
+    -1 & 1 & 1\\
+    2 & 0 & 1
+   \end{matrix*}
+  \right)
+ \]
+ Now begins the process of elimination. Since $r = 1$, the index $i$ exhausts
+ the set $\{2,3\}$. For $i = 2$, we calculate $a_{i,c} / a_{r,c}$ = $a_{2,1} /
+ a_{1,1} = -1 / 4$. We thus subtract $(-1 / 4)$-multiple of row $1$ from row
+ $2$. 
+ \[
+  A = \left( 
+   \begin{matrix*}[r]
+    4 & 2 & 2\\
+    0 & \frac{3}{2} & \frac{3}{2}\\
+    2 & 0 & 1
+   \end{matrix*}
+  \right)
+ \]
+ Next, we set $i \coloneqq 3$ and calculate $a_{i,c} / a_{r,c} = 1 / 2$; we then
+ subtract $(1 / 2)$-multiple of row $1$ from row $3$.
+ \[
+  A = \left( 
+   \begin{matrix*}[r]
+    4 & 2 & 2\\
+    0 & \frac{3}{2} & \frac{3}{2}\\
+    0 & -1 & 0
+   \end{matrix*}
+  \right)
+ \]
+ Since all rows in column $c$ below $r$ have been eliminated, we move to the
+ next row by setting $r \coloneqq 2$. We also move to the next column via $c
+ \coloneqq 2$.
+
+ Now, the number with the largest absolute value in column $c$ and all rows
+ below (and including) $r$ already lies in row $r$, so no swap is needed. We
+ perform the elimination of row $3$ by calculating $a_{3,c} / a_{r,c} = a_{3,2}
+ / a_{2,2} = - 2 / 3$ and subtracting the $(-2 / 3)$-multiple of row $2$ from
+ row $3$.
+ \[
+  A = \left( 
+   \begin{matrix*}[r]
+    4 & 2 & 2\\
+    0 & \frac{3}{2} & \frac{3}{2}\\
+    0 & 0 & 1
+   \end{matrix*}
+  \right)
+ \]
+ We move to the next row via $r \coloneqq 3$ and the next column via $c
+ \coloneqq 3$. No further elimination takes place because there are no rows
+ below row $3$. The matrix $A$ has been put into echelon form.
+\end{example}
+
+Before finally marching on, we present a way of implementing
+\myref{algorithm}{algo:gauss-jordan-elimination} in SageMath. This
+implementation almost aligns with the implementation of the algorithm in Python.
+Let us be responsible adults and break it into functions.
+
+The function for finding the row with the highest pivot coefficient in the
+current row might look like this:
+\begin{Verbatim}
+sage: \clg{def} \clr{find_best_row}(A: \clb{Matrix}, cur_row: \clb{int}, cur_col: \clb{int}):
+....:     best_row = cur_row
+....:
+....:     \clg{for} row_below \clg{in} \clr{range}(cur_row + 1, \clr{len}(A.\clr{rows}())):
+....:         if \clr{abs}(A[row_below][cur_col]) > \clr{abs}(A[best_row][cur_col]):
+....:             best_row = row_below
+....:
+....:     \clg{return} best_row
+\end{Verbatim}
+We also implement the function to eliminate the first non-zero element in all
+rows below a given row.
+\begin{Verbatim}
+sage: \clg{def} \clr{eliminate_rows}(A: \clb{Matrix}, cur_row: \clb{int}, cur_col: \clb{int}):
+....:     \clg{for} row_below \clg{in} \clr{range}(cur_row + 1, \clr{len}(A.\clr{rows}())):
+....:         scalar = A[row_below][cur_col] / A[cur_row][cur_col]
+....:         A[row_below] = A[row_below] - scalar * A[cur_row]
+\end{Verbatim}
+These are all the functions we need to cleanly implement Gauss-Jordan
+elimination in SageMath.
+\begin{Verbatim}
+sage: \clg{def} \clr{eliminate}(A: \clb{Matrix}):
+....:     cur_row = \clm{0}
+....:
+....:     \clg{for} cur_col \clg{in} \clr{range}(\clr{len}(A.\clr{columns}())):
+....:         best_row = \clr{find_best_row}(A, cur_row, cur_col)
+....:         A[cur_row], A[best_row] = A[best_row], A[cur_row]
+....:
+....:         \clg{if} A[cur_row][cur_col] == \clm{0}:
+....:             \clg{continue}
+....:
+....:         \clr{eliminate_rows}(A, cur_row, cur_col)
+....:         cur_row += \clm{1}
+\end{Verbatim}
+And, to wrap things up, a short application on the matrix from
+\myref{example}{exam:gauss-jordan-elimination}.
+\begin{Verbatim}
+sage: A = \clb{Matrix}(QQ, [
+....:     [\clr{2}, \clr{0}, \clr{1}],
+....:     [\clr{-1}, \clr{1}, \clr{1}],
+....:     [\clr{4}, \clr{2}, \clr{2}],
+....: ])
+sage: \clr{eliminate}(A)
+sage: A
+[  \clr{4}   \clr{2}   \clr{2}]
+[  \clr{0} \clr{3/2} \clr{3/2}]
+[  \clr{0}   \clr{0}   \clr{1}]
+\end{Verbatim}

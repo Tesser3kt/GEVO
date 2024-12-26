@@ -2,11 +2,11 @@
 \label{ssec:numerical-stability}
 
 Numerical stability (of a linear system) refers to one of its computational
-qualities -- the quality described best as `small change in input causes a small
-change in output'. As real numbers are represented in computer memory with a
-given precision (more or less the number of decimal places), deviations in input
-data small enough to go unnoticed may cause issues. We shall highlight two of
-said `issues' (and possible countermeasures) in this subsection.
+qualities -- the quality described often as `small change in input causes a
+small change in output'. As real numbers are represented in computer memory with
+a given precision (more or less the number of decimal places), deviations in
+input data small enough to go unnoticed may cause issues. We shall highlight two
+of said `issues' (and possible countermeasures) in this subsection.
 
 Consider the system
 \begin{equation}
@@ -70,7 +70,7 @@ integers, the result of the computation
 \[
  y = \frac{-1000}{-1001}
 \]
-may easily be rounded to $1$ due to how computers perform division. As three
+may easily be rounded to $1$ due to the way computers perform division. As three
 decimal places are hardly enough to push modern computers to their limits, see
 the following example instead.
 \begin{Verbatim}
@@ -80,19 +80,19 @@ sage: \clb{numerical_approx}(a / b)
 \clr{1.00000000000000}
 \end{Verbatim}
 The \texttt{numerical\_approx} function tells SageMath to represent $a / b$ as a
-real number, otherwise it would store it as a fraction.
+real number, otherwise it would have stored it as a fraction.
 
-Should we know begin the process of back-substitution in the
+Should we now begin the process of back-substitution in the
 system~\eqref{eq:wrong-order}, we would inevitably get a wrong solution. If the
 second equation yields (with low precision) that $y = 1$, then from the first
 equation, we get $x = 0$. This is a \emph{completely} different solution from
-the original. The difference between $(0,1)$ and $(1000 / 1001, 1000 / 1001)$
+the exact one. The difference between $(0,1)$ and $(1000 / 1001, 1000 / 1001)$
 might not seem too high but imagine $x$ and $y$ represented \emph{percentages}
 for example. Then, instead of both $x$ and $y$ being nearly $100\%$, $x$ gets
 smashed down all the way to $0 \%$.
 
 Perhaps a little surprisingly, this problem can be \emph{thoroughly} solved by
-simply changing the order of the equations. If we instead used Gauss-Jordan
+simply changing the order of the equations. If we had instead used Gauss-Jordan
 elimination to solve the system
 \[
  \begin{array}{r c r c r}
@@ -100,7 +100,7 @@ elimination to solve the system
   \frac{1}{1000}x & + & y & = & 1,
  \end{array}
 \]
-we would not run into any issues. Indeed, the first step here entails
+we wouldn't have run into any issues. Indeed, the first step here entails
 subtracting $(1 / 1000)$-multiple of row \texttt{I} from row \texttt{II}. This
 yields
 \[
@@ -109,3 +109,32 @@ yields
   & & \frac{1001}{1000}y & = & 1.
  \end{array}
 \]
+This time, even if $1001 / 1000$ \emph{does} get rounded to one, the exact
+solution will still be reached with sufficient degree of accuracy. Supposing the
+second equation is evaluated to be true if $y = 1$, the first equation then
+gives $x = 1$. Clearly, the number $1000 / 1001$ is much closer to $1$ than it
+is to $0$.
+
+All in all, there exist cases where additional steps performed during
+Gauss-Jordan elimination greatly increase the accuracy of the approximation of
+potential solutions of a linear system. One very simple and statistically
+effective method is to always swap the row which is to be used for elimination
+of other rows with the row with highest (in absolute value) pivot coefficient.
+The reason this works is that computers are, vaguely speaking, prone to rounding
+numbers that \emph{are not} close to $0$. This method is exactly what we
+employed here, by the way. Instead of solving
+\[
+ \begin{array}{r c r c r}
+  \frac{1}{1000}x & + & y & = & 1\\
+  x & - & y & = & 0
+ \end{array}
+\]
+we swapped row \texttt{I} with row \texttt{II} as row \texttt{II} has a
+$1000$-times larger coefficient of the variable $x$ than row \texttt{II}. In the
+next section, we intend to show how Gauss-Jordan elimination can be coded in
+SageMath while also including the aforementioned `accuracy-improving' step.
+
+\begin{exercise}{}{bad-accuracy-system}
+ Devise a linear system the accuracy of the solution whereof suffers from
+ insufficient precision but falls into neither of the two categories described.
+\end{exercise}

@@ -37,7 +37,7 @@ general method second.
   \coordinate (eqsw) at ($(eq.south west) + (-0.2,0.36)$);
   \coordinate (eqnw) at ($(eq.north west) - (0.2,0.36)$);
   \draw[<->,thick] (eqsw) to[bend left=90,looseness=2] (eqnw);
-  \node at (-4.9,0) {\footnotesize \texttt{Swapped first and third row.}};
+  \node at (-5.4,0) {\footnotesize \texttt{Swapped first and third row.}};
   \end{tikzpicture}
  \end{center}
  Next, we scale the first row by a factor of $3$.
@@ -54,7 +54,7 @@ general method second.
   \coordinate (start) at ($(eqnw) - (1,0)$);
   \draw[->,thick] (start) to node[midway,yshift=2mm] {\footnotesize
    $\mathtt{\cdot 3}$} (eqnw);
-  \node at ($(start) - (2,0)$) {\footnotesize \texttt{Scaled the first row by
+  \node at ($(start) - (2.5,0)$) {\footnotesize \texttt{Scaled the first row by
    3.}};
   \end{tikzpicture}
  \end{center}
@@ -74,7 +74,7 @@ general method second.
   \coordinate (row2) at ($(eq.west) - (0.2,0)$);
   \draw[->,thick] (row1) to[bend right=90,looseness=2] node[midway,xshift=-4mm]
    (mid) {\footnotesize $\mathtt{\cdot (-1)}$} (row2);
-  \node at ($(mid) - (3.5,0)$) {\footnotesize \texttt{Subtracted the first row
+  \node at ($(mid) - (4,0)$) {\footnotesize \texttt{Subtracted the first row
    from the second.}};
   \end{tikzpicture}
  \end{center}
