@@ -1,0 +1,389 @@
+\chapter{Linear Geometry}
+\label{chap:linear-geometry}
+
+This chapter is dedicated to fostering a geometric intuition about
+\hyperref[def:vector]{vectors} as introduced in
+\myref{section}{sec:describing-solution-sets-of-linear-systems}. There, we used
+them as a convenient way of grouping data. They, however, are also apt
+representations of a geometric concept -- the concept of a `shift in space'.
+
+Before we move on, though, we need elucidate what we mean by `geometry' and
+`space'. The former word has a widespread connotation of `drawing stuff using a
+ruler and a compass on a sheet of paper'. This is hardly the \emph{geometry} we
+have in mind in this text. Although circles, lines and triangles are geometric
+objects to us as well, the fundamental notion of geometry, which is scarcely
+properly discussed in high-school setting, is \emph{space}.
+
+\emph{Space} is the `place where we do geometry', in essence. We begin by
+arguing the most intuitive way of describing space is that of a set of
+dimensions (or directions of movement) where each dimension is a
+\emph{continuum}, meaning, in whichever direction I move, there are no holes
+along the way. We trust the first \emph{continuum} (a `set without holes') dear
+readers encountered, are the real numbers, $\R$. They seem a good candidate for
+the definition of space.
+
+Firstly, we define the \emph{one-dimensional} space to be exactly $\R$. You
+might wonder how this makes any sense. Well, a space with just one dimension is
+an infinite line like below.
+\begin{center}
+ \begin{tikzpicture}
+  \draw[arrows={Latex[width=6pt,length=8pt]-Latex[width=6pt,length=8pt]}]
+   (0,0) to (10,0);
+ \end{tikzpicture}
+\end{center}
+How is this related to $\R$? Quite trivially. Pick any point on the line and
+label it $0$. Then pick yet another different point and label it $1$. Like so.
+\begin{center}
+ \begin{tikzpicture}
+  \draw[arrows={Latex[width=6pt,length=8pt]-Latex[width=6pt,length=8pt]}]
+   (0,0) to (10,0);
+  \draw[thick,BrickRed] (5,0.1) -- (5,-0.1);
+  \node[BrickRed] at (5,-0.4) {$0$};
+  \draw[thick,RoyalBlue] (6,0.1) -- (6,-0.1);
+  \node[RoyalBlue] at (6,-0.4) {$1$};
+ \end{tikzpicture}
+\end{center}
+Just like that, we have forged a \emph{correspondence} between an infinite line
+and the real numbers. Any real number $r \in \R$ corresponds to the point on the
+line distant exactly $|r|$ from $0$ -- to the right if it's positive, and to the
+left if it's negative. For example, the number $\clg{-3.14}$ is represented as
+the following \clg{point}.
+\begin{center}
+ \begin{tikzpicture}
+  \draw[arrows={Latex[width=6pt,length=8pt]-Latex[width=6pt,length=8pt]}]
+   (0,0) to (10,0);
+  \draw[thick,BrickRed] (5,0.1) -- (5,-0.1);
+  \node[BrickRed] at (5,-0.4) {$0$};
+  \draw[thick,RoyalBlue] (6,0.1) -- (6,-0.1);
+  \node[RoyalBlue] at (6,-0.4) {$1$};
+  \node[ForestGreen] at (1.86,-0.4) {$-3.14$};
+  \draw[thick,ForestGreen] (1.86,0.1) -- (1.86,-0.1);
+  \draw[decorate,decoration={brace,raise=5pt,amplitude=8pt}] (1.86,0) -- (5,0);
+  \node at (3.43,0.7) {$3.14$};
+ \end{tikzpicture}
+\end{center}
+
+Why stop at one dimension? We may add as many dimensions as we like by simply
+inventing new directions of movement. Knowing that one direction of movement
+amounts to the set of real numbers, we get as many directions as we choose to
+include copies of the set of real numbers.
+
+To make the preceding paragraph more tangible, let's first add a second
+dimension, which we typically depict as another line perpendicular to the first
+one and meeting it at $0$. Like this.
+\begin{center}
+ \begin{tikzpicture}
+  \draw[arrows={Latex[width=4pt,length=6pt]-Latex[width=4pt,length=6pt]}]
+   (0,0) to (4,0);
+  \draw[arrows={Latex[width=4pt,length=6pt]-Latex[width=4pt,length=6pt]}]
+   (2,2) to (2,-2);
+  \draw[thick,BrickRed] (2,0.1) -- (2,-0.1);
+  \draw[thick,BrickRed] (2.1,0) -- (1.9,0);
+  \node[BrickRed] at (1.7,-0.3) {$0$};
+  \draw[thick,RoyalBlue] (3,0.1) -- (3,-0.1);
+  \node[RoyalBlue] at (3,-0.3) {$1$};
+  \draw[thick,RoyalBlue] (1.9,1) -- (2.1,1);
+  \node[RoyalBlue] at (1.7,1) {$1$};
+ \end{tikzpicture}
+\end{center}
+Now, we have the entire \emph{plane} to move about. We are free to tread as far
+right (or left) as we wish and as far up (or down) as we wish. Therefore, each
+point here is given two numbers -- one on the axis of horizontal movement and
+one on the axis of vertical movement.
+\begin{center}
+ \begin{tikzpicture}
+  \draw[arrows={Latex[width=4pt,length=6pt]-Latex[width=4pt,length=6pt]}]
+   (0,0) to (4,0);
+  \draw[arrows={Latex[width=4pt,length=6pt]-Latex[width=4pt,length=6pt]}]
+   (2,2) to (2,-2);
+  \draw[thick,BrickRed] (2,0.1) -- (2,-0.1);
+  \draw[thick,BrickRed] (2.1,0) -- (1.9,0);
+  \node[BrickRed] at (1.7,-0.3) {$0$};
+  \draw[thick,RoyalBlue] (3,0.1) -- (3,-0.1);
+  \node[RoyalBlue] at (3,-0.3) {$1$};
+  \draw[thick,RoyalBlue] (1.9,1) -- (2.1,1);
+  \node[RoyalBlue] at (1.7,1) {$1$};
+  \draw[thick,RoyalBlue] (1.9,1) -- (2.1,1);
+  \node[ForestGreen] at (1.55,0.6) {$0.6$};
+  \draw[thick,ForestGreen] (1.9,0.6) -- (2.1,0.6);
+  \draw[thick,ForestGreen] (3.5,0.1) -- (3.5,-0.1);
+  \node[ForestGreen] at (3.5,-0.3) {$1.5$};
+  
+  \draw[ForestGreen,dashed] (3.5,0) -- (3.5,0.6);
+  \draw[ForestGreen,dashed] (2,0.6) -- (3.5,0.6);
+  \node[ForestGreen,circle,fill,inner sep=1.5pt] at (3.5,0.6) {};
+  \node[ForestGreen] at (4.3,0.9) {$(1.5,0.6)$};
+ \end{tikzpicture}
+\end{center}
+We call the set of all ordered pairs of real numbers the \emph{cartesian
+product} of real numbers with themselves and denote it $\R \times \R$ (or $\R^2$
+for short). Hence, the two-dimensional space (also called \emph{plane}) is just
+equivalent to $\R^2$.
+
+We needn't stop at two dimensions. As stated before, we may add as many
+directions of movement as desired. The preceding small examples justify the
+following definition.
+
+\begin{definition}{Space}{space}
+ We call the set $\R^{n}$ of all (ordered) $n$-tuples of real numbers the
+ \emph{$n$-dimensional (real) space}. 
+\end{definition}
+
+We claimed that a \emph{vector} represents a shift in space. We now make that
+idea precise. Consider the points $(a_1,a_2)$ and $(b_1,b_2)$ in $\R^2$. There
+exists a straight path from one to the other. The trajectory of such path can be
+represented as a pair of numbers where the first one signifies the distance we
+are to travel horizontally to reach $b_1$ from $a_1$ and the second number the
+vertical distance from $a_2$ to $b_2$. Clearly, the first distance equals $b_1 -
+a_1$ and the second $b_2 - a_2$. We can collect these numbers into the vector
+\[
+ \mathbf{v} = 
+ \begin{pmatrix}
+  b_1 - a_1\\
+  b_2 - a_2
+ \end{pmatrix}
+\]
+which now serves as a representation of the \emph{movement} or \emph{shift} from
+the point $(a_1,a_2)$ to the point $(b_1,b_2$). In this scenario, we call
+$(a_1,a_2)$ the \emph{root} or \emph{source} of the vector $\mathbf{v}$ and the
+point $(b_1,b_2)$ its \emph{end} or \emph{target}.
+
+Naturally, this idea is easily scaled to higher dimensions. Given points
+\begin{align*}
+ a &= (a_1,a_2,\ldots,a_n),\\
+ b &= (b_1,b_2,\ldots,b_n)
+\end{align*}
+in $\R^{n}$, the vector with \emph{source} $a$ and \emph{target} $b$ is exactly
+\[
+ \begin{pmatrix}
+  b_1 - a_1\\
+  b_2 - a_2\\
+  \vdots\\
+  b_n - a_n
+ \end{pmatrix}.
+\]
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=-1,xmax=4,ymin=-1,ymax=4]
+  \tkzDrawX[arrows={-Latex[width=4pt,length=6pt]},label=]
+  \tkzDrawY[arrows={-Latex[width=4pt,length=6pt]},label=]
+  \tkzDefPoints{1/2/a,3/3/b,1/0/a1,0/2/a2,3/0/b1,0/3/b2}
+  \tkzDrawPoints[size=4,fill=black](a1,a2,b1,b2)
+  \tkzLabelPoint[below=1mm](a1){$1$}
+  \tkzLabelPoint[below=1mm](b1){$3$}
+  \tkzLabelPoint[left=1mm](a2){$2$}
+  \tkzLabelPoint[left=1mm](b2){$3$}
+
+  \tkzDrawSegment[-Latex,thick,Fuchsia,shorten <=4pt,shorten >=4pt](a,b)
+  \tkzLabelSegment[pos=0.5,below,Fuchsia](a,b){$\mathbf{v}$}
+  \tkzDrawSegments[dashed](a1,a a2,a b1,b b2,b)
+  \tkzDrawPoints[size=6,BrickRed,fill=BrickRed](a,b)
+ \end{tikzpicture}
+ \caption{Depiction of a vector $\clm{\mathbf{v}}$ with source $\clr{(1,2)}$ and
+ target $\clr{(3,3)}$.}
+ \label{fig:vector}
+\end{figure}
+
+Observe how this idea of vector being a \emph{shift} sings in unison with the
+definitions of \hyperref[def:adding-vectors]{vector addition} and
+\hyperref[def:multiplying-vector-by-a-number]{scalar multiplication}. The sum of
+the vector of source $a$ and target $b$ with the vector of source $b$ and target
+$c$ is the vector of source $a$ and target $c$ (cf.
+\myref{figure}{fig:vector-addition}). This is testified by the simple
+calculation
+\[
+ \begin{pmatrix}
+  b_1 - a_1\\
+  b_2 - a_2\\
+  \vdots\\
+  b_n - a_n
+ \end{pmatrix}
+ + 
+ \begin{pmatrix}
+  c_1 - b_1\\
+  c_2 - b_2\\
+  \vdots\\
+  c_n - b_n
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  b_1 - a_1 + c_1 - b_1\\
+  b_2 - a_2 + c_2 - b_2\\
+  \vdots\\
+  b_n - a_n + c_n - b_n
+ \end{pmatrix}
+ = 
+ \begin{pmatrix}
+  c_1 - a_1\\
+  c_2 - a_2\\
+  \vdots\\
+  c_n - a_n
+ \end{pmatrix}
+\]
+for points $(a_1,\ldots,a_n), (b_1,\ldots,b_n)$ and $(c_1,\ldots,c_n)$ in
+$\R^{n}$.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=-1,xmax=4,ymin=-1,ymax=4]
+  \tkzDrawX[arrows={-Latex[width=4pt,length=6pt]},label=]
+  \tkzDrawY[arrows={-Latex[width=4pt,length=6pt]},label=]
+  \tkzDefPoints{1/2/a,3/3/b,1/0/a1,0/2/a2,3/0/b1,0/3/b2,4/1/c,4/0/c1,0/1/c2}
+  \tkzDrawPoints[size=4,fill=black](a1,a2,b1,b2,c1,c2)
+  \tkzLabelPoint[below=1mm](a1){$1$}
+  \tkzLabelPoint[below=1mm](b1){$3$}
+  \tkzLabelPoint[below=1mm](c1){$4$}
+  \tkzLabelPoint[left=1mm](a2){$2$}
+  \tkzLabelPoint[left=1mm](b2){$3$}
+  \tkzLabelPoint[left=1mm](c2){$1$}
+
+  \tkzDrawSegment[-Latex,thick,BrickRed,shorten <=4pt,shorten >=4pt](a,b)
+  \tkzDrawSegment[-Latex,thick,RoyalBlue,shorten <=4pt,shorten >=4pt](b,c)
+  \tkzDrawSegment[-Latex,thick,ForestGreen,shorten <=4pt,shorten >=4pt](a,c)
+  \tkzLabelSegment[pos=0.4,above,BrickRed](a,b){$\mathbf{v}$}
+  \tkzLabelSegment[pos=0.4,right,RoyalBlue](b,c){$\mathbf{w}$}
+  \tkzLabelSegment[pos=0.4,below=1mm,ForestGreen](a,c){$\mathbf{v} + \mathbf{w}$}
+  \tkzDrawSegments[dashed](a1,a a2,a b1,b b2,b c1,c c2,c)
+  \tkzDrawPoints[size=6,fill=black](a,b,c)
+ \end{tikzpicture}
+ \caption{The sum $\clg{\mathbf{v} + \mathbf{w}}$ of vectors $\clr{\mathbf{v}}$
+ and $\clb{\mathbf{w}}$.}
+ \label{fig:vector-addition}
+\end{figure}
+
+Similarly, the concept of scalar multiplication is transmitted as enlarging or
+shortening (possibly reversing if the scalar is negative) of the vector in
+question (cf. \myref{figure}{fig:scalar-multiplication}).
+
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}[b]{.45\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzInit[xmin=-1,xmax=5,ymin=-1,ymax=4]
+   \tkzDrawX[arrows={-Latex[width=4pt,length=6pt]},label=]
+   \tkzDrawY[arrows={-Latex[width=4pt,length=6pt]},label=]
+   \tkzDefPoints{1/2/a,3/3/b,1/0/a1,0/2/a2,3/0/b1,0/3/b2,5/4/c,5/0/c1,0/4/c2}
+   \tkzDrawPoints[size=4,fill=black](a1,a2,b1,b2,c1,c2)
+   \tkzLabelPoint[below=1mm](a1){$1$}
+   \tkzLabelPoint[below=1mm](b1){$3$}
+   \tkzLabelPoint[below=1mm](c1){$5$}
+   \tkzLabelPoint[left=1mm](a2){$2$}
+   \tkzLabelPoint[left=1mm](b2){$3$}
+   \tkzLabelPoint[left=1mm](c2){$4$}
+
+   \tkzDrawSegment[-Latex,BrickRed,thick,shorten <=4pt,shorten >=4pt](a,b)
+   \tkzLabelSegment[pos=0.4,above,BrickRed](a,b){$\mathbf{v}$}
+   \tkzDrawSegments[dashed](a1,a a2,a b1,b b2,b c1,c c2,c)
+   \tkzDrawPoints[size=6,fill=black](a,b,c)
+  \end{tikzpicture}
+ \end{subfigure}
+ \begin{subfigure}[b]{.45\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzInit[xmin=-1,xmax=5,ymin=-1,ymax=4]
+   \tkzDrawX[arrows={-Latex[width=4pt,length=6pt]},label=]
+   \tkzDrawY[arrows={-Latex[width=4pt,length=6pt]},label=]
+   \tkzDefPoints{1/2/a,3/3/b,1/0/a1,0/2/a2,3/0/b1,0/3/b2,5/4/c,5/0/c1,0/4/c2}
+   \tkzDrawPoints[size=4,fill=black](a1,a2,b1,b2,c1,c2)
+   \tkzLabelPoint[below=1mm](a1){$1$}
+   \tkzLabelPoint[below=1mm](b1){$3$}
+   \tkzLabelPoint[below=1mm](c1){$5$}
+   \tkzLabelPoint[left=1mm](a2){$2$}
+   \tkzLabelPoint[left=1mm](b2){$3$}
+   \tkzLabelPoint[left=1mm](c2){$4$}
+
+   \tkzDrawSegment[-Latex,thick,ForestGreen,shorten <=4pt,shorten >=4pt](a,c)
+   \tkzLabelSegment[pos=0.4,below=1mm,ForestGreen](a,c){$2 \cdot \mathbf{v}$}
+   \tkzDrawSegments[dashed](a1,a a2,a b1,b b2,b c1,c c2,c)
+   \tkzDrawPoints[size=6,fill=black](a,b,c)
+  \end{tikzpicture}
+ \end{subfigure}
+ \caption{The multiple $\clg{2 \cdot \mathbf{v}}$ of the vector
+ $\clr{\mathbf{v}}$.}
+ \label{fig:scalar-multiplication}
+\end{figure}
+
+There is a point to be made here. \myref{Figure}{fig:vector-addition} only shows
+addition of vectors such that the first one ends where the second begins. You
+may object that this aligns not with the general
+\hyperref[def:adding-vectors]{definition} you gave earlier. There was no talk
+about sources or targets. Fret not, as a simple observation alleviates the issue
+-- a vector itself in fact carries no information whatsoever about either its
+source or its target. For example, the vector
+\[
+ \begin{pmatrix}
+  1\\
+  2\\
+  3
+ \end{pmatrix}
+\]
+can have as its source the point $(0, 1, 2)$ and as its target $(1, 3, 7)$; it
+can equally well be rooted at $(8, -2, 3)$ and end in $(9, 0, 7)$ or start at
+just about any point $(x,y,z)$ as long as it ends in $(x + 1, y + 2, z + 3)$.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=-2,xmax=3,ymin=-1,ymax=3]
+  \tkzDrawX[arrows={-Latex[width=4pt,length=6pt]},label=]
+  \tkzDrawY[arrows={-Latex[width=4pt,length=6pt]},label=]
+  \tkzDefPoints{1/0/a1,2/2/a2,-1/-1/b1,0/1/b2,-2/1/c1,-1/3/c2,2/-1/d1,3/1/d2}
+  \tkzDrawSegments[-Latex,thick,BrickRed,shorten <=4pt,shorten >=4pt](a1,a2
+  b1,b2 c1,c2 d1,d2)
+ \end{tikzpicture}
+ \caption{The vector $\clr{\begin{psmallmatrix} 1 \\ 2 \end{psmallmatrix}}$
+ drawn with four different sources and targets.}
+ \label{fig:one-vector-four-positions}
+\end{figure}
+
+It follows that we have rightly interpreted \hyperref[def:adding-vectors]{the
+sum} of $\mathbf{v}$ and $\mathbf{w}$ as `moving along $\mathbf{v}$ and then
+continuing along $\mathbf{w}$' since we can always move the start of
+$\mathbf{w}$ to the end of $\mathbf{v}$. This interpretation also hopefully
+drives home the idea that a vector is simply a description of a \emph{shift} or
+\emph{displacement} in space, not exactly a \emph{segment} or a \emph{path}. We
+tend to regard the latter two as having a fixed start and end which, as we just
+saw, vectors don't do.
+
+There is one formal consequence of this idea. Since vectors are free to be
+rooted anywhere, why don't we simply make our lives easy and root them at the
+origin -- the point $(0,\ldots,0)$? Doing so would make vectors formally
+indistinguishable from points in space. Indeed, we may now trivially draw a
+relationship between a point $(a_1,\ldots,a_n) \in \R^{n}$ and the vector
+\[
+ \begin{pmatrix}
+  a_1\\
+  a_2\\
+  \vdots\\
+  a_n
+ \end{pmatrix}
+\]
+by consensus rooted at $(0,\ldots,0)$. Intuitively, the former is a specific
+place in $n$-dimensional space and the latter is a shift from the origin to that
+place. Formally, however, there is no difference at all to be found. That said,
+we shall henceforth regard $\R^{n}$ as the set of all points with $n$ real
+coordinates as well as the set of all vectors with $n$ real entries, whichever
+one is more convenient in a given context. Expressed symbolically, we may write
+\[
+ \R^{n} = \{(a_1,\ldots,a_n) \mid a_1,\ldots,a_n \in \R\} = \left\{
+  \begin{pmatrix}
+   a_1\\
+   a_2\\
+   \vdots\\
+   a_n
+  \end{pmatrix} \mid a_1,\ldots,a_n \in \R
+ \right\}.
+\]
+
+The concept of a \emph{shift} typically brings with itself two important
+characteristics -- \emph{length} and \emph{direction}. In natural language, we
+habitually express shifts by saying `Make three steps forward.' or `Turn
+slightly right and then keep driving for 4 kilometres.' We should ask: `What is
+the \emph{length} and \emph{direction} of a vector?' The rest of this chapter
+lays down an answer to this question.
+
+\input{linear-geometry/length}
+\input{linear-geometry/angle}
