@@ -1,0 +1,188 @@
+\section{Visualisation of Linear Systems Revisited}
+\label{sec:visualisation-of-linear-systems-revisited}
+
+In \myref{section}{sec:visualizing-linear-systems}, we discussed geometric
+properties of the sets of solutions of linear systems. In
+\myref{section}{sec:describing-solution-sets-of-linear-systems}, we described
+them as sets of vectors. Finally, now that we have revealed the geometric side
+of vectors as well, the two different ways of looking at sets of solutions of
+linear systems should align. The conception of this alignment is the content of
+this, rather brief, section.
+
+The solution of the linear equation
+\[
+ x + 3y = 4
+\]
+is the set $\{(4-3y,y) \mid y \in \R\}$ and also the set
+\[
+ \left\{ 
+  \begin{pmatrix}
+   4\\
+   0
+  \end{pmatrix}
+  + y 
+  \begin{pmatrix}
+   -3\\
+   1
+  \end{pmatrix} \mid y \in \R
+ \right\}.
+\]
+We've already proven that the first set describes a line. Under our current
+geometric interpretation of vectors, does the second set describe the same line?
+As you may expect, the answer is \emph{yes}, but only if we identify (as we
+already have multiple times) the targets of vectors with the vectors themselves.
+You see, the second set is a set of \emph{vectors} while the first one is a set
+of \emph{points}. The idea here is that these two sets are the same as long as
+we consider the second set as a line formed by the ends or targets of the
+vectors within.
+
+Now, any vector of the form $\begin{psmallmatrix} 4\\0 \end{psmallmatrix} + y
+\begin{psmallmatrix} -3 \\ 1 \end{psmallmatrix}$ is a vector which is rooted at
+the end of $\begin{psmallmatrix} 4\\0 \end{psmallmatrix}$ and then extended by
+an arbitrary length in the direction of $\begin{psmallmatrix} -3 \\ 1
+\end{psmallmatrix}$ (see \myref{figure}{fig:line-set-of-vectors}). This means
+that in order to reach any point on the line, we must travel $4$ steps to the
+right (in the direction of $\begin{psmallmatrix} 4\\0 \end{psmallmatrix}$) and
+then some distance in the direction of $\begin{psmallmatrix} -3 \\ 1
+\end{psmallmatrix}$. Clearly, if we separate the directions, we see that we
+move by $4 + y \cdot (-3)$ in the horizontal direction and by $y \cdot 1$ in
+the vertical direction. The point we reach this way has coordinates $(4 - 3y,
+y)$ for some choice of $y \in \R$. This shows that we are indeed moving along
+the same line; as well we should.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}[scale=1.5]
+  \tkzInit[xmin=-1,xmax=3,ymin=-1,ymax=2]
+  \tkzDrawX[arrows={-Latex[width=4pt,length=6pt]},label=,black!30]
+  \tkzDrawY[arrows={-Latex[width=4pt,length=6pt]},label=,black!30]
+  \tkzDefPoints{0/0/O,1/1/a,-2/2/b,2.5/0.5/c}
+  \tkzDrawSegment[-Latex,thick,BrickRed,shorten <=2pt,shorten >=2pt](O,a)
+  \tkzDrawSegment[-Latex,thick,RoyalBlue,shorten <=2pt,shorten >=2pt](a,b)
+  \tkzDrawSegment[-Latex,thick,RoyalBlue,shorten <=2pt,shorten >=2pt](a,c)
+  \tkzDrawSegments[-Latex,thick,dashed,ForestGreen,shorten <=2pt,shorten
+  >=2pt](O,b O,c)
+  \tkzDrawLine[dashed,add=.5 and .5](b,c)
+  \tkzDrawPoints[size=3,fill=black](a,b,c)
+
+  \tkzLabelSegment[above left](O,a){$\clr{\mathbf{v}}$}
+  \tkzLabelSegment[below left](O,b){$\clr{\mathbf{v}} + 1\clb{\mathbf{w}}$}
+  \tkzLabelSegment[below right](O,c){$\clr{\mathbf{v}} -
+  \frac{1}{2}\clb{\mathbf{w}}$}
+  \tkzLabelSegment[above=1mm](a,b){$1\clb{\mathbf{w}}$}
+  \tkzLabelSegment[above=1mm](a,c){$-\frac{1}{2}\clb{\mathbf{w}}$}
+ \end{tikzpicture}
+
+ \caption{Line as a set of vectors. Every \clg{vector} whose end lies on the
+ line is of the form $\clr{\mathbf{v}} + y \clb{\mathbf{w}}$ for $y \in \R$.}
+ \label{fig:line-set-of-vectors}
+\end{figure}
+
+Since we already proved in
+\myref{section}{sec:describing-solution-sets-of-linear-systems} that the two
+descriptions (using points vs. using vectors) of the sets of solutions of linear
+systems are equivalent, we shan't dwell on this matter much longer. Let us close
+this section with two examples from $\R^3$, the kind we studied and visualised
+in \myref{subsection}{ssec:three-dimensional-linear-systems}.
+
+The linear equation
+\[
+ x - y + z = 4
+\]
+defines a plane in $\R^3$. Its solution set can be represented as the set of
+points $\{(4 + y - z, y, z) \mid y,z \in \R\}$ or the set of (ends of) vectors
+\[
+ \left\{ 
+  \begin{pmatrix}
+   4\\
+   0\\
+   0
+  \end{pmatrix} + y
+  \begin{pmatrix}
+   1\\
+   1\\
+   0
+  \end{pmatrix} + z
+  \begin{pmatrix}
+   -1\\
+   0\\
+   1
+  \end{pmatrix}
+ \right\}.
+\]
+This second representation reveals that we're dealing with a plane created by
+moving freely in the directions of $\begin{psmallmatrix} 1\\1\\0
+\end{psmallmatrix}$ and $\begin{psmallmatrix} -1\\0\\1 \end{psmallmatrix}$,
+shifted $4$ steps to the right from the origin (in the direction of
+$\begin{psmallmatrix} 4\\0\\0 \end{psmallmatrix}$). As a matter of fact, the
+\hyperref[thm:triangle-inequality]{triangle inequality} assures that the
+geometric object defined as the set of all vectors of the form $\mathbf{u} + y
+\mathbf{v} + z \mathbf{w}$, for $\mathbf{u},\mathbf{v},\mathbf{w} \in \R^{n}$ and
+$y,z \in \R$, is always a plane (that is a `two-dimensional flat object')
+because the shortest distance between two points on such an object is always the
+straight segment connecting them. Kind readers would do well to realize this is
+the very definition of `flatness'.
+
+\begin{figure}[ht]
+ \centering
+ \begin{tikzpicture}
+  \tkzInit[xmin=-1,xmax=4,ymin=-1,ymax=5]
+  \tkzDrawX[arrows={-Latex[width=4pt,length=6pt]},label=,black!20]
+  \tkzDrawY[arrows={-Latex[width=4pt,length=6pt]},label=,black!20]
+  \tkzDefPoints{-3/1/x1,1/5/x2,5/5/x3,1/1/x4}
+  \tkzDrawPolygon[black!20,fill=black!20](x1,x2,x3,x4)
+  \tkzDefPoints{-1/-1/z1,3/3/z2}
+  \tkzDrawLine[arrows={-Latex[width=4pt,length=6pt]},black!20,add=0 and
+  0.4](z1,z2)
+  \tkzDefPoints{0/0/O,-1/2/a,1/4/b,1/2/c,3/4/d}
+  \tkzDrawSegment[-Latex,thick,BrickRed,shorten <=2pt,shorten >=2pt](O,a)
+  \tkzLabelSegment[right,BrickRed](O,a){$\mathbf{u}$}
+  \tkzDrawSegment[-Latex,thick,RoyalBlue,shorten <=2pt,shorten >=2pt](a,b)
+  \tkzLabelSegment[above left,RoyalBlue](a,b){$2\mathbf{v}$}
+  \tkzDrawSegment[-Latex,thick,Fuchsia,shorten <=2pt,shorten >=2pt](a,c)
+  \tkzLabelSegment[below,Fuchsia](a,c){$1\mathbf{w}$}
+  \tkzDrawSegment[-Latex,thick,dashed,ForestGreen,shorten <=2pt,shorten
+  >=2pt](O,d)
+  \tkzDrawSegment[-Latex,dashed,RoyalBlue!80,shorten <=2pt,shorten >=2pt](b,d)
+  \tkzDrawSegment[-Latex,dashed,Fuchsia!80,shorten <=2pt,shorten >=2pt](c,d)
+  \tkzDrawPoints[size=3,fill=black](a,b,c,d)
+  \tkzLabelSegment[below right](O,d){$\clr{\mathbf{u}} + 2\clb{\mathbf{v}} +
+  1\clm{\mathbf{w}}$}
+  \tkzDrawLine[dashed,add=.75 and .75](a,b)
+  \tkzDrawLine[dashed,add=1 and 1](a,c)
+ \end{tikzpicture}
+ \caption{Plane as a set of vectors. Every \clg{vector} lying on the plane is of
+ the form $\clr{\mathbf{u}} + y\clb{\mathbf{v}} + z \clm{\mathbf{w}}$ for some
+ $y,z \in \R$.}
+ \label{fig:plane-set-of-vectors}
+\end{figure}
+
+Adding another linear equation creates an intersection of two planes -- a line
+in $\R^3$. This is actually best seen from its vector representation. The system
+\[
+ \begin{array}{r c r c r c r}
+  x & - & y & + & z & = & 4\\
+  -x & + & 3y & - & 3z & = & 0
+ \end{array}
+\]
+has the solution set $\{(6, z + 2, z) \mid z \in \R\}$ or
+\[
+ \left\{
+  \begin{pmatrix}
+   6\\
+   2\\
+   0
+  \end{pmatrix} + z
+  \begin{pmatrix}
+   0\\
+   1\\
+   1
+  \end{pmatrix}
+ \right\}.
+\]
+The latter description immediately suggests that the geometric object in
+question is indeed a line -- we reach every solution by first moving along
+$\begin{psmallmatrix} 6 \\ 2 \\ 0\end{psmallmatrix}$ and then any distance
+whatsoever in the direction of $\begin{psmallmatrix} 0 \\ 1 \\
+1\end{psmallmatrix}$.
+
