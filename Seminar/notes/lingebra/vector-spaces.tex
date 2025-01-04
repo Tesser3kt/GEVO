@@ -1,0 +1,572 @@
+\chapter{Abstract Vector Spaces}
+\label{chap:abstract-vector-spaces}
+
+The geometric interpretation of vectors developed in the
+\hyperref[chap:linear-geometry]{previous chapter} leaves a lot of tones unsung.
+We \hyperref[def:space]{defined} the space the vectors occupy as $\R^{n}$. This
+definition works well for building intuition but can't get us very far in the
+theory of linear systems. You see, the solution sets to linear systems are
+rarely equal to $\R^{n}$ for any $n$. But they \emph{are}, in a very literal
+sense, `spaces of vectors'.
+
+To illustrate what we mean, consider again the linear equation
+\[
+ x - y + z = 4
+\]
+from \myref{section}{sec:visualisation-of-linear-systems-revisited}. Its
+solution set is the set of vectors
+\[
+ \left\{ 
+  \begin{pmatrix}
+   4\\
+   0\\
+   0
+  \end{pmatrix} + y
+  \begin{pmatrix}
+   1\\
+   1\\
+   0
+  \end{pmatrix} + z
+  \begin{pmatrix}
+   -1\\
+   0\\
+   1
+  \end{pmatrix} \mid y,z \in \R
+ \right\}.
+\]
+The vector $\begin{psmallmatrix} 4\\0\\0 \end{psmallmatrix}$ is just a single
+shift but the set
+\[
+ S \coloneqq \left\{ 
+  y\begin{pmatrix}
+   1\\
+   1\\
+   0
+  \end{pmatrix} + z
+  \begin{pmatrix}
+   -1\\
+   0\\
+   1
+  \end{pmatrix} \mid y,z \in \R
+ \right\}
+\]
+indeed is an entire `space' of vectors, in the sense that it behaves essentially
+the same as $\R^2$. To highlight certain qualities:
+\begin{itemize}
+ \item It's a plane in $\R^3$; a two-dimensional object, just like $\R^2$ is a
+  two-dimensional space.
+ \item It contains the origin -- the vector $\begin{psmallmatrix} 0\\0\\0
+  \end{psmallmatrix}$.
+ \item Adding vectors in $S$ gives a vector in $S$. We cannot ever leave the
+  plane just by moving along the vectors in the same plane.
+ \item Multiplying vectors from $S$ by real numbers also gives a vector in $S$.
+  Enlarging or shortening a vector also doesn't allow us to leave the plane.
+\end{itemize}
+In this chapter, we shall endeavour to formalize the just outlined concept of a
+`set of vectors which behaves just like a space does'. We're going to call these
+spaces \emph{abstract vector spaces} or just \emph{vector spaces} for short.
+
+The most important idea behind the definition of a vector space (or a space in
+general) is `closedness'. A space ought to be a universe in itself, interactions
+between elements cannot ever lead to the creation of an element which is not
+present. Mathematicians tend to call these interactions, \emph{operations}, and
+label sets which meet this criterion as \emph{closed}. There are a few other
+formal requirements we must enforce (e.g. commutativity and associativity of
+operations which we take for granted in the real numbers) but the primary aim
+remains to define a \emph{closed} set, a space moving along whose vectors allows
+one not to escape it.
+
+We thus proceed to define an abstract vector space as a set of vectors which can
+be added together and scaled by real numbers by listing axioms (basically
+enforced rules of behaviour) the set must satisfy.
+
+\begin{definition}{Abstract vector space}{abstract-vector-space}
+ An \emph{(abstract) vector space} over $\R$ is a set $V$ (whose elements style
+ \emph{vectors}) together with operations $ \oplus :V \times V \to V$ (called
+ \emph{vector addition}) and $\odot: \R \times V \to V$ (called \emph{scalar
+ multiplication}) satisfying the following axioms.
+ \begin{enumerate}
+  \item The operation $ \oplus $ is \emph{commutative}, i.e. $\mathbf{v} \oplus
+   \mathbf{w} = \mathbf{w} \oplus \mathbf{v}$ for every
+   $\mathbf{v},\mathbf{w} \in V$.
+  \item The operation $ \oplus $ is \emph{associative}, i.e. $\mathbf{u} \oplus
+   (\mathbf{v} \oplus \mathbf{w}) = (\mathbf{u} \oplus \mathbf{v}) \oplus
+   \mathbf{w}$ for every $\mathbf{u},\mathbf{v},\mathbf{w} \in V$.
+  \item The set $V$ is \emph{closed} under the operation $ \oplus $, i.e.
+   $\mathbf{v} \oplus \mathbf{w} \in V$ whenever $\mathbf{v},\mathbf{w} \in V$.
+  \item There exists a \emph{zero vector}, i.e. a vector $\mathbf{0} \in V$ such
+   that $\mathbf{v} + \mathbf{0} = \mathbf{v}$ for every $\mathbf{v} \in V$.
+  \item Each vector $\mathbf{v} \in V$ has an \emph{additive inverse}, i.e. a
+   vector $\mathbf{w} \in V$ such that $\mathbf{v} + \mathbf{w} = \mathbf{0}$.
+  \item The operation $\odot$ distributes over $+$, that is, $(r + s) \odot
+   \mathbf{v} = r \odot \mathbf{v} \oplus s \odot \mathbf{v}$ for all $r,s \in
+   \R$ and $\mathbf{v} \in V$.
+  \item The operation $\odot$ distributes over $ \oplus $, i.e. $r \odot
+   (\mathbf{v} \oplus \mathbf{w}) = r \odot \mathbf{v} \oplus r \odot
+   \mathbf{w}$ for every $r \in \R$ and $\mathbf{v},\mathbf{w} \in V$.
+  \item Ordinary multiplication (of real numbers) associates with $\odot$, i.e.
+   $(rs) \odot \mathbf{v} = r \odot (s \odot \mathbf{v})$ for every $r,s \in \R$
+   and $\mathbf{v} \in V$.
+  \item The set $V$ is \emph{closed} under $\odot$, that is, $r \odot
+   \mathbf{v} \in V$ whenever $r \in \R$ and $\mathbf{v} \in V$.
+  \item Scalar multiplication by $1$ acts as the \emph{identity operation}, that
+   is, $1\odot \mathbf{v} = \mathbf{v}$ for every $\mathbf{v} \in V$.
+ \end{enumerate}
+\end{definition}
+
+\begin{figure}[ht]
+ \centering
+ \begin{subfigure}[c]{.45\textwidth}
+  \centering
+  \begin{tikzpicture}
+   \tkzDefPoints{0/0/O,1/3/a,3/1/b,4/4/c}
+   \tkzDrawSegment[-Latex,thick,BrickRed](O,a)
+   \tkzDrawSegment[-Latex,thick,RoyalBlue](a,c)
+   \tkzDrawSegment[-Latex,thick,RoyalBlue](O,b)
+   \tkzDrawSegment[-Latex,thick,BrickRed](b,c)
+   \tkzDrawSegment[-Latex,thick,dashed,ForestGreen](O,c)
+   \tkzLabelSegment[BrickRed,left=1mm](O,a){$\mathbf{v}$}
+   \tkzLabelSegment[BrickRed,right=1mm](b,c){$\mathbf{v}$}
+   \tkzLabelSegment[RoyalBlue,above=1mm](a,c){$\mathbf{w}$}
+   \tkzLabelSegment[RoyalBlue,below=1mm](O,b){$\mathbf{w}$}
+   \tkzLabelSegment[ForestGreen,above left](O,c){$\mathbf{v} + \mathbf{w}$}
+   \tkzLabelSegment[ForestGreen,below right](O,c){$\mathbf{w} + \mathbf{v}$}
+  \end{tikzpicture}
+ \end{subfigure}
+ \begin{subfigure}[c]{.45\textwidth}
+  \centering
+  \begin{tikzpicture}[scale=0.9]
+   \tkzDefPoints{0/0/O,2/2/a,5/2/b,7/0/c}
+   \tkzDrawSegment[-Latex,thick,BrickRed](O,a)
+   \tkzDrawSegment[-Latex,thick,RoyalBlue](a,b)
+   \tkzDrawSegment[-Latex,thick,ForestGreen](b,c)
+   \tkzLabelSegment[above left,BrickRed](O,a){$\mathbf{u}$}
+   \tkzLabelSegment[above=1mm,RoyalBlue](a,b){$\mathbf{v}$}
+   \tkzLabelSegment[above right,ForestGreen](b,c){$\mathbf{w}$}
+   \tkzDrawSegment[-Latex,thick,dashed](O,b)
+   \tkzLabelSegment[above left=1mm and -4mm](O,b){\clr{$\mathbf{u}$} +
+   \clb{$\mathbf{v}$}}
+   \tkzDrawSegment[-Latex,thick,dashed](a,c)
+   \tkzLabelSegment[above right=1mm and -4mm](a,c){\clb{$\mathbf{v}$} +
+   \clg{$\mathbf{w}$}}
+   \tkzDrawSegment[-Latex,thick,Fuchsia](O,c)
+   \tkzLabelSegment[below=1mm](O,c){$(\clr{\mathbf{u}} + \clb{\mathbf{v}}) +
+    \clg{\mathbf{w}} = \clr{\mathbf{u}} + (\clb{\mathbf{v}} +
+    \clg{\mathbf{w}})$}
+  \end{tikzpicture}
+ \end{subfigure}
+ \caption{The visualization of commutativity and associativity of vector
+ addition.}
+ \label{fig:vector-addition-com-and-ass}
+\end{figure}
+
+\begin{remark}{}{}
+ The \hyperref[def:abstract-vector-space]{definition of vector space} hosts a
+ plethora of axioms; some for different `mathematical' reasons than others.
+
+ The axioms (3) and (9) are the `most important' in a sense. They ascertain that
+ the resulting set is indeed a space, in the sense discussed in the introduction
+ to \hyperref[chap:abstract-vector-spaces]{this chapter}.
+
+ The axioms (1), (2), (6), (7), (8) and (10) are technical. Their role is to
+ make vectors and numbers interact in a way we find intuitive hailing from
+ $n$-dimensional real spaces. There, we take for granted the sum of two vectors
+ is invariant under change of the order of summation but, on the other hand, one
+ can easily design sets of elements with an addition operation not commutative.
+ The gist of it is that we still wish to think of elements of vector spaces as
+ \dots~well \dots~vectors, and once a vector, you should behave like a vector.
+
+ Finally, axioms (4) and (5) are there so that we can `reverse arrows', in a
+ sense. Again, we tend to treat vectors as measures of length and direction so
+ it makes sense to be able to travel the same distance in a direction opposite.
+ The condition of being able to reverse brings with it the necessity to have an
+ `original point' since otherwise the sum of a vector with its additive inverse
+ would send us flying out of the space we're in. That ought not to happen.
+\end{remark}
+
+\begin{remark}{}{}
+ Diligent readers have surely noticed that we denoted the operations $ \oplus $
+ and $\odot$ on an \hyperref[def:abstract-vector-space]{abstract vector space}
+ differently than we would before. For predominantly didactic reasons. When we
+ first defined \hyperref[def:adding-vectors]{vector addition}, we didn't feel
+ the need to distinguish adding two real numbers from adding two vectors because
+ vector addition is just component-wise addition of numbers anyway. However,
+ elements of an abstract vector space can (as we shall soon see) actually be
+ somewhat distant from the intuitive image of vectors we harbour. It seemed apt
+ to fully convey the perception of difference between vector addition and
+ `normal' addition. Scalar multiplication falls under the same argument.
+
+ Nonetheless, it is common in literature to write the vector addition operation
+ $ \oplus $ the same way as the addition of real numbers and we purport to
+ adhere to the norm. However, we shall at least make the distinction between
+ scalar multiplication and real multiplication by using the symbol $ \cdot $ for
+ the former and lack of a symbol for the latter. The operation $ \cdot $ of
+ scalar multiplication ought not to be confused with
+ \hyperref[def:dot-product]{dot product} which we have not defined for abstract
+ vectors.
+\end{remark}
+
+We fare ahead and list quite a few examples of
+\hyperref[def:abstract-vector-space]{abstract vector spaces}. Some should come
+as no surprise, some as quite it.
+
+\begin{example}{$n$-dimensional real space}{n-dimensional-real-space}
+ An obvious example of a \hyperref[def:abstract-vector-space]{vector space} is
+ the $n$-dimensional real space $\R^{n}$. Veracity of the ten axioms is
+ trivially checked given that their conception is based on the $\R^{n}$
+ archetype.
+\end{example}
+
+\begin{example}{Solution sets of homogeneous linear systems}{solution-sets-of-homogeneous-linear-systems}
+ The motivating example behind \hyperref[def:abstract-vector-space]{vector
+ spaces} have exactly been the sets of vectors like
+ \[
+  \{r_1 \cdot \mathbf{v}_1 + r_2 \cdot \mathbf{v}_2 + \ldots + r_k \cdot
+  \mathbf{v}_k\},
+ \]
+ which should be `correctly' written as
+ \[
+  \{r_1 \odot \mathbf{v}_1 \oplus r_2 \odot \mathbf{v}_2 \oplus \ldots \oplus
+  r_k \odot \mathbf{v}_k\},
+ \]
+ for some $r_1,\ldots,r_n \in \R$ and $\mathbf{v}_1,\ldots,\mathbf{v}_k \in
+ \R^{n}$. These are not \emph{exactly} equal to $\R^{k}$ although they do
+ describe a space with $k$ different directions of movement. Since we defined
+ vector spaces with the primary aim of accommodating such examples, it would be
+ quite the sorry situation should they fail to be them. Luckily, all such sets
+ indeed are vector spaces. Naturally, by
+ \myref{proposition}{prop:solution-set-of-a-homogeneous-linear-system}, these
+ sets arise as sets of solutions of homogeneous linear systems.
+
+ Since they are sets of vectors in $\R^{n}$, the technical axioms (1), (2), (6),
+ (7), (8) and (10) are trivially satisfied. We are going to check axioms (3) and
+ (9) first. They say that the sum of solutions of a homogeneous linear system is
+ also a solution of the same system and so are multiples of solutions. Suppose
+ thus that the vectors $\mathbf{v}, \mathbf{w} \in \R^{n}$ are solutions of the
+ homogeneous linear system
+ \[
+  \begin{array}{r c r c c c r c r}
+   a_{1,1}x_1 & + & a_{1,2} x_2 & + & \ldots & + & a_{1,n}x_n &= & 0\\
+   a_{2,1}x_1 & + & a_{2,2} x_2 & + & \ldots & + & a_{2,n}x_n &= & 0\\
+              & & & & & & & \vdots &\\
+   a_{m,1}x_1 & + & a_{m,2} x_2 & + & \ldots & + & a_{m,n}x_n &= & 0
+  \end{array}
+ \]
+ Then, for every $i \leq n$, the equality
+ \begin{align*}
+  a_{i,1}(v_1 + w_1) + a_{i,2}(v_2 + w_2) + \ldots + a_{i,n}(v_n + w_n) &=
+  a_{i,1}v_1 + a_{i,2}v_2 + \ldots + a_{i,n}v_n \\
+                                                                        &+
+  a_{i,1}w_1 + a_{i,2}w_2 + \ldots + a_{i,n}w_n\\
+                                                                        &=
+  0 + 0 = 0
+ \end{align*}
+ is satisfied, which proves (3). Similarly, if $\mathbf{v}$ is a solution, then
+ for any $r \in \R$ and all $i \leq n$ we have
+ \begin{align*}
+  a_{i,1}(rv_1) + a_{i,2}(rv_2) + \ldots + a_{i,n}(rv_n) &= ra_{i,1}v_1 +
+  ra_{i,2}v_2 + \ldots + ra_{i,n}v_n\\
+                                                         &= r(a_{i,1}v_1 +
+                                                         a_{i,2}v_2 + \ldots +
+                                                         a_{i,n}v_n) = 0,
+ \end{align*}
+ which means that $r \cdot \mathbf{v}$ is also a solution, and thus (9) holds.
+
+ Finally, as far as axioms (4) and (5) are concerned, the vector $\mathbf{0}$ is
+ always a solution of a homogeneous linear system and the inverse to a solution
+ $\mathbf{v}$ is, of course, the solution $-1 \cdot \mathbf{v}$ (which is indeed
+ a solution by the preceding paragraph).
+\end{example}
+
+\begin{remark}{}{linear-systems-not-spaces}
+ Do note that by
+ \myref{example}{exam:solution-sets-of-homogeneous-linear-systems}, only the
+ solutions of \textbf{homogeneous} linear systems are vector spaces. Solutions
+ to non-homogeneous linear systems \textbf{always} fail to be vector spaces;
+ they do not contain the vector $\mathbf{0}$ for example. They are so-called
+ \emph{affine} spaces which we shan't study in this text.
+\end{remark}
+
+\begin{example}{Sets of polynomials}{sets-of-polynomials}
+ Sets of polynomials in one variable of a given degree make an interesting
+ example of an \hyperref[def:abstract-vector-space]{abstract vector space}. To
+ recall, a real polynomial $p$ in one variable of degree $n$ is the expression
+ \[
+  p(x) = r_0 + r_1x + r_2x^2 + \ldots + r_n x^{n}
+ \]
+ for some $r_0,\ldots,r_n \in \R$. We claim that the set
+ \[
+  \{p \mid p \text{ is a real polynomial of degree } n\},
+ \]
+ with the addition operation being the typical addition of polynomials and
+ scalar multiplication being simple multiplication of polynomials by real
+ numbers, is a vector space.
+
+ Similarly to the
+ \hyperref[exam:solution-sets-of-homogeneous-linear-systems]{previous example},
+ axioms (1), (2), (6), (7), (8) and (10) are easily verified to hold. Clearly,
+ the sum of two polynomials of degree $n$ is a polynomial of degree $n$ and the
+ multiple of a polynomial of degree $n$ is again a polynomial degree $n$. The
+ zero vector is the polynomial $0 + 0x + 0x^2 + \ldots + 0x^{n}$ and the inverse
+ to the polynomial $p$ is of course $-p$.
+
+ Do note however that we \textbf{forbid polynomial multiplication} since the
+ product of two polynomials of degree $n$ is no longer a polynomial of degree
+ $n$. We may only add polynomials and multiply them by a real number.
+
+ As a matter of fact, polynomials of degree $n$ are in a sense `the same' as
+ vectors over $\R^{n+1}$. The correspondence is easy to forge -- we simply
+ encode the coefficients of the polynomial into a vector like so:
+ \[
+  r_0 + r_1x + r_2x^2 + \ldots + r_nx^{n} \mapsto 
+  \begin{pmatrix}
+   r_0\\
+   r_1\\
+   r_2\\
+   \vdots\\
+   r_n
+  \end{pmatrix} \in \R^{n+1}.
+ \]
+ We can now rewrite polynomial addition and scalar multiplication as the same
+ operations on vectors in $\R^{n+1}$. For example, on the set of polynomials of
+ degree $3$, the addition
+ \[
+  (2x + x^2 + 3x^3) + (-1 + 3x - 5x^3) = -1 + 5x + x^2 - 2x^3
+ \]
+ can be written in the following vector form.
+ \[
+  \begin{pmatrix}
+   0\\
+   2\\
+   1\\
+   3
+  \end{pmatrix}
+  + 
+  \begin{pmatrix}
+   -1\\
+   3\\
+   0\\
+   -5
+  \end{pmatrix}
+  = 
+  \begin{pmatrix}
+   -1\\
+   5\\
+   1\\
+   -2
+  \end{pmatrix}
+ \]
+\end{example}
+
+\begin{example}{Matrices}{matrices}
+ The set
+ \[
+  \left\{
+   \begin{pmatrix}
+    a_{11} & a_{12}\\
+    a_{21} & a_{22}
+   \end{pmatrix}
+   \mid a_{11},a_{12},a_{21},a_{22} \in \R
+  \right\}
+ \]
+ of $2 \times 2$ matrices with real entries and entry-wise addition and
+ scalar multiplication is a \hyperref[def:abstract-vector-space]{vector space}
+ over $\R$. This space is often denoted as $\R^{2 \times 2}$. To give an
+ example, the addition of matrices behaves like this:
+ \[
+  \begin{pmatrix}
+   1 & 2\\
+   3 & 4
+  \end{pmatrix}
+  + 
+  \begin{pmatrix}
+   2 & 1\\
+   4 & 3\\
+  \end{pmatrix}
+  = 
+  \begin{pmatrix}
+   1 + 2 & 2 + 1\\
+   3 + 4 & 4 + 3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+   3 & 3\\
+   7 & 7
+  \end{pmatrix};
+ \]
+ and scalar multiplication like this:
+ \[
+  2 \cdot 
+  \begin{pmatrix}
+   1 & 2\\
+   3 & 4
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+   2 \cdot 1 & 2 \cdot 2\\
+   2 \cdot 3 & 2 \cdot 4
+  \end{pmatrix}
+  = 
+  \begin{pmatrix}
+   2 & 4\\
+   6 & 8
+  \end{pmatrix}.
+ \]
+ Upon closer inspection, $2 \times 2$ matrices behave exactly like $4$-component
+ real vectors. Indeed, we can find a correspondence
+ \[
+  \begin{pmatrix}
+   a_{11} & a_{12}\\
+   a_{21} & a_{22}
+  \end{pmatrix}
+  \longleftrightarrow
+  \begin{pmatrix}
+   a_{11}\\
+   a_{12}\\
+   a_{21}\\
+   a_{22}
+  \end{pmatrix}
+ \]
+ and treat the space $\R^{2 \times 2}$ exactly the same as $\R^{4}$ with vector
+ addition and multiplication. This correspondence also shows that all the
+ defining axioms are satisfied.
+
+ This example can naturally be scaled to spaces $\R^{m \times n}$ of real
+ matrices with $m$ rows and $n$ columns. One always gets a correspondence
+ between $\R^{m \times n}$ and $\R^{mn}$.
+\end{example}
+
+\begin{example}{The trivial space}{the-trivial-space}
+ The set $\{\mathbf{0}\}$ containing only the zero vector is a vector space. It
+ is actually the smallest (by element count) vector space that can exist. The
+ empty set is not a vector space precisely due to its lack of the zero vector.
+\end{example}
+
+\begin{example}{Natural functions}{natural-functions}
+ The set
+ \[
+  \{f \mid f \text{ is a function } \N \to \R\},
+ \]
+ with addition defined by $(f+g)(n) = f(n) + g(n)$ and scalar multiplication by
+ $(r \cdot f)(n) = rf(n)$, is a vector space. It differs from previous examples
+ by its \emph{dimension}. Without proper means to define the dimension of a
+ vector space just yet, we just vaguely state that this vector space has
+ \emph{infinite} dimension.
+
+ Each function $f:\N \to \R$ \emph{can} actually be represented as a vector with
+ real entries, but with an infinite number of them. For example, the function
+ $f(n) = n^2 + 1$ can be represented as a vector
+ \[
+  \begin{pmatrix}
+   f(0)\\
+   f(1)\\
+   f(2)\\
+   \vdots
+  \end{pmatrix} = 
+  \begin{pmatrix}
+   0^2 + 1\\
+   1^2 + 1\\
+   2^2 + 1\\
+   \vdots
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+   1\\
+   2\\
+   5\\
+   \vdots
+  \end{pmatrix}
+ \]
+ whose $i$-th entry is $f(i)$. Since there are infinitely many natural numbers,
+ these vectors themselves must have infinite entries. We leave the verification
+ of the vector space axioms to our hard-working readers.
+\end{example}
+
+\begin{example}{Real functions}{real-functions}
+ Our final example features the set of all functions $f:\R \to \R$ with addition
+ and scalar multiplication defined as in
+ \myref{example}{exam:natural-functions}. This is again a vector space
+ (exercise) which has not just infinite, but \emph{uncountable} dimension. The
+ consequence of this fact is that such functions can no longer be reasonably
+ represented as vectors. As real numbers cannot be \emph{enumerated}, we have no
+ clear idea what the $i$-th entry of such a vector should be.
+\end{example}
+
+\begin{exercise}{}{functions-are-vector-spaces}
+ Prove (by checking the axioms) that the sets of functions mentioned in
+ examples~\ref{exam:natural-functions} and~\ref{exam:real-functions} are indeed
+ vector spaces  \hyperref[def:abstract-vector-space]{by definition}.
+\end{exercise}
+
+The string of examples hopefully shed some light on the power of
+\emph{abstraction} or \emph{generalisation} in mathematics. It is not that
+(most) mathematicians enjoy working with abstract and unintuitive concepts (most
+of them refer to them as `abstract nonsense' actually) but that this approach
+yields results about many structures at once. Everything we henceforth prove
+about vector spaces is going to be valid for all the sets mentioned here as well
+as absolutely any set that fits the
+\hyperref[def:abstract-vector-space]{definition} of a vector space. To give a
+few examples:
+\begin{itemize}
+ \item the theory of differential equations from calculus relies heavily on the
+  description of solutions of linear systems;
+ \item multivariable real calculus (differentiation and integration of function
+  $f:\R^{m} \to \R^{n}$) uses theory of matrices and their determinants (to be
+  introduced way later) as derivatives of multivarible functions are matrices;
+ \item vectors and matrices whose entries are module homomorphisms are a regular
+  occurrence in my own branch of representation theory of algebras.
+\end{itemize}
+Had we kept working only in the spaces $\R^{n}$, we would have had to be
+constantly doubting whether any one result wasn't particular to this scenario.
+
+We close this introductory passage with some `intuitively obvious' statements
+about qualities of vectors that are nevertheless not mentioned as axioms and, as
+such, must be proven.
+
+\begin{lemma}{Abstract nonsense}{abstract-nonsense}
+ Let $V$ be a vector space over $\R$. Then, for any $r \in \R$ and
+ $\mathbf{v} \in V$, we have
+ \begin{enumerate}[label=(\alph*)]
+  \item $0 \cdot \mathbf{v} = \mathbf{0}$;
+  \item $(-1 \cdot \mathbf{v}) + \mathbf{v} = \mathbf{0}$;
+  \item $r \cdot \mathbf{0} = \mathbf{0}$.
+ \end{enumerate}
+\end{lemma}
+\begin{lemproof}
+ As for (a), observe that
+ \begin{equation}
+  \label{eq:abstract-nonsense}
+  \mathbf{v} \overset{(10)}{=} 1 \cdot \mathbf{v} = (1 + 0) \cdot \mathbf{v}
+  \overset{(6)}{=} 1 \cdot \mathbf{v} + 0 \cdot \mathbf{v} \overset{(10)}{=}
+  \mathbf{v} + 0 \cdot \mathbf{v}, 
+ \end{equation}
+ where the numbers above equal signs refer to axioms in the
+ \hyperref[def:abstract-vector-space]{definition of a vector space}. Let now
+ $\mathbf{w}$ be the \emph{additive inverse} of $\mathbf{v}$, i.e. $\mathbf{v} +
+ \mathbf{w} = \mathbf{0}$; such exists by axiom (5). Adding $\mathbf{w}$ to both
+ sides of the equation~\eqref{eq:abstract-nonsense} gives
+ \begin{align*}
+  \mathbf{w} + \mathbf{v} &= \mathbf{w} + \mathbf{v} + 0 \cdot \mathbf{v}\\
+  \mathbf{0} &= \mathbf{0} + 0 \cdot \mathbf{v}
+ \end{align*}
+ By axiom (4), the right side equals $0 \cdot \mathbf{v}$ and thus we have
+ proven that $\mathbf{0} = 0 \cdot \mathbf{v}$.
+
+ The calculation
+ \[
+  (-1 \cdot \mathbf{v}) + \mathbf{v} \overset{(6)}{=} (-1 + 1) \cdot \mathbf{v}
+  = 0 \cdot \mathbf{v} \overset{(a)}{=} \mathbf{0}
+ \]
+ proves point (b).
+
+ As for (c), we have
+ \[
+  r \cdot \mathbf{0} \overset{(a)}{=} r \cdot (0 \cdot \mathbf{0})
+  \overset{(8)}{=} (r 0) \cdot \mathbf{0} = 0 \cdot \mathbf{0} \overset{(a)}{=}
+  \mathbf{0},
+ \]
+ which proves the statement.
+\end{lemproof}
+
+\input{vector-spaces/subspaces}
+\input{vector-spaces/linear-independence}

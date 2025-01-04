@@ -1,0 +1,719 @@
+\section{Subspaces And Spans}
+\label{sec:subspaces-and-spans}
+
+In this section, we set out to formalise two concepts. First, in
+\myref{section}{sec:visualisation-of-linear-systems-revisited}, we interpreted
+the set
+\[
+ \left\{ y \cdot 
+  \begin{pmatrix}
+   1\\
+   1\\
+   0
+  \end{pmatrix}
+  + z \cdot 
+  \begin{pmatrix}
+   -1\\
+    0\\
+    1
+  \end{pmatrix} \mid y,z \in \R
+ \right\}
+\]
+as a plane in $\R^3$. In the introduction to this chapter, we explained the
+`plane' part. However, we have not yet made it clear what we mean by `in
+$\R^3$'. What does it \emph{mean} for a vector space to \emph{lie inside}
+another vector space? Second, we've often used the phrase `vectors define
+dimensions or directions of movement'. We shall return to this idea very soon as
+well.
+
+Now, a vector space which is wholly contained in another vector space is called
+a subspace and its definition is quite simple and natural.
+
+\begin{definition}{Subspace}{subspace}
+ Let $V$ be a vector space. A set $S$ is a \emph{subspace} of $V$ if $S
+ \subseteq V$ and, additionally, $S$ is a vector space in its own right. We
+ write $S \leq V$ to indicate that $S$ is a subspace of $V$.
+\end{definition}
+
+Simply put, subspaces of $V$ are its subsets that are also closed under vector
+addition and scalar multiplication. Before we proceed to illustrate the concept
+on a few examples, we prove a lemma which allows us to check whether a given
+subset is also a subspace without having to go through all the axioms in the
+\hyperref[def:abstract-vector-space]{definition of vector space}.
+
+\begin{lemma}{Characterisation of subspaces}{characterisation-of-subspaces}
+ Let $V$ be a vector space and $S$ a subset of $V$ with inherited operations of
+ vector addition and scalar multiplication. Then, the following statements are
+ equivalent.
+ \begin{enumerate}[label=(\alph*)]
+  \item $S$ is a subspace of $V$.
+  \item $S$ is closed under linear combinations of pairs of vectors: for any
+   $\mathbf{s}_1,\mathbf{s}_2 \in S$ and $r_1,r_2 \in \R$, the vector $r_1 \cdot
+   \mathbf{s}_1 + r_2 \cdot \mathbf{s}_2$ lies in $S$.
+  \item $S$ is closed under linear combinations of any number of vectors: for
+   any $n \in \N$, vectors $\mathbf{s}_1,\mathbf{s}_2,\ldots,\mathbf{s}_n \in S$
+   and $r_1,r_2,\ldots,r_n \in \R$, the vector $r_1 \cdot \mathbf{s}_1 + r_2
+   \cdot \mathbf{s}_2 + \ldots + r_n \cdot \mathbf{s}_n$ lies in $S$.
+ \end{enumerate}
+\end{lemma}
+\begin{lemproof}
+ Instead of proving $(a) \Leftrightarrow (b)$, $(a) \Leftrightarrow (c)$ and
+ $(b) \Leftrightarrow (c)$, it is simpler to establish the claim by proving
+ \[
+  (a) \Rightarrow (c) \Rightarrow (b) \Rightarrow (a).
+ \]
+ As for $(a) \Rightarrow (c)$, since $S$ is a vector space, we need only invoke
+ the axioms. Given $\mathbf{s}_1 \in S$ and $r_1 \in \R$, we use the axiom (9)
+ to ascertain that $r_1 \cdot \mathbf{s}_1 \in S$. Similarly for the other
+ vectors $\mathbf{s}_2,\ldots,\mathbf{s}_n \in S$ and numbers $r_2,\ldots,r_n
+ \in \R$. Then, by repeatedly using axiom (3), we prove that the linear
+ combination $r_1 \cdot \mathbf{s}_1 + r_2 \cdot \mathbf{s}_2 + \ldots + r_n
+ \cdot \mathbf{s}_n$ lies in $S$.
+
+ The implication $(c) \Rightarrow (b)$ is obvious, simply substitute $n = 2$.
+
+ The proof of $(b) \Rightarrow (a)$ takes the most work. We must check that $S$
+ satisfies all the axioms of a vector space. The technical axioms (1), (2), (6),
+ (7), (8) and (10) hold in $S$ because they hold in $V$. We shall illustrate
+ this on axiom (1), the rest is proven in a very similar manner. Given
+ $\mathbf{s}_1,\mathbf{s}_2 \in S$, we know by (b) that $\mathbf{s}_1 +
+ \mathbf{s}_2 \in S$. However, since $+$ is commutative in $V$ and $\mathbf{s}_1
+ + \mathbf{s}_2 \in V$, we have the equality $\mathbf{s}_1 + \mathbf{s}_2 =
+ \mathbf{s}_2 + \mathbf{s}_1$ in the vector space $V$. Because (again by (b))
+ $\mathbf{s}_2 + \mathbf{s}_1 \in S$, the same equality must also hold in $S$ as
+ it is a subset of $V$. This proves that vector addition is commutative in $S$.
+ Axiom (4) is proven by setting $r_1 = r_2 = 0$ and using (b) together with
+ \myref{lemma}{lem:abstract-nonsense} (a). Similarly, axiom (5) follows (for a
+ given $\mathbf{s} \in S$) by setting $r_1 = 0, \mathbf{s}_1 = \mathbf{0}$ and
+ $r_2 = -1, \mathbf{s}_2 = \mathbf{s}$ while using
+ \myref{lemma}{lem:abstract-nonsense} (b). Finally, given
+ $\mathbf{s}_1,\mathbf{s}_2 \in S$, axiom (3) follows by $r_1 = r_2 = 1$ and
+ given $r \in \R,\mathbf{s} \in S$, axiom (9) is verified by $r_1 = r,
+ \mathbf{s}_1 = \mathbf{s}, r_2 = 0, \mathbf{s}_2 = \mathbf{0}$. $S$ is thus a
+ vector space and a subset of $V$ so (a) holds.
+\end{lemproof}
+
+\begin{warning}{}{}
+ By \hyperref[def:subspace]{definition}, $\R^{m}$ is \textbf{never} a subspace
+ of $\R^{n}$ as long as $m \neq n$. This is because it is not a subset. The
+ space $\R^{n}$ contains vectors with \emph{exactly} $n$ entries and no vector
+ with $m$ entries.
+
+ This issue is alleviated by `filling' the vectors in $\R^{m}$ with zeroes so
+ that they have $n$ entries if $m \leq n$. Formally, the set
+ \[
+  \left\{
+   \begin{pmatrix}
+    v_1\\
+    v_2\\
+    \vdots\\
+    v_m\\
+    0\\
+    0\\
+    \vdots\\
+    0
+   \end{pmatrix} \in \R^{n} \mid 
+   v_1,\ldots,v_m \in \R
+  \right\}
+ \]
+ \textbf{is} a subspace of $\R^{n}$ and is all but formally equivalent to
+ $\R^{m}$.
+\end{warning}
+
+\begin{example}{}{}
+ By \myref{example}{exam:solution-sets-of-homogeneous-linear-systems}, the
+ solution set of a homogeneous linear system with $n$ variables is a subspace of
+ $\R^{n}$. To give a concrete example, the solution set of the system
+ \[
+  \begin{array}{r c r c r c r}
+   x & + & 3y & - & z & = & 0\\
+   2x & + & y & - & 2z & = & 0
+  \end{array}
+ \]
+ is the set
+ \[
+  S \coloneqq \left\{ z \cdot 
+   \begin{pmatrix}
+    1\\
+    0\\
+    1
+   \end{pmatrix} \mid z \in \R
+  \right\}
+ \]
+ and it is a subspace of $\R^3$. We can prove this using
+ \myref{lemma}{lem:characterisation-of-subspaces} (b). Given
+ $\mathbf{s}_1,\mathbf{s}_2 \in S$, there exist $z_1,z_2 \in \R$ such that
+ \[
+  \mathbf{s}_1 = z_1 \cdot 
+  \begin{pmatrix}
+   1\\
+   0\\
+   1
+  \end{pmatrix} \quad \text{and} \quad 
+  \mathbf{s}_2 = z_2 \cdot 
+  \begin{pmatrix}
+   1\\
+   0\\
+   1
+  \end{pmatrix}.
+ \]
+ Then, for any $r_1,r_2 \in \R$, we have
+ \[
+  r_1 \cdot \mathbf{s}_1 + r_2 \cdot \mathbf{s}_2 = (r_1z_1) \cdot 
+  \begin{pmatrix}
+   1\\
+   0\\
+   1
+  \end{pmatrix}
+  + (r_2z_2) \cdot 
+  \begin{pmatrix}
+   1\\
+   0\\
+   1
+  \end{pmatrix}
+  = (r_1z_1 + r_2z_2) \cdot 
+  \begin{pmatrix}
+   1\\
+   0\\
+   1
+  \end{pmatrix}
+ \]
+ and so $r_1 \cdot \mathbf{s}_1 + r_2 \cdot \mathbf{s}_2 \in S$. 
+\end{example}
+
+\begin{example}{}{}
+ The set of polynomials of degree at most $2$ is a subspace of the set of
+ polynomials of degree at most $4$. Indeed, given two polynomials $a_0 + a_1x +
+ a_2x^2$ and $b_0 + b_1x + b_2x^2$ and numbers $r_1,r_2 \in \R$, we have
+ \[
+  r_1 \cdot (a_0 + a_1x + a_2x^2) + r_2 \cdot (b_0 + b_1x + b_2x^2) = (r_1a_0 +
+  r_2b_0) + (r_1a_1 + r_2b_1)x + (r_1a_2 + r_2b_2)x^2
+ \]
+ which is a polynomial of degree at most $2$. Clearly, every polynomial of
+ degree at most $2$ is a polynomial of degree at most $4$.
+\end{example}
+
+\begin{example}{}{}
+ The set of $2 \times 2$ real matrices
+ \[
+  L \coloneqq \left\{ 
+   \begin{pmatrix}
+    a & 0 \\
+    b & c
+   \end{pmatrix} \mid a + b + c = 0
+  \right\}
+ \]
+ is a subspace of $\R^{2 \times 2}$. Indeed, this is because we can substitute
+ $a = -b-c$ and write
+ \[
+  \begin{pmatrix}
+   -b-c & 0\\
+   b & c
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+   -b & 0\\
+   b & 0
+  \end{pmatrix}
+  + 
+  \begin{pmatrix}
+   -c & 0\\
+   0 & c
+  \end{pmatrix}
+  = 
+  b \cdot
+  \begin{pmatrix}
+   -1 & 0\\
+   1 & 0
+  \end{pmatrix}
+  + 
+  c \cdot 
+  \begin{pmatrix}
+   -1 & 0\\
+   0 & 1
+  \end{pmatrix}
+ \]
+ and so every matrix in $L$ is a linear combination of the matrices
+ \[
+  \begin{pmatrix}
+   -1 & 0\\
+   1 & 0
+  \end{pmatrix}
+  \quad \text{and} \quad 
+  \begin{pmatrix}
+   -1 & 0\\
+   0 & 1
+  \end{pmatrix}
+ \]
+ which proves that $L$ is a subspace by
+ \myref{lemma}{lem:characterisation-of-subspaces} (b).
+\end{example}
+
+\begin{example}{}{}
+ The set of real functions $f:\R \to \R$ which have a finite derivative at $0$
+ is a subspace of the set of all real functions. Indeed, if $f,g:\R \to \R$ are
+ real functions and $f'(0), g'(0) \in \R$, then for any $r_1,r_2 \in \R$ we
+ can compute
+ \[
+  (r_1 \cdot f + r_2 \cdot g)'(0) = r_1f'(0) + r_2g'(0) \in \R
+ \]
+ so the derivative of $r_1 \cdot f + r_2 \cdot g$ at $0$ is finite.
+\end{example}
+
+We now return to the idea of vectors as `directions of movement'. The overused
+poor little set
+\[
+ S \coloneqq \left\{ 
+  y \cdot 
+  \begin{pmatrix}
+   1\\
+   1\\
+   0
+  \end{pmatrix}
+  + z \cdot 
+  \begin{pmatrix}
+   -1\\
+   0\\
+   1
+  \end{pmatrix} \mid y,z \in \R
+ \right\}
+\]
+is a subspace of $\R^3$ and its description tells us that every vector in that
+space is a linear combination of
+\[
+ \begin{pmatrix}
+  1\\
+  1\\
+  0
+ \end{pmatrix}
+ \quad \text{and} \quad 
+ \begin{pmatrix}
+  -1\\
+  0\\
+  1
+ \end{pmatrix}.
+\]
+If such is the case, we say that $S$ is \emph{generated} by these vectors and
+write
+\[
+ S = \spn \left(    \begin{pmatrix}
+    1\\
+    1\\
+    0
+   \end{pmatrix},
+   \begin{pmatrix}
+    -1\\
+    0\\
+    1
+   \end{pmatrix}
+ \right).
+\]
+More generally, if a vector space $V$ is the \emph{span} of a set of vectors
+$S$, it means that every vector in $V$ is a linear combination of vectors from
+$S$. Intuitively, this formalises the idea that every point in the space $V$ is
+reachable just by moving along vectors from $S$.
+
+\begin{definition}{Span}{span}
+ Let $V$ be a vector space and $S$ a subset of $V$ (\textbf{not} necessarily a
+ subspace). The \emph{span of $S$} is the set of all linear combinations of
+ vectors from $S$. Symbolically,
+ \[
+  \spn S \coloneqq \left\{\sum_{\mathbf{s} \in S} r_{\mathbf{s}} \cdot
+  \mathbf{s} \mid r_{\mathbf{s}} \in \R \; \forall \mathbf{s} \in S \right\}
+ \]
+ To avoid technical details, we only consider \textbf{finite} sums of the form
+ above to form the set $\spn S$. If $S = \emptyset$, we define $\spn S \coloneqq
+ \{\mathbf{0}\}$.
+\end{definition}
+
+\begin{remark}{}{solution-set-as-a-span}
+ \myref{Proposition}{prop:solution-set-of-a-homogeneous-linear-system} states
+ that the set of solutions of a homogeneous linear system is of the form
+ \[
+  \{r_1 \cdot \mathbf{v}_1 + r_2 \cdot \mathbf{v}_2 + \ldots + r_k \cdot
+  \mathbf{v}_k\}.
+ \]
+ We can now write the same set more succinctly as
+ \[
+  \spn (\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_k).
+ \]
+\end{remark}
+
+In light of \myref{lemma}{lem:characterisation-of-subspaces}, it should come as
+no surprise that spans of sets are always vector spaces. The verification of
+this fact essentially boils down to `a linear combination of linear combinations
+is a linear combination'.
+
+\begin{lemma}{}{span-vector-space}
+ Let $V$ be a vector space. Then, for every subset $S \subseteq V$, the set
+ $\spn S$ is a subspace of $V$.
+\end{lemma}
+\begin{lemproof}
+ By \myref{lemma}{lem:characterisation-of-subspaces} (b), we need only prove
+ that $a \cdot \mathbf{s}_1 + b \cdot \mathbf{s}_2 \in \spn S$ for $a,b \in \R$
+ and $\mathbf{s}_1,\mathbf{s}_2 \in \spn S$. By \hyperref[def:span]{definition},
+ we can write
+ \[
+  \mathbf{s}_1 = \sum_{\mathbf{s} \in S} r_{\mathbf{s}} \cdot \mathbf{s}, \quad
+  \mathbf{s}_2 = \sum_{\mathbf{s} \in S} t_{\mathbf{s}} \cdot \mathbf{s}
+ \]
+ for adequate numbers $r_{\mathbf{s}},t_{\mathbf{s}} \in \R$. Then,
+ \begin{align*}
+  a \cdot \mathbf{s}_1 + b \cdot \mathbf{s}_2 &= a \cdot \left(
+  \sum_{\mathbf{s} \in S} r_{\mathbf{s}} \cdot \mathbf{s}\right) + b \cdot
+  \left( \sum_{\mathbf{s} \in S} t_{\mathbf{s}} \cdot \mathbf{s} \right) =
+  \sum_{\mathbf{s} \in S} a \cdot (r_{\mathbf{s}} \cdot \mathbf{s}) +
+  \sum_{\mathbf{s} \in S} b \cdot (t_{\mathbf{s}} \cdot \mathbf{s})\\
+  &= \sum_{\mathbf{s} \in S} (ar_{\mathbf{s}}) \cdot \mathbf{s} +
+   \sum_{\mathbf{s} \in S} (bt_{\mathbf{s}}) \cdot \mathbf{s} =
+   \sum_{\mathbf{s} \in S} (ar_{\mathbf{s}} + bt_{\mathbf{s}}) \cdot \mathbf{s}.
+ \end{align*}
+ Relabelling $p_{\mathbf{s}} \coloneqq ar_{\mathbf{s}} + bt_{\mathbf{s}}$, we
+ get $p_{\mathbf{s}} \in \R$ and
+ \[
+  a \cdot \mathbf{s}_1 + b \cdot \mathbf{s}_2 = \sum_{\mathbf{s} \in S}
+  p_{\mathbf{s}} \cdot \mathbf{s},
+ \]
+ hence $a \cdot \mathbf{s}_1 + b \cdot \mathbf{s}_2 \in \spn S$ which proves
+ that $\spn S$ is a vector space.
+
+ By \myref{lemma}{lem:characterisation-of-subspaces} (c), the space $V$ is
+ closed under linear combinations of finite numbers of vectors. Since $\spn S$
+ is defined as the set of finite linear combinations of vectors of $S$ (which
+ also lie in $V$), it is clear that $\spn S \leq V$.
+\end{lemproof}
+
+Quite trivially, the converse of the \hyperref[lem:span-vector-space]{previous
+lemma} also holds: any subspace of $V$ is a span of some set of vectors from
+$V$. This is because any subspace of $V$ is obviously its own span.
+
+\begin{example}{Line}{line}
+ In any vector space $V$, the set $\spn (\mathbf{v})$ is a subspace for any
+ $\mathbf{v} \in V$. It is a line passing through the origin in the direction of
+ $\mathbf{v}$.
+\end{example}
+
+\begin{example}{}{}
+ The space
+ \[
+  \spn \left( 
+   \begin{pmatrix}
+    1\\
+    1
+   \end{pmatrix},
+   \begin{pmatrix}
+    1\\
+    -1
+   \end{pmatrix}
+  \right)
+ \]
+ is the entirety of $\R^2$. How do we prove this? By
+ \hyperref[def:span]{definition of a span}, every vector $\mathbf{v} \in \R^2$
+ should be a linear combination of the vectors $\begin{psmallmatrix} 1 \\1
+ \end{psmallmatrix}$ and $\begin{psmallmatrix} 1\\-1 \end{psmallmatrix}$. That
+ is, there should exist numbers $a,b \in \R$ such that
+ \[
+  \mathbf{v} = 
+  \begin{pmatrix}
+   v_1\\
+   v_2
+  \end{pmatrix} = a \cdot 
+  \begin{pmatrix}
+   1\\
+   1
+  \end{pmatrix}
+  + b \cdot 
+  \begin{pmatrix}
+   1\\
+   -1
+  \end{pmatrix}.
+ \]
+ Rewriting the equation in a more instructive manner:
+ \[
+  \begin{array}{r c r c r}
+   a & + & b & = & v_1\\
+   a & - & b & = & v_2
+  \end{array}
+ \]
+ This bespeaks the fact that $\mathbf{v} \in \spn(\begin{psmallmatrix} 1 \\1
+ \end{psmallmatrix}, \begin{psmallmatrix} 1\\-1 \end{psmallmatrix})$ if and
+ only if the system above has a solution in variables $a$ and $b$. Gauss-Jordan
+ elimination gives
+ \[
+  \begin{array}{r c r c l}
+   a & + & b & = & v_1\\
+   & - & 2b & = & v_2 - v_1
+  \end{array}
+ \]
+ and so $b = (v_1 - v_2) / 2$ and $a = (v_1 + v_2) / 2$. This proves that
+ $\spn(\begin{psmallmatrix} 1 \\1 \end{psmallmatrix}, \begin{psmallmatrix} 1\\-1
+ \end{psmallmatrix}) = \R^2$ since we can express any vector in $\R^2$ as a
+ linear combination of $\begin{psmallmatrix} 1 \\1 \end{psmallmatrix}$ and
+ $\begin{psmallmatrix} 1\\-1 \end{psmallmatrix}$.
+\end{example}
+
+\begin{example}{}{}
+ Consider the set
+ \[
+  S \coloneqq \{3x - x^2,2x\}
+ \]
+ as a subset of the set of polynomials of degree at most $2$. We wish to
+ describe polynomials lying in $\spn S$. This entails looking at all polynomials
+ of the form
+ \[
+  a \cdot (3x - x^2) + b \cdot (2x)
+ \]
+ for $a,b \in \R$. A polynomial of degree at most $2$ has the general form $r_0
+ + r_1x + r_2x^2$. We can compare coefficients on either side of the equation
+ \begin{align*}
+  r_0 + r_1x + r_2x^2 &= a \cdot (3x - x^2) + b \cdot (2x)\\
+  r_0 + r_1x + r_2x^2 &= 0 + (3a + 2b)x + (-a)x^2
+ \end{align*}
+ to reach the linear system
+ \[
+  \begin{array}{r c r c r}
+   & & -a & = & r_2\\
+   3a & + & 2b & = & r_1\\
+      & & 0 & = & r_0
+  \end{array}
+ \]
+ whose solution is $(a,b) = (-r_2, (3 / 2)r_2 + (1 / 2)r_1)$ but only in the
+ case that $r_0 = 0$, otherwise it has none. It follows that $\spn(3x-x^2,2x)$
+ is the subspace of all polynomials $r_1x + r_2x^2$ for $r_1,r_2 \in \R$.
+\end{example}
+
+The preceding two examples hint at a general way to check whether a given vector
+$\mathbf{v} \in V$ lies in $\spn S$ for some $S \subseteq V$. If $S$ is finite,
+say, $S = \{\mathbf{s}_1,\ldots,\mathbf{s}_k\}$, then $\mathbf{v}$ lies in $\spn
+S$ if and only if there exist numbers $r_1,\ldots,r_k \in \R$ such that
+\[
+ \mathbf{v} = r_1 \cdot \mathbf{s}_1 + r_2 \cdot \mathbf{s}_2 + \ldots + r_k
+ \cdot \mathbf{s}_k.
+\]
+If $V$ is further a subspace of $\R^{n}$, that is, if we can write the vector
+$\mathbf{v}$ as
+\[
+ \mathbf{v} = 
+ \begin{pmatrix}
+  v_1\\
+  v_2\\
+  \vdots\\
+  v_n
+ \end{pmatrix}
+\]
+and the vectors $\mathbf{s}_1,\ldots,\mathbf{s}_k$ as
+\[
+ \mathbf{s}_1 = 
+ \begin{pmatrix}
+  s_{11}\\
+  s_{12}\\
+  \vdots\\
+  s_{1n}
+ \end{pmatrix},
+ \mathbf{s}_2 = 
+ \begin{pmatrix}
+  s_{21}\\
+  s_{22}\\
+  \vdots\\
+  s_{2n}
+ \end{pmatrix},\ldots,
+ \mathbf{s}_k = 
+ \begin{pmatrix}
+  s_{k1}\\
+  s_{k2}\\
+  \vdots\\
+  s_{kn}
+ \end{pmatrix},
+\]
+then $\mathbf{v} \in \spn S$ if and only if the linear system
+\[
+ \left(
+  \begin{matrix*}[c]
+   s_{11} & s_{21} & \cdots & s_{k1}\\
+   s_{12} & s_{22} & \cdots & s_{k2}\\
+   \vdots & \vdots & \ddots & \vdots \\
+   s_{1n} & s_{2n} & \cdots & s_{kn}
+  \end{matrix*}
+  \hspace{1mm}
+ \right|
+ \left.
+  \begin{matrix*}[c]
+   v_1\\
+   v_2\\
+   \vdots\\
+   v_n
+  \end{matrix*}
+ \right)
+\]
+has \textbf{at least one} solution. Any one solution of this system is then
+naturally the $n$-tuple $(r_1,\ldots,r_n)$ of the coefficients of the linear
+combination which gives rise to the vector $\mathbf{v}$. We can also write the
+matrix above succinctly as
+\[
+ \left(
+  \begin{matrix*}[c]
+   \mathbf{s}_1 & \mathbf{s}_2 & \cdots & \mathbf{s}_k
+  \end{matrix*}
+  \hspace{1mm}
+ \right|
+ \left.
+  \begin{matrix*}[c]
+   \mathbf{v}
+  \end{matrix*}
+ \right).
+\]
+Put into words, a vector $\mathbf{v}$ lies in
+$\spn(\mathbf{s}_1,\ldots,\mathbf{s}_k)$ if and only if the system with columns
+the vectors $\mathbf{s}_1,\ldots,\mathbf{s}_k$ and right side the vector
+$\mathbf{v}$ has at least one solution.
+
+\begin{problem}{}{check-if-v-in-span}
+ Determine whether the vector
+ \[
+  \mathbf{v}=
+  \begin{pmatrix}
+   1\\
+   3\\
+   -2
+  \end{pmatrix}
+ \]
+ lies in
+ \[
+  \spn \left( 
+   \begin{pmatrix}
+    1\\
+    4\\
+    0
+   \end{pmatrix},
+   \begin{pmatrix}
+    1\\
+    -2\\
+    1
+   \end{pmatrix},
+   \begin{pmatrix}
+    0\\
+    1\\
+    2
+   \end{pmatrix},
+   \begin{pmatrix}
+    2\\
+    1\\
+    1
+   \end{pmatrix}
+  \right).
+ \]
+ If so, find $x_1,x_2,x_3,x_4 \in \R$ such that
+ \[
+  \begin{pmatrix}
+   1\\
+   3\\
+   -2
+  \end{pmatrix}
+  = x_1 \cdot 
+  \begin{pmatrix}
+   1\\
+   4\\
+   0
+  \end{pmatrix}
+  + x_2 \cdot 
+  \begin{pmatrix}
+   1\\
+   -2\\
+   1
+  \end{pmatrix}
+  + x_3 \cdot 
+  \begin{pmatrix}
+   0\\
+   1\\
+   2
+  \end{pmatrix}
+  + x_4 \cdot 
+  \begin{pmatrix}
+   2\\
+   1\\
+   1
+  \end{pmatrix}.
+ \]
+\end{problem}
+\begin{probsol}
+ We simply attempt to solve the system
+ \[
+  \left(
+   \begin{matrix*}[r]
+    1 & 1 & 0 & 2\\
+    4 & -2 & 1 & 1\\
+    0 & 1 & 2 & 1
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    1\\
+    3\\
+    -2
+   \end{matrix*}
+  \right).
+ \]
+ Gauss-Jordan elimination gives
+ \[
+  \left(
+   \begin{matrix*}[r]
+    1 & 1 & 0 & 2\\
+    0 & -6 & 1 & -7\\
+    0 & 0 & 13 & -1
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    1\\
+    -1\\
+    -13
+   \end{matrix*}
+  \right).
+ \]
+ For we're only interested in a single solution and $x_4$ is a free variable, we
+ substitute $x_4 = 0$. Then, from $13x_3 - 1 \cdot 0 = -13$ follows $x_3 = -1$.
+ Further computation gives $x_2 = 0$ and $x_1 = 1$, which means that
+ \[
+  \begin{pmatrix}
+   1\\
+   3\\
+   -2
+  \end{pmatrix}
+  = 1 \cdot 
+  \begin{pmatrix}
+   1\\
+   4\\
+   0
+  \end{pmatrix}
+  + 0 \cdot 
+  \begin{pmatrix}
+   1\\
+   -2\\
+   1
+  \end{pmatrix}
+  + (-1) \cdot 
+  \begin{pmatrix}
+   0\\
+   1\\
+   2
+  \end{pmatrix}
+  + 0 \cdot 
+  \begin{pmatrix}
+   2\\
+   1\\
+   1
+  \end{pmatrix}.
+ \]
+\end{probsol}
+
+\myref{Problem}{prob:check-if-v-in-span} shows that there may often be multiple
+ways to express a vector as a linear combination of the spanning vectors. This
+naturally leads to a question computational in nature: `Given a set of vectors
+$S$, can we find another set $T$ such that $\spn S = \spn T$ but $T$ has as few
+vectors as possible?' The reason we'd wish to do something like this is simple;
+in checking whether a vector lies in a given span, free variables in the
+resulting system are \emph{redundancies} that increase both the computational
+time and required memory. The next section is dedicated to answering the
+question at hand.

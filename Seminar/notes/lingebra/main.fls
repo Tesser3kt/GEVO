@@ -385,6 +385,10 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflib
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary3d.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary3d.code.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadings.code.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadings.code.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryshadings.code.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryshadings.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
@@ -805,6 +809,10 @@ INPUT ./linear-geometry.tex
 INPUT ./linear-geometry/length.tex
 INPUT ./linear-geometry/angle.tex
 INPUT ./linear-geometry/visualisation.tex
+INPUT ./vector-spaces.tex
+INPUT ./vector-spaces/subspaces.tex
+INPUT ./vector-spaces/linear-independence.tex
+INPUT ./vector-spaces/linear-independence/basis.tex
 OUTPUT main.thm
 INPUT ./main.aux
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb

@@ -1,0 +1,665 @@
+\subsection{Basis Of A Vector Space}
+\label{ssec:basis-of-a-vector-space}
+
+The study of linearly independent sets in
+\myref{section}{sec:linear-independence-basis-and-dimension} carries on its back
+yet another question: `Can \emph{every} vector space be expressed as the span of
+a linearly independent set?' The answer this time is \emph{almost}. As we've
+made customary, before we proceed to elucidate the given answer, we establish
+some nomenclature to achieve a manageable level of brevity.
+
+\begin{definition}{Basis}{basis}
+ Let $V$ be a vector space. An ordered $n$-tuple
+ $(\mathbf{v}_1,\ldots,\mathbf{v}_n)$, where $\mathbf{v}_1,\ldots,\mathbf{v}_n
+ \in V$, which is both linearly independent and spans $V$ is called the
+ \emph{basis} of $V$.
+\end{definition}
+
+\begin{warning}{}{basis-is-a-tuple}
+ We've defined the basis of a vector space specifically to be an \textbf{ordered
+ tuple} and \textbf{not just a set}. The reason for this will be given later in
+ the chapter when we discuss representation of vectors with respect to distinct
+ bases. Practically, this means that a basis, for example,
+ \[
+  \left(
+   \begin{pmatrix}
+    69\\
+    0
+   \end{pmatrix},
+   \begin{pmatrix}
+    0\\
+    420
+   \end{pmatrix}
+  \right)
+ \]
+ is \textbf{different} from
+ \[
+  \left( 
+   \begin{pmatrix}
+    0\\
+    420
+   \end{pmatrix},
+   \begin{pmatrix}
+    69\\
+    0
+   \end{pmatrix}
+  \right).
+ \]
+\end{warning}
+
+\begin{example}{}{}
+ The pair
+ \[
+  B \coloneqq \left( 
+   \begin{pmatrix}
+    2\\
+    4
+   \end{pmatrix},
+   \begin{pmatrix}
+    1\\
+    1
+   \end{pmatrix}
+  \right)
+ \]
+ is a basis of $\R^2$. Verification of this statement entails making sure that
+ $B$ is linearly independent and that the linear system
+ \[
+  \left(
+   \begin{matrix*}[r]
+    2 & 1 \\
+    4 & 1
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    v_1\\
+    v_2
+   \end{matrix*}
+  \right).
+ \]
+ has a solution for every $v_1,v_2 \in \R$.
+\end{example}
+
+Every $n$-dimensional space has a basis -- many of them in fact. One particular
+basis is considered the `most natural', for chiefly geometric reasons. It is the
+basis whose vectors have directions of the coordinate axes; it bears many names,
+e.g. \emph{standard}, \emph{canonical} or \emph{natural}.
+
+\begin{definition}{Standard basis}{standard-basis}
+ The $n$-tuple
+ \[
+  \mathcal{E}_n \coloneqq \left( 
+   \begin{pmatrix}
+    1\\
+    0\\
+    0\\
+    \vdots\\
+    0
+   \end{pmatrix},
+   \begin{pmatrix}
+    0\\
+    1\\
+    0\\
+    \vdots\\
+    0
+   \end{pmatrix},
+   \begin{pmatrix}
+    0\\
+    0\\
+    1\\
+    \vdots\\
+    0
+   \end{pmatrix},\ldots,
+   \begin{pmatrix}
+    0\\
+    0\\
+    0\\
+    \vdots\\
+    1
+   \end{pmatrix}
+  \right)
+ \]
+ is a basis of $\R^{n}$ and is called the \emph{standard} (or \emph{canonical}
+ or \emph{natural}) basis. We denote the vectors of $\mathcal{E}_n$ (in order)
+ $\mathbf{e}_1$ up to $\mathbf{e}_n$.
+\end{definition}
+
+\begin{example}{}{}
+ The natural basis of the vector space of cubic polynomials is $(1,x,x^2,x^3)$.
+ Other bases of the same space include $(x^3,3x^2,6x,6)$ or
+ $(1,1+x,1+x+x^2,1+x+x^2+x^3)$.
+\end{example}
+
+\begin{example}{}{}
+ The trivial space $\{\mathbf{0}\}$ has only one basis -- the empty set
+ $\emptyset$.
+\end{example}
+
+\begin{example}{}{}
+ The vector spaces of functions $f:\N \to \R$ and of functions $f:\R \to \R$
+ \textbf{do not} have bases because there is no reasonable way to enumerate
+ functions with outputs in the real numbers.
+\end{example}
+
+\begin{example}{}{}
+ We have met bases before when studying sets of solutions of homogeneous
+ systems; we only wouldn't call them such. The solution set of the linear system
+ \[
+  \begin{array}{r c r c r c r c l}
+   x_1 & + & x_2 & & & - & x_4 & = & 0\\
+       & & & & x_3 & + & x_4 & = &0
+  \end{array}
+ \]
+ is
+ \[
+  \left\{
+   x_2 \cdot 
+   \begin{pmatrix}
+    -1\\
+    1\\
+    0\\
+    0
+   \end{pmatrix}
+   + x_4 \cdot 
+   \begin{pmatrix}
+    1\\
+    0\\
+    -1\\
+    1
+   \end{pmatrix}
+   \mid x_2,x_4 \in \R
+  \right\}.
+ \]
+ Notice that the set is written as a span of two linearly independent vectors.
+ In other words, its basis is the pair
+ \[
+  \left( 
+   \begin{pmatrix}
+    -1\\
+    1\\
+    0\\
+    0
+   \end{pmatrix},
+   \begin{pmatrix}
+    1\\
+    0\\
+    -1\\
+    1
+   \end{pmatrix}
+  \right).
+ \]
+\end{example}
+
+Before we return to the original question of \emph{existence} of a basis, we
+merge our current knowledge into a very important theorem which has both
+theoretical and computational consequences.
+
+\begin{theorem}{Characterisation of a basis}{characterization-of-a-basis}
+ Given a vector space $V$, an $n$-tuple $B = (\mathbf{b}_1,\ldots,\mathbf{b}_n)$
+ is a basis of $V$ if and only if every vector in $V$ can be written as a linear
+ combination of vectors in $B$ in a \textbf{unique} way.
+\end{theorem}
+\begin{thmproof}
+ By \hyperref[def:basis]{definition of a basis}, $\spn B = V$ so indeed every
+ vector in $V$ must be expressible as a linear combination of vectors in $B$.
+
+ We now prove that this expression need be unique. For contradiction, assume
+ that there exists a vector $\mathbf{v} \in V$ such that
+ \[
+  \mathbf{v} = \sum_{i=1}^{n} r_i \cdot \mathbf{b}_i \quad \text{and also} \quad
+  \mathbf{v} = \sum_{i=1}^{n} t_i \cdot \mathbf{b}_i
+ \]
+ with $r_j \neq t_j$ for at least one index $j \leq n$. We may rearrange
+ \begin{align*}
+  \sum_{i = 1}^{n} r_i \cdot \mathbf{b}_i &= \sum_{i = 1}^{n} t_i \cdot
+  \mathbf{b}_i\\
+  \sum_{i = 1}^{n} r_i \cdot \mathbf{b}_i - \sum_{i = 1}^{n} t_i \cdot
+  \mathbf{b}_i &= \mathbf{0}\\
+  \sum_{i = 1}^{n} (r_i - t_i) \cdot \mathbf{b}_i &= \mathbf{0}.
+ \end{align*}
+ Since $r_j \neq t_j$ and thus $r_j - t_j \neq 0$, the linear combination on the
+ left hand side has non-zero coefficients. By
+ \myref{proposition}{prop:linear-independence-zero-vector}, this means that $B$
+ is linearly dependent. That's a contradiction with the assumption that it is a
+ basis, hence such a vector $\mathbf{v}$ can't exist and the theorem is proven.
+\end{thmproof}
+
+Unfortunately, we lack the theoretical background to fully answer the question
+of which vector spaces have bases and which don't. We can only define a class of
+vector spaces that \textbf{always} do have bases. Nevertheless, we can't prove
+that vector spaces outside of this class do not have bases -- perhaps because it
+is not true \dots
+
+What we can say is that vector spaces which can be written as spans of vectors
+have a basis. This is actually a trivial consequence of
+\myref{lemma}{lem:linearly-independent-subset}. Suppose a vector space $V$ is
+spanned by a finite set of vectors $S \subseteq V$. We can keep removing vectors
+from $S$ until we reach a set $S' \subseteq S$ which is linearly independent and
+$\spn S' = \spn S$. Any ordering of the set $S'$ is now a basis of $V$. Indeed,
+it spans $V$ and every vector in $V$ can be written as a linear combination of
+vectors from $S'$ in a unique way. The former statement is clear (by
+\myref{corollary}{cor:span-corollary}) and the latter follows from the proof of
+\myref{theorem}{thm:characterization-of-a-basis}. Should a vector $\mathbf{v}
+\in V$ have two different expressions in terms of vectors of $S'$, we could
+subtract one from the other and get a non-trivial linear combination giving the
+zero vector -- a contradiction with the linear independence of $S'$ by
+\myref{proposition}{prop:linear-independence-zero-vector}.
+
+There is a point relevant to bases we should address. Intuitively, a basis of a
+space is the set of all possible \emph{unique} directions of movement in that
+space. Wouldn't it be weird were we able to move in $n$ possible ways in
+$\R^{n}$ when using the \hyperref[def:standard-basis]{standard basis} and, say,
+$n + 2$ ways when using some different basis? We tend to think of the dimension
+(or the total number of distinct directions of travel) of a space as something
+\emph{fixed}, something inherent to the space itself, unrelated to any specific
+choice of vectors representing the directions.
+
+As is thankfully often the case in linear algebra, our geometric intuition is
+correct. The formal way to express it is to say that all bases of a space should
+have the same number of elements. This is indeed the case and the number of
+elements in a basis is then called the \emph{dimension} of said vector space.
+
+First, we classify the vector spaces whereof we know they have a basis.
+
+\begin{definition}{Finitely generated vector space}{finitely-generated-vector-space}
+ A vector space $V$ is called \emph{finitely generated} if it has a basis with
+ finite number of vectors.
+\end{definition}
+
+\begin{remark}{}{}
+ In the \hyperref[def:finitely-generated-vector-space]{definition above}, we
+ specifically said `has \textbf{a} basis' because we have not yet proven that
+ all bases of a vector space have the same number of elements. Once we do so,
+ finitely generated vector spaces can be seen as vector spaces of finite
+ dimension.
+\end{remark}
+
+\begin{example}{}{}
+ Every $n$-dimensional real space is finitely generated (take its
+ \hyperref[def:standard-basis]{standard basis} for example) while the space of
+ all functions $f:\R \to \R$ is not.
+\end{example}
+
+We prove the statement of equal number of elements across all bases in a
+somewhat roundabout way. This has the advantage of introducing a method of --
+somewhat algorithmically -- transforming one basis of a space into another
+vector by vector.
+
+\begin{lemma}{Exchange lemma}{exchange-lemma}
+ Assume $V$ is a finitely generated vector space with basis $B =
+ (\mathbf{b}_1,\ldots,\mathbf{b}_n)$ and pick a vector $\mathbf{v} \in V$ given
+ by the linear combination
+ \[
+  \mathbf{v} = r_1 \cdot \mathbf{b}_1 + r_2 \cdot \mathbf{b}_2 + \ldots + r_n
+  \cdot \mathbf{b}_n
+ \]
+ with $r_i \neq 0$ for some $i \leq n$. Then, $\hat{B} \coloneqq
+ \{\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_{i-1},\mathbf{v},\mathbf{b}_{i+1},
+ \ldots,\mathbf{b}_n\}$ is also a basis of $V$.
+\end{lemma}
+\begin{lemproof}
+ We need to show that
+ \begin{enumerate}[label=(\alph*)]
+  \item $\hat{B}$ is linearly independent.
+  \item $\hat{B}$ spans $V$.
+ \end{enumerate}
+ As for (a), assume we have a linear combination
+ \begin{equation}
+  \label{eq:exchange-lemma}
+  t_1 \cdot \mathbf{b}_1 + \ldots + t_{i-1} \cdot \mathbf{b}_{i-1} + t_i \cdot
+  \mathbf{v} + t_{i+1} \cdot \mathbf{b}_{i+1} + \ldots + t_n \cdot \mathbf{b}_n
+  = \mathbf{0}
+ \end{equation}
+ for some $t_1,\ldots,t_n \in \R$. Substituting for $\mathbf{v}$ gives
+ \[
+  t_1 \cdot \mathbf{b}_1 + \ldots + t_{i-1} \cdot \mathbf{b}_{i-1} + t_i \cdot
+  (r_1 \mathbf{b}_1 + \ldots + r_n \mathbf{b}_n) + t_{i+1} \cdot
+  \mathbf{b}_{i+1} + \ldots + t_n \cdot \mathbf{b}_n = \mathbf{0}.
+ \]
+ Rearranging then
+ \begin{equation}
+  \label{eq:exchange-lemma-2}
+  \begin{split}
+   (t_1 + t_i r_1) \cdot \mathbf{b_1} &+ \ldots + (t_{i-1} + t_ir_{i-1}) \cdot
+   \mathbf{b}_{i-1} + \clr{t_i r_i \cdot \mathbf{b}_i}\\
+   &+ (t_{i+1} + t_i r_{i+1}) \cdot \mathbf{b}_{i+1} + \ldots + (t_n + t_i r_n)
+   \cdot \mathbf{b}_n = \mathbf{0}.
+  \end{split}
+ \end{equation}
+ This is a linear combination of vectors from the linearly independent basis $B$
+ and thus by \myref{proposition}{prop:linear-independence-zero-vector}, every
+ coefficient of this combination is equal to $0$. In particular, this means that
+ $t_i r_i = 0$ and, since we've assumed $r_i \neq 0$, necessarily $t_i = 0$.
+ However, in the wake of this, the combination~\eqref{eq:exchange-lemma} becomes
+ \[
+  t_1 \cdot \mathbf{b}_1 + \ldots + t_{i-1} \cdot \mathbf{b}_{i-1} + t_{i+1}
+  \cdot \mathbf{b}_{i+1} + \ldots + t_n \mathbf{b}_n = \mathbf{0},
+ \]
+ i.e. a linear combination of vectors from $B$. Using
+ \myref{proposition}{prop:linear-independence-zero-vector} again gives $t_j = 0$
+ for all $j \leq n$ since we already knew that $t_i = 0$. It follows that also
+ $t_j + t_i r_j = 0$ for every $j \leq n$ and the linear combination
+ in~\eqref{eq:exchange-lemma-2} has all coefficients equal to $0$. This proves
+ that $\hat{B}$ is linearly independent.
+
+ To prove (b), we check that $\spn \hat{B} \subseteq \spn B$ and $\spn B
+ \subseteq \spn \hat{B}$. The inclusion $\spn \hat{B} \subseteq \spn B$ is
+ obvious as $\mathbf{v}$ lies in $\spn B$ (and so do all the vectors
+ $\mathbf{b}_i$ of course). For the reverse inclusion to hold, it is enough to
+ represent the exchanged vector $\mathbf{b}_i$ as linear combination of vectors
+ from $\hat{B}$ because $B$ and $\hat{B}$ share all the other vectors besides
+ $\mathbf{b}_i$. In the linear combination
+ \[
+  \mathbf{v} = r_1 \cdot \mathbf{b_1} + \ldots + \clr{r_i \cdot \mathbf{b}_i} +
+  \ldots + r_n \cdot \mathbf{b}_n,
+ \]
+ we assumed that $r_i \neq 0$. We can thus rearrange
+ \begin{align*}
+  \mathbf{v} &= r_1 \cdot \mathbf{b}_1 + \ldots + r_i \cdot \mathbf{b}_i +
+  \ldots + r_n \cdot \mathbf{b}_n\\
+  -r_i \cdot \mathbf{b}_i &= r_1 \cdot \mathbf{b}_1 + \ldots + r_{i-1} \cdot
+  \mathbf{b}_{i-1} + \clr{(-1) \cdot \mathbf{v}} + r_{i+1} \cdot
+  \mathbf{b}_{i+1} + \ldots + r_n \cdot \mathbf{b}_n\\
+  \mathbf{b}_i &= -\frac{r_1}{r_i} \cdot \mathbf{b}_1 + \ldots +
+  \left( -\frac{r_{i-1}}{r_i} \right) \cdot \mathbf{b}_{i-1} + \clr{\left(
+  -\frac{1}{r_i} \right) \cdot \mathbf{v}} + \left( -\frac{r_{i+1}}{r_i}
+ \right) \cdot \mathbf{b}_{i+1} + \ldots + \left( -\frac{r_n}{r_i} \right) \cdot
+ \mathbf{b}_n
+ \end{align*}
+ which proves that $\mathbf{b}_i \in \spn \hat{B}$ and with it, the lemma.
+\end{lemproof}
+
+We intend to use the \hyperref[lem:exchange-lemma]{exchange lemma} to prove that
+all bases of a finitely generated vector space have the same number of vectors
+by inductively exchanging the vectors of one basis for the vectors of another.
+
+\begin{theorem}{The dimension theorem}{the-dimension-theorem}
+ All bases of a finitely generated vector space have the same number of elements.
+\end{theorem}
+\begin{thmproof}
+ Fix a vector space $V$ and its basis $B \coloneqq
+ (\mathbf{b}_1,\ldots,\mathbf{b}_n)$ with minimal number of elements. Given
+ another basis $D = (\mathbf{d}_1,\ldots,\mathbf{d}_m)$, necessarily $n \leq m$
+ because the number of elements of $B$ is assumed to be minimal. We shall prove
+ that $m \leq n$.
+
+ The idea of the proof is to exchange all vectors in $B$ for vectors in $D$
+ until we get a basis of $V$ consisting of only $n$ vectors of $D$.
+
+ We proceed by induction on the number of exchanged vectors. Set $B_0 \coloneqq
+ B$. So far no vectors have been exchanged. Since $B$ spans $V$ and
+ $\mathbf{d}_1 \in V$, there exists a linear combination
+ \[
+  \mathbf{d}_1 = d_{1,1} \cdot \mathbf{b}_1 + d_{1,2} \cdot \mathbf{b}_2 +
+  \ldots + d_{1,n} \cdot \mathbf{b}_n
+ \]
+ with at least one $d_{1,i}$ non-zero (as the zero vector is always linearly
+ dependent on others, thus $\mathbf{d}_1 \neq \mathbf{0}$). By the
+ \hyperref[lem:exchange-lemma]{exchange lemma}, we may exchange $\mathbf{d}_1$
+ for $\mathbf{b}_i$ and get the basis
+ \[
+  B_1 \coloneqq
+  (\mathbf{b}_1,\ldots,\mathbf{b}_{i-1},\mathbf{d}_1,\mathbf{b}_{i+1}, \ldots,
+  \mathbf{b}_n)
+ \]
+ of $V$.
+
+ For the induction step, suppose the basis $B_k$ has been formed by exchanging
+ the vectors $\mathbf{d}_1,\ldots,\mathbf{d}_k \in D$ for exactly $k$ vectors
+ from $B$. Let us denote the set of indices of the remaining original vectors as
+ $I \subseteq \{1,\ldots,n\}$. That is, $\mathbf{b}_i \in B_k$ if and only if $i
+ \in I$. Pick $\mathbf{d}_{k+1} \in D$ and write
+ \[
+  \mathbf{d}_{k+1} = \sum_{i=1}^{k} d_{k+1,i} \cdot \mathbf{d}_i + \sum_{i \in
+  I} d_{k+1,i} \cdot \mathbf{b}_i
+ \]
+ as a linear combination of vectors from $B_k$. The important observation to
+ make is that at least one of the coefficients $d_{k+1,i}, i \in I$, must be
+ non-zero. To see why, assume we have $d_{k+1,i} = 0$ for all $i \in I$. Then,
+ the linear combination above assumes the form
+ \[
+  \mathbf{d}_{k+1} = \sum_{i=1}^{k} d_{k+1,i} \cdot \mathbf{d}_i.
+ \]
+ But, this means that $\mathbf{d}_{k+1}$ is a linear combination of other
+ vectors from $D$. This contradicts the assumption that $D$ is linearly
+ independent and so this situation cannot arise.
+
+ Now that we know that there exists an index $i \in I$ such that $d_{k+1,i} \neq
+ 0$, we may (again by the \hyperref[lem:exchange-lemma]{exchange lemma})
+ exchange the vector $\mathbf{b}_i$ for $\mathbf{d}_{k+1}$ and form the basis
+ $B_{k+1}$.
+
+ Upon having exchanged the last remaining vector $\mathbf{b}_i$ for
+ $\mathbf{d}_n$, we have constructed the basis
+ \[
+  B_n = (\mathbf{d}_1,\ldots,\mathbf{d}_n)
+ \]
+ of the space $V$. Since $B_n$ is linearly independent and spans $V$, it follows
+ that $\mathbf{d}_{n+1},\ldots,\mathbf{d}_m \in \spn B_n$ which is a
+ contradiction because $B_n$ is a subset of $D$ and $D$ is assumed to be
+ linearly independent. Thus, there must be no more vectors in $D$ after
+ $\mathbf{d}_n$ which proves that $m \leq n$ and with that also that $m = n$, as
+ desired.
+\end{thmproof}
+
+The \hyperref[thm:the-dimension-theorem]{dimension theorem} has a few immediate
+consequences. For instance, we can finally define the dimension of any finitely
+generated vector space.
+
+\begin{definition}{Dimension}{dimension}
+ Given a finitely generated vector space $V$, its \emph{dimension} is the number
+ of elements of any of its bases. We label it $\dim V$.
+\end{definition}
+
+\begin{example}{}{}
+ The $n$-dimensional real space has dimension $n$. The testifying basis is
+ $\mathcal{E}_n$, for example.
+\end{example}
+
+\begin{example}{}{}
+ The space of polynomials of degree at most $n$ has dimension $n + 1$. As we've
+ partially observed, its standard basis is $(1,x,x^2,\ldots,x^{n})$ which has $n
+ + 1$ elements.
+\end{example}
+
+\begin{corollary}{}{}
+ In a finitely generated vector space $V$, no linearly independent set $S
+ \subseteq V$ can have more elements than the dimension of $V$.
+\end{corollary}
+\begin{corproof}
+ Follows from the proof of the \hyperref[thm:the-dimension-theorem]{dimension
+ theorem}. Observe that in the proof we have never used the assumption that $D$
+ spans $V$, only that it is linearly independent.
+\end{corproof}
+
+\begin{corollary}{}{expand-to-basis}
+ Any linearly independent set $S \subseteq V$ in a finitely generated vector
+ space $V$ can be expanded to a basis of $V$.
+\end{corollary}
+\begin{corproof}
+ If $\spn S \neq V$, then there exists a vector $\mathbf{v} \in V$ such that
+ $\mathbf{v} \notin \spn S$. By \myref{lemma}{lem:span-lemma}, $S \subsetneq S
+ \cup \{\mathbf{v}\}$ and $S \cup \{\mathbf{v}\}$ is linearly independent
+ because $\mathbf{v} \notin \spn S$. Hence, we simply keep adding vectors to $S$
+ until $\spn S = V$ and $\# S = \dim V$.
+\end{corproof}
+
+\begin{corollary}{}{shrink-to-basis}
+ Any set $S \subseteq V$ with $\spn S = V$ can be shrunk to a basis of the
+ finitely generated vector space $V$.
+\end{corollary}
+\begin{corproof}
+ If $S$ is empty, then it spans the space $\{\mathbf{0}\}$ and is already a
+ basis of it. If $S = \{\mathbf{0}\}$, then it also spans just the space
+ $\{\mathbf{0}\}$ and we can remove the vector $\mathbf{0}$ from it, keeping its
+ span.
+
+ Otherwise, $S$ contains a vector $\mathbf{s}_1 \neq \mathbf{0}$. We form a
+ basis $B_1 \coloneqq (\mathbf{s}_1)$. If $\spn B_1 = \spn S$, we're done.
+ Otherwise, there exists a vector $\mathbf{s}_2 \in S$ such that
+ $\mathbf{s}_2 \notin \spn B_1$. Form $B_2 \coloneqq
+ (\mathbf{s}_1,\mathbf{s}_2)$. This pair is linearly independent by the same
+ argument as in the proof of \myref{corollary}{cor:expand-to-basis}. We repeat
+ this process until $\spn B_n = \spn S$ which takes exactly $\dim V$ steps.
+\end{corproof}
+
+\begin{corollary}{}{}
+ In a vector space $V$ with $\dim V = n$, an $n$-element set is linearly
+ independent if and only if it spans $V$.
+\end{corollary}
+\begin{corproof}
+ As for $( \Rightarrow )$, any linearly independent set $S$ can be expanded to a
+ basis of $V$ by \myref{corollary}{cor:expand-to-basis}. Since a basis of $V$
+ has $n$ elements and so does $S$, there is no expansion to be done and any
+ ordering of $S$ is already a basis of $V$; in particular $\spn S = V$.
+
+ The implication $( \Leftarrow )$ is also immediate. If $\spn S = V$, then by
+ \myref{corollary}{cor:shrink-to-basis}, it can be shrunk to a basis of $V$,
+ which has $n$ elements. Since $S$ also has $n$ elements, no shrinking takes
+ place and any ordering of $S$ is again a basis of $V$ and is thus linearly
+ independent.
+\end{corproof}
+
+\begin{exercise}{}{}
+ Decide which of the following sets are linearly independent.
+ \begin{enumerate}[label=(\alph*)]
+  \item $\left\{ 
+   \begin{pmatrix}
+    1\\
+    -3\\
+    5
+   \end{pmatrix},
+   \begin{pmatrix}
+    2\\
+    2\\
+    4
+   \end{pmatrix},
+   \begin{pmatrix}
+    4\\
+    -4\\
+    14
+   \end{pmatrix}
+   \right\}$;
+  \item $\left\{ 
+   \begin{pmatrix}
+    1\\
+    7\\
+    7
+   \end{pmatrix},
+   \begin{pmatrix}
+    2\\
+    7\\
+    7
+   \end{pmatrix},
+   \begin{pmatrix}
+    3\\
+    7\\
+    7
+   \end{pmatrix}
+   \right\}$;
+  \item $\left\{ 
+   \begin{pmatrix}
+    0\\
+    0\\
+    -1
+   \end{pmatrix},
+   \begin{pmatrix}
+    1\\
+    0\\
+    4
+   \end{pmatrix}
+   \right\}$;
+  \item $\left\{ 
+   \begin{pmatrix}
+    9\\
+    9\\
+    0
+   \end{pmatrix},
+   \begin{pmatrix}
+    2\\
+    0\\
+    1
+   \end{pmatrix},
+   \begin{pmatrix}
+    3\\
+    5\\
+    -4
+   \end{pmatrix},
+   \begin{pmatrix}
+    12\\
+    12\\
+    -1
+   \end{pmatrix}
+   \right\}$.
+ \end{enumerate}
+\end{exercise}
+\begin{exercise}{}{}
+ Determine which of the sets are linearly independent in the space of quadratic 
+ polynomials.
+ \begin{enumerate}[label=(\alph*)]
+  \item $\{3-x+9x^2,5-6x+3x^2,1+1x-5x^2\}$;
+  \item $\{-x^2,1+4x^2\}$;
+  \item $\{2+x+7x^2,3-x+2x^2,4-3x^2\}$.
+ \end{enumerate}
+\end{exercise}
+\begin{exercise}{}{}
+ Prove that each of the following sets is linearly independent in the vector
+ space of all functions $f:(0,\infty) \to \R$.
+ \begin{enumerate}[label=(\alph*)]
+  \item $\{x \mapsto x,x \mapsto \frac{1}{x}\}$;
+  \item $\{x \mapsto \cos x,x \mapsto \sin x\}$;
+  \item $\{x \mapsto \exp x,x \mapsto \log x\}$.
+ \end{enumerate}
+\end{exercise}
+\begin{exercise}{}{}
+ Prove that the rows of a real-valued matrix in echelon form are a linearly
+ independent set.
+\end{exercise}
+\begin{exercise}{}{}
+ Prove that if $\{\mathbf{x},\mathbf{y},\mathbf{z}\}$ is a linearly independent
+ set, then so are all its proper subsets: $\{\mathbf{x},\mathbf{y}\}$,
+ $\{\mathbf{x},\mathbf{z}\}$, $\{\mathbf{y},\mathbf{z}\}$, $\{\mathbf{x}\}$,
+ $\{\mathbf{y}\}$, $\{\mathbf{z}\}$ and $\emptyset$. Is the converse also true?
+\end{exercise}
+\begin{exercise}{}{}
+ Is there a set of four vectors in $\R^3$ such that any three of them form a
+ linearly independent set?
+\end{exercise}
+\begin{exercise}{}{}
+ Prove that a set of two perpendicular non-zero vectors in $\R^{n}$ is always
+ linearly independent as long as $n > 1$. Generalise the result to more than two
+ vectors.
+\end{exercise}
+\begin{exercise}{}{}
+ Decide whether $\{x^2 - x + 1, 2x + 1,2x - 1\}$ and $\{x + x^2,x - x^2\}$ are bases
+ of the space of quadratic polynomials.
+\end{exercise}
+\begin{exercise}{}{}
+ Find a basis for the solution set of the linear system
+ \[
+  \begin{array}{r c r c r c r c l}
+   x_1 & - & 4x_2 & + & 3x_3 & - & x_4 & = & 0\\
+   2x_1 & - & 8x_2 & + & 6x_3 & - & 2x_4 & = & 0.
+  \end{array}
+ \]
+\end{exercise}
+\begin{exercise}{}{}
+ Find a basis for $\R^{2 \times 2}$, the space of $2 \times 2$ real matrices.
+\end{exercise}
+\begin{exercise}{}{}
+ Let $(\mathbf{b}_1,\mathbf{b}_2,\mathbf{b}_3)$ be a basis.
+ \begin{enumerate}[label=(\alph*)]
+  \item Show that $(r_1 \cdot \mathbf{b}_1, r_2 \cdot \mathbf{b}_2, r_3 \cdot
+   \mathbf{b}_3)$ is also a basis as long $r_1,r_2,r_3 \neq 0$. What happens if
+   at least one of $r_i$ \textbf{is} zero?
+  \item Prove that $(\mathbf{a}_1,\mathbf{a}_2,\mathbf{a}_3)$ is also a basis
+   where $\mathbf{a}_i = \mathbf{b}_1 + \mathbf{b}_i$, $i \in \{1,2,3\}$.
+ \end{enumerate}
+\end{exercise}
+\begin{exercise}{}{}
+ \myref{Theorem}{thm:characterization-of-a-basis} shows that, with respect to a
+ basis, every linear combination is unique. If a subset is not a basis, can
+ linear combinations be not unique? If so, must they be?
+\end{exercise}
+

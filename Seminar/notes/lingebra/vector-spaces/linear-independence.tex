@@ -1,0 +1,806 @@
+\section{Linear Independence, Basis And Dimension}
+\label{sec:linear-independence-basis-and-dimension}
+
+Given a set $S \subseteq V$ of vectors, we first answer the question of
+\emph{which vectors can be removed from $S$ while not altering its span}. That
+is, given a vector $\mathbf{s} \in S$, how do we find out whether $\spn (S
+\setminus \{\mathbf{s}\}) = \spn S$? Vaguely speaking, provided that $\spn S$ is
+a set of linear combinations of vectors from $S$, should some vector in $S$
+already \emph{be a linear combination} of the other vectors in $S$, it wouldn't
+be needed. Turns out this statement is not so vague after all, as we proceed to
+demonstrate.
+
+\begin{lemma}{}{span-lemma}
+ Let $V$ be a vector space, $S \subseteq V$ and $\mathbf{v} \in V$. Then, $\spn
+ (S \cup \{\mathbf{v}\}) = \spn S$ if and only if $\mathbf{v} \in \spn S$.
+\end{lemma}
+\begin{lemproof}
+ We must prove two implications.
+
+ As for the implication $( \Rightarrow )$, it is simpler to prove it in
+ contrapositive form. If $\mathbf{v} \notin \spn S$, then clearly $\spn S \neq
+ \spn (S \cup \{\mathbf{v}\})$ simply because the latter contains the vector
+ $\mathbf{v}$ while the former does not.
+
+ In proving $( \Leftarrow )$, assume that $\mathbf{v} \in \spn S$. Clearly,
+ $\spn S \subseteq \spn (S \cup \{\mathbf{v}\})$ as the latter set contains
+ every linear combination of the vectors in $S$. We must show that also $\spn(S
+ \cup \{\mathbf{v})\} \subseteq \spn S$. To this end, choose a vector
+ $\mathbf{w} \in \spn(S \cup \{\mathbf{v}\})$. This vector $\mathbf{w}$ is a
+ linear combination of vectors from $S \cup \{\mathbf{v}\}$, i.e.
+ \[
+  \mathbf{w} = \sum_{\mathbf{s} \in S \cup \{\mathbf{v}\}} r_{\mathbf{s}} \cdot
+  \mathbf{s}
+ \]
+ for some $r_{\mathbf{s}} \in \R$. We can break this linear combination into two
+ parts like so:
+ \begin{equation}
+  \label{eq:span-lemma}
+  \mathbf{w} = \sum_{\mathbf{s} \in S \cup \{\mathbf{v}\}} r_{\mathbf{s}} \cdot
+  \mathbf{s} = \sum_{\mathbf{s} \in S} r_{\mathbf{s}} \cdot \mathbf{s} +
+  r_{\mathbf{v}} \cdot \mathbf{v}.
+ \end{equation}
+ Now, $\mathbf{v} \in \spn S$ by assumption so there also exist numbers
+ $t_{\mathbf{s}} \in \R$ such that
+ \[
+  \mathbf{v} = \sum_{\mathbf{s} \in S} t_{\mathbf{s}} \cdot \mathbf{s}.
+ \]
+ Substituting this into the equation~\eqref{eq:span-lemma} gives
+ \[
+  \mathbf{w} = \sum_{\mathbf{s} \in S} r_{\mathbf{s}} \cdot \mathbf{s} +
+  r_{\mathbf{v}} \cdot \left( \sum_{\mathbf{s} \in S} t_{\mathbf{s}} \cdot
+  \mathbf{s} \right) = \sum_{\mathbf{s} \in S} r_{\mathbf{s}} \cdot \mathbf{s} +
+  \sum_{\mathbf{s} \in S} (r_{\mathbf{v}}t_{\mathbf{s}}) \cdot \mathbf{s} =
+  \sum_{\mathbf{s} \in S} (r_{\mathbf{s}} + r_{\mathbf{v}}t_{\mathbf{s}}) \cdot
+  \mathbf{s}.
+ \]
+ The last sum is a linear combination of vectors from $S$ and thus $\mathbf{w}
+ \in \spn S$, as desired.
+\end{lemproof}
+
+As a corollary, we get a formalisation of the idea from the introductory
+paragraph.
+
+\begin{corollary}{}{span-corollary}
+ Given $\mathbf{s} \in S$, it holds that $\spn S = \spn (S \setminus
+ \{\mathbf{s}\})$ if and only if $\mathbf{s} \in \spn (S \setminus
+ \{\mathbf{s}\})$.
+\end{corollary}
+\begin{corproof}
+ Follows immediately from \myref{lemma}{lem:span-lemma}. Simply substitute
+ $\mathbf{v} \coloneqq \mathbf{s}$ and $S \coloneqq S \setminus \{\mathbf{s}\}$.
+\end{corproof}
+
+The \hyperref[cor:span-corollary]{just uttered corollary} has algorithmic vibes.
+Can't we just keep removing vectors from $S$ which are linearly dependent on
+other vectors until there are no longer any? Indeed, we can. First however, we
+should devise a computationally sound way to determine which vectors we may
+omit. As we now stand, the best we can do is guess at random. Pick a vector
+$\mathbf{s} \in S$ and check if it lies in $\spn (S \setminus \{\mathbf{s}\})$
+(as we learnt to do in the \hyperref[sec:subspaces-and-spans]{the previous
+section}). If it doesn't, tough luck, try again. We might potentially have to go
+through \emph{every} vector in $S$ before we find one that can be left out, if
+there even were one to begin with. This is about as algorithmic as cooking a
+soup by mixing random ingredients until we stumble upon a combination which is
+reasonably non-lethal.
+
+Fortunately, there is an algorithmic approach to the problem and we are
+unveiling it promptly. Before that however, we should label sets with no
+`unnecessary' vectors somehow.
+
+\begin{definition}{Linear independence}{linear-independence}
+ Let $V$ be a vector space and $S \subseteq V$. If no vector $\mathbf{s} \in S$
+ can be written as a linear combination of vectors from $S \setminus
+ \{\mathbf{s}\}$, we call $S$ \emph{linearly independent}. If such is not the
+ case, it is called \emph{linearly dependent}.
+\end{definition}
+
+There lies just a simple observation between us and a feasible algorithm for
+determining linear independence of a given set of vectors. Suppose $S =
+\{\mathbf{s}_1,\ldots,\mathbf{s}_n\}$ and may the vector $\mathbf{s}_i$ be a
+linear combination of the other vectors, that is to say, there are numbers
+$r_1,\ldots,r_{i-1},r_{i+1},\ldots,r_n \in \R$ satisfying the equation
+\[
+ \mathbf{s}_i = r_1 \cdot \mathbf{s}_1 + r_2 \cdot \mathbf{s}_2 + \ldots +
+ r_{i-1} \cdot \mathbf{s}_{i-1} + r_{i+1} \cdot \mathbf{s}_{i-1} + \ldots + r_n
+ \cdot \mathbf{s}_n.
+\]
+We can naturally put $\mathbf{s}_i$ to the right hand side and set $r_i
+\coloneqq -1$ to arrive at the equality
+\[
+ \mathbf{0} = r_1 \cdot \mathbf{s}_1 + \ldots + r_{i-1} \cdot \mathbf{s}_{i-1} +
+ r_i \cdot \mathbf{s}_i + r_{i+1} \cdot \mathbf{s}_{i+1} + \ldots + r_n
+ \mathbf{s}_n.
+\]
+To express this equality in words: we have found a linear combination (with
+non-zero coefficients) of vectors from $S$ that gives the zero vector. Could
+this happen were $S$ linearly independent? Of course it couldn't! If it did,
+then we could just rearrange the last equality to the first one and get
+$\mathbf{s}_i$ as a linear combination of the other vectors from $S$, proving
+thus that $S$, in fact, had \emph{not} been linearly independent. Let us dock
+this train of thought in the following, computationally indispensable,
+proposition.
+
+\begin{proposition}{}{linear-independence-zero-vector}
+ Let $V$ be a vector space and $S \subseteq V$. Then $S$ is linearly independent
+ if and only if the equality
+ \[
+  \sum_{\mathbf{s} \in S} r_{\mathbf{s}} \cdot s = \mathbf{0}
+ \]
+ enforces $r_{\mathbf{s}} = 0$ for every $\mathbf{s} \in S$. In other words, the
+ only linear combination that gives the zero vector has all coefficients equal
+ to $0$.
+\end{proposition}
+\begin{propproof}
+ The paragraph preceding this proposition already illustrates the idea of the
+ proof.
+
+ To prove the implication $( \Leftarrow )$, suppose that $S$ is linearly
+ dependent. That is, there exists $\mathbf{v} \in S$ such that $\mathbf{v}
+ \neq \mathbf{0}$ and
+ \[
+  \mathbf{v} = \sum_{\mathbf{s} \in S \setminus \{\mathbf{v}\}} r_{\mathbf{s}}
+  \cdot \mathbf{s}.
+ \]
+ If we put $\mathbf{v}$ to the right hand side and set $r_{\mathbf{v}} \coloneqq
+ -1$, we get
+ \[
+  \mathbf{0} = \sum_{\mathbf{s} \in S \setminus \{\mathbf{v}\}} r_{\mathbf{s}}
+  \cdot \mathbf{s} + (-1) \cdot \mathbf{v} = \sum_{\mathbf{s} \in S \setminus
+  \{\mathbf{v}\}} r_{\mathbf{s}} \cdot \mathbf{s} + r_{\mathbf{v}} \cdot
+  \mathbf{v} = \sum_{\mathbf{s} \in S} r_{\mathbf{s}} \cdot \mathbf{s}.
+ \]
+ We've thus wrought a linear combination of vectors from $S$ which has non-zero
+ coefficients but equals the zero vector.
+
+ As for $( \Rightarrow )$, assume that there exists a linear combination
+ \[
+  \sum_{\mathbf{s} \in S} r_{\mathbf{s}} \cdot \mathbf{s} = \mathbf{0}
+ \]
+ with at least one $r_{\mathbf{v}} \neq 0$. This means that we can rearrange
+ \begin{align*}
+  \sum_{\mathbf{s} \in S} r_{\mathbf{s}} \cdot \mathbf{s} &= \mathbf{0}\\
+  \sum_{\mathbf{s} \in S \setminus \{\mathbf{v}\}} r_{\mathbf{s}} \cdot
+  \mathbf{s} + r_{\mathbf{v}} \cdot \mathbf{v} &= \mathbf{0}\\
+  \sum_{\mathbf{s} \in S \setminus \{\mathbf{v}\}} r_{\mathbf{s}} \cdot
+  \mathbf{s} &= -r_{\mathbf{v}} \cdot \mathbf{v}\\
+  -\frac{1}{r_{\mathbf{v}}} \cdot  \left( \sum_{\mathbf{s} \in S} r_{\mathbf{s}}
+ \cdot \mathbf{s}\right) = \sum_{\mathbf{s} \in S \setminus \{\mathbf{v}\}}
+  -\frac{r_{\mathbf{s}}}{r_{\mathbf{v}}} \cdot \mathbf{s} &= \mathbf{v}
+ \end{align*}
+ and thus $\mathbf{v} \in \spn(S \setminus \{\mathbf{v}\})$ which shows that $S$
+ is linearly dependent.
+\end{propproof}
+
+\begin{corollary}{Computing linear independence}{computing-linear-independence}
+ Let $V \leq \R^{n}$ be a subspace of $\R^{n}$ for some $n \in \N$ and $S =
+ \{\mathbf{s}_1,\ldots,\mathbf{s}_k\} \subseteq V$. Then, $S$ is linearly
+ independent if and only if the linear system
+ \[
+  \left(
+   \begin{matrix*}[c]
+    \mathbf{s}_1 & \mathbf{s}_2 & \cdots & \mathbf{s}_k
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[c]
+    \mathbf{0}
+   \end{matrix*}
+  \right)
+ \]
+ has the unique solution $\mathbf{0}$.
+\end{corollary}
+\begin{corproof}
+ The proof just amounts to rewriting the equality
+ \[
+  \sum_{\mathbf{s} \in S} r_{\mathbf{s}} \cdot \mathbf{s} = \sum_{i=1}^{k}
+  r_{\mathbf{s}_i} \cdot \mathbf{s}_i = \mathbf{0}
+ \]
+ into a linear system and applying
+ \myref{proposition}{prop:linear-independence-zero-vector}.
+\end{corproof}
+
+\begin{example}{}{}
+ The set
+ \[
+  S \coloneqq \left\{ 
+   \begin{pmatrix}
+    1\\
+    2
+   \end{pmatrix},
+   \begin{pmatrix}
+    1\\
+    -1
+   \end{pmatrix},
+   \begin{pmatrix}
+    0\\
+    3
+   \end{pmatrix}
+  \right\}
+ \]
+ is linearly dependent in $\R^2$. Indeed, the system
+ \[
+  \left(
+   \begin{matrix*}[r]
+    1 & 1 & 0\\
+    2 & -1 & 3
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    0\\
+    0
+   \end{matrix*}
+  \right)
+ \]
+ is solved by $(z, -z, -z)$ for any $z \in \R$.
+ \myref{Corollary}{cor:computing-linear-independence} states that $S$ is
+ linearly dependent.
+\end{example}
+
+\begin{example}{}{}
+ The set $S \coloneqq \{1-x,1+x\}$ is linearly independent in the vector space
+ of quadratic polynomials. To see this, consider a linear combination
+ \begin{align*}
+  r_1 \cdot (1-x) + r_2 \cdot (1+x) &= 0 + 0x + 0x^2\\
+  (r_1 + r_2) + (-r_1 + r_2)x + 0x^2 &= 0 + 0x + 0x^2.
+ \end{align*}
+ Comparing coefficients gives
+ \[
+  \begin{array}{r c r c l}
+   r_1 & + & r_2 & = & 0\\
+   -r_1 & + & r_2 & = & 0\\
+        & & 0 & = & 0.
+  \end{array}
+ \]
+ This system has the unique solution $(0,0)$, hence the only way to linearly
+ combine the polynomials $1-x$ and $1+x$ into the zero polynomial requires
+ multiplying them both by $0$.
+ \myref{Proposition}{prop:linear-independence-zero-vector} takes the reins.
+\end{example}
+
+Now that we have an algorithmic way of determining whether a given set is
+linearly independent or not, we should tackle the problem of which vectors can
+be removed from the set without shrinking its span. Before we do that, let us
+first ascertain that indeed every (at least \textbf{finite}) linearly dependent
+set can be made linearly independent by successive removal of redundant vectors.
+
+\begin{lemma}{Linearly independent subset}{linearly-independent-subset}
+ Given a vector space $V$ and a \textbf{finite subset} $S \subseteq V$, there
+ exists a set $T \subseteq S$ that is linearly independent and $\spn S = \spn
+ T$.
+\end{lemma}
+\begin{lemproof}
+ Label $S = \{\mathbf{s}_1,\ldots,\mathbf{s}_k\}$. If $S$ is linearly
+ independent, we're done. Otherwise, set $S_0 \coloneqq S$ and find $i \in
+ \{1,\ldots,k\}$ such that
+ \[
+  \mathbf{s}_i = \sum_{j \neq i} r_j \cdot \mathbf{s}_j
+ \]
+ for some $r_j \in \R$. Set $S_1 \coloneqq S_0 \setminus \{\mathbf{s}_i\}$. By
+ \myref{corollary}{cor:span-corollary}, $\spn S_1 = \spn S_0$.
+
+ Repeat this process until $S_m$ is linearly independent for some $m \in \N$.
+ Such $m$ necessarily exists because $S$ has a finite number of elements and a
+ one-vector set is always linearly independent. Again, by
+ \myref{corollary}{cor:span-corollary} (applied $m$ times), we have $\spn S_m =
+ \spn S$ and thus we have found a linearly independent subset of $S$ with the
+ same span as $S$.
+\end{lemproof}
+
+Recall from \myref{section}{sec:describing-solution-sets-of-linear-systems} that
+some variables of linear systems are pivots and some are free. Pivots have their
+value expressed as a linear combination of free variables. If we put vectors
+from a given finite set $S \subseteq V$ into columns of a matrix (as in
+\myref{corollary}{cor:span-corollary}), we claim that columns hosting free
+variables mark vectors that can be removed without shrinking the span of $S$.
+Why is it so? The answer is actually quite easy. We show it on an example.
+
+Consider the set
+\[
+ S = \left\{ 
+  \begin{pmatrix}
+   1\\
+   3\\
+   2
+  \end{pmatrix},
+  \begin{pmatrix}
+   1\\
+   -1\\
+   0
+  \end{pmatrix},
+  \begin{pmatrix}
+   2\\
+   0\\
+   1
+  \end{pmatrix},
+  \begin{pmatrix}
+   -1\\
+   1\\
+   1
+  \end{pmatrix},
+  \begin{pmatrix}
+   1\\
+   1\\
+   3
+  \end{pmatrix}
+ \right\} \subseteq \R^3.
+\]
+Upon organizing the vectors of $S$ into the matrix
+\[
+ \left( 
+  \begin{matrix*}[r]
+   1 & 1 & 2 & -1 & 1\\
+   3 & -1 & 0 & 1 & 1\\
+   2 & 0 & 1 & 1 & 3
+  \end{matrix*}
+ \right)
+\]
+and performing Gauss-Jordan elimination, we get
+\[
+ \left( 
+  \begin{matrix*}[r]
+   1 & 1 & 2 & -1 & 1\\
+   0 & -4 & -6 & 4 & -2\\
+   0 & 0 & 0 & 1 & 2
+  \end{matrix*}
+ \right).
+\]
+It follows that the variables $x_3$ and $x_5$ are free. Why does it mean that
+the third and fifth vector of $S$ are redundant? Well, the solution of the
+homogeneous linear system with this matrix is
+\begin{equation}
+ \label{eq:li-if-0}
+ \left\{ x_3 \cdot 
+  \begin{pmatrix}
+   1\\
+   0\\
+   -5\\
+   -6\\
+   3
+  \end{pmatrix}
+  + x_5 \cdot
+  \begin{pmatrix}
+   0\\
+   1\\
+   1\\
+   2\\
+   -1
+  \end{pmatrix}
+  \mid x_3,x_5 \in \R
+ \right\}.
+\end{equation}
+By \myref{corollary}{cor:span-corollary}, the set $S$ is linearly independent if
+and only if the set above contains only the vector $\mathbf{0}$. However, that
+happens if and only if we force $x_3 = x_5 = 0$. Next, every linear combination
+of vectors from $S$ is of the form
+\[
+ x_1 \cdot 
+ \begin{pmatrix}
+  1\\
+  3\\
+  2
+ \end{pmatrix}
+ + x_2 \cdot 
+ \begin{pmatrix}
+  1\\
+  -1\\
+  0
+ \end{pmatrix}
+ + x_3 \cdot 
+ \begin{pmatrix}
+  2\\
+  0\\
+  1
+ \end{pmatrix}
+ + x_4 \cdot 
+ \begin{pmatrix}
+  -1\\
+  1\\
+  1
+ \end{pmatrix}
+ + x_5 \cdot 
+ \begin{pmatrix}
+  1\\
+  1\\
+  3
+ \end{pmatrix}.
+\]
+If, to ensure linear independence, we must require that $x_3$ and $x_5$ both be
+always equal to $0$, it is completely pointless that we include the vectors
+$\begin{psmallmatrix} 2 \\ 0 \\ 1 \end{psmallmatrix}$ and $\begin{psmallmatrix}
+1 \\ 1 \\ 3 \end{psmallmatrix}$ in the linear combination in the first place.
+
+Furthermore, observe that the vectors in the set~\eqref{eq:li-if-0} also hint at
+how we can express the third and fifth vectors as linear combinations of the
+other three. Indeed, the vector
+\[
+ \begin{pmatrix}
+  1\\
+  0\\
+  -5\\
+  -6\\
+  3
+ \end{pmatrix}
+\]
+in fact contains the coefficients of the linear combination of vectors in $S$
+that gives the zero vector (as it is the solution of the corresponding
+homogeneous system). This means that
+\[
+ 1 \cdot
+ \begin{pmatrix}
+  1\\
+  3\\
+  2
+ \end{pmatrix}
+ + 0 \cdot 
+ \begin{pmatrix}
+  1\\
+  -1\\
+  0
+ \end{pmatrix}
+ + (-5) \cdot 
+ \begin{pmatrix}
+  2\\
+  0\\
+  1
+ \end{pmatrix}
+ + (-6) \cdot 
+ \begin{pmatrix}
+  -1\\
+  1\\
+  1
+ \end{pmatrix}
+ + 3 \cdot 
+ \begin{pmatrix}
+  1\\
+  1\\
+  3
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  0\\
+  0\\
+  0
+ \end{pmatrix}
+\]
+Rearranging (and dividing by $-3$) gives
+\[
+ -\frac{1}{3} \cdot 
+ \begin{pmatrix}
+  1\\
+  3\\
+  2
+ \end{pmatrix}
+ + \frac{5}{3} \cdot 
+ \begin{pmatrix}
+  2\\
+  0\\
+  1
+ \end{pmatrix}
+ + 2 \cdot 
+ \begin{pmatrix}
+  -1\\
+  1\\
+  1
+ \end{pmatrix}
+ = 
+ \begin{pmatrix}
+  1\\
+  1\\
+  3
+ \end{pmatrix}
+\]
+and thus we have expressed the vector $\begin{psmallmatrix} 1\\1\\3
+ \end{psmallmatrix}$ as a linear combination of the other four vectors. We could
+ do the same for the vector $\begin{psmallmatrix} 2\\0\\1 \end{psmallmatrix}$
+ which we also know to be redundant. Note, however, that we would have to in
+ addition substitute the vector $\begin{psmallmatrix} 1 \\ 1 \\ 3
+ \end{psmallmatrix}$ in the resulting linear combination as it should have been
+ already removed from $S$.
+
+To breathe some clarity into the concluded discussion, we shall show the
+described procedure in a more algorithmic way.
+
+\begin{problem}{}{reduce-to-li}
+ Prove that the set
+ \[
+  S \coloneqq 
+  \left\{ 
+   \begin{pmatrix}
+    1\\
+    3
+   \end{pmatrix},
+   \begin{pmatrix}
+    -2\\
+    1
+   \end{pmatrix},
+   \begin{pmatrix}
+    0\\
+    -3
+   \end{pmatrix},
+   \begin{pmatrix}
+    3\\
+    0
+   \end{pmatrix}
+  \right\} \subseteq \R^2
+ \]
+ is linearly dependent and reduce it to a linearly independent set $S' \subseteq
+ S$ with $\spn S' = \spn S$. In addition, express the removed vectors as linear
+ combinations of the remaining ones.
+\end{problem}
+\begin{probsol}
+ We compute the solution of the homogeneous linear system
+ \[
+  \left(
+   \begin{matrix*}[r]
+    1 & -2 & 0 & 3\\
+    3 & 1 & -3 & 0
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    0\\
+    0
+   \end{matrix*}
+  \right).
+ \]
+ After Gauss-Jordan elimination, we're left with
+ \[
+  \left(
+   \begin{matrix*}[r]
+    1 & -2 & 0 & 3\\
+    0 & 7 & -3 & -9
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    0\\
+    0
+   \end{matrix*}
+  \right).
+ \]
+ This means that columns $1$ and $2$ host pivots and columns $3$ and $4$ the
+ free variables. We shall thus remove the third and the fourth vector from $S$.
+ To finish the calculation, back-substitute and arrive at the set
+ \[
+  \left\{ x_3 \cdot 
+   \begin{pmatrix}
+    3\\
+    0\\
+    3\\
+    -1
+   \end{pmatrix}
+   + x_4 \cdot 
+   \begin{pmatrix}
+    0\\
+    3\\
+    1\\
+    2
+   \end{pmatrix} \mid x_3,x_4 \in \R
+  \right\}.
+ \]
+ We get rid of the fourth vector first. From the shape of the just computed
+ solution, we infer that
+ \[
+  0 \cdot 
+  \begin{pmatrix}
+   1\\
+   3
+  \end{pmatrix}
+  + 3 \cdot 
+  \begin{pmatrix}
+   -2\\
+   1
+  \end{pmatrix}
+  + 1 \cdot 
+  \begin{pmatrix}
+   0\\
+   -3
+  \end{pmatrix}
+  + 2 \cdot 
+  \begin{pmatrix}
+   3\\
+   0
+  \end{pmatrix} =
+  \begin{pmatrix}
+   0\\
+   0
+  \end{pmatrix}
+ \]
+ and so
+ \begin{equation}
+  \label{eq:fourth-as-lc}
+  \begin{pmatrix}
+   3\\
+   0
+  \end{pmatrix}
+  = -\frac{3}{2} \cdot 
+  \begin{pmatrix}
+   -2\\
+   1
+  \end{pmatrix}
+  -\frac{1}{2} \cdot 
+  \begin{pmatrix}
+   0\\
+   -3
+  \end{pmatrix},
+ \end{equation}
+ which by \myref{corollary}{cor:span-corollary} proves that
+ \[
+  \spn \left( 
+   \begin{pmatrix}
+    1\\
+    3
+   \end{pmatrix},
+   \begin{pmatrix}
+    -2\\
+    1
+   \end{pmatrix},
+   \begin{pmatrix}
+    0\\
+    -3
+   \end{pmatrix}
+  \right) = \spn S.
+ \]
+ We now proceed to further remove $\begin{psmallmatrix} 0 \\-3
+ \end{psmallmatrix}$ and express it as a linear combination of the remaining two
+ vectors. The second vector in the computed solution gives the equality
+ \[
+  3 \cdot 
+  \begin{pmatrix}
+   1\\
+   3
+  \end{pmatrix}
+  +0 \cdot 
+  \begin{pmatrix}
+   -2\\
+   1
+  \end{pmatrix}
+  +3 \cdot 
+  \begin{pmatrix}
+   0\\
+   -3
+  \end{pmatrix}
+  -1 \cdot 
+  \begin{pmatrix}
+   3\\
+   0
+  \end{pmatrix}
+  = 
+  \begin{pmatrix}
+   0\\
+   0
+  \end{pmatrix},
+ \]
+ hence
+ \[
+  \begin{pmatrix}
+   0\\
+   -3
+  \end{pmatrix}
+  = -
+  \begin{pmatrix}
+   1\\
+   3
+  \end{pmatrix}
+  +\frac{1}{3} \cdot 
+  \begin{pmatrix}
+   3\\
+   0
+  \end{pmatrix}.
+ \]
+ Substituting for $\begin{psmallmatrix} 3\\0 \end{psmallmatrix}$ the linear
+ combination in~\eqref{eq:fourth-as-lc} and merging the coefficients yields
+ \[
+  \begin{pmatrix}
+   0\\
+   -3
+  \end{pmatrix}
+  = -\frac{6}{7} \cdot 
+  \begin{pmatrix}
+   1\\
+   3
+  \end{pmatrix}
+  -\frac{3}{7} \cdot 
+  \begin{pmatrix}
+   -2\\
+   1
+  \end{pmatrix}.
+ \]
+ Finally, the desired linearly independent set $S'$ with $\spn S' = \spn S$ is
+ \[
+  S' = \left\{ 
+   \begin{pmatrix}
+    1\\
+    3
+   \end{pmatrix},
+   \begin{pmatrix}
+    -2\\
+    1
+   \end{pmatrix}
+  \right\}.
+ \]
+\end{probsol}
+
+\begin{remark}{}{}
+ Observe that the solution of \myref{problem}{prob:reduce-to-li} basically
+ mimics the proof of \myref{lemma}{lem:linearly-independent-subset} with an
+ algorithmic approach to the selection of redundant vectors.
+\end{remark}
+
+\begin{warning}{}{}
+ The indices of columns with pivots vs. free variables only point at the vectors
+ of the original set which \textbf{are sure not to} shrink the span but they
+ maken't the choice of vectors unique in any way. As a matter of fact, in many
+ cases any of the present vectors can be removed without altering the span of
+ the original set.
+
+ To give one trivial example, consider the set
+ \[
+  S \coloneqq \left\{
+   \begin{pmatrix}
+    1\\0
+   \end{pmatrix},
+   \begin{pmatrix}
+    -1\\
+    0
+   \end{pmatrix},
+   \begin{pmatrix}
+    2\\
+    0
+   \end{pmatrix}
+  \right\}.
+ \]
+ Any one of the vectors in $S$ is linearly dependent on the other two (on either
+ of them actually); all the vectors in $S$ are redundant.
+
+ On the other hand, in the set
+ \[
+  S \coloneqq \left\{ 
+   \begin{pmatrix}
+    1\\
+    0
+   \end{pmatrix},
+   \begin{pmatrix}
+    0\\
+    2
+   \end{pmatrix},
+   \begin{pmatrix}
+    0\\
+    -2
+   \end{pmatrix}
+  \right\},
+ \]
+ the first vector \textbf{is not} redundant. Only either of the second and third
+ vectors may be mercilessly cut down without shrinking the span of $S$. It is in
+ cases like these that the procedure outlined in
+ \myref{problem}{prob:reduce-to-li} has its merit.
+\end{warning}
+
+We conclude the introduction to the concept of linear independence with one last
+brief little inconsequential unimportant and just barely appealing discussion.
+We've proven that removing a vector from a (finite) linearly dependent set can
+make it independent. Adding a vector to a linearly dependent set on the other
+hand cannot fix linear dependence. We shall summarise the link between subsets
+and linear independence of the original set in
+\myref{table}{table:linear-dependence-subsets}.
+\begin{table}[ht]
+ \centering
+ \begin{tabular}{c | c  c}
+  & $\hat{S} \subseteq S$ & $\tilde{S} \supseteq S$ \\
+  \toprule
+  $S$ linearly independent & $\hat{S}$ also linearly independent & $\tilde{S}$
+  can be either\\
+  $S$ linearly dependent & $\hat{S}$ can be either & $\tilde{S}$ also linearly
+  dependent 
+ \end{tabular}
+ \caption{Linear dependence/independence of subsets.}
+ \label{table:linear-dependence-subsets}
+\end{table}
+
+\input{vector-spaces/linear-independence/basis}
