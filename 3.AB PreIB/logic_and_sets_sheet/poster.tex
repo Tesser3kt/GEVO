@@ -19,7 +19,7 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tikz}
-\usetikzlibrary{patterns,decorations.pathmorphing,shapes.geometric}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shapes.geometric}
 \usepackage{tkz-euclide}
 \tikzset{point style/.style = {%
   draw = black,
@@ -328,7 +328,7 @@
 \begin{block}{Drawing Sets}
  Set operations can be visualized using so-called \emph{Venn diagrams}. This
  just means using circles to represent the sets in questions. For example, two
- sets -- $\clr{A}$ and $\clb{B}$ can be drawn like this:
+ sets -- $\clr{A}$ and $\clb{B}$ -- can be drawn like this:
  \begin{center}
   \begin{tikzpicture}[scale=0.5]
    \fill[BrickRed,fill opacity=0.25] (180:1.5) circle (2);
@@ -418,8 +418,118 @@
   \{\mytria,\mycross, \sim\}
  \]
  is a relation between the sets $A$ and $B$ from above. It literally says that
- $\mytria$ is related to $\mycross$ and $ \sim $.
+ $\mytria$ is related to $\mycross$ and $ \sim $. Instead of writing
+ $(\mytria,\mycross) \in R$, we write $\mytria R \mycross$ because it's more
+ natural. Typical examples of relations include $ \leq $ and $=$ and we don't
+ write $(2,3) \in~\leq $ but $2 \leq 3$. 
 \end{alertblock}
+
+\begin{block}{Drawing Products And Relations}
+ One can draw the product $A \times B$ similarly to the way we draw Cartesian
+ coordinates -- by distributing the elements of $A$ horizontally and those of
+ $B$ vertically. Each point in the resulting grid represents an element of $A
+ \times B$.
+
+ Take, for example, $\clr{A = \{1, 2, 3, 4\}}$ and $\clb{B = \{a, b, c\}}$. We
+ can depict the set $\clr{A} \times \clb{B}$ like this:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{\x + 1}
+    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/a, 1/b, 2/c} {
+    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
+   }
+   \foreach \x in {0, 1, 2, 3} {
+    \foreach \y in {0, 1, 2} {
+     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
+    }
+   }
+  \end{tikzpicture}
+ \end{center}
+ Any relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ can now be easily drawn
+ into the grid just by marking certain dots. For example, the relation $\clg{R =
+ \{}(\clr{1},\clb{c}), (\clr{2},\clb{b}),(\clr{2},\clb{a})\clg{\}} \subseteq
+ \clr{A} \times \clb{B}$ looks like this:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{\x + 1}
+    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/a, 1/b, 2/c} {
+    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
+   }
+   \foreach \x in {0, 1, 2, 3} {
+    \foreach \y in {0, 1, 2} {
+     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
+    }
+   }
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (0, 2)
+    {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 0)
+    {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 1)
+    {};
+  \end{tikzpicture}
+ \end{center}
+ There is another way to draw relations -- as arrows from $\clr{A}$ to
+ $\clb{B}$. This style of drawing emphasises the `one-way' nature of relations.
+ The same relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ is drawn using
+ arrows like this:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \y in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{4-\y}
+    \node[BrickRed] (A\z) at (-2,\y) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/c, 1/b, 2/a} {
+    \node[RoyalBlue] (B\n) at (2,\y) {\footnotesize $\n$};
+   }
+   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A1) -- (Bc);
+   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A2) -- (Bb);
+   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A2) -- (Ba);
+  \end{tikzpicture}
+ \end{center}
+\end{block}
+
+\begin{exampleblock}{Equivalence \& Equivalence Classes}
+ A relation $\clg{E} \subseteq \clr{A} \times \clr{A}$ (do note that it's a
+ relation \textbf{on a set}) is called an \alert{equivalence} if it behaves
+ \textbf{something like `equals'}, that is,
+ \begin{itemize}[left=2em]
+  \item[(R)] it's \alert{reflexive}, i.e. $\clr{a}\clg{E}\clr{a}$ for every
+   $\clr{a} \in \clr{A}$ (every element is equivalent to itself);
+  \item[(S)] it's \alert{symmetric}, i.e. if $\clr{a_1}\clg{E}\clr{a_2}$, then
+   also $\clr{a_2}\clg{E}\clr{a_1}$ (all elements are \textbf{mutually}
+   equivalent);
+  \item[(T)] it's \alert{transitive}, i.e. if $\clr{a_1}\clg{E}\clr{a_2}$ and
+   $\clr{a_2} \clg{E} \clr{a_3}$, then $\clr{a_1} \clg{E} \clr{a_3}$ (it
+   \textbf{propagates} through a middle element).
+ \end{itemize}
+ A good example of equivalence to keep in mind is the relation `\textbf{being
+ the same age}' on the set of all people. It's \alert{reflexive} because I'm as
+ old as me. It's \alert{symmetric} because if I'm as old as you, then you are as
+ old as me. And finally, it's \alert{transitive} because if I'm as old as you
+ and you are as old as someone else, then I'm as old as that someone. This
+ example also drives home the idea of equivalence `being like equals'. It's not
+ that two people of the same age are \emph{equal}, they are \emph{equal by some
+ criterion}. This is exactly what equivalence is, the relation of being equal by
+ some criterion.
+
+ With an equivalence $\clg{E} \subseteq \clr{A} \times \clr{A}$, we can divide
+ the set $\clr{A}$ into `packets' of elements -- each packet consisting of
+ elements which are \textbf{equivalent} by $\clg{E}$. For example, I can divide
+ the set of all people by putting equally old people to the same packet.
+ Formally, we write
+ \[
+  [\clr{a}]_{\clg{E}} = \{\clr{b} \in \clr{A} \mid \clr{a}\clg{E}\clr{b}\},
+ \]
+ in other words, $[\clr{a}]_{\clg{E}}$ is the set of all elements from $\clr{A}$
+ that are $\clg{equivalent}$ to $\clr{a}$. We call it \alert{an equivalence
+ class}. The element $\clr{a}$ is then called a \alert{representative}. 
+\end{exampleblock}
 
 \end{column}
 \separatorcolumn
