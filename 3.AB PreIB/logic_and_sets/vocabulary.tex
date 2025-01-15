@@ -1,0 +1,37 @@
+% TeX program = lualatex
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[english,czech]{babel}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+\begin{document}
+
+\begin{center}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{l | l}
+ \textbf{Term} & \textbf{Translation}\\
+ \toprule
+ proposition       & výrok\\
+ conjunction       & spojka\\
+ implication       & implikace (z~\dots~plyne~\dots)\\
+ equivalence       & ekvivalence (\dots~právě tehdy, když~\dots)\\
+ set               & množina\\
+ element           & prvek\\
+ ordering          & uspořádání\\
+ frequency         & četnost\\
+ intersection      & průnik (prvky společné oběma množinám)\\
+ union             & sjednocení (prvky ležící v aspoň jedné z množin)\\
+ subset            & podmnožina\\
+ pair              & pár/dvojice (uspořádaná množina o dvou prvcích)\\
+ product           & součin (množina všech dvojic)\\
+ relation          & vztah/relace (podmnožina součinu)
+\end{tabular}
+ 
+\end{center}
+
+\end{document}
