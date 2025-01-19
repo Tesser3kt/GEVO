@@ -57,6 +57,8 @@
     #v(1em)
     *intersection*\
     #v(1em)
+    *pair*\
+    #v(1em)
     *product*\
     #v(1em)
     *conjunction*\
