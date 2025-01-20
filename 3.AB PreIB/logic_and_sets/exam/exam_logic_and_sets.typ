@@ -1,3 +1,5 @@
+#import "@preview/cheq:0.2.2": checklist
+
 // Define custom colors
 #let crimson = rgb("#B80F0A")
 #let airblue = rgb("#00308F")
@@ -19,8 +21,17 @@
       #v(-8pt)
       #line(length: 100%, stroke: .5pt + ashgray)
     ]
-  }
+  },
+  footer: [
+    #line(length: 100%, stroke: .5pt + ashgray)
+  ]
 )
+#show heading.where(
+  level: 1
+): it => block(width: 100%)[
+  #set text(14pt)
+  #it.body
+]
 #show math.equation: set text(
   font: "TeX Gyre Schola Math",
   size: 12pt
@@ -82,28 +93,83 @@
   ]
 ]
 #v(12pt)
-#enum(numbering: "1.")[
-  Logic -- propositions and conjunctions.
-  #v(6pt)
-  #enum(numbering: "a)", enum.item(1)[
-    #points(10)
-    Supposing a proposition $p$ is false and another proposition $q$ is also
-    false, is the proposition
-    #align(center)[
-      $(p => q) or q$
-    ]
-    true or false? *Explain*.
-    #v(30%)
-  ],
-  enum.item(2)[
-    #points(10)
-    Fill the propositions $p$ and $q$ (you may not need both) in the blanks so
-    that the proposition
-    #align(center)[
-      $(not p => #blank()) <=> (#blank() or q)$
-    ]
-    is *always* true independently of whether $p$ and $q$ are themselves true or
-    false.
+
+// First page
+= Logic -- propositions and conjunctions.
+#v(6pt)
+#enum(numbering: "a)")[
+  #points(15)
+  Supposing a proposition $p$ is false and another proposition $q$ is also
+  false, is the proposition
+  #align(center)[
+    $(p => q) or q$
   ]
-)]
+  true or false? *Explain*.
+  #v(30%)
+][
+  #points(10)
+  Fill the propositions $p$ and $q$ (you may not need both) in the blanks so
+  that the proposition
+  #align(center)[
+    $(not p => #blank()) <=> (#blank() or q)$
+  ]
+  is *always* true independently of whether $p$ and $q$ are themselves true or
+  false.
+]
 #pagebreak()
+
+// Second page
+= Basic set operations.
+#v(12pt)
+#enum(numbering: "a)")[
+  #points(15)
+  #block(width: 100%)[
+    Given sets $A = {2, 3, 5}$, $B = {3, 4, 5}$ and $C = {1, 2, 3, 4}$,
+    determine the set
+    #align(center)[
+      $(A union B) sect C$.
+    ]
+    You *don't* have to provide any *explanation*.
+  ]
+  #v(40%)
+][
+  #points(10)
+  #block(width: 100%)[
+    Show that
+    #align(center)[
+      $(A union B) union C = A union (B union C)$
+    ]
+    for any sets $A,B,C$. *Explain*.\
+    *Hint*: Use Venn diagrams.
+  ]
+]
+#pagebreak()
+
+// Third page
+
+= Cartesian product and relations.
+#v(12pt)
+#enum(numbering: "a)")[
+  #points(15)
+  #block(width: 100%)[
+    Mark each of the following sets *if it's a relation* from $A$ to $B$, where
+    #align(center)[
+      $A = {1, 2} "and" B = {a, b, c}$.
+    ]
+    #v(12pt)
+    #show: checklist.with(fill: white, stroke: black, radius: 0pt)
+    - [ ] $R = {(1, a), (1, b), (2, c)}$
+    - [ ] $R = {(a, 2), (b, 1)}$
+    - [ ] $R = {(1, 2), (1, b), (2, 2)}$
+    - [ ] $R = {(2, a), (2, b)}$
+    - [ ] $R = {(a, b), (a, c)}$
+    
+    #v(40%)
+  ]
+][
+  #points(10)
+  #block(width: 100%)[
+
+  ]
+]
+
