@@ -106,7 +106,7 @@
 #enum(numbering: "a)")[
   #points(15)
   #block(width:100%)[
-  For each value of $p$ write down the value of:
+  For each *truth value* of $p$ write down the *truth value* of the proposition
   #align(center)[
     $p or not p$.
   ]
@@ -115,11 +115,11 @@
   #v(25%)
 ][
   #points(10)
-  Decide whether the proposition:
+  Decide whether the proposition
   #align(center)[
     $(p => q) or not (p => q)$
   ]
-  is true regardless of the values of $p$ and $q$.
+  is *always true* regardless of the truth values of $p$ and $q$.
 ]
 #pagebreak()
 
@@ -135,7 +135,7 @@
     #align(center)[
       $(A union B) sect C$.
     ]
-    Explain your method.
+    *Explain* your method.
   ]
   #v(40%)
 ][
@@ -172,10 +172,11 @@
 ][
   #points(10)
   #block(width: 100%)[
-    How many relations are there from $A$ to $B$ if
+    How many relations are there from #text(crimson)[$A$] to #text(airblue)[$B$]
+    if
 
     #align(center)[
-      $A={5} " and " B={ě,š,č,ř,ž}$.
+      #text(crimson)[$A={5}$] and #text(airblue)[$B={ě,š,č,ř,ž}$].
     ]
     *Hint:* It is *not* necessary to write all of them. A simple argument
     suffices.
@@ -190,83 +191,84 @@
 #enum(numbering: "a)")[
   #points(15)
   #block(width: 100%)[
-  For each of the following relations decide if they are equivalence on
-  $#text(airblue)[A = {a,b,c}]$ or not. You *don't* need to *explain anything*.
+  For each of the following relations decide if they are an equivalence on the
+  set #text(airblue)[$A = {a,b,c}$] or not. You *don't* need to *explain
+  anything*.
   #v(6pt)
- #show: checklist.with(fill: white, stroke: black, radius: 0pt)
-    - [ ] $R = {(a, a), (b, b), (c, c)}$
-    #v(6pt)
-    - [ ] $R = {(a, b), (b, a), (a, a), (b, b), (c, c)}$
-    #v(6pt)
-    - [ ] $R = {(1, 2), (2, 3), (1, 3)}$
-    #v(6pt)
-    - [ ] $R = {(a, a), (b, b), (c, c), (a,b), (b,c), (b,c), (b,a) }$
-    #v(6pt)
-    You may use the empty diagrams below to draw the relations from above.
-    #v(20pt)
+  #show: checklist.with(fill: white, stroke: black, radius: 0pt)
+  - [ ] $R = {(a, a), (b, b), (c, c)}$
+  #v(6pt)
+  - [ ] $R = {(a, b), (b, a), (a, a), (b, b), (c, c)}$
+  #v(6pt)
+  - [ ] $R = {(1, 2), (2, 3), (1, 3)}$
+  #v(6pt)
+  - [ ] $R = A times A$
+  #v(6pt)
+  - [ ] $R = {(a, a), (b, b), (c, c), (a,b), (b,c), (b,c), (b,a) }$
+  #v(6pt)
+  You may use the empty diagrams below to draw the relations from above.
+  #align(center)[
+    #cetz.canvas({
+      import cetz.draw: *
 
-#align(left)[
-      #cetz.canvas({
-        import cetz.draw: *
+      content((-1, 1), text(airblue)[$a$], anchor: "mid")
+      content((-1, 2), text(airblue)[$b$], anchor: "mid")
+      content((-1, 3), text(airblue)[$c$], anchor: "mid")
 
-        content((-1, 1), text(airblue)[$a$], anchor: "mid")
-        content((-1, 2), text(airblue)[$b$], anchor: "mid")
-        content((-1, 3), text(airblue)[$c$], anchor: "mid")
-
-        content((0, 0), text(airblue)[$a$], anchor: "mid")
-        content((1, 0), text(airblue)[$b$], anchor: "mid")
-        content((2, 0), text(airblue)[$c$], anchor: "mid")
-        for x in range(0, 3) {
-          for y in range(1, 4) {
-            circle((x, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
-          }
+      content((0, 0), text(airblue)[$a$], anchor: "mid")
+      content((1, 0), text(airblue)[$b$], anchor: "mid")
+      content((2, 0), text(airblue)[$c$], anchor: "mid")
+      for x in range(0, 3) {
+        for y in range(1, 4) {
+          circle((x, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
         }
-      
-        content((5, 1), text(airblue)[$a$], anchor: "mid")
-        content((5, 2), text(airblue)[$b$], anchor: "mid")
-        content((5, 3), text(airblue)[$c$], anchor: "mid")
+      }
+    
+      content((5, 1), text(airblue)[$a$], anchor: "mid")
+      content((5, 2), text(airblue)[$b$], anchor: "mid")
+      content((5, 3), text(airblue)[$c$], anchor: "mid")
 
-        content((6, 0), text(airblue)[$a$], anchor: "mid")
-        content((7, 0), text(airblue)[$b$], anchor: "mid")
-        content((8, 0), text(airblue)[$c$], anchor: "mid")
-        for x in range(0, 3) {
-          for y in range(1, 4) {
-            circle((x +6, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
-          }
+      content((6, 0), text(airblue)[$a$], anchor: "mid")
+      content((7, 0), text(airblue)[$b$], anchor: "mid")
+      content((8, 0), text(airblue)[$c$], anchor: "mid")
+      for x in range(0, 3) {
+        for y in range(1, 4) {
+          circle((x +6, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
         }
+      }
 
-        content((10, 1), text(airblue)[$a$], anchor: "mid")
-        content((10, 2), text(airblue)[$b$], anchor: "mid")
-        content((10, 3), text(airblue)[$c$], anchor: "mid")
+      content((10, 1), text(airblue)[$a$], anchor: "mid")
+      content((10, 2), text(airblue)[$b$], anchor: "mid")
+      content((10, 3), text(airblue)[$c$], anchor: "mid")
 
-        content((11, 0), text(airblue)[$a$], anchor: "mid")
-        content((12, 0), text(airblue)[$b$], anchor: "mid")
-        content((13, 0), text(airblue)[$c$], anchor: "mid")
-        for x in range(0, 3) {
-          for y in range(1, 4) {
-            circle((x +11, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
-          }
+      content((11, 0), text(airblue)[$a$], anchor: "mid")
+      content((12, 0), text(airblue)[$b$], anchor: "mid")
+      content((13, 0), text(airblue)[$c$], anchor: "mid")
+      for x in range(0, 3) {
+        for y in range(1, 4) {
+          circle((x + 11, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
         }
-
-      })
-
-    ]
-
-
-
-      ]
- #v(10%)
+      }
+    })
+  ]
+]
+#v(12pt)
 ][
   #points(10)
   #block(width: 100%)[
+    Recall that the relation of _equivalence_ is given by three conditions:
+    - *reflexivity*: every element is equivalent to itself;
+    - *symmetry*: if $a$ is equivalent to $b$, then $b$ is equivalent to $a$;
+    - *transitivity*: if $a$ is eq. to $b$ and $b$ is eq. to $c$, then $a$ is eq. to $c$.
+
     To every point in the visualization of the equivalences from part a) assign
-    one defining feature of equivalence that demands its existence in the
+    one defining condition of equivalence that forces its presence in the
     equivalence.
 
-    For example: This specific pair is present because otherwise the symmetry
-    property would not be satisfied.
+    For example: _'This specific pair is present because otherwise the symmetry
+    property would not be satisfied'_.
     
-    *Hint:* Try assigning only the reflexivity and symmetry. The geometrical
-    representation of transitivity is harder to see. 
-     ]
+    *Hint:* Try assigning only the reflexivity and symmetry conditions. The
+    geometrical representation of transitivity is harder to see. 
+  ]
 ]
