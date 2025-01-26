@@ -1,0 +1,322 @@
+// Package imports
+#import "@preview/cheq:0.2.2": checklist
+#import "@preview/cetz:0.3.1"
+#import "@preview/oxifmt:0.2.1": strfmt
+#import "@preview/cetz:0.3.2"
+#import "@preview/cetz-venn:0.1.3"
+
+
+// Define custom colors
+#let crimson = rgb("#B80F0A")
+#let airblue = rgb("#00308F")
+#let raingreen = rgb("#00755E")
+
+// #let earthybrown = rgb("#000000")
+// #let flowerpurple = rgb("#000000")
+ #let flowerpurple = rgb("#7119a8")
+ #let earthybrown = rgb("#b05705")
+#let ashgray = rgb("#B2BEB5")
+
+// Colored text definition
+#let AA = {
+  text(airblue)[$A$]
+}
+#let BB = {
+  text(raingreen)[$B$]
+}
+#let RR = {
+  text(crimson)[$R$]
+}
+
+
+// Set page and fonts
+#let page-counter(cur, last) = {
+  strfmt("Page {} of {}", cur, last)
+}
+#set page(
+  paper: "a4",
+  margin: (x: 1in, y: 1in),
+  header: context {
+    let current-page = counter(page).get().first()
+    if current-page > 1 [
+      Resit exam
+      #h(1fr)
+      #counter(page).display(
+        page-counter,
+        both: true
+      )
+      #h(1fr)
+      #datetime.today().display("[month repr:long] [day], [year]")
+      #v(-8pt)
+      #line(length: 100%, stroke: .5pt + ashgray)
+    ]
+  }
+)
+#show heading.where(
+  level: 1
+): it => block(width: 100%)[
+  #set text(14pt)
+  #it.body
+]
+#show math.equation: set text(
+  font: "Tex Gyre Schola Math",
+  size: 12pt
+)
+#show raw: set text(
+  font: "TeX Gyre Cursor",
+  size: 12pt
+)
+#set par(
+  justify: true
+)
+
+// Points function
+#let points(number) = {
+    place(
+      top + right,
+      dx: 1in - 18pt,
+    )[#text(airblue)[[#number %]]]
+}
+
+// Blank box
+#let blank(width: 12pt) = {
+  box(
+    fill: ashgray.transparentize(50%),
+    width: width,
+    height: 12pt,
+    baseline: 3pt
+  )
+}
+
+// Title
+#set text(
+  font: "TeX Gyre Adventor",
+  size: 24pt
+)
+#align(center)[
+  Logic & Set Theory
+]
+#v(-12pt)
+#align(center)[
+  #text(size: 18pt)[3.AB PreIB Maths -- Resit exam]
+]
+#set text(
+  font: "TeX Gyre Schola",
+  size: 12pt
+)
+
+// Warning
+#align(center)[
+  #box(
+    stroke: 1pt + ashgray,
+    radius: 10%,
+    width: 80%,
+    inset: 12pt,
+    fill: ashgray.transparentize(80%)
+  )[
+    Unless specified otherwise, you are to #text(crimson)[*always*] (at least
+    briefly) explain your reasoning. Even in closed questions.
+  ]
+]
+#v(12pt)
+
+// First page
+= Logic -- propositions and conjunctions.
+#v(6pt)
+#enum(numbering: "a)")[
+  #points(15)
+  #block(width:100%)[
+  Complete the truth table below.   #align(center)[
+   #table(
+  columns: 3,
+  table.header[$p$][$q$][$p and not q$],
+  [1], [1], [#blank()],
+  [1], [0], [#blank()],
+  [0], [1], [0],
+  [0],[0],[0]
+)
+  ]
+]
+  In other words: evaluate the proposition $p and not q$, for the truth values
+  of $p$ and $q$ corresponding for the omitted lines in the truth table.
+
+  #v(20%)
+][
+  #points(10)
+  Complete the blank square in proposition 
+  #align(center)[
+  $p #blank() not q$
+  ]
+  with some logical conjunction so it the same as $not (p => q)$. Two statements
+  are the same if their truth tables are the same. You may choose from: 
+  - *and*: $and$;
+  - *or*: $or$;
+  - *implies*: $=>$;
+  - *if and only if*: $<=>$.
+  *Explain* your choice.
+
+]
+#pagebreak()
+
+// Second page
+= Basic set operations.
+#v(12pt)
+#enum(numbering: "a)")[
+  #points(15)
+  #block(width: 100%)[
+  Given sets #text(airblue)[$A={c,c,c,b,b,a}$] and
+  #text(raingreen)[$B={a,b,c}$], determine the statements
+
+  #align(center)[
+    $#text(airblue)[$A$] subset #text(raingreen)[$B$]$ and $#text(raingreen)[$B$] subset #text(airblue)[$A$]$.
+  ]
+ *Explain* your method.
+
+ *Bonus* (+10%): if both the statements are true there is something to be concluded
+ about #text(airblue)[$A$] and  #text(raingreen)[$B$]. *Explain* what it is.
+  ]
+  #v(40%)
+][
+  #points(10)
+  #block(width: 100%)[
+    Write an expression (using set operations) for the shaded are on the diagram
+    below.
+    #cetz.canvas(
+       length: 2cm,
+       {
+      cetz-venn.venn3(
+        name: "venn",
+        a-fill: gray,
+        ab-fill: gray,
+        ac-fill: gray,
+        abc-fill: gray,
+        bc-fill: gray,
+        padding: 1em
+  )
+  import cetz.draw: * 
+  content("venn.c", [#text(earthybrown)[$C$]])
+  content("venn.b", [#BB])
+  content("venn.a", [#AA])
+})
+      ]
+]
+#pagebreak()
+
+// Third page
+
+= Cartesian product and relations.
+#v(12pt)
+#enum(numbering: "a)")[
+  #points(15)
+  #block(width: 100%)[
+    On the diagram below draw the relation #RR from #AA to #BB for
+    #align(center)[
+      #text(airblue)[$A={1,3,5,7}$], #text(raingreen)[$B={0,2,4,6}$] and
+      #text(crimson)[$R={(1,2),(3,6),(5,0)}$].
+    ]
+    #v(18pt)
+    #align(center)[
+    #cetz.canvas({
+        import cetz.draw: *
+
+        content((-1, 1), text(airblue)[$1$], anchor: "mid")
+        content((-1, 2), text(airblue)[$3$], anchor: "mid")
+        content((-1, 3), text(airblue)[$5$], anchor: "mid")
+        content((-1, 4), text(airblue)[$7$], anchor: "mid")
+
+        content((0, 0), AA, anchor: "mid")
+        content((4, 0), BB, anchor: "mid")
+          for y in range(1, 5) {
+            circle((0, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
+          }
+
+        content((5, 1), text(raingreen)[$0$], anchor: "mid")
+        content((5, 2), text(raingreen)[$2$], anchor: "mid")
+        content((5, 3), text(raingreen)[$4$], anchor: "mid")
+        content((5, 4), text(raingreen)[$6$], anchor: "mid")
+
+
+          for y in range(1, 5) {
+            circle((4, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
+          }
+      })
+    ]
+      ]
+    #v(20%)
+][
+  #points(10)
+  #block(width: 100%)[
+    Draw again the relation #RR from the previous exercise together with the
+    relation #text(flowerpurple)[$hat(R)={(0,a),(2,c),(4,d)$] between
+    sets #BB and
+    #text(earthybrown)[$C={a,b,c,d,}$].
+
+#align(center)[
+    #cetz.canvas({
+        import cetz.draw: *
+
+        content((-1, 1), text(airblue)[$1$], anchor: "mid")
+        content((-1, 2), text(airblue)[$3$], anchor: "mid")
+        content((-1, 3), text(airblue)[$5$], anchor: "mid")
+        content((-1, 4), text(airblue)[$7$], anchor: "mid")
+
+        content((0, 0), AA, anchor: "mid")
+        content((3, 0), BB, anchor: "mid")
+        content((6, 0), text(earthybrown)[$C$], anchor: "mid")
+          for y in range(1, 5) {
+            circle((0, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
+          }
+
+        content((3, 1.5), text(raingreen)[$0$], anchor: "mid")
+        content((3, 2.5), text(raingreen)[$2$], anchor: "mid")
+        content((3, 3.5), text(raingreen)[$4$], anchor: "mid")
+        content((3, 4.5), text(raingreen)[$6$], anchor: "mid")
+
+
+          for y in range(1, 5) {
+            circle((3, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
+          }
+        content((7, 1), text(earthybrown)[$a$], anchor: "mid")
+        content((7, 2), text(earthybrown)[$b$], anchor: "mid")
+        content((7, 3), text(earthybrown)[$c$], anchor: "mid")
+        content((7, 4), text(earthybrown)[$d$], anchor: "mid")
+
+
+          for y in range(1, 5) {
+            circle((6, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
+          }
+      })
+      ]
+      Now write down the relation that firstly "follows" #RR from #AA to #BB and
+      then "follows" #text(flowerpurple)[$hat(R)$] from #BB to
+      #text(earthybrown)[$C$].
+    
+      ]
+]
+#pagebreak()
+
+// Fourth page
+= Equivalence.
+#v(12pt)
+
+#enum(numbering: "a)")[
+  #points(15)
+  #block(width: 100%)[
+    One of the examples of a equivalence is people *'being the same age'*.
+    Verify that it is truly equivalence. In other words: it has to satisfy 
+    - *reflexivity*: every element is equivalent to itself;
+    - *symmetry*: if $a$ is equivalent to $b$, then $b$ is equivalent to $a$;
+    - *transitivity*: if $a$ is eq. to $b$ and $b$ is eq. to $c$, then $a$ is eq. to $c$.
+  ]
+    #v(35%)
+][
+  #points(10)
+  #block(width: 100%)[
+    Come up with at *least three* other equivalences on the set of all people. Try
+    to estimate the number of equivalence classes they create. For the maximum
+    credit there should be one that creates *over 100* of partitions and also one
+    that creates less then two.
+
+    You *can not* use the equivalence from part a).
+         ]
+]
