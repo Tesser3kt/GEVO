@@ -27,6 +27,12 @@
 #let RR = {
   text(crimson)[$R$]
 }
+#let CC = {
+  text(earthybrown)[$C$]
+}
+#let SS = {
+  text(flowerpurple)[$S$]
+}
 
 
 // Set page and fonts
@@ -140,19 +146,29 @@
   In other words: evaluate the proposition $p and not q$, for the truth values
   of $p$ and $q$ corresponding for the omitted lines in the truth table.
 
-  #v(20%)
+  #v(15%)
 ][
   #points(10)
   Complete the blank square in proposition 
   #align(center)[
   $p #blank() not q$
   ]
-  with some logical conjunction so it the same as $not (p => q)$. Two statements
-  are the same if their truth tables are the same. You may choose from: 
-  - *and*: $and$;
-  - *or*: $or$;
-  - *implies*: $=>$;
-  - *if and only if*: $<=>$.
+  with some logical conjunction ($and, or, =>, <=>$) so it equivalent $not (p =>
+  q)$. Two statements are equivalent if their truth tables are the same. 
+
+  For convenience the truth table of implication is stated below.
+  #{
+  set table(align: (x, _) => { center })
+  table(
+  columns: 3,
+  table.header[$p$][$q$][$p => q$],
+  [1], [1], [1],
+  [1], [0], [0],
+  [0], [1], [1],
+  [0],[0],[1]
+)}
+
+  
   *Explain* your choice.
 
 ]
@@ -168,7 +184,8 @@
   #text(raingreen)[$B={a,b,c}$], determine the statements
 
   #align(center)[
-    $#text(airblue)[$A$] subset #text(raingreen)[$B$]$ and $#text(raingreen)[$B$] subset #text(airblue)[$A$]$.
+    $#text(airblue)[$A$] subset.eq #text(raingreen)[$B$]$ and
+    $#text(raingreen)[$B$] subset.eq #text(airblue)[$A$]$.
   ]
  *Explain* your method.
 
@@ -181,8 +198,9 @@
   #block(width: 100%)[
     Write an expression (using set operations) for the shaded are on the diagram
     below.
+    #align(center)[
     #cetz.canvas(
-       length: 2cm,
+       length: 1.5cm,
        {
       cetz-venn.venn3(
         name: "venn",
@@ -198,7 +216,7 @@
   content("venn.b", [#BB])
   content("venn.a", [#AA])
 })
-      ]
+      ]]
 ]
 #pagebreak()
 
@@ -242,14 +260,13 @@
       })
     ]
       ]
-    #v(20%)
+    #v(15%)
 ][
   #points(10)
   #block(width: 100%)[
     Draw again the relation #RR from the previous exercise together with the
-    relation #text(flowerpurple)[$hat(R)={(0,a),(2,c),(4,d)$] between
-    sets #BB and
-    #text(earthybrown)[$C={a,b,c,d,}$].
+    relation #text(flowerpurple)[$S={(0,a),(2,c),(4,d)}$] between
+    sets #BB and #text(earthybrown)[$C={a,b,c,d,}$].
 
 #align(center)[
     #cetz.canvas({
@@ -262,7 +279,7 @@
 
         content((0, 0), AA, anchor: "mid")
         content((3, 0), BB, anchor: "mid")
-        content((6, 0), text(earthybrown)[$C$], anchor: "mid")
+        content((6, 0), CC, anchor: "mid")
           for y in range(1, 5) {
             circle((0, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
           }
@@ -287,10 +304,12 @@
           }
       })
       ]
-      Now write down the relation that firstly "follows" #RR from #AA to #BB and
-      then "follows" #text(flowerpurple)[$hat(R)$] from #BB to
-      #text(earthybrown)[$C$].
-    
+      Now is your task to compose the relations #RR and #SS into one
+      relation $T$ that goes from #AA to #CC. This means that T firstly applies
+      #RR to get from #AA to #BB. Then on all of the results of #RR (end of an
+      every arrow from a)) applies #SS which
+      gets it from #BB to #CC. At the end T forgets the element from #BB and ends
+      up only with the beginning and the ending of the journey. *Write down* T.
       ]
 ]
 #pagebreak()
@@ -302,7 +321,8 @@
 #enum(numbering: "a)")[
   #points(15)
   #block(width: 100%)[
-    One of the examples of a equivalence is people *'being the same age'*.
+    One of the examples of a equivalence is *'what flavor of ice cream'* each
+    person likes the most.
     Verify that it is truly equivalence. In other words: it has to satisfy 
     - *reflexivity*: every element is equivalent to itself;
     - *symmetry*: if $a$ is equivalent to $b$, then $b$ is equivalent to $a$;
@@ -315,7 +335,7 @@
     Come up with at *least three* other equivalences on the set of all people. Try
     to estimate the number of equivalence classes they create. For the maximum
     credit there should be one that creates *over 100* of partitions and also one
-    that creates less then two.
+    that creates fewer than two.
 
     You *can not* use the equivalence from part a).
          ]
