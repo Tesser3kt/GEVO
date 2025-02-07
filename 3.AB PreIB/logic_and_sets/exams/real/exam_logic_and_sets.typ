@@ -106,7 +106,8 @@
 #enum(numbering: "a)")[
   #points(15)
   #block(width:100%)[
-  For each *truth value* of $p$ write down the *truth value* of the proposition
+  For each *truth value* (i.e. _true_ or _false_) of $p$ write down the *truth
+  value* of the proposition
   #align(center)[
     $p or not p$.
   ]
@@ -119,7 +120,7 @@
   #align(center)[
     $(p => q) or not (p => q)$
   ]
-  is *always true* regardless of the truth values of $p$ and $q$.
+  is *always true* regardless of the truth values of $p$ and $q$. *Explain*.
 ]
 #pagebreak()
 
@@ -129,9 +130,9 @@
 #enum(numbering: "a)")[
   #points(15)
   #block(width: 100%)[
-    Given sets $A = {\u{1F60E}, \u{1F369}, \u{1F608},\u{1FAA6}}", " B =
-    {\u{1F369}, \u{1FAA6}, \u{1F94C}} " and " C = emptyset $,
-    determine the set
+    Given sets $A = {\u{1F60E}, \u{1F369}, \u{1F608},\u{1FAA6}#h(-3pt)}, B =
+    {\u{1F369}, \u{1FAA6}, \u{1F94C}#h(-3pt)} "and" C = emptyset $, determine
+    the set
     #align(center)[
       $(A union B) sect C$.
     ]
@@ -160,15 +161,15 @@
   #block(width: 100%)[
     You are given
     #align(center)[
-      $#text(airblue)[A] = {1, 2}", " #text(raingreen)[B] = {a, b, c} " and "
-      #text(crimson)[R] = {(2, a), (2, b)}$,
+      #text(airblue)[$A = {1, 2}$], #text(raingreen)[$B = {a, b, c}$] and
+      #text(crimson)[$R = {(2, a), (2, b)}$],
     ]
     where #text(crimson)[$R$] is a relation from #text(airblue)[$A$] to
     #text(raingreen)[$B$]. Provide at least two other relations from
     #text(airblue)[$A$] to #text(raingreen)[$B$] that are different from the
-    relation  #text(crimson)[$R$]. #v(12pt)
-      ]
-    #v(40%)
+    relation  #text(crimson)[$R$]. You *don't* have to *explain anything*.
+  ]
+  #v(40%)
 ][
   #points(10)
   #block(width: 100%)[
@@ -176,11 +177,11 @@
     if
 
     #align(center)[
-      #text(crimson)[$A={5}$] and #text(airblue)[$B={ě,š,č,ř,ž}$].
+      #text(crimson)[$A={5}$] and #text(airblue)[$B={ě,š,č,ř,ž}$]?
     ]
     *Hint:* It is *not* necessary to write all of them. A simple argument
     suffices.
-     ]
+  ]
 ]
 #pagebreak()
 
@@ -204,7 +205,7 @@
   #v(6pt)
   - [ ] $R = A times A$
   #v(6pt)
-  - [ ] $R = {(a, a), (b, b), (c, c), (a,b), (b,c), (b,c), (b,a) }$
+  - [ ] $R = {(a, a), (b, b), (c, c), (a,b), (b,c), (c,b), (b,a) }$
   #v(6pt)
   You may use the empty diagrams below to draw the relations from above.
   #align(center)[
