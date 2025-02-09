@@ -1,0 +1,109 @@
+\subsection{Representation With Respect To A Basis}
+\label{ssec:representation-with-respect-to-a-basis}
+
+\myref{Theorem}{thm:characterisation-of-a-basis} leads to a corollary of mainly
+computational importance: \textbf{every} vector in a vector space $V$ with basis
+$B$ corresponds to \textbf{exactly one} sequence of real coefficients of the
+linear combination of vectors from $B$ that equals this vector.
+
+To put this symbolically, denote $B =
+(\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n)$ and consider a vector
+$\mathbf{v} \in V$. By the mentioned
+\myref{theorem}{thm:characterisation-of-a-basis}, there exist exactly one
+$n$-tuple $(r_1,\ldots,r_n) \in \R^{n}$ such that
+\[
+ \mathbf{v} = r_1 \cdot \mathbf{b_1} + r_2 \cdot \mathbf{b}_2 + \ldots + r_n
+ \cdot \mathbf{b}_n.
+\]
+However, in \myref{chapter}{chap:linear-systems}, we observed that elements of
+$\R^{n}$ are really just $n$-dimensional vectors with entries in $\R$. These two
+facts brought together beget an important idea we shall formalise in due time --
+\emph{vector spaces of dimension $n$ are `equivalent' to $\R^{n}$}. The last
+sentence should be read as such: in every vector space $V$, we can choose a
+basis $B$ and write every vector in $V$ as a linear combination of vectors from
+$B$. The coefficients of this linear combination (that are unique for every
+vector) can be assembled into a vector in $\R^{n}$. This forges a two-way
+relationship (a correspondence, if you will) between vectors in $V$ and vectors
+in $\R^{n}$. We call this relationship a \emph{representation} of the vector
+$v \in V$ for the reason that it gives a concrete form to an abstract vector.
+
+\begin{definition}{Representation of a vector}{representation-of-a-vector}
+ Let $V$ be a vector space with basis $B = (\mathbf{b}_1,\ldots,\mathbf{b}_n)$
+ and $\mathbf{v} \in V$. We call the vector
+ \[
+  [\mathbf{v}]_B \coloneqq
+  \begin{pmatrix}
+   r_1\\
+   r_2\\
+   \vdots\\
+   r_n
+  \end{pmatrix}
+ \in \R^{n}
+ \]
+ a \emph{representation of $\mathbf{v}$ with respect to $B$} if $\mathbf{v} =
+ r_1 \cdot \mathbf{b}_1 + r_2 \cdot \mathbf{b}_2 + \ldots + r_n \cdot
+ \mathbf{b}_n$.
+\end{definition}
+
+\begin{remark}{}{}
+ The \hyperref[def:representation-of-a-vector]{preceding definition} underlines
+ the necessity of defining a basis as a \textbf{sequence}, not just a set. A
+ permutation of the elements of a basis changes the representation of many
+ vectors with respect to it.
+\end{remark}
+
+The notion of \emph{representation} formalises the approach we've taken many
+times ere of `writing' polynomials or matrices as vectors of coefficients.
+Confront the following example. 
+
+\begin{example}{}{}
+ In the space of cubic polynomials, the representation of the polynomial $x +
+ x^2$ with respect to the basis $B = (1, 2x, 2x^2, 2x^3)$ is given by
+ \[
+  [x + x^2]_B = 
+  \begin{pmatrix}
+   0\\
+   1 / 2\\
+   1 / 2\\
+   0  
+  \end{pmatrix}.
+ \]
+ With respect to a different basis $C = (1 + x, 1 - x, x + x^2, x + x^3)$
+ instead looks like this:
+ \[
+  [x + x^2]_C = 
+  \begin{pmatrix}
+   0\\
+   0\\
+   1\\
+   0
+  \end{pmatrix}
+ \]
+\end{example}
+
+\begin{problem}{}{}
+ Find the representation of the vector
+ \[
+  \mathbf{v} = 
+  \begin{pmatrix}
+   3\\
+   2
+  \end{pmatrix}
+ \]
+ with respect to
+ \[
+  B = \left( 
+   \begin{pmatrix}
+    1\\
+    1
+   \end{pmatrix},
+   \begin{pmatrix}
+    0\\
+    2
+   \end{pmatrix}
+  \right).
+ \]
+\end{problem}
+\begin{probsol}
+ We need to find 
+\end{probsol}
