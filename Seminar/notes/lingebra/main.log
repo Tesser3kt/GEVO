@@ -1,10 +1,10 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.12.29)  4 JAN 2025 21:03
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.1.12)  8 FEB 2025 15:04
  restricted system commands enabled.
  file:line:error style messages enabled.
 **main.tex
 (./main.tex
 LaTeX2e <2024-11-01> patch level 1
-L3 programming layer <2024-12-09>
+L3 programming layer <2024-12-25>
 Lua module: luaotfload 2024-02-14 v3.28 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended collection.
@@ -53,7 +53,7 @@ luaotfload | db : Font names database loaded from /home/tesserekt/.texlive2024/t
 \belowcaptionskip=\skip50
 \bibindent=\dimen140
 ) (./book-preamble.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2024/12/21 v24.15 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
+Package: babel 2025/01/01 v25.1 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
  (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/luababel.def
 \bbl@readstream=\read2
 \l@dumylang=\language2
@@ -309,26 +309,32 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen153
 \Gm@dimlist=\toks19
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2024/12/09 v4.5 Extensive control of page headers and footers
+Package: fancyhdr 2025/01/07 v5.1.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip52
-\f@nch@O@elh=\skip53
-\f@nch@O@erh=\skip54
-\f@nch@O@olh=\skip55
-\f@nch@O@orh=\skip56
-\f@nch@O@elf=\skip57
-\f@nch@O@erf=\skip58
-\f@nch@O@olf=\skip59
-\f@nch@O@orf=\skip60
+\f@nch@offset@elh=\skip53
+\f@nch@offset@erh=\skip54
+\f@nch@offset@olh=\skip55
+\f@nch@offset@orh=\skip56
+\f@nch@offset@elf=\skip57
+\f@nch@offset@erf=\skip58
+\f@nch@offset@olf=\skip59
+\f@nch@offset@orf=\skip60
+\f@nch@height=\skip61
+\f@nch@footalignment=\skip62
+\f@nch@widthL=\skip63
+\f@nch@widthC=\skip64
+\f@nch@widthR=\skip65
+\@temptokenb=\toks20
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2024/11/05 v2.17t AMS math features
-\@mathmargin=\skip61
+\@mathmargin=\skip66
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks20
+\@emptytoks=\toks21
 \ex@=\dimen154
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -366,21 +372,21 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \dotsspace@=\muskip18
 \c@parentequation=\count294
 \dspbrk@lvl=\count295
-\tag@help=\toks21
+\tag@help=\toks22
 \row@=\count296
 \column@=\count297
 \maxfields@=\count298
-\andhelp@=\toks22
+\andhelp@=\toks23
 \eqnshift@=\dimen157
 \alignsep@=\dimen158
 \tagshift@=\dimen159
 \tagwidth@=\dimen160
 \totwidth@=\dimen161
 \lineht@=\dimen162
-\@envbody=\toks23
-\multlinegap=\skip62
-\multlinetaggap=\skip63
-\mathdisplay@stack=\toks24
+\@envbody=\toks24
+\multlinegap=\skip67
+\multlinetaggap=\skip68
+\mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/mathtools/mathtools.sty
@@ -391,18 +397,18 @@ Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Bcount=\count300
 \calc@Adimen=\dimen163
 \calc@Bdimen=\dimen164
-\calc@Askip=\skip64
-\calc@Bskip=\skip65
+\calc@Askip=\skip69
+\calc@Bskip=\skip70
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count301
-\calc@Cskip=\skip66
+\calc@Cskip=\skip71
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
 \g_MT_multlinerow_int=\count302
 \l_MT_multwidth_dim=\dimen165
-\origjot=\skip67
+\origjot=\skip72
 \l_MT_shortvdotswithinadjustabove_dim=\dimen166
 \l_MT_shortvdotswithinadjustbelow_dim=\dimen167
 \l_MT_above_intertext_sep=\dimen168
@@ -419,46 +425,46 @@ Package: ntheorem 2011/08/15 1.33
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
-\theorem@style=\toks25
-\theorem@@style=\toks26
-\theorembodyfont=\toks27
-\theoremnumbering=\toks28
-\theorempreskipamount=\skip68
-\theorempostskipamount=\skip69
-\theoremframepreskipamount=\skip70
-\theoremframepostskipamount=\skip71
-\theoreminframepreskipamount=\skip72
-\theoreminframepostskipamount=\skip73
-\theorem@preskip=\toks29
-\theorem@postskip=\toks30
-\theorem@framepreskip=\toks31
-\theorem@framepostskip=\toks32
-\theorem@inframepreskip=\toks33
-\theorem@inframepostskip=\toks34
+\theorem@style=\toks26
+\theorem@@style=\toks27
+\theorembodyfont=\toks28
+\theoremnumbering=\toks29
+\theorempreskipamount=\skip73
+\theorempostskipamount=\skip74
+\theoremframepreskipamount=\skip75
+\theoremframepostskipamount=\skip76
+\theoreminframepreskipamount=\skip77
+\theoreminframepostskipamount=\skip78
+\theorem@preskip=\toks30
+\theorem@postskip=\toks31
+\theorem@framepreskip=\toks32
+\theorem@framepostskip=\toks33
+\theorem@inframepreskip=\toks34
+\theorem@inframepostskip=\toks35
 \theoremindent=\dimen173
 \theorem@indent=\dimen174
 \theoremrightindent=\dimen175
 \theorem@rightindent=\dimen176
-\theoremheaderfont=\toks35
-\theoremseparator=\toks36
-\theoremprework=\toks37
-\theorempostwork=\toks38
-\theoremsymbol=\toks39
-\qedsymbol=\toks40
-\theoremkeyword=\toks41
-\qedsymbol=\toks42
-\thm@topsep=\skip74
-\thm@topsepadd=\skip75
+\theoremheaderfont=\toks36
+\theoremseparator=\toks37
+\theoremprework=\toks38
+\theorempostwork=\toks39
+\theoremsymbol=\toks40
+\qedsymbol=\toks41
+\theoremkeyword=\toks42
+\qedsymbol=\toks43
+\thm@topsep=\skip79
+\thm@topsepadd=\skip80
 Package ntheorem Info: Option `thmmarks' loaded on input line 1175.
 \c@endNonectr=\count303
 \c@currNonectr=\count304
-\mysavskip=\skip76
+\mysavskip=\skip81
 Package ntheorem Info: option `amsmath' handling for `thmmarks' loaded on input line 1175.
 \thm@amstmpdepth=\dimen177
 \tagwidth=\dimen178
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/newtx.sty
-Package: newtx 2024/06/22 v1.751(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
- `newtx'v1.751, 2024/06/22 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
+Package: newtx 2025/01/06 v1.755(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
+ `newtx'v1.755, 2025/01/06 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/fontaxes/fontaxes.sty
 Package: fontaxes 2020/07/21 v1.0e Font selection axes
@@ -480,8 +486,8 @@ Package: xstring 2023/08/22 v1.86 String manipulations (CT)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks43
-\XKV@tempa@toks=\toks44
+\XKV@toks=\toks44
+\XKV@tempa@toks=\toks45
 )
 \XKV@depth=\count307
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
@@ -511,8 +517,8 @@ Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/kastrup/binhex.tex)
 \tx@Isdigit=\count309
 \tx@IsAlNum=\count310
-\tx@tA=\toks45
-\tx@tB=\toks46
+\tx@tA=\toks46
+\tx@tB=\toks47
 \tx@su=\read3
 
 amsthm NOT loaded
@@ -590,7 +596,7 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 \symlargesymbolsTXA=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `largesymbolsTXA' in version `bold'
 (Font)                  U/ntxexa/m/n --> U/ntxexa/b/n on input line 679.
-\tx@sbptoks=\toks47
+\tx@sbptoks=\toks48
 LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 902.
 LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 903.
 LaTeX Font Info:    Redeclaring math delimiter \lceil on input line 904.
@@ -608,7 +614,7 @@ LaTeX Font Info:    Redeclaring math accent \vec on input line 2057.
 LaTeX Info: Redefining \Bbbk on input line 2847.
 LaTeX Info: Redefining \not on input line 2995.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-12-09 L3 programming layer (loader) 
+Package: expl3 2024-12-25 L3 programming layer (loader) 
  (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count311
@@ -1351,7 +1357,7 @@ Package graphics Info: Driver file: luatex.def on input line 106.
 \Gin@req@height=\dimen198
 \Gin@req@width=\dimen199
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks48
+\pgfutil@everybye=\toks49
 \pgfutil@tempdima=\dimen256
 \pgfutil@tempdimb=\dimen257
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
@@ -1363,10 +1369,10 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks49
-\pgfkeys@temptoks=\toks50
+\pgfkeys@pathtoks=\toks50
+\pgfkeys@temptoks=\toks51
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks51
+\pgfkeys@tmptoks=\toks52
 ))
 \pgf@x=\dimen258
 \pgf@y=\dimen259
@@ -1384,9 +1390,9 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \c@pgf@countb=\count324
 \c@pgf@countc=\count325
 \c@pgf@countd=\count326
-\t@pgf@toka=\toks52
-\t@pgf@tokb=\toks53
-\t@pgf@tokc=\toks54
+\t@pgf@toka=\toks53
+\t@pgf@tokb=\toks54
+\t@pgf@tokc=\toks55
 \pgf@sys@id@count=\count327
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
@@ -1409,9 +1415,9 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 \pgfmath@dimen=\dimen268
 \pgfmath@count=\count330
 \pgfmath@box=\box57
-\pgfmath@toks=\toks55
-\pgfmath@stack@operand=\toks56
-\pgfmath@stack@operation=\toks57
+\pgfmath@toks=\toks56
+\pgfmath@stack@operand=\toks57
+\pgfmath@stack@operation=\toks58
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count331
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
@@ -1495,8 +1501,8 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 \pgffor@iter=\dimen295
 \pgffor@skip=\dimen296
-\pgffor@stack=\toks58
-\pgffor@toks=\toks59
+\pgffor@stack=\toks59
+\pgffor@toks=\toks60
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
@@ -1573,7 +1579,7 @@ File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex)
 \tikz@math@for@depth=\count346
 \tikz@math@dimen=\dimen318
-\tikz@math@toks=\toks60
+\tikz@math@toks=\toks61
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
 File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
@@ -1738,17 +1744,17 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
 Package pgfplots info on input line 124: Initializing with LUA version Lua 5.3
 \pgfplots@luabackend@table=\catcodetable16
-\t@pgfplots@toka=\toks61
-\t@pgfplots@tokb=\toks62
-\t@pgfplots@tokc=\toks63
+\t@pgfplots@toka=\toks62
+\t@pgfplots@tokb=\toks63
+\t@pgfplots@tokc=\toks64
 \pgfplots@tmpa=\dimen330
 \c@pgfplots@coordindex=\count355
 \c@pgfplots@scanlineindex=\count356
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
 Package pgfplots: loading complementary utilities for your pgf version...
-\t@pgf@toka=\toks64
-\t@pgf@tokb=\toks65
-\t@pgf@tokc=\toks66
+\t@pgf@toka=\toks65
+\t@pgf@tokb=\toks66
+\t@pgf@tokc=\toks67
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/luamath/pgflibraryluamath.code.tex)
 Package pgfplots info on input line 290: luamath library shipped with pgf 3.1.10 is up-to-date
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
@@ -1757,7 +1763,7 @@ Package pgfplots info on input line 82: Found new luatex: initializing lua comma
 \c@pgfplotsarray@tmp=\count357
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
 \c@pgfplotstable@counta=\count358
-\t@pgfplotstable@a=\toks67
+\t@pgfplotstable@a=\toks68
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
 \c@pgfplotslibrarysurf@no=\count359
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-luatex.def))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
@@ -1770,7 +1776,7 @@ Package pgfplots info on input line 82: Found new luatex: initializing lua comma
 \pgfplots@zmin@reg=\dimen335
 \pgfplots@zmax@reg=\dimen336
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.fillbetween.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibraryfillbetween.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibrarydecorations.softclip.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfcontrib/pgflibraryfillbetween.code.tex))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.decorations.softclip.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/latex/circuitikz/circuitikz.sty
-Package: circuitikz 2024/08/03{} The CircuiTikz circuit drawing package version 1.7.0
+Package: circuitikz 2025/01/10{} The CircuiTikz circuit drawing package version 1.7.1
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybending.code.tex
 File: tikzlibrarybending.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.code.tex
@@ -1830,9 +1836,9 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisrulewidth=\dimen368
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip77
+\multirow@colwidth=\skip82
 \multirow@cntb=\count369
-\multirow@dima=\skip78
+\multirow@dima=\skip83
 \bigstrutjot=\dimen369
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 91.
@@ -1862,22 +1868,22 @@ Package caption Info: New subtype `subtable' on input line 238.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count374
-\float@exts=\toks68
+\float@exts=\toks69
 \float@box=\box93
-\@float@everytoks=\toks69
+\@float@everytoks=\toks70
 \@floatcapt=\box94
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip79
+\labelindent=\skip84
 \enit@outerparindent=\dimen378
-\enit@toks=\toks70
+\enit@toks=\toks71
 \enit@inbox=\box95
 \enit@count@id=\count375
 \enitdp@description=\count376
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks71
-\verbatim@line=\toks72
+\every@verbatim=\toks72
+\verbatim@line=\toks73
 \verbatim@in@stream=\read5
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
@@ -1966,7 +1972,7 @@ Package fontspec Info:
  (/usr/local/texlive/2024/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
 \c@AlgoLine=\count380
-\algocf@hangindent=\skip80
+\algocf@hangindent=\skip85
  (/usr/local/texlive/2024/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
 \c@checkoddpage=\count381
@@ -1975,36 +1981,36 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/relsize/relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
-\skiptotal=\skip81
-\skiplinenumber=\skip82
-\skiprule=\skip83
-\skiphlne=\skip84
-\skiptext=\skip85
-\skiplength=\skip86
-\algomargin=\skip87
-\skipalgocfslide=\skip88
+\skiptotal=\skip86
+\skiplinenumber=\skip87
+\skiprule=\skip88
+\skiphlne=\skip89
+\skiptext=\skip90
+\skiplength=\skip91
+\algomargin=\skip92
+\skipalgocfslide=\skip93
 \algowidth=\dimen385
 \inoutsize=\dimen386
 \inoutindent=\dimen387
 \interspacetitleruled=\dimen388
 \interspacealgoruled=\dimen389
 \interspacetitleboxruled=\dimen390
-\algocf@ruledwidth=\skip89
+\algocf@ruledwidth=\skip94
 \algocf@inoutbox=\box97
 \algocf@inputbox=\box98
-\AlCapSkip=\skip90
-\AlCapHSkip=\skip91
-\algoskipindent=\skip92
+\AlCapSkip=\skip95
+\AlCapHSkip=\skip96
+\algoskipindent=\skip97
 \algocf@nlbox=\box99
 \algocf@hangingbox=\box100
 \algocf@untilbox=\box101
-\algocf@skipuntil=\skip93
+\algocf@skipuntil=\skip98
 \algocf@capbox=\box102
-\algocf@lcaptionbox=\skip94
-\algoheightruledefault=\skip95
-\algoheightrule=\skip96
-\algotitleheightruledefault=\skip97
-\algotitleheightrule=\skip98
+\algocf@lcaptionbox=\skip99
+\algoheightruledefault=\skip100
+\algoheightrule=\skip101
+\algotitleheightruledefault=\skip102
+\algotitleheightrule=\skip103
 \c@algocfline=\count382
 \c@algocfproc=\count383
 \c@algocf=\count384
@@ -2073,7 +2079,7 @@ Library (tcolorbox): 'tcblistings.code.tex' version '6.4.1'
 (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count393
 \lst@gtempboxa=\box118
-\lst@token=\toks73
+\lst@token=\toks74
 \lst@length=\count394
 \lst@currlwidth=\dimen395
 \lst@column=\count395
@@ -2226,12 +2232,12 @@ LaTeX Info: Command `\ddddot' is already robust on input line 5.
 \scratchbox=\box120
 \nofMPsegments=\count424
 \nofMParguments=\count425
-\everyMPshowfont=\toks74
+\everyMPshowfont=\toks75
 \MPscratchCnt=\count426
 \MPscratchDim=\dimen400
 \MPnumerator=\count427
 \makeMPintoPDFobject=\count428
-\everyMPtoPDFconversion=\toks75
+\everyMPtoPDFconversion=\toks76
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -2320,7 +2326,7 @@ LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
 (Font)              scaled to size 6.1pt on input line 3.
 LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 3.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/gelasiomath/untxmia.fd
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
 )
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
@@ -2359,7 +2365,7 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 \tf@toc=\write5
 
 \openout5 = main.toc
- (./linear-systems.tex
+ (./vector-spaces.tex
 
 [5
 
@@ -2371,165 +2377,162 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 Chapter 1.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
 (Font)              scaled to size 20.74pt on input line 1.
-LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 18.
-LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 18.
-LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
+
+LaTeX Warning: Hyper reference `chap:linear-geometry' on page 7 undefined on input line 5.
+
+
+LaTeX Warning: Hyper reference `def:space' on page 7 undefined on input line 6.
+
+LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \vbox (badness 1997) has occurred while \output is active []
+
+LaTeX Warning: Hyper reference `sec:visualisation-of-linear-systems-revisited' on page 7 undefined on input line 16.
+
+
+LaTeX Warning: Reference `sec:visualisation-of-linear-systems-revisited' on page 7 undefined on input line 16.
 
 
 
 [7]
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 10.95pt on input line 83.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 83.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 10.95pt on input line 89.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 8.0pt on input line 89.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 6.1pt on input line 89.
+
 
 [8]
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 209.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/t1ntxtt.fd
-File: t1ntxtt.fd 2012/04/20 v3.1
-) (./linear-systems/gauss-jordan.tex
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 1.
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 1.
-LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 1.
+
+LaTeX Warning: Hyper reference `def:adding-vectors' on page 9 undefined on input line 191.
+
+
+LaTeX Warning: Hyper reference `def:dot-product' on page 9 undefined on input line 205.
+
+
+LaTeX Warning: Hyper reference `prop:solution-set-of-a-homogeneous-linear-system' on page 9 undefined on input line 238.
+
+
+LaTeX Warning: Reference `prop:solution-set-of-a-homogeneous-linear-system' on page 9 undefined on input line 238.
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [9]
-Package hyperref Info: bookmark level for unknown probsol defaults to 0 on input line 24.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 40.
-LaTeX Font Info:    Font shape `TU/CascadiaCode(0)/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 40.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
-(Font)              scaled to size 9.0pt on input line 56.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
-(Font)              scaled to size 6.6pt on input line 56.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
-(Font)              scaled to size 5.5pt on input line 56.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 9.0pt on input line 56.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 6.6pt on input line 56.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 5.5pt on input line 56.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 9.0pt on input line 56.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.6pt on input line 56.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.5pt on input line 56.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 9.0pt on input line 56.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 56.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 9.0pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.6pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.5pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 9.0pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.6pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.5pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 9.0pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.6pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.5pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 9.0pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.6pt on input line 56.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.5pt on input line 56.
+(Font)              scaled to size 8.0pt on input line 299.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 6.1pt on input line 299.
 
 
 [10]
-Package hyperref Info: bookmark level for unknown thmproof defaults to 0 on input line 123.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 [11]
-LaTeX Font Info:    Font shape `TU/CascadiaCode(0)/m/n' will be
-(Font)              scaled to size 9.85492pt on input line 230.
-
 
 [12]
+Overfull \hbox (8.83783pt too wide) in paragraph at lines 496--499
+\TU/LinLibertine(0)/m/n/10.95 Prove (by check-ing the ax-ioms) that the sets of func-tions men-tioned in ex-am-ples [][]1.0.10[][] and [][]1.0.11[][]
+ []
 
-[13]
+Package hyperref Info: bookmark level for unknown lemproof defaults to 0 on input line 536.
+
+
+[13] (./vector-spaces/subspaces.tex
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 1.
+
+
+LaTeX Warning: Hyper reference `sec:visualisation-of-linear-systems-revisited' on page 14 undefined on input line 5.
+
+
+LaTeX Warning: Reference `sec:visualisation-of-linear-systems-revisited' on page 14 undefined on input line 5.
+
+
 
 [14]
-Underfull \vbox (badness 3179) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[15]) (./linear-systems/visualization.tex
-Underfull \vbox (badness 4713) has occurred while \output is active []
+[15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[16] (./linear-systems/visualization/2d.tex
+[16]
+
+LaTeX Warning: Hyper reference `prop:solution-set-of-a-homogeneous-linear-system' on page 17 undefined on input line 330.
+
+
+LaTeX Warning: Reference `prop:solution-set-of-a-homogeneous-linear-system' on page 17 undefined on input line 330.
+
+
+
+[17]
+Underfull \vbox (badness 2894) has occurred while \output is active []
+
+
+
+[18]
+
+[19]
+Package hyperref Info: bookmark level for unknown probsol defaults to 0 on input line 639.
+
+
+[20]) (./vector-spaces/linear-independence.tex
+
+[21]
+Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 70.
+
+Underfull \vbox (badness 1215) has occurred while \output is active []
+
+
+
+[22]
+Package hyperref Info: bookmark level for unknown propproof defaults to 0 on input line 135.
+
+
+[23]
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/it' will be
+(Font)              scaled to size 10.95pt on input line 271.
+
+
+[24]
+
+LaTeX Warning: Hyper reference `sec:describing-solution-sets-of-linear-systems' on page 25 undefined on input line 293.
+
+
+LaTeX Warning: Reference `sec:describing-solution-sets-of-linear-systems' on page 25 undefined on input line 293.
+
+
+
+[25]
+
+[26]
+Underfull \vbox (badness 1152) has occurred while \output is active []
+
+
+
+[27] (./vector-spaces/linear-independence/basis.tex
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
 (Font)              scaled to size 12.0pt on input line 1.
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
 (Font)              scaled to size 12.0pt on input line 1.
-
-
-[17]
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 80.
-
-
-[18]) (./linear-systems/visualization/3d.tex
-
-[19]
-
-[20]
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 155.
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 6.1pt on input line 155.
-
-
-[21]
-
-[22]
-
-[23])) (./linear-systems/describing-solutions.tex
-
-[24]
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
-(Font)              scaled to size 10.95pt on input line 80.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
-(Font)              scaled to size 8.0pt on input line 80.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
-(Font)              scaled to size 6.1pt on input line 80.
-
-
-[25]
-\mysep=\skip99
-
-
-[26]
-
-[27]
-Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 387.
-Package hyperref Info: bookmark level for unknown propproof defaults to 0 on input line 429.
-
-Underfull \vbox (badness 3646) has occurred while \output is active []
-
 
 
 [28]
@@ -2538,279 +2541,78 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [29]
+Package hyperref Info: bookmark level for unknown thmproof defaults to 0 on input line 204.
+
 
 [30]
 
-[31]) (./linear-systems/applications.tex
-Underfull \vbox (badness 1281) has occurred while \output is active []
+LaTeX Warning: Hyper reference `thm:characterization-of-a-basis' on page 31 undefined on input line 243.
 
 
+LaTeX Warning: Reference `thm:characterization-of-a-basis' on page 31 undefined on input line 243.
+
+
+
+[31]
 
 [32]
-Overfull \hbox (17.59886pt too wide) in paragraph at lines 105--107
-\TU/LinLibertine(0)/m/n/10.95 The \TU/CascadiaCode(0)/m/n/10.95 Matrix \TU/LinLibertine(0)/m/n/10.95 method for solv-ing a sys-tem with a given \TU/CascadiaCode(0)/m/n/10.95 vector \TU/LinLibertine(0)/m/n/10.95 of right hand side is called \TU/CascadiaCode(0)/m/n/10.95 solve_right\TU/LinLibertine(0)/m/n/10.95 .
- []
+
+[33]
+
+[34]) (./vector-spaces/linear-independence/representation.tex
+
+LaTeX Warning: Hyper reference `chap:linear-systems' on page 35 undefined on input line 18.
+
+
+LaTeX Warning: Reference `chap:linear-systems' on page 35 undefined on input line 18.
 
 
 
-[33] (./linear-systems/applications/numerical-stability.tex
-
-[34]
-
-[35]) (./linear-systems/applications/gauss-jordan-elimination.tex
-Underfull \vbox (badness 2134) has occurred while \output is active []
+[35])
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [36]
-Underfull \vbox (badness 8000) has occurred while \output is active []
 
+[37]
 
+LaTeX Warning: Hyper reference `thm:characterization-of-a-basis' on page 38 undefined on input line 946.
 
-[37]) (./linear-systems/applications/input-output.tex
 
-[38]
+LaTeX Warning: Reference `thm:characterization-of-a-basis' on page 38 undefined on input line 946.
 
-[39]) (./linear-systems/applications/circuits.tex
-<figs/car-circuit.png, id=25963, 793.7655pt x 386.6445pt>
-File: figs/car-circuit.png Graphic file (type png)
-<use figs/car-circuit.png>
-Package luatex.def Info: figs/car-circuit.png  used on input line 10.
-(luatex.def)             Requested size: 347.92163pt x 169.47513pt.
-
-
-[40]
-
-[41<./figs/car-circuit.png>]
-
-[42]
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
-(Font)              scaled to size 20.74pt on input line 239.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
-(Font)              scaled to size 16.1pt on input line 239.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
-(Font)              scaled to size 11.4pt on input line 239.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 20.74pt on input line 239.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 16.1pt on input line 239.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 11.4pt on input line 239.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 20.74pt on input line 239.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 16.1pt on input line 239.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 11.4pt on input line 239.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 20.74pt on input line 239.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 16.1pt on input line 239.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 11.4pt on input line 239.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
-(Font)              scaled to size 20.74pt on input line 239.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
-(Font)              scaled to size 16.1pt on input line 239.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
-(Font)              scaled to size 11.4pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 20.74pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 16.1pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 11.4pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 20.74pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 16.1pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 11.4pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 20.74pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 16.1pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 11.4pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 20.74pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 16.1pt on input line 239.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 11.4pt on input line 239.
-
-
-[43]))) (./linear-geometry.tex
-
-[44]
-Chapter 2.
-
-
-[45
-
-]
-
-[46]
-
-[47]
-
-[48] (./linear-geometry/length.tex
-
-[49]
-
-[50]
-Package hyperref Info: bookmark level for unknown lemproof defaults to 0 on input line 207.
-
-
-[51]) (./linear-geometry/angle.tex
-
-[52]
-
-[53]
-
-[54]
-
-[55]
-Underfull \vbox (badness 6741) has occurred while \output is active []
-
-
-
-[56]) (./linear-geometry/visualisation.tex
-
-[57]
-
-[58])
-
-[59]
-Underfull \vbox (badness 1571) has occurred while \output is active []
-
-
-
-[60]) (./vector-spaces.tex
-
-[61]
-
-[62
-
-]
-Chapter 3.
-
-
-[63]
-
-[64]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[65]
-
-[66]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[67]
-
-[68]
-Overfull \hbox (8.83783pt too wide) in paragraph at lines 496--499
-\TU/LinLibertine(0)/m/n/10.95 Prove (by check-ing the ax-ioms) that the sets of func-tions men-tioned in ex-am-ples [][]3.0.10[][] and [][]3.0.11[][]
- []
-
-
-
-[69] (./vector-spaces/subspaces.tex
-
-[70]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[71]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[72]
-
-[73]
-Underfull \vbox (badness 2894) has occurred while \output is active []
-
-
-
-[74]
-
-[75]
-
-[76]) (./vector-spaces/linear-independence.tex
-
-[77]
-Underfull \vbox (badness 1215) has occurred while \output is active []
-
-
-
-[78]
-
-[79]
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/it' will be
-(Font)              scaled to size 10.95pt on input line 271.
-
-
-[80]
-
-[81]
-
-[82]
-Underfull \vbox (badness 1152) has occurred while \output is active []
-
-
-
-[83] (./vector-spaces/linear-independence/basis.tex
-
-[84]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[85]
-
-[86]
-
-[87]
-
-[88]
-
-[89]
-
-[90]
-
-[91])))
+))
 \tf@thm=\write6
 
 \openout6 = main.thm
 
 
-[92] (./main.aux)
+[38] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 )
 
 Here is how much of LuaTeX's memory you used:
- 87684 strings out of 475554
- 1455411,4921788 words of node,token memory allocated
- 9476 words of node memory still in use:
-   32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 553 glyph, 1455 attribute, 81 glue_spec, 765 attribute_list, 2 write, 24 pdf_literal, 9 pdf_action, 24 pdf_colorstack nodes
-   avail lists: 1:4,2:214740,3:115748,4:440,5:721,6:82,7:30320,8:78,9:35166,10:16,11:614
- 108109 multiletter control sequences out of 65536+600000
- 280 fonts using 38451695 bytes
- 99i,19n,137p,1189b,2934s stack positions out of 10000i,1000n,20000p,240005b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RBI.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_poicuj.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/cascadia-code/CascadiaCode-Regular.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_674lrv.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (92 pages, 13383894 bytes).
+ 85309 strings out of 475518
+ 125009,3417909 words of node,token memory allocated
+ 3449 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 116 glyph, 475 attribute, 82 glue_spec, 275 attribute_list, 2 write, 24 pdf_literal, 5 pdf_action, 24 pdf_colorstack nodes
+   avail lists: 1:2,2:5521,3:2200,4:390,5:716,6:77,7:9175,8:78,9:1663,10:16,11:614
+ 106180 multiletter control sequences out of 65536+600000
+ 144 fonts using 27460815 bytes
+ 99i,17n,137p,1189b,1302s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RBI.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_poicuj.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_674lrv.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on main.pdf (38 pages, 515438 bytes).
 
-PDF statistics: 26705 PDF objects out of 31911 (max. 8388607)
- 13732 compressed objects within 138 object streams
- 389 named destinations out of 1000 (max. 131072)
- 95448 words of extra memory for PDF output out of 116407 (max. 100000000)
+PDF statistics: 567 PDF objects out of 1000 (max. 8388607)
+ 467 compressed objects within 5 object streams
+ 177 named destinations out of 1000 (max. 131072)
+ 296 words of extra memory for PDF output out of 10000 (max. 100000000)
 

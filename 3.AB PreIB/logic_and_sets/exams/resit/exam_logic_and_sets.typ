@@ -104,7 +104,7 @@
 ]
 #v(-12pt)
 #align(center)[
-  #text(size: 18pt)[3.AB PreIB Maths -- Resit exam]
+  #text(size: 18pt)[3.AB PreIB Maths -- Exam B]
 ]
 #set text(
   font: "TeX Gyre Schola",
@@ -132,42 +132,45 @@
 #enum(numbering: "a)")[
   #points(15)
   #block(width:100%)[
-  Complete the truth table below.   #align(center)[
+  Complete the truth table below.
+  #align(center)[
    #table(
-  columns: 3,
-  table.header[$p$][$q$][$p and not q$],
-  [1], [1], [#blank()],
-  [1], [0], [#blank()],
-  [0], [1], [0],
-  [0],[0],[0]
-)
+    align: center + horizon,
+    columns: 3,
+    table.header[$p$][$q$][$p and not q$],
+    [1], [1], [#blank()],
+    [1], [0], [#blank()],
+    [0], [1], [0],
+    [0], [0], [0]
+      )
+    ]
   ]
-]
-  In other words: evaluate the proposition $p and not q$, for the truth values
-  of $p$ and $q$ corresponding for the omitted lines in the truth table.
-
-  #v(15%)
+  In other words: evaluate the proposition $p and not q$ for the truth values of
+  $p$ and $q$ corresponding to the first two lines of the truth table. You
+  *don't* have to *explain anything*.
+  #v(12pt)
 ][
   #points(10)
   Complete the blank square in proposition 
   #align(center)[
-  $p #blank() not q$
+    $p #blank() not q$
   ]
-  with some logical conjunction ($and, or, =>, <=>$) so it equivalent $not (p =>
-  q)$. Two statements are equivalent if their truth tables are the same. 
+  with some logical conjunction ($and, or, =>, <=>$) to make it _equivalent_ to
+  $not (p => q)$. Two statements are _equivalent_ if their truth tables are the
+  same. 
 
-  For convenience the truth table of implication is stated below.
-  #{
-  set table(align: (x, _) => { center })
-  table(
-  columns: 3,
-  table.header[$p$][$q$][$p => q$],
-  [1], [1], [1],
-  [1], [0], [0],
-  [0], [1], [1],
-  [0],[0],[1]
-)}
-
+  For convenience the truth table of implication is shown below.
+  #align(center)[
+    #table(
+      columns: 3,
+      align: center + horizon,
+      table.header[$p$][$q$][$p => q$],
+      [1], [1], [1],
+      [1], [0], [0],
+      [0], [1], [1],
+      [0], [0], [1]
+    )
+  ]
   
   *Explain* your choice.
 
