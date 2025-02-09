@@ -1,0 +1,565 @@
+% Unofficial University of Cambridge Poster Template
+% https://github.com/andiac/gemini-cam
+% a fork of https://github.com/anishathalye/gemini
+% also refer to https://github.com/k4rtik/uchicago-poster
+% TeX program = lualatex
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[orientation=portrait,size=custom,width=120,height=100,scale=1]{beamerposter}
+\usetheme{gemini}
+\usepackage[dvipsnames]{xcolor}
+\usecolortheme{nott}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shapes.geometric}
+\usepackage{tkz-euclide}
+\tikzset{point style/.style = {%
+  draw = black,
+  inner sep = 0pt,
+  shape = circle,
+  minimum size = 5pt,
+  fill = black
+ },
+ every picture/.append style = {
+  scale = 1.5
+ },
+ every node/.append style={
+  scale=1.5
+ }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.01\paperwidth}
+\setlength{\colwidth}{0.32\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+\newcommand{\bfalert}[1]{\textbf{\alert{#1}}}
+
+% Math shortcuts
+\newcommand{\R}{\mathbb{R}}
+
+% Inline shapes
+\newcommand{\mysquare}{\tikz[baseline=-7pt]{%
+  \node[rectangle,draw,thick,inner sep=6pt] at (0,0) {};
+}}
+\newcommand{\mytria}{\tikz[baseline=-3.25pt]{%
+  \node[isosceles triangle,isosceles triangle apex angle=60,draw,thick,inner
+  sep=3.25pt,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycirc}{\tikz[baseline=-7pt]{%
+  \node[circle,draw,thick,inner sep=4.5pt,baseline=0.5ex,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycross}{\tikz[baseline=-7pt,scale=0.2]{%
+  \draw[thick] (-1,1) -- (1,-1);
+  \draw[thick] (-1,-1) -- (1,1);
+}}
+
+% Colors %
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
+
+% ====================
+% Definitions
+% ====================
+
+\newcommand{\N}{\mathbb{N}}
+
+% ====================
+% Title
+% ====================
+
+\title{Logic \& Set Theory Cheatsheet}
+
+\author{3.AB PreIB Math}
+
+\institute[shortinst]{Adam Klepáč}
+
+% ====================
+% Footer (optional)
+% ====================
+
+% \footercontent{
+%   \href{https://utfpr.edu.br/ct/ppgca}{utfpr.edu.br/ct/ppgca} \hfill
+%   Mostra de Trabalhos do PPGCA --- TechTalks 2024 \hfill
+%   \href{mailto:ppgca-ct@utfpr.edu.br}{ppgca-ct@utfpr.edu.br}}
+% (can be left out to remove footer)
+
+
+% ====================
+% Logo (optional)
+% ====================
+
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=3.5cm]{logos/logo-white.png}}
+% \logoleft{\hspace{20ex}\includegraphics[height=3.5cm]{logos/ppgca-logo.png}}
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+% Refer to https://github.com/k4rtik/uchicago-poster
+% logo: https://www.cam.ac.uk/brand-resources/about-the-logo/logo-downloads
+% \addtobeamertemplate{headline}{}
+% {
+%     \begin{tikzpicture}[remember picture,overlay]
+%       \node [anchor=north west, inner sep=3cm] at ([xshift=-2.5cm,yshift=1.75cm]current page.north west)
+%       {\includegraphics[height=7cm]{logos/unott-logo.eps}}; 
+%     \end{tikzpicture}
+% }
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+ \begin{block}{Natural Numbers}
+  \alert{Logic} is the language of mathematics. It uses \alert{propositions} to
+  talk about sets.
+
+  Propositions are sentences which can be either true or false. For example
+  \begin{itemize}[label=\textbullet,left=24pt]
+   \item `\textbf{Cats are black.}' is a proposition;
+   \item `\textbf{How are you?}' is \emph{not} a proposition;
+   \item `\textbf{We will have colonised Mars by 2500.}' is also a proposition.
+  \end{itemize}
+ \end{block}
+ As the third example suggests, we need not necessarily know whether a
+ proposition is true or false -- it remains a proposition anyway.
+
+ \vspace{1em}
+
+ \begin{exampleblock}{Whole numbers}
+  Propositions can be joined together using \alert{logical conjunctions}. They
+  pretty much correspond to the conjunctions of natural language. Let us
+  consider two propositions:
+  \begin{align*}
+   p &= \text{`It's raining outside.'}\\
+   q &= \text{`I'll stay at home.'}
+  \end{align*}
+  \begin{itemize}[left=40pt]
+   \item[($ \wedge $)] Logical \alert{and} forms a proposition that is only
+    \alert{true} if both of its constituents are also \alert{true}. In natural
+    language, the proposition $p \wedge q$ can be expressed as
+    \[
+     p \alert{ \wedge } q = \text{`It's raining outside \alert{and} I'll stay at
+     home.'}
+    \]
+   \item[($ \vee $)] Logical \alert{or} forms a proposition that is \alert{true}
+    if at least one of its constituents is \alert{true}. In natural language,
+    the proposition $p \vee q$ can be expressed as
+    \[
+     p \alert{ \vee } q = \text{`It's raining outside \alert{or} I'll stay at
+     home.'}
+    \]
+    In mathematical logic, \alert{or} is \textbf{not exclusive}! This means that
+    $p \alert{ \vee } q$ is true even if both $p$ and $q$ are true.
+   \item[($\neg $)] Logical \alert{not} isn't strictly speaking a conjunction
+    but I include it anyway. It reverses the truth value of a proposition. For
+    example, the proposition $\alert{\neg }p$ can be read as
+    \[
+     \alert{\neg }p = \text{`It's \alert{not} raining outside.'}
+    \]
+    It follows that $\alert{\neg }p$ is \alert{true} exactly when $p$ is
+    \alert{false} and vice versa.
+   \item[($ \Rightarrow $)] Logical \alert{implication} is a conjunction that
+    makes the first proposition into an \emph{assumption} or \emph{premise} and
+    the second one into a \emph{conclusion}. The proposition $p \alert{
+    \Rightarrow } q$ is read in multiple ways, to list a few: 
+    \begin{align*}
+     p \alert{ \Rightarrow } q &= \text{`\alert{If} it's raining outside,
+    \alert{then} I'll stay at home.'}\\
+     p \alert{ \Rightarrow } q &= \text{`It raining outside \alert{implies that}
+     I'll stay at home.'}\\
+     p \alert{ \Rightarrow } q &= \text{`\alert{Assuming} it's raining outside,
+     I'll stay at home.'}\\
+    \end{align*}
+    The implication is tricky. It's true if both $p$ and $q$ are true and false
+    if $p$ is true but $q$ is false. However, it is \alert{always true} if $p$
+    is \alert{false}. That is because, in mathematical logic, whatever follows
+    from a lie is automatically true.
+   \item[($ \Leftrightarrow $)] Logical \alert{equivalence} is true only if both
+    propositions have the \alert{same truth value} -- they're both true or both
+    false. In natural language, it is typically read like this:
+    \[
+     p \alert{ \Leftrightarrow }q = \text{`It's raining \alert{if and only if}
+     I stay at home.'}
+    \]
+    Equivalence is basically just a two-way implication. The proposition $p$ is
+    both a premise and a conclusion to $q$ and $q$ is both a premise and a
+    conclusion to $p$. If it's raining outside, I stay at home and if I stay at
+    home, then it's raining outside.
+  \end{itemize}
+ \end{exampleblock}
+
+ \begin{alertblock}{Rational numbers}
+  Toto je o racionalnich cislech.
+ \end{alertblock}
+
+ \begin{block}{Divisibility}
+  A conjunction of propositions being true or false based on whether its
+  constituent propositions are true or false can be summarized using so-called
+  \alert{truth table}. It is basically just a table that lists all the
+  possibilities of $p$ and $q$ being true or false and the resulting truth value
+  of their conjunctions.
+
+  For the basic logical conjunctions from above, it can look like this (we
+  represent \alert{true} by \alert{1} and \alert{false} by \alert{0}):
+  \begin{center}
+   \begin{tabular}{c | c | c | c | c | c | c | c}
+    $p$ & $q$ & $\neg p$ & $\neg q$ & $p \wedge q$ & $p \vee q$ & $p \Rightarrow
+    q$ & $p \Leftrightarrow q$\\
+    \toprule
+    0 & 0 & 1 & 1 & 0 & 0 & 1 & 1\\
+    \midrule
+    0 & 1 & 1 & 0 & 0 & 1 & 1 & 0\\
+    \midrule
+    1 & 0 & 0 & 1 & 0 & 1 & 0 & 0\\
+    \midrule
+    1 & 1 & 0 & 0 & 1 & 1 & 1 & 1
+   \end{tabular}
+  \end{center}
+ \end{block}
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+\begin{exampleblock}{Prime decomposition}
+ \alert{Sets} are the `stuff' that makes up the world of mathematics. Their
+ basic characteristics and properties are described using \alert{logic}.
+
+ Sets cannot be defined inside set theory but we interpret them as \emph{groups
+ of things}.
+
+ There's only one foundational \emph{proposition} related to set theory -- the
+ proposition `\alert{An object is an element of a set.}' If we label the object
+ in question $x$ and the set $A$, this proposition is written as $x \in A$ (the
+ symbol $ \in $ is just the letter `e' in `element'). Combining these
+ propositions using logical conjunctions allows for various set-theoretic
+ constructions.
+
+ If a set $A$ has, for example, exactly three elements -- $\mysquare$, $\mytria$
+ and $\mycirc$, I can write it as a list of these three elements inside curly
+ brackets $\{\}$. In this case,
+ \[
+  A = \{\mysquare,\mytria,\mycirc\}.
+ \]
+
+ A few \alert{warnings} about sets:
+ \begin{itemize}[label=\textbullet,left=24pt]
+  \item \textbf{Sets are not ordered}. There is nothing like a `first', `second'
+   or `last' element of a set. Either an object \textbf{is} inside a set or it
+   \textbf{isn't}. Nothing else. For example, the three sets below are
+   \alert{exactly the same}, only written differently.
+   \[
+    \{\mysquare,\mytria,\mycirc\} = \{\mycirc,\mytria,\mysquare\} =
+    \{\mytria,\mysquare,\mycirc\}
+   \]
+  \item \textbf{Elements of sets have no frequency}. Again, an element either is
+   inside a set or not. It cannot be \alert{twice} in a set, for example. The
+   three sets below are exactly the same.
+   \[
+    \{\mysquare,\mytria,\mycirc\} =
+    \{\mysquare,\mytria,\mycirc,\mytria,\mycirc\} = \{
+    \mytria,\mysquare,\mysquare,\mytria,\mycirc,\mytria\}
+   \]
+ \end{itemize}
+\end{exampleblock}
+
+\begin{alertblock}{Euler's algorithm}
+ Using logical conjunctions, we form new sets from existing ones. Consider two
+ sets -- $A$ and $B$.
+ \begin{itemize}[left=40pt]
+  \item[($ \cap $)] I can form the set of all objects $x$ that satisfy the
+   proposition $x \in A \wedge x \in B$, that is all objects that \alert{lie in
+   both $A$ and $B$}. This set is called the \alert{intersection} of $A$ and $B$
+   and written $A \cap B$. For example,
+   \[
+    \{\mycirc,\mytria,\mysquare\} \cap \{\mycross,\mycirc,\mysquare, \sim \} =
+    \{\mycirc,\mysquare\}.
+   \]
+  \item[($ \cup $)] I can form the set of all objects that satisfy the
+   proposition $x \in A \vee x \in B$, the set of all objects that \alert{lie in
+   $A$ or in $B$}. It is called the \alert{union} of $A$ and $B$ and denoted
+   $A \cup B$. All elements of $A \cup B$ can be found \emph{only} in $A$,
+   \emph{only} in B or in \emph{both} $A$ and $B$. For example,
+   \[
+    \{\mycirc,\mytria,\mysquare\} \cup \{\mycross,\mycirc,\mysquare, \sim \} =
+    \{\mycirc,\mytria,\mysquare,\mycross, \sim \}.
+   \]
+  \item[($ \Rightarrow $)] Implication is a little different from intersection
+   and union. It describes a lot of different sets with one logical proposition.
+   I ask: `Which sets $A$ satisfy the proposition $x \in A \Rightarrow x \in
+   B$?' In other words, which sets $A$ \alert{have all their elements contained}
+   in the set $B$? The answer is that $A$ must be a subset of $B$ and we denote
+   that fact by $A \subseteq B$. The set $A$ is only allowed to have elements
+   which also lie in $B$ but not necessarily all of them. All the subsets of $B
+   = \{\mytria,\mycirc\}$ are listed below.
+   \[
+    \emptyset, \{\mytria\}, \{\mycirc\}, \{\mytria,\mycirc\},
+   \]
+   where $\emptyset$ is the \alert{empty set}, a set containing no elements.
+  \item[($ \Leftrightarrow $)] Equivalence defines \alert{equality} on sets. If
+   sets $A$ and $B$ must satisfy the proposition $x \in A \Leftrightarrow x \in
+   B$, then they must be equal because all the elements of $A$ lie in $B$ and
+   all elements of $B$ lie in $A$. That is, $A = B$.
+ \end{itemize}
+\end{alertblock}
+\end{column}
+
+
+\begin{column}{\colwidth}
+
+
+\begin{block}{Congruence}
+ Now that we have defined the remainder after division we want to express the
+ idea that two numbers ($x$ and $y$) have the same remainder ($r$) after diving by some number $m$.
+ Mathematically we write it as:
+ \[
+  x \equiv y \pmod{m}.
+ \]
+ In other words this means:
+ \begin{align*}
+  x = km + r && \text{and}  && y = lm + r
+ \end{align*}
+ for some numbers $l,k \in \N$. This way we can for example say that 13 and 25
+ are the same modulo 12, because they share the remainder 1 when divided by 12
+ (formally written as  $13 \equiv 25 \pmod{12}$).
+
+ This idea might sound unintuitive and artificial yet it is all around us. If we
+ for example take the regular old clock. Looking only at the clock and seeing
+ both hands up tells me that it is either noon or midnight. This is because we
+ use the 12 hours format which gives the time$ \mod  12$.
+
+Congruence is in sense very similar to normal equations (it is also
+equivalence try to prove it!). Similar to equations we can manipulate it.
+More specifically:
+\begin{itemize}[label=\textbullet,left=24pt]
+ \item $x+a \equiv y+a \pmod{m}$ - \textbf{adding} also works for subtracting so
+  $a \in \mathbb{Z}$
+ \item $xk \equiv yk \pmod{km}$ - \textbf{multiplying}
+ \item $x^k \equiv y^k \pmod{m}$ - \textbf{exponentiation}
+\end{itemize}
+for any $k \in \N$.
+
+An interesting thing to note about the equivalence classes created by some
+congruence $\mod m$ is that there will be $m$ of them. This is because all the
+possible remainders after diving by $m$ are numbers $1, \ldots, m$. 
+
+Similarly to system of equations we can have also systems of congruences.
+
+\end{block}  
+\begin{alertblock}{Chineese remainder theorem}
+ Imagine we have a system of linear congruences:
+   \begin{equation*}
+   \begin{split}
+    x & \equiv r_1 \pmod{m_1}\\
+    x & \equiv r_2 \pmod{m_2}\\
+      &~~~\vdots\\
+    x & \equiv r_n \pmod{m_n}
+   \end{split}
+  \end{equation*}
+
+ Where all the numbers are natural and $m_1,\ldots m_n$ are mutually coprime.
+ The CRT tells us that there is unique solution $x$ smaller then the product of
+ all the numbers we divide by, $M = m_1 \cdot m_2
+ \ldots m_n$.
+
+Each congruence limits the possible solutions radically. For example the
+congruence $x \equiv r \pmod{m}$ has solutions in the form: $km + r$ for any $k
+\in \N$. So if we write down all the solutions of each congruence up to $M$ and
+then find the intersection, we have found $x$ such that it satisfies all the
+congruences and thus is the solution to the whole system.
+
+We can do this process also graphically. If we circle solutions to the
+individual congruences the number with $n$ circles is the solution to the whole
+system.
+
+ If, for example, we have the linear congruences: $\clr{x \equiv 1 \pmod{3}}$,
+ $\clb{x \equiv 2 \pmod{4}}$, we can draw:
+
+\begin{center}
+ \begin{tikzpicture}
+   \def\rows{4}
+   \def\cols{8}
+   \def\sep{1.4}
+
+   \foreach \x in {1, ..., \cols} {
+    \foreach \y in {1, ..., \rows} {
+     \pgfmathtruncatemacro\z{(\rows-\y) * \cols + \x}
+     \node[black] (\z) at (\x*\sep,\y*\sep) {\small \z};
+    }
+   }
+
+   \foreach \x/\y in {1/4,4/4, 7/4, 2/3, 5/3, 8/3, 3/2, 6/2, 1/1, 4/1, 7/1 } {
+   \node[circle,inner sep=11pt, draw =BrickRed,line width= 2pt]  at
+      (\x*\sep,\y*\sep) {};
+   }
+    
+   \foreach \x/\y in {6/4,2/4, 6/3, 2/2, 2/1, 6/1 } {
+     \node[circle,inner sep=11pt, draw =RoyalBlue,line width= 2pt] at
+      (\x*\sep,\y*\sep) {};
+   }
+
+     \node[circle,inner sep=13.5pt, draw =RoyalBlue,fill=yellow,fill opacity=0.2,line width= 2pt] at
+      (2*\sep,3*\sep) {};
+     
+     \node[circle,inner sep=13.5pt, draw =RoyalBlue,fill=yellow,fill opacity=0.2,line width= 2pt] at
+      (6*\sep,2*\sep) {};
+
+     \draw[line width = 2pt] (12)+(0.6,0.6) rectangle ++(-0.6,-0.6);
+
+     \draw[line width = 2pt] (24)+(0.6,0.6) rectangle ++(-0.6,-0.6);
+ \end{tikzpicture}
+\end{center}
+The box around 12 and 24 indicates on what intervals are we guaranteed to have a
+unique solution. This is because $M=m_1 \cdot m_2 = 3 \cdot 4 = 12$.
+
+If we find the smallest solution $x$ (the one smaller then $M$) then we have
+every other because they are all in the form of $x + kM$ for any $k \in \N$. 
+ 
+ \end{alertblock}
+
+\begin{block}{Drawing Products And Relations}
+ One can draw the product $A \times B$ similarly to the way we draw Cartesian
+ coordinates -- by distributing the elements of $A$ horizontally and those of
+ $B$ vertically. Each point in the resulting grid represents an element of $A
+ \times B$.
+
+ Take, for example, $\clr{A = \{1, 2, 3, 4\}}$ and $\clb{B = \{a, b, c\}}$. We
+ can depict the set $\clr{A} \times \clb{B}$ like this:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{\x + 1}
+    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/a, 1/b, 2/c} {
+    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
+   }
+   \foreach \x in {0, 1, 2, 3} {
+    \foreach \y in {0, 1, 2} {
+     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
+    }
+   }
+  \end{tikzpicture}
+ \end{center}
+ Any relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ can now be easily drawn
+ into the grid just by marking certain dots. For example, the relation $\clg{R =
+ \{}(\clr{1},\clb{c}), (\clr{2},\clb{b}),(\clr{2},\clb{a})\clg{\}} \subseteq
+ \clr{A} \times \clb{B}$ looks like this:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{\x + 1}
+    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/a, 1/b, 2/c} {
+    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
+   }
+   \foreach \x in {0, 1, 2, 3} {
+    \foreach \y in {0, 1, 2} {
+     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
+    }
+   }
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (0, 2)
+    {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 0)
+    {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 1)
+    {};
+  \end{tikzpicture}
+ \end{center}
+ There is another way to draw relations -- as arrows from $\clr{A}$ to
+ $\clb{B}$. This style of drawing emphasises the `one-way' nature of relations.
+ The same relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ is drawn using
+ arrows like this:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \y in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{4-\y}
+    \node[BrickRed] (A\z) at (-2,\y) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/c, 1/b, 2/a} {
+    \node[RoyalBlue] (B\n) at (2,\y) {\footnotesize $\n$};
+   }
+   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A1) -- (Bc);
+   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A2) -- (Bb);
+   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A2) -- (Ba);
+  \end{tikzpicture}
+ \end{center}
+\end{block}
+
+\begin{exampleblock}{Equivalence \& Equivalence Classes}
+ A relation $\clg{E} \subseteq \clr{A} \times \clr{A}$ (do note that it's a
+ relation \textbf{on a set}) is called an \alert{equivalence} if it behaves
+ \textbf{something like `equals'}, that is,
+ \begin{itemize}[left=2em]
+  \item[(R)] it's \alert{reflexive}, i.e. $\clr{a}\clg{E}\clr{a}$ for every
+   $\clr{a} \in \clr{A}$ (every element is equivalent to itself);
+  \item[(S)] it's \alert{symmetric}, i.e. if $\clr{a_1}\clg{E}\clr{a_2}$, then
+   also $\clr{a_2}\clg{E}\clr{a_1}$ (all elements are \textbf{mutually}
+   equivalent);
+  \item[(T)] it's \alert{transitive}, i.e. if $\clr{a_1}\clg{E}\clr{a_2}$ and
+   $\clr{a_2} \clg{E} \clr{a_3}$, then $\clr{a_1} \clg{E} \clr{a_3}$ (it
+   \textbf{propagates} through a middle element).
+ \end{itemize}
+ A good example of equivalence to keep in mind is the relation `\textbf{being
+ the same age}' on the set of all people. It's \alert{reflexive} because I'm as
+ old as me. It's \alert{symmetric} because if I'm as old as you, then you are as
+ old as me. And finally, it's \alert{transitive} because if I'm as old as you
+ and you are as old as someone else, then I'm as old as that someone. This
+ example also drives home the idea of equivalence `being like equals'. It's not
+ that two people of the same age are \emph{equal}, they are \emph{equal by some
+ criterion}. This is exactly what equivalence is, the relation of being equal by
+ some criterion.
+
+ With an equivalence $\clg{E} \subseteq \clr{A} \times \clr{A}$, we can divide
+ the set $\clr{A}$ into `packets' of elements -- each packet consisting of
+ elements which are \textbf{equivalent} by $\clg{E}$. For example, I can divide
+ the set of all people by putting equally old people to the same packet.
+ Formally, we write
+ \[
+  [\clr{a}]_{\clg{E}} = \{\clr{b} \in \clr{A} \mid \clr{a}\clg{E}\clr{b}\},
+ \]
+ in other words, $[\clr{a}]_{\clg{E}}$ is the set of all elements from $\clr{A}$
+ that are $\clg{equivalent}$ to $\clr{a}$. We call it \alert{an equivalence
+ class}. The element $\clr{a}$ is then called a \alert{representative}. 
+\end{exampleblock}
+
+\end{column}
+\separatorcolumn
+
+\end{columns}
+\end{frame}
+
+\end{document}
