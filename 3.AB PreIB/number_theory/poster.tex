@@ -1,0 +1,696 @@
+% Unofficial University of Cambridge Poster Template
+% https://github.com/andiac/gemini-cam
+% a fork of https://github.com/anishathalye/gemini
+% also refer to https://github.com/k4rtik/uchicago-poster
+% TeX program = lualatex
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[orientation=portrait,size=custom,width=120,height=120,scale=1]{beamerposter}
+\usetheme{gemini}
+\usepackage[dvipsnames]{xcolor}
+\usecolortheme{nott}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shapes.geometric}
+\usepackage{tkz-euclide}
+\tikzset{point style/.style = {%
+  draw = black,
+  inner sep = 0pt,
+  shape = circle,
+  minimum size = 5pt,
+  fill = black
+ },
+ every picture/.append style = {
+  scale = 1.5
+ },
+ every node/.append style={
+  scale=1.5
+ }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.01\paperwidth}
+\setlength{\colwidth}{0.32\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+\newcommand{\bfalert}[1]{\textbf{\alert{#1}}}
+
+% Math shortcuts
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\s}{succ}
+
+% Inline shapes
+\newcommand{\mysquare}{\tikz[baseline=-7pt]{%
+  \node[rectangle,draw,thick,inner sep=6pt] at (0,0) {};
+}}
+\newcommand{\mytria}{\tikz[baseline=-3.25pt]{%
+  \node[isosceles triangle,isosceles triangle apex angle=60,draw,thick,inner
+  sep=3.25pt,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycirc}{\tikz[baseline=-7pt]{%
+  \node[circle,draw,thick,inner sep=4.5pt,baseline=0.5ex,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycross}{\tikz[baseline=-7pt,scale=0.2]{%
+  \draw[thick] (-1,1) -- (1,-1);
+  \draw[thick] (-1,-1) -- (1,1);
+}}
+
+% Colors %
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
+
+% ====================
+% Title
+% ====================
+
+\title{Number Theory Cheatsheet}
+
+\author{3.AB PreIB Math}
+
+\institute[shortinst]{Adam Klepáč and Jáchym Löwenhöffer}
+
+% ====================
+% Footer (optional)
+% ====================
+
+% \footercontent{
+%   \href{https://utfpr.edu.br/ct/ppgca}{utfpr.edu.br/ct/ppgca} \hfill
+%   Mostra de Trabalhos do PPGCA --- TechTalks 2024 \hfill
+%   \href{mailto:ppgca-ct@utfpr.edu.br}{ppgca-ct@utfpr.edu.br}}
+% (can be left out to remove footer)
+
+
+% ====================
+% Logo (optional)
+% ====================
+
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=3.5cm]{logos/logo-white.png}}
+% \logoleft{\hspace{20ex}\includegraphics[height=3.5cm]{logos/ppgca-logo.png}}
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+% Refer to https://github.com/k4rtik/uchicago-poster
+% logo: https://www.cam.ac.uk/brand-resources/about-the-logo/logo-downloads
+% \addtobeamertemplate{headline}{}
+% {
+%     \begin{tikzpicture}[remember picture,overlay]
+%       \node [anchor=north west, inner sep=3cm] at ([xshift=-2.5cm,yshift=1.75cm]current page.north west)
+%       {\includegraphics[height=7cm]{logos/unott-logo.eps}}; 
+%     \end{tikzpicture}
+% }
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+ \begin{exampleblock}{Natural Numbers}
+  Natural numbers (denoted $\N$) are defined basically as `sets containing so
+  many elements'. This means that the number $0$ is a set with no elements, $1$
+  is a set with one element and so on. Formally, we construct them in the
+  following way ($\emptyset$ is the empty set):
+  \[
+   \begin{array}{r c l c l}
+    0 & = & \emptyset & &\\
+    1 & = & \{0\} & = & \{\emptyset\}\\
+    2 & = & \{0, 1\} & = & \{\emptyset, \{\emptyset\}\}\\
+    3 & = & \{0, 1, 2\} & = & \{\emptyset, \{\emptyset\}, \{\emptyset,
+    \{\emptyset\}\}\}\\
+      & \vdots & & & 
+   \end{array}
+  \]
+  In general, the \alert{next natural number} after a number $n$ is defined as
+  the set $\{0,\ldots,n\}$. 
+
+  Observe that we can find a formula for the next number after $n$. Since $n =
+  \{0,\ldots,n-1\}$ and the next number is $\{0,\ldots,n\}$, we can construct
+  the next number after $n$ as a union of two sets: $n \cup \{n\}$. We call this
+  number, the \alert{successor} of $n$, and write it as \alert{$\s(n)$}. For
+  example, $1 = \{0\} = 0 \cup \{0\} = \s(0)$ or $3 = \{0,1,2\} = \{0,1\} \cup
+  \{2\} = 2 \cup \{2\} = \s(2)$.
+
+  \vspace{18pt}
+
+  \textbf{\large Addition of natural numbers (\alert{not examined})}
+
+  We can define the operation of \alert{addition} on natural numbers using two
+  simple rules. For two natural numbers $n,m \in \N$,
+  \begin{enumerate}[label=(\arabic*),left=12pt]
+   \item $n + 1 = \s(n)$,
+   \item $\s(n + m) = n + \s(m)$.
+  \end{enumerate}
+  Rule (1) simply states that $n + 1$ is the next number after $n$. Rule (2) is
+  harder to decode. It literally says that by adding the two numbers together
+  and then taking the next number one reaches the same answer as by first taking
+  the next number and then performing addition. It's visualised on the picture
+  below.
+  \begin{figure}[H]
+   \centering
+   \begin{tikzpicture}
+    \begin{scope}
+     \foreach \x in {-.5, 0, .5} {
+      \node[circle,fill=BrickRed,inner sep=3pt] at (\x,.75) {};
+     }
+     \node[BrickRed] at (0,0) {\footnotesize $n$};
+
+     \foreach \x in {1.5, 2, 2.5, 3} {
+      \node[circle,fill=RoyalBlue,inner sep=3pt] at (\x,.75) {};
+     }
+     \node[RoyalBlue] at (2.25,0) {\footnotesize $m$};
+    \end{scope}
+    \begin{scope}[xshift=5.5cm]
+     \foreach \x in {-.5, 0, .5} {
+      \node[circle,fill=BrickRed,inner sep=3pt] at (\x,.75) {};
+     }
+     \node at (.25,0) {\footnotesize $\clr{n} + \clb{m}$};
+
+     \foreach \x in {-.5, 0, .5, 1} {
+      \node[circle,fill=RoyalBlue,inner sep=3pt] at (\x,1.25) {};
+     }
+    \end{scope}
+    \begin{scope}[xshift=8.5cm]
+     \foreach \x in {-.5, 0, .5} {
+      \node[circle,fill=BrickRed,inner sep=3pt] at (\x,.75) {};
+     }
+     \node at (.25,0) {\footnotesize $\clg{\s}(\clr{n} + \clb{m})$};
+
+     \foreach \x in {-.5, 0, .5, 1} {
+      \node[circle,fill=RoyalBlue,inner sep=3pt] at (\x,1.25) {};
+     }
+     \node[circle,fill=ForestGreen,inner sep=3pt] at (-.5, 1.75) {};
+    \end{scope}
+    \begin{scope}[xshift=12.5cm]
+     \foreach \x in {-.5, 0, .5, 1} {
+      \node[circle,fill=RoyalBlue,inner sep=3pt] at (\x,.75) {};
+     }
+     \node[circle,fill=ForestGreen,inner sep=3pt] at (-.5, 1.25) {};
+     \node at (.25,0) {\footnotesize $\clg{\s}(\clb{m})$};
+    \end{scope}
+    \begin{scope}[xshift=15.5cm]
+     \foreach \x in {-.5, 0, .5} {
+      \node[circle,fill=BrickRed,inner sep=3pt] at (\x,.75) {};
+     }
+     \node[circle,fill=ForestGreen,inner sep=3pt] at (-.5, 1.75) {};
+     \node at (.25,0) {\footnotesize $\clr{n} + \clg{\s}(\clb{m})$};
+
+     \foreach \x in {-.5, 0, .5, 1} {
+      \node[circle,fill=RoyalBlue,inner sep=3pt] at (\x,1.25) {};
+     }
+    \end{scope}
+   \end{tikzpicture}
+
+   \caption{Visualisation of rule (2) of addition. Both $\clg{\s}(\clr{n} +
+    \clb{m})$ and $\clr{n} + \clg{\s}(\clb{m})$ feature the \alert{same number}
+    of dots.}
+   \label{fig:rule-2-addition}
+  \end{figure}
+
+  Rules (1) and (2) combine to give a simple algorithm of computing the sum $n +
+  m$ for any two numbers $n,m \in \N$. It goes like this:
+  \begin{itemize}[label=\textbullet,left=12pt]
+   \item Using rule (1), calculate $n + 1 = \s(n) = n \cup \{n\}$.
+   \item Now that we have calculated $n + 1$, we can calculate $n + 2$ because
+    $n + 2 = n + \s(1)$ and by rule (2) this equals $n + \s(1) = \s(n + 1)$, so
+    just take the next number after $n + 1$.
+   \item Continue like this until you calculate $n + m = n + \s(m - 1)$.
+  \end{itemize}
+  For example, to compute $4 + 2$, we calculate $4 + 1 = \s(4)$ and then $4 + 2
+  = 4 + \s(1) = \s(4 + 1) = \s(\s(4))$ so $4 + 2$ is just the next number after
+  the next number after $4$.
+ \end{exampleblock}
+
+ \begin{exampleblock}{Integers (Whole Numbers)}
+  We have defined \alert{addition} on natural numbers, but in order to perform
+  \alert{subtraction}, we must move to a `larger' set of numbers -- the
+  \alert{integers}. This is because subtraction is \alert{\textbf{not}} an
+  operation on natural numbers as its result needn't be a natural number itself.
+
+  The idea behind the definition of integers (labelled $\Z$) is to take
+  \alert{pairs of natural numbers}. Fundamentally, we want the pair $(a,b) \in
+  \N \times \N$ to \alert{represent} the result of the operation `$a-b$' (which
+  we can't yet perform because we need to define the integers \textbf{before}
+  defining subtraction).
+
+  To this end, we define an \alert{equivalence} on $\N \times \N$ (i.e. on pairs
+  of natural numbers) that makes two pairs equivalent \alert{if they represent
+  the same integer}. For example, the pair $(4, 6)$ should represent the number
+  $-2$ (as $4 - 6 = -2$) and so should the pairs $(8, 10)$, $(3, 5)$ or just
+  about any pair $(a, a + 2)$ for $a \in \N$. The integers will then be the
+  \alert{classes of equivalence} of this equivalence relation.
+
+  We label this equivalence by the letter $\clg{E}$. Since we want $(a,b)$ to be
+  \clg{equivalent} to $(c,d)$ if `$a - b = c - d$' but we can't use subtraction
+  yet, we simply rewrite the equation above to use only addition, like this: $a
+  + d = c + b$. Thus, we say that $\clr{(a,b)}\clg{E}\clb{(c,d)}$ if $\clr{a} +
+  \clb{d} = \clb{c} + \clr{b}$. This defines an equivalence on $\N \times \N$
+  and we let $\Z$ be the classes of equivalence of all pairs of natural numbers:
+  \[
+   \clm{\Z} = \{[(a,b)]_{\clg{E}} \mid a,b \in \N\}.
+  \]
+  To give an example, the pair $\clr{(3,5)}$ is \clg{equivalent} to
+  $\clb{(7,9)}$ because $\clr{3} + \clb{9} = \clb{7} + \clr{5}$ and they both
+  represent the integer $\clm{-2}$. Similarly, both $\clr{(6, 2)}$ and
+  $\clb{(8, 4)}$ represent the integer $\clm{4}$. The visualisation of integers
+  as pairs of natural numbers is given below.
+  \begin{figure}[H]
+   \centering
+   \begin{tikzpicture}
+    \node[ForestGreen] at (-1, 2.5) {\clg{$\cdots$}};
+    \draw[ForestGreen,thick] (0, 5) -- (0, 0);
+    \begin{scope}[xshift=1.5cm,yshift=1cm]
+     \node[BrickRed] at (0, 3) {\footnotesize $(2, 4)$};
+     \node[BrickRed] at (2, 3) {\footnotesize $(7, 9)$};
+     \node[BrickRed] at (0, 2) {\footnotesize $(0, 2)$};
+     \node[BrickRed] at (2, 2) {\footnotesize $(11, 13)$};
+     \node at (1, 1) {\footnotesize $\vdots$};
+     \node at (1, 0) {\footnotesize all pairs $\clr{(a, a + 2)}$};
+     \node at (1, -2) {$\clm{-2}$};
+    \end{scope}
+    \draw[ForestGreen,thick] (5, 5) -- (5, 0);
+    \begin{scope}[xshift=6.5cm,yshift=1cm]
+     \node[BrickRed] at (0, 3) {\footnotesize $(3, 4)$};
+     \node[BrickRed] at (2, 3) {\footnotesize $(10, 11)$};
+     \node[BrickRed] at (0, 2) {\footnotesize $(0, 1)$};
+     \node[BrickRed] at (2, 2) {\footnotesize $(22, 23)$};
+     \node at (1, 1) {\footnotesize $\vdots$};
+     \node at (1, 0) {\footnotesize all pairs $\clr{(a, a + 1)}$};
+     \node at (1, -2) {$\clm{-1}$};
+    \end{scope}
+    \draw[ForestGreen,thick] (10, 5) -- (10, 0);
+    \node[ForestGreen] at (11, 2.5) {\clg{$\cdots$}};
+    \draw[ForestGreen,thick] (12, 5) -- (12, 0);
+    \begin{scope}[xshift=13.5cm,yshift=1cm]
+     \node[BrickRed] at (0, 3) {\footnotesize $(8, 5)$};
+     \node[BrickRed] at (2, 3) {\footnotesize $(13, 10)$};
+     \node[BrickRed] at (0, 2) {\footnotesize $(3, 0)$};
+     \node[BrickRed] at (2, 2) {\footnotesize $(7, 4)$};
+     \node at (1, 1) {\footnotesize $\vdots$};
+     \node at (1, 0) {\footnotesize all pairs $\clr{(a + 3, a)}$};
+     \node at (1, -2) {$\clm{3}$};
+    \end{scope}
+    \draw[ForestGreen,thick] (17, 5) -- (17, 0);
+    \node[ForestGreen] at (18, 2.5) {\clg{$\cdots$}};
+   \end{tikzpicture}
+   \caption{\clm{Integers} as classes of \clg{equivalence} of natural numbers.}
+   \label{fig:integers}
+  \end{figure}
+  The \alert{addition} of integers is defined using the addition of natural
+  numbers. Given two classes of equivalence $[(\clr{a},\clr{b})]_{\clg{E}},
+  [(\clb{c},\clb{d})]_{\clg{E}} \in \clm{\Z}$, we let
+  \[
+   [(\clr{a},\clr{b})]_{\clg{E}} + [(\clb{c}, \clb{d})]_{\clg{E}} = [(\clr{a} +
+   \clb{c}, \clr{b} + \clb{d})]_{\clg{E}}.
+  \]
+  Finally, we define the \alert{opposite number} to $[(a,b)]_{\clg{E}}$ as
+  $-[(a,b)]_{\clg{E}} = [(b,a)]_{\clg{E}}$ (this is because $-(a-b) = b-a$). The
+  \alert{subtraction} of two integers is now just a sum of the first and the
+  opposite of the second, that is
+  \[
+   [(\clr{a},\clr{b})]_{\clg{E}} - [(\clb{c},\clb{d})]_{\clg{E}} =
+   [(\clr{a},\clr{b})]_{\clg{E}} + (-[(\clb{c},\clb{d})]_{\clg{E}}) =
+   [(\clr{a},\clr{b})]_{\clg{E}} + [(\clb{d},\clb{c})]_{\clg{E}} = [(\clr{a} +
+   \clb{d}, \clr{b} + \clb{c})]_{\clg{E}}.
+  \]
+  For example,
+  \[
+   [(\clr{3}, \clr{1})]_{\clg{E}} - [(\clb{5},\clb{2})]_{\clg{E}} = [(\clr{3},
+   \clr{1})]_{\clg{E}} + [(\clb{2},\clb{5})]_{\clg{E}} = [(\clr{3} + \clb{2},
+   \clr{1} + \clb{5})]_{\clg{E}} = [(5, 6)]_{\clg{E}},
+  \]
+  which is the same as writing
+  \[
+   \clr{2} - \clb{3} = \clr{2} + (-\clb{3}) = -1.
+  \]
+ \end{exampleblock}
+
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+\begin{block}{Multiplication}
+ In a way similar to addition, we can define \alert{multiplication} on natural
+ numbers by the following two rules.
+ \begin{enumerate}[label=(\arabic*),left=12pt]
+  \item $n \cdot 1 = n$,
+  \item $n \cdot \s(m) = n \cdot m + m$,
+ \end{enumerate}
+ for $n,m \in \N$. They carry the idea behind an algorithmic way to compute the
+ product $n \cdot m$ for any two natural numbers $n,m$. It goes like this:
+ \begin{itemize}[left=12pt,label=\textbullet]
+  \item Using rule (1), calculate $n \cdot 1 = n$.
+  \item Using rule (2), calculate $n \cdot 2 = n \cdot \s(1) = n \cdot 1 + n = n
+   + n$.
+  \item Continue like this until you calculate
+   \[
+    n \cdot m = n \cdot \s(m - 1) = n \cdot (m - 1) + n = \underbrace{n + n +
+    \ldots + n}_{(m - 1)\text{ times}} + n.
+   \]
+ \end{itemize}
+ For example, to calculate $4 \cdot 3$, we first multiply $4 \cdot 1 = 4$, then
+ $4 \cdot 2 = 4 \cdot \s(1) = 4 \cdot 1 + 4 = 4 + 4$, and finally $4 \cdot 3 = 4
+ \cdot \s(2) = 4 \cdot 2 + 4 = (4 + 4) + 4$. As you've been taught:
+ `multiplication is just repeated addition'.
+
+ Multiplication is easily extended to integers by the formula
+ \[
+  [(\clr{a},\clr{b})]_{\clg{E}} \cdot [(\clb{c},\clb{d})]_{\clg{E}} = [(\clr{a}
+  \cdot \clb{c} + \clr{b} \cdot \clb{d}, \clr{b} \cdot \clb{c} + \clr{a} \cdot
+  \clb{d})]_{\clg{E}}.
+ \]
+ The formula is based on the calculation
+ \[
+  (\clr{a} - \clr{b}) \cdot (\clb{c} - \clb{d}) = \clr{a} \cdot \clb{c} -
+  \clr{b} \cdot \clb{c} - \clr{a} \cdot \clb{d} + \clr{b} \cdot \clb{d} =
+  (\clr{a} \cdot \clb{c} + \clr{b} \cdot \clb{d}) - (\clr{b} \cdot \clb{c} +
+  \clr{a} \cdot \clb{d}).
+ \]
+
+ For example,
+ \[
+  [(\clr{5},\clr{3})]_{\clg{E}} \cdot [(\clb{1},\clb{5})]_{\clg{E}} =
+  [(\clr{5} \cdot \clb{1} + \clr{3} \cdot \clb{5}, \clr{3} \cdot \clb{1} +
+  \clr{5} \cdot \clb{5})]_{\clg{E}} = [(20, 28)]_{\clg{E}}.
+ \]
+ This is the same calculation as
+ \[
+  \clr{2} \cdot (\clb{-4}) = -8.
+ \]
+\end{block}
+
+\begin{exampleblock}{Rational Numbers}
+ Being able to \alert{multiply integers}, we'd like to divide them as well. As
+ was the case with natural numbers and subtraction, \alert{division is not an
+ operation on integers} because its result needn't be an integer.
+
+ The idea behind the definition of rational numbers (labelled $\Q$) is pretty
+ much the same as the one behind the definition of integers -- rational numbers
+ are really just \alert{pairs of integers}. And again, multiple pairs of
+ integers \alert{represent the same} rational number. Therefore, given pairs
+ $(a,b)$ and $(c,d)$ with $a,b,c,d \in \Z$, we must make sure that $(a,b)$
+ \alert{is equivalent to} $(c,d)$ if `the fraction $a / b$ is the same as the
+ fraction $c / d$'.
+
+ As we couldn't have defined division yet, we must \alert{rewrite the last
+ equation in terms of multiplication only}. This is easy to do because $a / b =
+ c / d$ if $a \cdot d = c \cdot b$. This directly leads to the definition of an
+ \alert{equivalence} $\clg{Q}$ on pairs of integers: $(\clr{a},
+ \clr{b})\clg{Q}(\clb{c},\clb{d})$ if
+ \[
+  \clr{a} \cdot \clb{d} = \clr{c} \cdot \clb{b}.
+ \]
+ This is indeed an equivalence on $\Z \times \Z$ and we define $\clm{\Q}$ as
+ \[
+  \clm{\Q} = \{[(a,b)]_{\clg{Q}} \mid a,b \in \Z\}.
+ \]
+ We tend to write elements of $\clm{\Q}$ as \textbf{fractions}, that is, instead
+ of $[(a,b)]_{\clg{Q}}$, we write $a / b$. We shall adopt this notation
+ henceforth.
+
+ It only remains to \alert{extend addition and multiplication} to rational
+ numbers. This is easily done using formulae you already know. For example, the
+ \alert{product} of two rational numbers $a / b, c / d \in \clm{\Q}$ is defined
+ as such:
+ \[
+  \frac{\clr{a}}{\clr{b}} \cdot \frac{\clb{c}}{\clb{d}} = \frac{\clr{a} \cdot
+  \clb{c}}{\clr{b} \cdot \clb{d}}.
+ \]
+ The \alert{sum} of rational numbers as
+ \[
+  \frac{\clr{a}}{\clr{b}} + \frac{\clb{c}}{\clb{d}} = \frac{\clr{a} \cdot
+  \clb{d} + \clb{c} \cdot \clr{b}}{\clr{b} \cdot \clb{d}}.
+ \]
+ For example,
+ \[
+  \frac{\clr{2}}{\clr{5}} \cdot \frac{\clb{3}}{\clb{4}} = \frac{\clr{2} \cdot
+  \clb{3}}{\clr{5} \cdot \clb{4}} = \frac{6}{20} \quad \text{and} \quad
+  \frac{\clr{2}}{\clr{5}} + \frac{\clb{3}}{\clb{4}} = \frac{\clr{2} \cdot
+  \clb{4} + \clb{3} \cdot \clr{5}}{\clr{5} \cdot \clb{4}} = \frac{23}{20}.
+ \]
+ 
+ Finally, we're ready to \alert{define division} on rational numbers. We first
+ define the \alert{inverse} of a rational numbers $a / b$ as $b / a$. We write
+ $b / a = (a / b)^{-1}$. The \alert{operation of division} on rational numbers
+ is defined as \alert{multiplication by the inverse element}, that is
+ \[
+  \frac{\clr{a}}{\clr{b}} : \frac{\clb{c}}{\clb{d}} = \frac{\clr{a}}{\clr{b}}
+  \cdot \left( \frac{\clb{c}}{\clb{d}} \right)^{-1} = \frac{\clr{a}}{\clr{b}}
+  \cdot \frac{\clb{d}}{\clb{c}} = \frac{\clr{a} \cdot \clb{d}}{\clr{b} \cdot
+  \clb{c}}.
+ \]
+ For example,
+ \[
+  \frac{\clr{2}}{\clr{5}} : \frac{\clb{3}}{\clb{4}} = \frac{\clr{2}}{\clr{5}}
+ \cdot \left(\frac{\clb{3}}{\clb{4}}\right)^{-1} = \frac{\clr{2}}{\clr{5}} \cdot
+ \frac{\clb{4}}{\clb{3}} = \frac{\clr{2} \cdot \clb{4}}{\clr{5} \cdot \clb{3}} =
+ \frac{8}{15}.
+ \]
+\end{exampleblock}
+
+\begin{block}{Drawing Sets}
+ Set operations can be visualized using so-called \emph{Venn diagrams}. This
+ just means using circles to represent the sets in questions. For example, two
+ sets -- $\clr{A}$ and $\clb{B}$ -- can be drawn like this:
+ \begin{center}
+  \begin{tikzpicture}[scale=0.5]
+   \fill[BrickRed,fill opacity=0.25] (180:1.5) circle (2);
+   \fill[RoyalBlue,fill opacity=0.25] (0:1.5) circle (2);
+   \draw[BrickRed,thick] (180:1.5) circle (2);
+   \draw[RoyalBlue,thick] (0:1.5) circle (2);
+   \node at (150:4.3) {\footnotesize $\clr{A}$};
+   \node at (30:4.3) {\footnotesize $\clb{B}$};
+  \end{tikzpicture}
+ \end{center}
+ In these pictures, one can easily visualize the operations of union and
+ intersection. The union $\clg{A \cup B}$ is the entire area covered by
+ $\clr{A}$ and $\clb{B}$. It looks like this:
+ \begin{center}
+  \begin{tikzpicture}[scale=0.5]
+   \def\firstcircle{(180:1.5) circle (2)}
+   \def\secondcircle{(0:1.5) circle (2)}
+   \filldraw[thick,ForestGreen] \firstcircle; 
+   \filldraw[thick,ForestGreen] \secondcircle;
+   \node at (90:3) {\footnotesize $\clg{A \cup B}$};
+  \end{tikzpicture}
+ \end{center}
+ The intersection $\clm{A \cap B}$ is the `strip' in the middle, the area which
+ is shared between both $\clr{A}$ and $\clb{B}$. It can be depicted like this:
+ \begin{center}
+  \begin{tikzpicture}[scale=0.5]
+   \def\firstcircle{(180:1.5) circle (2)}
+   \def\secondcircle{(0:1.5) circle (2)}
+   
+   \fill[BrickRed,fill opacity=0.25] \firstcircle;
+   \fill[RoyalBlue,fill opacity=0.25] \secondcircle;
+   \draw[BrickRed,thick] \firstcircle;
+   \draw[RoyalBlue,thick] \secondcircle;
+
+   \begin{scope}
+    \clip \firstcircle;
+    \fill[white] \secondcircle;
+    \filldraw[thick,Fuchsia] \secondcircle;
+   \end{scope}
+   \begin{scope}
+    \clip \secondcircle;
+    \draw[Fuchsia,thick] \firstcircle;
+   \end{scope}
+   \node at (90:3) {\footnotesize $\clm{A \cap B}$};
+  \end{tikzpicture}
+ \end{center}
+\end{block}
+\end{column}
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+\begin{alertblock}{Products of Sets \& Relations}
+ Before introducing \emph{products} of sets, we must define a \emph{pair}.
+ Simply said, a \alert{pair} of objects $(a,b)$ is just a set containing $a$ and
+ $b$ \textbf{with ordering}, that is, $a$ is the \textbf{first} element of
+ $(a,b)$ and $b$ is \textbf{second}. This means that $(a,b) \neq (b,a)$ because
+ the order is not the same.
+
+ Now, the \alert{product} of sets $A$ and $B$, denoted $A \times B$, is the set
+ of all pairs $(a,b)$ where $a \in A$ and $b \in B$. For example, if
+ \[
+  A = \{\mycirc,\mytria\} \quad \text{and} \quad B = \{\mytria,\mycross, \sim
+  \},
+ \]
+ then
+ \[
+  A \times B = \{(\mycirc,\mytria),(\mycirc,\mycross),(\mycirc, \sim),
+  (\mytria,\mytria), (\mytria,\mycross), (\mytria, \sim)\}.
+ \]
+ Notice that $A \times B \neq B \times A$ because the \textbf{order} of elements
+ in a pair \textbf{matters}. In this case,
+ \[
+  B \times A = \{(\mytria,\mycirc), (\mytria,\mytria), (\mycross,\mycirc),
+  (\mycross,\mytria), ( \sim, \mycirc), ( \sim, \mytria)\}.
+ \]
+
+ As another example, consider the \emph{real plane} -- the set of all points
+ with two coordinates. That is simply the set of pairs of real numbers, $\R
+ \times \R$.
+
+ The mathematical way to define a \alert{relation} between two sets is to simply
+ \textbf{list all the elements that are related}. Said formally, a relation $R$
+ is a subset $R \subseteq A \times B$. For example,
+ \[
+  \{(\mytria,\mycross),(\mytria, \sim )\} \subseteq \{\mycirc,\mytria\} \times
+  \{\mytria,\mycross, \sim\}
+ \]
+ is a relation between the sets $A$ and $B$ from above. It literally says that
+ $\mytria$ is related to $\mycross$ and $ \sim $. Instead of writing
+ $(\mytria,\mycross) \in R$, we write $\mytria R \mycross$ because it's more
+ natural. Typical examples of relations include $ \leq $ and $=$ and we don't
+ write $(2,3) \in~\leq $ but $2 \leq 3$. 
+\end{alertblock}
+
+\begin{block}{Drawing Products And Relations}
+ One can draw the product $A \times B$ similarly to the way we draw Cartesian
+ coordinates -- by distributing the elements of $A$ horizontally and those of
+ $B$ vertically. Each point in the resulting grid represents an element of $A
+ \times B$.
+
+ Take, for example, $\clr{A = \{1, 2, 3, 4\}}$ and $\clb{B = \{a, b, c\}}$. We
+ can depict the set $\clr{A} \times \clb{B}$ like this:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{\x + 1}
+    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/a, 1/b, 2/c} {
+    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
+   }
+   \foreach \x in {0, 1, 2, 3} {
+    \foreach \y in {0, 1, 2} {
+     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
+    }
+   }
+  \end{tikzpicture}
+ \end{center}
+ Any relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ can now be easily drawn
+ into the grid just by marking certain dots. For example, the relation $\clg{R =
+ \{}(\clr{1},\clb{c}), (\clr{2},\clb{b}),(\clr{2},\clb{a})\clg{\}} \subseteq
+ \clr{A} \times \clb{B}$ looks like this:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{\x + 1}
+    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/a, 1/b, 2/c} {
+    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
+   }
+   \foreach \x in {0, 1, 2, 3} {
+    \foreach \y in {0, 1, 2} {
+     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
+    }
+   }
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (0, 2)
+    {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 0)
+    {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 1)
+    {};
+  \end{tikzpicture}
+ \end{center}
+ There is another way to draw relations -- as arrows from $\clr{A}$ to
+ $\clb{B}$. This style of drawing emphasises the `one-way' nature of relations.
+ The same relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ is drawn using
+ arrows like this:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \y in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{4-\y}
+    \node[BrickRed] (A\z) at (-2,\y) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/c, 1/b, 2/a} {
+    \node[RoyalBlue] (B\n) at (2,\y) {\footnotesize $\n$};
+   }
+   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A1) -- (Bc);
+   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A2) -- (Bb);
+   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A2) -- (Ba);
+  \end{tikzpicture}
+ \end{center}
+\end{block}
+
+\begin{exampleblock}{Equivalence \& Equivalence Classes}
+ A relation $\clg{E} \subseteq \clr{A} \times \clr{A}$ (do note that it's a
+ relation \textbf{on a set}) is called an \alert{equivalence} if it behaves
+ \textbf{something like `equals'}, that is,
+ \begin{itemize}[left=2em]
+  \item[(R)] it's \alert{reflexive}, i.e. $\clr{a}\clg{E}\clr{a}$ for every
+   $\clr{a} \in \clr{A}$ (every element is equivalent to itself);
+  \item[(S)] it's \alert{symmetric}, i.e. if $\clr{a_1}\clg{E}\clr{a_2}$, then
+   also $\clr{a_2}\clg{E}\clr{a_1}$ (all elements are \textbf{mutually}
+   equivalent);
+  \item[(T)] it's \alert{transitive}, i.e. if $\clr{a_1}\clg{E}\clr{a_2}$ and
+   $\clr{a_2} \clg{E} \clr{a_3}$, then $\clr{a_1} \clg{E} \clr{a_3}$ (it
+   \textbf{propagates} through a middle element).
+ \end{itemize}
+ A good example of equivalence to keep in mind is the relation `\textbf{being
+ the same age}' on the set of all people. It's \alert{reflexive} because I'm as
+ old as me. It's \alert{symmetric} because if I'm as old as you, then you are as
+ old as me. And finally, it's \alert{transitive} because if I'm as old as you
+ and you are as old as someone else, then I'm as old as that someone. This
+ example also drives home the idea of equivalence `being like equals'. It's not
+ that two people of the same age are \emph{equal}, they are \emph{equal by some
+ criterion}. This is exactly what equivalence is, the relation of being equal by
+ some criterion.
+
+ With an equivalence $\clg{E} \subseteq \clr{A} \times \clr{A}$, we can divide
+ the set $\clr{A}$ into `packets' of elements -- each packet consisting of
+ elements which are \textbf{equivalent} by $\clg{E}$. For example, I can divide
+ the set of all people by putting equally old people to the same packet.
+ Formally, we write
+ \[
+  [\clr{a}]_{\clg{E}} = \{\clr{b} \in \clr{A} \mid \clr{a}\clg{E}\clr{b}\},
+ \]
+ in other words, $[\clr{a}]_{\clg{E}}$ is the set of all elements from $\clr{A}$
+ that are $\clg{equivalent}$ to $\clr{a}$. We call it \alert{an equivalence
+ class}. The element $\clr{a}$ is then called a \alert{representative}. 
+\end{exampleblock}
+\end{column}
+\separatorcolumn
+
+\end{columns}
+\end{frame}
+
+\end{document}
