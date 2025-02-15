@@ -296,58 +296,19 @@
 \end{exampleblock}
 
 \begin{alertblock}{Euler's algorithm}
- Using logical conjunctions, we form new sets from existing ones. Consider two
- sets -- $A$ and $B$.
- \begin{itemize}[left=40pt]
-  \item[($ \cap $)] I can form the set of all objects $x$ that satisfy the
-   proposition $x \in A \wedge x \in B$, that is all objects that \alert{lie in
-   both $A$ and $B$}. This set is called the \alert{intersection} of $A$ and $B$
-   and written $A \cap B$. For example,
-   \[
-    \{\mycirc,\mytria,\mysquare\} \cap \{\mycross,\mycirc,\mysquare, \sim \} =
-    \{\mycirc,\mysquare\}.
-   \]
-  \item[($ \cup $)] I can form the set of all objects that satisfy the
-   proposition $x \in A \vee x \in B$, the set of all objects that \alert{lie in
-   $A$ or in $B$}. It is called the \alert{union} of $A$ and $B$ and denoted
-   $A \cup B$. All elements of $A \cup B$ can be found \emph{only} in $A$,
-   \emph{only} in B or in \emph{both} $A$ and $B$. For example,
-   \[
-    \{\mycirc,\mytria,\mysquare\} \cup \{\mycross,\mycirc,\mysquare, \sim \} =
-    \{\mycirc,\mytria,\mysquare,\mycross, \sim \}.
-   \]
-  \item[($ \Rightarrow $)] Implication is a little different from intersection
-   and union. It describes a lot of different sets with one logical proposition.
-   I ask: `Which sets $A$ satisfy the proposition $x \in A \Rightarrow x \in
-   B$?' In other words, which sets $A$ \alert{have all their elements contained}
-   in the set $B$? The answer is that $A$ must be a subset of $B$ and we denote
-   that fact by $A \subseteq B$. The set $A$ is only allowed to have elements
-   which also lie in $B$ but not necessarily all of them. All the subsets of $B
-   = \{\mytria,\mycirc\}$ are listed below.
-   \[
-    \emptyset, \{\mytria\}, \{\mycirc\}, \{\mytria,\mycirc\},
-   \]
-   where $\emptyset$ is the \alert{empty set}, a set containing no elements.
-  \item[($ \Leftrightarrow $)] Equivalence defines \alert{equality} on sets. If
-   sets $A$ and $B$ must satisfy the proposition $x \in A \Leftrightarrow x \in
-   B$, then they must be equal because all the elements of $A$ lie in $B$ and
-   all elements of $B$ lie in $A$. That is, $A = B$.
- \end{itemize}
 \end{alertblock}
-\end{column}
 
 
-\begin{column}{\colwidth}
 
 
 \begin{block}{Congruence}
  Now that we have defined the remainder after division we want to express the
- idea that two numbers ($x$ and $y$) have the same remainder ($r$) after diving by some number $m$.
- Mathematically we write it as:
+ idea that two numbers ($x$ and $y$) \textbf{have the same remainder} ($r$) \textbf{when divided
+ by some $m$.} Mathematically we write this as
  \[
   x \equiv y \pmod{m}.
  \]
- In other words this means:
+ In other words this means
  \begin{align*}
   x = km + r && \text{and}  && y = lm + r
  \end{align*}
@@ -355,29 +316,77 @@
  are the same modulo 12, because they share the remainder 1 when divided by 12
  (formally written as  $13 \equiv 25 \pmod{12}$).
 
- This idea might sound unintuitive and artificial yet it is all around us. If we
- for example take the regular old clock. Looking only at the clock and seeing
- both hands up tells me that it is either noon or midnight. This is because we
- use the 12 hours format which gives the time$ \mod  12$.
+ This of course implies that each number divisible by $m$ is congruent to 0
+ $\bmod ~m$. This makes sense because we said that $a$ divides $b$ only if there
+ is no remainder after the division.
 
-Congruence is in sense very similar to normal equations (it is also
-equivalence try to prove it!). Similar to equations we can manipulate it.
-More specifically:
+ This idea of congruence might sound unintuitive and artificial at first, yet it
+ is all around us. If we for example take the regular old clock. Looking only at
+ the clock and seeing both hands up tells us that it is either noon or midnight.
+ This is because we use the 12 hours format which gives the time $ \bmod~12$.
+
+Congruence is very similar to normal equation (it is also
+equivalence, try to prove it!). Similar to equations we can manipulate it.
+More specifically if i have $x \equiv y \pmod{m}$ then all the oncoming
+congruences hold.
 \begin{itemize}[label=\textbullet,left=24pt]
  \item $x+a \equiv y+a \pmod{m}$ - \textbf{adding} also works for subtracting so
   $a \in \mathbb{Z}$
- \item $xk \equiv yk \pmod{km}$ - \textbf{multiplying}
  \item $x^k \equiv y^k \pmod{m}$ - \textbf{exponentiation}
+ \item $cx \equiv cx \pmod{m}$ - \textbf{simplification}
 \end{itemize}
-for any $k \in \N$.
+for any $k,c \in \N$ and $GCD(m,c)=1$.
+
+The last operation better be explained by an example. If we take $1 \equiv 6
+\pmod{5}$ and multiply it by 2, we get $2 \equiv 12 \bmod{5}$. Notice that
+multiplying the modulus is optional and the congruence holds in both cases
+(because obviously $2 \equiv 12 \bmod{10}$). This
+is because $GCD(2,5)=1$.
 
 An interesting thing to note about the equivalence classes created by some
-congruence $\mod m$ is that there will be $m$ of them. This is because all the
-possible remainders after diving by $m$ are numbers $1, \ldots, m$. 
-
-Similarly to system of equations we can have also systems of congruences.
+congruence $\bmod~m$ is that there will be $m$ of them. This is because all the
+possible remainders after diving by $m$ are numbers $0, \ldots, m-1$. 
 
 \end{block}  
+\end{column}
+
+\separatorcolumn
+\begin{column}{\colwidth}
+
+\begin{exampleblock}{Solving congruences}
+ With this we can now attempt to solve the congruence $7x \equiv 5 \pmod{10}$. 
+
+ If this was just a normal equation how would we solve it? Well we would multiply
+both sides by such a number that 7 times that number gives us 1 (that would
+obviously be $1 / 7$ but we want the idea more then the result). Even though that we are working
+$\bmod~10$ and cannot use rational numbers, the idea is still useful.
+
+The number that satisfies $7x \equiv 1 \pmod{10}$ is called \textbf{inverse} of
+7 $\bmod~10$. To calculate the \textbf{inverse} we try
+to multiply 7 by increasing integers and see which result is 1 $\bmod~10$. 
+\begin{equation*}
+   \begin{split}
+    2 \cdot 7 & \equiv 4 \pmod{10}\\
+    3 \cdot 7 & \equiv 1 \pmod{10}
+   \end{split}
+  \end{equation*}
+This concludes that 3 is the \textbf{inverse} to 7 $\bmod~10$. Now we multiply
+the whole equation by 3 and get the final result.
+\[
+ 21x \equiv x \equiv 15 \equiv 5 \pmod{10}
+\]
+
+One unfortunate thing about inverses is that they are not guaranteed to exist for
+every number. If for example we try to find the inverse of 2 $\bmod~4$ we have
+to conclude that there is no such a number. The inverse for $a$ modulo some $m$
+(this can be written as: the solution to the congruence $ax \equiv 1 \pmod{m}$)
+exists \textbf{if and only if} $a$ and $m$ are \textbf{coprime}.
+
+Now that we can solve an congruence there is nothing stoping us from solving
+more of them.
+\end{exampleblock}
+
+
 \begin{alertblock}{Chineese remainder theorem}
  Imagine we have a system of linear congruences:
    \begin{equation*}
@@ -390,22 +399,18 @@ Similarly to system of equations we can have also systems of congruences.
   \end{equation*}
 
  Where all the numbers are natural and $m_1,\ldots m_n$ are mutually coprime.
- The CRT tells us that there is unique solution $x$ smaller then the product of
- all the numbers we divide by, $M = m_1 \cdot m_2
- \ldots m_n$.
+ Then the CRT tells us that there is unique solution $x$ smaller then the product of
+ all the numbers we divide by $M = m_1 \cdot m_2 \ldots m_n$.
 
 Each congruence limits the possible solutions radically. For example the
 congruence $x \equiv r \pmod{m}$ has solutions in the form: $km + r$ for any $k
-\in \N$. So if we write down all the solutions of each congruence up to $M$ and
-then find the intersection, we have found $x$ such that it satisfies all the
-congruences and thus is the solution to the whole system.
+\in \N$. To solve the whole system, one can write down all the solutions for
+all the congruences and then find their intersection.
 
 We can do this process also graphically. If we circle solutions to the
 individual congruences the number with $n$ circles is the solution to the whole
-system.
-
- If, for example, we have the linear congruences: $\clr{x \equiv 1 \pmod{3}}$,
- $\clb{x \equiv 2 \pmod{4}}$, we can draw:
+system. If, for example, we have the linear congruences $\clr{x \equiv 1 \pmod{3}}$,
+ $\clb{x \equiv 2 \pmod{4}}$, we can draw
 
 \begin{center}
  \begin{tikzpicture}
@@ -441,120 +446,64 @@ system.
      \draw[line width = 2pt] (24)+(0.6,0.6) rectangle ++(-0.6,-0.6);
  \end{tikzpicture}
 \end{center}
-The box around 12 and 24 indicates on what intervals are we guaranteed to have a
-unique solution. This is because $M=m_1 \cdot m_2 = 3 \cdot 4 = 12$.
+Where every circle shows a solution to one of the congruence based on their
+color. The overall solution has two circles and is tinted yellow. The box
+around 12 and 24 indicates on what intervals are we guaranteed to have a unique
+solution. This is because $M=m_1 \cdot m_2 = 3 \cdot 4 = 12$.
 
-If we find the smallest solution $x$ (the one smaller then $M$) then we have
-every other because they are all in the form of $x + kM$ for any $k \in \N$. 
+To draw all the solution to the congruence $x \equiv r \pmod{m}$ it is useful to
+note that the first (or the smallest) solution will always be $x$ and then the
+solutions always jump by $m$. So the next will be $x+m$, the next will be $x+2m$
+and so on.
+
+From the formulation of CFT we are only guaranteed an unique solution up to $M$.
+But the system itself has infinitely many of them in similar to congruences. To
+find them all we have to start with the smallest solution $x$ (the one smaller
+then $M$), then all of them are in the form of $x + kM$ for any $k \in \N$.
  
  \end{alertblock}
 
-\begin{block}{Drawing Products And Relations}
- One can draw the product $A \times B$ similarly to the way we draw Cartesian
- coordinates -- by distributing the elements of $A$ horizontally and those of
- $B$ vertically. Each point in the resulting grid represents an element of $A
- \times B$.
 
- Take, for example, $\clr{A = \{1, 2, 3, 4\}}$ and $\clb{B = \{a, b, c\}}$. We
- can depict the set $\clr{A} \times \clb{B}$ like this:
- \begin{center}
-  \begin{tikzpicture}
-   \foreach \x in {0, 1, 2, 3} {
-    \pgfmathtruncatemacro\z{\x + 1}
-    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
-   }
-   \foreach \y/\n in {0/a, 1/b, 2/c} {
-    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
-   }
-   \foreach \x in {0, 1, 2, 3} {
-    \foreach \y in {0, 1, 2} {
-     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
-    }
-   }
-  \end{tikzpicture}
- \end{center}
- Any relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ can now be easily drawn
- into the grid just by marking certain dots. For example, the relation $\clg{R =
- \{}(\clr{1},\clb{c}), (\clr{2},\clb{b}),(\clr{2},\clb{a})\clg{\}} \subseteq
- \clr{A} \times \clb{B}$ looks like this:
- \begin{center}
-  \begin{tikzpicture}
-   \foreach \x in {0, 1, 2, 3} {
-    \pgfmathtruncatemacro\z{\x + 1}
-    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
-   }
-   \foreach \y/\n in {0/a, 1/b, 2/c} {
-    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
-   }
-   \foreach \x in {0, 1, 2, 3} {
-    \foreach \y in {0, 1, 2} {
-     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
-    }
-   }
-   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (0, 2)
-    {};
-   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 0)
-    {};
-   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 1)
-    {};
-  \end{tikzpicture}
- \end{center}
- There is another way to draw relations -- as arrows from $\clr{A}$ to
- $\clb{B}$. This style of drawing emphasises the `one-way' nature of relations.
- The same relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ is drawn using
- arrows like this:
- \begin{center}
-  \begin{tikzpicture}
-   \foreach \y in {0, 1, 2, 3} {
-    \pgfmathtruncatemacro\z{4-\y}
-    \node[BrickRed] (A\z) at (-2,\y) {\footnotesize $\z$};
-   }
-   \foreach \y/\n in {0/c, 1/b, 2/a} {
-    \node[RoyalBlue] (B\n) at (2,\y) {\footnotesize $\n$};
-   }
-   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A1) -- (Bc);
-   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A2) -- (Bb);
-   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A2) -- (Ba);
-  \end{tikzpicture}
- \end{center}
-\end{block}
-
-\begin{exampleblock}{Equivalence \& Equivalence Classes}
- A relation $\clg{E} \subseteq \clr{A} \times \clr{A}$ (do note that it's a
- relation \textbf{on a set}) is called an \alert{equivalence} if it behaves
- \textbf{something like `equals'}, that is,
- \begin{itemize}[left=2em]
-  \item[(R)] it's \alert{reflexive}, i.e. $\clr{a}\clg{E}\clr{a}$ for every
-   $\clr{a} \in \clr{A}$ (every element is equivalent to itself);
-  \item[(S)] it's \alert{symmetric}, i.e. if $\clr{a_1}\clg{E}\clr{a_2}$, then
-   also $\clr{a_2}\clg{E}\clr{a_1}$ (all elements are \textbf{mutually}
-   equivalent);
-  \item[(T)] it's \alert{transitive}, i.e. if $\clr{a_1}\clg{E}\clr{a_2}$ and
-   $\clr{a_2} \clg{E} \clr{a_3}$, then $\clr{a_1} \clg{E} \clr{a_3}$ (it
-   \textbf{propagates} through a middle element).
- \end{itemize}
- A good example of equivalence to keep in mind is the relation `\textbf{being
- the same age}' on the set of all people. It's \alert{reflexive} because I'm as
- old as me. It's \alert{symmetric} because if I'm as old as you, then you are as
- old as me. And finally, it's \alert{transitive} because if I'm as old as you
- and you are as old as someone else, then I'm as old as that someone. This
- example also drives home the idea of equivalence `being like equals'. It's not
- that two people of the same age are \emph{equal}, they are \emph{equal by some
- criterion}. This is exactly what equivalence is, the relation of being equal by
- some criterion.
-
- With an equivalence $\clg{E} \subseteq \clr{A} \times \clr{A}$, we can divide
- the set $\clr{A}$ into `packets' of elements -- each packet consisting of
- elements which are \textbf{equivalent} by $\clg{E}$. For example, I can divide
- the set of all people by putting equally old people to the same packet.
- Formally, we write
+ \begin{block}{Solving congruence systems}
+  Now, to showcase more scalable but less intuitive method, the system
+    \begin{equation*}
+   \begin{split}
+    x & \equiv 3 \pmod{7}\\
+    x & \equiv 5 \pmod{9}\\
+    x & \equiv 4 \pmod{11}
+   \end{split}
+  \end{equation*}
+is solved. From the first congruence we know that $x= 7k +3$ for some $k \in
+\N$. We can now substitute for $x$ to the second congruence and solve it.
+\begin{equation*}
+   \begin{aligned}
+    7k +3 & \equiv 5 \pmod{9}  && \qquad    \text{\footnotesize{\# Substituting}} \\
+    7k &\equiv 2 \pmod{9}&& \qquad \text{\footnotesize{\# Subtracting 3}}  \\
+    k &\equiv 8 \pmod{9} &&\qquad \text{\footnotesize{\# Multiplying by inverse of 7 $\bmod~9$
+    which is 4.}}
+   \end{aligned}
+  \end{equation*}
+ Now we know that $k = 9l +8$ for some $l \in \N$. This expression is now used
+ to express $x$ in terms of $l$ as $x=7(9l+8)+3 = 63l + 59$. There is
+ still one equation that we have not used. Substituting to the last congruence
+ gives us.
+\begin{equation*}
+   \begin{aligned}
+    8l + 4 & \equiv 4 \pmod{11}  && \qquad    \text{\footnotesize{\# Substituting}} \\
+    l &\equiv 0 \pmod{11}   
+   \end{aligned}
+  \end{equation*}
+ With this we can express $l$ in terms of some other constant and finally see
+ the answer
  \[
-  [\clr{a}]_{\clg{E}} = \{\clr{b} \in \clr{A} \mid \clr{a}\clg{E}\clr{b}\},
+  x = 210m + 59 \text{.}
  \]
- in other words, $[\clr{a}]_{\clg{E}}$ is the set of all elements from $\clr{A}$
- that are $\clg{equivalent}$ to $\clr{a}$. We call it \alert{an equivalence
- class}. The element $\clr{a}$ is then called a \alert{representative}. 
-\end{exampleblock}
+ Notice how the coefficient before $m$ is the same $7\cdot 9 \cdot 11$. The CRT
+ tell us that this will be the case for every system where the module are
+ coprime.
+
+
+ \end{block}
 
 \end{column}
 \separatorcolumn
