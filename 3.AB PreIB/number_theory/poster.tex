@@ -61,6 +61,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \DeclareMathOperator{\s}{succ}
+\newcommand{\dv}{\mathbin{\mathrm{div}}}
 
 % Inline shapes
 \newcommand{\mysquare}{\tikz[baseline=-7pt]{%
@@ -113,7 +114,7 @@
 % ====================
 
 % use this to include logos on the left and/or right side of the header:
-\logoright{\includegraphics[height=3.5cm]{logos/logo-white.png}}
+\logoright{\includegraphics[height=6cm]{logos/logo-white.png}}
 % \logoleft{\hspace{20ex}\includegraphics[height=3.5cm]{logos/ppgca-logo.png}}
 
 % ====================
@@ -482,211 +483,79 @@
  \]
 \end{exampleblock}
 
-\begin{block}{Drawing Sets}
- Set operations can be visualized using so-called \emph{Venn diagrams}. This
- just means using circles to represent the sets in questions. For example, two
- sets -- $\clr{A}$ and $\clb{B}$ -- can be drawn like this:
- \begin{center}
-  \begin{tikzpicture}[scale=0.5]
-   \fill[BrickRed,fill opacity=0.25] (180:1.5) circle (2);
-   \fill[RoyalBlue,fill opacity=0.25] (0:1.5) circle (2);
-   \draw[BrickRed,thick] (180:1.5) circle (2);
-   \draw[RoyalBlue,thick] (0:1.5) circle (2);
-   \node at (150:4.3) {\footnotesize $\clr{A}$};
-   \node at (30:4.3) {\footnotesize $\clb{B}$};
-  \end{tikzpicture}
- \end{center}
- In these pictures, one can easily visualize the operations of union and
- intersection. The union $\clg{A \cup B}$ is the entire area covered by
- $\clr{A}$ and $\clb{B}$. It looks like this:
- \begin{center}
-  \begin{tikzpicture}[scale=0.5]
-   \def\firstcircle{(180:1.5) circle (2)}
-   \def\secondcircle{(0:1.5) circle (2)}
-   \filldraw[thick,ForestGreen] \firstcircle; 
-   \filldraw[thick,ForestGreen] \secondcircle;
-   \node at (90:3) {\footnotesize $\clg{A \cup B}$};
-  \end{tikzpicture}
- \end{center}
- The intersection $\clm{A \cap B}$ is the `strip' in the middle, the area which
- is shared between both $\clr{A}$ and $\clb{B}$. It can be depicted like this:
- \begin{center}
-  \begin{tikzpicture}[scale=0.5]
-   \def\firstcircle{(180:1.5) circle (2)}
-   \def\secondcircle{(0:1.5) circle (2)}
-   
-   \fill[BrickRed,fill opacity=0.25] \firstcircle;
-   \fill[RoyalBlue,fill opacity=0.25] \secondcircle;
-   \draw[BrickRed,thick] \firstcircle;
-   \draw[RoyalBlue,thick] \secondcircle;
+\begin{alertblock}{Divisibility}
+ There are two more interesting operations on integers -- \alert{integer
+ division} and \alert{modulus}. You've learnt about them in elementary school
+ and they are basically `a way to do \alert{division on integers}'.
 
-   \begin{scope}
-    \clip \firstcircle;
-    \fill[white] \secondcircle;
-    \filldraw[thick,Fuchsia] \secondcircle;
-   \end{scope}
-   \begin{scope}
-    \clip \secondcircle;
-    \draw[Fuchsia,thick] \firstcircle;
-   \end{scope}
-   \node at (90:3) {\footnotesize $\clm{A \cap B}$};
-  \end{tikzpicture}
- \end{center}
-\end{block}
+ Given two integers: $a,b \in \Z$, we can ask `\textbf{How many times does $b$
+ fit into $a$?}'. This number is called the \alert{quotient} (of $a$ by $b$) and
+ denoted \alert{$a \dv b$}. For example, $7 \dv 2 = 3$ because $2$ fits $3$
+ times into $7$ or $10 \dv 8 = 1$ because $8$ fits only once into $10$. This
+ operation can also be used with integers, for instance $-5 \dv 2 = -2$ because
+ $2$ `fits' $-2$ times into $-5$.
+
+ The quantity that is `left after integer division' is called the
+ \alert{remainder} and denoted $a \bmod b$. In our first example, $7 \bmod 2 =
+ 1$ because $7 \dv 3 = 2$ and $2 \cdot 3 = 6$, so the number $1$ is left after
+ performing the division. Similarly, $10 \bmod 8 = 2$ since $10 \dv 8 = 1$ and
+ $8 \cdot 1 = 8$ and $10 - 8 = 2$. In the last example, we get $-5 \bmod 2 = -1$
+ as $-5 \dv 2 = -2$ and $2 \cdot (-2) = -4$.
+
+ Notice that the \alert{remainder must always be smaller (in absolute value)
+ than the divisor} because it's the quantity that's left after the divisor no
+ longer fits into the dividend. We may thus formalise the idea of \alert{integer
+ division as such}: for any two numbers $a,b \in \Z$ there are \textbf{unique}
+ numbers $q,r \in \Z$ (called \alert{quotient} and \alert{remainder}) such that
+ \[
+  a = b \cdot q + r
+ \]
+ and $0 \leq |r| < |b|$. We write $q = a \dv b$ and $r = a \bmod b$.
+
+ The operation of integer division gives birth to the idea of
+ \alert{divisibility}. We say that a number $b$ divides the number $a$ (and
+ write $b \mid a$) if $a \bmod b = 0$ or, equivalently, $a = b \cdot q$ for some
+ integer $q \in \Z$.
+\end{alertblock}
+
 \end{column}
 \separatorcolumn
 
 \begin{column}{\colwidth}
 
-\begin{alertblock}{Products of Sets \& Relations}
- Before introducing \emph{products} of sets, we must define a \emph{pair}.
- Simply said, a \alert{pair} of objects $(a,b)$ is just a set containing $a$ and
- $b$ \textbf{with ordering}, that is, $a$ is the \textbf{first} element of
- $(a,b)$ and $b$ is \textbf{second}. This means that $(a,b) \neq (b,a)$ because
- the order is not the same.
+\begin{exampleblock}{Greatest Common Divisor}
+ We ask the question: `What's the \alert{largest number that divides} both $a$
+ and $b$?' Such number is called the \alert{greatest common divisor} of $a$ and
+ $b$ and written $\mathrm{gcd}(a,b)$.
 
- Now, the \alert{product} of sets $A$ and $B$, denoted $A \times B$, is the set
- of all pairs $(a,b)$ where $a \in A$ and $b \in B$. For example, if
+ There is a nice \alert{algorithmic way} to compute this number: the algorithm
+ is called \alert{Euclid's Algorithm}. It uses the following equality: for every
+ two numbers, $a,b \in \Z$, it holds that
  \[
-  A = \{\mycirc,\mytria\} \quad \text{and} \quad B = \{\mytria,\mycross, \sim
-  \},
+  \mathrm{gcd}(a,b) = \mathrm{gcd}(a \bmod b, b).
  \]
- then
+ Since $a \bmod b$ is always smaller than both $a$ and $b$, we keep taking the
+ remainder after division of one number by the other until we reach the number
+ $0$. Once we do, we have found the greatest common divisor as
+ $\mathrm{gcd}(d,0) = d$ ($0$ is divided by every number).
+
+ Let's showcase the algorithm. Suppose we want to calculate $\mathrm{gcd}(3312,
+ 448)$. We first calculate $3312 \bmod 448 = 176$. Therefore
  \[
-  A \times B = \{(\mycirc,\mytria),(\mycirc,\mycross),(\mycirc, \sim),
-  (\mytria,\mytria), (\mytria,\mycross), (\mytria, \sim)\}.
+  \mathrm{gcd}(3312, 448) = \mathrm{gcd}(176, 448).
  \]
- Notice that $A \times B \neq B \times A$ because the \textbf{order} of elements
- in a pair \textbf{matters}. In this case,
+ Next, we compute $448 \bmod 176 = 96$ and thus
  \[
-  B \times A = \{(\mytria,\mycirc), (\mytria,\mytria), (\mycross,\mycirc),
-  (\mycross,\mytria), ( \sim, \mycirc), ( \sim, \mytria)\}.
+  \mathrm{gcd}(176, 448) = \mathrm{gcd}(176, 96).
  \]
-
- As another example, consider the \emph{real plane} -- the set of all points
- with two coordinates. That is simply the set of pairs of real numbers, $\R
- \times \R$.
-
- The mathematical way to define a \alert{relation} between two sets is to simply
- \textbf{list all the elements that are related}. Said formally, a relation $R$
- is a subset $R \subseteq A \times B$. For example,
+ We are almost done. Computing $176 \bmod 96 = 80$ and $96 \bmod 80 = 16$ gives
  \[
-  \{(\mytria,\mycross),(\mytria, \sim )\} \subseteq \{\mycirc,\mytria\} \times
-  \{\mytria,\mycross, \sim\}
+  \mathrm{gcd}(176, 96) = \mathrm{gcd}(80, 96) = \mathrm{gcd}(80, 16).
  \]
- is a relation between the sets $A$ and $B$ from above. It literally says that
- $\mytria$ is related to $\mycross$ and $ \sim $. Instead of writing
- $(\mytria,\mycross) \in R$, we write $\mytria R \mycross$ because it's more
- natural. Typical examples of relations include $ \leq $ and $=$ and we don't
- write $(2,3) \in~\leq $ but $2 \leq 3$. 
-\end{alertblock}
-
-\begin{block}{Drawing Products And Relations}
- One can draw the product $A \times B$ similarly to the way we draw Cartesian
- coordinates -- by distributing the elements of $A$ horizontally and those of
- $B$ vertically. Each point in the resulting grid represents an element of $A
- \times B$.
-
- Take, for example, $\clr{A = \{1, 2, 3, 4\}}$ and $\clb{B = \{a, b, c\}}$. We
- can depict the set $\clr{A} \times \clb{B}$ like this:
- \begin{center}
-  \begin{tikzpicture}
-   \foreach \x in {0, 1, 2, 3} {
-    \pgfmathtruncatemacro\z{\x + 1}
-    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
-   }
-   \foreach \y/\n in {0/a, 1/b, 2/c} {
-    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
-   }
-   \foreach \x in {0, 1, 2, 3} {
-    \foreach \y in {0, 1, 2} {
-     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
-    }
-   }
-  \end{tikzpicture}
- \end{center}
- Any relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ can now be easily drawn
- into the grid just by marking certain dots. For example, the relation $\clg{R =
- \{}(\clr{1},\clb{c}), (\clr{2},\clb{b}),(\clr{2},\clb{a})\clg{\}} \subseteq
- \clr{A} \times \clb{B}$ looks like this:
- \begin{center}
-  \begin{tikzpicture}
-   \foreach \x in {0, 1, 2, 3} {
-    \pgfmathtruncatemacro\z{\x + 1}
-    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
-   }
-   \foreach \y/\n in {0/a, 1/b, 2/c} {
-    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
-   }
-   \foreach \x in {0, 1, 2, 3} {
-    \foreach \y in {0, 1, 2} {
-     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
-    }
-   }
-   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (0, 2)
-    {};
-   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 0)
-    {};
-   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 1)
-    {};
-  \end{tikzpicture}
- \end{center}
- There is another way to draw relations -- as arrows from $\clr{A}$ to
- $\clb{B}$. This style of drawing emphasises the `one-way' nature of relations.
- The same relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ is drawn using
- arrows like this:
- \begin{center}
-  \begin{tikzpicture}
-   \foreach \y in {0, 1, 2, 3} {
-    \pgfmathtruncatemacro\z{4-\y}
-    \node[BrickRed] (A\z) at (-2,\y) {\footnotesize $\z$};
-   }
-   \foreach \y/\n in {0/c, 1/b, 2/a} {
-    \node[RoyalBlue] (B\n) at (2,\y) {\footnotesize $\n$};
-   }
-   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A1) -- (Bc);
-   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A2) -- (Bb);
-   \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen] (A2) -- (Ba);
-  \end{tikzpicture}
- \end{center}
-\end{block}
-
-\begin{exampleblock}{Equivalence \& Equivalence Classes}
- A relation $\clg{E} \subseteq \clr{A} \times \clr{A}$ (do note that it's a
- relation \textbf{on a set}) is called an \alert{equivalence} if it behaves
- \textbf{something like `equals'}, that is,
- \begin{itemize}[left=2em]
-  \item[(R)] it's \alert{reflexive}, i.e. $\clr{a}\clg{E}\clr{a}$ for every
-   $\clr{a} \in \clr{A}$ (every element is equivalent to itself);
-  \item[(S)] it's \alert{symmetric}, i.e. if $\clr{a_1}\clg{E}\clr{a_2}$, then
-   also $\clr{a_2}\clg{E}\clr{a_1}$ (all elements are \textbf{mutually}
-   equivalent);
-  \item[(T)] it's \alert{transitive}, i.e. if $\clr{a_1}\clg{E}\clr{a_2}$ and
-   $\clr{a_2} \clg{E} \clr{a_3}$, then $\clr{a_1} \clg{E} \clr{a_3}$ (it
-   \textbf{propagates} through a middle element).
- \end{itemize}
- A good example of equivalence to keep in mind is the relation `\textbf{being
- the same age}' on the set of all people. It's \alert{reflexive} because I'm as
- old as me. It's \alert{symmetric} because if I'm as old as you, then you are as
- old as me. And finally, it's \alert{transitive} because if I'm as old as you
- and you are as old as someone else, then I'm as old as that someone. This
- example also drives home the idea of equivalence `being like equals'. It's not
- that two people of the same age are \emph{equal}, they are \emph{equal by some
- criterion}. This is exactly what equivalence is, the relation of being equal by
- some criterion.
-
- With an equivalence $\clg{E} \subseteq \clr{A} \times \clr{A}$, we can divide
- the set $\clr{A}$ into `packets' of elements -- each packet consisting of
- elements which are \textbf{equivalent} by $\clg{E}$. For example, I can divide
- the set of all people by putting equally old people to the same packet.
- Formally, we write
- \[
-  [\clr{a}]_{\clg{E}} = \{\clr{b} \in \clr{A} \mid \clr{a}\clg{E}\clr{b}\},
- \]
- in other words, $[\clr{a}]_{\clg{E}}$ is the set of all elements from $\clr{A}$
- that are $\clg{equivalent}$ to $\clr{a}$. We call it \alert{an equivalence
- class}. The element $\clr{a}$ is then called a \alert{representative}. 
+ Because $80 \bmod 16 = 0$, we have reached the conclusion that
+ $\mathrm{gcd}(3312, 448) = 16$.
 \end{exampleblock}
+
 \end{column}
 \separatorcolumn
 
