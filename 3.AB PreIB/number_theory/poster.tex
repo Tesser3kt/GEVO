@@ -140,10 +140,10 @@
 \begin{column}{\colwidth}
 
  \begin{exampleblock}{Natural Numbers}
-  Natural numbers (denoted $\N$) are defined basically as `sets containing so
-  many elements'. This means that the number $0$ is a set with no elements, $1$
-  is a set with one element and so on. Formally, we construct them in the
-  following way ($\emptyset$ is the empty set):
+  Natural numbers (denoted $\N$) are defined basically as `\alert{sets
+  containing so many elements}'. This means that the number $0$ is a set with no
+  elements, $1$ is a set with one element and so on. Formally, we construct them
+  in the following way ($\emptyset$ is the empty set):
   \[
    \begin{array}{r c l c l}
     0 & = & \emptyset & &\\
@@ -166,7 +166,7 @@
 
   \vspace{18pt}
 
-  \textbf{\large Addition of natural numbers (\alert{not examined})}
+  \textbf{\large Addition of natural numbers}
 
   We can define the operation of \alert{addition} on natural numbers using two
   simple rules. For two natural numbers $n,m \in \N$,
@@ -245,8 +245,8 @@
   \begin{itemize}[label=\textbullet,left=12pt]
    \item Using rule (1), calculate $n + 1 = \s(n) = n \cup \{n\}$.
    \item Now that we have calculated $n + 1$, we can calculate $n + 2$ because
-    $n + 2 = n + \s(1)$ and by rule (2) this equals $n + \s(1) = \s(n + 1)$, so
-    just take the next number after $n + 1$.
+    $n + 2 = n + \s(1)$ and, by rule (2), this equals $n + \s(1) = \s(n + 1)$,
+    so just take the next number after $n + 1$.
    \item Continue like this until you calculate $n + m = n + \s(m - 1)$.
   \end{itemize}
   For example, to compute $4 + 2$, we calculate $4 + 1 = \s(4)$ and then $4 + 2
@@ -255,7 +255,7 @@
  \end{exampleblock}
 
  \begin{exampleblock}{Integers (Whole Numbers)}
-  We have defined \alert{addition} on natural numbers, but in order to perform
+  We have defined \alert{addition} on natural numbers but in order to perform
   \alert{subtraction}, we must move to a `larger' set of numbers -- the
   \alert{integers}. This is because subtraction is \alert{\textbf{not}} an
   operation on natural numbers as its result needn't be a natural number itself.
@@ -337,18 +337,19 @@
    \clb{c}, \clr{b} + \clb{d})]_{\clg{E}}.
   \]
   Finally, we define the \alert{opposite number} to $[(a,b)]_{\clg{E}}$ as
-  $-[(a,b)]_{\clg{E}} = [(b,a)]_{\clg{E}}$ (this is because $-(a-b) = b-a$). The
-  \alert{subtraction} of two integers is now just a sum of the first and the
-  opposite of the second, that is
+  $-[(a,b)]_{\clg{E}} = [(b,a)]_{\clg{E}}$ (may `$-(a-b) = b-a$' serve your
+  intuition). The \alert{subtraction} of two integers is now just a sum of the
+  first and the opposite of the second, that is
   \[
    [(\clr{a},\clr{b})]_{\clg{E}} - [(\clb{c},\clb{d})]_{\clg{E}} =
    [(\clr{a},\clr{b})]_{\clg{E}} + (-[(\clb{c},\clb{d})]_{\clg{E}}) =
    [(\clr{a},\clr{b})]_{\clg{E}} + [(\clb{d},\clb{c})]_{\clg{E}} = [(\clr{a} +
    \clb{d}, \clr{b} + \clb{c})]_{\clg{E}}.
   \]
-  For example,
+  Exemplī grātiā,
   \[
    [(\clr{3}, \clr{1})]_{\clg{E}} - [(\clb{5},\clb{2})]_{\clg{E}} = [(\clr{3},
+   \clr{1})]_{\clg{E}} + (-[\clb{5},\clb{2}])_{\clg{E}} = [(\clr{3},
    \clr{1})]_{\clg{E}} + [(\clb{2},\clb{5})]_{\clg{E}} = [(\clr{3} + \clb{2},
    \clr{1} + \clb{5})]_{\clg{E}} = [(5, 6)]_{\clg{E}},
   \]
@@ -369,46 +370,46 @@
  numbers by the following two rules.
  \begin{enumerate}[label=(\arabic*),left=12pt]
   \item $n \cdot 1 = n$,
-  \item $n \cdot \s(m) = n \cdot m + m$,
+  \item $n \cdot (m + 1) = n \cdot m + m$,
  \end{enumerate}
  for $n,m \in \N$. They carry the idea behind an algorithmic way to compute the
  product $n \cdot m$ for any two natural numbers $n,m$. It goes like this:
  \begin{itemize}[left=12pt,label=\textbullet]
   \item Using rule (1), calculate $n \cdot 1 = n$.
-  \item Using rule (2), calculate $n \cdot 2 = n \cdot \s(1) = n \cdot 1 + n = n
-   + n$.
+  \item Using rule (2), calculate $n \cdot 2 = n \cdot (1 + 1) = n \cdot 1 + n =
+   n + n$.
   \item Continue like this until you calculate
    \[
-    n \cdot m = n \cdot \s(m - 1) = n \cdot (m - 1) + n = \underbrace{n + n +
+    n \cdot m = n \cdot (m - 1 + 1) = n \cdot (m - 1) + n = \underbrace{n + n +
     \ldots + n}_{(m - 1)\text{ times}} + n.
    \]
  \end{itemize}
  For example, to calculate $4 \cdot 3$, we first multiply $4 \cdot 1 = 4$, then
- $4 \cdot 2 = 4 \cdot \s(1) = 4 \cdot 1 + 4 = 4 + 4$, and finally $4 \cdot 3 = 4
- \cdot \s(2) = 4 \cdot 2 + 4 = (4 + 4) + 4$. As you've been taught:
- `multiplication is just repeated addition'.
+ $4 \cdot 2 = 4 \cdot (1 + 1) = 4 \cdot 1 + 4 = 4 + 4$, and finally $4 \cdot 3 =
+ 4 \cdot (2 + 1) = 4 \cdot 2 + 4 = (4 + 4) + 4$. As you've been taught:
+ `\alert{multiplication is just repeated addition}'.
 
- Multiplication is easily extended to integers by the formula
+ Multiplication is extended to integers by the formula
  \[
   [(\clr{a},\clr{b})]_{\clg{E}} \cdot [(\clb{c},\clb{d})]_{\clg{E}} = [(\clr{a}
   \cdot \clb{c} + \clr{b} \cdot \clb{d}, \clr{b} \cdot \clb{c} + \clr{a} \cdot
-  \clb{d})]_{\clg{E}}.
+  \clb{d})]_{\clg{E}},
  \]
- The formula is based on the calculation
+ which is based on the calculation
  \[
   (\clr{a} - \clr{b}) \cdot (\clb{c} - \clb{d}) = \clr{a} \cdot \clb{c} -
   \clr{b} \cdot \clb{c} - \clr{a} \cdot \clb{d} + \clr{b} \cdot \clb{d} =
   (\clr{a} \cdot \clb{c} + \clr{b} \cdot \clb{d}) - (\clr{b} \cdot \clb{c} +
   \clr{a} \cdot \clb{d}).
  \]
-
- For example,
+ 
+ To perform a concrete calculation:
  \[
   [(\clr{5},\clr{3})]_{\clg{E}} \cdot [(\clb{1},\clb{5})]_{\clg{E}} =
   [(\clr{5} \cdot \clb{1} + \clr{3} \cdot \clb{5}, \clr{3} \cdot \clb{1} +
   \clr{5} \cdot \clb{5})]_{\clg{E}} = [(20, 28)]_{\clg{E}}.
  \]
- This is the same calculation as
+ This is the same as computing
  \[
   \clr{2} \cdot (\clb{-4}) = -8.
  \]
@@ -424,8 +425,8 @@
  are really just \alert{pairs of integers}. And again, multiple pairs of
  integers \alert{represent the same} rational number. Therefore, given pairs
  $(a,b)$ and $(c,d)$ with $a,b,c,d \in \Z$, we must make sure that $(a,b)$
- \alert{is equivalent to} $(c,d)$ if `the fraction $a / b$ is the same as the
- fraction $c / d$'.
+ \alert{is equivalent to} $(c,d)$ if `\alert{the fraction $a / b$ is the same as
+ the fraction $c / d$}'.
 
  As we couldn't have defined division yet, we must \alert{rewrite the last
  equation in terms of multiplication only}. This is easy to do because $a / b =
@@ -441,10 +442,13 @@
  \]
  We tend to write elements of $\clm{\Q}$ as \textbf{fractions}, that is, instead
  of $[(a,b)]_{\clg{Q}}$, we write $a / b$. We shall adopt this notation
- henceforth.
+ henceforth. \alert{\textbf{Beware:}} The symbol $a / b$ \alert{does not mean}
+ `Divide $a$ by $b$,' as \textbf{division of integers makes no sense}. It is
+ only a \textbf{convenient notation} for the class of equivalence
+ $[(a,b)]_{\clg{Q}}$.
 
  It only remains to \alert{extend addition and multiplication} to rational
- numbers. This is easily done using formulae you already know. For example, the
+ numbers. This is easily done using formulae you already know. The
  \alert{product} of two rational numbers $a / b, c / d \in \clm{\Q}$ is defined
  as such:
  \[
@@ -465,9 +469,10 @@
  \]
  
  Finally, we're ready to \alert{define division} on rational numbers. We first
- define the \alert{inverse} of a rational numbers $a / b$ as $b / a$. We write
- $b / a = (a / b)^{-1}$. The \alert{operation of division} on rational numbers
- is defined as \alert{multiplication by the inverse element}, that is
+ define the \alert{inverse} of a rational number $a / b$ as $b / a$. We write $b
+ / a = (a / b)^{-1}$. The \alert{operation of division} (denoted by $:$) on
+ rational numbers is defined as \alert{multiplication by the inverse element},
+ that is
  \[
   \frac{\clr{a}}{\clr{b}} : \frac{\clb{c}}{\clb{d}} = \frac{\clr{a}}{\clr{b}}
   \cdot \left( \frac{\clb{c}}{\clb{d}} \right)^{-1} = \frac{\clr{a}}{\clr{b}}
@@ -492,20 +497,20 @@
  fit into $a$?}'. This number is called the \alert{quotient} (of $a$ by $b$) and
  denoted \alert{$a \dv b$}. For example, $7 \dv 2 = 3$ because $2$ fits $3$
  times into $7$ or $10 \dv 8 = 1$ because $8$ fits only once into $10$. This
- operation can also be used with integers, for instance $-5 \dv 2 = -2$ because
+ operation can also be supplied integers, for instance $-5 \dv 2 = -2$ because
  $2$ `fits' $-2$ times into $-5$.
 
  The quantity that is `left after integer division' is called the
  \alert{remainder} and denoted $a \bmod b$. In our first example, $7 \bmod 2 =
- 1$ because $7 \dv 3 = 2$ and $2 \cdot 3 = 6$, so the number $1$ is left after
- performing the division. Similarly, $10 \bmod 8 = 2$ since $10 \dv 8 = 1$ and
- $8 \cdot 1 = 8$ and $10 - 8 = 2$. In the last example, we get $-5 \bmod 2 = -1$
- as $-5 \dv 2 = -2$ and $2 \cdot (-2) = -4$.
+ 1$ because $7 \dv 3 = 2$ and $2 \cdot 3 = 6$, so the number $1$ remains after
+ performing the division. Similarly, $10 \bmod 8 = 2$ since $10 \dv 8 = 1$, $8
+ \cdot 1 = 8$ and $10 - 8 = 2$. In the last example, we get $-5 \bmod 2 = -1$ as
+ $-5 \dv 2 = -2$ and $2 \cdot (-2) = -4$.
 
  Notice that the \alert{remainder must always be smaller (in absolute value)
  than the divisor} because it's the quantity that's left after the divisor no
  longer fits into the dividend. We may thus formalise the idea of \alert{integer
- division as such}: for any two numbers $a,b \in \Z$ there are \textbf{unique}
+ division as such}: for any two numbers $a,b \in \Z$, there are \textbf{unique}
  numbers $q,r \in \Z$ (called \alert{quotient} and \alert{remainder}) such that
  \[
   a = b \cdot q + r
@@ -548,7 +553,7 @@
 \begin{exampleblock}{Greatest Common Divisor}
  We ask the question: `What's the \alert{largest number that divides} both $a$
  and $b$?' Such number is called the \alert{greatest common divisor} of $a$ and
- $b$ and written $\mathrm{gcd}(a,b)$.
+ $b$ and denoted $\mathrm{gcd}(a,b)$.
 
  There is a nice \alert{algorithmic way} to compute this number: the algorithm
  is called \alert{Euclid's Algorithm}. It uses the following equality: for every
@@ -602,9 +607,9 @@
 
  This idea of congruence might sound unintuitive and artificial at first, yet it
  is all around us. If we, for example, consider the regular old clock. Looking
- only at the clock and seeing both hands up tells us that it is either noon or
- midnight. This is because we use the 12-hour format which describes current
- time modulo $12$.
+ only at the clock and seeing both hands aligned north tells us that it is
+ either noon or midnight. This is because we use the 12-hour format which
+ describes current time modulo $12$.
 
  \alert{Congruence is very similar to normal equation} (it is also an
  equivalence relation, try to prove it!). We can manipulate it as we would an
@@ -625,37 +630,41 @@
  that} $n$ and $m$ \alert{are coprime}, i.e. $\gcd(m,n) = 1$. Let's make an
  example: if $35 \equiv 15 \pmod{4}$, then we can `divide' both sides by $5$ and
  get $7 \equiv 3 \pmod{4}$ because $\gcd(4,5) = 1$. However, $10 \equiv 2
- \pmod{8}$ but $5 \not\equiv 1 \pmod{8}$ since we have divided by $4$ which is
+ \pmod{8}$ but $5 \not\equiv 1 \pmod{8}$ since we have divided by $2$ which is
  \textbf{not} coprime to $8$.
 
  An interesting thing to note about the equivalence classes created by some
  congruence modulo $m$ is that there are $m$ of them. This is because all the
- possible remainders after diving by $m$ are numbers $0, \ldots, m - 1$. 
+ possible remainders after dividing by $m$ are numbers $0, \ldots, m - 1$. 
 \end{block}
 
+\end{column}
+\separatorcolumn
+\begin{column}{\colwidth}
 \begin{exampleblock}{Solving Congruences}
  We now attempt to \alert{solve the congruence} $7 \cdot x \equiv 5 \pmod{10}$.
  \alert{Solving a congruence} means a similar thing as \alert{solving an
- equation}. We're looking for a number $n \in \Z$ such that $x \equiv n
- \pmod{10}$.
+ equation}. We're looking for some number $n \in \Z$ smaller than $10$ such that
+ $x \equiv n \pmod{10}$.
 
  If this were just a normal equation, how would we solve it? Well, we would
- multiply both sides by such a number that $7$ times that number gives us $1$
+ multiply both sides by a number such that $7$ times that number gives us $1$
  (that would obviously be $1 / 7$ but we care about the idea more than about the
  result). Even though \alert{congruence is a relation between integers} and
  \alert{we mustn't use rational numbers}, the idea is still useful.
 
-The number $n \in \Z$ that satisfies $7 \cdot n \equiv 1 \pmod{10}$ is called
+The number $n \in \Z$ that satisfies $7 \cdot n \equiv 1 \pmod{10}$ is called an
 \alert{inverse} of $7$ modulo $10$. There is no straightforward way to find
 \alert{an inverse}. To calculate it, we try multiplying $7$ by increasing
 integers and see which result is $1$ modulo $10$. 
 \begin{equation*}
    \begin{split}
+    1 \cdot 7 & \equiv 7 \pmod{10}\\
     2 \cdot 7 & \equiv 4 \pmod{10}\\
     3 \cdot 7 & \equiv 1 \pmod{10}
    \end{split}
   \end{equation*}
-This concludes that $3$ is the \alert{inverse} to $7$ $\bmod~10$. Now \alert{we
+This concludes that $3$ is the \alert{inverse} to $7$ modulo $10$. Now \alert{we
 multiply the whole equation by $3$} and get the desired result.
 \[
  \begin{array}{r l r}
@@ -670,7 +679,7 @@ $15 \bmod 10 = 5$.
 
 One unfortunate thing about inverses is that they are not guaranteed to exist
 for every number. If, for example, we try to find the inverse of $2$ modulo $4$,
-we have to conclude that there is no such a number. The \alert{inverse} for $a$
+we have to conclude that there is no such number. The \alert{inverse} for $a$
 modulo some $m$ (this can be written as: the solution to the congruence $a \cdot
 x \equiv 1 \pmod{m}$) \alert{exists if and only if} $a$ and $m$ \alert{are
 coprime}.
@@ -678,11 +687,8 @@ coprime}.
 Now that we can solve a congruence, there is nothing stopping us from solving
 more of them.
 \end{exampleblock}
-\end{column}
-\separatorcolumn
-\begin{column}{\colwidth}
 \begin{alertblock}{Chinese Remainder Theorem}
- Imagine we have the \alert{system of linear congruences}
+ Imagine we have a \alert{system of congruences}
  \[
   \begin{array}{r l l}
    x & \equiv r_1  &\pmod{m_1}\\
@@ -741,15 +747,15 @@ $\clb{x \equiv 2 \pmod{4}}$. Their solutions are depicted in the picture below.
      \draw[line width = 2pt] (24)+(0.6,0.6) rectangle ++(-0.6,-0.6);
  \end{tikzpicture}
 \end{center}
-Every circle shows a solution to one of the congruence based on their colour.
+Every circle shows a solution to one of the congruences based on its colour.
 The overall solution has two circles and is tinted yellow. The box around $12$
 and $24$ indicates on which intervals we are guaranteed to have a unique
 solution. This is because $M = m_1 \cdot m_2 = 3 \cdot 4 = 12$.
 
 To draw all the solutions to the congruence $x \equiv r \pmod{m}$, it is useful
 to note that the first (or the smallest) solution will always be $r$ and then
-the solutions always jump by $m$. Hence, the next will be $r+m$, the one after
-that $r+2 \cdot m$ and so on.
+the following solutions always differ by $m$. Hence, the next will be $r+m$, the
+one after that $r+2 \cdot m$ and so on.
 
 By the Chinese Remainder Theorem, we are only guaranteed a \alert{unique
 solution up to $M$}. But the \alert{system itself has infinitely many
@@ -779,10 +785,10 @@ precisely, \alert{all solutions are of the form $x + k \cdot M$} for any $k \in
    \end{aligned}
   \end{equation*}
  Now we know that $k = 9 \cdot l + 8$ for some $l \in \N$. This expression is
- now used to express $x$ in terms of $l$ as $x = 7 \cdot (9 \cdot l+8)+3 = 63
- \cdot l + 59$. There is still one equation that we have not used. We calculate
- $63 \bmod 11 = 8$ and $59 \bmod 11 = 4$. Hence, $x \equiv 8 \cdot l + 4
- \pmod{11}$. Substituting to the last congruence gives us
+ used to express $x$ in terms of $l$ as $x = 7 \cdot (9 \cdot l+8)+3 = 63 \cdot
+ l + 59$. There is still one congruence that we have not used. We calculate $63
+ \bmod 11 = 8$ and $59 \bmod 11 = 4$. Hence, $x \equiv 63 \cdot l + 59 \equiv 8
+ \cdot l + 4 \pmod{11}$. Substituting to the last congruence gives us
 \begin{equation*}
    \begin{aligned}
     8 \cdot l + 4 & \equiv 4 & \pmod{11}  && \qquad    \text{\footnotesize{\# Substituting}} \\
