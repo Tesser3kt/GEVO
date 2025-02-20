@@ -12,7 +12,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[orientation=portrait,size=custom,width=120,height=120,scale=1]{beamerposter}
+\usepackage[orientation=portrait,size=custom,width=160,height=120,scale=1]{beamerposter}
 \usetheme{gemini}
 \usepackage[dvipsnames]{xcolor}
 \usecolortheme{nott}
@@ -49,8 +49,8 @@
 % (N+1)*\sepwidth + N*\colwidth = \paperwidth
 \newlength{\sepwidth}
 \newlength{\colwidth}
-\setlength{\sepwidth}{0.01\paperwidth}
-\setlength{\colwidth}{0.32\paperwidth}
+\setlength{\sepwidth}{0.008\paperwidth}
+\setlength{\colwidth}{0.24\paperwidth}
 
 \newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
 \newcommand{\bfalert}[1]{\textbf{\alert{#1}}}
@@ -513,15 +513,37 @@
  and $0 \leq |r| < |b|$. We write $q = a \dv b$ and $r = a \bmod b$.
 
  The operation of integer division gives birth to the idea of
- \alert{divisibility}. We say that a number $b$ divides the number $a$ (and
- write $b \mid a$) if $a \bmod b = 0$ or, equivalently, $a = b \cdot q$ for some
- integer $q \in \Z$.
+ \alert{divisibility}. We say that a number $b$ \alert{divides} the number $a$
+ (and write $b \mid a$) if $a \bmod b = 0$ or, equivalently, $a = b \cdot q$ for
+ some integer $q \in \Z$. 
+
+ If $b \mid a$, we say that $b$ is a \alert{divisor} of $a$. A number that
+ \alert{has exactly two divisors} (the number $1$ and itself) is said to be
+ \alert{prime}. If two numbers $x,y \in \Z$ \alert{share no divisors}, they are
+ called \emph{coprime}.
 \end{alertblock}
 
 \end{column}
 \separatorcolumn
 
 \begin{column}{\colwidth}
+
+\begin{block}{Prime Decomposition}
+ Each integer $a \in \Z$ has a \alert{unique prime decomposition}, meaning, it
+ can be written as a \alert{product of prime numbers}.
+
+ Expressed formally, for every number $a \in \Z$, we can find \textbf{prime}
+ numbers $p_1,\ldots,p_n \in \Z$ and powers $k_1,\ldots,k_n \in \N$ satisfying
+ \[
+  a = p_1^{k_1} \cdot p_2^{k_2} \cdot p_3^{k_3} \cdot \ldots \cdot p_n^{k_n}
+ \]
+ where $n \in \N$ is an adequate natural number.
+
+ A very important assumption of modern cryptography is that decomposition into
+ primes is a very slow process for which no fast algorithm is known. This is the
+ basis for several cryptographic methods including the RSA system we shall
+ discuss in class.
+\end{block}
 
 \begin{exampleblock}{Greatest Common Divisor}
  We ask the question: `What's the \alert{largest number that divides} both $a$
@@ -535,8 +557,8 @@
   \mathrm{gcd}(a,b) = \mathrm{gcd}(a \bmod b, b).
  \]
  Since $a \bmod b$ is always smaller than both $a$ and $b$, we keep taking the
- remainder after division of one number by the other until we reach the number
- $0$. Once we do, we have found the greatest common divisor as
+ remainder after division of the larger number by the smaller until we reach the
+ number $0$. Once we do, we have found the greatest common divisor as
  $\mathrm{gcd}(d,0) = d$ ($0$ is divided by every number).
 
  Let's showcase the algorithm. Suppose we want to calculate $\mathrm{gcd}(3312,
@@ -555,6 +577,227 @@
  Because $80 \bmod 16 = 0$, we have reached the conclusion that
  $\mathrm{gcd}(3312, 448) = 16$.
 \end{exampleblock}
+
+\begin{block}{Congruence}
+ Now that we have defined the remainder after division, we want to express the
+ idea that two integers (say, $x$ and $y$) \alert{have the same remainder} ($r$)
+ \alert{when divided by some $m \in \Z$}. Mathematically, we write this as
+ \[
+  x \equiv y \pmod{m}.
+ \]
+ In other words, this means
+ \[
+  x = k \cdot m + r \quad \text{and} \quad y = l \cdot m + r
+ \]
+ for some numbers $k,l \in \Z$. Said `naturally', both $x$ and $y$ are greater
+ by $r$ than some multiple of $m$. For example, $13$ and $25$ are the same
+ modulo $12$ because they share the remainder $1$ when divided by $12$ (formally
+ written as  $13 \equiv 25 \pmod{12}$). So, $13$ is greater by $1$ than $12$ (a
+ multiple of $12$) and so is $25$ than $24$ (also a multiple of $12$). 
+
+ This, of course, implies that a number $x$ is \alert{divisible by $m$} if
+ \alert{it is congruent to $0$} modulo $m$. This alludes to our previous
+ definition where we said that $m$ divides $x$ only if there is no remainder
+ after the division of $x$ by $m$.
+
+ This idea of congruence might sound unintuitive and artificial at first, yet it
+ is all around us. If we, for example, consider the regular old clock. Looking
+ only at the clock and seeing both hands up tells us that it is either noon or
+ midnight. This is because we use the 12-hour format which describes current
+ time modulo $12$.
+
+ \alert{Congruence is very similar to normal equation} (it is also an
+ equivalence relation, try to prove it!). We can manipulate it as we would an
+ equation. More specifically, if we know that $x \equiv y \pmod{m}$, then both
+ of the following congruences hold.
+ \begin{itemize}[label=\textbullet,left=24pt]
+  \item $x+a \equiv y+a \pmod{m}$ -- \textbf{adding} (also works for subtracting,
+   so $a \in \mathbb{Z}$)
+  \item $c \cdot x \equiv c \cdot y \pmod{m}$ -- \textbf{multiplying}
+ \end{itemize}
+ for any $c,k \in \N$.
+
+ One can also \alert{simplify a congruence}, but this one is trickier. If
+ \[
+  n \cdot a \equiv n \cdot b, \pmod{m}
+ \]
+ then \alert{it is also true that} $a \equiv b \pmod{m}$ \alert{only in the case
+ that} $n$ and $m$ \alert{are coprime}, i.e. $\gcd(m,n) = 1$. Let's make an
+ example: if $35 \equiv 15 \pmod{4}$, then we can `divide' both sides by $5$ and
+ get $7 \equiv 3 \pmod{4}$ because $\gcd(4,5) = 1$. However, $10 \equiv 2
+ \pmod{8}$ but $5 \not\equiv 1 \pmod{8}$ since we have divided by $4$ which is
+ \textbf{not} coprime to $8$.
+
+ An interesting thing to note about the equivalence classes created by some
+ congruence modulo $m$ is that there are $m$ of them. This is because all the
+ possible remainders after diving by $m$ are numbers $0, \ldots, m - 1$. 
+\end{block}
+
+\begin{exampleblock}{Solving Congruences}
+ We now attempt to \alert{solve the congruence} $7 \cdot x \equiv 5 \pmod{10}$.
+ \alert{Solving a congruence} means a similar thing as \alert{solving an
+ equation}. We're looking for a number $n \in \Z$ such that $x \equiv n
+ \pmod{10}$.
+
+ If this were just a normal equation, how would we solve it? Well, we would
+ multiply both sides by such a number that $7$ times that number gives us $1$
+ (that would obviously be $1 / 7$ but we care about the idea more than about the
+ result). Even though \alert{congruence is a relation between integers} and
+ \alert{we mustn't use rational numbers}, the idea is still useful.
+
+The number $n \in \Z$ that satisfies $7 \cdot n \equiv 1 \pmod{10}$ is called
+\alert{inverse} of $7$ modulo $10$. There is no straightforward way to find
+\alert{an inverse}. To calculate it, we try multiplying $7$ by increasing
+integers and see which result is $1$ modulo $10$. 
+\begin{equation*}
+   \begin{split}
+    2 \cdot 7 & \equiv 4 \pmod{10}\\
+    3 \cdot 7 & \equiv 1 \pmod{10}
+   \end{split}
+  \end{equation*}
+This concludes that $3$ is the \alert{inverse} to $7$ $\bmod~10$. Now \alert{we
+multiply the whole equation by $3$} and get the desired result.
+\[
+ \begin{array}{r l r}
+  7 \cdot x &\equiv 5 & \pmod{10}\\
+  3 \cdot 7 \cdot x & \equiv 3 \cdot 5 & \pmod{10}\\
+  21 \cdot x & \equiv 15 &\pmod{10}\\
+  x & \equiv 5 &\pmod{10}
+ \end{array}
+\]
+We got the fourth congruence from the third by calculating $21 \bmod 10 = 1$ and
+$15 \bmod 10 = 5$.
+
+One unfortunate thing about inverses is that they are not guaranteed to exist
+for every number. If, for example, we try to find the inverse of $2$ modulo $4$,
+we have to conclude that there is no such a number. The \alert{inverse} for $a$
+modulo some $m$ (this can be written as: the solution to the congruence $a \cdot
+x \equiv 1 \pmod{m}$) \alert{exists if and only if} $a$ and $m$ \alert{are
+coprime}.
+
+Now that we can solve a congruence, there is nothing stopping us from solving
+more of them.
+\end{exampleblock}
+\end{column}
+\separatorcolumn
+\begin{column}{\colwidth}
+\begin{alertblock}{Chinese Remainder Theorem}
+ Imagine we have the \alert{system of linear congruences}
+ \[
+  \begin{array}{r l l}
+   x & \equiv r_1  &\pmod{m_1}\\
+   x & \equiv r_2  &\pmod{m_2}\\
+     & \;\vdots &\\
+   x & \equiv r_n, &\pmod{m_n}
+  \end{array}
+ \]
+ where all the numbers are natural and $m_1,\ldots, m_n$ are \alert{pairwise
+ coprime}. Then the \alert{Chinese Remainder Theorem} tells us that there is
+ unique solution smaller than the product $M = m_1 \cdot m_2 \cdot \ldots \cdot
+ m_n$ of all the numbers we divide by.
+
+ \alert{Each congruence limits the possible solutions radically}. For instance,
+ the congruence $x \equiv r \pmod{m}$ has solutions in the form $k \cdot m + r$
+ for any $k \in \N$. To solve the whole system, one can \alert{write down all
+ the solutions for all the congruences one by one and then find their
+ intersection}.
+
+We can also do this process graphically. If we circle solutions to the
+individual congruences, the number with $n$ circles is the solution to the whole
+system. For example, we have the linear congruences $\clr{x \equiv 1 \pmod{3}}$,
+$\clb{x \equiv 2 \pmod{4}}$. Their solutions are depicted in the picture below.
+
+\begin{center}
+ \begin{tikzpicture}
+   \def\rows{4}
+   \def\cols{8}
+   \def\sep{1.4}
+
+   \foreach \x in {1, ..., \cols} {
+    \foreach \y in {1, ..., \rows} {
+     \pgfmathtruncatemacro\z{(\rows-\y) * \cols + \x}
+     \node[black] (\z) at (\x*\sep,\y*\sep) {\small \z};
+    }
+   }
+
+   \foreach \x/\y in {1/4,4/4, 7/4, 2/3, 5/3, 8/3, 3/2, 6/2, 1/1, 4/1, 7/1 } {
+   \node[circle,inner sep=11pt, draw =BrickRed,line width= 2pt]  at
+      (\x*\sep,\y*\sep) {};
+   }
+    
+   \foreach \x/\y in {6/4,2/4, 6/3, 2/2, 2/1, 6/1 } {
+     \node[circle,inner sep=11pt, draw =RoyalBlue,line width= 2pt] at
+      (\x*\sep,\y*\sep) {};
+   }
+
+     \node[circle,inner sep=13.5pt, draw =RoyalBlue,fill=yellow,fill opacity=0.2,line width= 2pt] at
+      (2*\sep,3*\sep) {};
+     
+     \node[circle,inner sep=13.5pt, draw =RoyalBlue,fill=yellow,fill opacity=0.2,line width= 2pt] at
+      (6*\sep,2*\sep) {};
+
+     \draw[line width = 2pt] (12)+(0.6,0.6) rectangle ++(-0.6,-0.6);
+
+     \draw[line width = 2pt] (24)+(0.6,0.6) rectangle ++(-0.6,-0.6);
+ \end{tikzpicture}
+\end{center}
+Every circle shows a solution to one of the congruence based on their colour.
+The overall solution has two circles and is tinted yellow. The box around $12$
+and $24$ indicates on which intervals we are guaranteed to have a unique
+solution. This is because $M = m_1 \cdot m_2 = 3 \cdot 4 = 12$.
+
+To draw all the solutions to the congruence $x \equiv r \pmod{m}$, it is useful
+to note that the first (or the smallest) solution will always be $r$ and then
+the solutions always jump by $m$. Hence, the next will be $r+m$, the one after
+that $r+2 \cdot m$ and so on.
+
+By the Chinese Remainder Theorem, we are only guaranteed a \alert{unique
+solution up to $M$}. But the \alert{system itself has infinitely many
+solutions}. To find all of them, we have to start with the smallest solution $x$
+(the one smaller than $M$), and then keep adding multiples of $M$. More
+precisely, \alert{all solutions are of the form $x + k \cdot M$} for any $k \in
+\N$.
+\end{alertblock}
+ \begin{block}{Solving Congruence Systems}
+  Now, to showcase a more scalable but less intuitive method, we shall solve the system
+  \[
+   \begin{array}{r l l}
+    x & \equiv 3  &\pmod{7}\\
+    x & \equiv 5  &\pmod{9}\\
+    x & \equiv 4. &\pmod{11}
+   \end{array}
+  \]
+  
+  \alert{From the first congruence}, we know that $x= 7 \cdot k +3$ for some $k
+  \in \N$. We can now substitute for $x$ to the second congruence and solve it.
+\begin{equation*}
+   \begin{aligned}
+    7 \cdot k +3 & \equiv 5 \pmod{9}  && \qquad \text{\footnotesize{\# Substituting}} \\
+    7 \cdot k &\equiv 2 \pmod{9}&& \qquad \text{\footnotesize{\# Subtracting $3$}}  \\
+    k &\equiv 8 \pmod{9} &&\qquad \text{\footnotesize{\# Multiplying by the
+     inverse of $7$ modulo $9$, which is $4$.}}
+   \end{aligned}
+  \end{equation*}
+ Now we know that $k = 9 \cdot l + 8$ for some $l \in \N$. This expression is
+ now used to express $x$ in terms of $l$ as $x = 7 \cdot (9 \cdot l+8)+3 = 63
+ \cdot l + 59$. There is still one equation that we have not used. We calculate
+ $63 \bmod 11 = 8$ and $59 \bmod 11 = 4$. Hence, $x \equiv 8 \cdot l + 4
+ \pmod{11}$. Substituting to the last congruence gives us
+\begin{equation*}
+   \begin{aligned}
+    8 \cdot l + 4 & \equiv 4 & \pmod{11}  && \qquad    \text{\footnotesize{\# Substituting}} \\
+    l &\equiv 0. & \pmod{11} 
+   \end{aligned}
+  \end{equation*}
+ With this we can express $l = 11 \cdot m$ in terms of some other variable $m$
+ and finally see the answer
+ \[
+  x = 63 \cdot (11 \cdot m) + 59 = 693 \cdot l + 59.
+ \]
+ Notice that the coefficient before $m$ is equal to $693 = 7\cdot 9 \cdot 11$.
+ The CRT tells us that \alert{this will be the case for every system where the
+ divisors are coprime}.
+ \end{block}
 
 \end{column}
 \separatorcolumn
