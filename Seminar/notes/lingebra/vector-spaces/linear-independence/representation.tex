@@ -9,7 +9,7 @@ linear combination of vectors from $B$ that equals this vector.
 To put this symbolically, denote $B =
 (\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n)$ and consider a vector
 $\mathbf{v} \in V$. By the mentioned
-\myref{theorem}{thm:characterisation-of-a-basis}, there exist exactly one
+\myref{theorem}{thm:characterisation-of-a-basis}, there exists exactly one
 $n$-tuple $(r_1,\ldots,r_n) \in \R^{n}$ such that
 \[
  \mathbf{v} = r_1 \cdot \mathbf{b_1} + r_2 \cdot \mathbf{b}_2 + \ldots + r_n
@@ -68,7 +68,7 @@ Confront the following example.
    0  
   \end{pmatrix}.
  \]
- With respect to a different basis $C = (1 + x, 1 - x, x + x^2, x + x^3)$
+ With respect to a different basis $C = (1 + x, 1 - x, x + x^2, x + x^3)$, it
  instead looks like this:
  \[
   [x + x^2]_C = 
@@ -77,7 +77,7 @@ Confront the following example.
    0\\
    1\\
    0
-  \end{pmatrix}
+  \end{pmatrix}.
  \]
 \end{example}
 
@@ -105,5 +105,190 @@ Confront the following example.
  \]
 \end{problem}
 \begin{probsol}
- We need to find 
+ We need to find real scalars $r_1,r_2 \in \R$ such that
+ \[
+  r_1 \cdot
+  \begin{pmatrix}
+   1\\
+   1 
+  \end{pmatrix} + r_2 \cdot
+  \begin{pmatrix}
+   0\\
+   2
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+   3\\
+   2
+  \end{pmatrix}.
+ \]
+ This is tantamount to solving the linear system
+ \[
+  \begin{array}{r c r c l}
+   r_1 & & & = & 3\\
+   r_1 & + & 2r_2 & = & 2
+  \end{array}
+ \]
+ with obvious solution $r_1 = 3$ and $r_2 = -1 / 2$. With this, we've affirmed
+ the equality
+ \[
+  \left[ 
+  \begin{pmatrix}
+   3\\
+   2
+  \end{pmatrix}
+  \right]_B =
+  \begin{pmatrix}
+   3\\
+   -1 / 2
+  \end{pmatrix}.
+ \]
 \end{probsol}
+\begin{example}{Representation with respect to canonical basis}{representation-with-respect-to-canonical-basis}
+ Since every vector $\mathbf{v} \in \R^{n}$ can be trivially broken into a
+ linear combination of \hyperref[def:standard-basis]{canonical basis} vectors,
+ its representation with respect to this basis are exactly its coordinates.
+
+ Expressed symbolically,
+ \[
+  [\mathbf{v}]_{\mathcal{E}_n} = 
+  \left[ 
+  \begin{pmatrix}
+   v_1\\
+   v_2\\
+   \vdots\\
+   v_n
+  \end{pmatrix}
+  \right]_{\mathcal{E}_n} = 
+  \begin{pmatrix}
+   v_1\\
+   v_2\\
+   \vdots\\
+   v_n
+  \end{pmatrix}
+ \]
+ for every $\mathbf{v} \in \R^{n}$ because
+ \[
+  \mathbf{v} = v_1 \cdot \mathbf{e}_1 + v_2 \cdot \mathbf{e}_2 + \ldots + v_n
+  \cdot \mathbf{e}_n.
+ \]
+\end{example}
+
+We intend not to dwell on the idea of representation any longer for now. It
+shall emerge again when we discuss linear transformations known as \emph{changes
+of basis}. We close with a result concerning a link between linear independence
+and vector representation. In fact, linear independence of vectors is equivalent
+to the linear independence of their representations with respect to any basis.
+
+\begin{lemma}{}{}
+ Let $V$ be a vector space of dimension $n \in \N$ with basis $B$,
+ $\mathbf{v}_1,\ldots,\mathbf{v}_k \in V$ and $r_1,\ldots,r_k \in \R$. Then,
+ \[
+  r_1 \cdot \mathbf{v}_1 + r_2 \cdot \mathbf{v}_2 + \ldots + r_k \cdot
+  \mathbf{v}_k = \mathbf{0}_V
+ \]
+ if and only if
+ \[
+  r_1 \cdot [\mathbf{v}_1]_B + r_2 \cdot [\mathbf{v}_2]_B + \ldots + r_k \cdot
+  [\mathbf{v}]_k = \mathbf{0}_{\R^{n}}
+ \]
+ where $\mathbf{0}_V$ is the zero vector of the space $V$ and
+ $\mathbf{0}_{\R^{n}}$ that of $\R^{n}$.
+\end{lemma}
+\begin{lemproof}
+ Write $B = (\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n)$ and also denote
+ \[
+  [\mathbf{v}_1]_B = 
+  \begin{pmatrix}
+   a_{1,1}\\
+   a_{2,1}\\
+   \vdots\\
+   a_{n,1}
+  \end{pmatrix},
+  [\mathbf{v}_2]_B =
+  \begin{pmatrix}
+   a_{1,2}\\
+   a_{2,2}\\
+   \vdots\\
+   a_{n,2}
+  \end{pmatrix},\ldots,[\mathbf{v}_k]_B = 
+  \begin{pmatrix}
+   a_{1,k}\\
+   a_{2,k}\\
+   \vdots\\
+   a_{n,k}
+  \end{pmatrix}.
+ \]
+ Then, the condition
+ \[
+  r_1 \cdot \mathbf{v}_1 + r_2 \cdot \mathbf{v}_2 + \ldots + r_k \cdot
+  \mathbf{v}_k = \mathbf{0}_V
+ \]
+ is equivalent to
+ \begin{align*}
+  &r_1 \cdot (a_{1,1} \cdot \mathbf{b}_1 + \ldots + a_{n,1} \cdot \mathbf{b}_n)
+  +\\
+  &r_2 \cdot (a_{1,2} \cdot \mathbf{b}_1 + \ldots + a_{n,2} \cdot \mathbf{b}_n)
+  +\\
+  &\ldots +\\
+  &r_k \cdot (a_{1,k} \cdot \mathbf{b}_1 + \ldots + a_{n,k} \cdot \mathbf{b}_n) =
+  \mathbf{0}_V.
+ \end{align*}
+ Grouping together coefficients of the basis vectors
+ $\mathbf{b}_1,\ldots,\mathbf{b}_n$ gives
+ \begin{align*}
+  &(r_1 \cdot a_{1,1} + r_2 \cdot a_{1,2} + \ldots + r_k \cdot a_{1,k}) \cdot
+  \mathbf{b}_1 +\\
+  &(r_1 \cdot a_{2,1} + r_2 \cdot a_{2,2} + \ldots + r_k \cdot a_{2,k}) \cdot
+  \mathbf{b}_2+\\
+  &\ldots+\\
+  &(r_1 \cdot a_{n,1} + r_2 \cdot a_{n,2} + \ldots + r_k \cdot a_{n,k}) \cdot
+  \mathbf{b}_n = \mathbf{0}_V.
+ \end{align*}
+ By \myref{proposition}{prop:linear-independence-zero-vector}, this equality is
+ satisfied if and only if each of the coefficients is equal to $0$. On the
+ horizon there glitters the homogeneous linear system
+ \[
+  \begin{array}{r c r c r c r c l}
+   r_1 \cdot a_{1,1} & + & r_2 \cdot a_{1,2} & + & \ldots & + & r_k \cdot
+   a_{1,k} & = & 0\\
+   r_1 \cdot a_{2,1} & + & r_2 \cdot a_{2,2} & + & \ldots & + & r_k \cdot
+   a_{2,k} & = & 0\\
+    & & & & & & & \vdots &\\
+   r_1 \cdot a_{n,1} & + & r_2 \cdot a_{n,2} & + & \ldots & + & r_k \cdot
+   a_{n,k} & = & 0,
+  \end{array}
+ \]
+ which can be rewritten (as we've done many times before) into vector form as
+ \[
+  r_1 \cdot 
+  \begin{pmatrix}
+   a_{1,1}\\
+   a_{2,1}\\
+   \vdots\\
+   a_{n,1}
+  \end{pmatrix}
+  + r_2 \cdot 
+  \begin{pmatrix}
+   a_{1,2}\\
+   a_{2,2}\\
+   \vdots\\
+   a_{n,2}
+  \end{pmatrix}
+  + \ldots + r_k \cdot 
+  \begin{pmatrix}
+   a_{1,k}\\
+   a_{2,k}\\
+   \vdots\\
+   a_{n,k}
+  \end{pmatrix} = 
+  \begin{pmatrix}
+   0\\
+   0\\
+   \vdots\\
+   0
+  \end{pmatrix}.
+ \]
+ Shown vectors are of course just representations of the vectors $\mathbf{v}_1$
+ up to $\mathbf{v}_n$ with respect to $B$ and so the result is proven.
+\end{lemproof}
