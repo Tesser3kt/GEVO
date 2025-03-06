@@ -45,7 +45,7 @@
   header: context {
     let current-page = counter(page).get().first()
     if current-page > 1 [
-      Resit exam
+      Exam B
       #h(1fr)
       #counter(page).display(
         page-counter,
@@ -159,7 +159,7 @@
   $not (p => q)$. Two statements are _equivalent_ if their truth tables are the
   same. 
 
-  For convenience the truth table of implication is shown below.
+  For convenience, the truth table of implication is shown below.
   #align(center)[
     #table(
       columns: 3,
@@ -184,23 +184,23 @@
   #points(15)
   #block(width: 100%)[
   Given sets #text(airblue)[$A={c,c,c,b,b,a}$] and
-  #text(raingreen)[$B={a,b,c}$], determine the statements
+  #text(raingreen)[$B={a,b,c}$], determine whether the statements
 
   #align(center)[
     $#text(airblue)[$A$] subset.eq #text(raingreen)[$B$]$ and
     $#text(raingreen)[$B$] subset.eq #text(airblue)[$A$]$.
   ]
- *Explain* your method.
+  are true or false. *Explain* your method.
 
- *Bonus* (+10%): if both the statements are true there is something to be concluded
- about #text(airblue)[$A$] and  #text(raingreen)[$B$]. *Explain* what it is.
+ // *Bonus* (+10%): if both the statements are true there is something to be concluded
+ // about #text(airblue)[$A$] and  #text(raingreen)[$B$]. *Explain* what it is.
   ]
   #v(40%)
 ][
   #points(10)
   #block(width: 100%)[
-    Write an expression (using set operations) for the shaded are on the diagram
-    below.
+    Write an expression (using set operations) for the shaded area in the
+    diagram below.
     #align(center)[
     #cetz.canvas(
        length: 1.5cm,
@@ -230,7 +230,8 @@
 #enum(numbering: "a)")[
   #points(15)
   #block(width: 100%)[
-    On the diagram below draw the relation #RR from #AA to #BB for
+    Into the diagram below, draw the relation #RR (using *arrows*) from #AA to
+    #BB if
     #align(center)[
       #text(airblue)[$A={1,3,5,7}$], #text(raingreen)[$B={0,2,4,6}$] and
       #text(crimson)[$R={(1,2),(3,6),(5,0)}$].
@@ -240,10 +241,10 @@
     #cetz.canvas({
         import cetz.draw: *
 
-        content((-1, 1), text(airblue)[$1$], anchor: "mid")
-        content((-1, 2), text(airblue)[$3$], anchor: "mid")
-        content((-1, 3), text(airblue)[$5$], anchor: "mid")
-        content((-1, 4), text(airblue)[$7$], anchor: "mid")
+        content((-.5, 1), text(airblue)[$1$], anchor: "mid")
+        content((-.5, 2), text(airblue)[$3$], anchor: "mid")
+        content((-.5, 3), text(airblue)[$5$], anchor: "mid")
+        content((-.5, 4), text(airblue)[$7$], anchor: "mid")
 
         content((0, 0), AA, anchor: "mid")
         content((4, 0), BB, anchor: "mid")
@@ -251,10 +252,10 @@
             circle((0, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
           }
 
-        content((5, 1), text(raingreen)[$0$], anchor: "mid")
-        content((5, 2), text(raingreen)[$2$], anchor: "mid")
-        content((5, 3), text(raingreen)[$4$], anchor: "mid")
-        content((5, 4), text(raingreen)[$6$], anchor: "mid")
+        content((4.5, 1), text(raingreen)[$0$], anchor: "mid")
+        content((4.5, 2), text(raingreen)[$2$], anchor: "mid")
+        content((4.5, 3), text(raingreen)[$4$], anchor: "mid")
+        content((4.5, 4), text(raingreen)[$6$], anchor: "mid")
 
 
           for y in range(1, 5) {
@@ -269,7 +270,7 @@
   #block(width: 100%)[
     Draw again the relation #RR from the previous exercise together with the
     relation #text(flowerpurple)[$S={(0,a),(2,c),(4,d)}$] between
-    sets #BB and #text(earthybrown)[$C={a,b,c,d,}$].
+    sets #BB and #text(earthybrown)[$C={a,b,c,d}$].
 
 #align(center)[
     #cetz.canvas({
@@ -307,12 +308,12 @@
           }
       })
       ]
-      Now is your task to compose the relations #RR and #SS into one
-      relation $T$ that goes from #AA to #CC. This means that T firstly applies
-      #RR to get from #AA to #BB. Then on all of the results of #RR (end of an
-      every arrow from a)) applies #SS which
-      gets it from #BB to #CC. At the end T forgets the element from #BB and ends
-      up only with the beginning and the ending of the journey. *Write down* T.
+      Now it is your task to compose the relations #RR and #SS into one relation
+      $T$ that goes from #AA to #CC. This means that $T$ firstly applies #RR to
+      get from #AA to #BB. Then, on all the results of #RR (end of every arrow
+      from a)) applies #SS which gets it from #BB to #CC. At the end, $T$
+      forgets the element from #BB and ends up only with the beginning and the
+      ending of the journey. *Write down* the relation $T$.
       ]
 ]
 #pagebreak()
@@ -324,9 +325,9 @@
 #enum(numbering: "a)")[
   #points(15)
   #block(width: 100%)[
-    One of the examples of a equivalence is *'what flavor of ice cream'* each
+    One of the examples of an equivalence is *'what flavor of ice cream'* each
     person likes the most.
-    Verify that it is truly equivalence. In other words: it has to satisfy 
+    Verify that it is truly an equivalence. In other words: it has to satisfy 
     - *reflexivity*: every element is equivalent to itself;
     - *symmetry*: if $a$ is equivalent to $b$, then $b$ is equivalent to $a$;
     - *transitivity*: if $a$ is eq. to $b$ and $b$ is eq. to $c$, then $a$ is eq. to $c$.
@@ -335,11 +336,11 @@
 ][
   #points(10)
   #block(width: 100%)[
-    Come up with at *least three* other equivalences on the set of all people. Try
-    to estimate the number of equivalence classes they create. For the maximum
-    credit there should be one that creates *over 100* of partitions and also one
-    that creates fewer than two.
+    Come up with at *least three* other equivalences on the set of all people.
+    Try to estimate the number of equivalence classes they create. For the
+    maximum credit there should be one that creates *over 100* partitions and
+    also one that creates fewer than two.
 
-    You *can not* use the equivalence from part a).
+    You *may not* use the equivalence from part a).
          ]
 ]
