@@ -1,0 +1,814 @@
+% Unofficial University of Cambridge Poster Template
+% https://github.com/andiac/gemini-cam
+% a fork of https://github.com/anishathalye/gemini
+% also refer to https://github.com/k4rtik/uchicago-poster
+% TeX program = lualatex
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[orientation=portrait,size=custom,width=160,height=120,scale=1]{beamerposter}
+\usetheme{gemini}
+\usepackage[dvipsnames]{xcolor}
+\usecolortheme{nott}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shapes.geometric}
+\usepackage{tkz-euclide}
+\tikzset{point style/.style = {%
+  draw = black,
+  inner sep = 0pt,
+  shape = circle,
+  minimum size = 5pt,
+  fill = black
+ },
+ every picture/.append style = {
+  scale = 1.5
+ },
+ every node/.append style={
+  scale=1.5
+ }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.008\paperwidth}
+\setlength{\colwidth}{0.24\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+\newcommand{\bfalert}[1]{\textbf{\alert{#1}}}
+
+% Math shortcuts
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\s}{succ}
+\newcommand{\dv}{\mathbin{\mathrm{div}}}
+
+% Inline shapes
+\newcommand{\mysquare}{\tikz[baseline=-7pt]{%
+  \node[rectangle,draw,thick,inner sep=6pt] at (0,0) {};
+}}
+\newcommand{\mytria}{\tikz[baseline=-3.25pt]{%
+  \node[isosceles triangle,isosceles triangle apex angle=60,draw,thick,inner
+  sep=3.25pt,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycirc}{\tikz[baseline=-7pt]{%
+  \node[circle,draw,thick,inner sep=4.5pt,baseline=0.5ex,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycross}{\tikz[baseline=-7pt,scale=0.2]{%
+  \draw[thick] (-1,1) -- (1,-1);
+  \draw[thick] (-1,-1) -- (1,1);
+}}
+
+% Colors %
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
+
+% ====================
+% Title
+% ====================
+
+\title{Number Theory Cheatsheet}
+
+\author{3.AB PreIB Math}
+
+\institute[shortinst]{Adam Klepáč and Jáchym Löwenhöffer}
+
+% ====================
+% Footer (optional)
+% ====================
+
+% \footercontent{
+%   \href{https://utfpr.edu.br/ct/ppgca}{utfpr.edu.br/ct/ppgca} \hfill
+%   Mostra de Trabalhos do PPGCA --- TechTalks 2024 \hfill
+%   \href{mailto:ppgca-ct@utfpr.edu.br}{ppgca-ct@utfpr.edu.br}}
+% (can be left out to remove footer)
+
+
+% ====================
+% Logo (optional)
+% ====================
+
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=6cm]{logos/logo-white.png}}
+% \logoleft{\hspace{20ex}\includegraphics[height=3.5cm]{logos/ppgca-logo.png}}
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+% Refer to https://github.com/k4rtik/uchicago-poster
+% logo: https://www.cam.ac.uk/brand-resources/about-the-logo/logo-downloads
+% \addtobeamertemplate{headline}{}
+% {
+%     \begin{tikzpicture}[remember picture,overlay]
+%       \node [anchor=north west, inner sep=3cm] at ([xshift=-2.5cm,yshift=1.75cm]current page.north west)
+%       {\includegraphics[height=7cm]{logos/unott-logo.eps}}; 
+%     \end{tikzpicture}
+% }
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+ \begin{exampleblock}{Natural Numbers}
+  Natural numbers (denoted $\N$) are defined basically as `\alert{sets
+  containing so many elements}'. This means that the number $0$ is a set with no
+  elements, $1$ is a set with one element and so on. Formally, we construct them
+  in the following way ($\emptyset$ is the empty set):
+  \[
+   \begin{array}{r c l c l}
+    0 & = & \emptyset & &\\
+    1 & = & \{0\} & = & \{\emptyset\}\\
+    2 & = & \{0, 1\} & = & \{\emptyset, \{\emptyset\}\}\\
+    3 & = & \{0, 1, 2\} & = & \{\emptyset, \{\emptyset\}, \{\emptyset,
+    \{\emptyset\}\}\}\\
+      & \vdots & & & 
+   \end{array}
+  \]
+  In general, the \alert{next natural number} after a number $n$ is defined as
+  the set $\{0,\ldots,n\}$. 
+
+  Observe that we can find a formula for the next number after $n$. Since $n =
+  \{0,\ldots,n-1\}$ and the next number is $\{0,\ldots,n\}$, we can construct
+  the next number after $n$ as a union of two sets: $n \cup \{n\}$. We call this
+  number, the \alert{successor} of $n$, and write it as \alert{$\s(n)$}. For
+  example, $1 = \{0\} = 0 \cup \{0\} = \s(0)$ or $3 = \{0,1,2\} = \{0,1\} \cup
+  \{2\} = 2 \cup \{2\} = \s(2)$.
+
+  \vspace{18pt}
+
+  \textbf{\large Addition of natural numbers}
+
+  We can define the operation of \alert{addition} on natural numbers using two
+  simple rules. For two natural numbers $n,m \in \N$,
+  \begin{enumerate}[label=(\arabic*),left=12pt]
+   \item $n + 1 = \s(n)$,
+   \item $\s(n + m) = n + \s(m)$.
+  \end{enumerate}
+  Rule (1) simply states that $n + 1$ is the next number after $n$. Rule (2) is
+  harder to decode. It literally says that by adding the two numbers together
+  and then taking the next number one reaches the same answer as by first taking
+  the next number and then performing addition. It's visualised on the picture
+  below.
+  \begin{figure}[H]
+   \centering
+   \begin{tikzpicture}
+    \begin{scope}
+     \foreach \x in {-.5, 0, .5} {
+      \node[circle,fill=BrickRed,inner sep=3pt] at (\x,.75) {};
+     }
+     \node[BrickRed] at (0,0) {\footnotesize $n$};
+
+     \foreach \x in {1.5, 2, 2.5, 3} {
+      \node[circle,fill=RoyalBlue,inner sep=3pt] at (\x,.75) {};
+     }
+     \node[RoyalBlue] at (2.25,0) {\footnotesize $m$};
+    \end{scope}
+    \begin{scope}[xshift=5.5cm]
+     \foreach \x in {-.5, 0, .5} {
+      \node[circle,fill=BrickRed,inner sep=3pt] at (\x,.75) {};
+     }
+     \node at (.25,0) {\footnotesize $\clr{n} + \clb{m}$};
+
+     \foreach \x in {-.5, 0, .5, 1} {
+      \node[circle,fill=RoyalBlue,inner sep=3pt] at (\x,1.25) {};
+     }
+    \end{scope}
+    \begin{scope}[xshift=8.5cm]
+     \foreach \x in {-.5, 0, .5} {
+      \node[circle,fill=BrickRed,inner sep=3pt] at (\x,.75) {};
+     }
+     \node at (.25,0) {\footnotesize $\clg{\s}(\clr{n} + \clb{m})$};
+
+     \foreach \x in {-.5, 0, .5, 1} {
+      \node[circle,fill=RoyalBlue,inner sep=3pt] at (\x,1.25) {};
+     }
+     \node[circle,fill=ForestGreen,inner sep=3pt] at (-.5, 1.75) {};
+    \end{scope}
+    \begin{scope}[xshift=12.5cm]
+     \foreach \x in {-.5, 0, .5, 1} {
+      \node[circle,fill=RoyalBlue,inner sep=3pt] at (\x,.75) {};
+     }
+     \node[circle,fill=ForestGreen,inner sep=3pt] at (-.5, 1.25) {};
+     \node at (.25,0) {\footnotesize $\clg{\s}(\clb{m})$};
+    \end{scope}
+    \begin{scope}[xshift=15.5cm]
+     \foreach \x in {-.5, 0, .5} {
+      \node[circle,fill=BrickRed,inner sep=3pt] at (\x,.75) {};
+     }
+     \node[circle,fill=ForestGreen,inner sep=3pt] at (-.5, 1.75) {};
+     \node at (.25,0) {\footnotesize $\clr{n} + \clg{\s}(\clb{m})$};
+
+     \foreach \x in {-.5, 0, .5, 1} {
+      \node[circle,fill=RoyalBlue,inner sep=3pt] at (\x,1.25) {};
+     }
+    \end{scope}
+   \end{tikzpicture}
+
+   \caption{Visualisation of rule (2) of addition. Both $\clg{\s}(\clr{n} +
+    \clb{m})$ and $\clr{n} + \clg{\s}(\clb{m})$ feature the \alert{same number}
+    of dots.}
+   \label{fig:rule-2-addition}
+  \end{figure}
+
+  Rules (1) and (2) combine to give a simple algorithm of computing the sum $n +
+  m$ for any two numbers $n,m \in \N$. It goes like this:
+  \begin{itemize}[label=\textbullet,left=12pt]
+   \item Using rule (1), calculate $n + 1 = \s(n) = n \cup \{n\}$.
+   \item Now that we have calculated $n + 1$, we can calculate $n + 2$ because
+    $n + 2 = n + \s(1)$ and, by rule (2), this equals $n + \s(1) = \s(n + 1)$,
+    so just take the next number after $n + 1$.
+   \item Continue like this until you calculate $n + m = n + \s(m - 1)$.
+  \end{itemize}
+  For example, to compute $4 + 2$, we calculate $4 + 1 = \s(4)$ and then $4 + 2
+  = 4 + \s(1) = \s(4 + 1) = \s(\s(4))$ so $4 + 2$ is just the next number after
+  the next number after $4$.
+ \end{exampleblock}
+
+ \begin{exampleblock}{Integers (Whole Numbers)}
+  We have defined \alert{addition} on natural numbers but in order to perform
+  \alert{subtraction}, we must move to a `larger' set of numbers -- the
+  \alert{integers}. This is because subtraction is \alert{\textbf{not}} an
+  operation on natural numbers as its result needn't be a natural number itself.
+
+  The idea behind the definition of integers (labelled $\Z$) is to take
+  \alert{pairs of natural numbers}. Fundamentally, we want the pair $(a,b) \in
+  \N \times \N$ to \alert{represent} the result of the operation `$a-b$' (which
+  we can't yet perform because we need to define the integers \textbf{before}
+  defining subtraction).
+
+  To this end, we define an \alert{equivalence} on $\N \times \N$ (i.e. on pairs
+  of natural numbers) that makes two pairs equivalent \alert{if they represent
+  the same integer}. For example, the pair $(4, 6)$ should represent the number
+  $-2$ (as $4 - 6 = -2$) and so should the pairs $(8, 10)$, $(3, 5)$ or just
+  about any pair $(a, a + 2)$ for $a \in \N$. The integers will then be the
+  \alert{classes of equivalence} of this equivalence relation.
+
+  We label this equivalence by the letter $\clg{E}$. Since we want $(a,b)$ to be
+  \clg{equivalent} to $(c,d)$ if `$a - b = c - d$' but we can't use subtraction
+  yet, we simply rewrite the equation above to use only addition, like this: $a
+  + d = c + b$. Thus, we say that $\clr{(a,b)}\clg{E}\clb{(c,d)}$ if $\clr{a} +
+  \clb{d} = \clb{c} + \clr{b}$. This defines an equivalence on $\N \times \N$
+  and we let $\Z$ be the classes of equivalence of all pairs of natural numbers:
+  \[
+   \clm{\Z} = \{[(a,b)]_{\clg{E}} \mid a,b \in \N\}.
+  \]
+  To give an example, the pair $\clr{(3,5)}$ is \clg{equivalent} to
+  $\clb{(7,9)}$ because $\clr{3} + \clb{9} = \clb{7} + \clr{5}$ and they both
+  represent the integer $\clm{-2}$. Similarly, both $\clr{(6, 2)}$ and
+  $\clb{(8, 4)}$ represent the integer $\clm{4}$. The visualisation of integers
+  as pairs of natural numbers is given below.
+  \begin{figure}[H]
+   \centering
+   \begin{tikzpicture}
+    \node[ForestGreen] at (-1, 2.5) {\clg{$\cdots$}};
+    \draw[ForestGreen,thick] (0, 5) -- (0, 0);
+    \begin{scope}[xshift=1.5cm,yshift=1cm]
+     \node[BrickRed] at (0, 3) {\footnotesize $(2, 4)$};
+     \node[BrickRed] at (2, 3) {\footnotesize $(7, 9)$};
+     \node[BrickRed] at (0, 2) {\footnotesize $(0, 2)$};
+     \node[BrickRed] at (2, 2) {\footnotesize $(11, 13)$};
+     \node at (1, 1) {\footnotesize $\vdots$};
+     \node at (1, 0) {\footnotesize all pairs $\clr{(a, a + 2)}$};
+     \node at (1, -2) {$\clm{-2}$};
+    \end{scope}
+    \draw[ForestGreen,thick] (5, 5) -- (5, 0);
+    \begin{scope}[xshift=6.5cm,yshift=1cm]
+     \node[BrickRed] at (0, 3) {\footnotesize $(3, 4)$};
+     \node[BrickRed] at (2, 3) {\footnotesize $(10, 11)$};
+     \node[BrickRed] at (0, 2) {\footnotesize $(0, 1)$};
+     \node[BrickRed] at (2, 2) {\footnotesize $(22, 23)$};
+     \node at (1, 1) {\footnotesize $\vdots$};
+     \node at (1, 0) {\footnotesize all pairs $\clr{(a, a + 1)}$};
+     \node at (1, -2) {$\clm{-1}$};
+    \end{scope}
+    \draw[ForestGreen,thick] (10, 5) -- (10, 0);
+    \node[ForestGreen] at (11, 2.5) {\clg{$\cdots$}};
+    \draw[ForestGreen,thick] (12, 5) -- (12, 0);
+    \begin{scope}[xshift=13.5cm,yshift=1cm]
+     \node[BrickRed] at (0, 3) {\footnotesize $(8, 5)$};
+     \node[BrickRed] at (2, 3) {\footnotesize $(13, 10)$};
+     \node[BrickRed] at (0, 2) {\footnotesize $(3, 0)$};
+     \node[BrickRed] at (2, 2) {\footnotesize $(7, 4)$};
+     \node at (1, 1) {\footnotesize $\vdots$};
+     \node at (1, 0) {\footnotesize all pairs $\clr{(a + 3, a)}$};
+     \node at (1, -2) {$\clm{3}$};
+    \end{scope}
+    \draw[ForestGreen,thick] (17, 5) -- (17, 0);
+    \node[ForestGreen] at (18, 2.5) {\clg{$\cdots$}};
+   \end{tikzpicture}
+   \caption{\clm{Integers} as classes of \clg{equivalence} of natural numbers.}
+   \label{fig:integers}
+  \end{figure}
+  The \alert{addition} of integers is defined using the addition of natural
+  numbers. Given two classes of equivalence $[(\clr{a},\clr{b})]_{\clg{E}},
+  [(\clb{c},\clb{d})]_{\clg{E}} \in \clm{\Z}$, we let
+  \[
+   [(\clr{a},\clr{b})]_{\clg{E}} + [(\clb{c}, \clb{d})]_{\clg{E}} = [(\clr{a} +
+   \clb{c}, \clr{b} + \clb{d})]_{\clg{E}}.
+  \]
+  Finally, we define the \alert{opposite number} to $[(a,b)]_{\clg{E}}$ as
+  $-[(a,b)]_{\clg{E}} = [(b,a)]_{\clg{E}}$ (may `$-(a-b) = b-a$' serve your
+  intuition). The \alert{subtraction} of two integers is now just a sum of the
+  first and the opposite of the second, that is
+  \[
+   [(\clr{a},\clr{b})]_{\clg{E}} - [(\clb{c},\clb{d})]_{\clg{E}} =
+   [(\clr{a},\clr{b})]_{\clg{E}} + (-[(\clb{c},\clb{d})]_{\clg{E}}) =
+   [(\clr{a},\clr{b})]_{\clg{E}} + [(\clb{d},\clb{c})]_{\clg{E}} = [(\clr{a} +
+   \clb{d}, \clr{b} + \clb{c})]_{\clg{E}}.
+  \]
+  Exemplī grātiā,
+  \[
+   [(\clr{3}, \clr{1})]_{\clg{E}} - [(\clb{5},\clb{2})]_{\clg{E}} = [(\clr{3},
+   \clr{1})]_{\clg{E}} + (-[\clb{5},\clb{2}])_{\clg{E}} = [(\clr{3},
+   \clr{1})]_{\clg{E}} + [(\clb{2},\clb{5})]_{\clg{E}} = [(\clr{3} + \clb{2},
+   \clr{1} + \clb{5})]_{\clg{E}} = [(5, 6)]_{\clg{E}},
+  \]
+  which is the same as writing
+  \[
+   \clr{2} - \clb{3} = \clr{2} + (-\clb{3}) = -1.
+  \]
+ \end{exampleblock}
+
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+\begin{block}{Multiplication}
+ In a way similar to addition, we can define \alert{multiplication} on natural
+ numbers by the following two rules.
+ \begin{enumerate}[label=(\arabic*),left=12pt]
+  \item $n \cdot 1 = n$,
+  \item $n \cdot (m + 1) = n \cdot m + m$,
+ \end{enumerate}
+ for $n,m \in \N$. They carry the idea behind an algorithmic way to compute the
+ product $n \cdot m$ for any two natural numbers $n,m$. It goes like this:
+ \begin{itemize}[left=12pt,label=\textbullet]
+  \item Using rule (1), calculate $n \cdot 1 = n$.
+  \item Using rule (2), calculate $n \cdot 2 = n \cdot (1 + 1) = n \cdot 1 + n =
+   n + n$.
+  \item Continue like this until you calculate
+   \[
+    n \cdot m = n \cdot (m - 1 + 1) = n \cdot (m - 1) + n = \underbrace{n + n +
+    \ldots + n}_{(m - 1)\text{ times}} + n.
+   \]
+ \end{itemize}
+ For example, to calculate $4 \cdot 3$, we first multiply $4 \cdot 1 = 4$, then
+ $4 \cdot 2 = 4 \cdot (1 + 1) = 4 \cdot 1 + 4 = 4 + 4$, and finally $4 \cdot 3 =
+ 4 \cdot (2 + 1) = 4 \cdot 2 + 4 = (4 + 4) + 4$. As you've been taught:
+ `\alert{multiplication is just repeated addition}'.
+
+ Multiplication is extended to integers by the formula
+ \[
+  [(\clr{a},\clr{b})]_{\clg{E}} \cdot [(\clb{c},\clb{d})]_{\clg{E}} = [(\clr{a}
+  \cdot \clb{c} + \clr{b} \cdot \clb{d}, \clr{b} \cdot \clb{c} + \clr{a} \cdot
+  \clb{d})]_{\clg{E}},
+ \]
+ which is based on the calculation
+ \[
+  (\clr{a} - \clr{b}) \cdot (\clb{c} - \clb{d}) = \clr{a} \cdot \clb{c} -
+  \clr{b} \cdot \clb{c} - \clr{a} \cdot \clb{d} + \clr{b} \cdot \clb{d} =
+  (\clr{a} \cdot \clb{c} + \clr{b} \cdot \clb{d}) - (\clr{b} \cdot \clb{c} +
+  \clr{a} \cdot \clb{d}).
+ \]
+ 
+ To perform a concrete calculation:
+ \[
+  [(\clr{5},\clr{3})]_{\clg{E}} \cdot [(\clb{1},\clb{5})]_{\clg{E}} =
+  [(\clr{5} \cdot \clb{1} + \clr{3} \cdot \clb{5}, \clr{3} \cdot \clb{1} +
+  \clr{5} \cdot \clb{5})]_{\clg{E}} = [(20, 28)]_{\clg{E}}.
+ \]
+ This is the same as computing
+ \[
+  \clr{2} \cdot (\clb{-4}) = -8.
+ \]
+\end{block}
+
+\begin{exampleblock}{Rational Numbers}
+ Being able to \alert{multiply integers}, we'd like to divide them as well. As
+ was the case with natural numbers and subtraction, \alert{division is not an
+ operation on integers} because its result needn't be an integer.
+
+ The idea behind the definition of rational numbers (labelled $\Q$) is pretty
+ much the same as the one behind the definition of integers -- rational numbers
+ are really just \alert{pairs of integers}. And again, multiple pairs of
+ integers \alert{represent the same} rational number. Therefore, given pairs
+ $(a,b)$ and $(c,d)$ with $a,b,c,d \in \Z$, we must make sure that $(a,b)$
+ \alert{is equivalent to} $(c,d)$ if `\alert{the fraction $a / b$ is the same as
+ the fraction $c / d$}'.
+
+ As we couldn't have defined division yet, we must \alert{rewrite the last
+ equation in terms of multiplication only}. This is easy to do because $a / b =
+ c / d$ if $a \cdot d = c \cdot b$. This directly leads to the definition of an
+ \alert{equivalence} $\clg{Q}$ on pairs of integers: $(\clr{a},
+ \clr{b})\clg{Q}(\clb{c},\clb{d})$ if
+ \[
+  \clr{a} \cdot \clb{d} = \clr{c} \cdot \clb{b}.
+ \]
+ This is indeed an equivalence on $\Z \times \Z$ and we define $\clm{\Q}$ as
+ \[
+  \clm{\Q} = \{[(a,b)]_{\clg{Q}} \mid a,b \in \Z\}.
+ \]
+ We tend to write elements of $\clm{\Q}$ as \textbf{fractions}, that is, instead
+ of $[(a,b)]_{\clg{Q}}$, we write $a / b$. We shall adopt this notation
+ henceforth. \alert{\textbf{Beware:}} The symbol $a / b$ \alert{does not mean}
+ `Divide $a$ by $b$,' as \textbf{division of integers makes no sense}. It is
+ only a \textbf{convenient notation} for the class of equivalence
+ $[(a,b)]_{\clg{Q}}$.
+
+ It only remains to \alert{extend addition and multiplication} to rational
+ numbers. This is easily done using formulae you already know. The
+ \alert{product} of two rational numbers $a / b, c / d \in \clm{\Q}$ is defined
+ as such:
+ \[
+  \frac{\clr{a}}{\clr{b}} \cdot \frac{\clb{c}}{\clb{d}} = \frac{\clr{a} \cdot
+  \clb{c}}{\clr{b} \cdot \clb{d}}.
+ \]
+ The \alert{sum} of rational numbers as
+ \[
+  \frac{\clr{a}}{\clr{b}} + \frac{\clb{c}}{\clb{d}} = \frac{\clr{a} \cdot
+  \clb{d} + \clb{c} \cdot \clr{b}}{\clr{b} \cdot \clb{d}}.
+ \]
+ For example,
+ \[
+  \frac{\clr{2}}{\clr{5}} \cdot \frac{\clb{3}}{\clb{4}} = \frac{\clr{2} \cdot
+  \clb{3}}{\clr{5} \cdot \clb{4}} = \frac{6}{20} \quad \text{and} \quad
+  \frac{\clr{2}}{\clr{5}} + \frac{\clb{3}}{\clb{4}} = \frac{\clr{2} \cdot
+  \clb{4} + \clb{3} \cdot \clr{5}}{\clr{5} \cdot \clb{4}} = \frac{23}{20}.
+ \]
+ 
+ Finally, we're ready to \alert{define division} on rational numbers. We first
+ define the \alert{inverse} of a rational number $a / b$ as $b / a$. We write $b
+ / a = (a / b)^{-1}$. The \alert{operation of division} (denoted by $:$) on
+ rational numbers is defined as \alert{multiplication by the inverse element},
+ that is
+ \[
+  \frac{\clr{a}}{\clr{b}} : \frac{\clb{c}}{\clb{d}} = \frac{\clr{a}}{\clr{b}}
+  \cdot \left( \frac{\clb{c}}{\clb{d}} \right)^{-1} = \frac{\clr{a}}{\clr{b}}
+  \cdot \frac{\clb{d}}{\clb{c}} = \frac{\clr{a} \cdot \clb{d}}{\clr{b} \cdot
+  \clb{c}}.
+ \]
+ For example,
+ \[
+  \frac{\clr{2}}{\clr{5}} : \frac{\clb{3}}{\clb{4}} = \frac{\clr{2}}{\clr{5}}
+ \cdot \left(\frac{\clb{3}}{\clb{4}}\right)^{-1} = \frac{\clr{2}}{\clr{5}} \cdot
+ \frac{\clb{4}}{\clb{3}} = \frac{\clr{2} \cdot \clb{4}}{\clr{5} \cdot \clb{3}} =
+ \frac{8}{15}.
+ \]
+\end{exampleblock}
+
+\begin{alertblock}{Divisibility}
+ There are two more interesting operations on integers -- \alert{integer
+ division} and \alert{modulus}. You've learnt about them in elementary school
+ and they are basically `a way to do \alert{division on integers}'.
+
+ Given two integers: $a,b \in \Z$, we can ask `\textbf{How many times does $b$
+ fit into $a$?}'. This number is called the \alert{quotient} (of $a$ by $b$) and
+ denoted \alert{$a \dv b$}. For example, $7 \dv 2 = 3$ because $2$ fits $3$
+ times into $7$ or $10 \dv 8 = 1$ because $8$ fits only once into $10$. This
+ operation can also be supplied integers, for instance $-5 \dv 2 = -2$ because
+ $2$ `fits' $-2$ times into $-5$.
+
+ The quantity that is `left after integer division' is called the
+ \alert{remainder} and denoted $a \bmod b$. In our first example, $7 \bmod 2 =
+ 1$ because $7 \dv 3 = 2$ and $2 \cdot 3 = 6$, so the number $1$ remains after
+ performing the division. Similarly, $10 \bmod 8 = 2$ since $10 \dv 8 = 1$, $8
+ \cdot 1 = 8$ and $10 - 8 = 2$. In the last example, we get $-5 \bmod 2 = -1$ as
+ $-5 \dv 2 = -2$ and $2 \cdot (-2) = -4$.
+
+ Notice that the \alert{remainder must always be smaller (in absolute value)
+ than the divisor} because it's the quantity that's left after the divisor no
+ longer fits into the dividend. We may thus formalise the idea of \alert{integer
+ division as such}: for any two numbers $a,b \in \Z$, there are \textbf{unique}
+ numbers $q,r \in \Z$ (called \alert{quotient} and \alert{remainder}) such that
+ \[
+  a = b \cdot q + r
+ \]
+ and $0 \leq |r| < |b|$. We write $q = a \dv b$ and $r = a \bmod b$.
+
+ The operation of integer division gives birth to the idea of
+ \alert{divisibility}. We say that a number $b$ \alert{divides} the number $a$
+ (and write $b \mid a$) if $a \bmod b = 0$ or, equivalently, $a = b \cdot q$ for
+ some integer $q \in \Z$. 
+
+ If $b \mid a$, we say that $b$ is a \alert{divisor} of $a$. A number that
+ \alert{has exactly two divisors} (the number $1$ and itself) is said to be
+ \alert{prime}. If two numbers $x,y \in \Z$ \alert{share no divisors}, they are
+ called \emph{coprime}.
+\end{alertblock}
+
+\end{column}
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+\begin{block}{Prime Decomposition}
+ Each integer $a \in \Z$ has a \alert{unique prime decomposition}, meaning, it
+ can be written as a \alert{product of prime numbers}.
+
+ Expressed formally, for every number $a \in \Z$, we can find \textbf{prime}
+ numbers $p_1,\ldots,p_n \in \Z$ and powers $k_1,\ldots,k_n \in \N$ satisfying
+ \[
+  a = p_1^{k_1} \cdot p_2^{k_2} \cdot p_3^{k_3} \cdot \ldots \cdot p_n^{k_n}
+ \]
+ where $n \in \N$ is an adequate natural number.
+
+ A very important assumption of modern cryptography is that decomposition into
+ primes is a very slow process for which no fast algorithm is known. This is the
+ basis for several cryptographic methods including the RSA system we shall
+ discuss in class.
+\end{block}
+
+\begin{exampleblock}{Greatest Common Divisor}
+ We ask the question: `What's the \alert{largest number that divides} both $a$
+ and $b$?' Such number is called the \alert{greatest common divisor} of $a$ and
+ $b$ and denoted $\mathrm{gcd}(a,b)$.
+
+ There is a nice \alert{algorithmic way} to compute this number: the algorithm
+ is called \alert{Euclid's Algorithm}. It uses the following equality: for every
+ two numbers, $a,b \in \Z$, it holds that
+ \[
+  \mathrm{gcd}(a,b) = \mathrm{gcd}(a \bmod b, b).
+ \]
+ Since $a \bmod b$ is always smaller than both $a$ and $b$, we keep taking the
+ remainder after division of the larger number by the smaller until we reach the
+ number $0$. Once we do, we have found the greatest common divisor as
+ $\mathrm{gcd}(d,0) = d$ ($0$ is divided by every number).
+
+ Let's showcase the algorithm. Suppose we want to calculate $\mathrm{gcd}(3312,
+ 448)$. We first calculate $3312 \bmod 448 = 176$. Therefore
+ \[
+  \mathrm{gcd}(3312, 448) = \mathrm{gcd}(176, 448).
+ \]
+ Next, we compute $448 \bmod 176 = 96$ and thus
+ \[
+  \mathrm{gcd}(176, 448) = \mathrm{gcd}(176, 96).
+ \]
+ We are almost done. Computing $176 \bmod 96 = 80$ and $96 \bmod 80 = 16$ gives
+ \[
+  \mathrm{gcd}(176, 96) = \mathrm{gcd}(80, 96) = \mathrm{gcd}(80, 16).
+ \]
+ Because $80 \bmod 16 = 0$, we have reached the conclusion that
+ $\mathrm{gcd}(3312, 448) = 16$.
+\end{exampleblock}
+
+\begin{block}{Congruence}
+ Now that we have defined the remainder after division, we want to express the
+ idea that two integers (say, $x$ and $y$) \alert{have the same remainder} ($r$)
+ \alert{when divided by some $m \in \Z$}. Mathematically, we write this as
+ \[
+  x \equiv y \pmod{m}.
+ \]
+ In other words, this means
+ \[
+  x = k \cdot m + r \quad \text{and} \quad y = l \cdot m + r
+ \]
+ for some numbers $k,l \in \Z$. Said `naturally', both $x$ and $y$ are greater
+ by $r$ than some multiple of $m$. For example, $13$ and $25$ are the same
+ modulo $12$ because they share the remainder $1$ when divided by $12$ (formally
+ written as  $13 \equiv 25 \pmod{12}$). So, $13$ is greater by $1$ than $12$ (a
+ multiple of $12$) and so is $25$ than $24$ (also a multiple of $12$). 
+
+ This, of course, implies that a number $x$ is \alert{divisible by $m$} if
+ \alert{it is congruent to $0$} modulo $m$. This alludes to our previous
+ definition where we said that $m$ divides $x$ only if there is no remainder
+ after the division of $x$ by $m$.
+
+ This idea of congruence might sound unintuitive and artificial at first, yet it
+ is all around us. If we, for example, consider the regular old clock. Looking
+ only at the clock and seeing both hands aligned north tells us that it is
+ either noon or midnight. This is because we use the 12-hour format which
+ describes current time modulo $12$.
+
+ \alert{Congruence is very similar to normal equation} (it is also an
+ equivalence relation, try to prove it!). We can manipulate it as we would an
+ equation. More specifically, if we know that $x \equiv y \pmod{m}$, then both
+ of the following congruences hold.
+ \begin{itemize}[label=\textbullet,left=24pt]
+  \item $x+a \equiv y+a \pmod{m}$ -- \textbf{adding} (also works for subtracting,
+   so $a \in \mathbb{Z}$)
+  \item $c \cdot x \equiv c \cdot y \pmod{m}$ -- \textbf{multiplying}
+ \end{itemize}
+ for any $c,k \in \N$.
+
+ One can also \alert{simplify a congruence}, but this one is trickier. If
+ \[
+  n \cdot a \equiv n \cdot b, \pmod{m}
+ \]
+ then \alert{it is also true that} $a \equiv b \pmod{m}$ \alert{only in the case
+ that} $n$ and $m$ \alert{are coprime}, i.e. $\gcd(m,n) = 1$. Let's make an
+ example: if $35 \equiv 15 \pmod{4}$, then we can `divide' both sides by $5$ and
+ get $7 \equiv 3 \pmod{4}$ because $\gcd(4,5) = 1$. However, $10 \equiv 2
+ \pmod{8}$ but $5 \not\equiv 1 \pmod{8}$ since we have divided by $2$ which is
+ \textbf{not} coprime to $8$.
+
+ An interesting thing to note about the equivalence classes created by some
+ congruence modulo $m$ is that there are $m$ of them. This is because all the
+ possible remainders after dividing by $m$ are numbers $0, \ldots, m - 1$. 
+\end{block}
+
+\end{column}
+\separatorcolumn
+\begin{column}{\colwidth}
+\begin{exampleblock}{Solving Congruences}
+ We now attempt to \alert{solve the congruence} $7 \cdot x \equiv 5 \pmod{10}$.
+ \alert{Solving a congruence} means a similar thing as \alert{solving an
+ equation}. We're looking for some number $n \in \Z$ smaller than $10$ such that
+ $x \equiv n \pmod{10}$.
+
+ If this were just a normal equation, how would we solve it? Well, we would
+ multiply both sides by a number such that $7$ times that number gives us $1$
+ (that would obviously be $1 / 7$ but we care about the idea more than about the
+ result). Even though \alert{congruence is a relation between integers} and
+ \alert{we mustn't use rational numbers}, the idea is still useful.
+
+The number $n \in \Z$ that satisfies $7 \cdot n \equiv 1 \pmod{10}$ is called an
+\alert{inverse} of $7$ modulo $10$. There is no straightforward way to find
+\alert{an inverse}. To calculate it, we try multiplying $7$ by increasing
+integers and see which result is $1$ modulo $10$. 
+\begin{equation*}
+   \begin{split}
+    1 \cdot 7 & \equiv 7 \pmod{10}\\
+    2 \cdot 7 & \equiv 4 \pmod{10}\\
+    3 \cdot 7 & \equiv 1 \pmod{10}
+   \end{split}
+  \end{equation*}
+This concludes that $3$ is the \alert{inverse} to $7$ modulo $10$. Now \alert{we
+multiply the whole equation by $3$} and get the desired result.
+\[
+ \begin{array}{r l r}
+  7 \cdot x &\equiv 5 & \pmod{10}\\
+  3 \cdot 7 \cdot x & \equiv 3 \cdot 5 & \pmod{10}\\
+  21 \cdot x & \equiv 15 &\pmod{10}\\
+  x & \equiv 5 &\pmod{10}
+ \end{array}
+\]
+We got the fourth congruence from the third by calculating $21 \bmod 10 = 1$ and
+$15 \bmod 10 = 5$.
+
+One unfortunate thing about inverses is that they are not guaranteed to exist
+for every number. If, for example, we try to find the inverse of $2$ modulo $4$,
+we have to conclude that there is no such number. The \alert{inverse} for $a$
+modulo some $m$ (this can be written as: the solution to the congruence $a \cdot
+x \equiv 1 \pmod{m}$) \alert{exists if and only if} $a$ and $m$ \alert{are
+coprime}.
+
+Now that we can solve a congruence, there is nothing stopping us from solving
+more of them.
+\end{exampleblock}
+\begin{alertblock}{Chinese Remainder Theorem}
+ Imagine we have a \alert{system of congruences}
+ \[
+  \begin{array}{r l l}
+   x & \equiv r_1  &\pmod{m_1}\\
+   x & \equiv r_2  &\pmod{m_2}\\
+     & \;\vdots &\\
+   x & \equiv r_n, &\pmod{m_n}
+  \end{array}
+ \]
+ where all the numbers are natural and $m_1,\ldots, m_n$ are \alert{pairwise
+ coprime}. Then the \alert{Chinese Remainder Theorem} tells us that there is
+ unique solution smaller than the product $M = m_1 \cdot m_2 \cdot \ldots \cdot
+ m_n$ of all the numbers we divide by.
+
+ \alert{Each congruence limits the possible solutions radically}. For instance,
+ the congruence $x \equiv r \pmod{m}$ has solutions in the form $k \cdot m + r$
+ for any $k \in \N$. To solve the whole system, one can \alert{write down all
+ the solutions for all the congruences one by one and then find their
+ intersection}.
+
+We can also do this process graphically. If we circle solutions to the
+individual congruences, the number with $n$ circles is the solution to the whole
+system. For example, we have the linear congruences $\clr{x \equiv 1 \pmod{3}}$,
+$\clb{x \equiv 2 \pmod{4}}$. Their solutions are depicted in the picture below.
+
+\begin{center}
+ \begin{tikzpicture}
+   \def\rows{4}
+   \def\cols{8}
+   \def\sep{1.4}
+
+   \foreach \x in {1, ..., \cols} {
+    \foreach \y in {1, ..., \rows} {
+     \pgfmathtruncatemacro\z{(\rows-\y) * \cols + \x}
+     \node[black] (\z) at (\x*\sep,\y*\sep) {\small \z};
+    }
+   }
+
+   \foreach \x/\y in {1/4,4/4, 7/4, 2/3, 5/3, 8/3, 3/2, 6/2, 1/1, 4/1, 7/1 } {
+   \node[circle,inner sep=11pt, draw =BrickRed,line width= 2pt]  at
+      (\x*\sep,\y*\sep) {};
+   }
+    
+   \foreach \x/\y in {6/4,2/4, 6/3, 2/2, 2/1, 6/1 } {
+     \node[circle,inner sep=11pt, draw =RoyalBlue,line width= 2pt] at
+      (\x*\sep,\y*\sep) {};
+   }
+
+     \node[circle,inner sep=13.5pt, draw =RoyalBlue,fill=yellow,fill opacity=0.2,line width= 2pt] at
+      (2*\sep,3*\sep) {};
+     
+     \node[circle,inner sep=13.5pt, draw =RoyalBlue,fill=yellow,fill opacity=0.2,line width= 2pt] at
+      (6*\sep,2*\sep) {};
+
+     \draw[line width = 2pt] (12)+(0.6,0.6) rectangle ++(-0.6,-0.6);
+
+     \draw[line width = 2pt] (24)+(0.6,0.6) rectangle ++(-0.6,-0.6);
+ \end{tikzpicture}
+\end{center}
+Every circle shows a solution to one of the congruences based on its colour.
+The overall solution has two circles and is tinted yellow. The box around $12$
+and $24$ indicates on which intervals we are guaranteed to have a unique
+solution. This is because $M = m_1 \cdot m_2 = 3 \cdot 4 = 12$.
+
+To draw all the solutions to the congruence $x \equiv r \pmod{m}$, it is useful
+to note that the first (or the smallest) solution will always be $r$ and then
+the following solutions always differ by $m$. Hence, the next will be $r+m$, the
+one after that $r+2 \cdot m$ and so on.
+
+By the Chinese Remainder Theorem, we are only guaranteed a \alert{unique
+solution up to $M$}. But the \alert{system itself has infinitely many
+solutions}. To find all of them, we have to start with the smallest solution $x$
+(the one smaller than $M$), and then keep adding multiples of $M$. More
+precisely, \alert{all solutions are of the form $x + k \cdot M$} for any $k \in
+\N$.
+\end{alertblock}
+ \begin{block}{Solving Congruence Systems}
+  Now, to showcase a more scalable but less intuitive method, we shall solve the system
+  \[
+   \begin{array}{r l l}
+    x & \equiv 3  &\pmod{7}\\
+    x & \equiv 5  &\pmod{9}\\
+    x & \equiv 4. &\pmod{11}
+   \end{array}
+  \]
+  
+  \alert{From the first congruence}, we know that $x= 7 \cdot k +3$ for some $k
+  \in \N$. We can now substitute for $x$ to the second congruence and solve it.
+\begin{equation*}
+   \begin{aligned}
+    7 \cdot k +3 & \equiv 5 \pmod{9}  && \qquad \text{\footnotesize{\# Substituting}} \\
+    7 \cdot k &\equiv 2 \pmod{9}&& \qquad \text{\footnotesize{\# Subtracting $3$}}  \\
+    k &\equiv 8 \pmod{9} &&\qquad \text{\footnotesize{\# Multiplying by the
+     inverse of $7$ modulo $9$, which is $4$.}}
+   \end{aligned}
+  \end{equation*}
+ Now we know that $k = 9 \cdot l + 8$ for some $l \in \N$. This expression is
+ used to express $x$ in terms of $l$ as $x = 7 \cdot (9 \cdot l+8)+3 = 63 \cdot
+ l + 59$. There is still one congruence that we have not used. We calculate $63
+ \bmod 11 = 8$ and $59 \bmod 11 = 4$. Hence, $x \equiv 63 \cdot l + 59 \equiv 8
+ \cdot l + 4 \pmod{11}$. Substituting to the last congruence gives us
+\begin{equation*}
+   \begin{aligned}
+    8 \cdot l + 4 & \equiv 4 & \pmod{11}  && \qquad    \text{\footnotesize{\# Substituting}} \\
+    l &\equiv 0. & \pmod{11} 
+   \end{aligned}
+  \end{equation*}
+ With this we can express $l = 11 \cdot m$ in terms of some other variable $m$
+ and finally see the answer
+ \[
+  x = 63 \cdot (11 \cdot m) + 59 = 693 \cdot l + 59.
+ \]
+ Notice that the coefficient before $m$ is equal to $693 = 7\cdot 9 \cdot 11$.
+ The CRT tells us that \alert{this will be the case for every system where the
+ divisors are coprime}.
+ \end{block}
+
+\end{column}
+\separatorcolumn
+
+\end{columns}
+\end{frame}
+
+\end{document}
