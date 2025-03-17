@@ -89,7 +89,7 @@ the row space of a matrix as it procedurally nullifies rows that can be
 expressed as linear combinations of preceding rows. The following lemma is an
 ingredient to that dish.
 
-\begin{lemma}{}{}
+\begin{lemma}{}{non-zero-rows-li}
  The non-zero rows of a matrix in echelon form are linearly independent.
 \end{lemma}
 \begin{lemproof}
@@ -207,12 +207,12 @@ called the \emph{transpose}.
  \]
 \end{example}
 
-The circle is closing with the following lemma which establishes that row
+The circle has gone closed with the following lemma which establishes that row
 operations do not alter the column space. Restated, row operations do not change
 the solution set of a linear system. That is, in fact, the first theorem of the
 book -- \myref{theorem}{thm:gauss-jordan}.
 
-\begin{lemma}{}{}
+\begin{lemma}{}{row-ops-and-col-space}
  Row transformations (1) - (3) defined above \myref{theorem}{thm:gauss-jordan}
  do not change the column space of a matrix.
 \end{lemma}
@@ -226,4 +226,145 @@ that Gauss-Jordan elimination actually doesn't find only the basis of the row
 space, it also finds the basis of the \textbf{column} space. We first illustrate
 why this is the case on an example.
 
+\begin{example}{}{row-space-col-space}
+ Let us put the matrix
+ \[
+  A = \begin{pmatrix}
+  1 & 2 & 0 & 4\\
+  3 & 3 & 1 & 0\\
+  7 & 8 & 2 & 4
+  \end{pmatrix}
+ \]
+ into echelon form. Following the algorithm of Gauss-Jordan elimination gives
+ \[
+  \begin{pmatrix*}[r]
+   1 & 2 & 0 & 4\\
+   0 & -3 & 1 & -12\\
+   0 & 0 & 0 & 0
+  \end{pmatrix*}.
+ \]
+ By \myref{lemma}{lem:non-zero-rows-li}, the first and second rows of the
+ eliminated matrix form the basis of the row space of the original matrix. That
+ is,
+ \[
+  \text{the row space of } A = \spn \left( 
+  \begin{pmatrix}
+   1\\
+   2\\
+   0\\
+   4
+  \end{pmatrix},
+  \begin{pmatrix}
+   0\\
+   -3\\
+   1\\
+   -12
+  \end{pmatrix}
+  \right).
+ \]
+ However, by the preceding \myref{lemma}{lem:row-ops-and-col-space}, the
+ performed operations also left the column space intact. Can we see the basis
+ for the column space in the eliminated matrix? Why, of course we can! The
+ columns that correspond to \textbf{free variables} (in this case the third and
+ fourth columns) are necessarily linearly dependent on previous columns. The
+ reason for that is simple -- their last non-zero entry is a pivot in the same
+ row and some previous column, their penultimate non-zero entry is again a pivot
+ in the same row as that entry and some previous column, etc. Therefore, for
+ every non-zero entry of a free variable column, there exists some previous
+ \textbf{pivot} column which has a non-zero entry at the same coordinate.
 
+ It follows that
+ \[
+  \text{the column space of } A = \spn \left(
+   \begin{pmatrix}
+    1\\
+    0\\
+    0
+   \end{pmatrix},
+   \begin{pmatrix}
+    2\\
+    -3\\
+    0
+   \end{pmatrix}
+  \right).
+ \]
+ Observe that the dimension of the column space is equal to that of the row
+ space. This is not a coincidence -- the echelon form of $A$ has as many zero
+ rows as there are free variables. But that is also exactly the number of
+ columns that are linearly dependent on other columns. In other words, the
+ dimension of \textbf{both} the row space \textbf{and} the column space is the
+ number of pivots.
+\end{example}
+
+Let us summarise our findings in the following proposition.
+
+\begin{proposition}{}{row-space-equals-col-space}
+ For every matrix $A$, the dimension of the row space of $A$ is equal to the
+ dimension of the column space of $A$.
+\end{proposition}
+\begin{propproof}
+ The idea of the proof is pretty much contained in
+ \myref{example}{exam:row-space-col-space}. The number of non-zero rows in the
+ echelon form of $A$ equals the number of pivots (by definition of a
+ \emph{pivot}), and, by \myref{lemma}{lem:non-zero-rows-li}, it also equals the
+ dimension of its row space.
+
+ As we've observed in \myref{example}{exam:row-space-col-space}, the number of
+ pivots also equals the number of linearly independent columns and thus the
+ dimension of the column space of $A$.
+\end{propproof}
+
+\begin{definition}{Rank}{rank}
+ The \emph{rank} of a matrix $A$ equals the dimension of its row space or its
+ column space and is denoted $\rank A$.
+\end{definition}
+
+We finish the section strong by explicitly stating the relation between the rank
+of a matrix and the solution set of its associated homogeneous linear system.
+
+\begin{theorem}{}{rank-dim-of-solutions}
+ Let $A$ be an $m \times n$ matrix. Then, the following claims are equivalent.
+ \begin{enumerate}
+  \item $\rank M = r$.
+  \item The vector space of solutions of the associated homogeneous linear
+   system has dimension $n - r$.
+ \end{enumerate}
+\end{theorem}
+\begin{thmproof}
+ By \myref{proposition}{prop:row-space-equals-col-space} and the preceding
+ example, $\rank M = r$ if and only if Gauss-Jordan elimination process of the
+ matrix $A$ ends with $r$ non-zero rows. This in turn happens if and only if the
+ number of pivots is exactly $r$. Finally, the number of pivots is $r$ if and
+ only if the number of free variables is $n - r$. The number of free variables
+ is of course precisely the dimension of the set of solution of the homogeneous
+ linear system with matrix $A$.
+\end{thmproof}
+
+\begin{definition}{Regular matrix}{regular-matrix}
+ An $m \times n$ matrix is called \emph{regular} if $\rank A = n$ (that is, the
+ maximum possible). If $A$ is not regular, it is called \emph{singular}.
+\end{definition}
+
+\begin{remark}{}{}
+ By \myref{theorem}{thm:rank-dim-of-solutions}, a matrix $A$ is \emph{singular}
+ if and only if the associated homogeneous linear system has infinitely many
+ solutions.
+\end{remark}
+
+\begin{corollary}{}{}
+ For a \textbf{square} matrix $A$ with $n$ rows and $n$ columns, the following
+ claims are equivalent.
+ \begin{enumerate}
+  \item $\rank A = n$.
+  \item $A$ is regular.
+  \item The rows of $A$ are linearly independent.
+  \item The columns of $A$ are linearly independent.
+  \item \textbf{Any} linear system (that is, not just homogeneous) with left
+   side $A$ has exactly one solution.
+ \end{enumerate}
+\end{corollary}
+\begin{corproof}
+ For $(1) \Leftrightarrow (2)$, we observe that $\rank A = n$ if and only if the
+ associated homogeneous linear system has $0$ free variables and thus just one
+ solution.
+\end{corproof}
