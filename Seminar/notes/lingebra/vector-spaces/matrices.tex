@@ -9,7 +9,7 @@ Understanding of said structure brings to light many properties of their
 solution sets, even.
 
 Looking at the left hand side of linear systems (assembled into matrices), one
-immediately two sets of vectors -- the \textbf{rows} of the matrix, and the
+immediately sees two sets of vectors -- the \textbf{rows} of the matrix, and the
 \textbf{columns}. Enlightened as we have been by the late
 \myref{section}{sec:subspaces-and-spans} dealing with spans, we begin to study
 the vector spaces given by spans of these two sets. Believe it or not, they're
@@ -76,7 +76,7 @@ a matrix. We shall formulate this observation as a lemma.
  \mathbf{a}_{i+1},\ldots,\mathbf{a}_n$, then $\mathbf{a}_i$ lies in the row
  space of $B$ as
  \[
-  \mathbf{a}_i = 1 \cdot (\mathbf{a}_i + c \cdot \mathbf{a}_j) + (-c) \cdot
+  \mathbf{a}_i = 1 \cdot (\mathbf{a}_i + c \cdot \mathbf{a}_j) -c \cdot
   \mathbf{a}_j
  \]
  and $\mathbf{a}_i$ is thus a linear combination of rows of $B$. This concludes
@@ -95,6 +95,135 @@ ingredient to that dish.
 \begin{lemproof}
  Each row of a matrix in echelon form has at least one more leading zero than
  the preceding row. That is, labelling the non-zero rows of the eliminated
- matrix $A$ with $n$ rows as $\mathbf{a}_1,\ldots,\mathbf{a}_k$, we have
+ matrix $A$ with $n$ rows as $\mathbf{a}_1,\ldots,\mathbf{a}_k$, consider the
+ linear combination
+ \[
+  r_1 \cdot \mathbf{a}_1 + r_2 \cdot \mathbf{a}_2 + \ldots + r_k \cdot
+  \mathbf{a}_k = 0.
+ \]
+ Rewriting this system in the form of a matrix gives
+ \[
+  \left(
+   \begin{matrix*}[c]
+    a_{1,1} & 0 & 0 & \cdots & 0\\
+    a_{2,1} & a_{2,2} & 0 & \cdots & 0\\
+    a_{3,1} & a_{3,2} & a_{3,3} & \cdots & 0\\
+    \vdots & \vdots & \vdots & \ddots & \vdots\\
+    a_{n,1} & a_{n,2} & a_{n,3} & \cdots & a_{n,k}
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    0\\
+    0\\
+    0\\
+    \vdots\\
+    0
+   \end{matrix*}
+  \right).
+ \]
+ We're certain that $a_{i,j} = 0$ if $j > i$ because the $i$-th row
+ $\mathbf{a}_i$ (which is now the $i$-th column in the matrix) must have at
+ least $i - 1$ leading zeroes.
+
+ Simple back substitution immediately yields $r_1 = r_2 = \ldots = r_k = 0$ and
+ thus the row vectors $\mathbf{a}_1,\ldots,\mathbf{a}_k$ are linearly
+ independent by \myref{proposition}{prop:linear-independence-zero-vector}.
 \end{lemproof}
+
+Let us now take a look at the vector space spanned by the columns of a matrix.
+We shall uncover interesting links to the row space.
+
+\begin{definition}{Column space}{column-space}
+ The column space of a matrix is the span of its columns.
+\end{definition}
+
+\begin{example}{}{}
+ The column space of the matrix
+ \[
+  \begin{pmatrix}
+   0 & 1 & 1\\
+   1 & 2 & 3
+  \end{pmatrix}
+ \]
+ is the vector space
+ \[
+  \spn \left( 
+   \begin{pmatrix}
+    0\\
+    1
+   \end{pmatrix},
+   \begin{pmatrix}
+    1\\
+    2
+   \end{pmatrix},
+   \begin{pmatrix}
+    1\\
+    3
+   \end{pmatrix}
+  \right).
+ \]
+\end{example}
+
+There is an obvious reason we care about studying the column space. Picking a
+matrix $A = (\tilde{\mathbf{a}}_1 | \cdots | \tilde{\mathbf{a}}_n)$ (i.e. we
+label its columns as $\tilde{\mathbf{a}}_1$ up to $\tilde{\mathbf{a}}_n$),
+every solution of the corresponding homogeneous linear system assumes the form
+\[
+ r_1 \cdot \tilde{\mathbf{a}}_1 + r_2 \cdot \tilde{\mathbf{a}}_2 + \ldots +
+ r_n \cdot \tilde{\mathbf{a}}_n.
+\]
+Consequently, the column space is \textbf{exactly} the vector space of
+solutions of the homogeneous linear system with matrix $A$.
+
+In order to find a \emph{basis} of a vector space given as a span of some set we
+would assemble the spanning vectors into rows of a matrix and then that into
+echelon form. Should we thus wish to find the basis for the column space, we
+would `assemble the columns of a matrix into rows'. This matrix operation is
+called the \emph{transpose}.
+
+\begin{definition}{Transpose of a matrix}{transpose-of-a-matrix}
+ Given matrix $A = (\tilde{\mathbf{a}}_1 | \tilde{\mathbf{a}}_2 | \cdots |
+ \tilde{\mathbf{a}}_n)$, its \emph{transpose} is the matrix $A^{T}$ with rows
+ $\tilde{\mathbf{a}}_1,\tilde{\mathbf{a}}_2,\ldots,\tilde{\mathbf{a}}_n$.
+\end{definition}
+
+\begin{example}{}{}
+ The transpose of the matrix
+ \[
+  \begin{pmatrix}
+   0 & 1 & 1\\
+   1 & 2 & 3
+  \end{pmatrix}
+ \]
+ is the matrix
+ \[
+  \begin{pmatrix}
+   0 & 1\\
+   1 & 2\\
+   1 & 3
+  \end{pmatrix}.
+ \]
+\end{example}
+
+The circle is closing with the following lemma which establishes that row
+operations do not alter the column space. Restated, row operations do not change
+the solution set of a linear system. That is, in fact, the first theorem of the
+book -- \myref{theorem}{thm:gauss-jordan}.
+
+\begin{lemma}{}{}
+ Row transformations (1) - (3) defined above \myref{theorem}{thm:gauss-jordan}
+ do not change the column space of a matrix.
+\end{lemma}
+\begin{lemproof}
+ See the mentioned \myref{theorem}{thm:gauss-jordan}.
+\end{lemproof}
+
+We are now ready to present an important observation, one that ties together the
+dimension of row space to that of the column space. The crux of the matter is
+that Gauss-Jordan elimination actually doesn't find only the basis of the row
+space, it also finds the basis of the \textbf{column} space. We first illustrate
+why this is the case on an example.
+
 
