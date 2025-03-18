@@ -1,4 +1,4 @@
-\chapter{Homomorphisms}
+\chapter{Homomorphisms (chybějí obrázky)}
 \label{chap:homomorphisms}
 
 In this chapter, our aim is to study and understand maps between vector spaces.
@@ -39,7 +39,7 @@ ensuing lemmata and definitions, to drive the point home.
  \end{enumerate}
 \end{definition}
 
-\begin{example}{}{}
+\begin{example}{}{homs}
  The following maps are homomorphisms:
  \begin{enumerate}[label=(\alph*)]
   \item the map $f:\R^2 \to \R^2$ given by $f(\mathbf{v}) = 2 \cdot \mathbf{v}$;
@@ -128,7 +128,7 @@ somewhat easier. Hence, we now collect two qualities only homomorphisms possess.
  Let $f:V \to W$ be a homomorphism and label the zero vector of $V$ by
  $\clr{\mathbf{0}_V}$ and the zero vector of $W$ by $\clb{\mathbf{0}_W}$. Then,
  \[
-  f(\clr{\mathbf{0}}_V) = \clb{\mathbf{0}_W}.
+  f(\clr{\mathbf{0}_V}) = \clb{\mathbf{0}_W}.
  \]
 \end{lemma}
 \begin{lemproof}
@@ -140,3 +140,204 @@ somewhat easier. Hence, we now collect two qualities only homomorphisms possess.
  \]
  as required.
 \end{lemproof}
+
+\begin{lemma}{}{hom-linear-combination}
+ For two vector spaces $V,W$ over $\F$ and a map $f:V \to W$, the following
+ statements are equivalent.
+ \begin{enumerate}[label=(\alph*)]
+  \item The map $f$ is a homomorphism.
+  \item For any two vectors $\mathbf{v}_1,\mathbf{v}_2 \in V$ and two numbers
+   $t_1,t_2 \in \F$, we have
+   \[
+    f(t_1~\clr{ \cdot _V}~\mathbf{v}_1~\clr{+_V}~t_2~\clr{ \cdot
+    _V}~\mathbf{v}_2) = t_1~\clb{ \cdot
+    _W}~f(\mathbf{v}_1)~\clb{+_W}~t_2~\clb{ \cdot _W}~f(\mathbf{v}_2).
+   \]
+  \item For any vectors $\mathbf{v}_1,\ldots,\mathbf{v}_n$ and numbers
+   $t_1,\ldots,t_n \in \F$, we have
+   \[
+    f(t_1~\clr{ \cdot_V}~\mathbf{v_1}~\clr{ + _V}~\ldots~\clr{ +_V}~t_n~\clr{
+    \cdot _V}~\mathbf{v}_n) = t_1~\clb{ \cdot
+    _W}~f(\mathbf{v}_1)~\clb{+_W}~\ldots~\clb{+_W}~t_n~\clb{ \cdot
+    _W}~f(\mathbf{v}_n).
+   \]
+ \end{enumerate}
+\end{lemma}
+\begin{lemproof}
+ In the proof (as well as the following text), we stop distinguishing between
+ $\clr{ \cdot _V}$, $\clb{ \cdot _W}$ and $\clr{+_W},\clb{+_W}$ for the sake of
+ clarity. The readers should do well to keep in mind that $V$ and $W$ host
+ different structures, though.
+
+ We prove $(a) \Leftrightarrow (b)$ and $(b) \Leftrightarrow (c)$.
+
+ As for $(a) \Rightarrow (b)$, we shall, naturally, invoke the axioms (1) and
+ (2) of the \hyperref[def:homomorphism]{definition of homomorphism}. We compute
+ \[
+  f(t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2) \overset{(1)}{=} f(t_1
+  \cdot \mathbf{v}_1) + f(t_2 \cdot \mathbf{v}_2) \overset{(2)}{=} t_1 \cdot
+  f(\mathbf{v}_1) + t_2 \cdot f(\mathbf{v}_2).
+ \]
+ The implication $(b) \Rightarrow (a)$ we simply substitute $t_1 = t_2 = 1$ for
+ axiom (1) and $\mathbf{v}_2 = \mathbf{0}$ for axiom (2).
+
+ Similarly, the implication $(c) \Rightarrow (b)$ follows trivially by $n = 2$.
+ We prove the last implication $(b) \Rightarrow (c)$ by induction on $n$. The
+ base case $n = 2$ is covered completely by statement $(b)$. For the induction
+ step, label $\mathbf{w} = t_1 \cdot \mathbf{v}_1 + \ldots + t_n \cdot
+ \mathbf{v}_n$. Then,
+ \[
+  f(t_1 \cdot \mathbf{v}_1 + \ldots + t_n \cdot \mathbf{v}_n + t_{n+1} \cdot
+  \mathbf{v}_{n+1}) = f(\mathbf{w} + t_{n+1} \cdot \mathbf{v}_{n+1}).
+ \]
+ Using statement $(b)$ again, we get
+ \[
+  f(\mathbf{w} + t_{n+1} \cdot \mathbf{v}_{n+1}) = f(\mathbf{w}) + t_{n+1} \cdot
+  f(\mathbf{v}_{n+1}).
+ \]
+ By the induction hypothesis,
+ \[
+  f(\mathbf{w}) = f(t_1 \cdot \mathbf{v}_1 + \ldots + t_n \cdot \mathbf{v}_n) =
+  t_1 \cdot f(\mathbf{v}_1) + \ldots + t_n \cdot f(\mathbf{v}_n).
+ \]
+ And thus,
+ \begin{align*}
+  f(\mathbf{w}) + t_{n+1} \cdot f(\mathbf{v}_{n+1}) &= f(t_1 \cdot \mathbf{v}_1 +
+  \ldots + t_n \cdot \mathbf{v}_n) + t_{n+1} \cdot \mathbf{v}_{n+1}\\
+                                                    &= t_1 \cdot
+  f(\mathbf{v}_{1}) + \ldots + t_n \cdot f(\mathbf{v}_n) + t_{n+1} \cdot
+  f(\mathbf{v}_{n+1})
+ \end{align*}
+ and we're done.
+\end{lemproof}
+
+\begin{remark}{}{}
+ The statement $(b)$ in \myref{lemma}{lem:hom-linear-combination} can be
+ geometrically interpreted as saying that a homomorphism `transforms
+ parallelepipeds into parallelepipeds'. Let's see this on an example.
+
+ Any two linearly independent vectors $\mathbf{u},\mathbf{v} \in \R^2$ define a
+ parallelogram as the set of all linear combinations of $\mathbf{u}$ and
+ $\mathbf{v}$ with coefficients between $0$ and $1$, i.e.
+ \[
+  \mathbf{P}(\mathbf{u},\mathbf{v}) \coloneqq \{a \cdot \mathbf{u} + b \cdot
+  \mathbf{v} \mid a,b \in [0,1]\}.
+ \]
+ \begin{center}
+  \clr{TODO obrazek}
+ \end{center}
+ Then, the mentioned statement $(b)$ says the following for a homomorphism
+ $f:\R^2 \to \R^2$
+ \[
+  f(a \cdot \mathbf{u} + b \cdot \mathbf{v}) = a \cdot f(\mathbf{u}) + b \cdot
+  f(\mathbf{v}).
+ \]
+ However, this can be read to say that the image of every point in the
+ parallelogram determined by $\mathbf{u}$ and $\mathbf{v}$ is a point in the
+ parallelogram determined by $f(\mathbf{u})$ and $f(\mathbf{v})$. Symbolically,
+ \[
+  f(\mathbf{P}(\mathbf{u},\mathbf{v})) =
+  \mathbf{P}(f(\mathbf{u}),f(\mathbf{v})).
+ \]
+\end{remark}
+
+Let us return to \myref{example}{exam:homs}. There, we claimed that certain maps
+were homomorphisms without proof. For some of them, we're providing the proof
+now.
+
+It is easily checked that the projection
+\[
+ \pi \left( 
+  \begin{pmatrix}
+   x\\
+   y\\
+   z
+  \end{pmatrix}
+ \right) = 
+ \begin{pmatrix}
+  x\\
+  y
+ \end{pmatrix}
+\]
+is a homomorphism. Indeed, we can calculate
+\begin{align*}
+ \pi \left( a \cdot 
+ \begin{pmatrix}
+  x_1\\
+  y_1\\
+  z_1
+ \end{pmatrix} + b \cdot 
+ \begin{pmatrix}
+  x_2\\
+  y_2\\
+  z_2
+ \end{pmatrix}
+\right) &= 
+ \pi \left( 
+ \begin{pmatrix}
+  ax_1 + bx_2\\
+  ay_1 + by_2\\
+  az_1 + bz_2
+ \end{pmatrix}
+ \right) = 
+ \begin{pmatrix}
+  ax_1 + bx_2\\
+  ay_1 + by_2
+ \end{pmatrix}
+ \\
+        &=a \cdot 
+ \begin{pmatrix}
+  x_1\\
+  y_1
+ \end{pmatrix}
+ + b \cdot 
+ \begin{pmatrix}
+  x_2\\
+  y_2
+ \end{pmatrix} = 
+ a \cdot \pi
+ \left( 
+ \begin{pmatrix}
+  x_1\\
+  y_1\\
+  z_1
+ \end{pmatrix}
+ \right) + b \cdot \pi \left( 
+ \begin{pmatrix}
+  x_2\\
+  y_2\\
+  z_2
+ \end{pmatrix}
+ \right).
+\end{align*}
+The rest is up to \myref{lemma}{lem:hom-linear-combination}.
+
+In a very similar vein, the map $f(\mathbf{v}) = 2 \cdot \mathbf{v}$ is a
+homomorphism for any vector space $V$ over $\R$. Indeed, we may compute
+\[
+ f(a \cdot \mathbf{u} + b \cdot \mathbf{v}) = 2 \cdot (a \cdot \mathbf{u} + b
+ \cdot \mathbf{v}) = a \cdot (2 \cdot \mathbf{u}) + b \cdot (2 \cdot \mathbf{v})
+ = a \cdot f(\mathbf{u}) = b \cdot f(\mathbf{v}).
+\]
+This last homomorphism is an example of an \emph{automorphism} -- a bijective
+homomorphism from a space to itself. Automorphisms are just one interesting
+class of homomorphisms we shall now present.
+
+\begin{definition}{Classes of homomorphisms}{classes-of-homomorphisms}
+ A homomorphism $f:V \to W$ is called
+ \begin{enumerate}
+  \item an \emph{isomorphism}, if it is bijective,
+  \item an \emph{endomorphism}, if $W = V$,
+  \item an \emph{automorphism}, if it is both an \emph{isomorphism} and an
+   \emph{endomorphism}.
+ \end{enumerate}
+\end{definition}
+
+If there exists an \emph{isomorphism} between two vector spaces $V$ and $W$, we
+call these spaces \emph{isomorphic}. Intuitively, this means that the two spaces
+behave exactly the same, we have only chosen to represent the vectors of one a
+little differently than the other.
+
+One immediate example is the correspondence between polynomials of degree $n$
+and vectors with $n + 1$ entries we have mentioned many times throughout the
+text.
