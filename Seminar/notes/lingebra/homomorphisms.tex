@@ -1,0 +1,142 @@
+\chapter{Homomorphisms}
+\label{chap:homomorphisms}
+
+In this chapter, our aim is to study and understand maps between vector spaces.
+Not just any kind of maps, however, but maps that \emph{preserve structure}.
+
+Most of modern mathematics is dedicated to the study of \emph{structures} --
+basically prescribed rules of interaction between elements of a set. We call
+these rules, \emph{operations}, and when moving from a set with structure to a
+set with structure by a map, we tend to require that said map somehow respects
+the structures of both sets. Such maps are often called \emph{homomorphisms},
+from Greek ὁμός (\uv{same}) and μορφή (\uv{form, shape}).
+
+The only structure we consider in this book is that of a vector space given by
+two operations: scalar multiplication and vector addition. A \emph{homomorphism
+between vector spaces} $V$ and $W$ (also called a \emph{linear map}) is thus a
+map which respects both operations; in practice, this means that the image of a
+scalar multiple should be the same scalar multiple of the image and that the
+image of a sum of vectors should be the sum of the images.
+
+One last note: we ought to be careful when comparing two structures. We labelled
+the operations on a vector space by symbols $ \cdot $ and $+$ but these two
+symbols \textbf{mean different things in different vector spaces}! To keep the
+text tidy, we shan't resort to using yet another distinct pair of symbols.
+However, we \emph{are} going to distinguish the structure in a small number of
+ensuing lemmata and definitions, to drive the point home.
+
+\begin{definition}{Homomorphism}{homomorphism}
+ Let $V$ and $W$ be vector spaces over the field $\F$. We denote the operations
+ of scalar multiplication and vector addition on $V$ by $\clr{ \cdot _V}$ and
+ $\clr{ +_V}$ and those on $W$ by $\clb{ \cdot _W}$ and $\clb{+_W}$. A map $f:V
+ \to W$ is a \emph{homomorphism} (or a \emph{linear map}) if
+ \begin{enumerate}
+  \item $f(\mathbf{v}_1~\clr{+_V}~\mathbf{v}_2) =
+   f(\mathbf{v}_1)~\clb{+_W}~f(\mathbf{v}_2)$ for every two vectors
+   $\mathbf{v}_1,\mathbf{v}_2 \in V$.
+  \item $f(t~\clr{ \cdot _V}~\mathbf{v}) = t~\clb{ \cdot_W}~f(\mathbf{v})$ for
+   every $t \in \F$ and $\mathbf{v} \in V$.
+ \end{enumerate}
+\end{definition}
+
+\begin{example}{}{}
+ The following maps are homomorphisms:
+ \begin{enumerate}[label=(\alph*)]
+  \item the map $f:\R^2 \to \R^2$ given by $f(\mathbf{v}) = 2 \cdot \mathbf{v}$;
+  \item the map $f:\mathcal{P}_3(\F) \to \F^{4}$ given by
+   \[
+    f(a_0 + a_1x + a_2x^2 + a_3x^3) = 
+    \begin{pmatrix}
+     a_0\\
+     a_1\\
+     a_2\\
+     a_3
+    \end{pmatrix},
+   \]
+   where $\mathcal{P}_3(\F)$ denotes the space of polynomials of degree $3$ with
+   coefficients in the field $\F$;
+  \item the map $\pi: \R^3 \to \R^2$ given by
+   \[
+    \pi \left( 
+    \begin{pmatrix}
+     x\\
+     y\\
+     z
+    \end{pmatrix}
+    \right) = 
+    \begin{pmatrix}
+     x\\
+     y
+    \end{pmatrix};
+   \]
+   maps that `forget coordinates' are often called \emph{projections}.
+ \end{enumerate}
+ The following maps are \textbf{not} homomorphisms:
+ \begin{enumerate}[label=(\alph*)]
+  \item the map $f:\R^3 \to \R^3$ given by
+   \[
+    f \left( 
+    \begin{pmatrix}
+     x\\
+     y\\
+     z
+    \end{pmatrix}
+    \right) = 
+    \begin{pmatrix}
+     x\\
+     y\\
+     z
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+     1\\
+     2\\
+     -3
+    \end{pmatrix};
+   \]
+  \item the map $f: \R^2 \to \R$ given by
+   \[
+    f \left( 
+    \begin{pmatrix}
+     x\\
+     y
+    \end{pmatrix}
+    \right) = x^2 + y^3 - 6.
+   \]
+  \item the map $f:\R^{2 \times 2} \to \R^2$ given by
+   \[
+    f \left( 
+    \begin{pmatrix}
+     a & b\\
+     c & d
+    \end{pmatrix}
+    \right) = 
+    \begin{pmatrix}
+     a \cdot b + c \cdot d\\
+     a \cdot d - b \cdot c
+    \end{pmatrix}.
+   \]
+ \end{enumerate}
+\end{example}
+
+In the previous example, we claimed that certain maps were homomorphisms without
+giving a proof. We did so because we first want to provide a characterisation of
+homomorphisms which makes checking whether a given map is a homomorphism
+somewhat easier. Hence, we now collect two qualities only homomorphisms possess.
+
+\begin{lemma}{Zero to zero}{zero-to-zero}
+ Let $f:V \to W$ be a homomorphism and label the zero vector of $V$ by
+ $\clr{\mathbf{0}_V}$ and the zero vector of $W$ by $\clb{\mathbf{0}_W}$. Then,
+ \[
+  f(\clr{\mathbf{0}}_V) = \clb{\mathbf{0}_W}.
+ \]
+\end{lemma}
+\begin{lemproof}
+ Exploiting axiom (2) in the \hyperref[def:homomorphism]{definition of
+ homomorphism}, we get
+ \[
+  f(\clr{\mathbf{0}_V}) = f(0~\clr{ \cdot _V}~\clr{\mathbf{0}_V})
+  \overset{(2)}{=} 0~\clb{ \cdot _W}~f(\clr{\mathbf{0}_V}) = \clb{\mathbf{0}_W}
+ \]
+ as required.
+\end{lemproof}

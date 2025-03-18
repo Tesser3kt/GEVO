@@ -576,7 +576,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txexs.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/ntxexx.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/newtx/ntxexx.vf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/txexs.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/newtx/untxmia.fd
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/gelasiomath/untxmia.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/nxlmia.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/vf/public/newtx/nxlmia.vf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/newtx/LibertineMathRM.tfm
@@ -629,6 +629,9 @@ INPUT ./vector-spaces/linear-independence.tex
 INPUT ./vector-spaces/linear-independence/basis.tex
 INPUT ./vector-spaces/linear-independence/representation.tex
 INPUT ./vector-spaces/matrices.tex
+INPUT ./homomorphisms.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
 OUTPUT main.thm
 INPUT ./main.aux
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb
@@ -637,6 +640,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathM
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb

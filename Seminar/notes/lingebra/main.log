@@ -1,10 +1,10 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.1.12)  17 MAR 2025 20:28
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.1.5)  18 MAR 2025 12:05
  restricted system commands enabled.
  file:line:error style messages enabled.
 **main.tex
 (./main.tex
 LaTeX2e <2024-11-01> patch level 1
-L3 programming layer <2024-12-25>
+L3 programming layer <2024-12-09>
 Lua module: luaotfload 2024-02-14 v3.28 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended collection.
@@ -309,7 +309,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen153
 \Gm@dimlist=\toks19
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2025/01/07 v5.1.1 Extensive control of page headers and footers
+Package: fancyhdr 2025/01/01 v5.0 Extensive control of page headers and footers
 \f@nch@headwidth=\skip52
 \f@nch@offset@elh=\skip53
 \f@nch@offset@erh=\skip54
@@ -463,8 +463,8 @@ Package ntheorem Info: option `amsmath' handling for `thmmarks' loaded on input 
 \thm@amstmpdepth=\dimen177
 \tagwidth=\dimen178
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/newtx.sty
-Package: newtx 2025/01/06 v1.755(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
- `newtx'v1.755, 2025/01/06 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
+Package: newtx 2024/06/22 v1.751(Michael Sharpe) latex and unicode latex support for newtxmath and a supported text font family, or for newtxtext and an otf math package
+ `newtx'v1.751, 2024/06/22 Integrated loading of newtxmath and a text font  for all latex engines (msharpe) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/fontaxes/fontaxes.sty
 Package: fontaxes 2020/07/21 v1.0e Font selection axes
@@ -614,7 +614,7 @@ LaTeX Font Info:    Redeclaring math accent \vec on input line 2057.
 LaTeX Info: Redefining \Bbbk on input line 2847.
 LaTeX Info: Redefining \not on input line 2995.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-12-25 L3 programming layer (loader) 
+Package: expl3 2024-12-09 L3 programming layer (loader) 
  (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count311
@@ -1776,7 +1776,7 @@ Package pgfplots info on input line 82: Found new luatex: initializing lua comma
 \pgfplots@zmin@reg=\dimen335
 \pgfplots@zmax@reg=\dimen336
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.fillbetween.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibraryfillbetween.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibrarydecorations.softclip.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfcontrib/pgflibraryfillbetween.code.tex))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.decorations.softclip.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/latex/circuitikz/circuitikz.sty
-Package: circuitikz 2025/01/10{} The CircuiTikz circuit drawing package version 1.7.1
+Package: circuitikz 2024/08/03{} The CircuiTikz circuit drawing package version 1.7.0
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybending.code.tex
 File: tikzlibrarybending.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.code.tex
@@ -2326,7 +2326,7 @@ LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
 (Font)              scaled to size 6.1pt on input line 3.
 LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 3.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/untxmia.fd
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/gelasiomath/untxmia.fd
 File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
 )
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
@@ -2644,17 +2644,46 @@ LaTeX Warning: Reference `thm:gauss-jordan' on page 43 undefined on input line 2
 
 [45]
 
-[46]))
+[46])) (./homomorphisms.tex
+
+[47]
+
+[48
+
+]
+Chapter 2.
+LaTeX Font Info:    Trying to load font information for OT1+LinLibertine(0) on input line 12.
+LaTeX Font Info:    No file OT1LinLibertine(0).fd. on input line 12.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 12.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+LaTeX Font Warning: Font shape `OT1/LinLibertine(0)/m/n' undefined
+(Font)              using `OT1/lmr/m/n' instead
+(Font)              for symbol `clqq' on input line 12.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[49]
+
+[50])
 \tf@thm=\write6
 
 \openout6 = main.thm
 
 
-[47] (./main.aux)
+[51] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were undefined references.
@@ -2662,19 +2691,19 @@ LaTeX Warning: There were undefined references.
 )
 
 Here is how much of LuaTeX's memory you used:
- 85442 strings out of 475518
+ 84923 strings out of 475554
  125009,3417909 words of node,token memory allocated
- 3792 words of node memory still in use:
-   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 129 glyph, 559 attribute, 82 glue_spec, 317 attribute_list, 2 write, 24 pdf_literal, 5 pdf_action, 24 pdf_colorstack nodes
-   avail lists: 1:2,2:5449,3:2200,4:390,5:729,6:77,7:9162,8:78,9:1663,10:16,11:614
- 106246 multiletter control sequences out of 65536+600000
- 144 fonts using 27460815 bytes
+ 3867 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 132 glyph, 577 attribute, 82 glue_spec, 326 attribute_list, 2 write, 24 pdf_literal, 5 pdf_action, 24 pdf_colorstack nodes
+   avail lists: 1:2,2:5422,3:2200,4:390,5:733,6:77,7:9159,8:78,9:1663,10:16,11:614
+ 105664 multiletter control sequences out of 65536+600000
+ 145 fonts using 27543815 bytes
  99i,17n,137p,1189b,1302s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RBI.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_poicuj.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_674lrv.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (47 pages, 560727 bytes).
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RBI.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_poicuj.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_674lrv.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on main.pdf (51 pages, 588750 bytes).
 
-PDF statistics: 684 PDF objects out of 1000 (max. 8388607)
- 574 compressed objects within 6 object streams
- 238 named destinations out of 1000 (max. 131072)
- 304 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 726 PDF objects out of 1000 (max. 8388607)
+ 610 compressed objects within 7 object streams
+ 255 named destinations out of 1000 (max. 131072)
+ 312 words of extra memory for PDF output out of 10000 (max. 100000000)
 
