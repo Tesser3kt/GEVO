@@ -15,8 +15,10 @@
 #let succ = text(raingreen)[#math.op("succ")]
 #let exp = text(crimson)[#math.hat]
 #let aa = text(crimson)[a]
+#let aaa = text(crimson)[$a #sym.prime$]
 #let cc = text(airblue)[c]
 #let bb = text(crimson)[b]
+#let bbb = text(crimson)[$b #sym.prime$]
 #let dd = text(airblue)[d]
 #let ee = text(raingreen)[E]
 
@@ -134,8 +136,6 @@
   #list(tight:false)[
     $2 exp 5$
   ][
-    $1 exp 98$
-  ][
     $5 exp 3$
   ]
 
@@ -155,7 +155,7 @@
   #enum(numbering: "a)")[
     #points(20)
     Connect the pairs that correspond to the *same equivalence classes* and write
-    down their *values*.
+    down the value of *represented integer*.
     #v(6pt)
 #align(center)[
 #grid(
@@ -167,17 +167,16 @@
 
   ][
     #points(10)
-    Define *exponentiation* for *rationals numbers*. Remember that
-    multiplication is repeated addition (the same way exponentiation is repeated
-  multiplication) and is defined as:
-    #align(center)[
-      $[(aa,bb)]_ee dot
-      [(cc,dd)]_ee = [(aa dot cc + bb dot dd, bb dot cc + aa dot dd)]_ee$
+    You are given two elements: $[(aaa,bbb)]_ee$ and $[(aa,bb)]_ee$ from the *same
+    equivalence class* (they represent the same integer value). Show that their
+    respective *sum* with some element $[(cc,dd)]_ee$ is always the *same*. In other
+    words show that #align(center)[
+      $[(aa,bb)]_ee + [(cc,dd)]_ee = [(aaa,bbb)]_ee + [(cc,dd)]_ee$
     ]
+    *Hint:* Two elements are equivalent under $ee$ if they have
+    the *same difference*.
 
-*Hint:* Try to continue the pattern from multiplication and use the fact that
-you can exponentiate two natural numbers.
-      ]
+  ]
 ]
 #pagebreak()
 
@@ -187,8 +186,8 @@ you can exponentiate two natural numbers.
 #enum(numbering: "a)")[
   #points(20)
   #block(width: 100%)[
-  Find *all the natural numbers* from *2* to *30* that share the *minimum number* of
-  divisors.
+  Find a number that has *exactly 3 prime divisors* or show that such a number
+  can not exist.
   ]
   #v(40%)
 ][
