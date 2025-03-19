@@ -427,4 +427,143 @@
   \right)
  \]
  of $\R^2$.
+\item 
+ Decide if the vector
+ \begin{enumerate}[label=(\alph*)]
+  \item
+  $
+   \begin{pmatrix}
+    1\\
+    0
+   \end{pmatrix}
+  $
+  lies in the row space of the matrix
+  $
+   \begin{pmatrix}
+    2 & 1\\
+    3 & 1
+   \end{pmatrix}.
+  $
+  \item 
+   $
+   \begin{pmatrix}
+    1\\
+    1\\
+    1
+   \end{pmatrix}
+   $ lies in the row space of the matrix
+   $
+   \begin{pmatrix*}[r]
+    0 & 1 & 3\\
+    -1 & 0 & 1\\
+    -1 & 2 & 7
+   \end{pmatrix*}
+   $.
+ \end{enumerate}
+\item 
+ Decide if the vector
+ \begin{enumerate}[label=(\alph*)]
+  \item
+  $
+   \begin{pmatrix}
+    1\\
+    3
+   \end{pmatrix}
+  $
+  lies in the column space of the matrix
+  $
+   \begin{pmatrix}
+    1 & 1\\
+    1 & 1
+   \end{pmatrix}.
+  $
+  \item 
+   $
+   \begin{pmatrix}
+    1\\
+    0\\
+    0
+   \end{pmatrix}
+   $ lies in the column space of the matrix
+   $
+   \begin{pmatrix*}[r]
+    1 & 3 & 1\\
+    2 & 0 & 4\\
+    1 & -3 & -3
+   \end{pmatrix*}
+   $.
+ \end{enumerate}
+\item 
+ Find the basis of both the row space and column space of the matrix
+ \[
+  \begin{pmatrix*}[r]
+   2 & 0 & 3 & 4\\
+   0 & 1 & 1 & -1\\
+   3 & 1 & 0 & 2\\
+   1 & 0 & -4 & -1
+  \end{pmatrix*}.
+ \]
+\item 
+ Given $a,b,c \in \R$ what choice of $d \in \R$ will cause the following matrix
+ to have rank one?
+ \[
+  \begin{pmatrix}
+   a & b\\
+   c & d
+  \end{pmatrix}
+ \]
+\item 
+ Find the column rank of the matrix
+ \[
+  \begin{pmatrix*}[r]
+   1 & 3 & -1 & 5 & 0 & 4\\
+   2 & 0 & 1 & 0 & 4 & 1
+  \end{pmatrix*}
+ \]
+\item 
+ An $m \times n$ has \emph{full row rank} if its row rank is $m$ and has
+ \emph{full column rank} if its column rank is $n$.
+ \begin{enumerate}[label=(\alph*)]
+  \item Show that a matrix can have both full row rank and full column rank only
+   if it is square (that is, $m = n$).
+  \item Prove that a linear system with matrix of coefficients $A$ has a
+   solution for \textbf{any} right side if and only if $A$ has full row rank.
+  \item Prove that a homogeneous system has a unique solution if and only if its
+   matrix of coefficients $A$ has full column rank.
+  \item Prove that the statement `\emph{if a system with matrix of coefficients
+   $A$ has any solution, then it has a unique solution}' holds if and only if
+   $A$ has full column rank.
+ \end{enumerate}
+\item 
+ What is the relationship (if any) between
+ \begin{enumerate}[label=(\alph*)]
+  \item $\rank A$ and $\rank(-A)$?
+  \item $\rank A$ and $\rank(kA)$ for $k \neq 0$?
+  \item $\rank A + \rank B$ and $\rank(A + B)$?
+ \end{enumerate}
+\end{enumerate}
+
+\section*{\nameref*{chap:homomorphisms}}
+
+\begin{enumerate}
+ \item 
+ Prove that the map $f:\mathcal{P}_3(\F) \to \F^{4}$ from
+ \myref{example}{exam:homs} is a homomorphism.
+\item 
+ Prove that the map $f:\R^{2 \times 2} \to \R^2$ from \myref{example}{exam:homs}
+ is \textbf{not} an isomorphism.
+\item 
+ Find an example of a homomorphism $f:V \to W$ which is
+ \begin{enumerate}[label=(\alph*)]
+  \item an \emph{isomorphism} but \textbf{not} an automorphism,
+  \item an \emph{endomorphism} but \textbf{not} an automorphism,
+  \item an \emph{automorphism}.
+ \end{enumerate}
+\item 
+ Prove that for two homomorphisms $f,g \in \Hom(V,W)$, $a,b \in \F$, $\mathbf{v}
+ \in V$ and $t \in \F$, we have
+ \[
+  (a \cdot f + b \cdot g)(t \cdot \mathbf{v}) = t \cdot (a \cdot f + b \cdot
+  g)(\mathbf{v}).
+ \]
 \end{enumerate}
