@@ -523,5 +523,218 @@ The fact that images and preimages of homomorphisms are vector spaces have
 geometric consequences. We now illustrate those on a few examples.
 
 \begin{example}{}{}
- 
+ Consider the projection $\pi:\R^3 \to \R^2$ prescribed as
+ \[
+  \pi \left( 
+  \begin{pmatrix}
+   x\\
+   y\\
+   z
+  \end{pmatrix}
+  \right) = 
+  \begin{pmatrix}
+   x\\
+   y
+  \end{pmatrix}.
+ \]
+ The image of $\pi(\R^3)$ is of course the entirety of $\R^2$. One may think of
+ this projection as the `squishing' of an entire room onto its floor. If we're
+ allowed to move only along one of the walls, we're confined to just one edge of
+ the floor. This is formalised by the fact that the image of the set of vectors
+ with $y = 0$ is the subspace of $\R^2$ of vectors with $y = 0$, and similarly
+ for $x$.
+
+ \begin{center}
+  \clr{TODO obrazky}
+ \end{center}
+
+ The preimage of a given vector $\mathbf{w} \in \R^2$ via $\pi$ is the set of
+ all vectors whose tips sit on the vertical line rooted at the tip of
+ $\mathbf{w}$. This is because any vector
+ \[
+  \begin{pmatrix}
+   w_1\\
+   w_2\\
+   z
+  \end{pmatrix}
+ \]
+ gets mapped onto
+ \[
+  \mathbf{w} = 
+  \begin{pmatrix}
+   w_1\\
+   w_2
+  \end{pmatrix}.
+ \]
+ Of course, a set consisting of a single non-zero vector is not a subspace, just
+ as the vertical line rooted at the tip of such vector is not. 
+
+ On a similar note, the preimage of a line $\{t \cdot \mathbf{v} \mid t \in
+ \R\}$ for a given $\mathbf{v} \in \R^2$ is the entire vertical plane containing
+ said line in $\R^3$.
 \end{example}
+
+\begin{example}{}{}
+ The image of the homomorphism
+ \begin{align*}
+  h: \R^2 &\to \R\\
+  \begin{pmatrix}
+   x\\
+   y
+  \end{pmatrix}
+          & \mapsto 
+          x + y
+ \end{align*}
+ is the entirety of $\R$. Fixing a number $r \in \R$, its preimage via $h$ is
+ the set of vectors whose coordinates add up to $r$. Their tips form a line in
+ $\R^2$ given by the equation $x + y = r$.
+
+ The fact that $h$ is a homomorphism can be expressed in a neat geometric manner
+ -- fix now two numbers $r_1,r_2 \in \R$. Think of the vectors whose tips lie on
+ the line $x + y = r_1$ as `$r_1$' vectors. Analogously, vectors whose tips form
+ the line $x + y = r_2$ are regarded as `$r_2$' vectors. Axiom (1) in the
+ \hyperref[def:homomorphism]{definition of homomorphism} can be, in this
+ particular case, restated as `$r_1$' vectors plus `$r_2$' vectors equal `$r_1 +
+ r_2$' vectors. That is, $\mathbf{v}_1$ is an `$r_1$' vector if $h(\mathbf{v}_1)
+ = r_1$ and $\mathbf{v}_2$ is an `$r_2$' vector if $h(\mathbf{v}_2)$; the
+ previous sentence thus signifies exactly that $h(\mathbf{v}_1 + \mathbf{v}_2) =
+ h(\mathbf{v}_1) + h(\mathbf{v}_2)$ since $\mathbf{v}_1 + \mathbf{v}_2$ is
+ clearly a `$r_1 + r_2$' vector.
+ \begin{center}
+  \clr{TODO obrazek}
+ \end{center}
+\end{example}
+
+\begin{example}{}{der-int}
+ Define the `derivative' homomorphism
+ \begin{align*}
+  \frac{\partial }{\partial x}: \mathcal{P}_3 &\to \mathcal{P}_3\\
+  a_0 + a_1x + a_2x^2 + a_3x^3 & \mapsto a_1 + 2a_2x + 3a_3x^2.
+ \end{align*}
+ Its image is the subspace $\mathcal{P}_2$ (polynomials of degree $2$ over $\R$)
+ of $\mathcal{P}_3$. The inverse image of set of polynomials of degree $2$ is
+ the `integral' homomorphism (with constant $0$). Said formally, there exists a
+ homomorphism
+ \begin{align*}
+  \int: \mathcal{P}_2 & \to \mathcal{P}_3\\
+  a_0 + a_1x + a_2x^2 & \mapsto a_0x + \frac{a_1}{2}x^2 + \frac{a_2}{3}x^3
+ \end{align*}
+ such that $\frac{\partial }{\partial x} \circ \int $ is the identity map on
+ $\mathcal{P}_2$. Notice however that it is \textbf{not} the case that $\int
+ \circ \frac{\partial }{\partial x}$ is the identity map on $\mathcal{P}_3$. The
+ derivative $\frac{\partial }{\partial x}$ is \textbf{not} an injective map and
+ as such it doesn't have a `two-sided' inverse, it only has a `right' inverse in
+ the form of $\int $.
+\end{example}
+
+The last examples provokes a question: `When does a homomorphism have an inverse
+which is also a homomorphism?' We remind dear readers that an inverse to a map
+$f:V \to W$ is a map $f^{-1}:W \to V$ such that $(f \circ f^{-1})(\mathbf{w}) =
+\mathbf{w}$ for every $\mathbf{w} \in W$ and $(f^{-1} \circ f)(\mathbf{v}) =
+\mathbf{v}$ for every $\mathbf{v} \in V$. As seen in the mentioned
+\myref{example}{exam:der-int} \textbf{just one} of these equalities \textbf{is
+not enough}. A homomorphism may be invertible from just one side.
+
+The rest of the introductory section to homomorphisms is dedicated to answering
+this question. First, we must establish a strong connection between
+homomorphisms and bases of their domains. We illustrate this connection first
+before conjuring a proof.
+
+Consider a homomorphism $f$ with domain $\R^3$. By
+\myref{lemma}{lem:hom-linear-combination}, the image of a vector
+\[
+ \begin{pmatrix}
+  x\\
+  y\\
+  z
+ \end{pmatrix}
+\]
+via this homomorphism can be broken into the linear combination
+\[
+ f \left( 
+ \begin{pmatrix}
+  x\\
+  y\\
+  z
+ \end{pmatrix}
+ \right) = f \left( 
+ \begin{pmatrix}
+  x\\
+  0\\
+  0
+ \end{pmatrix}
+ \right) + f \left( 
+ \begin{pmatrix}
+  0\\
+  y\\
+  0
+ \end{pmatrix}
+ \right) + f \left( 
+ \begin{pmatrix}
+  0\\
+  0\\
+  z
+ \end{pmatrix}
+ \right) = x \cdot 
+ f \left( 
+ \begin{pmatrix}
+  1\\
+  0\\
+  0
+ \end{pmatrix}
+ \right) + y \cdot f \left(
+ \begin{pmatrix}
+  0\\
+  1\\
+  0
+ \end{pmatrix}
+ \right) + z \cdot f \left( 
+ \begin{pmatrix}
+  0\\
+  0\\
+  1
+ \end{pmatrix}
+ \right).
+\]
+This immediately suggests that the image of any vector via a homomorphism is
+determined purely by the images of \hyperref[def:standard-basis]{standard basis}
+vectors. Indeed, this statement is true in general, for any homomorphism and any
+basis.
+
+\begin{theorem}{}{}
+ Let $V,W$ be vector spaces over $\F$, $B = (\mathbf{b}_1,\ldots,\mathbf{b}_n)$
+ be a basis of $V$. Given (not necessarily distinct) vectors
+ $\mathbf{w}_1,\mathbf{w}_2,\ldots,\mathbf{w}_n \in W$, there exists
+ \textbf{just a single} homomorphism $f \in \Hom(V,W)$ such that
+ $f(\mathbf{b}_1) = \mathbf{w}_1, f(\mathbf{b}_2) =
+ \mathbf{w}_2,\ldots,f(\mathbf{b}_n) = \mathbf{w}_n$.
+\end{theorem}
+\begin{thmproof}
+ First, given $\mathbf{v} \in V$, it can be written uniquely as a linear
+ combination of vectors from $B$, that is, there exist unique coefficients
+ $t_1,\ldots,t_n \in \F$ such that
+ \[
+  \mathbf{v} = t_1 \cdot \mathbf{b}_1 + \ldots + t_n \cdot \mathbf{b}_n.
+ \]
+ We define $f(\mathbf{v})$ by
+ \[
+  f(\mathbf{v}) = t_1 \cdot \mathbf{w}_1 + \ldots + t_n \cdot \mathbf{w}_n.
+ \]
+ We must prove three statements:
+ \begin{enumerate}
+  \item $f$ is well-defined (i.e. it's \emph{actually} a map $V \to W$);
+  \item $f$ is a homomorphism;
+  \item $f$ is unique.
+ \end{enumerate}
+ The statement (1) follows from the uniqueness of representation of a vector
+ with respect to a basis -- content of
+ \myref{theorem}{thm:characterisation-of-a-basis}. Consequently, as the vector
+ $\mathbf{v}$ can only ever be represented by the same $n$-tuple of
+ coefficients, the image of $\mathbf{v}$ under $f$ is always the same.
+
+ Ad (2), choose $\mathbf{v}_1,\mathbf{v}_2 \in V$ and $t_1,t_2 \in \F$. We
+ calculate
+ \begin{align*}
+  
+ \end{align*}
+\end{thmproof}
