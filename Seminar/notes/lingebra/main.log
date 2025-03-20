@@ -1576,4 +1576,1277 @@ File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
 \pgf@intersect@solutions=\count345
-)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librar
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex)
+\tikz@math@for@depth=\count346
+\tikz@math@dimen=\dimen318
+\tikz@math@toks=\toks61
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarythrough.code.tex
+File: tikzlibrarythrough.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
+Package: xfp 2024-08-16 L3 Floating point unit
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/xpatch/xpatch.sty
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+)
+\tkzRadius=\dimen319
+\tkzLength=\dimen320
+\tkz@radi=\dimen321
+\tkz@ax=\dimen322
+\tkz@ay=\dimen323
+\tkz@bx=\dimen324
+\tkz@by=\dimen325
+\tkz@cx=\dimen326
+\tkz@cy=\dimen327
+\tkz@dx=\dimen328
+\tkz@dy=\dimen329
+\tkz@cntmk=\count347
+
+Local configuration file tkz-euclide.cfg found and used
+(/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-euclide.cfg
+2024/04/19 5.10c tkz-euclide.cfg
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-base.tex
+2024/04/19 5.10c tkz-tools-eu-base.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-utilities.tex
+2024/04/19 5.10c tkz-tools-eu-utilities.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-BB.tex
+2024/04/19 5.10c tkz-obj-eu-BB.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-grids.tex
+2024/04/19 5.10c tkz-obj-eu-grids.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-lib-eu-marks.tex
+2024/04/19 5.10c tkz-lib-eu-marks.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-text.tex
+2024/04/19 5.10c tkz-tools-eu-text.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-lib-eu-shape.tex
+2024/04/19 5.10c tkz-lib-eu-shape.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-axesmin.tex
+2024/04/19 5.10c tkz-obj-eu-axesmin
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-colors.tex
+2024/04/19 5.10c tkz-tools-eu-colors
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points.tex
+2024/04/19 5.10c tkz-obj-eu-points.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-points.tex
+2024/04/19 5.10c tkz-draw-eu-points.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points.tex
+2024/04/19 5.10c tkz-obj-eu-points.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-by.tex
+2024/04/19 5.10c tkz-tools-eu-points-by.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-math.tex
+2024/04/19 5.10c tkz-tools-eu-math.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-intersections.tex
+2024/04/19 5.10c tkz-tools-eu-intersections.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-with.tex
+2024/04/19 5.10c tkz-obj-eu-points-with.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-spc.tex
+2024/04/19 5.10c tkz-obj-el-points.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-tools-eu-angles.tex
+2024/04/19 5.10c tkz-tools-eu-angles.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-circles.tex
+2024/04/19 5.10c tkz-obj-eu-circles.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-circles-by.tex
+2024/04/19 5.10c tkz-obj-eu-circles.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-points-rnd.tex
+2024/04/19 5.10c tkz-obj-eu-points-rnd.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-lines.tex
+2024/04/19 5.10c tkz-obj-eu-lines.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-polygons.tex
+2024/04/19 5.10c tkz-obj-eu-polygons.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-triangles.tex
+2024/04/19 5.10c tkz-obj-eu-triangles.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-lines.tex
+2024/04/19 5.10c tkz-obj-eu-draw-lines.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-circles.tex
+2024/04/19 5.10c tkz-obj-eu-draw-circles.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-ellipses.tex
+2024/04/19 5.10c tkz-obj-eu-draw-ellipses.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-polygons.tex
+2024/04/19 5.10c tkz-obj-eu-polygons.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-arcs.tex
+2024/04/19 5.10c tkz-tool-eu-arcs.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-angles.tex
+2024/04/19 5.10c tkz-tool-eu-angles.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-sectors.tex
+2024/04/19 5.10c tkz-obj-eu-sectors.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-compass.tex
+2024/04/19 5.10c tkz-obj-eu-compass.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-show.tex
+2024/04/19 5.10c tkz-obj-eu-show.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tkz-euclide/tkz-draw-eu-protractor.tex
+2024/04/19 5.10c tkz-obj-eu-protractor.tex
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryperspective.code.tex
+File: tikzlibraryperspective.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.meta.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.meta.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/latex/hobby/tikzlibraryhobby.code.tex (/usr/local/texlive/2024/texmf-dist/tex/latex/hobby/pgflibraryhobby.code.tex (/usr/local/texlive/2024/texmf-dist/tex/latex/hobby/hobby.code.tex (/usr/local/texlive/2024/texmf-dist/tex/latex/hobby/pml3array.sty
+\l_array_base_int=\count348
+\l_array_top_int=\count349
+\l_array_tmp_int=\count350
+\g_array_map_int=\count351
+\g_array_base_int=\count352
+)
+\g__hobby_npoints_int=\count353
+\g__hobby_draw_int=\count354
+))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodepartlowerbox=\box72
+\pgfnodeparttwobox=\box73
+\pgfnodepartthreebox=\box74
+\pgfnodepartfourbox=\box75
+\pgfnodeparttwentybox=\box76
+\pgfnodepartnineteenbox=\box77
+\pgfnodeparteighteenbox=\box78
+\pgfnodepartseventeenbox=\box79
+\pgfnodepartsixteenbox=\box80
+\pgfnodepartfifteenbox=\box81
+\pgfnodepartfourteenbox=\box82
+\pgfnodepartthirteenbox=\box83
+\pgfnodeparttwelvebox=\box84
+\pgfnodepartelevenbox=\box85
+\pgfnodeparttenbox=\box86
+\pgfnodepartninebox=\box87
+\pgfnodeparteightbox=\box88
+\pgfnodepartsevenbox=\box89
+\pgfnodepartsixbox=\box90
+\pgfnodepartfivebox=\box91
+))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary3d.code.tex
+File: tikzlibrary3d.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadings.code.tex
+File: tikzlibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryshadings.code.tex
+File: pgflibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+Package pgfplots info on input line 124: Initializing with LUA version Lua 5.3
+\pgfplots@luabackend@table=\catcodetable16
+\t@pgfplots@toka=\toks62
+\t@pgfplots@tokb=\toks63
+\t@pgfplots@tokc=\toks64
+\pgfplots@tmpa=\dimen330
+\c@pgfplots@coordindex=\count355
+\c@pgfplots@scanlineindex=\count356
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks65
+\t@pgf@tokb=\toks66
+\t@pgf@tokc=\toks67
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/luamath/pgflibraryluamath.code.tex)
+Package pgfplots info on input line 290: luamath library shipped with pgf 3.1.10 is up-to-date
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+Package pgfplots info on input line 82: Found new luatex: initializing lua commands instead of write18 (shell-escape)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count357
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count358
+\t@pgfplotstable@a=\toks68
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count359
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-luatex.def))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count360
+\pgfplots@xmin@reg=\dimen331
+\pgfplots@xmax@reg=\dimen332
+\pgfplots@ymin@reg=\dimen333
+\pgfplots@ymax@reg=\dimen334
+\pgfplots@zmin@reg=\dimen335
+\pgfplots@zmax@reg=\dimen336
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.fillbetween.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibraryfillbetween.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibrarydecorations.softclip.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfcontrib/pgflibraryfillbetween.code.tex))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.decorations.softclip.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/latex/circuitikz/circuitikz.sty
+Package: circuitikz 2025/01/10{} The CircuiTikz circuit drawing package version 1.7.1
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybending.code.tex
+File: tikzlibrarybending.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.code.tex
+File: pgfmodulebending.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulenonlineartransformations.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgftransformnonlinearflatness=\dimen337
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibrarycurvilinear.code.tex
+File: pgflibrarycurvilinear.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@curvilinear@time@a=\dimen338
+\pgf@curvilinear@length@a=\dimen339
+\pgf@curvilinear@length@b=\dimen340
+\pgf@curvilinear@length@c=\dimen341
+\pgf@curvilinear@length@d=\dimen342
+)
+\pgf@arrows@the@rigidity=\dimen343
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcirc.defines.tex
+\pgf@circ@count@a=\count361
+\pgf@circ@count@b=\count362
+\pgf@circ@count@c=\count363
+\pgf@circ@res@up=\dimen344
+\pgf@circ@res@down=\dimen345
+\pgf@circ@res@zero=\dimen346
+\pgf@circ@res@left=\dimen347
+\pgf@circ@res@right=\dimen348
+\pgf@circ@res@other=\dimen349
+\pgf@circ@res@step=\dimen350
+\pgf@circ@res@temp=\dimen351
+\pgf@circ@Rlen=\dimen352
+\pgf@circ@scaled@Rlen=\dimen353
+\pgfstartlinewidth=\dimen354
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcircutils.tex
+\ctikz@scratchbox=\box92
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcircpath.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcircshapes.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcircmonopoles.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcircbipoles.tex)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcirctripoles.tex
+\pgf@circ@res@count=\count364
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcircquadpoles.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcircmultipoles.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcirclabel.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcircvoltage.tex
+\pgfcirc@labelshift=\dimen355
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcirccurrent.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex)) (/usr/local/texlive/2024/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen356
+\lightrulewidth=\dimen357
+\cmidrulewidth=\dimen358
+\belowrulesep=\dimen359
+\belowbottomsep=\dimen360
+\aboverulesep=\dimen361
+\abovetopsep=\dimen362
+\cmidrulesep=\dimen363
+\cmidrulekern=\dimen364
+\defaultaddspace=\dimen365
+\@cmidla=\count365
+\@cmidlb=\count366
+\@aboverulesep=\dimen366
+\@belowrulesep=\dimen367
+\@thisruleclass=\count367
+\@lastruleclass=\count368
+\@thisrulewidth=\dimen368
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip82
+\multirow@cntb=\count369
+\multirow@dima=\skip83
+\bigstrutjot=\dimen369
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 91.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen370
+\captionmargin=\dimen371
+\caption@leftmargin=\dimen372
+\caption@rightmargin=\dimen373
+\caption@width=\dimen374
+\caption@indent=\dimen375
+\caption@parindent=\dimen376
+\caption@hangindent=\dimen377
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count370
+\c@continuedfloat=\count371
+Package caption Info: hyperref package is loaded.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count372
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count373
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count374
+\float@exts=\toks69
+\float@box=\box93
+\@float@everytoks=\toks70
+\@floatcapt=\box94
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip84
+\enit@outerparindent=\dimen378
+\enit@toks=\toks71
+\enit@inbox=\box95
+\enit@count@id=\count375
+\enitdp@description=\count376
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks72
+\verbatim@line=\toks73
+\verbatim@in@stream=\read5
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+\FV@CodeLineNo=\count377
+\FV@InFile=\read6
+\FV@TabBox=\box96
+\c@FancyVerbLine=\count378
+\FV@StepNumber=\count379
+\FV@OutFile=\write4
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/pmboxdraw/pmboxdraw.sty
+Package: pmboxdraw 2019/12/05 v1.4 Poor man's box drawing characters (HO)
+\pmbd@W=\dimen379
+\pmbd@H=\dimen380
+\pmbd@L=\dimen381
+\pmbd@Thin=\dimen382
+\pmbd@Thick=\dimen383
+\pmbd@Sep=\dimen384
+)
+luaotfload | cache : Lookup cache loaded from /home/tesserekt/.texlive2024/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc.
+
+Package fontspec Info: 
+(fontspec)             Cascadia Code scale = 0.9.
+
+
+Package fontspec Info: 
+(fontspec)             Cascadia Code scale = 0.9.
+
+luaotfload | aux : font no 56 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 56 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 56 (nil) does not define feature smcp for script dflt with language dflt
+luaotfload | aux : font no 56 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 56 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 56 (nil) does not define feature smcp for script dflt with language dflt
+
+Package fontspec Info: 
+(fontspec)             Cascadia Code/B scale = 0.9.
+
+luaotfload | aux : font no 57 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 57 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 57 (nil) does not define feature smcp for script dflt with language dflt
+luaotfload | aux : font no 57 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 57 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 57 (nil) does not define feature smcp for script dflt with language dflt
+
+Package fontspec Info: 
+(fontspec)             Cascadia Code/I scale = 0.9.
+
+luaotfload | aux : font no 58 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 58 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 58 (nil) does not define feature smcp for script dflt with language dflt
+luaotfload | aux : font no 58 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 58 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 58 (nil) does not define feature smcp for script dflt with language dflt
+
+Package fontspec Info: 
+(fontspec)             Cascadia Code/BI scale = 0.9.
+
+luaotfload | aux : font no 59 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 59 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 59 (nil) does not define feature smcp for script dflt with language dflt
+luaotfload | aux : font no 59 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 59 (nil) does not define feature smcp for script latn with language dflt
+luaotfload | aux : font no 59 (nil) does not define feature smcp for script dflt with language dflt
+
+Package fontspec Info: 
+(fontspec)             Font family 'CascadiaCode(0)' created for font
+(fontspec)             'Cascadia Code' with options
+(fontspec)             [WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=WordSpace,Scale=0.9].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9]"name:Cascadia
+(fontspec)             Code:mode=node;script=latn;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9]"name:Cascadia
+(fontspec)             Code/B:mode=node;script=latn;language=dflt;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.9]"name:Cascadia
+(fontspec)             Code/I:mode=node;script=latn;language=dflt;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.9]"name:Cascadia
+(fontspec)             Code/BI:mode=node;script=latn;language=dflt;"
+
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count380
+\algocf@hangindent=\skip85
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count381
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip86
+\skiplinenumber=\skip87
+\skiprule=\skip88
+\skiphlne=\skip89
+\skiptext=\skip90
+\skiplength=\skip91
+\algomargin=\skip92
+\skipalgocfslide=\skip93
+\algowidth=\dimen385
+\inoutsize=\dimen386
+\inoutindent=\dimen387
+\interspacetitleruled=\dimen388
+\interspacealgoruled=\dimen389
+\interspacetitleboxruled=\dimen390
+\algocf@ruledwidth=\skip94
+\algocf@inoutbox=\box97
+\algocf@inputbox=\box98
+\AlCapSkip=\skip95
+\AlCapHSkip=\skip96
+\algoskipindent=\skip97
+\algocf@nlbox=\box99
+\algocf@hangingbox=\box100
+\algocf@untilbox=\box101
+\algocf@skipuntil=\skip98
+\algocf@capbox=\box102
+\algocf@lcaptionbox=\skip99
+\algoheightruledefault=\skip100
+\algoheightrule=\skip101
+\algotitleheightruledefault=\skip102
+\algotitleheightrule=\skip103
+\c@algocfline=\count382
+\c@algocfproc=\count383
+\c@algocf=\count384
+\algocf@algoframe=\box103
+\algocf@algobox=\box104
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2024/10/22 version 6.4.1 text color boxes
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\tcb@titlebox=\box105
+\tcb@upperbox=\box106
+\tcb@lowerbox=\box107
+\tcb@phantombox=\box108
+\c@tcbbreakpart=\count385
+\c@tcblayer=\count386
+\c@tcolorbox@number=\count387
+\l__tcobox_tmpa_box=\box109
+\l__tcobox_tmpa_dim=\dimen391
+\tcb@temp=\box110
+\tcb@temp=\box111
+\tcb@temp=\box112
+\tcb@temp=\box113
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.4.1'
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.4.1'
+(/usr/local/texlive/2024/texmf-dist/tex/latex/pdfcol/pdfcol.sty
+Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
+)
+Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
+\tcb@testbox=\box114
+\tcb@totalupperbox=\box115
+\tcb@totallowerbox=\box116
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '6.4.1'
+\c@tcbrastercolumn=\count388
+\c@tcbrasterrow=\count389
+\c@tcbrasternum=\count390
+\c@tcbraster=\count391
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.4.1'
+(/usr/local/texlive/2024/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
+Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/tikzfill/tikzfill-common.sty
+Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
+File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
+\l__tikzfill_img_box=\box117
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.4.1'
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.4.1'
+\tcbfitdim=\dimen392
+\tcb@lowerfitdim=\dimen393
+\tcb@upperfitdim=\dimen394
+\tcb@cur@hbadness=\count392
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.4.1'
+(/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '6.4.1'
+(/usr/local/texlive/2024/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count393
+\lst@gtempboxa=\box118
+\lst@token=\toks74
+\lst@length=\count394
+\lst@currlwidth=\dimen395
+\lst@column=\count395
+\lst@pos=\count396
+\lst@lostspace=\dimen396
+\lst@width=\dimen397
+\lst@newlines=\count397
+\lst@lineno=\count398
+\lst@maxwidth=\dimen398
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count399
+\lst@skipnumbers=\count400
+\lst@framebox=\box119
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcblistingscore.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.4.1'
+(/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.4.1'
+)
+\c@tcblisting=\count401
+))
+Package tcolorbox Info: Library `listingsutf8' is compatible with pdftex only. Library `listings` is loaded instead. on input line 29.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.4.1'
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbmagazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.4.1'
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbvignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.4.1'
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
+File: pgflibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '6.4.1'
+))
+\c@tcb@cnt@theorem=\count402
+\c@currthmproofctr=\count403
+\c@endthmproofctr=\count404
+\c@thmproof=\count405
+\c@currpropproofctr=\count406
+\c@endpropproofctr=\count407
+\c@propproof=\count408
+\c@currlemproofctr=\count409
+\c@endlemproofctr=\count410
+\c@lemproof=\count411
+\c@currobsproofctr=\count412
+\c@endobsproofctr=\count413
+\c@obsproof=\count414
+\c@currcorproofctr=\count415
+\c@endcorproofctr=\count416
+\c@corproof=\count417
+\c@currprobsolctr=\count418
+\c@endprobsolctr=\count419
+\c@probsol=\count420
+) (./main.aux)
+\openout1 = main.aux
+
+LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 5.
+LaTeX Font Info:    Trying to load font information for OML+nxlmi on input line 5.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/omlnxlmi.fd
+File: omlnxlmi.fd 2013/11/19 Fontinst v1.933 font definitions for OML/nxlmi.
+)
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 5.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 5.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/untxexa.fd
+File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
+)
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 5.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 5.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/lmsntxsy.fd
+File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
+)
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 5.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 5.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/lmxntxexx.fd
+File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
+)
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for pmboxdraw/pmboxdraw/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+Package hyperref Info: Link coloring ON on input line 5.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: luatex
+*geometry* verbose mode - [ preamble ] result:
+* driver: luatex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(90.3375pt, 434.90039pt, 72.26999pt)
+* v-part:(T,H,B)=(90.3375pt, 664.37186pt, 90.3375pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=434.90039pt
+* \textheight=664.37186pt
+* \oddsidemargin=18.0675pt
+* \evensidemargin=0.0pt
+* \topmargin=-13.80629pt
+* \headheight=16.0pt
+* \headsep=19.8738pt
+* \topskip=11.0pt
+* \footskip=27.46295pt
+* \marginparwidth=106.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Info: Command `\dddot' is already robust on input line 5.
+LaTeX Info: Command `\ddddot' is already robust on input line 5.
+\c@mv@tabular=\count421
+\c@mv@boldtabular=\count422
+(/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count423
+\scratchdimen=\dimen399
+\scratchbox=\box120
+\nofMPsegments=\count424
+\nofMParguments=\count425
+\everyMPshowfont=\toks75
+\MPscratchCnt=\count426
+\MPscratchDim=\dimen400
+\MPnumerator=\count427
+\makeMPintoPDFobject=\count428
+\everyMPtoPDFconversion=\toks76
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count429
+(./titlepage.tex
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/sc' will be
+(Font)              scaled to size 10.95pt on input line 6.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/sc' will be
+(Font)              scaled to size 17.28pt on input line 6.
+<grid.png, id=43, 770.88pt x 770.88pt>
+File: grid.png Graphic file (type png)
+<use grid.png>
+Package luatex.def Info: grid.png  used on input line 7.
+(luatex.def)             Requested size: 217.4502pt x 217.44466pt.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 20.74pt on input line 9.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
+(Font)              scaled to size 20.74pt on input line 9.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 20.74pt on input line 9.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 11.
+
+
+[1
+
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./grid.png>]) (./preface.tex
+
+[2
+
+]
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 24.88pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 24.88pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 24.88pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/it' will be
+(Font)              scaled to size 10.95pt on input line 11.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[3]
+
+[4] (./main.toc
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 10.95pt on input line 2.
+LaTeX Font Info:    Trying to load font information for OT1+MinLibertinus on input line 3.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/ot1minlibertinus.fd
+File: ot1minlibertinus.fd 2023/07/12 (msharpe) Font definitions for OT1/minlibertinus.
+)
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
+(Font)              scaled to size 6.1pt on input line 3.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 6.1pt on input line 3.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 6.1pt on input line 3.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 6.1pt on input line 3.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 3.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/untxmia.fd
+File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
+)
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 6.1pt on input line 3.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 3.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/untxsym.fd
+File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
+)
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 6.1pt on input line 3.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 3.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/untxsyc.fd
+File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
+)
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 6.1pt on input line 3.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 10.95pt on input line 3.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 6.1pt on input line 3.
+)
+\tf@toc=\write5
+
+\openout5 = main.toc
+ (./vector-spaces.tex
+
+[5
+
+]
+
+[6
+
+]
+Chapter 1.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 20.74pt on input line 1.
+
+LaTeX Warning: Hyper reference `chap:linear-geometry' on page 7 undefined on input line 5.
+
+
+LaTeX Warning: Hyper reference `def:space' on page 7 undefined on input line 6.
+
+LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+LaTeX Warning: Hyper reference `sec:visualisation-of-linear-systems-revisited' on page 7 undefined on input line 16.
+
+
+LaTeX Warning: Reference `sec:visualisation-of-linear-systems-revisited' on page 7 undefined on input line 16.
+
+
+
+[7]
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 10.95pt on input line 83.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 83.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 10.95pt on input line 89.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 8.0pt on input line 89.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 6.1pt on input line 89.
+
+
+[8]
+
+LaTeX Warning: Hyper reference `def:adding-vectors' on page 9 undefined on input line 191.
+
+
+LaTeX Warning: Hyper reference `def:dot-product' on page 9 undefined on input line 205.
+
+
+LaTeX Warning: Hyper reference `prop:solution-set-of-a-homogeneous-linear-system' on page 9 undefined on input line 238.
+
+
+LaTeX Warning: Reference `prop:solution-set-of-a-homogeneous-linear-system' on page 9 undefined on input line 238.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[9]
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 299.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 6.1pt on input line 299.
+
+
+[10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[11]
+
+[12]
+Overfull \hbox (8.83783pt too wide) in paragraph at lines 496--499
+\TU/LinLibertine(0)/m/n/10.95 Prove (by check-ing the ax-ioms) that the sets of func-tions men-tioned in ex-am-ples [][]1.0.10[][] and [][]1.0.11[][]
+ []
+
+Package hyperref Info: bookmark level for unknown lemproof defaults to 0 on input line 536.
+
+
+[13] (./vector-spaces/subspaces.tex
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 1.
+
+
+LaTeX Warning: Hyper reference `sec:visualisation-of-linear-systems-revisited' on page 14 undefined on input line 5.
+
+
+LaTeX Warning: Reference `sec:visualisation-of-linear-systems-revisited' on page 14 undefined on input line 5.
+
+
+
+[14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[16]
+
+LaTeX Warning: Hyper reference `prop:solution-set-of-a-homogeneous-linear-system' on page 17 undefined on input line 330.
+
+
+LaTeX Warning: Reference `prop:solution-set-of-a-homogeneous-linear-system' on page 17 undefined on input line 330.
+
+
+
+[17]
+Underfull \vbox (badness 2894) has occurred while \output is active []
+
+
+
+[18]
+
+[19]
+Package hyperref Info: bookmark level for unknown probsol defaults to 0 on input line 639.
+
+
+[20]) (./vector-spaces/linear-independence.tex
+
+[21]
+Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 70.
+
+Underfull \vbox (badness 1215) has occurred while \output is active []
+
+
+
+[22]
+Package hyperref Info: bookmark level for unknown propproof defaults to 0 on input line 135.
+
+
+[23]
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/it' will be
+(Font)              scaled to size 10.95pt on input line 271.
+
+
+[24]
+
+LaTeX Warning: Hyper reference `sec:describing-solution-sets-of-linear-systems' on page 25 undefined on input line 293.
+
+
+LaTeX Warning: Reference `sec:describing-solution-sets-of-linear-systems' on page 25 undefined on input line 293.
+
+
+
+[25]
+
+[26]
+Underfull \vbox (badness 1152) has occurred while \output is active []
+
+
+
+[27] (./vector-spaces/linear-independence/basis.tex
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+
+
+[28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[29]
+Package hyperref Info: bookmark level for unknown thmproof defaults to 0 on input line 204.
+
+
+[30]
+
+LaTeX Warning: Hyper reference `thm:characterization-of-a-basis' on page 31 undefined on input line 243.
+
+
+LaTeX Warning: Reference `thm:characterization-of-a-basis' on page 31 undefined on input line 243.
+
+
+
+[31]
+
+[32]
+
+[33]
+
+[34]) (./vector-spaces/linear-independence/representation.tex
+
+LaTeX Warning: Hyper reference `chap:linear-systems' on page 35 undefined on input line 18.
+
+
+LaTeX Warning: Reference `chap:linear-systems' on page 35 undefined on input line 18.
+
+
+
+[35]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[36]
+Underfull \vbox (badness 1953) has occurred while \output is active []
+
+
+
+[37])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[38]
+
+[39]
+
+LaTeX Warning: Hyper reference `thm:characterization-of-a-basis' on page 40 undefined on input line 946.
+
+
+LaTeX Warning: Reference `thm:characterization-of-a-basis' on page 40 undefined on input line 946.
+
+) (./vector-spaces/matrices.tex
+Underfull \vbox (badness 1365) has occurred while \output is active []
+
+
+
+[40]
+
+LaTeX Warning: Hyper reference `thm:gauss-jordan' on page 41 undefined on input line 50.
+
+
+LaTeX Warning: Reference `thm:gauss-jordan' on page 41 undefined on input line 50.
+
+
+LaTeX Warning: Hyper reference `thm:gauss-jordan' on page 41 undefined on input line 55.
+
+
+LaTeX Warning: Reference `thm:gauss-jordan' on page 41 undefined on input line 55.
+
+
+Underfull \vbox (badness 1466) has occurred while \output is active []
+
+
+
+[41]
+
+[42]
+
+LaTeX Warning: Hyper reference `thm:gauss-jordan' on page 43 undefined on input line 214.
+
+
+LaTeX Warning: Reference `thm:gauss-jordan' on page 43 undefined on input line 214.
+
+
+LaTeX Warning: Hyper reference `thm:gauss-jordan' on page 43 undefined on input line 217.
+
+
+LaTeX Warning: Reference `thm:gauss-jordan' on page 43 undefined on input line 217.
+
+
+LaTeX Warning: Hyper reference `thm:gauss-jordan' on page 43 undefined on input line 221.
+
+
+LaTeX Warning: Reference `thm:gauss-jordan' on page 43 undefined on input line 221.
+
+
+
+[43]
+
+[44]
+
+[45]
+
+[46])) (./homomorphisms.tex
+
+[47]
+
+[48
+
+]
+Chapter 2.
+LaTeX Font Info:    Trying to load font information for OT1+LinLibertine(0) on input line 12.
+LaTeX Font Info:    No file OT1LinLibertine(0).fd. on input line 12.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 12.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+LaTeX Font Warning: Font shape `OT1/LinLibertine(0)/m/n' undefined
+(Font)              using `OT1/lmr/m/n' instead
+(Font)              for symbol `clqq' on input line 12.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[49]
+
+[50]
+
+[51]
+
+[52]
+
+[53]
+
+[54]
+Underfull \vbox (badness 4859) has occurred while \output is active []
+
+
+
+[55]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[56]
+Runaway argument?
+ 
+./homomorphisms.tex:738: Paragraph ended before \align* was complete.
+<to be read again> 
+\par 
+l.738 
+    
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+./homomorphisms.tex:738: Missing $ inserted.
+<inserted text> 
+$
+l.738 
+    
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./homomorphisms.tex:738: Missing } inserted.
+<inserted text> 
+}
+l.738 
+    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./homomorphisms.tex:738: Missing \endgroup inserted.
+<inserted text> 
+\endgroup 
+l.738 
+    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./homomorphisms.tex:738: Display math should end with $$.
+<to be read again> 
+\tex_par:D 
+l.738 
+    
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+./homomorphisms.tex:738: Extra }, or forgotten \endgroup.
+\@par ... \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.738 
+    
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./homomorphisms.tex:739: Misplaced \cr.
+\math@cr@@@ ->\cr 
+                  
+l.739  \end{align*}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./homomorphisms.tex:739: Misplaced \noalign.
+\math@cr@@ ... \iffalse }\fi \math@cr@@@ \noalign 
+                                                  {\vskip #1\relax }
+l.739  \end{align*}
+                 
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+./homomorphisms.tex:739: Misplaced \noalign.
+\black@ #1->\noalign 
+                     {\ifdim #1>\displaywidth \dimen@ \prevdepth \nointerlin...
+l.739  \end{align*}
+                 
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+
+Overfull \hbox (168.72441pt too wide) detected at line 739
+[]
+ []
+
+./homomorphisms.tex:739: Extra }, or forgotten \endgroup.
+\endalign* ...\math@cr \black@ \totwidth@ \egroup 
+                                                  \ifingather@ \restorealign...
+l.739  \end{align*}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./homomorphisms.tex:739: Missing $ inserted.
+<inserted text> 
+$
+l.739  \end{align*}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./homomorphisms.tex:739: Display math should end with $$.
+<to be read again> 
+\endgroup 
+l.739  \end{align*}
+                 
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+
+
+[57])
+\tf@thm=\write6
+
+\openout6 = main.thm
+
+
+[58] (./main.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2020/03/25>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+)
+
+Here is how much of LuaTeX's memory you used:
+ 85588 strings out of 475518
+ 125009,3417909 words of node,token memory allocated
+ 4126 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 139 glyph, 645 attribute, 82 glue_spec, 360 attribute_list, 2 write, 24 pdf_literal, 6 pdf_action, 24 pdf_colorstack nodes
+   avail lists: 1:2,2:5320,3:2200,4:390,5:843,6:76,7:9152,8:78,9:1663,10:16,11:614
+ 106328 multiletter control sequences out of 65536+600000
+ 145 fonts using 27543815 bytes
+ 99i,17n,137p,1189b,1302s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RBI.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_poicuj.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_674lrv.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on main.pdf (58 pages, 632200 bytes).
+
+PDF statistics: 812 PDF objects out of 1000 (max. 8388607)
+ 689 compressed objects within 7 object streams
+ 292 named destinations out of 1000 (max. 131072)
+ 312 words of extra memory for PDF output out of 10000 (max. 100000000)
+
