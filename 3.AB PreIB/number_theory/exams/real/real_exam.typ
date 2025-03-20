@@ -13,14 +13,14 @@
 #let rleq = text(crimson)[$<=$]
 #let gcd = text(crimson)[#math.op("gcd")]
 #let succ = text(raingreen)[#math.op("succ")]
-#let exp = text(crimson)[#math.hat]
-#let aa = text(crimson)[a]
+#let exp = text(crimson)[#sym.hat]
+#let aa = text(crimson)[$a$]
 #let aaa = text(crimson)[$a #sym.prime$]
-#let cc = text(airblue)[c]
-#let bb = text(crimson)[b]
+#let cc = text(airblue)[$c$]
+#let bb = text(crimson)[$b$]
 #let bbb = text(crimson)[$b #sym.prime$]
-#let dd = text(airblue)[d]
-#let ee = text(raingreen)[E]
+#let dd = text(airblue)[$d$]
+#let ee = text(raingreen)[$E$]
 
 // Set page and fonts
 #let page-counter(cur, last) = {
