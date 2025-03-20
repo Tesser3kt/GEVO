@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.1.12)  6 MAR 2025 15:39
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.1.12)  20 MAR 2025 18:16
  restricted system commands enabled.
  file:line:error style messages enabled.
 **main.tex
@@ -2610,68 +2610,223 @@ LaTeX Warning: Hyper reference `thm:gauss-jordan' on page 41 undefined on input 
 
 LaTeX Warning: Reference `thm:gauss-jordan' on page 41 undefined on input line 55.
 
-)) (./exercises.tex
+
+Underfull \vbox (badness 1466) has occurred while \output is active []
+
+
 
 [41]
 
-[42
+[42]
 
-]
-
-LaTeX Warning: Reference `chap:linear-systems' on page 43 undefined on input line 5.
+LaTeX Warning: Hyper reference `thm:gauss-jordan' on page 43 undefined on input line 214.
 
 
-LaTeX Warning: Hyper reference `thm:solution-set-of-a-linear-system' on page 43 undefined on input line 9.
+LaTeX Warning: Reference `thm:gauss-jordan' on page 43 undefined on input line 214.
 
 
-LaTeX Warning: Reference `thm:solution-set-of-a-linear-system' on page 43 undefined on input line 9.
+LaTeX Warning: Hyper reference `thm:gauss-jordan' on page 43 undefined on input line 217.
 
 
-LaTeX Warning: Hyper reference `fig:arrangement-of-lines' on page 43 undefined on input line 45.
+LaTeX Warning: Reference `thm:gauss-jordan' on page 43 undefined on input line 217.
 
 
-LaTeX Warning: Reference `fig:arrangement-of-lines' on page 43 undefined on input line 45.
+LaTeX Warning: Hyper reference `thm:gauss-jordan' on page 43 undefined on input line 221.
+
+
+LaTeX Warning: Reference `thm:gauss-jordan' on page 43 undefined on input line 221.
 
 
 
 [43]
 
-LaTeX Warning: Reference `exam:static-equations' on page 44 undefined on input line 82.
-
-
-LaTeX Warning: Reference `exam:chemical-reactions' on page 44 undefined on input line 82.
-
-
-LaTeX Warning: Reference `chap:linear-geometry' on page 44 undefined on input line 134.
-
-
-
 [44]
-
-LaTeX Warning: Reference `chap:vector-spaces' on page 45 undefined on input line 262.
-
-
 
 [45]
 
-LaTeX Warning: Hyper reference `thm:characterization-of-a-basis' on page 46 undefined on input line 394.
+[46])) (./homomorphisms.tex
+
+[47]
+
+[48
+
+]
+Chapter 2.
+LaTeX Font Info:    Trying to load font information for OT1+LinLibertine(0) on input line 12.
+LaTeX Font Info:    No file OT1LinLibertine(0).fd. on input line 12.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 12.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+LaTeX Font Warning: Font shape `OT1/LinLibertine(0)/m/n' undefined
+(Font)              using `OT1/lmr/m/n' instead
+(Font)              for symbol `clqq' on input line 12.
 
 
-LaTeX Warning: Reference `thm:characterization-of-a-basis' on page 46 undefined on input line 394.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[46])
+[49]
+
+[50]
+
+[51]
+
+[52]
+
+[53]
+
+[54]
+Underfull \vbox (badness 4859) has occurred while \output is active []
+
+
+
+[55]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[56]
+Runaway argument?
+ 
+./homomorphisms.tex:738: Paragraph ended before \align* was complete.
+<to be read again> 
+\par 
+l.738 
+    
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+./homomorphisms.tex:738: Missing $ inserted.
+<inserted text> 
+$
+l.738 
+    
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./homomorphisms.tex:738: Missing } inserted.
+<inserted text> 
+}
+l.738 
+    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./homomorphisms.tex:738: Missing \endgroup inserted.
+<inserted text> 
+\endgroup 
+l.738 
+    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./homomorphisms.tex:738: Display math should end with $$.
+<to be read again> 
+\tex_par:D 
+l.738 
+    
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+./homomorphisms.tex:738: Extra }, or forgotten \endgroup.
+\@par ... \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.738 
+    
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./homomorphisms.tex:739: Misplaced \cr.
+\math@cr@@@ ->\cr 
+                  
+l.739  \end{align*}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./homomorphisms.tex:739: Misplaced \noalign.
+\math@cr@@ ... \iffalse }\fi \math@cr@@@ \noalign 
+                                                  {\vskip #1\relax }
+l.739  \end{align*}
+                 
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+./homomorphisms.tex:739: Misplaced \noalign.
+\black@ #1->\noalign 
+                     {\ifdim #1>\displaywidth \dimen@ \prevdepth \nointerlin...
+l.739  \end{align*}
+                 
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+
+Overfull \hbox (168.72441pt too wide) detected at line 739
+[]
+ []
+
+./homomorphisms.tex:739: Extra }, or forgotten \endgroup.
+\endalign* ...\math@cr \black@ \totwidth@ \egroup 
+                                                  \ifingather@ \restorealign...
+l.739  \end{align*}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./homomorphisms.tex:739: Missing $ inserted.
+<inserted text> 
+$
+l.739  \end{align*}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./homomorphisms.tex:739: Display math should end with $$.
+<to be read again> 
+\endgroup 
+l.739  \end{align*}
+                 
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+
+
+[57])
 \tf@thm=\write6
 
 \openout6 = main.thm
 
 
-[47] (./main.aux)
+[58] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were undefined references.
@@ -2679,19 +2834,19 @@ LaTeX Warning: There were undefined references.
 )
 
 Here is how much of LuaTeX's memory you used:
- 85448 strings out of 475518
+ 85588 strings out of 475518
  125009,3417909 words of node,token memory allocated
- 4710 words of node memory still in use:
-   32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 217 glyph, 655 attribute, 83 glue_spec, 365 attribute_list, 2 write, 24 pdf_literal, 5 pdf_action, 24 pdf_colorstack nodes
-   avail lists: 1:2,2:5305,3:2200,4:390,5:728,6:77,7:9074,8:78,9:1662,10:16,11:614
- 106225 multiletter control sequences out of 65536+600000
- 144 fonts using 27460815 bytes
+ 4126 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 139 glyph, 645 attribute, 82 glue_spec, 360 attribute_list, 2 write, 24 pdf_literal, 6 pdf_action, 24 pdf_colorstack nodes
+   avail lists: 1:2,2:5320,3:2200,4:390,5:843,6:76,7:9152,8:78,9:1663,10:16,11:614
+ 106328 multiletter control sequences out of 65536+600000
+ 145 fonts using 27543815 bytes
  99i,17n,137p,1189b,1302s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RBI.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_poicuj.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_674lrv.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (47 pages, 555629 bytes).
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RBI.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_poicuj.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_674lrv.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on main.pdf (58 pages, 632200 bytes).
 
-PDF statistics: 703 PDF objects out of 1000 (max. 8388607)
- 593 compressed objects within 6 object streams
- 260 named destinations out of 1000 (max. 131072)
+PDF statistics: 812 PDF objects out of 1000 (max. 8388607)
+ 689 compressed objects within 7 object streams
+ 292 named destinations out of 1000 (max. 131072)
  312 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -1,0 +1,740 @@
+\chapter{Homomorphisms (chybějí obrázky)}
+\label{chap:homomorphisms}
+
+In this chapter, our aim is to study and understand maps between vector spaces.
+Not just any kind of maps, however, but maps that \emph{preserve structure}.
+
+Most of modern mathematics is dedicated to the study of \emph{structures} --
+basically prescribed rules of interaction between elements of a set. We call
+these rules, \emph{operations}, and when moving from a set with structure to a
+set with structure by a map, we tend to require that said map somehow respects
+the structures of both sets. Such maps are often called \emph{homomorphisms},
+from Greek ὁμός (\uv{same}) and μορφή (\uv{form, shape}).
+
+The only structure we consider in this book is that of a vector space given by
+two operations: scalar multiplication and vector addition. A \emph{homomorphism
+between vector spaces} $V$ and $W$ (also called a \emph{linear map}) is thus a
+map which respects both operations; in practice, this means that the image of a
+scalar multiple should be the same scalar multiple of the image and that the
+image of a sum of vectors should be the sum of the images.
+
+One last note: we ought to be careful when comparing two structures. We labelled
+the operations on a vector space by symbols $ \cdot $ and $+$ but these two
+symbols \textbf{mean different things in different vector spaces}! To keep the
+text tidy, we shan't resort to using yet another distinct pair of symbols.
+However, we \emph{are} going to distinguish the structure in a small number of
+ensuing lemmata and definitions, to drive the point home.
+
+\begin{definition}{Homomorphism}{homomorphism}
+ Let $V$ and $W$ be vector spaces over the field $\F$. We denote the operations
+ of scalar multiplication and vector addition on $V$ by $\clr{ \cdot _V}$ and
+ $\clr{ +_V}$ and those on $W$ by $\clb{ \cdot _W}$ and $\clb{+_W}$. A map $f:V
+ \to W$ is a \emph{homomorphism} (or a \emph{linear map}) if
+ \begin{enumerate}
+  \item $f(\mathbf{v}_1~\clr{+_V}~\mathbf{v}_2) =
+   f(\mathbf{v}_1)~\clb{+_W}~f(\mathbf{v}_2)$ for every two vectors
+   $\mathbf{v}_1,\mathbf{v}_2 \in V$.
+  \item $f(t~\clr{ \cdot _V}~\mathbf{v}) = t~\clb{ \cdot_W}~f(\mathbf{v})$ for
+   every $t \in \F$ and $\mathbf{v} \in V$.
+ \end{enumerate}
+\end{definition}
+
+\begin{example}{}{homs}
+ The following maps are homomorphisms:
+ \begin{enumerate}[label=(\alph*)]
+  \item the map $f:\R^2 \to \R^2$ given by $f(\mathbf{v}) = 2 \cdot \mathbf{v}$;
+  \item the map $f:\mathcal{P}_3(\F) \to \F^{4}$ given by
+   \[
+    f(a_0 + a_1x + a_2x^2 + a_3x^3) = 
+    \begin{pmatrix}
+     a_0\\
+     a_1\\
+     a_2\\
+     a_3
+    \end{pmatrix},
+   \]
+   where $\mathcal{P}_3(\F)$ denotes the space of polynomials of degree $3$ with
+   coefficients in the field $\F$;
+  \item the map $\pi: \R^3 \to \R^2$ given by
+   \[
+    \pi \left( 
+    \begin{pmatrix}
+     x\\
+     y\\
+     z
+    \end{pmatrix}
+    \right) = 
+    \begin{pmatrix}
+     x\\
+     y
+    \end{pmatrix};
+   \]
+   maps that `forget coordinates' are often called \emph{projections}.
+ \end{enumerate}
+ The following maps are \textbf{not} homomorphisms:
+ \begin{enumerate}[label=(\alph*)]
+  \item the map $f:\R^3 \to \R^3$ given by
+   \[
+    f \left( 
+    \begin{pmatrix}
+     x\\
+     y\\
+     z
+    \end{pmatrix}
+    \right) = 
+    \begin{pmatrix}
+     x\\
+     y\\
+     z
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+     1\\
+     2\\
+     -3
+    \end{pmatrix};
+   \]
+  \item the map $f: \R^2 \to \R$ given by
+   \[
+    f \left( 
+    \begin{pmatrix}
+     x\\
+     y
+    \end{pmatrix}
+    \right) = x^2 + y^3 - 6.
+   \]
+  \item the map $f:\R^{2 \times 2} \to \R^2$ given by
+   \[
+    f \left( 
+    \begin{pmatrix}
+     a & b\\
+     c & d
+    \end{pmatrix}
+    \right) = 
+    \begin{pmatrix}
+     a \cdot b + c \cdot d\\
+     a \cdot d - b \cdot c
+    \end{pmatrix}.
+   \]
+ \end{enumerate}
+\end{example}
+
+In the previous example, we claimed that certain maps were homomorphisms without
+giving a proof. We did so because we first want to provide a characterisation of
+homomorphisms which makes checking whether a given map is a homomorphism
+somewhat easier. Hence, we now collect two qualities only homomorphisms possess.
+
+\begin{lemma}{Zero to zero}{zero-to-zero}
+ Let $f:V \to W$ be a homomorphism and label the zero vector of $V$ by
+ $\clr{\mathbf{0}_V}$ and the zero vector of $W$ by $\clb{\mathbf{0}_W}$. Then,
+ \[
+  f(\clr{\mathbf{0}_V}) = \clb{\mathbf{0}_W}.
+ \]
+\end{lemma}
+\begin{lemproof}
+ Exploiting axiom (2) in the \hyperref[def:homomorphism]{definition of
+ homomorphism}, we get
+ \[
+  f(\clr{\mathbf{0}_V}) = f(0~\clr{ \cdot _V}~\clr{\mathbf{0}_V})
+  \overset{(2)}{=} 0~\clb{ \cdot _W}~f(\clr{\mathbf{0}_V}) = \clb{\mathbf{0}_W}
+ \]
+ as required.
+\end{lemproof}
+
+\begin{lemma}{}{hom-linear-combination}
+ For two vector spaces $V,W$ over $\F$ and a map $f:V \to W$, the following
+ statements are equivalent.
+ \begin{enumerate}[label=(\alph*)]
+  \item The map $f$ is a homomorphism.
+  \item For any two vectors $\mathbf{v}_1,\mathbf{v}_2 \in V$ and two numbers
+   $t_1,t_2 \in \F$, we have
+   \[
+    f(t_1~\clr{ \cdot _V}~\mathbf{v}_1~\clr{+_V}~t_2~\clr{ \cdot
+    _V}~\mathbf{v}_2) = t_1~\clb{ \cdot
+    _W}~f(\mathbf{v}_1)~\clb{+_W}~t_2~\clb{ \cdot _W}~f(\mathbf{v}_2).
+   \]
+  \item For any vectors $\mathbf{v}_1,\ldots,\mathbf{v}_n$ and numbers
+   $t_1,\ldots,t_n \in \F$, we have
+   \[
+    f(t_1~\clr{ \cdot_V}~\mathbf{v_1}~\clr{ + _V}~\ldots~\clr{ +_V}~t_n~\clr{
+    \cdot _V}~\mathbf{v}_n) = t_1~\clb{ \cdot
+    _W}~f(\mathbf{v}_1)~\clb{+_W}~\ldots~\clb{+_W}~t_n~\clb{ \cdot
+    _W}~f(\mathbf{v}_n).
+   \]
+ \end{enumerate}
+\end{lemma}
+\begin{lemproof}
+ In the proof (as well as the following text), we stop distinguishing between
+ $\clr{ \cdot _V}$, $\clb{ \cdot _W}$ and $\clr{+_W},\clb{+_W}$ for the sake of
+ clarity. The readers should do well to keep in mind that $V$ and $W$ host
+ different structures, though.
+
+ We prove $(a) \Leftrightarrow (b)$ and $(b) \Leftrightarrow (c)$.
+
+ As for $(a) \Rightarrow (b)$, we shall, naturally, invoke the axioms (1) and
+ (2) of the \hyperref[def:homomorphism]{definition of homomorphism}. We compute
+ \[
+  f(t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2) \overset{(1)}{=} f(t_1
+  \cdot \mathbf{v}_1) + f(t_2 \cdot \mathbf{v}_2) \overset{(2)}{=} t_1 \cdot
+  f(\mathbf{v}_1) + t_2 \cdot f(\mathbf{v}_2).
+ \]
+ The implication $(b) \Rightarrow (a)$ we simply substitute $t_1 = t_2 = 1$ for
+ axiom (1) and $\mathbf{v}_2 = \mathbf{0}$ for axiom (2).
+
+ Similarly, the implication $(c) \Rightarrow (b)$ follows trivially by $n = 2$.
+ We prove the last implication $(b) \Rightarrow (c)$ by induction on $n$. The
+ base case $n = 2$ is covered completely by statement $(b)$. For the induction
+ step, label $\mathbf{w} = t_1 \cdot \mathbf{v}_1 + \ldots + t_n \cdot
+ \mathbf{v}_n$. Then,
+ \[
+  f(t_1 \cdot \mathbf{v}_1 + \ldots + t_n \cdot \mathbf{v}_n + t_{n+1} \cdot
+  \mathbf{v}_{n+1}) = f(\mathbf{w} + t_{n+1} \cdot \mathbf{v}_{n+1}).
+ \]
+ Using statement $(b)$ again, we get
+ \[
+  f(\mathbf{w} + t_{n+1} \cdot \mathbf{v}_{n+1}) = f(\mathbf{w}) + t_{n+1} \cdot
+  f(\mathbf{v}_{n+1}).
+ \]
+ By the induction hypothesis,
+ \[
+  f(\mathbf{w}) = f(t_1 \cdot \mathbf{v}_1 + \ldots + t_n \cdot \mathbf{v}_n) =
+  t_1 \cdot f(\mathbf{v}_1) + \ldots + t_n \cdot f(\mathbf{v}_n).
+ \]
+ And thus,
+ \begin{align*}
+  f(\mathbf{w}) + t_{n+1} \cdot f(\mathbf{v}_{n+1}) &= f(t_1 \cdot \mathbf{v}_1 +
+  \ldots + t_n \cdot \mathbf{v}_n) + t_{n+1} \cdot \mathbf{v}_{n+1}\\
+                                                    &= t_1 \cdot
+  f(\mathbf{v}_{1}) + \ldots + t_n \cdot f(\mathbf{v}_n) + t_{n+1} \cdot
+  f(\mathbf{v}_{n+1})
+ \end{align*}
+ and we're done.
+\end{lemproof}
+
+\begin{remark}{}{hom-parallelepiped}
+ The statement $(b)$ in \myref{lemma}{lem:hom-linear-combination} can be
+ geometrically interpreted as saying that a homomorphism `transforms
+ parallelepipeds into parallelepipeds'. Let's see this on an example.
+
+ Any two linearly independent vectors $\mathbf{u},\mathbf{v} \in \R^2$ define a
+ parallelogram as the set of all linear combinations of $\mathbf{u}$ and
+ $\mathbf{v}$ with coefficients between $0$ and $1$, i.e.
+ \[
+  \mathbf{P}(\mathbf{u},\mathbf{v}) \coloneqq \{a \cdot \mathbf{u} + b \cdot
+  \mathbf{v} \mid a,b \in [0,1]\}.
+ \]
+ \begin{center}
+  \clr{TODO obrazek}
+ \end{center}
+ Then, the mentioned statement $(b)$ says the following for a homomorphism
+ $f:\R^2 \to \R^2$
+ \[
+  f(a \cdot \mathbf{u} + b \cdot \mathbf{v}) = a \cdot f(\mathbf{u}) + b \cdot
+  f(\mathbf{v}).
+ \]
+ However, this can be read to say that the image of every point in the
+ parallelogram determined by $\mathbf{u}$ and $\mathbf{v}$ is a point in the
+ parallelogram determined by $f(\mathbf{u})$ and $f(\mathbf{v})$. Symbolically,
+ \[
+  f(\mathbf{P}(\mathbf{u},\mathbf{v})) =
+  \mathbf{P}(f(\mathbf{u}),f(\mathbf{v})).
+ \]
+\end{remark}
+
+Let us return to \myref{example}{exam:homs}. There, we claimed that certain maps
+were homomorphisms without proof. For some of them, we're providing the proof
+now.
+
+It is easily checked that the projection
+\[
+ \pi \left( 
+  \begin{pmatrix}
+   x\\
+   y\\
+   z
+  \end{pmatrix}
+ \right) = 
+ \begin{pmatrix}
+  x\\
+  y
+ \end{pmatrix}
+\]
+is a homomorphism. Indeed, we can calculate
+\begin{align*}
+ \pi \left( a \cdot 
+ \begin{pmatrix}
+  x_1\\
+  y_1\\
+  z_1
+ \end{pmatrix} + b \cdot 
+ \begin{pmatrix}
+  x_2\\
+  y_2\\
+  z_2
+ \end{pmatrix}
+\right) &= 
+ \pi \left( 
+ \begin{pmatrix}
+  ax_1 + bx_2\\
+  ay_1 + by_2\\
+  az_1 + bz_2
+ \end{pmatrix}
+ \right) = 
+ \begin{pmatrix}
+  ax_1 + bx_2\\
+  ay_1 + by_2
+ \end{pmatrix}
+ \\
+        &=a \cdot 
+ \begin{pmatrix}
+  x_1\\
+  y_1
+ \end{pmatrix}
+ + b \cdot 
+ \begin{pmatrix}
+  x_2\\
+  y_2
+ \end{pmatrix} = 
+ a \cdot \pi
+ \left( 
+ \begin{pmatrix}
+  x_1\\
+  y_1\\
+  z_1
+ \end{pmatrix}
+ \right) + b \cdot \pi \left( 
+ \begin{pmatrix}
+  x_2\\
+  y_2\\
+  z_2
+ \end{pmatrix}
+ \right).
+\end{align*}
+The rest is up to \myref{lemma}{lem:hom-linear-combination}.
+
+In a very similar vein, the map $f(\mathbf{v}) = 2 \cdot \mathbf{v}$ is a
+homomorphism for any vector space $V$ over $\R$. Indeed, we may compute
+\[
+ f(a \cdot \mathbf{u} + b \cdot \mathbf{v}) = 2 \cdot (a \cdot \mathbf{u} + b
+ \cdot \mathbf{v}) = a \cdot (2 \cdot \mathbf{u}) + b \cdot (2 \cdot \mathbf{v})
+ = a \cdot f(\mathbf{u}) = b \cdot f(\mathbf{v}).
+\]
+This last homomorphism is an example of an \emph{automorphism} -- a bijective
+homomorphism from a space to itself. Automorphisms are just one interesting
+class of homomorphisms we shall present shortly.
+
+The map
+\[
+ f \left( 
+ \begin{pmatrix}
+  x\\
+  y\\
+  z
+ \end{pmatrix}
+ \right) = 
+ \begin{pmatrix}
+  x\\
+  y\\
+  z
+ \end{pmatrix}
+ +
+ \begin{pmatrix}
+  1\\
+  2\\
+  -3
+ \end{pmatrix}
+\]
+is not a homomorphism because it doesn't send $\mathbf{0}$ to $\mathbf{0}$ (and
+thus contradicts \myref{lemma}{lem:zero-to-zero}. It serves as a good example of
+a more general notion -- homomorphisms \emph{cannot} translate vectors. This is
+quite a stark restriction, yet it allows the images of homomorphisms to be
+vector spaces.
+
+Also, the map
+\[
+ f \left( 
+  \begin{pmatrix}
+   x\\
+   y
+  \end{pmatrix}
+ \right) = x^2 + y^2 - 6
+\]
+is equally \textbf{not} a homomorphism as it `curves' the space. We may easily
+check that it breaks both axioms (1) and (2) in the
+\hyperref[def:homomorphism]{definition}. As we've observed by virtue of
+\myref{remark}{rmrk:hom-parallelepiped}, homomorphisms send `flat objects' to
+`flat objects', not to misshapen ellipses.
+
+The quality of maps we haven't fully commented on is left for kind readers to
+determine.
+
+\begin{exercise}{}{}
+ Prove that the map $f:\mathcal{P}_3(\F) \to \F^{4}$ from
+ \myref{example}{exam:homs} is a homomorphism.
+\end{exercise}
+
+\begin{exercise}{}{}
+ Prove that the map $f:\R^{2 \times 2} \to \R^2$ from \myref{example}{exam:homs}
+ is \textbf{not} an isomorphism.
+\end{exercise}
+
+Now, onto learning some new words, kids, shall we?
+
+\begin{definition}{Classes of homomorphisms}{classes-of-homomorphisms}
+ A homomorphism $f:V \to W$ is called
+ \begin{enumerate}
+  \item an \emph{isomorphism}, if it is bijective,
+  \item an \emph{endomorphism}, if $W = V$,
+  \item an \emph{automorphism}, if it is both an \emph{isomorphism} and an
+   \emph{endomorphism}.
+ \end{enumerate}
+\end{definition}
+
+If there exists an \emph{isomorphism} between two vector spaces $V$ and $W$, we
+call these spaces \emph{isomorphic}. Intuitively, this means that the two spaces
+behave exactly the same, we have only chosen to represent the vectors of one a
+little differently than the other.
+
+One immediate example is the correspondence between polynomials of degree $n$
+and vectors with $n + 1$ entries we have mentioned many times throughout the
+text.
+
+The map
+\begin{align*}
+ f: \mathcal{P}_3(\F) &\to \F^{4}\\
+ a_0 + a_1x + a_2x^2 + a_3x^3 & \mapsto 
+ \begin{pmatrix}
+  a_0\\
+  a_1\\
+  a_2\\
+  a_3
+ \end{pmatrix}
+\end{align*}
+from \myref{example}{exam:homs} is an isomorphism between $\mathcal{P}_3(\F)$
+and $\F^{4}$. The fact that it's both \emph{injective} and \emph{surjective} is
+almost obvious since it just sends a polynomial to its vector of coefficients.
+
+We shan't spend more time discussing different classes of homomorphisms now but
+we certainly shall later. The readers are encouraged to make up examples
+themselves.
+
+\begin{exercise}{}{}
+ Find an example of a homomorphism $f:V \to W$ which is
+ \begin{enumerate}[label=(\alph*)]
+  \item an \emph{isomorphism} but \textbf{not} an automorphism,
+  \item an \emph{endomorphism} but \textbf{not} an automorphism,
+  \item an \emph{automorphism}.
+ \end{enumerate}
+\end{exercise}
+
+Now, there are quite a few special vector spaces tied to a homomorphism $f:V \to
+W$. As we've mentioned earlier, its image is a subspace of $W$, the preimage via
+$f$ of a vector subspace of $W$ is a subspace of $V$, and, finally, the set of
+homomorphisms themselves is a subspace of the vector space of all maps from $V
+\to W$. We are proving all these assertions now.
+
+Before that however, we just briefly recall the important definitions. Given a
+map $f:V \to W$, its \emph{image} is the set
+\[
+ \img f = f(V) = \{f(v) \mid v \in V\} \subseteq W.
+\]
+The \emph{preimage} of a subset $S \subseteq W$ via $f$ is the set
+\[
+ f^{-1}(S) \coloneqq \{v \in V \mid f(v) \in S\} \subseteq V.
+\]
+Finally, the set of all homomorphisms from $V$ to $W$ is denoted $\Hom(V,W)$.
+
+\begin{lemma}{}{}
+ Let $f:V \to W$ be a homomorphism. Then,
+ \begin{enumerate}[label=(\alph*)]
+  \item $f(V)$ is a subspace of $W$.
+  \item $f^{-1}(U)$ is a subspace of $V$ whenever $U$ is a subspace of $W$.
+  \item $Hom(V,W)$ is a subspace of the vector space of all maps $V \to W$.
+ \end{enumerate}
+\end{lemma}
+\begin{lemproof}
+ To prove $(a)$, pick two vectors $\mathbf{w}_1,\mathbf{w}_2 \in f(V)$. We shall
+ prove that $t_1 \cdot \mathbf{w}_1 + t_2 \cdot \mathbf{w}_2 \in f(V)$. This
+ will mean that $f(V)$ is a subspace by
+ \myref{lemma}{lem:characterisation-of-subspaces}. Since
+ $\mathbf{w}_1,\mathbf{w}_2 \in f(V)$, there exist by definition vectors
+ $\mathbf{v}_1,\mathbf{v}_2 \in V$ such that $f(\mathbf{v}_1) = \mathbf{w}_1$
+ and $f(\mathbf{v}_2) = \mathbf{w}_2$. We thus rewrite
+ \[
+  t_1 \cdot \mathbf{w}_1 + t_2 \cdot \mathbf{w}_2 = t_1 \cdot f(\mathbf{v}_1) +
+  t_2 \cdot f(\mathbf{v}_2).
+ \]
+ Since $f$ is a homomorphism by assumption, the right side of the above equality
+ can by virtue of \myref{lemma}{lem:hom-linear-combination} be reshaped as such:
+ \[
+  t_1 \cdot f(\mathbf{v}_1) + t_2 \cdot f(\mathbf{v}_2) = f(t_1 \cdot
+  \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2)
+ \]
+ and thus $f$ sends the vector $t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2$
+ to $t_1 \cdot \mathbf{w}_1 + t_2 \cdot \mathbf{w}_2$. This, in particular,
+ ascertains that $t_1 \cdot \mathbf{w}_1 + t_2 \cdot \mathbf{w}_2 \in f(V)$, as
+ desired.
+
+ We continue with statement $(b)$. Pick $\mathbf{v}_1,\mathbf{v}_2 \in
+ f^{-1}(U)$. By definition of $f^{-1}(U)$, there exist
+ $\mathbf{u}_1,\mathbf{u}_2 \in U$ such that $f(\mathbf{v}_1) = \mathbf{u}_1$
+ and $f(\mathbf{v}_2) = \mathbf{u}_2$. We thus compute
+ \[
+  f(t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2) = t_1 \cdot f(\mathbf{v}_1)
+  + t_2 \cdot f(\mathbf{v}_2) = t_1 \cdot \mathbf{u}_1 + t_2 \cdot \mathbf{u}_2.
+ \]
+ The last linear combination lies in $U$ as it is a subspace by assumption. It
+ follows that $t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2 \in f^{-1}(U)$
+ since $f(t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2) \in U$.
+
+ As for $(c)$, we are given two homomorphisms $f,g \in \Hom(V,W)$. We must prove
+ that $a \cdot f + b \cdot g$ is also a homomorphism for any $a,b \in \F$. For a
+ change, we prove the axioms (1) and (2) in the
+ \hyperref[def:homomorphism]{definition of homomorphism}. Taking
+ $\mathbf{v}_1,\mathbf{v}_2 \in V$, we compute
+ \begin{align*}
+  (a \cdot f + b \cdot g)(\mathbf{v}_1 + \mathbf{v}_2) 
+  &= (a \cdot f)(\mathbf{v}_1 + \mathbf{v}_2) + (b \cdot g)(\mathbf{v}_1 +
+  \mathbf{v}_2)\\
+  &= f(a \cdot \mathbf{v}_1 + a \cdot \mathbf{v}_2) + g(b \cdot \mathbf{v}_1 +
+  b \cdot \mathbf{v}_2)\\
+  &= a \cdot f(\mathbf{v}_1) + a \cdot f(\mathbf{v}_2) + b \cdot g(\mathbf{v}_1)
+  + b \cdot g(\mathbf{v}_2)\\
+  &= (a \cdot f(\mathbf{v}_1) + b \cdot g(\mathbf{v}_1)) + (a \cdot
+  f(\mathbf{v}_2) + b \cdot g(\mathbf{v}_2))\\
+  &= (a \cdot f + b \cdot g)(\mathbf{v}_1) + (a \cdot f + b \cdot
+  g)(\mathbf{v}_2),
+ \end{align*}
+ hence (1) holds. The proof of (2) is left as an exercise. The validity of both
+ axioms ascertains that $\Hom(V,W)$ is really a vector space and thus a subspace
+ of the space of all maps $V \to W$.
+\end{lemproof}
+
+\begin{exercise}{}{}
+ Prove that for two homomorphisms $f,g \in \Hom(V,W)$, $a,b \in \F$, $\mathbf{v}
+ \in V$ and $t \in \F$, we have
+ \[
+  (a \cdot f + b \cdot g)(t \cdot \mathbf{v}) = t \cdot (a \cdot f + b \cdot
+  g)(\mathbf{v}).
+ \]
+\end{exercise}
+
+The fact that images and preimages of homomorphisms are vector spaces have
+geometric consequences. We now illustrate those on a few examples.
+
+\begin{example}{}{}
+ Consider the projection $\pi:\R^3 \to \R^2$ prescribed as
+ \[
+  \pi \left( 
+  \begin{pmatrix}
+   x\\
+   y\\
+   z
+  \end{pmatrix}
+  \right) = 
+  \begin{pmatrix}
+   x\\
+   y
+  \end{pmatrix}.
+ \]
+ The image of $\pi(\R^3)$ is of course the entirety of $\R^2$. One may think of
+ this projection as the `squishing' of an entire room onto its floor. If we're
+ allowed to move only along one of the walls, we're confined to just one edge of
+ the floor. This is formalised by the fact that the image of the set of vectors
+ with $y = 0$ is the subspace of $\R^2$ of vectors with $y = 0$, and similarly
+ for $x$.
+
+ \begin{center}
+  \clr{TODO obrazky}
+ \end{center}
+
+ The preimage of a given vector $\mathbf{w} \in \R^2$ via $\pi$ is the set of
+ all vectors whose tips sit on the vertical line rooted at the tip of
+ $\mathbf{w}$. This is because any vector
+ \[
+  \begin{pmatrix}
+   w_1\\
+   w_2\\
+   z
+  \end{pmatrix}
+ \]
+ gets mapped onto
+ \[
+  \mathbf{w} = 
+  \begin{pmatrix}
+   w_1\\
+   w_2
+  \end{pmatrix}.
+ \]
+ Of course, a set consisting of a single non-zero vector is not a subspace, just
+ as the vertical line rooted at the tip of such vector is not. 
+
+ On a similar note, the preimage of a line $\{t \cdot \mathbf{v} \mid t \in
+ \R\}$ for a given $\mathbf{v} \in \R^2$ is the entire vertical plane containing
+ said line in $\R^3$.
+\end{example}
+
+\begin{example}{}{}
+ The image of the homomorphism
+ \begin{align*}
+  h: \R^2 &\to \R\\
+  \begin{pmatrix}
+   x\\
+   y
+  \end{pmatrix}
+          & \mapsto 
+          x + y
+ \end{align*}
+ is the entirety of $\R$. Fixing a number $r \in \R$, its preimage via $h$ is
+ the set of vectors whose coordinates add up to $r$. Their tips form a line in
+ $\R^2$ given by the equation $x + y = r$.
+
+ The fact that $h$ is a homomorphism can be expressed in a neat geometric manner
+ -- fix now two numbers $r_1,r_2 \in \R$. Think of the vectors whose tips lie on
+ the line $x + y = r_1$ as `$r_1$' vectors. Analogously, vectors whose tips form
+ the line $x + y = r_2$ are regarded as `$r_2$' vectors. Axiom (1) in the
+ \hyperref[def:homomorphism]{definition of homomorphism} can be, in this
+ particular case, restated as `$r_1$' vectors plus `$r_2$' vectors equal `$r_1 +
+ r_2$' vectors. That is, $\mathbf{v}_1$ is an `$r_1$' vector if $h(\mathbf{v}_1)
+ = r_1$ and $\mathbf{v}_2$ is an `$r_2$' vector if $h(\mathbf{v}_2)$; the
+ previous sentence thus signifies exactly that $h(\mathbf{v}_1 + \mathbf{v}_2) =
+ h(\mathbf{v}_1) + h(\mathbf{v}_2)$ since $\mathbf{v}_1 + \mathbf{v}_2$ is
+ clearly a `$r_1 + r_2$' vector.
+ \begin{center}
+  \clr{TODO obrazek}
+ \end{center}
+\end{example}
+
+\begin{example}{}{der-int}
+ Define the `derivative' homomorphism
+ \begin{align*}
+  \frac{\partial }{\partial x}: \mathcal{P}_3 &\to \mathcal{P}_3\\
+  a_0 + a_1x + a_2x^2 + a_3x^3 & \mapsto a_1 + 2a_2x + 3a_3x^2.
+ \end{align*}
+ Its image is the subspace $\mathcal{P}_2$ (polynomials of degree $2$ over $\R$)
+ of $\mathcal{P}_3$. The inverse image of set of polynomials of degree $2$ is
+ the `integral' homomorphism (with constant $0$). Said formally, there exists a
+ homomorphism
+ \begin{align*}
+  \int: \mathcal{P}_2 & \to \mathcal{P}_3\\
+  a_0 + a_1x + a_2x^2 & \mapsto a_0x + \frac{a_1}{2}x^2 + \frac{a_2}{3}x^3
+ \end{align*}
+ such that $\frac{\partial }{\partial x} \circ \int $ is the identity map on
+ $\mathcal{P}_2$. Notice however that it is \textbf{not} the case that $\int
+ \circ \frac{\partial }{\partial x}$ is the identity map on $\mathcal{P}_3$. The
+ derivative $\frac{\partial }{\partial x}$ is \textbf{not} an injective map and
+ as such it doesn't have a `two-sided' inverse, it only has a `right' inverse in
+ the form of $\int $.
+\end{example}
+
+The last examples provokes a question: `When does a homomorphism have an inverse
+which is also a homomorphism?' We remind dear readers that an inverse to a map
+$f:V \to W$ is a map $f^{-1}:W \to V$ such that $(f \circ f^{-1})(\mathbf{w}) =
+\mathbf{w}$ for every $\mathbf{w} \in W$ and $(f^{-1} \circ f)(\mathbf{v}) =
+\mathbf{v}$ for every $\mathbf{v} \in V$. As seen in the mentioned
+\myref{example}{exam:der-int} \textbf{just one} of these equalities \textbf{is
+not enough}. A homomorphism may be invertible from just one side.
+
+The rest of the introductory section to homomorphisms is dedicated to answering
+this question. First, we must establish a strong connection between
+homomorphisms and bases of their domains. We illustrate this connection first
+before conjuring a proof.
+
+Consider a homomorphism $f$ with domain $\R^3$. By
+\myref{lemma}{lem:hom-linear-combination}, the image of a vector
+\[
+ \begin{pmatrix}
+  x\\
+  y\\
+  z
+ \end{pmatrix}
+\]
+via this homomorphism can be broken into the linear combination
+\[
+ f \left( 
+ \begin{pmatrix}
+  x\\
+  y\\
+  z
+ \end{pmatrix}
+ \right) = f \left( 
+ \begin{pmatrix}
+  x\\
+  0\\
+  0
+ \end{pmatrix}
+ \right) + f \left( 
+ \begin{pmatrix}
+  0\\
+  y\\
+  0
+ \end{pmatrix}
+ \right) + f \left( 
+ \begin{pmatrix}
+  0\\
+  0\\
+  z
+ \end{pmatrix}
+ \right) = x \cdot 
+ f \left( 
+ \begin{pmatrix}
+  1\\
+  0\\
+  0
+ \end{pmatrix}
+ \right) + y \cdot f \left(
+ \begin{pmatrix}
+  0\\
+  1\\
+  0
+ \end{pmatrix}
+ \right) + z \cdot f \left( 
+ \begin{pmatrix}
+  0\\
+  0\\
+  1
+ \end{pmatrix}
+ \right).
+\]
+This immediately suggests that the image of any vector via a homomorphism is
+determined purely by the images of \hyperref[def:standard-basis]{standard basis}
+vectors. Indeed, this statement is true in general, for any homomorphism and any
+basis.
+
+\begin{theorem}{}{}
+ Let $V,W$ be vector spaces over $\F$, $B = (\mathbf{b}_1,\ldots,\mathbf{b}_n)$
+ be a basis of $V$. Given (not necessarily distinct) vectors
+ $\mathbf{w}_1,\mathbf{w}_2,\ldots,\mathbf{w}_n \in W$, there exists
+ \textbf{just a single} homomorphism $f \in \Hom(V,W)$ such that
+ $f(\mathbf{b}_1) = \mathbf{w}_1, f(\mathbf{b}_2) =
+ \mathbf{w}_2,\ldots,f(\mathbf{b}_n) = \mathbf{w}_n$.
+\end{theorem}
+\begin{thmproof}
+ First, given $\mathbf{v} \in V$, it can be written uniquely as a linear
+ combination of vectors from $B$, that is, there exist unique coefficients
+ $t_1,\ldots,t_n \in \F$ such that
+ \[
+  \mathbf{v} = t_1 \cdot \mathbf{b}_1 + \ldots + t_n \cdot \mathbf{b}_n.
+ \]
+ We define $f(\mathbf{v})$ by
+ \[
+  f(\mathbf{v}) = t_1 \cdot \mathbf{w}_1 + \ldots + t_n \cdot \mathbf{w}_n.
+ \]
+ We must prove three statements:
+ \begin{enumerate}
+  \item $f$ is well-defined (i.e. it's \emph{actually} a map $V \to W$);
+  \item $f$ is a homomorphism;
+  \item $f$ is unique.
+ \end{enumerate}
+ The statement (1) follows from the uniqueness of representation of a vector
+ with respect to a basis -- content of
+ \myref{theorem}{thm:characterisation-of-a-basis}. Consequently, as the vector
+ $\mathbf{v}$ can only ever be represented by the same $n$-tuple of
+ coefficients, the image of $\mathbf{v}$ under $f$ is always the same.
+
+ Ad (2), choose $\mathbf{v}_1,\mathbf{v}_2 \in V$ and $t_1,t_2 \in \F$. We
+ calculate
+ \begin{align*}
+  
+ \end{align*}
+\end{thmproof}
