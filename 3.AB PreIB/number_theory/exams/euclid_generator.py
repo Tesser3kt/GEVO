@@ -18,8 +18,8 @@ b = randint(100, 5000)
 
 gcd, steps = gcd_with_steps(a, b)
 while (gcd < 10) or not (4 <= steps <= 6):
-    a = randint(100, 5000)
-    b = randint(100, 5000)
+    a = randint(100, 500)
+    b = randint(100, 500)
 
     gcd, steps = gcd_with_steps(a, b)
 
