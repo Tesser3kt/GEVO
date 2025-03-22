@@ -732,9 +732,37 @@ basis.
  $\mathbf{v}$ can only ever be represented by the same $n$-tuple of
  coefficients, the image of $\mathbf{v}$ under $f$ is always the same.
 
- Ad (2), choose $\mathbf{v}_1,\mathbf{v}_2 \in V$ and $t_1,t_2 \in \F$. We
- calculate
+ Ad (2), choose $\mathbf{v}_1,\mathbf{v}_2 \in V$ and $t_1,t_2 \in \F$. Let
  \begin{align*}
-  
+  \mathbf{v}_1 &= a_1 \cdot \mathbf{b}_1 + \ldots + a_n \cdot \mathbf{b}_n,\\
+  \mathbf{v}_2 &= c_1 \cdot \mathbf{b}_1 + \ldots + c_n \cdot \mathbf{b}_n
  \end{align*}
+ for adequate coefficients $a_1,\ldots,a_n,c_1,\ldots,c_n \in \F$. Then,
+ \begin{align*}
+  t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2 
+  &= t_1 \cdot (a_1 \cdot \mathbf{b}_1 + \ldots + a_n \cdot \mathbf{b}_n) + t_2
+  \cdot (c_1 \cdot \mathbf{b}_1 + \ldots + c_n \cdot \mathbf{b}_n)\\
+  &=(t_1a_1 + t_2c_1) \cdot \mathbf{b}_1 + (t_1a_2 + t_2c_2) \cdot \mathbf{b}_2
+  + \ldots + (t_1a_n + t_2c_n) \cdot \mathbf{b}_n.
+ \end{align*}
+ Hence, by the definition of $f$,
+ \[
+  f(t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2) = (t_1a_1 + t_2c_1) \cdot
+  \mathbf{w}_1 + \ldots + (t_1a_n + t_2c_n) \cdot \mathbf{w}_n.
+ \]
+ The last expression can be rewritten back to
+ \[
+  t_1 \cdot (a_1 \cdot \mathbf{w}_1 + \ldots + a_n \cdot \mathbf{w}_n) + t_2
+  \cdot (c_1 \cdot \mathbf{w}_1 + \ldots + c_n \cdot \mathbf{w}_n) = t_1 \cdot
+  f(\mathbf{v}_1) + t_2 \cdot f(\mathbf{v}_2),
+ \]
+ where the last equality holds because
+ \begin{align*}
+  f(\mathbf{v}_1) &= a_1 \cdot \mathbf{w}_1 + \ldots + a_n \cdot \mathbf{w}_n,\\
+  f(\mathbf{v}_2) &= c_1 \cdot \mathbf{w}_1 + \ldots + c_n \cdot \mathbf{w}_n.
+ \end{align*}
+
+ Finally, ad (3), assume that there is a homomorphism $\hat{f} \in \Hom(V,W)$
+ such that $\hat{f}(\mathbf{b}_1) = \mathbf{w}_1, \ldots, \hat{f}(\mathbf{b}_n)
+ = \mathbf{w}_n$.
 \end{thmproof}
