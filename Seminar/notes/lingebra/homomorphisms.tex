@@ -444,7 +444,7 @@ The \emph{preimage} of a subset $S \subseteq W$ via $f$ is the set
 \]
 Finally, the set of all homomorphisms from $V$ to $W$ is denoted $\Hom(V,W)$.
 
-\begin{lemma}{}{}
+\begin{lemma}{}{hom-subspaces}
  Let $f:V \to W$ be a homomorphism. Then,
  \begin{enumerate}[label=(\alph*)]
   \item $f(V)$ is a subspace of $W$.
@@ -701,7 +701,7 @@ determined purely by the images of \hyperref[def:standard-basis]{standard basis}
 vectors. Indeed, this statement is true in general, for any homomorphism and any
 basis.
 
-\begin{theorem}{}{}
+\begin{theorem}{}{hom-on-basis}
  Let $V,W$ be vector spaces over $\F$, $B = (\mathbf{b}_1,\ldots,\mathbf{b}_n)$
  be a basis of $V$. Given (not necessarily distinct) vectors
  $\mathbf{w}_1,\mathbf{w}_2,\ldots,\mathbf{w}_n \in W$, there exists
@@ -764,5 +764,31 @@ basis.
 
  Finally, ad (3), assume that there is a homomorphism $\hat{f} \in \Hom(V,W)$
  such that $\hat{f}(\mathbf{b}_1) = \mathbf{w}_1, \ldots, \hat{f}(\mathbf{b}_n)
- = \mathbf{w}_n$.
+ = \mathbf{w}_n$. The, for every $\mathbf{v} \in V$ expressed as the linear
+ combination
+ \[
+  \mathbf{v} = t_1 \cdot \mathbf{b}_1 + \ldots + t_n \cdot \mathbf{b}_n,
+ \]
+ we have
+ \[
+  f(\mathbf{v}) = t_1 \cdot f(\mathbf{b}_1) + \ldots + t_n \cdot f(\mathbf{b}_n)
+  = t_1 \cdot \mathbf{w}_1 + \ldots + t_n \cdot \mathbf{w}_n = t_1 \cdot
+  \hat{f}(\mathbf{b}_1) + \ldots + t_n \cdot \hat{f}(\mathbf{b}_n) =
+  \hat{f}(\mathbf{v})
+ \]
+ and thus $f = \hat{f}$ as claimed.
 \end{thmproof}
+
+In light and spirit of \myref{theorem}{thm:hom-on-basis}, we \emph{extend} any
+map $V \to W$ whose images of basis vectors we know, to a homomorphism. Such
+homomorphism is called its \emph{linear extension}.
+
+\begin{definition}{Linear extension}{linear-extension}
+ Let $f:V \to W$ be a map and $B = (\mathbf{b}_1,\ldots,\mathbf{b}_n)$. By
+ \myref{theorem}{thm:hom-on-basis}, there exists a unique homomorphism
+ $\hat{f} \in \Hom(V,W)$ such that $\hat{f}(\mathbf{b}_i) = f(\mathbf{b}_i)$ for
+ every $i \leq n$. The homomorphism $\hat{f}$ is called the \emph{linear
+ extension} of $f$.
+\end{definition}
+
+\input{homomorphisms/image-and-kernel}

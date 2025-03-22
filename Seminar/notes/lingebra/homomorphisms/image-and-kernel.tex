@@ -1,0 +1,246 @@
+\section{Image and kernel}
+\label{sec:image-and-kernel}
+
+A homomorphism $f \in \Hom(V,W)$ basically digs out for itself a subspace of $W$
+where it then lives. We called this subspace the image of $f$ and denoted it
+$f(V)$ or $\img f$. The image carries on its back quite a few geometric
+properties of $f$. In particular, its \emph{dimension} tells us how many
+direction of movement in the original vector space $f$ moves over to its
+codomain space. This dimension is called its rank.
+
+\begin{definition}{Rank of a homomorphism}{rank-of-a-homomorphism}
+ Given $f \in \Hom(V,W)$, we define
+ \[
+  \rank f \coloneqq \dim(\img f)
+ \]
+ and call it the \emph{rank} of $f$.
+\end{definition}
+\begin{example}{}{}
+ The derivative homomorphism
+ \begin{align*}
+  \frac{\partial }{\partial x}: \mathcal{P}_3 &\to \mathcal{P}_3\\
+  a_0 + a_1x + a_2x^2 + a_3x^3 & \mapsto a_1 + 2a_2x + 3a_3x^2
+ \end{align*}
+ has rank $3$ because its image is the three-dimensional subspace
+ $\mathcal{P}_2$ of $\mathcal{P}_3$. In a sense, it `forgets' the information of
+ the constant coefficient of the polynomial, leaving only the linear parts and
+ above recoverable. More explicitly, given a polynomial $a_0 + a_1x + a_2x^2 \in
+ \frac{\partial }{\partial x}(\mathcal{P}_3)$, we can't know \emph{precisely}
+ where it came from. We only know that its original image lies somewhere in the
+ set
+ \[
+  \{c + a_0x + \frac{a_1}{2}x^2 + \frac{a_2}{3}x^3 \mid c \in \R\} \subseteq
+  \mathcal{P}_3.
+ \]
+\end{example}
+\begin{example}{}{}
+ The injection homomorphism
+ \begin{align*}
+  \iota: \R^2 &\to \R^3\\
+  \begin{pmatrix}
+   x\\
+   y
+  \end{pmatrix}
+              & \mapsto 
+  \begin{pmatrix}
+   x\\
+   y\\
+   0
+  \end{pmatrix}
+ \end{align*}
+ has rank $2$, the maximum possible. Clearly, the homomorphism can't possibly
+ fill the entirety of $\R^3$, the two-dimensional space $\R^2$ doesn't `carry
+ enough information' for that to be possible. What $\iota$ does is move the
+ entire plane $\R^2$ into $\R^3$ as ... well ... a plane.
+\end{example}
+
+If rank of a homomorphism measures the dimension of the subspace that $f$
+creates, could we also somehow measure the number of vectors that $f$ `forgets'?
+Indeed, we could. Observe that a homomorphism sends two different vectors
+$\mathbf{v}_1,\mathbf{v}_2 \in V$ to a single vector $\mathbf{w} \in W$, it
+sends their difference to $\mathbf{0}$. Indeed, we can compute
+\[
+ f(\mathbf{v}_2 - \mathbf{v}_1) = f(\mathbf{v}_2) - f(\mathbf{v}_1) = \mathbf{w}
+ - \mathbf{w} = \mathbf{0}.
+\]
+As $\{\mathbf{0}\}$ is a subspace of $W$, the preimage of $\{\mathbf{0}\}$ via
+$f$, that is $f^{-1}(\{\mathbf{0}\})$ is a subspace of $V$, by
+\myref{lemma}{lem:hom-subspaces}. As a consequence of the observation made just
+above, the dimension of this subspace measure the number of directions of
+movement that $f$ \textbf{doesn't} carry over to its image inside $W$.
+
+\begin{definition}{Kernel and nullity}{kernel-and-nullity}
+ For any homomorphism $f \in \Hom(V,W)$, the preimage $f^{-1}(\{\mathbf{0}\})$
+ is called the \emph{kernel} or \emph{nullspace} of $V$. Its dimension is then
+ called the \emph{nullity} of $f$ and denoted $\nul f$.
+\end{definition}
+
+\begin{example}{}{}
+ As already observed, the derivative homomorphism $\frac{\partial }{\partial x}$
+ `forgets' all constant polynomials by sending them to $\mathbf{0}$. It follows
+ that its \emph{nullity} is $1$ as the dimension of the subspace of constant
+ polynomials is $1$.
+\end{example}
+\begin{example}{}{}
+ The injection homomorphism $\iota:\R^2 \to \R^3$ has nullity $0$. This is
+ easily seen from the fact that its injective, it cannot send any other vector
+ than $\mathbf{0}$ to $\mathbf{0}$.
+\end{example}
+It stands to reason that if the nullity measure the number of `forgotten
+directions' and the rank the number of `kept directions', their sum should equal
+the dimension of the original space. We shall prove that now.
+\begin{proposition}{Rank and nullity theorem}{rank-and-nullity-theorem}
+ Let $f \in \Hom(V,W)$. Then $\rank f + \nul f = \dim V$.
+\end{proposition}
+\begin{propproof}
+ Assume $\rank f = k$ and let $B = (\mathbf{b}_1,\ldots,\mathbf{b}_k)$ be the
+ basis of $\ker f = f^{-1}(\{\mathbf{0}\})$. By
+ \myref{corollary}{cor:expand-to-basis}, as $\ker f$ is a subspace of $V$, the
+ basis $B$ can be extended to a basis
+ \[
+  \hat{B} =
+  (\mathbf{b}_1,\ldots,\mathbf{b}_k,\mathbf{b}_{k+1},\ldots,\mathbf{b}_n)
+ \]
+ of the space $V$. We aim to show that
+ $(f(\mathbf{b}_{k+1}),\ldots,f(\mathbf{b}_n))$ is a basis for $\img f = f(V)$.
+ This will complete the proof as said sequence contains exactly $n - k$ vectors.
+
+ We first prove linear independence. Assume there exists a linear combination
+ \begin{equation}
+  \label{eq:null-and-ker-1}
+  t_{k+1} \cdot f(\mathbf{b}_{k+1}) + t_{k+2} \cdot \mathbf{b}_{k+2} + \ldots +
+  t_n \cdot f(\mathbf{b}_n) = \mathbf{0}
+ \end{equation}
+ for $t_{k+1},\ldots,t_n \in \F$. As $f$ is a homomorphism, this equality is
+ equivalent to
+ \[
+  f(t_{k+1} \cdot \mathbf{b}_{k+1} + \ldots + t_n \cdot \mathbf{b}_n) =
+  \mathbf{0}.
+ \]
+ From this, it follows that
+ \[
+  t_{k+1} \cdot \mathbf{b}_{k+1} + \ldots + t_n \cdot \mathbf{b}_n \in \ker f.
+ \]
+ In particular, as $B = (\mathbf{b}_1,\ldots,\mathbf{b}_k)$ is a basis for $\ker
+ f$, there exist coefficients $t_1,\ldots,t_k \in \F$ such that
+ \[
+  t_1 \cdot \mathbf{b}_1 + \ldots + t_k \cdot \mathbf{b}_k = t_{k+1} \cdot
+  \mathbf{b}_{k+1} + \ldots + t_n \cdot \mathbf{b}_n.
+ \]
+ However, a simple rearrangement yields
+ \[
+  t_1 \cdot \mathbf{b}_1 + \ldots + t_k \cdot \mathbf{b}_k - t_{k+1} \cdot
+  \mathbf{b}_{k+1} - \ldots - t_n \cdot \mathbf{b}_n = \mathbf{0},
+ \]
+ a representation of the zero vector in the extended basis $\hat{B}$. By
+ \myref{theorem}{thm:characterisation-of-a-basis}, all the coefficients are
+ necessarily zero. Thus, also $t_{k+1} = t_{k+2} = \ldots = t_n = 0$ and
+ equation~\eqref{eq:null-and-ker-1} asserts, by virtue of the same
+ \myref{theorem}{thm:characterisation-of-a-basis}, that
+ $(f(\mathbf{b}_{k+1},\ldots,f(\mathbf{b}_n))$ is linearly independent.
+
+ We now prove that $(f(\mathbf{b}_{k+1},\ldots,f(\mathbf{b}_n))$ spans $\img f$.
+ Pick $\mathbf{w} \in \img f$. By definition, there exists $\mathbf{v} \in V$
+ such that $f(\mathbf{v}) = \mathbf{w}$. Represent $\mathbf{v}$ in the extended
+ basis $\hat{B}$ like
+ \[
+  \mathbf{v} = t_1 \cdot \clr{\mathbf{b}_1} + t_2 \cdot \clr{\mathbf{b}_2} +
+  \ldots + t_k \cdot \clr{\mathbf{b}_k} + t_{k+1} \cdot \clb{\mathbf{b}_{k+1}} +
+  \ldots + t_n \cdot \clb{\mathbf{b}_n}.
+ \]
+ Now applying $f$ and using again the fact that its a homomorphism gives
+ \[
+  f(\mathbf{v}) = t_1 \cdot f(\clr{\mathbf{b}_1}) + \ldots + t_k \cdot
+  f(\clr{\mathbf{b}_k}) + t_{k+1} \cdot f(\clb{\mathbf{b}_{k+1}}) + \ldots + t_n
+  \cdot f(\clb{\mathbf{b}_n}).
+ \]
+ As $\clr{\mathbf{b}_1},\ldots,\clr{\mathbf{b}_k} \in \ker f$, we arrive at the
+ conclusion that
+ \[
+  t_1 \cdot f(\clr{\mathbf{b}_1}) + \ldots + t_k \cdot f(\clr{\mathbf{b}_k}) =
+  \mathbf{0}.
+ \]
+ Finally, this means that the vector $f(\mathbf{v})$ is expressed as
+ \[
+  f(\mathbf{v}) = t_{k+1} \cdot f(\clb{\mathbf{b}_{k+1}}) + \ldots + t_n \cdot
+  f(\clb{\mathbf{b}_n}),
+ \]
+ i.e., as a linear combination of vectors from
+ $(f(\clb{\mathbf{b}_{k+1}}),\ldots,f(\clb{\mathbf{b}_n}))$. This concludes the
+ proof.
+\end{propproof}
+
+The preceding theorem offers as its corollary a useful characterisation of
+injective homomorphisms. It's going to become especially crucial as we delve
+back into the realm of matrices, in the next section.
+% TODO link
+
+\begin{corollary}{Characterisation of injective homomorphisms}{characterisation-of-injective-homomorphisms}
+ Let $f \in \Hom(V,W)$. The following statements are equivalent.
+ \begin{enumerate}[label=(\alph*)]
+  \item The homomorphism $f$ is injective.
+  \item There exists an inverse $f^{-1} \in \Hom(\img f, V)$.
+  \item The nullity of $f$ is $0$.
+  \item The rank of $f$ is $\dim V$.
+  \item If $B = (\mathbf{b}_1,\ldots,\mathbf{b}_n)$ is a basis of $V$, then
+   $f(B) = (f(\mathbf{b}_1),\ldots,f(\mathbf{b}_n))$ is a basis of $\img f$.
+ \end{enumerate}
+\end{corollary}
+\begin{corproof}
+ We first prove $(a) \Rightarrow (b)$. The injectivity of $f$ implies the
+ existence of an inverse $\mathbf{map}$ $f^{-1}: \img f \to V$. It remains to
+ show that this map is a homomorphism. To this end, choose
+ $\mathbf{w}_1,\mathbf{w}_2 \in \img f$. By definition, there exist
+ $\mathbf{v}_1,\mathbf{v}_2 \in V$ such that $f(\mathbf{v}_1) = \mathbf{w}_1$
+ and $f(\mathbf{v}_2) = \mathbf{w}_2$. Thus, also $\mathbf{v}_1 =
+ f^{-1}(\mathbf{w}_1)$ and $\mathbf{v}_2 = f^{-1}(\mathbf{w}_2)$.
+ 
+ We calculate
+ \[
+  f(t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2) = t_1 \cdot f(\mathbf{v}_1)
+  + t_2 \cdot f(\mathbf{v}_2) = t_1 \cdot \mathbf{w}_1 + t_2 \cdot \mathbf{w}_2.
+ \]
+ Applying $f^{-1}$ to both sides yields
+ \[
+  t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2 = f^{-1}(t_1 \cdot
+  \mathbf{w}_1 + t_2 \cdot \mathbf{w}_2).
+ \]
+ This asserts the claim as
+ \[
+  t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2 = t_1 \cdot
+  f^{-1}(\mathbf{w}_1) + t_2 \cdot f(\mathbf{w}_2).
+ \]
+
+ The implication $(b) \Rightarrow (a)$ follows similarly. If there exists an
+ inverse homomorphism $f^{-1}$, then this must be injective. By what we've just
+ proven this asserts the existence of an \textbf{injective} (it must be, as it
+ has an inverse) homomorphism $f^{-1} \in \Hom(V,W)$.
+
+ Ad $(a) \Rightarrow (c)$. The map $f$, being a homomorphism, sends
+ $\mathbf{0}_V$ to $\mathbf{0}_W$. As it is injective, it cannot send any other
+ vector from $V$ to $\mathbf{0}_W$. In particular, $f^{-1}(\{\mathbf{0}_W\}) =
+ \{\mathbf{0}_V\}$ and the dimension of the latter is $0$.
+
+ The equivalence $(c) \Leftrightarrow (d)$ is the content of
+ \myref{proposition}{prop:rank-and-nullity-theorem}.
+
+ The implication $(d) \Rightarrow (e)$ is immediate because $\img f$, having
+ dimension $n = \dim V$, is spanned by $n$ linearly independent images of
+ vectors from $V$. Any $n$ linearly independent vectors from $V$ form a basis of
+ $V$.
+
+ Finally, we prove $(e) \Rightarrow (a)$ by asserting $\neg (a) \Rightarrow \neg
+ (e)$. Assume $f$ is not injective. Thus, there exist two different vectors
+ $\mathbf{v}_1,\mathbf{v}_2 \in V$ such that $f(\mathbf{v}_1) =
+ f(\mathbf{v}_2)$. Consequently, as $f$ is a homomorphism, $f(\mathbf{v}_2 -
+ \mathbf{v}_1) = \mathbf{0}$. So, there exists a non-zero vector that $f$ sends
+ to $\mathbf{0}$. By \myref{corollary}{cor:expand-to-basis}, the vector
+ $\mathbf{v}_2-\mathbf{v}_1$ can be expanded into a basis
+ \[
+  B = (\mathbf{v}_2-\mathbf{v}_1,\mathbf{b_2},\ldots,\mathbf{b}_n)
+ \]
+ of $V$. Hence, $f(B) = (f(\mathbf{v}_2 -
+ \mathbf{v}_1),f(\mathbf{b}_2),\ldots,f(\mathbf{b}_n))$ is \textbf{not} a basis
+ of $\img f$ for it contains the vector $\mathbf{0}$. This means that $(e)$
+ doesn't hold.
+\end{corproof}
