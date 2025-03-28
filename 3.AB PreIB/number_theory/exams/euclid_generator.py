@@ -13,13 +13,13 @@ def gcd_with_steps(a: int, b: int) -> tuple[int, int]:
     return a, steps
 
 
-a = randint(100, 5000)
-b = randint(100, 5000)
+a = randint(10000, 500000)
+b = randint(10000, 500000)
 
 gcd, steps = gcd_with_steps(a, b)
 while (gcd < 10) or not (4 <= steps <= 6):
-    a = randint(100, 500)
-    b = randint(100, 500)
+    a = randint(10000, 500000)
+    b = randint(10000, 500000)
 
     gcd, steps = gcd_with_steps(a, b)
 
