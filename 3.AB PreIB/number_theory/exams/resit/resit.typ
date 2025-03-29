@@ -22,6 +22,9 @@
 #let bbb = text(crimson)[$b #sym.prime$]
 #let dd = text(airblue)[d]
 #let ee = text(raingreen)[E]
+#let AA =  text(crimson)[A]
+#let BB = text(crimson)[B]
+
 
 // Set page and fonts
 #let page-counter(cur, last) = {
@@ -119,9 +122,19 @@
 #v(6pt)
 #block(width:100%)[
   #enum(numbering: "a)")[
-    #points(15)
-    Using only the *axioms* that define *addition* and *multiplication* on
-    natural numbers evaluate:
+    #points(20)
+    Remember that we defined *addition* and *multiplication* as:
+    #align(center)[
+      #grid(
+        columns:2,
+        gutter: 1cm,
+
+        [$succ(n) = n+1$], [$n*0=0$],
+        [$succ(n+m)=n+succ(m)$], [$succ(n*m)=n*m+m$]
+      )
+    ]
+    Using *only* those axioms calculate:
+
     #v(5pt)
     #list(tight: false)[
       $2 dot 3$
@@ -163,6 +176,10 @@
     respectively. Create *at least one equivalence* on $NN times NN$ and one on
     $ZZ times ZZ$. Comment on the equivalence classes, *how many are there*? do
     they have a specific shape?
+  
+    For example one equivalence $AA$ may be: $a AA b$ if $a=b$.
+    Other example $BB$ is: $a BB b$ for all $a,b$ either in $NN$ or $ZZ$. These
+    are the trivial equivalences so they will *not* earn you any points.
   ]
 ]
 #pagebreak()
@@ -174,7 +191,7 @@
   #points(20)
   #block(width: 100%)[
     Some *natural number* $n$ can be decomposed into primes as $n=p_1 dot p_2 ... p_k$.
-    Describe a method for finding *all the devisers* of $n$.
+    Use the primes $p_1,p_2,...,p_k$ to find *all the divisors* of $n$.
   ]
   #v(40%)
   ][
