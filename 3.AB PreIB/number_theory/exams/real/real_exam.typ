@@ -32,7 +32,7 @@
   header: context {
     let current-page = counter(page).get().first()
     if current-page > 1 [
-      Real Exam
+      Exam A
       #h(1fr)
       #counter(page).display(
         page-counter,
@@ -91,7 +91,7 @@
 ]
 #v(-12pt)
 #align(center)[
-  #text(size: 18pt)[3.AB PreIB Maths -- Real Exam]
+  #text(size: 18pt)[3.AB PreIB Maths -- Exam A]
 ]
 #set text(
   font: "TeX Gyre Schola",
@@ -118,64 +118,70 @@
 #v(6pt)
 #block(width:100%)[
   #enum(numbering: "a)")[
-  #points(15)
-  So far the addition and multiplication of natural numbers were defined. Now
-  the *exponentiation* is presented in two axioms :
-  #v(5pt)
-  #align(center)[
-  #enum(numbering:"1)")[
-    $a exp 0 = 1$
-  ][
-     $a exp succ(b) = a #exp b dot b$
-  ]]
-  #v(5pt)
-  Using *only those two axioms* (and all your other knowledge about
-  multiplication) evaluate the following expressions. You can denote
-  exponentiation in the traditional form as $a^b$.
-  #v(5pt)
-  #list(tight:false)[
-    $2 exp 5$
-  ][
-    $5 exp 3$
-  ]
-
-  #v(10%)
-  ][
-  #points(15)
-  *Generalise* your method from part a) to calculate $a exp b$ for *any* $a,b in
-  NN$.
+    #points(20)
+    Thus far the addition and multiplication of natural numbers have been
+    defined. Now the *exponentiation* is presented in two rules:
+    #v(5pt)
+    #align(center)[
+      #table(
+        columns: (auto, auto),
+        align: left,
+        fill: none,
+        stroke: none,
+        [1)], [$a^0 = 1$],
+        [2)], [$a^(succ(b)) = a^b dot a$]
+      )
+    ]
+    #v(5pt)
+    Using *only these two rules* (and all your other knowledge about
+    multiplication and addition), evaluate the following expressions.
+    #v(5pt)
+    #list(tight: false)[
+        $3^4$
+      ][
+        $2^6$
+      ]
+      #v(15%)
+    ][
+    #points(10)
+    *Generalise* your method from part a) to calculate $a^b$ for *any* $a,b in
+    NN$.
   ]
 ]
 #pagebreak()
 
 // Second page
 = Integers & Rationals
-#v(6pt)
+#v(5pt)
 #block(width: 100%)[
   #enum(numbering: "a)")[
     #points(20)
-    Connect the pairs that correspond to the *same equivalence classes* and write
-    down the value of *represented integer*.
-    #v(6pt)
-#align(center)[
-#grid(
-  columns: 3,
-  gutter: 60pt,
-[$(2,3)$],[$(3,2)$],[$(5,3)$],[$(8,6)$],[$(9,10)$],[$(122,123)$],[$(2,0)$],[$(5,4)$],[$(7,8)$]
-)]
-    #v(25pt)
-
+    Connect all pairs belonging to the *same equivalence class* and write down
+    the value of the *represented integer* for each class.
+    #v(5pt)
+  #align(center)[
+    #grid(
+      columns: 3,
+      gutter: 60pt,
+        [$(1,3)$],[$(2,3)$],[$(0,2)$],
+        [$(9,6)$],[$(10,12)$],[$(122,123)$],
+        [$(4,1)$],[$(7,4)$],[$(7,8)$]
+      )
+  ]
+  #v(25pt)
   ][
     #points(10)
-    You are given two elements: $[(aaa,bbb)]_ee$ and $[(aa,bb)]_ee$ from the *same
-    equivalence class* (they represent the same integer value). Show that their
-    respective *sum* with some element $[(cc,dd)]_ee$ is always the *same*. In other
-    words show that #align(center)[
+    You are given two pairs of natural numbers: $(aaa,bbb)$ and $(aa,bb)$ from
+    the *same equivalence class* (they represent the same integer value). Show
+    that their respective *sums* with some pair $(cc,dd)$ also belong to the
+    *same equivalence class*.
+
+    In other words, show that if $[(aa,bb)]_ee = [(aaa,bbb)]_ee$, then
+    #align(center)[
       $[(aa,bb)]_ee + [(cc,dd)]_ee = [(aaa,bbb)]_ee + [(cc,dd)]_ee$
     ]
-    *Hint:* Two elements are equivalent under $ee$ if they have
-    the *same difference*.
-
+    *Hint:* The pairs $(aa,bb)$ and $(aaa,bbb)$ represent the same integer if
+    (informally) '$aa - bb = aaa - bbb$'.
   ]
 ]
 #pagebreak()
@@ -186,14 +192,15 @@
 #enum(numbering: "a)")[
   #points(20)
   #block(width: 100%)[
-  Find a number that has *exactly 3 prime divisors* or show that such a number
-  can not exist.
+    Find all numbers smaller than $100$ that have *exactly 3 divisors*. Do *not*
+    proceed by trial and error (this method would result in #text(crimson)[0
+    %]).
   ]
   #v(40%)
 ][
   #points(20)
   #block(width: 100%)[
-    Compute $gcd(410, 240)$. Write down performed calculations *in full
+    Compute $gcd(467569, 17279)$. Write down performed calculations *in full
     detail*.
   ]
 ]
