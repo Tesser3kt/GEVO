@@ -36,7 +36,7 @@
   header: context {
     let current-page = counter(page).get().first()
     if current-page > 1 [
-      Real Exam
+      Exam B
       #h(1fr)
       #counter(page).display(
         page-counter,
@@ -95,7 +95,7 @@
 ]
 #v(-12pt)
 #align(center)[
-  #text(size: 18pt)[3.AB PreIB Maths -- Resit Exam]
+  #text(size: 18pt)[3.AB PreIB Maths -- Exam B]
 ]
 #set text(
   font: "TeX Gyre Schola",
@@ -129,8 +129,8 @@
         columns:2,
         gutter: 1cm,
 
-        [$succ(n) = n+1$], [$n*0=0$],
-        [$succ(n+m)=n+succ(m)$], [$succ(n*m)=n*m+m$]
+        [$succ(n) &= n+1\ succ(n+m) &= n+succ(m)$],
+        [$n dot 0 &= 0\ succ(n dot m) &= n dot m+m$]
       )
     ]
     Using *only* those axioms calculate:
@@ -144,8 +144,8 @@
     #v(20%)
   ][
     #points(10)
-    Assuming $x+y=y+x$, show that $x+succ(y)=succ(y)+x$. In your prove use only
-    those *axioms* that *define addition*.
+    Assuming $x+y=y+x$, show that $x+succ(y)=succ(y)+x$. In your proof use only
+    the *axioms* that *define addition*.
   ]
 ]
 #pagebreak()
@@ -156,30 +156,31 @@
 #block(width: 100%)[
   #enum(numbering: "a)")[
     #points(20)
-    Connect the pairs that correspond to the *same equivalence classes* and write
-    down the value of *represented rational*.
+    Connect the pairs of *integers* that correspond to the *same equivalence
+    class* and write down the value of the represented *rational number*.
     #v(6pt)
     #align(center)[
       #grid(
         columns: 3,
         gutter: 60pt,
-        [$(2,20)$], [$(5,50)$], [$(35,28)$], 
-        [$(10,8)$], [$(25,2)$], [$(-50,-2)$],
-        [$(-2,2)$], [$(4,4)$] , [$(7,8)$]
+        [$(2,20)$], [$(5,50)$], [$(35,7)$], 
+        [$(-15,-3)$], [$(10,2)$], [$(-50,-2)$],
+        [$(-2,2)$], [$(-4,4)$] , [$(100,4)$]
       )
     ]
     #v(10%)
   ][
     #points(10)
-    Integers and rationals share some similarities on their definition. They are
-    defined as *equivalence classes* on $NN times NN$ and $ZZ times ZZ$
-    respectively. Create *at least one equivalence* on $NN times NN$ and one on
-    $ZZ times ZZ$. Comment on the equivalence classes, *how many are there*? do
-    they have a specific shape?
-  
-    For example one equivalence $AA$ may be: $a AA b$ if $a=b$.
-    Other example $BB$ is: $a BB b$ for all $a,b$ either in $NN$ or $ZZ$. These
-    are the trivial equivalences so they will *not* earn you any points.
+    Integers and rationals share some similarities in their definition. They are
+    defined as *equivalence classes* on $NN times NN$ and $ZZ times ZZ$,
+    respectively. Define *at least one* additional equivalence on $NN times NN$
+    and one on $ZZ times ZZ$. Comment on the equivalence classes, *how many are
+    there*? Do they have a specific shape?
+    
+    The two trivial equivalences are equality ($a$ is equivalent to $b$ if $a =
+    b$) and the equivalence where all pairs of natural numbers (or integers)
+    belong to the same equivalence class. *These won't count* as valid
+    solutions.
   ]
 ]
 #pagebreak()
@@ -190,8 +191,10 @@
 #enum(numbering: "a)")[
   #points(20)
   #block(width: 100%)[
-    Some *natural number* $n$ can be decomposed into primes as $n=p_1 dot p_2 ... p_k$.
-    Use the primes $p_1,p_2,...,p_k$ to find *all the divisors* of $n$.
+    Some *natural number* $n$ can be decomposed into primes as $n=p_1 dot p_2
+    dot ... dot p_k$.
+    *Describe a method* how to use the primes $p_1,p_2,...,p_k$ to find *all the
+    divisors* of $n$.
   ]
   #v(40%)
   ][

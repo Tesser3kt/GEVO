@@ -137,9 +137,9 @@
     multiplication and addition), evaluate the following expressions.
     #v(5pt)
     #list(tight: false)[
-        $3^4$
+        $2^4$
       ][
-        $2^6$
+        $3^3$
       ]
       #v(15%)
     ][
@@ -163,9 +163,9 @@
     #grid(
       columns: 3,
       gutter: 60pt,
-        [$(1,3)$],[$(2,3)$],[$(0,2)$],
-        [$(9,6)$],[$(10,12)$],[$(122,123)$],
-        [$(4,1)$],[$(7,4)$],[$(7,8)$]
+        [$(1,4)$],[$(2,3)$],[$(1,2)$],
+        [$(6,9)$],[$(12,10)$],[$(120,123)$],
+        [$(0,1)$],[$(7,5)$],[$(7,8)$]
       )
   ]
   #v(25pt)
@@ -200,7 +200,7 @@
 ][
   #points(20)
   #block(width: 100%)[
-    Compute $gcd(467569, 17279)$. Write down performed calculations *in full
+    Compute $gcd(358758, 318402)$. Write down performed calculations *in full
     detail*.
   ]
 ]
