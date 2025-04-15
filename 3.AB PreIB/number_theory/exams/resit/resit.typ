@@ -1,3 +1,4 @@
+
 // Package imports
 #import "@preview/cheq:0.2.2": checklist
 #import "@preview/cetz:0.3.1"
@@ -13,14 +14,17 @@
 #let rleq = text(crimson)[$<=$]
 #let gcd = text(crimson)[#math.op("gcd")]
 #let succ = text(raingreen)[#math.op("succ")]
-#let exp = text(crimson)[#sym.hat]
-#let aa = text(crimson)[$a$]
+#let exp = text(crimson)[#math.hat]
+#let aa = text(crimson)[a]
 #let aaa = text(crimson)[$a #sym.prime$]
-#let cc = text(airblue)[$c$]
-#let bb = text(crimson)[$b$]
+#let cc = text(airblue)[c]
+#let bb = text(crimson)[b]
 #let bbb = text(crimson)[$b #sym.prime$]
-#let dd = text(airblue)[$d$]
-#let ee = text(raingreen)[$E$]
+#let dd = text(airblue)[d]
+#let ee = text(raingreen)[E]
+#let AA =  text(crimson)[A]
+#let BB = text(crimson)[B]
+
 
 // Set page and fonts
 #let page-counter(cur, last) = {
@@ -32,7 +36,7 @@
   header: context {
     let current-page = counter(page).get().first()
     if current-page > 1 [
-      Exam A
+      Exam B
       #h(1fr)
       #counter(page).display(
         page-counter,
@@ -91,7 +95,7 @@
 ]
 #v(-12pt)
 #align(center)[
-  #text(size: 18pt)[3.AB PreIB Maths -- Exam A]
+  #text(size: 18pt)[3.AB PreIB Maths -- Exam B]
 ]
 #set text(
   font: "TeX Gyre Schola",
@@ -119,69 +123,64 @@
 #block(width:100%)[
   #enum(numbering: "a)")[
     #points(20)
-    Thus far the addition and multiplication of natural numbers have been
-    defined. Now the *exponentiation* is presented in two rules:
-    #v(5pt)
+    Remember that we defined *addition* and *multiplication* by
     #align(center)[
-      #table(
-        columns: (auto, auto),
-        align: left,
-        fill: none,
-        stroke: none,
-        [1)], [$a^0 = 1$],
-        [2)], [$a^(succ(b)) = a^b dot a$]
+      #grid(
+        columns:2,
+        gutter: 1cm,
+
+        [$succ(n) &= n+1\ succ(n+m) &= n+succ(m)$],
+        [$n dot 1 &= n\ n dot succ(m) &= n dot m + n$]
       )
     ]
-    #v(5pt)
-    Using *only these two rules* (and all your other knowledge about
-    multiplication and addition), evaluate the following expressions.
+    Using *only* those axioms calculate:
+
     #v(5pt)
     #list(tight: false)[
-        $2^4$
-      ][
-        $3^3$
-      ]
-      #v(15%)
+      $2 dot 3$
     ][
+      $1 + (2 dot 2)$
+    ]
+    #v(20%)
+  ][
     #points(10)
-    *Generalise* your method from part a) to calculate $a^b$ for *any* $a,b in
-    NN$.
+    Assuming $x+y=y+x$, show that $x+succ(y)=succ(y)+x$. In your proof use only
+    the *axioms* that *define addition*.
   ]
 ]
 #pagebreak()
 
 // Second page
 = Integers & Rationals
-#v(5pt)
+#v(6pt)
 #block(width: 100%)[
   #enum(numbering: "a)")[
     #points(20)
-    Connect all pairs belonging to the *same equivalence class* and write down
-    the value of the *represented integer* for each class.
-    #v(5pt)
-  #align(center)[
-    #grid(
-      columns: 3,
-      gutter: 60pt,
-        [$(1,4)$],[$(2,3)$],[$(1,2)$],
-        [$(6,9)$],[$(12,10)$],[$(120,123)$],
-        [$(0,1)$],[$(7,5)$],[$(7,8)$]
+    Connect the pairs of *integers* that correspond to the *same equivalence
+    class* and write down the value of the represented *rational number*.
+    #v(6pt)
+    #align(center)[
+      #grid(
+        columns: 3,
+        gutter: 60pt,
+        [$(2,20)$], [$(5,50)$], [$(35,7)$], 
+        [$(-15,-3)$], [$(10,2)$], [$(-50,-2)$],
+        [$(-2,2)$], [$(-4,4)$] , [$(100,4)$]
       )
-  ]
-  #v(25pt)
+    ]
+    #v(10%)
   ][
     #points(10)
-    You are given two pairs of natural numbers: $(aaa,bbb)$ and $(aa,bb)$ from
-    the *same equivalence class* (they represent the same integer value). Show
-    that their respective *sums* with some pair $(cc,dd)$ also belong to the
-    *same equivalence class*.
-
-    In other words, show that if $[(aa,bb)]_ee = [(aaa,bbb)]_ee$, then
-    #align(center)[
-      $[(aa,bb)]_ee + [(cc,dd)]_ee = [(aaa,bbb)]_ee + [(cc,dd)]_ee$
-    ]
-    *Hint:* The pairs $(aa,bb)$ and $(aaa,bbb)$ represent the same integer if
-    (informally) '$aa - bb = aaa - bbb$'.
+    Integers and rationals share some similarities in their definition. They are
+    defined as *equivalence classes* on $NN times NN$ and $ZZ times ZZ$,
+    respectively. Define *at least one* additional equivalence on $NN times NN$
+    and one on $ZZ times ZZ$. Comment on the equivalence classes, *how many are
+    there*? Do they have a specific shape?
+    
+    The two trivial equivalences are equality ($a$ is equivalent to $b$ if $a =
+    b$) and the equivalence where all pairs of natural numbers (or integers)
+    belong to the same equivalence class. *These won't count* as valid
+    solutions.
   ]
 ]
 #pagebreak()
@@ -192,16 +191,16 @@
 #enum(numbering: "a)")[
   #points(20)
   #block(width: 100%)[
-    Find all numbers smaller than $100$ that have *exactly 3 divisors*. Do *not*
-    proceed by trial and error (this method would result in #text(crimson)[0
-    %]).
+    Some *natural number* $n$ can be decomposed into primes as $n=p_1 dot p_2
+    dot ... dot p_k$.
+    *Describe a method* how to use the primes $p_1,p_2,...,p_k$ to find *all the
+    divisors* of $n$.
   ]
   #v(40%)
-][
+  ][
   #points(20)
   #block(width: 100%)[
-    Compute $gcd(358758, 318402)$. Write down performed calculations *in full
+    Compute $gcd(1029, 1617 )$. Write down performed calculations *in full
     detail*.
   ]
 ]
-
