@@ -123,14 +123,14 @@
 #block(width:100%)[
   #enum(numbering: "a)")[
     #points(20)
-    Remember that we defined *addition* and *multiplication* as:
+    Remember that we defined *addition* and *multiplication* by
     #align(center)[
       #grid(
         columns:2,
         gutter: 1cm,
 
         [$succ(n) &= n+1\ succ(n+m) &= n+succ(m)$],
-        [$n dot 0 &= 0\ succ(n dot m) &= n dot m+m$]
+        [$n dot 1 &= n\ n dot succ(m) &= n dot m + n$]
       )
     ]
     Using *only* those axioms calculate:
