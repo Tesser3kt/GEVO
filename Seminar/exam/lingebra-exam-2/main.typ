@@ -113,7 +113,6 @@
 
 #question[
   Solve the following problems. Include important steps of your calculations.
-  Each problem is worth 2 points.
 
   #subquestion(points:2, points-position:right)[
     Compute some basis of the row space of the matrix
@@ -124,18 +123,30 @@
        1, 3, 2
      )$
     ]
-    and determine the matrix's rank.
+    #h(8pt) in $RR^(3 times 3)$ and determine the matrix's rank.
   ]
   #v(1fr)
   #subquestion(points:2, points-position:right)[
-
+    Verify (by definition or using any of the proven statements) that the map
+    #box[$f: cal(P)_2 -> RR^2$] given by
+    #align(center)[
+     $f(a x^2 + b x + c) = vec(a + b, a + c)$
+    ]
+    #h(8pt) is a homomorphism.
   ]
   #v(1fr)
-  #subquestion(points:2, points-position:right)[
-    Prove that the quadruple $B = lr((
-      mat(1, -1; 2, 3), mat(2, 0; 2, 0), mat(1, 1; 4, 1), mat(1, 2; -2, 2)
-    ))$ is a basis of $RR^(2 times 2)$, the vector space of $2 times 2$ real
-    matrices.
+  #subquestion(points:3, points-position:right)[
+    The homomorphism $f: (ZZ slash 7)^3 -> (ZZ slash 7)^3$ satisfies
+    #align(center)[
+     $f (vec(1, 0, 0)) = vec(1, 0, 2), #h(1em) f (vec(0, 1, 0)) = vec(2, 1,
+     0), #h(1em) f (vec(0, 0, 1)) = vec(6, 6, 1).$
+    ]
+    #h(8pt) Determine $[f]^(cal(E)_3)_B$, that is, the matrix of $f$ with
+    respect to the standard basis $cal(E)_3$ of $(ZZ slash 7)^3$ and the basis
+    $B$, where
+    #align(center)[
+     $B = (vec(2, 1, 4), vec(1, 1, 1), vec(0, 0, 1))$.
+    ]
   ]
   #v(1fr)
 ]
@@ -147,26 +158,44 @@
   the given statement directly, or to propositions whose proofs use the
   statement.
 
-  #subquestion(points:2, points-position:right)[
-    Prove that the linear system
-    $ a x & + &  y & = & & a^2 \
-       x & + & a y & = & & 1 $
-    has a unique solution as long as $a in.not {-1, 1}$.
+  #subquestion(points:3, points-position:right)[
+    Assume that $f$ is an endomorphism of $V$ (a vector space over $RR$) with
+    basis $B = (bold(b)_1, bold(b)_2, ..., bold(b)_n)$. Prove the following:
+    #list(indent: 16pt)[
+      If $f(bold(b)_i) = bold(0)$ for every $i$, then $f(bold(v)) = bold(0)$ for
+      every $bold(v) in V$.
+    ][
+      If $f(bold(b)_i) = bold(b)_i$ for every $i$, then $f(bold(v)) = bold(v)$
+      for every $bold(v) in V$.
+    ][
+      If $f(bold(b)_i) = r dot bold(b)_i$ for some $r in RR$ and every $i$, then
+      $f(bold(v)) = r dot bold(v)$ for every $bold(v) in V$.
+    ]
   ]
   #v(1fr)
   #subquestion(points:3, points-position:right)[
-    The _generalised triangle inequality_ states that
+    Show that the _transpose_ operation is linear, that is,
     #align(center)[
-      $||bold(v)_1 + bold(v)_2 + dots.h + bold(v)_k|| <= ||bold(v)_1|| +
-      ||bold(v)_2|| + dots.h + ||bold(v)_k||$
+     $(r dot A + s dot B)^T = r dot A^T + s dot B^T$
     ]
-    for all $bold(v)_1, bold(v)_2, dots.h, bold(v)_k in RR^n$ and $k,n >= 1$.
-    Prove it by induction on the number of vectors, $k$.
+    #h(7pt) for every $r,s in RR$ and $A,B in RR^(m times n)$.
   ]
   #v(1fr)
-  #subquestion(points:4,points-position:right)[
-    Let $V,W <= RR^n$. Prove that if $dim V + dim W > n$, then $dim (V sect W) >
-    0$.
+  #subquestion(points:4, points-position:right)[
+    Assume that $f$ is an *injective* homomorphism $V -> W$. This implies that
+    $f(B)$ is a basis of $f(V)$ for a given basis $B = (bold(b)_1, bold(b)_2,
+    ..., bold(b)_n)$ of $V$.
+    #list(indent: 16pt)[
+      Determine $[f]_(f(B))^B$, the matrix of $f$ with respect to the bases $B$
+      and $f(B)$.
+    ][
+      Given $bold(v) in V$ with
+      #align(center)[
+       $[bold(v)]_B = vec(r_1, r_2, dots.v, r_n)$,
+      ]
+      determine $[f(bold(v))]_(f(B))$, the representation of $f(bold(v))$ with
+      respect to the basis $f(B)$.
+    ]
   ]
   #v(1fr)
 ]
