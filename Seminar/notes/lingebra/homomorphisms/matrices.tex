@@ -1,0 +1,103 @@
+\section{Homomorphisms As Matrices}
+\label{sec:homomorphisms-as-matrices}
+
+Homomorphisms of vector spaces are even more special (as maps between sets) than
+the preceding text might have grown to reflect. They are one of those very few
+maps that, even though infinite in nature (in the sense that they have
+well-defined image of every vector in a usually infinite vector space), can be
+represented by finite sets of numbers. Let us derive this `representation' using
+an example.
+
+Assume we're given a homomorphism $f:\R^3 \to R^3$ and wish to determine its
+image on any vector $\begin{psmallmatrix} x \\ y \\ z \end{psmallmatrix} \in
+R^3$. The fact that $f$ is a homomorphism enables the following calculation.
+\begin{align*}
+ \left( 
+ \begin{pmatrix}
+  x\\
+  y\\
+  z
+ \end{pmatrix}
+\right) &= f \left( 
+ \begin{pmatrix}
+  x\\
+  0\\
+  0
+ \end{pmatrix} + 
+ \begin{pmatrix}
+  0\\
+  y\\
+  0
+ \end{pmatrix}
+ +
+ \begin{pmatrix}
+  0\\
+  0\\
+  z
+ \end{pmatrix}
+ \right) = f \left( x \cdot 
+ \begin{pmatrix}
+  1\\
+  0\\
+  0
+ \end{pmatrix} + y \cdot
+ \begin{pmatrix}
+  0\\
+  1\\
+  0
+ \end{pmatrix} + z \cdot 
+ \begin{pmatrix}
+  0\\
+  0\\
+  1
+ \end{pmatrix}
+ \right)\\
+ &= x \cdot f \left( 
+ \begin{pmatrix}
+  1\\
+  0\\
+  0
+ \end{pmatrix}
+ \right) + y \cdot f \left( 
+ \begin{pmatrix}
+  0\\
+  1\\
+  0
+ \end{pmatrix}
+ \right) + z \cdot f \left( 
+ \begin{pmatrix}
+  0\\
+  0\\
+  1
+ \end{pmatrix}
+ \right).
+\end{align*}
+This calculation shows that it is in fact enough to know the image of the
+\hyperref[def:standard-basis]{standard basis} vectors to know the image of
+\emph{every} vector via the homomorphism $f$. Perhaps even more importantly, the
+final expression reeks of \hyperref[def:dot-product]{dot product} of two
+vectors. Imagine for a second that $f$ is actually a homomorphism $f:\R^3 \to
+\R$ so that each of the vectors
+\[
+ f \left( 
+ \begin{pmatrix}
+  1\\
+  0\\
+  0
+ \end{pmatrix}
+ \right), f \left( 
+ \begin{pmatrix}
+ 0\\
+ 1\\
+ 0
+ \end{pmatrix}
+ \right), f \left( 
+ \begin{pmatrix}
+  0\\
+  0\\
+  1
+ \end{pmatrix}
+ \right)
+\]
+is just a real number, say $1$, $2$ and $3$ in order for the sake of
+concreteness.
