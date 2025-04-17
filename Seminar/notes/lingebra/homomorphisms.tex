@@ -136,7 +136,7 @@ somewhat easier. Hence, we now collect two qualities only homomorphisms possess.
  homomorphism}, we get
  \[
   f(\clr{\mathbf{0}_V}) = f(0~\clr{ \cdot _V}~\clr{\mathbf{0}_V})
-  \overset{(2)}{=} 0~\clb{ \cdot _W}~f(\clr{\mathbf{0}_V}) = \clb{\mathbf{0}_W}
+  \overset{(2)}{=} 0~\clb{ \cdot _W}~f(\clr{\mathbf{0}_V}) = \clb{\mathbf{0}_W},
  \]
  as required.
 \end{lemproof}
@@ -165,7 +165,7 @@ somewhat easier. Hence, we now collect two qualities only homomorphisms possess.
 \end{lemma}
 \begin{lemproof}
  In the proof (as well as the following text), we stop distinguishing between
- $\clr{ \cdot _V}$, $\clb{ \cdot _W}$ and $\clr{+_W},\clb{+_W}$ for the sake of
+ $\clr{ \cdot _V}$, $\clb{ \cdot _W}$ and $\clr{+_V},\clb{+_W}$ for the sake of
  clarity. The readers should do well to keep in mind that $V$ and $W$ host
  different structures, though.
 
@@ -178,13 +178,13 @@ somewhat easier. Hence, we now collect two qualities only homomorphisms possess.
   \cdot \mathbf{v}_1) + f(t_2 \cdot \mathbf{v}_2) \overset{(2)}{=} t_1 \cdot
   f(\mathbf{v}_1) + t_2 \cdot f(\mathbf{v}_2).
  \]
- The implication $(b) \Rightarrow (a)$ we simply substitute $t_1 = t_2 = 1$ for
- axiom (1) and $\mathbf{v}_2 = \mathbf{0}$ for axiom (2).
+ The implication $(b) \Rightarrow (a)$ is proven by simply substituting $t_1 =
+ t_2 = 1$ in axiom (1) and $\mathbf{v}_2 = \mathbf{0}$ in axiom (2).
 
- Similarly, the implication $(c) \Rightarrow (b)$ follows trivially by $n = 2$.
- We prove the last implication $(b) \Rightarrow (c)$ by induction on $n$. The
- base case $n = 2$ is covered completely by statement $(b)$. For the induction
- step, label $\mathbf{w} = t_1 \cdot \mathbf{v}_1 + \ldots + t_n \cdot
+ Similarly, the implication $(c) \Rightarrow (b)$ follows trivially by setting
+ $n = 2$. We prove the last implication $(b) \Rightarrow (c)$ by induction on
+ $n$. The base case $n = 2$ is covered completely by statement $(b)$. For the
+ induction step, label $\mathbf{w} = t_1 \cdot \mathbf{v}_1 + \ldots + t_n \cdot
  \mathbf{v}_n$. Then,
  \[
   f(t_1 \cdot \mathbf{v}_1 + \ldots + t_n \cdot \mathbf{v}_n + t_{n+1} \cdot
@@ -226,8 +226,8 @@ somewhat easier. Hence, we now collect two qualities only homomorphisms possess.
  \begin{center}
   \clr{TODO obrazek}
  \end{center}
- Then, the mentioned statement $(b)$ says the following for a homomorphism
- $f:\R^2 \to \R^2$
+ Then, the mentioned statement $(b)$ says the following about a homomorphism
+ $f:\R^2 \to \R^2$.
  \[
   f(a \cdot \mathbf{u} + b \cdot \mathbf{v}) = a \cdot f(\mathbf{u}) + b \cdot
   f(\mathbf{v}).
@@ -317,7 +317,7 @@ homomorphism for any vector space $V$ over $\R$. Indeed, we may compute
 \[
  f(a \cdot \mathbf{u} + b \cdot \mathbf{v}) = 2 \cdot (a \cdot \mathbf{u} + b
  \cdot \mathbf{v}) = a \cdot (2 \cdot \mathbf{u}) + b \cdot (2 \cdot \mathbf{v})
- = a \cdot f(\mathbf{u}) = b \cdot f(\mathbf{v}).
+ = a \cdot f(\mathbf{u}) + b \cdot f(\mathbf{v}).
 \]
 This last homomorphism is an example of an \emph{automorphism} -- a bijective
 homomorphism from a space to itself. Automorphisms are just one interesting
@@ -345,10 +345,10 @@ The map
  \end{pmatrix}
 \]
 is not a homomorphism because it doesn't send $\mathbf{0}$ to $\mathbf{0}$ (and
-thus contradicts \myref{lemma}{lem:zero-to-zero}. It serves as a good example of
-a more general notion -- homomorphisms \emph{cannot} translate vectors. This is
-quite a stark restriction, yet it allows the images of homomorphisms to be
-vector spaces.
+thus contradicts \myref{lemma}{lem:zero-to-zero}). It serves as a good example
+of a more general notion -- homomorphisms \emph{cannot} translate vectors. This
+is quite a stark restriction, yet it is a necessary condition for the images of
+homomorphisms to be vector spaces.
 
 Also, the map
 \[
@@ -365,8 +365,8 @@ check that it breaks both axioms (1) and (2) in the
 \myref{remark}{rmrk:hom-parallelepiped}, homomorphisms send `flat objects' to
 `flat objects', not to misshapen ellipses.
 
-The quality of maps we haven't fully commented on is left for kind readers to
-determine.
+The quality of the maps from \myref{example}{exam:homs} we haven't fully
+commented on is left for kind readers to determine.
 
 \begin{exercise}{}{}
  Prove that the map $f:\mathcal{P}_3(\F) \to \F^{4}$ from
@@ -375,7 +375,7 @@ determine.
 
 \begin{exercise}{}{}
  Prove that the map $f:\R^{2 \times 2} \to \R^2$ from \myref{example}{exam:homs}
- is \textbf{not} an isomorphism.
+ is \textbf{not} a homomorphism.
 \end{exercise}
 
 Now, onto learning some new words, kids, shall we?
@@ -412,7 +412,8 @@ The map
 \end{align*}
 from \myref{example}{exam:homs} is an isomorphism between $\mathcal{P}_3(\F)$
 and $\F^{4}$. The fact that it's both \emph{injective} and \emph{surjective} is
-almost obvious since it just sends a polynomial to its vector of coefficients.
+almost obvious since it just sends a polynomial to the vector of its
+coefficients.
 
 We shan't spend more time discussing different classes of homomorphisms now but
 we certainly shall later. The readers are encouraged to make up examples
@@ -429,18 +430,18 @@ themselves.
 
 Now, there are quite a few special vector spaces tied to a homomorphism $f:V \to
 W$. As we've mentioned earlier, its image is a subspace of $W$, the preimage via
-$f$ of a vector subspace of $W$ is a subspace of $V$, and, finally, the set of
-homomorphisms themselves is a subspace of the vector space of all maps from $V
-\to W$. We are proving all these assertions now.
+$f$ of a subspace of $W$ is a subspace of $V$, and, finally, the set of
+homomorphisms itself is a subspace of the vector space of all maps from $V \to
+W$. We are proving all these assertions now.
 
 Before that however, we just briefly recall the important definitions. Given a
 map $f:V \to W$, its \emph{image} is the set
 \[
- \img f = f(V) = \{f(v) \mid v \in V\} \subseteq W.
+ \img f = f(V) = \{f(\mathbf{v}) \mid \mathbf{v} \in V\} \subseteq W.
 \]
 The \emph{preimage} of a subset $S \subseteq W$ via $f$ is the set
 \[
- f^{-1}(S) \coloneqq \{v \in V \mid f(v) \in S\} \subseteq V.
+ f^{-1}(S) \coloneqq \{\mathbf{v} \in V \mid f(\mathbf{v}) \in S\} \subseteq V.
 \]
 Finally, the set of all homomorphisms from $V$ to $W$ is denoted $\Hom(V,W)$.
 
@@ -449,7 +450,8 @@ Finally, the set of all homomorphisms from $V$ to $W$ is denoted $\Hom(V,W)$.
  \begin{enumerate}[label=(\alph*)]
   \item $f(V)$ is a subspace of $W$.
   \item $f^{-1}(U)$ is a subspace of $V$ whenever $U$ is a subspace of $W$.
-  \item $Hom(V,W)$ is a subspace of the vector space of all maps $V \to W$.
+  \item $\Hom(V,W)$, the set of all homomorphisms $V \to W$, is a subspace of
+   the vector space of all maps $V \to W$.
  \end{enumerate}
 \end{lemma}
 \begin{lemproof}
@@ -483,9 +485,10 @@ Finally, the set of all homomorphisms from $V$ to $W$ is denoted $\Hom(V,W)$.
   f(t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2) = t_1 \cdot f(\mathbf{v}_1)
   + t_2 \cdot f(\mathbf{v}_2) = t_1 \cdot \mathbf{u}_1 + t_2 \cdot \mathbf{u}_2.
  \]
- The last linear combination lies in $U$ as it is a subspace by assumption. It
- follows that $t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2 \in f^{-1}(U)$
- since $f(t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2) \in U$.
+ The last linear combination lies in $U$ as it is a subspace of $W$ by
+ assumption. It follows that $t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2
+ \in f^{-1}(U)$ since $f(t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2) \in
+ U$.
 
  As for $(c)$, we are given two homomorphisms $f,g \in \Hom(V,W)$. We must prove
  that $a \cdot f + b \cdot g$ is also a homomorphism for any $a,b \in \F$. For a
@@ -539,10 +542,10 @@ geometric consequences. We now illustrate those on a few examples.
  \]
  The image of $\pi(\R^3)$ is of course the entirety of $\R^2$. One may think of
  this projection as the `squishing' of an entire room onto its floor. If we're
- allowed to move only along one of the walls, we're confined to just one edge of
- the floor. This is formalised by the fact that the image of the set of vectors
- with $y = 0$ is the subspace of $\R^2$ of vectors with $y = 0$, and similarly
- for $x$.
+ allowed to move only along one of the walls in the room, we're then confined to
+ just one edge of the floor of the `squished' image. This is formalised by the
+ fact that the image of the set of vectors with $y = 0$ is the subspace of
+ $\R^2$ of vectors with $y = 0$, and similarly for $x$.
 
  \begin{center}
   \clr{TODO obrazky}
@@ -596,7 +599,7 @@ geometric consequences. We now illustrate those on a few examples.
  \hyperref[def:homomorphism]{definition of homomorphism} can be, in this
  particular case, restated as `$r_1$' vectors plus `$r_2$' vectors equal `$r_1 +
  r_2$' vectors. That is, $\mathbf{v}_1$ is an `$r_1$' vector if $h(\mathbf{v}_1)
- = r_1$ and $\mathbf{v}_2$ is an `$r_2$' vector if $h(\mathbf{v}_2)$; the
+ = r_1$ and $\mathbf{v}_2$ is an `$r_2$' vector if $h(\mathbf{v}_2) = r_2$; the
  previous sentence thus signifies exactly that $h(\mathbf{v}_1 + \mathbf{v}_2) =
  h(\mathbf{v}_1) + h(\mathbf{v}_2)$ since $\mathbf{v}_1 + \mathbf{v}_2$ is
  clearly a `$r_1 + r_2$' vector.
@@ -612,9 +615,9 @@ geometric consequences. We now illustrate those on a few examples.
   a_0 + a_1x + a_2x^2 + a_3x^3 & \mapsto a_1 + 2a_2x + 3a_3x^2.
  \end{align*}
  Its image is the subspace $\mathcal{P}_2$ (polynomials of degree $2$ over $\R$)
- of $\mathcal{P}_3$. The inverse image of set of polynomials of degree $2$ is
- the `integral' homomorphism (with constant $0$). Said formally, there exists a
- homomorphism
+ of $\mathcal{P}_3$. The inverse image of the set of polynomials of degree $2$
+ is the image of the `integral' homomorphism (with constant $0$). Said formally,
+ there exists a homomorphism
  \begin{align*}
   \int: \mathcal{P}_2 & \to \mathcal{P}_3\\
   a_0 + a_1x + a_2x^2 & \mapsto a_0x + \frac{a_1}{2}x^2 + \frac{a_2}{3}x^3
@@ -627,16 +630,16 @@ geometric consequences. We now illustrate those on a few examples.
  the form of $\int $.
 \end{example}
 
-The last examples provokes a question: `When does a homomorphism have an inverse
+The last example provokes a question: `When does a homomorphism have an inverse
 which is also a homomorphism?' We remind dear readers that an inverse to a map
 $f:V \to W$ is a map $f^{-1}:W \to V$ such that $(f \circ f^{-1})(\mathbf{w}) =
 \mathbf{w}$ for every $\mathbf{w} \in W$ and $(f^{-1} \circ f)(\mathbf{v}) =
 \mathbf{v}$ for every $\mathbf{v} \in V$. As seen in the mentioned
-\myref{example}{exam:der-int} \textbf{just one} of these equalities \textbf{is
+\myref{example}{exam:der-int}, \textbf{just one} of these equalities \textbf{is
 not enough}. A homomorphism may be invertible from just one side.
 
 The rest of the introductory section to homomorphisms is dedicated to answering
-this question. First, we must establish a strong connection between
+the raised question. First, we must establish a strong connection between
 homomorphisms and bases of their domains. We illustrate this connection first
 before conjuring a proof.
 
@@ -710,7 +713,7 @@ basis.
  \mathbf{w}_2,\ldots,f(\mathbf{b}_n) = \mathbf{w}_n$.
 \end{theorem}
 \begin{thmproof}
- First, given $\mathbf{v} \in V$, it can be written uniquely as a linear
+ First, given $\mathbf{v} \in V$, we can write it uniquely as a linear
  combination of vectors from $B$, that is, there exist unique coefficients
  $t_1,\ldots,t_n \in \F$ such that
  \[
@@ -776,7 +779,7 @@ basis.
   \hat{f}(\mathbf{b}_1) + \ldots + t_n \cdot \hat{f}(\mathbf{b}_n) =
   \hat{f}(\mathbf{v})
  \]
- and thus $f = \hat{f}$ as claimed.
+ and thus $f = \hat{f}$, as claimed.
 \end{thmproof}
 
 In light and spirit of \myref{theorem}{thm:hom-on-basis}, we \emph{extend} any

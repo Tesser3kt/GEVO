@@ -290,9 +290,9 @@ why this is the case on an example.
   \right).
  \]
  Observe that the dimension of the column space is equal to that of the row
- space. This is not a coincidence -- the echelon form of $A$ has as many zero
- rows as there are free variables. But that is also exactly the number of
- columns that are linearly dependent on other columns. In other words, the
+ space. This is not a coincidence -- the echelon form of $A$ has as many
+ non-zero rows as there are pivots. But that is also exactly the number of
+ columns that are linearly independent on other columns. In other words, the
  dimension of \textbf{both} the row space \textbf{and} the column space is the
  number of pivots.
 \end{example}
@@ -326,14 +326,14 @@ of a matrix and the solution set of its associated homogeneous linear system.
 \begin{theorem}{}{rank-dim-of-solutions}
  Let $A$ be an $m \times n$ matrix. Then, the following claims are equivalent.
  \begin{enumerate}
-  \item $\rank M = r$.
+  \item $\rank A = r$.
   \item The vector space of solutions of the associated homogeneous linear
    system has dimension $n - r$.
  \end{enumerate}
 \end{theorem}
 \begin{thmproof}
  By \myref{proposition}{prop:row-space-equals-col-space} and the preceding
- example, $\rank M = r$ if and only if Gauss-Jordan elimination process of the
+ example, $\rank A = r$ if and only if Gauss-Jordan elimination process of the
  matrix $A$ ends with $r$ non-zero rows. This in turn happens if and only if the
  number of pivots is exactly $r$. Finally, the number of pivots is $r$ if and
  only if the number of free variables is $n - r$. The number of free variables

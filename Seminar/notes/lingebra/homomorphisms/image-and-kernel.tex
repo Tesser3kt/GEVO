@@ -49,16 +49,16 @@ codomain space. This dimension is called its rank.
   \end{pmatrix}
  \end{align*}
  has rank $2$, the maximum possible. Clearly, the homomorphism can't possibly
- fill the entirety of $\R^3$, the two-dimensional space $\R^2$ doesn't `carry
+ fill the entirety of $\R^3$ as the two-dimensional space $\R^2$ doesn't `carry
  enough information' for that to be possible. What $\iota$ does is move the
  entire plane $\R^2$ into $\R^3$ as ... well ... a plane.
 \end{example}
 
 If rank of a homomorphism measures the dimension of the subspace that $f$
-creates, could we also somehow measure the number of vectors that $f$ `forgets'?
-Indeed, we could. Observe that a homomorphism sends two different vectors
-$\mathbf{v}_1,\mathbf{v}_2 \in V$ to a single vector $\mathbf{w} \in W$, it
-sends their difference to $\mathbf{0}$. Indeed, we can compute
+creates, could we also somehow measure the number of directions of movement that
+$f$ `forgets'? Indeed, we could. Observe that a homomorphism sends two different
+vectors $\mathbf{v}_1,\mathbf{v}_2 \in V$ to a single vector $\mathbf{w} \in W$,
+it sends their difference to $\mathbf{0}$. We can compute
 \[
  f(\mathbf{v}_2 - \mathbf{v}_1) = f(\mathbf{v}_2) - f(\mathbf{v}_1) = \mathbf{w}
  - \mathbf{w} = \mathbf{0}.
@@ -87,8 +87,8 @@ movement that $f$ \textbf{doesn't} carry over to its image inside $W$.
  than $\mathbf{0}$ to $\mathbf{0}$.
 \end{example}
 It stands to reason that if the nullity measure the number of `forgotten
-directions' and the rank the number of `kept directions', their sum should equal
-the dimension of the original space. We shall prove that now.
+directions' and the rank the number of `remembered directions', their sum should
+equal the dimension of the original space. We shall prove that now.
 \begin{proposition}{Rank and nullity theorem}{rank-and-nullity-theorem}
  Let $f \in \Hom(V,W)$. Then $\rank f + \nul f = \dim V$.
 \end{proposition}
@@ -103,13 +103,13 @@ the dimension of the original space. We shall prove that now.
  \]
  of the space $V$. We aim to show that
  $(f(\mathbf{b}_{k+1}),\ldots,f(\mathbf{b}_n))$ is a basis for $\img f = f(V)$.
- This will complete the proof as said sequence contains exactly $n - k$ vectors.
+ This will complete the proof as this sequence contains exactly $n - k$ vectors.
 
  We first prove linear independence. Assume there exists a linear combination
  \begin{equation}
   \label{eq:null-and-ker-1}
-  t_{k+1} \cdot f(\mathbf{b}_{k+1}) + t_{k+2} \cdot \mathbf{b}_{k+2} + \ldots +
-  t_n \cdot f(\mathbf{b}_n) = \mathbf{0}
+  t_{k+1} \cdot f(\mathbf{b}_{k+1}) + t_{k+2} \cdot f(\mathbf{b}_{k+2}) + \ldots
+  + t_n \cdot f(\mathbf{b}_n) = \mathbf{0}
  \end{equation}
  for $t_{k+1},\ldots,t_n \in \F$. As $f$ is a homomorphism, this equality is
  equivalent to
@@ -208,13 +208,13 @@ back into the realm of matrices, in the next section.
  This asserts the claim as
  \[
   t_1 \cdot \mathbf{v}_1 + t_2 \cdot \mathbf{v}_2 = t_1 \cdot
-  f^{-1}(\mathbf{w}_1) + t_2 \cdot f(\mathbf{w}_2).
+  f^{-1}(\mathbf{w}_1) + t_2 \cdot f^{-1}(\mathbf{w}_2).
  \]
 
  The implication $(b) \Rightarrow (a)$ follows similarly. If there exists an
  inverse homomorphism $f^{-1}$, then this must be injective. By what we've just
  proven this asserts the existence of an \textbf{injective} (it must be, as it
- has an inverse) homomorphism $f^{-1} \in \Hom(V,W)$.
+ has an inverse) homomorphism $(f^{-1})^{-1} = f \in \Hom(V,W)$.
 
  Ad $(a) \Rightarrow (c)$. The map $f$, being a homomorphism, sends
  $\mathbf{0}_V$ to $\mathbf{0}_W$. As it is injective, it cannot send any other

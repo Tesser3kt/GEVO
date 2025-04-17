@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.1.12)  17 APR 2025 11:04
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.1.12)  17 APR 2025 20:12
  restricted system commands enabled.
  file:line:error style messages enabled.
 **main.tex
@@ -2785,13 +2785,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [86]
 
-LaTeX Warning: Hyper reference `lem:characterization-of-a-basis' on page 87 undefined on input line 243.
-
-
-LaTeX Warning: Reference `lem:characterization-of-a-basis' on page 87 undefined on input line 243.
-
-
-
 [87]
 
 [88]
@@ -2868,13 +2861,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [107]
 
 [108]
+Underfull \vbox (badness 4713) has occurred while \output is active []
+
+
 
 [109]
 
 [110]
-Underfull \vbox (badness 4859) has occurred while \output is active []
-
-
 
 [111]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2883,16 +2876,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [112]
 
-[113] (./homomorphisms/image-and-kernel.tex
-Underfull \vbox (badness 4595) has occurred while \output is active []
+[113]
+
+[114] (./homomorphisms/image-and-kernel.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-
-[114]
 
 [115]
 
 [116]
+Underfull \vbox (badness 6268) has occurred while \output is active []
+
+
 
 [117]) (./homomorphisms/matrices.tex
 
@@ -2927,25 +2923,22 @@ L3 programming layer <2020/03/25>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
 )
 
 Here is how much of LuaTeX's memory you used:
- 88830 strings out of 475518
+ 88826 strings out of 475518
  1455440,4921788 words of node,token memory allocated
  11530 words of node memory still in use:
    32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 683 glyph, 1831 attribute, 83 glue_spec, 953 attribute_list, 2 write, 24 pdf_literal, 10 pdf_action, 24 pdf_colorstack nodes
-   avail lists: 1:6,2:214182,3:115748,4:440,5:873,6:81,7:30190,8:78,9:35166,10:16,11:614
- 109010 multiletter control sequences out of 65536+600000
+   avail lists: 1:6,2:214182,3:115748,4:440,5:853,6:81,7:30190,8:78,9:35166,10:16,11:614
+ 109006 multiletter control sequences out of 65536+600000
  281 fonts using 38534695 bytes
  99i,19n,137p,1189b,2934s stack positions out of 10000i,1000n,20000p,240005b,200000s
 {/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RBI.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_poicuj.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/cascadia-code/CascadiaCode-Regular.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_674lrv.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (126 pages, 13560924 bytes).
+Output written on main.pdf (126 pages, 13559833 bytes).
 
-PDF statistics: 27181 PDF objects out of 31911 (max. 8388607)
- 14169 compressed objects within 142 object streams
+PDF statistics: 27184 PDF objects out of 31911 (max. 8388607)
+ 14172 compressed objects within 142 object streams
  631 named destinations out of 1000 (max. 131072)
  95496 words of extra memory for PDF output out of 116407 (max. 100000000)
 
