@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.1.12)  15 APR 2025 15:00
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.1.12)  17 APR 2025 11:04
  restricted system commands enabled.
  file:line:error style messages enabled.
 **main.tex
@@ -2361,22 +2361,490 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 8.0pt on input line 3.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.1pt on input line 3.
-)
-\tf@toc=\write5
 
-\openout5 = main.toc
- (./homomorphisms.tex
+Underfull \vbox (badness 5175) has occurred while \output is active []
+
+
 
 [5
 
-]
+])
+\tf@toc=\write5
 
-[6
+\openout5 = main.toc
+ (./linear-systems.tex
 
-]
+[6]
 Chapter 1.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
 (Font)              scaled to size 20.74pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 10.95pt on input line 18.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \vbox (badness 1997) has occurred while \output is active []
+
+
+
+[7
+
+]
+
+[8]
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 209.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newtx/t1ntxtt.fd
+File: t1ntxtt.fd 2012/04/20 v3.1
+) (./linear-systems/gauss-jordan.tex
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 1.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[9]
+Package hyperref Info: bookmark level for unknown probsol defaults to 0 on input line 24.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 40.
+LaTeX Font Info:    Font shape `TU/CascadiaCode(0)/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 40.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
+(Font)              scaled to size 6.6pt on input line 56.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 6.6pt on input line 56.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 6.6pt on input line 56.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 6.6pt on input line 56.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 6.6pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 6.6pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 6.6pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 9.0pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 6.6pt on input line 56.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 5.5pt on input line 56.
+
+
+[10]
+Package hyperref Info: bookmark level for unknown thmproof defaults to 0 on input line 123.
+
+
+[11]
+LaTeX Font Info:    Font shape `TU/CascadiaCode(0)/m/n' will be
+(Font)              scaled to size 9.85492pt on input line 230.
+
+
+[12]
+
+[13]
+
+[14]
+Underfull \vbox (badness 3179) has occurred while \output is active []
+
+
+
+[15]) (./linear-systems/visualization.tex
+Underfull \vbox (badness 4713) has occurred while \output is active []
+
+
+
+[16] (./linear-systems/visualization/2d.tex
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+
+
+[17]
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 80.
+
+
+[18]) (./linear-systems/visualization/3d.tex
+
+[19]
+
+[20]
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 155.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 6.1pt on input line 155.
+
+
+[21]
+
+[22]
+
+[23])) (./linear-systems/describing-solutions.tex
+
+[24]
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 10.95pt on input line 80.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 8.0pt on input line 80.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 6.1pt on input line 80.
+
+
+[25]
+\mysep=\skip104
+
+
+[26]
+
+[27]
+Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 387.
+Package hyperref Info: bookmark level for unknown propproof defaults to 0 on input line 429.
+
+Underfull \vbox (badness 3646) has occurred while \output is active []
+
+
+
+[28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[29]
+
+[30]
+
+[31]) (./linear-systems/applications.tex
+Underfull \vbox (badness 1281) has occurred while \output is active []
+
+
+
+[32]
+Overfull \hbox (17.59886pt too wide) in paragraph at lines 105--107
+\TU/LinLibertine(0)/m/n/10.95 The \TU/CascadiaCode(0)/m/n/10.95 Matrix \TU/LinLibertine(0)/m/n/10.95 method for solv-ing a sys-tem with a given \TU/CascadiaCode(0)/m/n/10.95 vector \TU/LinLibertine(0)/m/n/10.95 of right hand side is called \TU/CascadiaCode(0)/m/n/10.95 solve_right\TU/LinLibertine(0)/m/n/10.95 .
+ []
+
+
+
+[33] (./linear-systems/applications/numerical-stability.tex
+
+[34]
+
+[35]) (./linear-systems/applications/gauss-jordan-elimination.tex
+Underfull \vbox (badness 2134) has occurred while \output is active []
+
+
+
+[36]
+Underfull \vbox (badness 8000) has occurred while \output is active []
+
+
+
+[37]) (./linear-systems/applications/input-output.tex
+
+[38]
+
+[39]) (./linear-systems/applications/circuits.tex
+<figs/car-circuit.png, id=25976, 793.7655pt x 386.6445pt>
+File: figs/car-circuit.png Graphic file (type png)
+<use figs/car-circuit.png>
+Package luatex.def Info: figs/car-circuit.png  used on input line 10.
+(luatex.def)             Requested size: 347.92163pt x 169.47513pt.
+
+
+[40]
+
+[41<./figs/car-circuit.png>]
+
+[42]
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
+(Font)              scaled to size 20.74pt on input line 239.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
+(Font)              scaled to size 16.1pt on input line 239.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/m/n' will be
+(Font)              scaled to size 11.4pt on input line 239.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 20.74pt on input line 239.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 16.1pt on input line 239.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 11.4pt on input line 239.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 20.74pt on input line 239.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 16.1pt on input line 239.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 11.4pt on input line 239.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 20.74pt on input line 239.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 16.1pt on input line 239.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 11.4pt on input line 239.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 20.74pt on input line 239.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 16.1pt on input line 239.
+LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
+(Font)              scaled to size 11.4pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 20.74pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 16.1pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 11.4pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 20.74pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 16.1pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 11.4pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 20.74pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 16.1pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 11.4pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 20.74pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 16.1pt on input line 239.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 11.4pt on input line 239.
+
+
+[43]))) (./linear-geometry.tex
+
+[44]
+Chapter 2.
+
+
+[45
+
+]
+
+[46]
+
+[47]
+
+[48] (./linear-geometry/length.tex
+
+[49]
+
+[50]
+Package hyperref Info: bookmark level for unknown lemproof defaults to 0 on input line 207.
+
+
+[51]) (./linear-geometry/angle.tex
+
+[52]
+
+[53]
+
+[54]
+
+[55]
+Underfull \vbox (badness 6741) has occurred while \output is active []
+
+
+
+[56]) (./linear-geometry/visualisation.tex
+
+[57]
+
+[58])
+
+[59]
+Underfull \vbox (badness 1571) has occurred while \output is active []
+
+
+
+[60]) (./vector-spaces.tex
+
+[61]
+
+[62
+
+]
+Chapter 3.
+
+
+[63]
+
+[64]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[65]
+
+[66]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[67]
+
+[68]
+Overfull \hbox (8.83783pt too wide) in paragraph at lines 496--499
+\TU/LinLibertine(0)/m/n/10.95 Prove (by check-ing the ax-ioms) that the sets of func-tions men-tioned in ex-am-ples [][]3.0.10[][] and [][]3.0.11[][]
+ []
+
+
+
+[69] (./vector-spaces/subspaces.tex
+
+[70]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[71]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[72]
+
+[73]
+Underfull \vbox (badness 2894) has occurred while \output is active []
+
+
+
+[74]
+
+[75]
+
+[76]) (./vector-spaces/linear-independence.tex
+
+[77]
+Underfull \vbox (badness 1215) has occurred while \output is active []
+
+
+
+[78]
+
+[79]
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/it' will be
+(Font)              scaled to size 10.95pt on input line 271.
+
+
+[80]
+
+[81]
+
+[82]
+Underfull \vbox (badness 1152) has occurred while \output is active []
+
+
+
+[83] (./vector-spaces/linear-independence/basis.tex
+
+[84]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[85]
+
+[86]
+
+LaTeX Warning: Hyper reference `lem:characterization-of-a-basis' on page 87 undefined on input line 243.
+
+
+LaTeX Warning: Reference `lem:characterization-of-a-basis' on page 87 undefined on input line 243.
+
+
+
+[87]
+
+[88]
+
+[89]
+
+[90]) (./vector-spaces/linear-independence/representation.tex
+
+[91]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[92]
+Underfull \vbox (badness 1953) has occurred while \output is active []
+
+
+
+[93])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[94]
+
+[95]) (./vector-spaces/matrices.tex
+Underfull \vbox (badness 1365) has occurred while \output is active []
+
+
+
+[96]
+Underfull \vbox (badness 1466) has occurred while \output is active []
+
+
+
+[97]
+
+[98]
+
+[99]
+
+[100]
+
+[101]
+
+[102])) (./homomorphisms.tex
+
+[103]
+
+[104
+
+]
+Chapter 4.
 LaTeX Font Info:    Trying to load font information for OT1+LinLibertine(0) on input line 12.
 LaTeX Font Info:    No file OT1LinLibertine(0).fd. on input line 12.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 12.
@@ -2388,133 +2856,69 @@ LaTeX Font Warning: Font shape `OT1/LinLibertine(0)/m/n' undefined
 (Font)              using `OT1/lmr/m/n' instead
 (Font)              for symbol `clqq' on input line 12.
 
-LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 28.
-LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 28.
-LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
-(Font)              scaled to size 10.95pt on input line 34.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
-(Font)              scaled to size 8.0pt on input line 34.
-LaTeX Font Info:    Font shape `OT1/MinLibertinus/b/n' will be
-(Font)              scaled to size 6.1pt on input line 34.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[7]
-Package hyperref Info: bookmark level for unknown lemproof defaults to 0 on input line 135.
+[105]
 
+[106]
 
-[8]
+[107]
 
-[9]
+[108]
 
-[10]
+[109]
 
-[11]
-
-LaTeX Warning: Hyper reference `lem:characterisation-of-subspaces' on page 12 undefined on input line 459.
-
-
-LaTeX Warning: Reference `lem:characterisation-of-subspaces' on page 12 undefined on input line 459.
-
-
-
-[12]
+[110]
 Underfull \vbox (badness 4859) has occurred while \output is active []
 
 
 
-[13]
+[111]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[14]
+[112]
 
-LaTeX Warning: Hyper reference `def:standard-basis' on page 15 undefined on input line 700.
-
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/it' will be
-(Font)              scaled to size 10.95pt on input line 708.
-Package hyperref Info: bookmark level for unknown thmproof defaults to 0 on input line 713.
-
-LaTeX Warning: Hyper reference `thm:characterisation-of-a-basis' on page 15 undefined on input line 731.
-
-
-LaTeX Warning: Reference `thm:characterisation-of-a-basis' on page 15 undefined on input line 731.
-
-
-
-[15] (./homomorphisms/image-and-kernel.tex
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 1.
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 1.
-LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 1.
-
+[113] (./homomorphisms/image-and-kernel.tex
 Underfull \vbox (badness 4595) has occurred while \output is active []
 
 
 
-[16]
+[114]
 
-[17]
-Package hyperref Info: bookmark level for unknown propproof defaults to 0 on input line 96.
+[115]
 
+[116]
 
-LaTeX Warning: Hyper reference `cor:expand-to-basis' on page 18 undefined on input line 98.
+[117]) (./homomorphisms/matrices.tex
 
+[118])) (./exercises.tex
 
-LaTeX Warning: Reference `cor:expand-to-basis' on page 18 undefined on input line 98.
+[119]
 
+[120
 
-LaTeX Warning: Hyper reference `thm:characterisation-of-a-basis' on page 18 undefined on input line 136.
+]
 
+[121]
 
-LaTeX Warning: Reference `thm:characterisation-of-a-basis' on page 18 undefined on input line 136.
+[122]
 
+[123]
 
-LaTeX Warning: Hyper reference `thm:characterisation-of-a-basis' on page 18 undefined on input line 139.
+[124]
 
-
-LaTeX Warning: Reference `thm:characterisation-of-a-basis' on page 18 undefined on input line 139.
-
-
-
-[18]
-Package hyperref Info: bookmark level for unknown corproof defaults to 0 on input line 190.
-
-
-LaTeX Warning: Hyper reference `cor:expand-to-basis' on page 19 undefined on input line 237.
-
-
-LaTeX Warning: Reference `cor:expand-to-basis' on page 19 undefined on input line 237.
-
-
-
-[19]) (./homomorphisms/matrices.tex
-
-LaTeX Warning: Hyper reference `def:standard-basis' on page 20 undefined on input line 76.
-
-
-LaTeX Warning: Hyper reference `def:dot-product' on page 20 undefined on input line 78.
-
-
-
-[20]))
+[125])
 \tf@thm=\write6
 
 \openout6 = main.thm
 
 
-[21] (./main.aux)
+[126] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2529,19 +2933,19 @@ LaTeX Warning: There were undefined references.
 )
 
 Here is how much of LuaTeX's memory you used:
- 85024 strings out of 475518
- 100000,3417909 words of node,token memory allocated
- 1983 words of node memory still in use:
-   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 18 glyph, 223 attribute, 82 glue_spec, 149 attribute_list, 2 write, 24 pdf_literal, 1 pdf_action, 24 pdf_colorstack nodes
-   avail lists: 1:2,2:3607,3:1221,4:218,5:847,6:64,7:7394,8:69,9:1348,10:16,11:614
- 105993 multiletter control sequences out of 65536+600000
- 141 fonts using 25897479 bytes
- 99i,15n,137p,1189b,1298s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RBI.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_poicuj.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_674lrv.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (21 pages, 434266 bytes).
+ 88830 strings out of 475518
+ 1455440,4921788 words of node,token memory allocated
+ 11530 words of node memory still in use:
+   32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 683 glyph, 1831 attribute, 83 glue_spec, 953 attribute_list, 2 write, 24 pdf_literal, 10 pdf_action, 24 pdf_colorstack nodes
+   avail lists: 1:6,2:214182,3:115748,4:440,5:873,6:81,7:30190,8:78,9:35166,10:16,11:614
+ 109010 multiletter control sequences out of 65536+600000
+ 281 fonts using 38534695 bytes
+ 99i,19n,137p,1189b,2934s stack positions out of 10000i,1000n,20000p,240005b,200000s
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RBI.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_poicuj.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/cascadia-code/CascadiaCode-Regular.otf>{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertinus-type1/lbn1_674lrv.enc}</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_R.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_RB.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on main.pdf (126 pages, 13560924 bytes).
 
-PDF statistics: 338 PDF objects out of 1000 (max. 8388607)
- 258 compressed objects within 3 object streams
- 86 named destinations out of 1000 (max. 131072)
- 280 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 27181 PDF objects out of 31911 (max. 8388607)
+ 14169 compressed objects within 142 object streams
+ 631 named destinations out of 1000 (max. 131072)
+ 95496 words of extra memory for PDF output out of 116407 (max. 100000000)
 
