@@ -10,74 +10,78 @@ an example.
 
 Assume we're given a homomorphism $f:\R^3 \to R^3$ and wish to determine its
 image on any vector $\begin{psmallmatrix} x \\ y \\ z \end{psmallmatrix} \in
-R^3$. The fact that $f$ is a homomorphism enables the following calculation.
-\begin{align*}
- \left( 
- \begin{pmatrix}
-  x\\
-  y\\
-  z
- \end{pmatrix}
-\right) &= f \left( 
- \begin{pmatrix}
-  x\\
-  0\\
-  0
- \end{pmatrix} + 
- \begin{pmatrix}
-  0\\
-  y\\
-  0
- \end{pmatrix}
- +
- \begin{pmatrix}
-  0\\
-  0\\
-  z
- \end{pmatrix}
- \right) = f \left( x \cdot 
- \begin{pmatrix}
-  1\\
-  0\\
-  0
- \end{pmatrix} + y \cdot
- \begin{pmatrix}
-  0\\
-  1\\
-  0
- \end{pmatrix} + z \cdot 
- \begin{pmatrix}
-  0\\
-  0\\
-  1
- \end{pmatrix}
- \right)\\
- &= x \cdot f \left( 
- \begin{pmatrix}
-  1\\
-  0\\
-  0
- \end{pmatrix}
- \right) + y \cdot f \left( 
- \begin{pmatrix}
-  0\\
-  1\\
-  0
- \end{pmatrix}
- \right) + z \cdot f \left( 
- \begin{pmatrix}
-  0\\
-  0\\
-  1
- \end{pmatrix}
- \right).
-\end{align*}
-This calculation shows that it is in fact enough to know the image of the
+\R^3$. The fact that $f$ is a homomorphism enables the following calculation.
+\begin{equation}
+ \label{eq:hom-dot-product}
+ \begin{split}
+  f \left( 
+  \begin{pmatrix}
+   x\\
+   y\\
+   z
+  \end{pmatrix}
+ \right) &= f \left( 
+  \begin{pmatrix}
+   x\\
+   0\\
+   0
+  \end{pmatrix} + 
+  \begin{pmatrix}
+   0\\
+   y\\
+   0
+  \end{pmatrix}
+  +
+  \begin{pmatrix}
+   0\\
+   0\\
+   z
+  \end{pmatrix}
+  \right) = f \left( x \cdot 
+  \begin{pmatrix}
+   1\\
+   0\\
+   0
+  \end{pmatrix} + y \cdot
+  \begin{pmatrix}
+   0\\
+   1\\
+   0
+  \end{pmatrix} + z \cdot 
+  \begin{pmatrix}
+   0\\
+   0\\
+   1
+  \end{pmatrix}
+  \right)\\
+  &= x \cdot f \left( 
+  \begin{pmatrix}
+   1\\
+   0\\
+   0
+  \end{pmatrix}
+  \right) + y \cdot f \left( 
+  \begin{pmatrix}
+   0\\
+   1\\
+   0
+  \end{pmatrix}
+  \right) + z \cdot f \left( 
+  \begin{pmatrix}
+   0\\
+   0\\
+   1
+  \end{pmatrix}
+  \right).
+ \end{split}
+\end{equation}
+It shows that it is in fact enough to know the image of the
 \hyperref[def:standard-basis]{standard basis} vectors to know the image of
-\emph{every} vector via the homomorphism $f$. Perhaps even more importantly, the
-final expression reeks of \hyperref[def:dot-product]{dot product} of two
-vectors. Imagine for a second that $f$ is actually a homomorphism $f:\R^3 \to
-\R$ so that each of the vectors
+\emph{every} vector via the homomorphism $f$, as witnessed by
+\myref{theorem}{thm:hom-on-basis}. Perhaps even more importantly, the final
+expression reeks of \hyperref[def:dot-product]{dot product} of two vectors.
+Imagine for a second that $f$ is actually a homomorphism $f:\R^3 \to \R$ so that
+each of the vectors
 \[
  f \left( 
  \begin{pmatrix}
@@ -99,5 +103,641 @@ vectors. Imagine for a second that $f$ is actually a homomorphism $f:\R^3 \to
  \end{pmatrix}
  \right)
 \]
-is just a real number, say $1$, $2$ and $3$ in order for the sake of
-concreteness.
+is just a real number, say $r_1,r_2,r_3 \in \R$ in order, for the sake of
+concreteness. Hence, the expression \eqref{eq:hom-dot-product} becomes
+\[
+ x \cdot f \left( 
+ \begin{pmatrix}
+  1\\
+  0\\
+  0
+ \end{pmatrix}
+ \right) + y \cdot f \left( 
+ \begin{pmatrix}
+  0\\
+  1\\
+  0
+ \end{pmatrix}
+ \right) + z \cdot f \left( 
+ \begin{pmatrix}
+  0\\
+  0\\
+  1
+ \end{pmatrix}
+ \right) = xr_1 + yr_2 + yr_3 =
+ \begin{pmatrix}
+  r_1\\
+  r_2\\
+  r_3
+ \end{pmatrix}
+ \cdot
+ \begin{pmatrix}
+  x\\
+  y\\
+  z
+ \end{pmatrix}.
+\]
+We may generalise this idea to homomorphisms whose codomain is a
+multi-dimensional space by passing from vectors to matrices. Let us perform said
+generalisation one step at a time. Starting with a homomorphism $f \in
+\Hom(\R^{n},\R^{m})$, such map is entirely determined by the images
+$f(\mathbf{e}_1), f(\mathbf{e}_2), \ldots, f(\mathbf{e}_n)$, where, we recall,
+$\mathcal{E}_n = (\mathbf{e}_1,\ldots,\mathbf{e}_n)$ is the
+\hyperref[def:standard-basis]{standard basis} of $\R^{n}$. Each of the
+$f(\mathbf{e}_i)$ is a vector in $\R^{m}$. Then, a more general version of the
+computation \eqref{eq:hom-dot-product} for a vector $\mathbf{v} = v_1 \cdot
+\mathbf{e}_1 + v_2 \cdot \mathbf{e}_2 + \ldots + v_n \cdot \mathbf{e}_n \in
+\R^{n}$ is
+\begin{equation}
+ \label{eq:hom-dot-product-general}
+ \begin{split}
+  f(\mathbf{v}) &= f(v_1 \cdot \mathbf{e}_1 + v_2 \cdot \mathbf{e}_2 + \ldots +
+  v_n \cdot \mathbf{e}_n)\\
+  &= v_1 \cdot f(\mathbf{e}_1) + v_2 \cdot f(\mathbf{e}_2) + \ldots + v_n \cdot
+  f(\mathbf{e}_n).
+ \end{split}
+\end{equation}
+If each of the $f(\mathbf{e}_i)$ where a number and not a vector, the last
+expression would be the dot product of the vector $\begin{psmallmatrix}
+f(\mathbf{e}_1) \\ \vdots \\ f(\mathbf{e}_n) \end{psmallmatrix}$ with
+$\begin{psmallmatrix} v_1 \\ \vdots \\ v_n \end{psmallmatrix}$. As stated
+before, when passing from homomorphisms with one-dimensional codomain to
+homomorphisms with a multi-dimensional one, it is needed to replace vectors by
+matrices. As each of the $f(\mathbf{e}_i)$ is a column vector, it is customary
+to assemble them into columns of a matrix
+\[
+ A = (f(\mathbf{e}_1) \mid f(\mathbf{e}_2) \mid \cdots \mid f(\mathbf{e}_n)) \in
+ \R^{m \times n}.
+\]
+The last expression in \eqref{eq:hom-dot-product-general} is then just a
+\textbf{dot product} of the matrix $A$ with the vector $\mathbf{v}$, as defined
+below.
+
+\begin{definition}{Matrix dot product}{matrix-dot-product}
+ Let $A = (\mathbf{a}_1 \mid \cdots \mid \mathbf{a}_n) \in \R^{m \times n}$ and
+ $\mathbf{v} = \begin{psmallmatrix} v_1 \\ \vdots \\ v_n \end{psmallmatrix} \in
+ \R^{n}$. We define the product $A \cdot \mathbf{v}$ by the formula
+ \[
+  A \cdot \mathbf{v} = v_1 \cdot \mathbf{a}_1 + v_2 \cdot \mathbf{a}_2 + \ldots
+  + v_n \cdot \mathbf{a}_n.
+ \]
+\end{definition}
+
+\begin{warning}{}{matrix-vector-dimension}
+ Notice that for the product $A \cdot \mathbf{v}$ to be defined, it is key that
+ the number of columns of $A$ matches the number of coordinates of $\mathbf{v}$.
+ Should these numbers be different, the product would remain undefined.
+\end{warning}
+
+It is now clear that a homomorphism $f \in \Hom(\R^{n},\R^{m})$ may be
+\emph{entirely} represented by the matrix
+\[
+ A = (f(\mathbf{e}_1) \mid f(\mathbf{e}_2) \mid \cdots \mid f(\mathbf{e}_n)) \in
+ \R^{m \times n}
+\]
+since the image $f(\mathbf{v})$ of any vector $\mathbf{v} \in \R^{n}$ may be
+computed as $A \cdot \mathbf{v}$.
+
+The last step in our generalisation of homomorphism representation is the
+passage from $\R^{n}$ and $\R^{m}$ to abstract vector spaces over any field of
+dimensions $n$ and $m$, respectively. We are doing that now.
+
+First, an observation. It is clear that any matrix representation of a fixed
+homomorphism $f \in \Hom(V,W)$ (where $V,W$ are vector spaces over $\F$ of
+dimensions $n$ and $m$) is wholly dependent on a particular choice of basis for
+$V$ and the basis for $W$. This is easily seen from the examples given
+previously. Had we chosen to represent the vector $\mathbf{v} \in \R^{n}$ in
+a basis distinct from the standard one, say $B =
+(\mathbf{b}_1,\ldots,\mathbf{b}_n)$, we would have instead ended up with the
+matrix
+\[
+ (f(\mathbf{b}_1) \mid f(\mathbf{b}_2) \mid \cdots \mid f(\mathbf{b}_n))
+\]
+representing $f$ \textbf{with respect to} the basis $B$.
+
+Thus, we first have to fix bases $B = (\mathbf{b}_1,\ldots,\mathbf{b}_n)$ for
+$V$ and $C = (\mathbf{c}_1,\ldots,\mathbf{c}_m)$ for $W$. To represent $f$,
+choose a vector $\mathbf{v}$ and represent it with respect to the basis $B$,
+e.g.
+\[
+ \mathbf{v} = v_1 \cdot \mathbf{b}_1 + v_2 \cdot \mathbf{b}_2 + \ldots + v_n
+ \cdot \mathbf{b}_n,
+\]
+or, in the nomenclature introduced in
+\myref{subsection}{ssec:representation-with-respect-to-a-basis},
+\[
+ [\mathbf{v}]_{B} = 
+ \begin{pmatrix}
+  v_1\\
+  v_2\\
+  \vdots\\
+  v_n
+ \end{pmatrix}.
+\]
+The vector $f(\mathbf{v})$ is thus equal to
+\[
+ f(\mathbf{v}) = v_1 \cdot f(\mathbf{b}_1) + \ldots + v_n \cdot f(\mathbf{b}_n).
+\]
+The vectors $f(\mathbf{b}_1),\ldots,f(\mathbf{b}_n)$ lie in W so they are
+represented with respect to the basis $C$, say, as
+\[
+ [f(\mathbf{b}_1)]_C = 
+ \begin{pmatrix}
+  f_{1,1}\\
+  f_{2,1}\\
+  \vdots\\
+  f_{m,1}
+ \end{pmatrix},
+ [f(\mathbf{b}_2)]_C =
+ \begin{pmatrix}
+  f_{1,2}\\
+  f_{2,2}\\
+  \vdots\\
+  f_{m,2}
+ \end{pmatrix},\ldots,
+ [f(\mathbf{b}_n)]_C =
+ \begin{pmatrix}
+  f_{1,n}\\
+  f_{2,n}\\
+  \vdots\\
+  f_{m,n}
+ \end{pmatrix}.
+\]
+By representing also the vector $f(\mathbf{v})$ with respect to $C$, we get
+\[
+ [f(\mathbf{v})]_C = [v_1 \cdot f(\mathbf{b}_1) + \ldots + v_n \cdot
+ f(\mathbf{b}_n)]_C = v_1 \cdot [f(\mathbf{b}_1)]_C + \ldots + v_n \cdot
+ [f(\mathbf{b}_n)]_C.
+\]
+In other words, the representation of $f(\mathbf{v})$ with respect to $C$ is
+just the product of the matrix
+\[
+ A = ([f(\mathbf{b}_1)]_C \mid [f(\mathbf{b}_2)]_C \mid \ldots \mid
+ [f(\mathbf{b}_n)]_C) = 
+ \begin{pmatrix}
+  f_{1,1} & f_{1,2} & \cdots & f_{1,n}\\
+  f_{2,1} & f_{2,2} & \cdots & f_{2,n}\\
+  \vdots & \vdots & \ddots & \vdots\\
+  f_{m,1} & f_{m,2} & \cdots & f_{m,n}
+ \end{pmatrix}
+\]
+with the vector
+\[
+ [\mathbf{v}]_B = 
+ \begin{pmatrix}
+  v_1\\
+  v_2\\
+  \vdots\\
+  v_n
+ \end{pmatrix}.
+\]
+We have just motivated the ensuing definition.
+
+\begin{definition}{Matrix of a homomorphism}{matrix-of-a-homomorphism}
+ Assume $V,W$ are vector spaces over $\F$ and $f \in \Hom(V,W)$. Given bases $B
+ = (\mathbf{b}_1,\ldots,\mathbf{b}_n)$ of $V$ and $C =
+ (\mathbf{c}_1,\ldots,\mathbf{c}_m)$ of $W$, we call the matrix
+ \[
+  [f]^{B}_C \coloneqq ([f(\mathbf{b}_1)]_C \mid \cdots \mid [f(\mathbf{b}_n)]_C)
+ \]
+ the \emph{matrix of $f$ with respect to the bases $B$ and $C$}.
+\end{definition}
+
+\begin{proposition}{}{hom-matrix-exists}
+ For every $f \in \Hom(V,W)$ and any bases $B$ of $V$ and $C$ of $W$, the matrix
+ $[f]_C^{B}$ exists, is determined uniquely and for every $\mathbf{v} \in V$,
+ the equality
+ \[
+  [f]_C^{B} \cdot [\mathbf{v}]_B = [f(\mathbf{v})]_C
+ \]
+ holds.
+\end{proposition}
+\begin{propproof}
+ The existence and uniqueness of $[f]_C^{B}$ follow immediately from its
+ \hyperref[def:matrix-of-a-homomorphism]{definition} as $C$ is a basis of $W$
+ and thus each vector $f(\mathbf{b}_i)$ has a \emph{unique} representation with
+ respect to $C$.
+
+ As for the last claim, assume
+ \[
+  [\mathbf{v}]_B =
+  \begin{pmatrix}
+   v_1\\
+   v_2\\
+   \vdots\\
+   v_n
+  \end{pmatrix},
+ \]
+ that is $\mathbf{v} = v_1 \cdot \mathbf{b}_1 + \ldots + v_n \cdot
+ \mathbf{b}_n$. By \hyperref[def:matrix-of-a-homomorphism]{definition} of
+ $[f]_C^{B}$, we calculate
+ \[
+  [f]_C^{B} \cdot [\mathbf{v}]_B = v_1 \cdot [f(\mathbf{b}_1)]_C + \ldots +
+  v_n \cdot [f(\mathbf{b}_n)]_C = [f(v_1 \cdot \mathbf{b}_1 + \ldots + v_n \cdot
+  \mathbf{b}_n)]_C = [f(\mathbf{v})]_C
+ \]
+ and we're done.
+\end{propproof}
+
+\begin{remark}{}{hom-matrix-dims}
+ The matrix $[f]_C^{B}$ of a homomorphism $f \in \Hom(V,W)$, where $V,W$ are
+ vector spaces over $\F$ of dimensions $n$ and $m$, is always a matrix with
+ entries in $\F$, $m$ rows and $n$ columns, that is, a matrix in $\F^{m \times
+ n}$. This is clear from the fact that the representation $[\mathbf{v}]_B$ of
+ $\mathbf{v} \in V$ has $n$ entries (as $\dim V = n$) and thus $[f]_C^{B}$ must
+ have $n$ columns. Furthermore, the representation $[f(\mathbf{v})]_C$ has $m$
+ entries (as $\dim W = m$) and thus each column of $[f]_C^{B}$ must also have
+ $m$ entries; in other words, $[f]_C^{B}$ has $m$ rows.
+\end{remark}
+
+\begin{example}{}{hom-matrix-exam-1}
+ The matrix of the projection homomorphism $\pi:\R^3 \to \R^2$ given by
+ \[
+  \pi \left( 
+  \begin{pmatrix}
+   x\\
+   y\\
+   z
+  \end{pmatrix}
+  \right) = 
+  \begin{pmatrix}
+   x\\y
+  \end{pmatrix}
+ \]
+ with respect to the \hyperref[def:standard-basis]{standard bases}
+ $\mathcal{E}_3$ and $\mathcal{E}_2$ is
+ \[
+  [\pi]_{\mathcal{E}_2}^{\mathcal{E}_3} = 
+  \begin{pmatrix}
+   \pi \left( 
+   \begin{pmatrix}
+    1\\0\\0
+   \end{pmatrix}
+   \right) \mathrel{\Bigg|} \pi \left(
+   \begin{pmatrix}
+    0\\1\\0
+   \end{pmatrix}
+   \right) \mathrel{\Bigg|} \pi \left( 
+   \begin{pmatrix}
+    0\\0\\1
+   \end{pmatrix}
+   \right)
+  \end{pmatrix} = 
+  \begin{pmatrix}
+   1 & 0 & 0\\
+   0 & 1 & 0
+  \end{pmatrix}.
+ \]
+ Indeed, we can calculate
+ \[
+  \begin{pmatrix}
+   1 & 0 & 0\\
+   0 & 1 & 0
+  \end{pmatrix}
+  \cdot 
+  \begin{pmatrix}
+   x\\y\\z
+  \end{pmatrix}
+  = x \cdot 
+  \begin{pmatrix}
+   1\\0
+  \end{pmatrix}
+  + y \cdot 
+  \begin{pmatrix}
+   0\\1
+  \end{pmatrix}
+  + z \cdot 
+  \begin{pmatrix}
+   0\\0
+  \end{pmatrix}
+  = 
+  \begin{pmatrix}
+   x\\y
+  \end{pmatrix}.
+ \]
+ Notice, referring to \myref{remark}{rmrk:hom-matrix-dims}, that
+ $[\pi]_{\mathcal{E}_2}^{\mathcal{E}_3} \in \R^{2 \times 3}$.
+\end{example}
+
+\begin{example}{}{hom-matrix-exam-2}
+ Let us compute the matrix of the `derivative' homomorphism
+ \begin{align*}
+  \frac{\partial }{\partial x}: \mathcal{P}_3(\R) &\to \mathcal{P}_2(\R),\\
+  a_0 + a_1x + a_2x^2 + a_3x^3 & \mapsto a_1 + 2a_2x + 3a_3x^2.
+ \end{align*}
+ The \hyperref[def:standard-basis]{standard bases} for $\mathcal{P}_3(\R)$ and
+ $\mathcal{P}_2(\R)$ are $(1,x,x^2,x^3)$ and $(1,x,x^2)$, respectively. Let us
+ denote them $P_3$ and $P_2$. With respect to these bases, the matrix of
+ $\partial / \partial x$ is
+ \begin{align*}
+  \left[ \frac{\partial }{\partial x} \right]_{P_2}^{P_3}& = 
+  \begin{pmatrix}
+   \left[ \frac{\partial }{\partial x}(1) \right]_{P_2} \mathrel{\big|} 
+   &
+   \left[ \frac{\partial }{\partial x}(x) \right]_{P_2} \mathrel{\big|}
+   &
+   \left[ \frac{\partial }{\partial x}(x^2) \right]_{P_2} \mathrel{\big|} 
+   &
+   \left[ \frac{\partial }{\partial x}(x^3) \right]_{P_2}
+  \end{pmatrix}\\ 
+                                                         &= 
+  \begin{pmatrix}
+   [0]_{P_2} \mid [1]_{P_2} \mid [2x]_{P_2} \mid [3x^2]_{P_2}
+  \end{pmatrix} = 
+  \begin{pmatrix}
+   0 & 1 & 0 & 0\\
+   0 & 0 & 2 & 0\\
+   0 & 0 & 0 & 3
+  \end{pmatrix}.
+ \end{align*}
+ Indeed, representing the polynomial e.g. $4 + 2x - 3x^2 + x^3$ with respect to
+ $P_3$ gives
+ \[
+  [4 + 2x - 3x^2 + x^3]_{P_3} = 
+  \begin{pmatrix}
+   4\\
+   2\\
+   -3\\
+   1
+  \end{pmatrix}
+ \]
+ and
+ \[
+  \begin{pmatrix}
+   0 & 1 & 0 & 0\\
+   0 & 0 & 2 & 0\\
+   0 & 0 & 0 & 3
+  \end{pmatrix} \cdot 
+  \begin{pmatrix}
+   4\\2\\-3\\1
+  \end{pmatrix}
+  = 4 \cdot 
+  \begin{pmatrix}
+   0\\0\\0
+  \end{pmatrix}
+  + 2 \cdot 
+  \begin{pmatrix}
+   1\\0\\0
+  \end{pmatrix}
+  -3 \cdot 
+  \begin{pmatrix}
+   0\\
+   2\\
+   0
+  \end{pmatrix}
+  + 1 \cdot 
+  \begin{pmatrix}
+   0\\
+   0\\
+   3
+  \end{pmatrix}
+  = 
+  \begin{pmatrix}
+   2\\-6\\3
+  \end{pmatrix}
+ \]
+ Since
+ \[
+  [2 - 6x + 3x^2]_{P_2} = 
+  \begin{pmatrix}
+   2\\
+   -6\\
+   3
+  \end{pmatrix},
+ \]
+ we've just computed that
+ \[
+  \frac{\partial}{\partial x}(4 + 2x - 3x^2 + x^3) = 2 - 6x + 3x^2
+ \]
+ using vectors and matrices.
+\end{example}
+
+\begin{example}{}{hom-matrix-exam-3}
+ For the representation of the integral homomorphism
+ \begin{align*}
+  \int : \mathcal{P}_2(\R) & \to \mathcal{P}_3(\R),\\
+  a_0 + a_1x + a_2x^2 & \mapsto a_0x + \frac{a_1}{2}x^2 + \frac{a_2}{3}x^3
+ \end{align*}
+ we might wish to use a different basis for $\mathcal{P}_3(\R)$. The reason
+ being, that with respect to $P_2$ and $P_3$ its matrix would look like this
+ (\textbf{check!})
+ \[
+  \left[\int \right]_{P_3}^{P_2} = 
+  \begin{pmatrix}
+    0 & 0 & 0\\
+    1 & 0 & 0\\
+    0 & \frac{1}{2} & 0\\
+    0 & 0 & \frac{1}{3}
+  \end{pmatrix}
+ \]
+ and we might not wish to deal with fractions. Let us instead choose the basis
+ $\hat{P}_3 \coloneqq (1, x, \frac{1}{2}x^2, \frac{1}{3}x^3)$ of
+ $\mathcal{P}_3(\R)$. With respect to $P_2$ and $\hat{P}_3$, the matrix of $\int
+ $ instead looks like this:
+ \[
+  \left[ \int  \right]_{\hat{P}_3}^{P_2} = 
+  \begin{pmatrix}
+   \left[ \int 1 \right]_{\hat{P}_3} \mathrel{\big|} &
+   \left[ \int x \right]_{\hat{P}_3} \mathrel{\big|} &
+   \left[ \int x^2 \right]_{\hat{P}_3}
+  \end{pmatrix} = 
+  \begin{pmatrix}
+   [x]_{\hat{P}_3} \mathrel{\big|} & \left[ \frac{x^2}{2} \right]_{\hat{P}_3}
+   \mathrel{\big|} & \left[ \frac{x^3}{3} \right]_{\hat{P}_3}
+  \end{pmatrix} =
+  \begin{pmatrix}
+   0 & 0 & 0\\
+   1 & 0 & 0\\
+   0 & 1 & 0\\
+   0 & 0 & 1
+  \end{pmatrix}.
+ \]
+ Of course, the integrated polynomial is then also represented in the basis
+ $\hat{P}_3$ and \emph{not} in the canonical basis $P_3$. For example,
+ \[
+  \left[ \int \right]_{\hat{P}_3}^{P_2} \cdot [3 + x - 2x^2]_{P_2} =
+  \begin{pmatrix}
+   0 & 0 & 0\\
+   1 & 0 & 0\\
+   0 & 1 & 0\\
+   0 & 0 & 1
+  \end{pmatrix} \cdot 
+  \begin{pmatrix}
+   3\\
+   1\\
+   -2
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+   0\\
+   3\\
+   1\\
+   -2
+  \end{pmatrix}
+  = \left[3x + \frac{1}{2}x^2 - \frac{2}{3}x^3\right]_{\hat{P}_3}.
+ \]
+\end{example}
+
+To every vector space $V$ of dimension $n$ and a chosen basis $B$, there is
+associated a special homomorphism $[ \cdot ]_B:V \to \F^{n}$ which assigns to
+each vector $\mathbf{v} \in V$ its representation $[\mathbf{v}]_B$ with respect
+to $b$ (\textbf{check} that this is indeed a homomorphism!).
+
+We shall now determine its matrix: first with respect to $B$ and $\mathcal{E}_n$
+and then with respect to $B$ and $C$ where $C$ is any basis of the space
+$\F^{n}$.
+
+By definition, the matrix $\left[ [ \cdot ]_B \right]^{B}_{\mathcal{E}_n}$
+should send the representation $[\mathbf{v}]_{B}$ to ... well ...
+$[\mathbf{v}]_B$ (since the representation of any vector with respect to
+$\mathcal{E}_n$ is just the vector itself). In other words, its a matrix which
+keeps the multiplied vector intact. Such matrix is called the \emph{identity}
+matrix and it stands to reason that it should have $1$'s on its diagonal and
+$0$'s elsewhere.
+
+\begin{definition}{Identity matrix}{identity-matrix}
+ The matrix
+ \[
+  I_n \coloneqq \begin{pmatrix}
+   1 & 0 & 0 & \cdots & 0\\
+   0 & 1 & 0 & \cdots & 0\\
+   0 & 0 & 1 & \cdots & 0\\
+   \vdots & \vdots & \vdots & \ddots & \vdots\\
+   0 & 0 & 0 & \cdots & 1
+  \end{pmatrix} \in \F^{n \times n}
+ \]
+ is called the \emph{identity} matrix of size $n$. It is easily seen that for
+ any vector $\mathbf{v} \in \F^{n}$, we have $I_n \cdot \mathbf{v} =
+ \mathbf{v}$.
+\end{definition}
+
+Now, the matrix of the representation homomorphism with respect to a different
+basis than $\mathcal{E}_n$ is more interesting. Let $B =
+(\mathbf{b}_1,\ldots,\mathbf{b}_n)$. By
+\hyperref[def:matrix-of-a-homomorphism]{definition},
+\[
+ \left[ [ \cdot ]_B \right]^{B}_C = \left( 
+  [[\mathbf{b}_1]_B]_C \mid [[\mathbf{b}_2]_B]_C \mid \cdots \mid
+  [[\mathbf{b}_n]_B]_C
+ \right).
+\]
+However, clearly $[\mathbf{b}_i]_B = \mathbf{e}_i$ for every $i$. Therefore, the
+columns of the matrix $[[ \cdot ]_B]_{C}^{B}$ are simply the standard vectors
+$\mathbf{e}_i$ represented with respect to the basis $C$.
+
+The last paragraph begs a question: couldn't the representation homomorphism be
+used to `travel' between two different bases of the same space? As you may have
+guessed, it could. First, let us consider the trivial homomorphism
+\[
+ [ \cdot ]_{\mathcal{E}_n}:\F^{n} \to \F^{n}
+\]
+which simply sends each vector $\mathbf{v} \in \F^{n}$ to its representation
+with respect to the standard basis, i.e. to itself. Its matrix with respect to
+the standard bases is naturally the \hyperref[def:identity-matrix]{identity
+matrix}, however, we may choose to represent it with respect to non-standard
+bases, as well. Concretely, fix bases $X = (\mathbf{x}_1,\ldots,\mathbf{x}_n)$
+and $Y = (\mathbf{y}_1,\ldots,\mathbf{y}_n)$ of $\F^{n}$. We have
+\[
+ \left[ [ \cdot ]_{\mathcal{E}_n} \right]^{X}_Y = 
+ \left( 
+  [[\mathbf{x}_1]_{\mathcal{E}_n}]_Y \mid [[\mathbf{x}_2]_{\mathcal{E}_n}]_Y
+  \mid \cdots \mid [[\mathbf{x}_n]_{\mathcal{E}_n}]_Y
+ \right) = \left( 
+  [\mathbf{x}_1]_Y \mid [\mathbf{x}_2]_Y \mid \cdots \mid [\mathbf{x}_n]_Y
+ \right).
+\]
+The matrix $[[ \cdot ]_{\mathcal{E}_n}]_Y^{X}$ thus assigns transforms the
+representation $[\mathbf{v}]_X$ of any vector $\mathbf{v} \in \F^{n}$ to
+$[\mathbf{v}]_Y$ to its representation with respect to $Y$. Indeed, one may
+easily see this fact from the equality
+\[
+ [[ \cdot ]_{\mathcal{E}_n}]_{Y}^{X} \cdot [\mathbf{v}]_X =
+ [[\mathbf{v}]_{\mathcal{E}_n}]_Y = [\mathbf{v}]_Y.
+\]
+Matrices that capacitate transporting vectors from one basis to another are
+extremely important tools and have thus won for themselves a title --
+\emph{transition} matrices.
+
+Before reading the following definition, kind readers are encouraged to devise a
+generalisation of the above construction for any vector space $V$ of dimension
+$n$, not just $\F^{n}$. We shan't do that here explicitly.
+
+\begin{definition}{Change of basis matrix}{change-of-basis-matrix}
+ Let $V$ be a vector space over $\F$ of dimension $n$ and $B,C$ two bases of
+ $V$. The \emph{matrix of transition} from $B$ to $C$ is the matrix
+ \[
+  [\mathrm{id}]_{C}^{B} = \left( [\mathbf{b}_1]_C \mid [\mathbf{b}_2]_C \mid
+  \cdots \mid [\mathbf{b}_n]_C \right).
+ \]
+\end{definition}
+
+\begin{example}{}{transition-matrix-exam-1}
+ Consider the bases
+ \[
+  B = \left( 
+   \begin{pmatrix}
+    3\\-1\\1
+   \end{pmatrix},
+   \begin{pmatrix}
+    1\\0\\-2
+   \end{pmatrix},
+   \begin{pmatrix}
+    1\\0\\1
+   \end{pmatrix}
+  \right) \quad \text{and} \quad 
+  C = \left( 
+  \begin{pmatrix}
+   2\\8\\4
+  \end{pmatrix},
+  \begin{pmatrix}
+   1\\0\\-5
+  \end{pmatrix},
+  \begin{pmatrix}
+   1\\3\\4
+  \end{pmatrix}
+  \right)
+ \]
+ of the space $\R^3$. In order to determine $[\mathrm{id}]_C^{B}$, we must
+ represent the vectors from $B$ with respect to $C$. This involves solving three
+ linear systems with left side the vectors from $B$ and right side one of the
+ vectors from $C$. Fortunately, we have to go through only one process of
+ Gauss-Jordan elimination since we can actually put \emph{all} the vectors from
+ $C$ to the right side at once.
+
+ We thus need to eliminate the matrix
+ \[
+  \left(
+   \begin{matrix*}[r]
+    3 & 1 & 1\\
+    -1 & 0 & 0\\
+    1 & -2 & 1
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    2 & 1 & 1\\
+    8 & 0 & 3\\
+    4 & -5 & 4
+   \end{matrix*}
+  \right).
+ \]
+ Gauss-Jordan elimination (with some swapping of rows) results in
+ \[
+  \left(
+   \begin{matrix*}[r]
+    3 & 1 & 1\\
+    -1 & 0 & 0\\
+    1 & -2 & 1
+   \end{matrix*}
+   \hspace{1mm}
+  \right|
+  \left.
+   \begin{matrix*}[r]
+    2 & 1 & 1\\
+    8 & 0 & 3\\
+    4 & -5 & 4
+   \end{matrix*}
+  \right).
+ \]
+\end{example}
