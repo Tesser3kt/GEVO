@@ -24,7 +24,7 @@
   header: context {
     let current-page = counter(page).get().first()
     if current-page > 1 [
-      Mock Exam
+      Real Exam
       #h(1fr)
       #counter(page).display(
         page-counter,
@@ -117,19 +117,25 @@
   #block(width: 100%)[
     #points(35)
 
-    For which values of $k<10$ has the following congruence solutions?
-    #align(center)[$k dot.c x eq.triple 1 pmod(10)$]
-    Write down the possible values or *state how to find them*.
+    For which values of $k<10$ there exists a solution to the congruence
+    #align(center)[$k dot.c x eq.triple 1 pmod(10)$?] 
+    Write those down or *state how to find them*.
  ]
 ]
-#v(30%)
+#v(25%)
 #enum(numbering: "a)", start: 2)[
     #block(width: 100%)[
     #points(20)
-    Three mathematicians are walking up a tower and want to count all the stairs
-    that lead up to the top. Unfortunately yet unsurprisingly they don't know any
-  number higher then 10. Help them create a way to count all the stairs.
-]
+    Three mathematicians are walking up a tower, wanting to count all the stairs
+    they sit down at the bottom and try to think of a plan. "I've got it" one
+    exclaims. "Each of us will only count stairs up to some constant and then go
+    back to one. At the top we will surely somehow calculate the result." Unfortunately yet
+    unsurprisingly none of them can count higher then 10.
+    
+    Choose the three
+    constants such that they can succeed at any tower up to 500 stairs, also
+    *briefly describe* the method for calculating the result at the end.
+  ]
 ]
 #pagebreak()
 
