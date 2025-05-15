@@ -24,7 +24,7 @@
   header: context {
     let current-page = counter(page).get().first()
     if current-page > 1 [
-      Real Exam
+      Exam A
       #h(1fr)
       #counter(page).display(
         page-counter,
@@ -88,7 +88,7 @@
 ]
 #v(-12pt)
 #align(center)[
-  #text(size: 18pt)[3.AB PreIB Maths -- Real Exam]
+  #text(size: 18pt)[3.AB PreIB Maths -- Exam A]
 ]
 #set text(
   font: "TeX Gyre Schola",
@@ -117,24 +117,27 @@
   #block(width: 100%)[
     #points(35)
 
-    For which values of $k<10$ there exists a solution to the congruence
-    #align(center)[$k dot.c x eq.triple 1 pmod(10)$?] 
-    Write those down or *state how to find them*.
+    For which values of $k in ZZ$ with $1 <= k <= 8$ does there exist a solution
+    to the congruence
+    #align(center)[
+      $k dot.c x eq.triple 2 pmod(9)$?
+    ] 
+    Write those down and *state how you found them*.
  ]
 ]
 #v(25%)
 #enum(numbering: "a)", start: 2)[
     #block(width: 100%)[
     #points(20)
-    Three mathematicians are walking up a tower, wanting to count all the stairs
-    they sit down at the bottom and try to think of a plan. "I've got it" one
-    exclaims. "Each of us will only count stairs up to some constant and then go
-    back to one. At the top we will surely somehow calculate the result." Unfortunately yet
-    unsurprisingly none of them can count higher then 10.
-    
-    Choose the three
-    constants such that they can succeed at any tower up to 500 stairs, also
-    *briefly describe* the method for calculating the result at the end.
+    Three mathematicians are walking up a tower and wish to count the number of
+    stairs leading to the top. They sit down and try to think of a plan.
+
+    As is universally the case, the mathematicians can't count up to more than
+    ten. Knowing that there are most likely at most five hundred stairs, devise
+    a way for the mathematicians to determine the number of stairs.
+
+    *Explain thoroughly how you arrived at your method and make sure to explain
+    why it works.*
   ]
 ]
 #pagebreak()
@@ -146,10 +149,11 @@
   #points(45)
   Solve the following system of congruences.
   #align(center)[
-   $x &eq.triple 7 pmod(10)\
-    x &eq.triple 2 pmod(11)\
-    x &eq.triple 5 pmod(13)$
+   $x &eq.triple 4 pmod(8)\
+    x &eq.triple 6 pmod(9)\
+    x &eq.triple 2 pmod(11)$
   ]
-  *Explain* why there is only one solution smaller than $10 dot 11 dot 13$.
+  *Explain briefly* why there is only one solution smaller than $8 dot 9 dot
+  11$.
 ]
 

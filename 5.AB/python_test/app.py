@@ -1,19 +1,16 @@
-import mysql.connector
 from dataclasses import dataclass
+
+import mysql.connector
 
 
 # Vytvořte dataclass 'Product', která odpovídá informací v tabulce 'products'.
 @dataclass
-class Product:
-    code: str
-    name: str
-    price: float
-    quantity: int
+class Product: ...
 
 
 def connect_to_db():
     connection = mysql.connector.connect(
-        host="172.17.0.2", port=3306, user="root", password="1996"
+        host="localhost", user="root", password="macSucks"
     )
     return connection
 
@@ -26,13 +23,7 @@ def add_product(product):
     # přidá produkt 'product'. Do sloupce 'id' nic nevpisujete, ten si databáze
     # řeší sama.
 
-    cursor.execute(
-        (
-            f"insert into products(code, name, price, quantity) values"
-            f"('{product.code}', '{product.name}', {product.price},"
-            f"{product.quantity})"
-        )
-    )
+    cursor.execute()
 
     conn.commit()
 
@@ -56,7 +47,7 @@ def buy_product_by_code(code):
     # Do závorek níže doplňte SQL příkaz, který sníží množství ('quantity')
     # produktu s kódem 'code' o 1.
 
-    cursor.execute((f"update products set quantity={quantity - 1} where code='{code}'"))
+    cursor.execute()
 
     conn.commit()
 
