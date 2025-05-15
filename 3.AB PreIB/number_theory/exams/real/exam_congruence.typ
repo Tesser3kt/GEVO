@@ -117,10 +117,10 @@
   #block(width: 100%)[
     #points(35)
 
-    For which values of $k in ZZ$ with $1 <= k <= 8$ does there exist a solution
+    For which values of $k in ZZ$ with $1 <= k <= 7$ does there exist a solution
     to the congruence
     #align(center)[
-      $k dot.c x eq.triple 2 pmod(9)$?
+      $k dot.c x eq.triple 4 pmod(8)$?
     ] 
     Write those down and *state how you found them*.
  ]
@@ -133,8 +133,8 @@
     stairs leading to the top. They sit down and try to think of a plan.
 
     As is universally the case, the mathematicians can't count up to more than
-    ten. Knowing that there are most likely at most five hundred stairs, devise
-    a way for the mathematicians to determine the number of stairs.
+    ten. Knowing that there are likely at most five hundred stairs, devise a way
+    for the mathematicians to determine the number of stairs.
 
     *Explain thoroughly how you arrived at your method and make sure to explain
     why it works.*
@@ -149,11 +149,11 @@
   #points(45)
   Solve the following system of congruences.
   #align(center)[
-   $x &eq.triple 4 pmod(8)\
-    x &eq.triple 6 pmod(9)\
-    x &eq.triple 2 pmod(11)$
+   $x &eq.triple 0 pmod(7)\
+    x &eq.triple 2 pmod(11)\
+    x &eq.triple 4 pmod(13)$
   ]
-  *Explain briefly* why there is only one solution smaller than $8 dot 9 dot
-  11$.
+  *Explain briefly* why there is only one solution smaller than $7 dot 11 dot
+  13$.
 ]
 
