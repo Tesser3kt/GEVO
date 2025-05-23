@@ -13,3 +13,6 @@ NAME_TO_MONTH = {
     "NOV": 11,
     "DEC": 12,
 }
+ROUNDS = ["1. kolo", "2. kolo", "3. kolo", "4. kolo", "Semifinále", "Finále"]
+MONTH = 3
+YEAR = 1
