@@ -1,6 +1,7 @@
 import arrow
 from dataclasses import dataclass
 from selenium.webdriver.remote.webelement import WebElement
+from unidecode import unidecode as ud
 
 
 @dataclass
@@ -105,3 +106,26 @@ class Competition:
                 else None
             ),
         }
+
+    def gen_filename(self) -> str:
+        """Generate a filename for the competition based on its date, town, and name."""
+        date_str = self.date.format("YYYY-MM-DD")
+        town_str = (
+            ud(
+                "".join(
+                    x for x in self.town if x.isalpha() or x.isdigit() or x.isspace()
+                )
+            )
+            .replace(" ", "_")
+            .lower()
+        )
+        name_str = (
+            ud(
+                "".join(
+                    x for x in self.name if x.isalpha() or x.isdigit() or x.isspace()
+                )
+            )
+            .replace(" ", "_")
+            .lower()
+        )
+        return f"{date_str}_{town_str}_{name_str}.json"

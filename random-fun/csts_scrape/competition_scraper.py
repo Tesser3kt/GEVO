@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from classes import Competition, Category
-from config import NAME_TO_MONTH
+from config import NAME_TO_MONTH, YEAR
 
 logger = logging.getLogger(__name__)
 
@@ -31,7 +31,7 @@ def get_competitions(driver: webdriver.Firefox) -> list[Competition]:
         for button in competition_buttons:
             month, day, town, name = tuple(button.text.split("\n"))
             competition = Competition(
-                date=arrow.get(f"2025-{NAME_TO_MONTH[month]}-{day}", "YYYY-M-D"),
+                date=arrow.get(f"{YEAR}-{NAME_TO_MONTH[month]}-{day}", "YYYY-M-D"),
                 town=town,
                 name=name,
                 button=button,
@@ -54,7 +54,7 @@ def get_competition_categories(
         competition.button.click()
         logger.info(f"Competition button clicked: {competition.name}")
 
-        time.sleep(1)  # Wait for the categories to load
+        time.sleep(2)  # Wait for the categories to load
         category_div = WebDriverWait(driver, 3).until(
             EC.presence_of_element_located(
                 (By.CSS_SELECTOR, "div._1rsl8qj0._1rsl8qj1._1j7rp576t")

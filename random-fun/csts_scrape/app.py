@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.webelement import WebElement
 from config import *
-from util import click_cookie_button
+from util import click_cookie_button, save_competition_to_json
 from classes import Competition, Category, Competitor, Evaluation
 from competition_scraper import get_competitions, get_competition_categories
 from category_scraper import (
@@ -19,7 +19,7 @@ from category_scraper import (
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler("app.log")],
+    filename="app.log",
 )
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -27,13 +27,18 @@ logger.setLevel(logging.INFO)
 
 def init_driver() -> webdriver.Firefox:
     options = Options()
-    # options.add_argument("--headless")  # Run in headless mode
+    options.set_preference("dom.webdriver.enabled", False)  # Disable webdriver flag
+    options.set_preference(
+        "useAutomationExtension", False
+    )  # Disable automation extension
+    if HEADLESS:
+        options.add_argument("--headless")
     driver = webdriver.Firefox(options=options)
     driver.maximize_window()
     return driver
 
 
-def select_month(driver: webdriver.Firefox, month: int) -> None:
+def select_month(driver: webdriver.Firefox, month: str) -> None:
     # Click on the month button
     try:
         month_button = driver.find_element(By.XPATH, "//button[@aria-label='Měsíc']")
@@ -44,30 +49,20 @@ def select_month(driver: webdriver.Firefox, month: int) -> None:
         logger.error("Month button not found or not clickable:", e)
         raise e
 
-    # Wait for the month list to be present
+    # Wait for the month button to be present
     try:
         month_list = WebDriverWait(driver, 3).until(
             EC.presence_of_element_located((By.XPATH, "//div[@role='listbox']"))
         )
-        month_list = month_list.find_element(By.XPATH, ".//div[@role='presentation']")
-        logger.info("Month list found.")
+        month_button = month_list.find_element(By.XPATH, f".//*[text()='{month}']")
+        month_button.click()
+        logger.info("Month button clicked.")
     except Exception as e:
-        logger.error("Month list not found:", e)
-        raise e
-
-    # Find the div containing the month and click it
-    try:
-        month_div = month_list.find_elements(By.XPATH, f"//div[@role='option']")[
-            month - 1
-        ]
-        month_div.click()
-        logging.info(f"Month {month} clicked.")
-    except Exception as e:
-        logging.error(f"Month {month} not found in the list:", e)
+        logger.error("Month button not found:", e)
         raise e
 
 
-def select_year(driver: webdriver.Firefox, year: int) -> None:
+def select_year(driver: webdriver.Firefox, year: str) -> None:
     # Click on the year button
     try:
         year_button = driver.find_element(By.XPATH, "//button[@aria-label='Rok']")
@@ -78,24 +73,16 @@ def select_year(driver: webdriver.Firefox, year: int) -> None:
         logger.error("Year button not found or not clickable:", e)
         raise e
 
-    # Wait for the year list to be present
+    # Wait for the year button to be present
     try:
         year_list = WebDriverWait(driver, 3).until(
             EC.presence_of_element_located((By.XPATH, "//div[@role='listbox']"))
         )
-        year_list = year_list.find_element(By.XPATH, ".//div[@role='presentation']")
-        logger.info("Year list found.")
+        year_button = year_list.find_element(By.XPATH, f".//*[text()='{year}']")
+        year_button.click()
+        logger.info("Year button clicked.")
     except Exception as e:
-        logger.error("Year list not found:", e)
-        raise e
-
-    # Find the div containing the year and click it
-    try:
-        year_div = year_list.find_elements(By.XPATH, f"//div[@role='option']")[year - 1]
-        year_div.click()
-        logger.info(f"Year {year} clicked.")
-    except Exception as e:
-        logger.error(f"Year {year} not found in the list:", e)
+        logger.error("Year button not found:", e)
         raise e
 
 
@@ -128,6 +115,10 @@ for competition in competitions:
         logger.error(f"Error getting categories for {competition.name}: {e}")
 
 # Scrape each category for competitors and evaluations
+category = Category(
+    name="Test Category",
+    link="https://www.csts.cz/dancesport/vysledky_soutezi/event/1293/competition/28733",
+)
 for competition in competitions:
     for category in competition.categories:
         try:
@@ -140,6 +131,8 @@ for competition in competitions:
                 update_category_evaluations(driver, category, round=round)
         except Exception as e:
             logger.error(f"Error getting competitors for {category.name}: {e}")
+    # Save competition data to JSON
+    save_competition_to_json(competition)
 
 
 driver.quit()

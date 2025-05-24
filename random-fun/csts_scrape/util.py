@@ -1,11 +1,11 @@
 import json
-import unidecode
 import logging
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from classes import Competition
+from config import DATA_DIR
 
 logger = logging.getLogger(__name__)
 
@@ -23,4 +23,12 @@ def click_cookie_button(driver: webdriver.Firefox) -> None:
 
 
 def save_competition_to_json(competition: Competition) -> None:
-    """Convert a Competition object to a JSON-compatible dictionary."""
+    """Save competition data to a JSON file."""
+    filename = competition.gen_filename()
+    with open(f"{DATA_DIR}/{filename}", "w+", encoding="utf-8") as f:
+        try:
+            json.dump(competition.to_dict(), f, ensure_ascii=False, indent=2)
+            logger.info(f"Competition data saved to {filename}.")
+        except Exception as e:
+            logger.error(f"Error saving competition data to JSON: {e}")
+            raise e

@@ -1,3 +1,4 @@
+HEADLESS = True
 BASE_URL = "https://www.csts.cz/dancesport/vysledky_soutezi"
 NAME_TO_MONTH = {
     "JAN": 1,
@@ -14,5 +15,8 @@ NAME_TO_MONTH = {
     "DEC": 12,
 }
 ROUNDS = ["1. kolo", "2. kolo", "3. kolo", "4. kolo", "Semifinále", "Finále"]
-MONTH = 3
-YEAR = 1
+MONTH = "Srpen"
+YEAR = "2018"
+DATA_DIR = "data"
+APPROVAL_SYMBOLS = ["x", "×", "A", "Y"]
+DISAPPROVAL_SYMBOLS = ["−", "N"]

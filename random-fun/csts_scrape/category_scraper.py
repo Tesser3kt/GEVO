@@ -1,12 +1,13 @@
 import logging
 import re
-import time
+from collections import defaultdict
 from classes import Category, Competitor, Club, Evaluation
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from util import click_cookie_button
+from config import APPROVAL_SYMBOLS, DISAPPROVAL_SYMBOLS
 
 logger = logging.getLogger(__name__)
 
@@ -105,7 +106,7 @@ def update_category_evaluations(
         click_cookie_button(driver)
 
     # Wait for the round navigation to be present.
-    WebDriverWait(driver, 3).until(
+    WebDriverWait(driver, 10).until(
         EC.presence_of_element_located(
             (By.XPATH, "//div[@class='_1rsl8qj0 _1rsl8qj1 x4ja6ac _1j7rp572x _1j7rp572g x4ja6a8 _1j7rp576t']")  # type: ignore
         )
@@ -115,7 +116,7 @@ def update_category_evaluations(
         round_button.click()
         logger.info(f"Round {round} button clicked.")
     except Exception as e:
-        logger.error(f"Round {round} button not found or not clickable:", e)
+        logger.info(f"Round {round} button not found or not clickable:", e)
         return
 
     # Get jury for the current round
@@ -151,7 +152,19 @@ def update_category_evaluations(
             # Extract evalutation data
             evaluation_text = div.text
             parts = evaluation_text.split("\n")
+
             pair_number = int(parts[1])
+
+            parts = parts[4:]
+            if round != "Finále":
+                # Remove all symbols that are not approval symbols or digits
+                parts = [
+                    part
+                    for part in parts
+                    if part.isdigit()
+                    or part in APPROVAL_SYMBOLS
+                    or part in DISAPPROVAL_SYMBOLS
+                ]
 
             for i in range(len(dances)):
                 # Read the grades and total grade for each dance
@@ -167,7 +180,7 @@ def update_category_evaluations(
 
                 for j in range(len(jurors)):
                     try:
-                        grade_text = parts[i * len(jurors) + j + 4 + grade_offset]
+                        grade_text = parts[i * len(jurors) + j + grade_offset]
                         grade = int(grade_text)
                     except ValueError:
                         if grade_text in ("−", "N"):
@@ -190,7 +203,7 @@ def update_category_evaluations(
                     # Add the final placement for the finale round
                     try:
                         dance_placement = float(
-                            parts[i * len(jurors) + 4 + placement_offset]
+                            parts[i * len(jurors) + placement_offset]
                         )
                         dance_grades.append(dance_placement)
                     except ValueError:
