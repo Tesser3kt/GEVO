@@ -115,21 +115,20 @@
 #v(6pt)
 #enum(numbering: "a)")[
   #block(width: 100%)[
-    #points(25)
+  #points(25)
 
-    Connect together all the numbers which are equal modulo $p$.
-    #v(30pt)
-    #align(center)[
-      #grid(
-        columns: 3,
-        gutter: 60pt,
-        [$0$], [$1$], [$2p$], 
-        [$p+2$], [$-1$], [2],
-        [$8p+1$], [$10p$] , [$3p-1$]
-      )
-    ]
-
-
+  Connect together all the numbers which are *always* equal modulo $n$ for some
+  $n in ZZ$.
+  #v(30pt)
+  #align(center)[
+    #grid(
+      columns: 3,
+      gutter: 60pt,
+      [$3$], [$n - 1$], [$-3$], 
+      [$n - 3$], [$-1$], [$3n^2 - n - 1$],
+      [$3n + 3$], [$10n$] , [$0$]
+    )
+  ]
  ]
 ]
 #v(30pt)
@@ -137,13 +136,11 @@
     #block(width: 100%)[
     #points(35)
     After finishing a meal in a restaurant, the waitress brings your check. You
-    realize that you can either pay with *eleven five-dollar bills* or with
-    *twenty-eight four-dollar bills*, with the change in both scenarios being
-    *smaller* then the *bill used for payment*.
+    realize that you can either pay with *thirty-one four-dollar bills* or with
+    *twenty-five five-dollar bills*, with the change in both scenarios being
+    *smaller* than the bill used for payment.
 
-    *Calculate the possible prices of the meal*.
-        
-
+    Calculate the possible prices of the meal.
   ]
 ]
 #pagebreak()
@@ -155,10 +152,11 @@
   #points(40)
   Solve the following system of congruences.
   #align(center)[
-   $x &eq.triple 1 pmod(5)\
-    x &eq.triple 4 pmod(12)\
-    x &eq.triple 2 pmod(7) $
+   $x &eq.triple 6 pmod(7)\
+    x &eq.triple 3 pmod(11)\
+    x &eq.triple 9 pmod(10) $
   ]
-  *Explain briefly* why there is only one solution smaller than $5 dot 12 dot 7$.
+  *Explain briefly* why there is only one solution smaller than $7 dot 11 dot
+  10$.
 ]
 
