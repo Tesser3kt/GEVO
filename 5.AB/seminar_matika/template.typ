@@ -1,4 +1,5 @@
 #import "@preview/icu-datetime:0.1.2": fmt-date
+#import "@preview/hydra:0.6.2": hydra
 
 #let template(
   img: none,
@@ -7,6 +8,15 @@
   abstract: [],
   doc,
 ) = {
+  // Colors
+  let maindark = rgb("#243642")
+  let maindef = rgb("#387478")
+  let mainlight = rgb("#629584")
+  let mainlighter = rgb("#E2F1E7")
+  let blue = rgb("#2CC4EF")
+  let green = rgb("#2EBDB6")
+  let purple = rgb("#695BAA")
+
   // Global settings
   set page(
     paper: "a4",
@@ -15,16 +25,17 @@
   set text(
     size: 12pt,
     lang: "cs",
+    font: "EB Garamond 12",
   )
   show math.equation: set text(
     size: 12pt,
   )
   show link: set text(
-    fill: blue,
+    fill: green,
   )
 
   // Title page
-  //
+
   // Title
   set text(size: 20pt)
   set align(horizon + center)
@@ -59,6 +70,50 @@
   set text(size: 12pt)
   set par(justify: true)
   [ #abstract ]
+
+  set page(
+    numbering: "1",
+    header: context {
+      // Query the document for all level-1 headings
+      let chapter_headings = query(heading.where(level: 1))
+
+      // Check if any of the chapter headings are on the current page
+      let is_chapter_page = chapter_headings.any(it => (
+        it.location().page() == here().page()
+      ))
+
+      // If it's not a chapter page, display the header
+      if not is_chapter_page {
+        if calc.odd(here().page()) {
+          [#hydra(2) #h(1fr) #emph(hydra(1))]
+        } else {
+          [#emph(hydra(1)) #h(1fr) #hydra(2)]
+        }
+        v(-8pt)
+        line(length: 100%)
+      }
+    },
+  )
+  set align(top + left)
+  set text(size: 12pt)
+  set par(justify: true)
+
+  // Pagebreak before chapter
+  show heading.where(level: 1): it => {
+    pagebreak()
+    block(
+      spacing: 1em,
+      text(maindark)[#it],
+    )
+  }
+
+  show heading.where(level: 2): it => {
+    pagebreak()
+    block(
+      spacing: .8em,
+      text(maindef)[#it],
+    )
+  }
 
   doc
 }
