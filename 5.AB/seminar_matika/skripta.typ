@@ -29,4 +29,4 @@ rovnic vyjadřujících ony vztahy přímé úměrnosti mezi veličinami). #emph
 lineárního systému pak myslíme množinu všech možných čísel, která lze (v daném
 pořadí) dosadit za proměnné, aby byly všechny rovnice splněny.
 
-V následující úvodní sekci si ukážeme #emph[]
+V následující úvodní sekci si ukážeme
