@@ -29,6 +29,7 @@
   )
   show math.equation: set text(
     size: 12pt,
+    font: "Garamond-Math",
   )
   show link: set text(
     fill: green,
@@ -97,6 +98,12 @@
   set align(top + left)
   set text(size: 12pt)
   set par(justify: true)
+
+  // Headings format
+  set heading(numbering: "I.1.1")
+  show heading: set text(
+    font: "Prenton",
+  )
 
   // Pagebreak before chapter
   show heading.where(level: 1): it => {

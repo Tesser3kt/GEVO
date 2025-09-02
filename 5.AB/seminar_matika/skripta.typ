@@ -20,5 +20,13 @@
 
 Lineární systémy modelují skutečnosti (ve fyzice, ekonomie, informatice, ...),
 kdy veličiny na sobě závisejí #emph[přímo úměrně]. Běžným příkladem z fyziky je
-závislost dráhy na čase při konstantní rychlosti: jedu-li rychlostí 50 km/h, pak
-ujetá vzdálenost je vždy přesně $50x$ větší
+závislost dráhy na čase při konstantní rychlosti: jedeme-li rychlostí 50 km/h,
+pak ujetá vzdálenost (v km) je vždy přesně 50x větší, než uplynuvší čas (v
+hodinách).
+
+Jednoduše řečeno jsou lineární systémy množiny #emph[lineárních rovnic] (tedy
+rovnic vyjadřujících ony vztahy přímé úměrnosti mezi veličinami). #emph[Řešením]
+lineárního systému pak myslíme množinu všech možných čísel, která lze (v daném
+pořadí) dosadit za proměnné, aby byly všechny rovnice splněny.
+
+V následující úvodní sekci si ukážeme #emph[]
