@@ -1,5 +1,7 @@
 #import "@preview/icu-datetime:0.1.2": fmt-date
 #import "@preview/hydra:0.6.2": hydra
+#import "@preview/thmbox:0.3.0": *
+#show: thmbox-init()
 
 #let template(
   img: none,
@@ -25,7 +27,7 @@
   set text(
     size: 12pt,
     lang: "cs",
-    font: "EB Garamond 12",
+    font: "EB Garamond",
   )
   show math.equation: set text(
     size: 12pt,
@@ -43,7 +45,7 @@
   image(img, width: 80%)
 
   v(1em)
-  [* #title *]
+  text(font: "Prenton")[#title]
   v(1em)
 
   // Authors
@@ -109,15 +111,15 @@
   show heading.where(level: 1): it => {
     pagebreak()
     block(
-      spacing: 1em,
+      below: 1em,
       text(maindark)[#it],
     )
   }
 
   show heading.where(level: 2): it => {
-    pagebreak()
     block(
-      spacing: .8em,
+      above: 1.5em,
+      below: .8em,
       text(maindef)[#it],
     )
   }
