@@ -1,7 +1,17 @@
 #import "@preview/icu-datetime:0.1.2": fmt-date
 #import "@preview/hydra:0.6.2": hydra
 #import "@preview/thmbox:0.3.0": *
-#show: thmbox-init()
+#import "@preview/equate:0.3.2": equate
+#import "@preview/headcount:0.1.0": *
+
+// Colors
+#let maindark = rgb("#243642")
+#let maindef = rgb("#387478")
+#let mainlight = rgb("#629584")
+#let mainlighter = rgb("#E2F1E7")
+#let blue = rgb("#2CC4EF")
+#let green = rgb("#2EBDB6")
+#let purple = rgb("#695BAA")
 
 #let template(
   img: none,
@@ -10,15 +20,6 @@
   abstract: [],
   doc,
 ) = {
-  // Colors
-  let maindark = rgb("#243642")
-  let maindef = rgb("#387478")
-  let mainlight = rgb("#629584")
-  let mainlighter = rgb("#E2F1E7")
-  let blue = rgb("#2CC4EF")
-  let green = rgb("#2EBDB6")
-  let purple = rgb("#695BAA")
-
   // Global settings
   set page(
     paper: "a4",
@@ -101,13 +102,22 @@
   set text(size: 12pt)
   set par(justify: true)
 
+  // Bold also colorises
+  show strong: it => {
+    text(
+      fill: maindark,
+      weight: "bold",
+      it,
+    )
+  }
+
   // Headings format
   set heading(numbering: "I.1.1")
   show heading: set text(
     font: "Prenton",
   )
 
-  // Pagebreak before chapter
+  // Headings settings
   show heading.where(level: 1): it => {
     pagebreak()
     block(
@@ -119,10 +129,34 @@
   show heading.where(level: 2): it => {
     block(
       above: 1.5em,
-      below: .8em,
+      below: 1em,
       text(maindef)[#it],
     )
   }
+
+  show heading.where(level: 3): it => {
+    block(
+      above: 1.5em,
+      below: 1em,
+      text(mainlight)[#it],
+    )
+  }
+
+  // Table settings
+  set table(
+    stroke: none,
+    fill: (x, y) => {
+      if (calc.rem(y, 2) == 1) {
+        return mainlight.transparentize(90%)
+      }
+    },
+  )
+
+  // Equation numbering
+  set math.equation(numbering: dependent-numbering("(1.1)"), supplement: [])
+
+  // Thmbox
+  show: thmbox-init()
 
   doc
 }

@@ -1,4 +1,4 @@
-#import "template.typ": template
+#import "template.typ": *
 #show: template.with(
   img: "imgs/title.png",
   title: [Skripta k matematickému semináři],
@@ -29,11 +29,12 @@ rovnic vyjadřujících ony vztahy přímé úměrnosti mezi veličinami). #emph
 lineárního systému pak myslíme množinu všech čísel, která lze (v daném pořadí)
 dosadit za proměnné, aby byly všechny rovnice splněny.
 
-V následující úvodní sekci si ukážeme různé aplikace lineárních systémů a
-nadneseme několik otázek o povaze jejich množin řešení, jež budeme chtít umět
-zodpovědět.
-
 == Pár aplikací lineárních systémů
+
+V této úvodní sekci si ukážeme různé aplikace lineárních systémů a nadneseme
+několik otázek o povaze jejich množin řešení, jež budeme chtít umět zodpovědět.
+
+=== Vstupy a výstupy průmyslů
 
 Ekonomie je složitý systém vzájemně provázaných průmyslů. Vstupy (řekněme
 "materiál nutný na výrobu") jednotlivých průmyslů jsou většinou svázány lineárně
@@ -48,5 +49,72 @@ nákupu a prodeji a tyto bude psát tužkou na papír. Nyní je výstup dřevní
 průmyslu vstupem tužkového a tužky jsou zase vstupem dřevního průmyslu.
 Spočítat, jak přirozené fluktuace v nabídce a poptávce ovlivní takový systém
 není triviální. Podívejme se blíže na jiný (leč zjednodušený) příklad z praxe.
+
+Omezíme se na dva konkrétní hráče na volném trhu -- automobilový průmysl a
+průmysl ocelový. Pochopitelně, automobilový průmysl vyžaduje ocel k výrobě
+vozidel, a naopak, ocelový průmysl vyžaduje nákladní auta k převozu oceli z
+továren ke kupcům. Zároveň, automobilový průmysl používá svá vlastní nákladní
+auta například k převozu osobních automobilů a ocelový průmysl též svou vlastní
+ocel k výstavbě továren. Konečně, výše výstupu obou průmyslů musí uspokojit
+poptávku všech ostatních průmyslů i fyzických osob na trhu.
+
+Situaci shrňme následující tabulkou, kde jsou u obou průmyslů uvedeny hodnoty
+výstupů (v milionech dolarů za rok 1958 v USA) využívaných automobilovým
+průmyslem, ocelovým průmyslem a pak všemi ostatními.
+
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+  inset: 10pt,
+  align: end,
+  table.header(
+    [], [*užívá ocel*], [*užívá auto*], [*užívá zbytek*], [*celkem*]
+  ),
+  table.hline(start: 1, stroke: 0.5pt + maindef),
+  table.vline(x: 1, start: 1, stroke: 0.5pt + maindef),
+  [*hodnota oceli*], [$5395$], [$2664$], [$17389$], [$25448$],
+  [*hodnota auta*], [$48$], [$9030$], [$21268$], [$30346$],
+)
+
+Celkem přirozeně, hodnoty v prvních dvou sloupcích zůstanou konstantní, dokud se
+nezmění hodnoty ve sloupci třetím. Ani jeden z průmyslů nemá důvod upravovat
+nabídku, nezmění-li se poptávka. Ovšem, hodnota v třetím sloupci kolísá s
+poptávkou _fyzických osob_, jež je notoricky obtížně předpovídatelná. Chtěli
+bychom umět určit hodnotu obou průmyslů v příštím roce na základě dané fluktuace
+hodnoty ve třetím sloupci tabulky.
+
+Tomu poslouží lineární systém o těchto dvou rovnicích:
+#align(center)[
+  $
+    "hodnota oceli v příštím roce" & = "užitá ocel ocelí v příštím roce" \
+                                   & + "užitá ocel autem v příštím roce" \
+                                   & + "užitá ocel ostatními v příštím roce" \
+     "hodnota auta v příštím roce" & = "užité auto ocelí v příštím roce" \
+                                   & + "užité auto autem v příštím roce" \
+                                   & + "užité auto ostatními v příštím roce" \
+  $ <eq:economy>
+]
+
+Pro jednoduchost vyjádření označíme písmenem $o$ hodnotu oceli v příštím roce a
+písmenem $a$ hodnotu auta v příštím roce.
+
+Předpokládejme, že hodnota užité oceli ostatními v příštím roce vzroste na 17589
+milionu dolarů a hodnota užitého auta ostatními v příštím roce klesne na 21243.
+Budeme též předpokládat, že podíl celkové hodnoty ocelového i automobilového
+průmyslu využitý ocelovým průmyslem zůstane nezměněn a stejně tak i pro průmysl
+automobilový. Čili, ocelový průmysl použil v tomto roce přesně $5395 slash
+25448$ hodnoty svého vlastního výstupu a $2664 slash 30346$ hodnoty výstupu
+automobilového průmyslu. Dále, automobilový průmysl použil $9030 slash 30346$
+své vlastní hodnoty a $48 slash 25448$ hodnoty oceli.
+
+Dosazením všech hodnot do rovnice @eq:economy dostaneme
+#align(center)[
+  $
+    o & = 5395/25448 o + 2664/30346 a + 17589 \
+    a & = 48 / 25448 o + 9030 / 30346 a + 21243
+  $
+]
+
+Řešením tohoto systému jsou očekávané hodnoty výstupů obou průmyslů při dané
+fluktuaci vnější poptávky.
 
 
