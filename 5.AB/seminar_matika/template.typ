@@ -3,6 +3,7 @@
 #import "@preview/thmbox:0.3.0": *
 #import "@preview/equate:0.3.2": equate
 #import "@preview/headcount:0.1.0": *
+#import "@preview/zap:0.4.0"
 
 // Colors
 #let maindark = rgb("#243642")

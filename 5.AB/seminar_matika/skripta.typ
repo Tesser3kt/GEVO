@@ -117,4 +117,46 @@ Dosazením všech hodnot do rovnice @eq:economy dostaneme
 Řešením tohoto systému jsou očekávané hodnoty výstupů obou průmyslů při dané
 fluktuaci vnější poptávky.
 
+=== Elektrické sítě
 
+Inženýři často potřebují zodpovědět otázky o elektrických sítích (v mobilu, v
+autě ...) typu: "Jak silný proud prochází každým obvodem?", "Jak vysoké napětí
+nepřetíží připojená zařízení" apod.
+
+Lineární systémy mohou sloužit jako dobrý způsob studia elektrických sítí. Než
+se podíváme na konkrétní příklady, shrneme víceméně intuitivním způsobem
+základní vlastnosti elektrických sítí.
+
+Jednoduchý elektrická síť sestává ze dvou typů zařízení: _baterií_ a
+_resistorů_. Jejich vztah si lze představovat tak, že baterie pumpuje napětí,
+dokud existuje v síti aspoň jeden uzavřený obvod a průchod elektrického proudu
+resistorem napětí ve zbytku obvodu sníží. Proud jako takový lze považovat za
+jakousi "rychlost" pohybu napětí po síti. Když se síť rozdělí do dvou obvodů,
+proud se rozdělí též, neboť napětí zůstane v obou obvodech stejné.
+
+Proud, napětí a odpor jsou svázány tzv. Ohmovým zákonem, který říká, že v každém
+bodě obvodu platí
+#align(center)[
+ $"napětí" = "proud" dot "odpor"$.
+]
+Další ingrediencí ke studiu elektrických obvodů se nám stanou dva Kirchhoffovy
+zákony: zákon _napětí_ a zákon _proudění_. Zákon napětí říká, že celkový pokles
+napětí v každém obvodu je roven celkovému vzrůstu. Jinak řečeno, po průchodu
+všemi resistory v obvodu musí být nulové, neboť jeho vzrůst zařizuje baterie.
+Kirchhoffův zákon proudění říká, že v každém bodě, kde se síť dělí na více
+obvodů, je součet velikostí proudů konstantní. Rozdělí-li se tedy jeden obvod v
+jistém bodě na tři obvody, pak velikost proudu v tomto jednom obvodu musí být
+rovna součtu velikostí tří proudů v obvodech následujících.
+
+Nyní předložíme několik příkladů elektrických sítí, od jednoduchých po poněkud
+komplikovanější.
+
+Jistě nejjednodušším příkladem elektrické sítě je ta o pouze jednom obvodu.
+
+#figure(
+  zap.circuit({
+    import zap: *
+
+    capacitor("c1", (0, 0), (0, 4), label: "Baterie")
+  })
+)
