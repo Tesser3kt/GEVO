@@ -263,3 +263,16 @@ libovolné dvě ponechat a tu třetí můžeme zanedbat. Jak problém "Které ro
 soustavě jsou zbytečné?" řešit zodpovíme brzy.
 
 Řešením systému je $i_0 = 7, i_1 = 4, i_2 = 3$.
+
+=== Chemické rovnice
+
+Lineární systémy se objevují též v chemii, konkrétně při vyčíslování reakcí.
+Uvažme reakci, kdy se toluen #math.mono($C_7 H_8$) slučuje s kyselinou dusičnou
+#math.mono($H N O_3$) a produkuje trinitrotoluen #math.mono($C_7 H_5 O_6 N_3$) s
+vodou #math.mono($H_2 O$). Počet molekul na obou stranách reakce označíme
+postupně písmeny $x,y,z,w$. Pak můžeme reakci zapsat jako
+#align(center)[
+  $x" "mono(C_7 H_8) + y" "mono(H N O_3) arrow z" "mono(C_7 H_5 O_6 N_3) + w"
+ "mono(H_2 O)$.
+]
+
