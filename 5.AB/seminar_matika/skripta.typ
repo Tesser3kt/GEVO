@@ -275,4 +275,12 @@ postupně písmeny $x,y,z,w$. Pak můžeme reakci zapsat jako
   $x" "mono(C_7 H_8) + y" "mono(H N O_3) arrow z" "mono(C_7 H_5 O_6 N_3) + w"
  "mono(H_2 O)$.
 ]
+Aby taková reakce mohla nastat, musí díky zákonu zachování hmoty být počet atomů
+na levé straně být roven počtu atomů na straně pravé. Jelikož v reakci vystupují
+čtyři různé atomy, dostáváme systém o čtyřech rovnicích:
+#align(center)[
+ $display(
+   mono(C): & 7x &= 7z\
+ )$
+]
 

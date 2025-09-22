@@ -27,13 +27,13 @@
     margin: 2cm,
   )
   set text(
-    size: 12pt,
+    size: 11pt,
     lang: "cs",
-    font: "EB Garamond",
+    font: "TeX Gyre Schola",
   )
   show math.equation: set text(
-    size: 12pt,
-    font: "Garamond-Math",
+    size: 11pt,
+    font: "TeX Gyre Schola Math",
   )
   show link: set text(
     fill: green,
@@ -47,7 +47,7 @@
   image(img, width: 80%)
 
   v(1em)
-  text(font: "Prenton")[#title]
+  text(font: "TeX Gyre Adventor")[#title]
   v(1em)
 
   // Authors
@@ -72,7 +72,7 @@
 
   v(1em)
   // Abstract
-  set text(size: 12pt)
+  set text(size: 11pt)
   set par(justify: true)
   [ #abstract ]
 
@@ -100,7 +100,7 @@
     },
   )
   set align(top + left)
-  set text(size: 12pt)
+  set text(size: 11pt)
   set par(justify: true)
 
   // Bold also colorises
@@ -115,7 +115,7 @@
   // Headings format
   set heading(numbering: "I.1.1")
   show heading: set text(
-    font: "Prenton",
+    font: "TeX Gyre Adventor",
   )
 
   // Headings settings
@@ -123,7 +123,7 @@
     pagebreak()
     block(
       below: 1em,
-      text(maindark)[#it],
+      text(size: 18pt, maindark)[#it],
     )
   }
 
@@ -131,7 +131,7 @@
     block(
       above: 1.5em,
       below: 1em,
-      text(maindef)[#it],
+      text(size: 15pt, maindef)[#it],
     )
   }
 
@@ -139,7 +139,7 @@
     block(
       above: 1.5em,
       below: 1em,
-      text(mainlight)[#it],
+      text(size: 13pt, mainlight)[#it],
     )
   }
 
