@@ -279,8 +279,34 @@ Aby taková reakce mohla nastat, musí díky zákonu zachování hmoty být poč
 na levé straně být roven počtu atomů na straně pravé. Jelikož v reakci vystupují
 čtyři různé atomy, dostáváme systém o čtyřech rovnicích:
 #align(center)[
- $display(
-   mono(C): & 7x &= 7z\
- )$
+  $display(
+    mono(C): & & 7x &= 7z\
+    mono(H): & 8x &+ y &= 5z &+& 2w\
+    mono(N): & & y &= 3z \
+    mono(O): & & 3y &= 6z & + & w
+  )$
 ]
+Všimněte si, že takový systém rovnic má *nekonečně mnoho* řešení, protože obě
+strany chemické reakce závisejí na úvodním množství (aspoň jedné ze) sloučenin.
+Aby měl systém se čtyřmi proměnnými přesně jedno řešení, musí obsahovat
+minimálně čtyři lineární rovnice, ale -- jak vidno -- nemusí to vždy stačit.
 
+=== Interpolace
+
+Důležitou úlohou statistiky je schopnost aproximovat diskrétní data souvislou
+křivkou dané "výpočetní složitosti". Diskrétními daty se myslí zkrátka množina
+měření jisté veličiny nebo veličin v čase. Uvažme příklad hodnoty akcií firmy
+NVIDIA za poslední měsíc. Měření této hodnoty každý týden v pondělní poledne dá
+graf na #ref(<graf-nvidia>, supplement: "obrázku").
+
+#figure(
+  cetz.canvas({
+    import cetz.draw: *
+
+    line((-0.5, 0), (3, 0), mark: (end: "stealth"))
+    content((3, -0.2), [týden], anchor: "north")
+    line((0, -0.5), (0, 3), mark: (end: "stealth"))
+    content((-0.2, 3), [hodnota akcie], anchor: "east")
+  }),
+  caption: [Graf hodnot akcií firmy NVIDIA za měsíc září 2026.],
+) <graf-nvidia>
