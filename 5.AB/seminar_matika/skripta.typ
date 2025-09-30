@@ -59,7 +59,7 @@ ocel k výstavbě továren. Konečně, výše výstupu obou průmyslů musí usp
 poptávku všech ostatních průmyslů i fyzických osob na trhu.
 
 Situaci shrňme následující tabulkou, kde jsou u obou průmyslů uvedeny hodnoty
-výstupů (v milionech dolarů za rok 1958 v USA) využívaných automobilovým
+výstupů (v~milionech dolarů za rok 1958 v USA) využívaných automobilovým
 průmyslem, ocelovým průmyslem a pak všemi ostatními.
 
 #table(
@@ -101,12 +101,12 @@ Předpokládejme, že hodnota užité oceli ostatními v příštím roce vzrost
 milionu dolarů a hodnota užitého auta ostatními v příštím roce klesne na 21243.
 Budeme též předpokládat, že podíl celkové hodnoty ocelového i automobilového
 průmyslu využitý ocelovým průmyslem zůstane nezměněn a stejně tak i pro průmysl
-automobilový. Čili, ocelový průmysl použil v tomto roce přesně $5395 slash
+automobilový. Čili, ocelový průmysl použil v~tomto roce přesně $5395 slash
 25448$ hodnoty svého vlastního výstupu a $2664 slash 30346$ hodnoty výstupu
 automobilového průmyslu. Dále, automobilový průmysl použil $9030 slash 30346$
 své vlastní hodnoty a $48 slash 25448$ hodnoty oceli.
 
-Dosazením všech hodnot do rovnice @eq:economy dostaneme
+Dosazením všech hodnot do systému @eq:economy dostaneme
 #align(center)[
   $
     o & = 5395/25448 o + 2664/30346 a + 17589 \
@@ -127,12 +127,13 @@ Lineární systémy mohou sloužit jako dobrý způsob studia elektrických sít
 se podíváme na konkrétní příklady, shrneme víceméně intuitivním způsobem
 základní vlastnosti elektrických sítí.
 
-Jednoduchý elektrická síť sestává ze dvou typů zařízení: _baterií_ a
+Jednoduchá elektrická síť sestává ze dvou typů zařízení: _baterií_ a
 _resistorů_. Jejich vztah si lze představovat tak, že baterie pumpuje napětí,
 dokud existuje v síti aspoň jeden uzavřený obvod a průchod elektrického proudu
 resistorem napětí ve zbytku obvodu sníží. Proud jako takový lze považovat za
 jakousi "rychlost" pohybu napětí po síti. Když se síť rozdělí do dvou obvodů,
-proud se rozdělí též, neboť napětí zůstane v obou obvodech stejné.
+proud se rozdělí též, neboť napětí zůstane v obou obvodech stejné ("vést" stejné
+napětí dvěma cestami je "těžší" než jednou).
 
 Proud, napětí a odpor jsou svázány tzv. Ohmovým zákonem, který říká, že v každém
 bodě obvodu platí
@@ -142,11 +143,11 @@ bodě obvodu platí
 Další ingrediencí ke studiu elektrických obvodů se nám stanou dva Kirchhoffovy
 zákony: zákon _napětí_ a zákon _proudění_. Zákon napětí říká, že celkový pokles
 napětí v každém obvodu je roven celkovému vzrůstu. Jinak řečeno, po průchodu
-všemi resistory v obvodu musí být nulové, neboť jeho vzrůst zařizuje baterie.
-Kirchhoffův zákon proudění říká, že v každém bodě, kde se síť dělí na více
-obvodů, je součet velikostí proudů konstantní. Rozdělí-li se tedy jeden obvod v
-jistém bodě na tři obvody, pak velikost proudu v tomto jednom obvodu musí být
-rovna součtu velikostí tří proudů v obvodech následujících.
+všemi resistory v obvodu musí být napětí nulové, neboť jeho vzrůst zařizuje
+baterie. Kirchhoffův zákon proudění říká, že v každém bodě, kde se síť dělí na
+více obvodů, je součet velikostí proudů konstantní. Rozdělí-li se tedy jeden
+obvod v jistém bodě na tři obvody, pak velikost proudu v tomto jednom obvodu
+musí být rovna součtu velikostí tří proudů v obvodech následujících.
 
 Nyní předložíme několik příkladů elektrických sítí, od jednoduchých po poněkud
 komplikovanější.
@@ -176,8 +177,8 @@ $Omega$ a víme, že platí $"napětí" = "proud" dot "odpor"$, můžeme spočí
 proud procházející obvodem je roven 1 A.
 
 Nyní již uvážíme síť o třech obvodech: jednom vnějším (označeném modře), jednom
-vnitřním (z baterky přes resistor o 4 $Omega$ a zase do baterky) a jednom bez
-baterky (obdélník obsahující oba resistory).
+vnitřním (z~baterie přes resistor o 4 $Omega$ a zase do baterie) a jednom bez
+baterie (obdélník obsahující oba resistory).
 
 #figure(
   zap.circuit({
@@ -233,12 +234,12 @@ Navíc, pro každý ze tří obvodů platí Kirchhoffův zákon napětí. V př�
 vnitřního obvodu (kterým prochází proud o velikosti $i_2$) musí resistor snížit
 napětí o celých 12 V. Z pravidla $"napětí" = "proud" dot "odpor"$ dostáváme
 rovnici $12 = i_2 dot 4$. Podobně, modrý vnější obvod splňuje rovnici $12 = i_1
-dot 3$. Nakonec zde máme obvod bez baterky. Ten má celkové napětí 0 V.
+dot 3$. Nakonec zde máme obvod bez baterie. Ten má celkové napětí 0 V.
 Resistorem nalevo prochází napětí $4 dot i_2$ a resistorem napravo napětí $3 dot
 i_1$. Protože však elektřina proudí resistorem napravo _opačným směrem_ oproti
 resistoru napravo, musíme tento fakt vykompensovat změnou znaménka. Celkový
 pokles napětí v tomto obvodu je pročež #box($4 dot i_2 - 3 dot i_1$). Ten musí být
-nulový, čili $4 dot i_2 - 3 dot i_1 = 0$.
+nulový (neb nedošlo k žádnému nárůstu napětí), čili $4 dot i_2 - 3 dot i_1 = 0$.
 
 Po využití obou Kirchhoffových zákonů docházíme k závěru, že proud procházející
 sítí je popsán soustavou rovnic
@@ -255,12 +256,12 @@ Jak si můžete všimnout, jisté rovnice jsou tu zbytečné, třeba druhá a p�
 tom by nám nemuselo záležet, dostaneme-li správný výsledek tak či tak, ale z
 výpočetního hlediska je tato situace neoptimální. Totiž, v~praxi počítáme
 obvykle systémy o tisících ba statisících lineárních rovnicích a zcela jistě
-není vhodné nechat počítač řešit například pět tisíc rovnic, mohl-li řešit pouze
-tisíc. Které rovnice jsou však zbytečné a které ne není triviální bez bližšího
-studia určit. Například aspoň jednu z prvních dvou rovnic ponechat musíme, neboť
-bez nich nespočítáme proud $i_0$. Dále, z posledních tří rovnic si rovněž musíme
-libovolné dvě ponechat a tu třetí můžeme zanedbat. Jak problém "Které rovnice v
-soustavě jsou zbytečné?" řešit zodpovíme brzy.
+není vhodné nechat počítač řešit například pět tisíc rovnic, mohl-li řešit tisíc
+pouze jeden. Které rovnice jsou však zbytečné a které ne, není triviální bez
+bližšího studia určit. Například aspoň jednu z prvních dvou rovnic ponechat
+musíme, neboť bez nich nespočítáme proud $i_0$. Dále, z posledních tří rovnic si
+rovněž musíme libovolné dvě ponechat a tu třetí můžeme zanedbat. Jak problém
+"Které rovnice v soustavě jsou zbytečné?" řešit zodpovíme brzy.
 
 Řešením systému je $i_0 = 7, i_1 = 4, i_2 = 3$.
 
@@ -384,7 +385,7 @@ Tím je například onen "horní trojúhelník". Z něj dostaneme rovnici
   $display(5i_1 + 50i_5 - 2i_2 = 0)$.
 ]
 
-Celkem tedy řešíme soustavu rovnic o sedmi rovnicích a šesti neznámých:
+Celkem tedy řešíme soustavu o sedmi rovnicích a šesti neznámých:
 #align(center)[
   $display(
     i_0 & = i_1 + i_2\
@@ -393,8 +394,8 @@ Celkem tedy řešíme soustavu rovnic o sedmi rovnicích a šesti neznámých:
     i_2 + i_5 & = i_4\
     10 & = 5i_1 + 10i_3\
     10 & = 2i_2 + 4i_4\
-    0 & = 5i_1 + 50i_5 - 2i_2,
-  )$
+    0 & = 5i_1 + 50i_5 - 2i_2
+  )$,
 ]
 jejímž řešením je $i_0 = 7 slash 3, i_1 = 2 slash 3, i_2 = 5 slash 3, i_3 = 2
 slash 3, i_4 = 5 slash 3$ a $i_5 = 0$.
@@ -406,15 +407,15 @@ který si dostanete šanci rozmyslet prostřednictvím cvičení na konci kapito
 
 Lineární systémy se objevují též v chemii, konkrétně při vyčíslování reakcí.
 Uvažme reakci, kdy se toluen #math.mono($C_7 H_8$) slučuje s kyselinou dusičnou
-#math.mono($H N O_3$) a produkuje trinitrotoluen #math.mono($C_7 H_5 O_6 N_3$) s
-vodou #math.mono($H_2 O$). Počet molekul na obou stranách reakce označíme
-postupně písmeny $x,y,z,w$. Pak můžeme reakci zapsat jako
+#math.mono($H N O_3$) a produkuje trinitrotoluen (zkráceně TNT) #math.mono($C_7
+H_5 O_6 N_3$) s vodou #math.mono($H_2 O$). Počet molekul na obou stranách reakce
+označíme postupně písmeny $x,y,z,w$. Pak můžeme reakci zapsat jako
 #align(center)[
   $x" "mono(C_7 H_8) + y" "mono(H N O_3) arrow z" "mono(C_7 H_5 O_6 N_3) + w"
  "mono(H_2 O)$.
 ]
 Aby taková reakce mohla nastat, musí díky zákonu zachování hmoty být počet atomů
-na levé straně být roven počtu atomů na straně pravé. Jelikož v reakci vystupují
+na levé straně roven počtu atomů na straně pravé. Jelikož v reakci vystupují
 čtyři různé atomy, dostáváme systém o čtyřech rovnicích:
 #align(center)[
   $display(
@@ -481,11 +482,11 @@ graf na #ref(<graf-nvidia>, supplement: "obrázku").
 ) <graf-nvidia>
 
 Jakožto finančních analytiků je naší úlohou na základě dosavadních dat zkusit
-odhadnout vývoj hodnoty akcií firma NVIDIA v budoucích týdnech. Tomuto
+odhadnout vývoj hodnoty akcií firmy NVIDIA v budoucích týdnech. Tomuto
 "doplnění" daných dat o chybějící údaje (ať už mezi jednotlivými týdny nebo v
 týdnech budoucích) se říká _interpolace_. Nejjednodušší (ale zato nejrychlejší)
-způsob interpolace je proložení daných dat přímkou (tzv. _line of best-fit_).
-Taková úloha vede přirozeně na řešení soustavy lineárních rovnic.
+způsob interpolace je proložení přímkou (tzv. _line of best-fit_). Taková úloha
+vede přirozeně na řešení soustavy lineárních rovnic.
 
 Totiž, přímka v rovině je dána lineární rovnicí $y = a x + b$. My máme k
 dispozici pět dvojic čísel $(x, y)$ -- $x$ je číslo týdne, $y$ je hodnota akcie
@@ -496,15 +497,15 @@ akcií v jednotlivých týdnech následující:
   table(
     columns: (60pt, 100pt),
     inset: 10pt,
-    align: horizon,
+    align: (horizon + center, horizon + left),
     table.header([*týden*], [*hodnota akcie*]),
     table.hline(stroke: 0.5pt + maindef),
     table.vline(x: 1, stroke: 0.5pt + maindef),
-    [$1$], [$171.65$],
-    [$2$], [$168.245$],
-    [$3$], [$175.65$],
-    [$4$], [$179.845$],
-    [$5$], [$181.85$],
+    [$1$], [$\$171.65$],
+    [$2$], [$\$168.245$],
+    [$3$], [$\$175.65$],
+    [$4$], [$\$179.845$],
+    [$5$], [$\$181.85$],
   ),
   caption: [Hodnoty akcií firmy NVIDIA za měsíc září 2026.],
 )
@@ -559,3 +560,146 @@ později. Výsledkem příslušného výpočtu by byla přímka $y = 3.2x + 166$
   }),
   caption: [Aproximace hodnot akcií firmy NVIDIA přímkou.],
 ) <graf-nvidia-best-fit>
+
+=== Úlohy na závěr
+
+#enum[
+  Předpovězte hodnoty tří průmyslů v příštím roce, jejichž vzájemný vztah je dán
+  #ref(<three-industries>, supplement: "tabulkou").
+  #figure(
+    text(size: 9pt)[
+      #table(
+        columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+        inset: 8pt,
+        align: horizon + end,
+        table.header(
+          [],
+          table.cell(align: bottom + end)[*užívá\ zemědělství*],
+          table.cell(align: bottom + end)[*užívá\ železnice*],
+          table.cell(align: bottom + end)[*užívá\ logistika*],
+          table.cell(align: bottom + end)[*užívají\ ostatní*],
+          table.cell(align: bottom + end)[*celkem*],
+        ),
+        table.hline(start: 1, stroke: 0.5pt + maindef),
+        table.vline(x: 1, start: 1, stroke: 0.5pt + maindef),
+        [*hodnota\ zemědělství*], [$25$], [$50$], [$100$], [$625$], [$800$],
+        [*hodnota\ železnice*], [$25$], [$50$], [$50$], [$175$], [$300$],
+        [*hodnota\ logistiky*], [$15$], [$10$], [$0$], [$475$], [$500$],
+      )],
+    caption: text(size: 11pt)[Vzájemný vztah tří průmyslů.],
+  ) <three-industries>
+  #v(1em)
+][
+  Spočtěte proud procházející každým resistorem v obvodu na
+  #ref(<electric-network-2>, supplement: "obrázku").
+  #figure(
+    zap.circuit({
+      import zap: *
+
+      capacitor("c1", (0, 0), (0, 5), label: [$"9 V"$])
+      wire((0, 5), (2, 5))
+      wire((0, 0), (2, 0))
+      resistor("r1", (2, 0), (2, 5), label: (
+        content: [$"3 "Omega$],
+        anchor: "south",
+        distance: 5pt,
+      ))
+      resistor("r2", (2, 5), (5, 5), label: (
+        content: [$"3 "Omega$],
+        anchor: "south",
+        distance: 5pt,
+      ))
+      resistor("r3", (5, 5), (5, 0), label: (
+        content: [$"2 "Omega$],
+        anchor: "south",
+        distance: 5pt,
+      ))
+      resistor("r4", (5, 0), (2, 0), label: (
+        content: [$"2 "Omega$],
+        anchor: "south",
+        distance: 5pt,
+      ))
+      resistor("r5", (8, 5), (8, 0), label: (
+        content: [$"4 "Omega$],
+        anchor: "south",
+        distance: 5pt,
+      ))
+      resistor("r6", (5, 0), (8, 0), label: (
+        content: [$"2 "Omega$],
+        anchor: "north",
+        distance: 5pt,
+      ))
+      resistor("r7", (5, 5), (8, 5), label: (
+        content: [$"3 "Omega$],
+        anchor: "south",
+        distance: 5pt,
+      ))
+    }),
+    caption: [Elektrická síť k úloze 2.],
+  ) <electric-network-2>
+  #v(1em)
+][
+  Dokažte, že jsou-li dány odpory zařízení ve Wheatstonově mostě jako na
+  #ref(<wheatstone-bridge-unknown>, supplement: "obrázku") a proud procházející
+  resistorem $r_g$ (tím prostředním) je nulový, pak platí rovnost
+  #align(center)[
+    $display(r_4 = frac(r_2 dot r_3, r_1)).$
+  ]
+  Měření odporu resistoru $r_4$ probíhá tak, že upravujeme odpory zařízení $r_1,
+  r_2$ a $r_3$, dokud není odpor $r_g$ nulový. V ten moment známe odpor $r_4$
+  díky rovnosti výše.
+
+  #figure(
+    zap.circuit({
+      import zap: *
+
+      capacitor("c1", (0, 0), (0, 5), label: [$"10 V"$])
+      resistor("r1", (5, 4), (4, 3), label: (
+        content: [$r_1$],
+        anchor: "south",
+        distance: 2pt,
+      ))
+      resistor("r2", (6, 4), (7, 3), label: (
+        content: [$r_2$],
+        anchor: "north",
+        distance: 2pt,
+      ))
+      resistor("r5", (4, 2.5), (7, 2.5), label: (
+        content: [$r_g$],
+        anchor: "north",
+        distance: 4pt,
+      ))
+      resistor("r3", (4, 2), (5, 1), label: (
+        content: [$r_3$],
+        anchor: "south",
+        distance: 2pt,
+      ))
+      resistor("r4", (7, 2), (6, 1), label: (
+        content: [$r_4$],
+        anchor: "north",
+        distance: 2pt,
+      ))
+
+      wire((0, 5), (5.5, 5), (5.5, 4.5), (5, 4))
+      wire((5.5, 4.5), (6, 4))
+
+      wire((5, 1), (5.5, 0.5))
+      wire((5, 1), (5.5, 0.5), (5.5, 0), (0, 0))
+      wire((6, 1), (5.5, 0.5))
+
+      wire((5.5, 4.5), (5, 4))
+      wire((4, 3), (3.5, 2.5))
+      wire((3.5, 2.5), (5, 2.5))
+      wire((7, 3), (7.5, 2.5))
+      wire((6, 2.5), (7.5, 2.5))
+      wire((3.5, 2.5), (4, 2))
+      wire((7.5, 2.5), (7, 2))
+
+      node("n1", (5.5, 4.5), fill: true)
+      node("n2", (5.5, 0.5), fill: true)
+      node("n3", (3.5, 2.5), fill: true)
+      node("n4", (7.5, 2.5), fill: true)
+    }),
+    caption: [Wheatstonův most s neznámými odpory.],
+  ) <wheatstone-bridge-unknown>
+]
