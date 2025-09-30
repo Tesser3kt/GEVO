@@ -4,6 +4,7 @@
 #import "@preview/equate:0.3.2": equate
 #import "@preview/headcount:0.1.0": *
 #import "@preview/zap:0.4.0"
+#import "@preview/cetz:0.4.2"
 
 // Colors
 #let maindark = rgb("#243642")
