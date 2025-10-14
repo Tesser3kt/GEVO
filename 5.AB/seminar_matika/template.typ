@@ -6,6 +6,7 @@
 #import "@preview/zap:0.4.0"
 #import "@preview/cetz:0.4.2"
 #import "@preview/ctheorems:1.1.3": *
+#import "@preview/itemize:0.1.2" as el
 
 // Colors
 #let maindark = rgb("#243642")
@@ -26,6 +27,25 @@
   padding: (top: 0em, bottom: 0em),
   radius: 0em,
 )
+#let proposition = thmbox(
+  "proposition",
+  "Tvrzení",
+  fill: mainlight.transparentize(80%),
+  breakable: true,
+  inset: 0.8em,
+  padding: (top: 0em, bottom: 0em),
+  radius: 0em,
+)
+#let proof = thmproof("proof", "Důkaz")
+
+
+// Coloring
+#let clb(body) = {
+  text(fill: blue.darken(30%))[#body]
+}
+#let clp(body) = {
+  text(fill: purple.darken(30%))[#body]
+}
 
 #let template(
   img: none,
@@ -49,9 +69,8 @@
     font: "TeX Gyre Schola Math",
   )
   show link: set text(
-    fill: green,
+    fill: maindef,
   )
-
   // Title page
 
   // Title
@@ -171,6 +190,17 @@
 
   // Thmbox
   show: thmbox-init()
+
+  // Enum-list
+  show: el.default-list.with(
+    indent: 8pt,
+    enum-spacing: (above: 8pt, below: 8pt),
+  )
+  show: el.default-enum-list.with(
+    indent: 8pt,
+    enum-spacing: (above: 8pt, below: 8pt),
+  )
+  set enum(numbering: "(1).(a).(i)", full: false)
 
   doc
 }
