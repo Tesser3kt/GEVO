@@ -5,6 +5,7 @@
 #import "@preview/headcount:0.1.0": *
 #import "@preview/zap:0.4.0"
 #import "@preview/cetz:0.4.2"
+#import "@preview/ctheorems:1.1.3": *
 
 // Colors
 #let maindark = rgb("#243642")
@@ -14,6 +15,17 @@
 #let blue = rgb("#2CC4EF")
 #let green = rgb("#2EBDB6")
 #let purple = rgb("#695BAA")
+
+// Define theorem envs
+#let definition = thmbox(
+  "definition",
+  "Definice",
+  fill: blue.transparentize(90%),
+  breakable: true,
+  inset: 0.8em,
+  padding: (top: 0em, bottom: 0em),
+  radius: 0em,
+)
 
 #let template(
   img: none,
