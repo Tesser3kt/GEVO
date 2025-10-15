@@ -97,7 +97,6 @@ Gauβův-Jordanův algoritmus nejprve ilustrujeme na příkladě.
   $
 ] <eq:sys-exam-1>
 
-
 Budeme postupovat tak, že nejprve z prvního sloupce a všech řádků _kromě_
 prvního "vyeliminujeme" proměnnou $x_1$. Konkrétně, odečteme dvojnásobek první
 rovnice od druhé a pak přičteme první rovnici ke třetí. Zatím nám věřte, že
@@ -122,8 +121,8 @@ Výsledkem bude systém
 Konečně, z druhého sloupce a všech řádků pod druhým (tedy již pouze z třetího)
 vyeliminujeme proměnnou $x_2$. Díky tomu, že již v žádném řádku kromě prvního
 není přítomna proměnná $x_1$, zbavíme se takto z třetího řádku proměnné $x_2$,
-aniž do něj "vrátíme" proměnnou $x_1$. Přičítáme proto trojnásobek druhého řádku
-ke třetímu a dostáváme
+aniž do něj "vrátíme" proměnnou $x_1$. Přičítáme proto trojnásobek druhé rovnice
+ke třetí a dostáváme
 #math.equation(numbering: none, block: true)[
   $
     #grid(
@@ -139,7 +138,7 @@ ke třetímu a dostáváme
 ]
 
 Teď je systém ve stavu, kdy můžeme zpětnou substitucí (nejprve spočítáme $x_3$,
-s jeho pomocí $x_2$ atd.) systém dopočítat. Z posledního řádku víme, že $x_3 =
+s jeho pomocí $x_2$ atd.) systém dopočítat. Z poslední rovnice víme, že $x_3 =
 -4$. Dosazením do druhé rovnice dostaneme
 #math.equation(numbering: none, block: true)[
   $-2x_2 + 2 dot (-4) = -14$
@@ -262,4 +261,46 @@ nenulovými čísly. Tyto tři úpravy lineárních systémů se souhrnně nazý
   ]
   kterážto rovnice zřejmě platí. Tím máme hotovo, protože jsme ověřili, že
   jakékoli řešení původního systému je stále řešením modifikovaného systému.
+]
+
+Na #link(<def:el-upravy>, "elementárních řádkových úpravách") je postaven právě
+Gauβův-Jordanův algoritmus, jak jste měli možnost vidět už na příkladu výše.
+Formulujeme jej nyní formálně, ale doporučujeme při jeho čtení mít stále na
+mysli příklad ze začátku podsekce. Jediný případ, který tento příklad nepokrývá
+a může nastat, je, že například v druhém sloupci a druhém řádku proměnná $x_2$
+není (její koeficient je $0$). V tomto případě prohodíme druhý řádek s nějakým
+nižším, ve kterém proměnná $x_2$ je a pokračujeme s eliminací. Pokud v žádném
+řádku pod druhým proměnná $x_2$ není, nebudeme ji eliminovat (není odkud) a
+pokračujeme s proměnnou $x_3$.
+
+#no-strips-algo[
+  #algo(
+    header: "Gauβův-Jordanův algoritmus",
+    fill: gray.transparentize(90%),
+    line-numbers: false,
+    stroke: 1pt + mainlight,
+    breakable: true,
+  )[
+    *INPUT*: lineární systém @eq:lin-sys #h(1fr)\
+    *OUTPUT*: tentýž lineární systém ve tvaru připraveném na zpětnou substituci (tzv. _odstupňovaný_ tvar)\
+    \
+    V $i$-tém sloupci dělej následující.
+    #enum[
+      Najdi $k >= i$ takové, že $a_(k,i) != 0$ (tj. v $k$-té rovnici "je"
+      proměnná $x_i$).
+      - Pokud takové $k$ neexistuje, nic nedělej a pokračuj dalším sloupcem.
+    ][
+      Prohoď $i$-tý a $k$-tý řádek.
+    ][
+      Pro každé $j > i$ (tedy pro každý řádek pod $i$-tým):\
+      #enum[
+        Spočti $c = -a_(j,i) slash a_(i,i)$ (tedy čím musím vynásobit řádek $i$,
+        aby měl u $x_i$ -koeficient u $x_i$ v řádku $j$).
+      ][
+        Přičti $c$-násobek $i$-tého řádku k $j$-tému (tím se zbavím $x_i$ v $j$-tém řádku).
+      ]
+    ][
+      Pokračuj dalším sloupcem.
+    ]
+  ]
 ]

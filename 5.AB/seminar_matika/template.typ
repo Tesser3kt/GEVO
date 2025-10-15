@@ -7,6 +7,7 @@
 #import "@preview/cetz:0.4.2"
 #import "@preview/ctheorems:1.1.3": *
 #import "@preview/itemize:0.1.2" as el
+#import "@preview/algo:0.3.6": algo, code, comment, d, i
 
 // Colors
 #let maindark = rgb("#243642")
@@ -38,13 +39,18 @@
 )
 #let proof = thmproof("proof", "Důkaz")
 
-
 // Coloring
 #let clb(body) = {
   text(fill: blue.darken(30%))[#body]
 }
 #let clp(body) = {
   text(fill: purple.darken(30%))[#body]
+}
+
+// No strips for algorithm
+#let no-strips-algo(body) = {
+  set table(fill: none)
+  body
 }
 
 #let template(
@@ -194,10 +200,12 @@
   // Enum-list
   show: el.default-list.with(
     indent: 8pt,
+    line-indent: 27pt,
     enum-spacing: (above: 8pt, below: 8pt),
   )
   show: el.default-enum-list.with(
     indent: 8pt,
+    line-indent: 27pt,
     enum-spacing: (above: 8pt, below: 8pt),
   )
   set enum(numbering: "(1).(a).(i)", full: false)
