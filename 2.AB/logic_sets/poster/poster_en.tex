@@ -323,37 +323,62 @@
         enumeration.
 
         A more potent way of creating sets entails using logical propositions.
-        Assume $x$ is an object
+        Assume $x$ is an object and $p(x)$ is any logical proposition involving
+        $x$. For example,
+        \begin{align*}
+          p(x) &= \text{`$x$ is beautiful.'}\\
+          p(x) &= \text{`$x$ is a number.'}
+        \end{align*}
+        The set $\{x \mid p(x)\}$ is the set of all objects $x$ for which
+        $p(x)$ is true. Imagine
+        \[
+          p(x) = \text{`$x$ is natural number and $x$ is smaller than five.'}.
+        \]
+        Then,
+        \[
+          \{x \mid p(x)\} = \{0,1,2,3,4\}.
+        \]
       \end{exampleblock}
 
       \begin{alertblock}{Set Operations}
         Using logical operators, we can form new sets from existing ones or
         establish relations between sets. Consider two sets -- $A$ and $B$.
         \begin{itemize}[left=40pt]
-          \item[($ \cap $)] We can form the set of all objects $x$
-            that satisfy the
-            proposition $x \in A \wedge x \in B$, that is all objects
-            that \alert{lie in
-            both $A$ and $B$}. This set is called the
-            \alert{intersection} of $A$ and $B$
+          \item[($ \cap $)] We can form the set $\{x \mid x \in A \wedge x \in
+            B\}$, that is, the set of all objects that \alert{lie in both $A$
+            and $B$}. This set is called the \alert{intersection} of $A$ and $B$
             and written $A \cap B$. For example,
             \[
               \{\mycirc,\mytria,\mysquare\} \cap
               \{\mycross,\mycirc,\mysquare, \sim \} =
               \{\mycirc,\mysquare\}.
             \]
-          \item[($ \cup $)] I can form the set of all objects that satisfy the
-            proposition $x \in A \vee x \in B$, the set of all
-            objects that \alert{lie in
-            $A$ or in $B$}. It is called the \alert{union} of $A$ and
-            $B$ and denoted
-            $A \cup B$. All elements of $A \cup B$ can be found
-            \emph{only} in $A$,
+          \item[($ \cup $)] We can form the set $\{x \mid x \in A \vee x \in
+            B\}$, i.e. the set of all objects that \alert{lie in $A$ or in $B$}.
+            It is called the \alert{union} of $A$ and $B$ and denoted $A \cup
+            B$. All elements of $A \cup B$ can be found \emph{only} in $A$,
             \emph{only} in B or in \emph{both} $A$ and $B$. For example,
             \[
               \{\mycirc,\mytria,\mysquare\} \cup
               \{\mycross,\mycirc,\mysquare, \sim \} =
               \{\mycirc,\mytria,\mysquare,\mycross, \sim \}.
+            \]
+          \item[($ \neg $)] Negation itself doesn't really do much but we can
+            combine it with conjunction $( \wedge )$ to form the
+            \alert{difference} of two sets. The set $\{x \mid x \in A \wedge
+            \neg (x \in B)\} = \{x \mid x \in A \wedge x \notin B\}$ is the set
+            of all elements that belong to $A$ but do \alert{not} belong to $B$
+            and is denoted $A \setminus B$. For example,
+            \[
+              \{\mycirc,\mytria,\mysquare\} \setminus
+              \{\mycross,\mycirc,\mysquare, \sim \} = \{\mytria\}.
+            \]
+            \textbf{Beware:} the difference (unlike union and intersection) is
+            not commutative, meaning that $A \setminus B \neq B \setminus A$. In
+            the example above,
+            \[
+              \{\mycross,\mycirc,\mysquare, \sim \} \setminus
+              \{\mycirc,\mytria,\mysquare\}= \{\mycross, \sim\}.
             \]
           \item[($ \Rightarrow $)] Implication is a little different
             from intersection
@@ -371,9 +396,9 @@
             All the subsets of $B
             = \{\mytria,\mycirc\}$ are listed below.
             \[
-              \emptyset, \{\mytria\}, \{\mycirc\}, \{\mytria,\mycirc\},
+              \{\}, \{\mytria\}, \{\mycirc\}, \{\mytria,\mycirc\},
             \]
-            where $\emptyset$ is the \alert{empty set}, a set
+            where $\{\}$ is the \alert{empty set}, a set
             containing no elements.
           \item[($ \Leftrightarrow $)] Equivalence defines
             \alert{equality} on sets. If
@@ -385,10 +410,14 @@
         \end{itemize}
       \end{alertblock}
 
+    \end{column}
+    \separatorcolumn
+
+    \begin{column}{\colwidth}
       \begin{block}{Drawing Sets}
         Set operations can be visualized using so-called \emph{Venn
         diagrams}. This
-        just means using circles to represent the sets in questions.
+        just means using circles to represent the sets in question.
         For example, two
         sets -- $\clr{A}$ and $\clb{B}$ -- can be drawn like this:
         \begin{center}
@@ -401,9 +430,9 @@
             \node at (30:4.3) {\footnotesize $\clb{B}$};
           \end{tikzpicture}
         \end{center}
-        In these pictures, one can easily visualize the operations of union and
-        intersection. The union $\clg{A \cup B}$ is the entire area covered by
-        $\clr{A}$ and $\clb{B}$. It looks like this:
+        In these pictures, one can easily visualize the operations of union,
+        intersection and difference. The union $\clg{A \cup B}$ is the entire
+        area covered by $\clr{A}$ and $\clb{B}$. It looks like this:
         \begin{center}
           \begin{tikzpicture}[scale=0.5]
             \def\firstcircle{(180:1.5) circle (2)}
@@ -439,216 +468,139 @@
             \node at (90:3) {\footnotesize $\clm{A \cap B}$};
           \end{tikzpicture}
         \end{center}
-      \end{block}
-    \end{column}
-    \separatorcolumn
-
-    \begin{column}{\colwidth}
-
-      \begin{alertblock}{Products of Sets \& Relations}
-        Before introducing \emph{products} of sets, we must define a
-        \emph{pair}.
-        Simply said, a \alert{pair} of objects $(a,b)$ is just a set
-        containing $a$ and
-        $b$ \textbf{with ordering}, that is, $a$ is the
-        \textbf{first} element of
-        $(a,b)$ and $b$ is \textbf{second}. This means that $(a,b)
-        \neq (b,a)$ because
-        the order is not the same.
-
-        Now, the \alert{product} of sets $A$ and $B$, denoted $A
-        \times B$, is the set
-        of all pairs $(a,b)$ where $a \in A$ and $b \in B$. For example, if
-        \[
-          A = \{\mycirc,\mytria\} \quad \text{and} \quad B =
-          \{\mytria,\mycross, \sim
-          \},
-        \]
-        then
-        \[
-          A \times B = \{(\mycirc,\mytria),(\mycirc,\mycross),(\mycirc, \sim),
-          (\mytria,\mytria), (\mytria,\mycross), (\mytria, \sim)\}.
-        \]
-        Notice that $A \times B \neq B \times A$ because the
-        \textbf{order} of elements
-        in a pair \textbf{matters}. In this case,
-        \[
-          B \times A = \{(\mytria,\mycirc), (\mytria,\mytria),
-            (\mycross,\mycirc),
-          (\mycross,\mytria), ( \sim, \mycirc), ( \sim, \mytria)\}.
-        \]
-
-        As another example, consider the \emph{real plane} -- the set
-        of all points
-        with two coordinates. That is simply the set of pairs of real
-        numbers, $\R
-        \times \R$.
-
-        The mathematical way to define a \alert{relation} between two
-        sets is to simply
-        \textbf{list all the elements that are related}. Said
-        formally, a relation $R$
-        is a subset $R \subseteq A \times B$. For example,
-        \[
-          \{(\mytria,\mycross),(\mytria, \sim )\} \subseteq
-          \{\mycirc,\mytria\} \times
-          \{\mytria,\mycross, \sim\}
-        \]
-        is a relation between the sets $A$ and $B$ from above. It
-        literally says that
-        $\mytria$ is related to $\mycross$ and $ \sim $. Instead of writing
-        $(\mytria,\mycross) \in R$, we write $\mytria R \mycross$
-        because it's more
-        natural. Typical examples of relations include $ \leq $ and
-        $=$ and we don't
-        write $(2,3) \in~\leq $ but $2 \leq 3$.
-      \end{alertblock}
-
-      \begin{block}{Drawing Products And Relations}
-        One can draw the product $A \times B$ similarly to the way we
-        draw Cartesian
-        coordinates -- by distributing the elements of $A$
-        horizontally and those of
-        $B$ vertically. Each point in the resulting grid represents
-        an element of $A
-        \times B$.
-
-        Take, for example, $\clr{A = \{1, 2, 3, 4\}}$ and $\clb{B =
-        \{a, b, c\}}$. We
-        can depict the set $\clr{A} \times \clb{B}$ like this:
+        The difference $\clbr{A \setminus B}$ is the area of the red circle
+        which doesn't lie in the blue circle. The difference $\cly{B \setminus
+        A}$ is the mirror version of that.
         \begin{center}
-          \begin{tikzpicture}
-            \foreach \x in {0, 1, 2, 3} {
-              \pgfmathtruncatemacro\z{\x + 1}
-              \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
-            }
-            \foreach \y/\n in {0/a, 1/b, 2/c} {
-              \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
-            }
-            \foreach \x in {0, 1, 2, 3} {
-              \foreach \y in {0, 1, 2} {
-                \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
-              }
-            }
+          \begin{tikzpicture}[scale=0.5]
+            \def\firstcircle{(180:1.5) circle (2)}
+            \def\secondcircle{(0:1.5) circle (2)}
+
+            \fill[Sepia] \firstcircle;
+            \fill[white] \secondcircle;
+            \fill[RoyalBlue,fill opacity=0.25] \secondcircle;
+            \draw[RoyalBlue,thick] \secondcircle;
+            \node at (90:3) {\footnotesize $\clbr{A \setminus B}$};
+          \end{tikzpicture}
+          \begin{tikzpicture}[scale=0.5,xshift=10cm]
+            \def\firstcircle{(180:1.5) circle (2)}
+            \def\secondcircle{(0:1.5) circle (2)}
+
+            \fill[Dandelion] \secondcircle;
+
+            \fill[white] \firstcircle;
+            \fill[BrickRed,fill opacity=0.25] \firstcircle;
+            \draw[BrickRed,thick] \firstcircle;
+            \node at (90:3) {\footnotesize $\cly{B \setminus A}$};
           \end{tikzpicture}
         \end{center}
-        Any relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ can
-        now be easily drawn
-        into the grid just by marking certain dots. For example, the
-        relation $\clg{R =
-          \{}(\clr{1},\clb{c}),
-        (\clr{2},\clb{b}),(\clr{2},\clb{a})\clg{\}} \subseteq
-        \clr{A} \times \clb{B}$ looks like this:
+
+        Adding a third set $\clg{C}$ results in a picture like this.
         \begin{center}
-          \begin{tikzpicture}
-            \foreach \x in {0, 1, 2, 3} {
-              \pgfmathtruncatemacro\z{\x + 1}
-              \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
-            }
-            \foreach \y/\n in {0/a, 1/b, 2/c} {
-              \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
-            }
-            \foreach \x in {0, 1, 2, 3} {
-              \foreach \y in {0, 1, 2} {
-                \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
-              }
-            }
-            \node[ultra thick,circle,inner
-            sep=5pt,fill=none,draw=ForestGreen] at (0, 2)
-            {};
-            \node[ultra thick,circle,inner
-            sep=5pt,fill=none,draw=ForestGreen] at (1, 0)
-            {};
-            \node[ultra thick,circle,inner
-            sep=5pt,fill=none,draw=ForestGreen] at (1, 1)
-            {};
+          \begin{tikzpicture}[scale=0.5]
+            \fill[BrickRed,fill opacity=0.25] (135:1.5) circle (2);
+            \fill[RoyalBlue,fill opacity=0.25] (45:1.5) circle (2);
+            \fill[ForestGreen,fill opacity=0.25] (270:1.5) circle (2);
+            \draw[BrickRed,thick] (135:1.5) circle (2);
+            \draw[RoyalBlue,thick] (45:1.5) circle (2);
+            \draw[ForestGreen,thick] (270:1.5) circle (2);
+            \node at (150:4.3) {\footnotesize $\clr{A}$};
+            \node at (30:4.3) {\footnotesize $\clb{B}$};
+            \node at (270:4.3) {\footnotesize $\clg{C}$};
           \end{tikzpicture}
         \end{center}
-        There is another way to draw relations -- as arrows from $\clr{A}$ to
-        $\clb{B}$. This style of drawing emphasises the `one-way'
-        nature of relations.
-        The same relation $\clg{R} \subseteq \clr{A} \times \clb{B}$
-        is drawn using
-        arrows like this:
+        Every area in the picture corresponds to a different combination of set
+        operations. For example, the isolated part of the \clr{red} circle
+        consists of elements found in $\clr{A}$ but not in $\clb{B}$ or
+        $\clg{C}$. This set is the result of the operation $(\clr{A} \setminus
+        \clb{B}) \setminus \clg{C}$. The area in the middle where all circles
+        intersect represents the set $\clr{A} \cap \clb{B} \cap \clg{C}$.
+
+        Let us see this precisely. We choose the sets
+        \[
+          \clr{A} = \clr{\{2, 3, 5, 6\}}, \quad \clb{B} = \clb{\{1, 2, 3, 4,
+          7\}}, \quad \clg{C} = \clg{\{2, 4, 5, 8\}}.
+        \]
+        If we place the numbers into correct areas of the diagram, we get this
+        picture.
         \begin{center}
-          \begin{tikzpicture}
-            \foreach \y in {0, 1, 2, 3} {
-              \pgfmathtruncatemacro\z{4-\y}
-              \node[BrickRed] (A\z) at (-2,\y) {\footnotesize $\z$};
-            }
-            \foreach \y/\n in {0/c, 1/b, 2/a} {
-              \node[RoyalBlue] (B\n) at (2,\y) {\footnotesize $\n$};
-            }
-            \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen]
-            (A1) -- (Bc);
-            \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen]
-            (A2) -- (Bb);
-            \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen]
-            (A2) -- (Ba);
+          \begin{tikzpicture}[scale=1]
+            \fill[BrickRed,fill opacity=0.25] (135:1.5) circle (2);
+            \fill[RoyalBlue,fill opacity=0.25] (45:1.5) circle (2);
+            \fill[ForestGreen,fill opacity=0.25] (270:1.5) circle (2);
+            \draw[BrickRed,thick] (135:1.5) circle (2);
+            \draw[RoyalBlue,thick] (45:1.5) circle (2);
+            \draw[ForestGreen,thick] (270:1.5) circle (2);
+            \node at (150:4.3) {\footnotesize $\clr{A}$};
+            \node at (30:4.3) {\footnotesize $\clb{B}$};
+            \node at (270:4.3) {\footnotesize $\clg{C}$};
+
+            \node at (135:2.5) {$6$};
+            \node at (45:2.5) {$1,7$};
+            \node at (270:2.5) {$8$};
+
+            \node at (90:2) {$3$};
+            \node at (202.5:1.1) {$5$};
+            \node at (337.5:1.1) {$4$};
+
+            \node at (0,0) {$2$};
+          \end{tikzpicture}
+        \end{center}
+        As our final example, we draw two areas defined by two different
+        combinations of set operations.
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            \def\acircle{(135:1.5) circle (2)}
+            \def\bcircle{(45:1.5) circle (2)}
+            \def\ccircle{(270:1.5) circle (2)}
+            \fill[BrickRed,fill opacity=0.25] \acircle;
+            \fill[RoyalBlue,fill opacity=0.25] \bcircle;
+            \fill[ForestGreen,fill opacity=0.25] \ccircle;
+            \draw[BrickRed,thick] \acircle;
+            \draw[RoyalBlue,thick] \bcircle;
+            \draw[ForestGreen,thick] \ccircle;
+
+            \begin{scope}
+              \clip \acircle;
+              \filldraw[Fuchsia] \bcircle;
+            \end{scope}
+            \begin{scope}
+              \clip \bcircle;
+              \filldraw[Fuchsia] \ccircle;
+            \end{scope}
+
+            \node at (150:4.3) {\footnotesize $\clr{A}$};
+            \node at (30:4.3) {\footnotesize $\clb{B}$};
+            \node at (270:4.3) {\footnotesize $\clg{C}$};
+
+            \node at (90:5) {\footnotesize $\clm{(A \cap B) \cup (B \cap C)}$};
+          \end{tikzpicture}
+          \begin{tikzpicture}[scale=0.5,xshift=15cm]
+            \def\acircle{(135:1.5) circle (2)}
+            \def\bcircle{(45:1.5) circle (2)}
+            \def\ccircle{(270:1.5) circle (2)}
+            \fill[BrickRed,fill opacity=0.25] \acircle;
+            \fill[RoyalBlue,fill opacity=0.25] \bcircle;
+            \draw[BrickRed,thick] \acircle;
+            \draw[RoyalBlue,thick] \bcircle;
+
+            \filldraw[Fuchsia] \acircle;
+            \filldraw[Fuchsia] \bcircle;
+            \fill[white] \ccircle;
+            \fill[ForestGreen,fill opacity=0.25] \ccircle;
+            \draw[ForestGreen,thick] \ccircle;
+
+            \node at (150:4.3) {\footnotesize $\clr{A}$};
+            \node at (30:4.3) {\footnotesize $\clb{B}$};
+            \node at (270:4.3) {\footnotesize $\clg{C}$};
+
+            \node at (90:5) {\footnotesize $\clm{(A \cup B) \setminus C}$};
           \end{tikzpicture}
         \end{center}
       \end{block}
 
-      \begin{exampleblock}{Equivalence \& Equivalence Classes}
-        A relation $\clg{E} \subseteq \clr{A} \times \clr{A}$ (do
-          note that it's a
-        relation \textbf{on a set}) is called an \alert{equivalence}
-        if it behaves
-        \textbf{something like `equals'}, that is,
-        \begin{itemize}[left=2em]
-          \item[(R)] it's \alert{reflexive}, i.e.
-            $\clr{a}\clg{E}\clr{a}$ for every
-            $\clr{a} \in \clr{A}$ (every element is equivalent to itself);
-          \item[(S)] it's \alert{symmetric}, i.e. if
-            $\clr{a_1}\clg{E}\clr{a_2}$, then
-            also $\clr{a_2}\clg{E}\clr{a_1}$ (all elements are \textbf{mutually}
-            equivalent);
-          \item[(T)] it's \alert{transitive}, i.e. if
-            $\clr{a_1}\clg{E}\clr{a_2}$ and
-            $\clr{a_2} \clg{E} \clr{a_3}$, then $\clr{a_1} \clg{E}
-            \clr{a_3}$ (it
-            \textbf{propagates} through a middle element).
-        \end{itemize}
-        A good example of equivalence to keep in mind is the relation
-        `\textbf{being
-        the same age}' on the set of all people. It's
-        \alert{reflexive} because I'm as
-        old as me. It's \alert{symmetric} because if I'm as old as
-        you, then you are as
-        old as me. And finally, it's \alert{transitive} because if
-        I'm as old as you
-        and you are as old as someone else, then I'm as old as that
-        someone. This
-        example also drives home the idea of equivalence `being like
-        equals'. It's not
-        that two people of the same age are \emph{equal}, they are
-        \emph{equal by some
-        criterion}. This is exactly what equivalence is, the relation
-        of being equal by
-        some criterion.
-
-        With an equivalence $\clg{E} \subseteq \clr{A} \times
-        \clr{A}$, we can divide
-        the set $\clr{A}$ into `packets' of elements -- each packet
-        consisting of
-        elements which are \textbf{equivalent} by $\clg{E}$. For
-        example, I can divide
-        the set of all people by putting equally old people to the same packet.
-        Formally, we write
-        \[
-          [\clr{a}]_{\clg{E}} = \{\clr{b} \in \clr{A} \mid
-          \clr{a}\clg{E}\clr{b}\},
-        \]
-        in other words, $[\clr{a}]_{\clg{E}}$ is the set of all
-        elements from $\clr{A}$
-        that are $\clg{equivalent}$ to $\clr{a}$. We call it
-        \alert{an equivalence
-        class}. The element $\clr{a}$ is then called a \alert{representative}.
-      \end{exampleblock}
-
     \end{column}
     \separatorcolumn
-
   \end{columns}
 \end{frame}
 
