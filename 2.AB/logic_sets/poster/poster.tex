@@ -1,0 +1,655 @@
+% Unofficial University of Cambridge Poster Template
+% https://github.com/andiac/gemini-cam
+% a fork of https://github.com/anishathalye/gemini
+% also refer to https://github.com/k4rtik/uchicago-poster
+% TeX program = lualatex
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[orientation=portrait,size=custom,width=120,height=100,scale=1]{beamerposter}
+\usetheme{gemini}
+\usepackage[dvipsnames]{xcolor}
+\usecolortheme{nott}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shapes.geometric}
+\usepackage{tkz-euclide}
+\tikzset{point style/.style = {%
+    draw = black,
+    inner sep = 0pt,
+    shape = circle,
+    minimum size = 5pt,
+    fill = black
+  },
+  every picture/.append style = {
+    scale = 1.5
+  },
+  every node/.append style={
+    scale=1.5
+  }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.01\paperwidth}
+\setlength{\colwidth}{0.32\paperwidth}
+
+\newcommand{\separatorcolumn}{
+  \begin{column}{\sepwidth}
+\end{column}}
+\newcommand{\bfalert}[1]{\textbf{\alert{#1}}}
+
+% Math shortcuts
+\newcommand{\R}{\mathbb{R}}
+
+% Inline shapes
+\newcommand{\mysquare}{\tikz[baseline=-7pt]{%
+    \node[rectangle,draw,thick,inner sep=6pt] at (0,0) {};
+}}
+\newcommand{\mytria}{\tikz[baseline=-3.25pt]{%
+    \node[isosceles triangle,isosceles triangle apex angle=60,draw,thick,inner
+    sep=3.25pt,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycirc}{\tikz[baseline=-7pt]{%
+    \node[circle,draw,thick,inner sep=4.5pt,baseline=0.5ex,rotate=90]
+    at (0,0) {};
+}}
+\newcommand{\mycross}{\tikz[baseline=-7pt,scale=0.2]{%
+    \draw[thick] (-1,1) -- (1,-1);
+    \draw[thick] (-1,-1) -- (1,1);
+}}
+
+% Colors %
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
+
+% ====================
+% Title
+% ====================
+
+\title{Logic \& Set Theory Cheatsheet}
+
+\author{2.AB PreIB Math}
+
+\institute[shortinst]{Adam Klepáč}
+
+% ====================
+% Footer (optional)
+% ====================
+
+% \footercontent{
+%   \href{https://utfpr.edu.br/ct/ppgca}{utfpr.edu.br/ct/ppgca} \hfill
+%   Mostra de Trabalhos do PPGCA --- TechTalks 2024 \hfill
+%   \href{mailto:ppgca-ct@utfpr.edu.br}{ppgca-ct@utfpr.edu.br}}
+% (can be left out to remove footer)
+
+% ====================
+% Logo (optional)
+% ====================
+
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=3.5cm]{logos/logo-white.png}}
+% \logoleft{\hspace{20ex}\includegraphics[height=3.5cm]{logos/ppgca-logo.png}}
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+% Refer to https://github.com/k4rtik/uchicago-poster
+% logo: https://www.cam.ac.uk/brand-resources/about-the-logo/logo-downloads
+% \addtobeamertemplate{headline}{}
+% {
+%     \begin{tikzpicture}[remember picture,overlay]
+%       \node [anchor=north west, inner sep=3cm] at
+% ([xshift=-2.5cm,yshift=1.75cm]current page.north west)
+%       {\includegraphics[height=7cm]{logos/unott-logo.eps}};
+%     \end{tikzpicture}
+% }
+
+\begin{frame}[t]
+  \begin{columns}[t]
+    \separatorcolumn
+
+    \begin{column}{\colwidth}
+
+      \begin{block}{Logic}
+        \alert{Logic} is the language of mathematics. It uses
+        \alert{propositions} to
+        talk about sets.
+
+        Propositions are sentences which can be either true or false.
+        For example
+        \begin{itemize}[label=\textbullet,left=24pt]
+          \item `\textbf{Cats are black.}' is a proposition;
+          \item `\textbf{How are you?}' is \emph{not} a proposition;
+          \item `\textbf{We will have colonised Mars by 2500.}' is
+            also a proposition.
+        \end{itemize}
+      \end{block}
+      As the third example suggests, we need not necessarily know whether a
+      proposition is true or false -- it remains a proposition anyway.
+
+      \vspace{1em}
+
+      \begin{exampleblock}{Logical Operators}
+        Propositions can be transformed using \alert{logical
+        operators}. They pretty
+        much correspond to the conjunctions of natural language. Let
+        us consider two
+        propositions:
+        \begin{align*}
+          p &= \text{`It's raining outside.'}\\
+          q &= \text{`I'll stay at home.'}
+        \end{align*}
+        \begin{itemize}[left=40pt]
+          \item[($ \wedge $)] Logical \alert{and} forms a proposition that is
+            only \alert{true} if both of its constituents are also \alert{true}.
+            In natural language, the proposition $p \wedge q$ can be expressed
+            as
+            \[
+              p \alert{ \wedge } q = \text{`It's raining outside
+                \alert{and} I'll stay at
+              home.'}
+            \]
+          \item[($ \vee $)] Logical \alert{or} forms a proposition
+            that is \alert{true}
+            if at least one of its constituents is \alert{true}. In natural
+            language, the proposition $p \vee q$ can be expressed as
+            \[
+              p \alert{ \vee } q = \text{`It's raining outside
+                \alert{or} I'll stay at
+              home.'}
+            \]
+            In mathematical logic, \alert{or} is \textbf{not
+            exclusive}! This means that
+            $p \alert{ \vee } q$ is true even if both $p$ and $q$ are true.
+          \item[($\neg $)] Logical \alert{not} reverses the truth value of a
+            proposition. For example, the proposition $\alert{\neg }p$ can be
+            read as
+            \[
+              \alert{\neg }p = \text{`It's \alert{not} raining outside.'}
+            \]
+            It follows that $\alert{\neg }p$ is \alert{true} exactly when $p$ is
+            \alert{false} and vice versa.
+          \item[($ \Rightarrow $)] Logical \alert{implication} is an operator
+            that makes the first proposition into an \emph{assumption} or
+            \emph{premise} and the second one into a \emph{conclusion}. The
+            proposition $p \alert{ \Rightarrow } q$ is read in multiple ways, to
+            list a few:
+            \begin{align*}
+              p \alert{ \Rightarrow } q &= \text{`\alert{If} it's raining
+              outside, \alert{then} I'll stay at home.'}\\
+              p \alert{ \Rightarrow } q &= \text{`It raining outside
+              \alert{implies that} I'll stay at home.'}\\
+              p \alert{ \Rightarrow } q &= \text{`\alert{Assuming} it's raining
+              outside, I'll stay at home.'}\\
+            \end{align*}
+            The implication is tricky. It's true if both $p$ and $q$ are true
+            and false if $p$ is true but $q$ is false. However, it is
+            \alert{always true} if $p$ is \alert{false}. That is because, in
+            mathematical logic, whatever follows from a lie is automatically
+            true.
+          \item[($ \Leftrightarrow $)] Logical \alert{equivalence} is true only
+            if both propositions have the \alert{same truth value} -- they're
+            both true or both false. In natural language, it is typically read
+            like this:
+            \[
+              p \alert{ \Leftrightarrow }q = \text{`It's raining
+                \alert{if and only if}
+              I stay at home.'}
+            \]
+            Equivalence is basically just a two-way implication. The
+            proposition $p$ is
+            both a premise and a conclusion to $q$ and $q$ is both a
+            premise and a
+            conclusion to $p$. If it's raining outside, I stay at
+            home and if I stay at
+            home, then it's raining outside.
+        \end{itemize}
+      \end{exampleblock}
+
+      \begin{block}{Truth Tables}
+        A proposition made up of smaller propositions is true or false based on
+        whether its constituent propositions are true or false. All possible
+        scenarios can be summarized using so-called \alert{truth table}. It is
+        basically just a table that lists all the possibilities of $p$ and $q$
+        (or any number of propositions, really) being true or false and the
+        resulting truth value of their combinations.
+
+        For the basic logical conjunctions from above, it can look like this (we
+        represent \alert{true} by \alert{1} and \alert{false} by \alert{0}):
+        \begin{center}
+          \begin{tabular}{c | c | c | c | c | c | c | c}
+            $p$ & $q$ & $\neg p$ & $\neg q$ & $p \wedge q$ & $p \vee
+            q$ & $p \Rightarrow
+            q$ & $p \Leftrightarrow q$\\
+            \toprule
+            0 & 0 & 1 & 1 & 0 & 0 & 1 & 1\\
+            \midrule
+            0 & 1 & 1 & 0 & 0 & 1 & 1 & 0\\
+            \midrule
+            1 & 0 & 0 & 1 & 0 & 1 & 0 & 0\\
+            \midrule
+            1 & 1 & 0 & 0 & 1 & 1 & 1 & 1
+          \end{tabular}
+        \end{center}
+      \end{block}
+    \end{column}
+
+    \separatorcolumn
+
+    \begin{column}{\colwidth}
+
+      \begin{exampleblock}{Sets}
+        \alert{Sets} are the `stuff' that makes up the world of
+        mathematics. Their
+        basic characteristics and properties are described using \alert{logic}.
+
+        Sets cannot be defined inside set theory but we interpret
+        them as \emph{groups
+        of things}.
+
+        There's only one foundational \emph{proposition} related to set theory
+        -- the proposition `\alert{An object is an element of a set.}' If we
+        label the object in question, $x$, and the set, $A$, this proposition is
+        written as $x \in A$ (the symbol $ \in $ is just the letter `e' in
+        `element'). Combining these propositions using logical conjunctions
+        allows for various set-theoretic constructions.
+
+        If a set $A$ has, for example, exactly three elements --
+        $\mysquare$, $\mytria$
+        and $\mycirc$, I can write it as a list of these three
+        elements inside curly
+        brackets $\{\}$. In this case,
+        \[
+          A = \{\mysquare,\mytria,\mycirc\}.
+        \]
+
+        Two \alert{warnings} about sets:
+        \begin{itemize}[label=\textbullet,left=24pt]
+          \item \textbf{Sets are not ordered}. There is nothing like
+            a `first', `second'
+            or `last' element of a set. Either an object \textbf{is}
+            inside a set or it
+            \textbf{isn't}. Nothing else. For example, the three sets below are
+            \alert{exactly the same}, only written differently.
+            \[
+              \{\mysquare,\mytria,\mycirc\} = \{\mycirc,\mytria,\mysquare\} =
+              \{\mytria,\mysquare,\mycirc\}
+            \]
+          \item \textbf{Elements of sets have no frequency}. Again,
+            an element either is
+            inside a set or not. It cannot be \alert{twice} in a set,
+            for example. The
+            three sets below are exactly the same.
+            \[
+              \{\mysquare,\mytria,\mycirc\} =
+              \{\mysquare,\mytria,\mycirc,\mytria,\mycirc\} = \{
+              \mytria,\mysquare,\mysquare,\mytria,\mycirc,\mytria\}
+            \]
+        \end{itemize}
+
+        There are various ways of constructing sets. We shall take a look at
+        two: \emph{enumeration} and \emph{condition}.
+
+        By \emph{enumeration}, we simply mean that a set is defined by listing
+        all its elements. We have already seen this before. The equality $A =
+        \{\mysquare,\mytria,\mycirc\}$ is an example of defining a set by
+        enumeration.
+
+        A more potent way of creating sets entails using logical propositions.
+        Assume $x$ is an object
+      \end{exampleblock}
+
+      \begin{alertblock}{Set Operations}
+        Using logical operators, we can form new sets from existing ones or
+        establish relations between sets. Consider two sets -- $A$ and $B$.
+        \begin{itemize}[left=40pt]
+          \item[($ \cap $)] We can form the set of all objects $x$
+            that satisfy the
+            proposition $x \in A \wedge x \in B$, that is all objects
+            that \alert{lie in
+            both $A$ and $B$}. This set is called the
+            \alert{intersection} of $A$ and $B$
+            and written $A \cap B$. For example,
+            \[
+              \{\mycirc,\mytria,\mysquare\} \cap
+              \{\mycross,\mycirc,\mysquare, \sim \} =
+              \{\mycirc,\mysquare\}.
+            \]
+          \item[($ \cup $)] I can form the set of all objects that satisfy the
+            proposition $x \in A \vee x \in B$, the set of all
+            objects that \alert{lie in
+            $A$ or in $B$}. It is called the \alert{union} of $A$ and
+            $B$ and denoted
+            $A \cup B$. All elements of $A \cup B$ can be found
+            \emph{only} in $A$,
+            \emph{only} in B or in \emph{both} $A$ and $B$. For example,
+            \[
+              \{\mycirc,\mytria,\mysquare\} \cup
+              \{\mycross,\mycirc,\mysquare, \sim \} =
+              \{\mycirc,\mytria,\mysquare,\mycross, \sim \}.
+            \]
+          \item[($ \Rightarrow $)] Implication is a little different
+            from intersection
+            and union. It describes a lot of different sets with one
+            logical proposition.
+            I ask: `Which sets $A$ satisfy the proposition $x \in A
+            \Rightarrow x \in
+            B$?' In other words, which sets $A$ \alert{have all their
+            elements contained}
+            in the set $B$? The answer is that $A$ must be a subset
+            of $B$ and we denote
+            that fact by $A \subseteq B$. The set $A$ is only allowed
+            to have elements
+            which also lie in $B$ but not necessarily all of them.
+            All the subsets of $B
+            = \{\mytria,\mycirc\}$ are listed below.
+            \[
+              \emptyset, \{\mytria\}, \{\mycirc\}, \{\mytria,\mycirc\},
+            \]
+            where $\emptyset$ is the \alert{empty set}, a set
+            containing no elements.
+          \item[($ \Leftrightarrow $)] Equivalence defines
+            \alert{equality} on sets. If
+            sets $A$ and $B$ must satisfy the proposition $x \in A
+            \Leftrightarrow x \in
+            B$, then they must be equal because all the elements of
+            $A$ lie in $B$ and
+            all elements of $B$ lie in $A$. That is, $A = B$.
+        \end{itemize}
+      \end{alertblock}
+
+      \begin{block}{Drawing Sets}
+        Set operations can be visualized using so-called \emph{Venn
+        diagrams}. This
+        just means using circles to represent the sets in questions.
+        For example, two
+        sets -- $\clr{A}$ and $\clb{B}$ -- can be drawn like this:
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            \fill[BrickRed,fill opacity=0.25] (180:1.5) circle (2);
+            \fill[RoyalBlue,fill opacity=0.25] (0:1.5) circle (2);
+            \draw[BrickRed,thick] (180:1.5) circle (2);
+            \draw[RoyalBlue,thick] (0:1.5) circle (2);
+            \node at (150:4.3) {\footnotesize $\clr{A}$};
+            \node at (30:4.3) {\footnotesize $\clb{B}$};
+          \end{tikzpicture}
+        \end{center}
+        In these pictures, one can easily visualize the operations of union and
+        intersection. The union $\clg{A \cup B}$ is the entire area covered by
+        $\clr{A}$ and $\clb{B}$. It looks like this:
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            \def\firstcircle{(180:1.5) circle (2)}
+            \def\secondcircle{(0:1.5) circle (2)}
+            \filldraw[thick,ForestGreen] \firstcircle;
+            \filldraw[thick,ForestGreen] \secondcircle;
+            \node at (90:3) {\footnotesize $\clg{A \cup B}$};
+          \end{tikzpicture}
+        \end{center}
+        The intersection $\clm{A \cap B}$ is the `strip' in the
+        middle, the area which
+        is shared between both $\clr{A}$ and $\clb{B}$. It can be
+        depicted like this:
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            \def\firstcircle{(180:1.5) circle (2)}
+            \def\secondcircle{(0:1.5) circle (2)}
+
+            \fill[BrickRed,fill opacity=0.25] \firstcircle;
+            \fill[RoyalBlue,fill opacity=0.25] \secondcircle;
+            \draw[BrickRed,thick] \firstcircle;
+            \draw[RoyalBlue,thick] \secondcircle;
+
+            \begin{scope}
+              \clip \firstcircle;
+              \fill[white] \secondcircle;
+              \filldraw[thick,Fuchsia] \secondcircle;
+            \end{scope}
+            \begin{scope}
+              \clip \secondcircle;
+              \draw[Fuchsia,thick] \firstcircle;
+            \end{scope}
+            \node at (90:3) {\footnotesize $\clm{A \cap B}$};
+          \end{tikzpicture}
+        \end{center}
+      \end{block}
+    \end{column}
+    \separatorcolumn
+
+    \begin{column}{\colwidth}
+
+      \begin{alertblock}{Products of Sets \& Relations}
+        Before introducing \emph{products} of sets, we must define a
+        \emph{pair}.
+        Simply said, a \alert{pair} of objects $(a,b)$ is just a set
+        containing $a$ and
+        $b$ \textbf{with ordering}, that is, $a$ is the
+        \textbf{first} element of
+        $(a,b)$ and $b$ is \textbf{second}. This means that $(a,b)
+        \neq (b,a)$ because
+        the order is not the same.
+
+        Now, the \alert{product} of sets $A$ and $B$, denoted $A
+        \times B$, is the set
+        of all pairs $(a,b)$ where $a \in A$ and $b \in B$. For example, if
+        \[
+          A = \{\mycirc,\mytria\} \quad \text{and} \quad B =
+          \{\mytria,\mycross, \sim
+          \},
+        \]
+        then
+        \[
+          A \times B = \{(\mycirc,\mytria),(\mycirc,\mycross),(\mycirc, \sim),
+          (\mytria,\mytria), (\mytria,\mycross), (\mytria, \sim)\}.
+        \]
+        Notice that $A \times B \neq B \times A$ because the
+        \textbf{order} of elements
+        in a pair \textbf{matters}. In this case,
+        \[
+          B \times A = \{(\mytria,\mycirc), (\mytria,\mytria),
+            (\mycross,\mycirc),
+          (\mycross,\mytria), ( \sim, \mycirc), ( \sim, \mytria)\}.
+        \]
+
+        As another example, consider the \emph{real plane} -- the set
+        of all points
+        with two coordinates. That is simply the set of pairs of real
+        numbers, $\R
+        \times \R$.
+
+        The mathematical way to define a \alert{relation} between two
+        sets is to simply
+        \textbf{list all the elements that are related}. Said
+        formally, a relation $R$
+        is a subset $R \subseteq A \times B$. For example,
+        \[
+          \{(\mytria,\mycross),(\mytria, \sim )\} \subseteq
+          \{\mycirc,\mytria\} \times
+          \{\mytria,\mycross, \sim\}
+        \]
+        is a relation between the sets $A$ and $B$ from above. It
+        literally says that
+        $\mytria$ is related to $\mycross$ and $ \sim $. Instead of writing
+        $(\mytria,\mycross) \in R$, we write $\mytria R \mycross$
+        because it's more
+        natural. Typical examples of relations include $ \leq $ and
+        $=$ and we don't
+        write $(2,3) \in~\leq $ but $2 \leq 3$.
+      \end{alertblock}
+
+      \begin{block}{Drawing Products And Relations}
+        One can draw the product $A \times B$ similarly to the way we
+        draw Cartesian
+        coordinates -- by distributing the elements of $A$
+        horizontally and those of
+        $B$ vertically. Each point in the resulting grid represents
+        an element of $A
+        \times B$.
+
+        Take, for example, $\clr{A = \{1, 2, 3, 4\}}$ and $\clb{B =
+        \{a, b, c\}}$. We
+        can depict the set $\clr{A} \times \clb{B}$ like this:
+        \begin{center}
+          \begin{tikzpicture}
+            \foreach \x in {0, 1, 2, 3} {
+              \pgfmathtruncatemacro\z{\x + 1}
+              \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
+            }
+            \foreach \y/\n in {0/a, 1/b, 2/c} {
+              \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
+            }
+            \foreach \x in {0, 1, 2, 3} {
+              \foreach \y in {0, 1, 2} {
+                \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
+              }
+            }
+          \end{tikzpicture}
+        \end{center}
+        Any relation $\clg{R} \subseteq \clr{A} \times \clb{B}$ can
+        now be easily drawn
+        into the grid just by marking certain dots. For example, the
+        relation $\clg{R =
+          \{}(\clr{1},\clb{c}),
+        (\clr{2},\clb{b}),(\clr{2},\clb{a})\clg{\}} \subseteq
+        \clr{A} \times \clb{B}$ looks like this:
+        \begin{center}
+          \begin{tikzpicture}
+            \foreach \x in {0, 1, 2, 3} {
+              \pgfmathtruncatemacro\z{\x + 1}
+              \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
+            }
+            \foreach \y/\n in {0/a, 1/b, 2/c} {
+              \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
+            }
+            \foreach \x in {0, 1, 2, 3} {
+              \foreach \y in {0, 1, 2} {
+                \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
+              }
+            }
+            \node[ultra thick,circle,inner
+            sep=5pt,fill=none,draw=ForestGreen] at (0, 2)
+            {};
+            \node[ultra thick,circle,inner
+            sep=5pt,fill=none,draw=ForestGreen] at (1, 0)
+            {};
+            \node[ultra thick,circle,inner
+            sep=5pt,fill=none,draw=ForestGreen] at (1, 1)
+            {};
+          \end{tikzpicture}
+        \end{center}
+        There is another way to draw relations -- as arrows from $\clr{A}$ to
+        $\clb{B}$. This style of drawing emphasises the `one-way'
+        nature of relations.
+        The same relation $\clg{R} \subseteq \clr{A} \times \clb{B}$
+        is drawn using
+        arrows like this:
+        \begin{center}
+          \begin{tikzpicture}
+            \foreach \y in {0, 1, 2, 3} {
+              \pgfmathtruncatemacro\z{4-\y}
+              \node[BrickRed] (A\z) at (-2,\y) {\footnotesize $\z$};
+            }
+            \foreach \y/\n in {0/c, 1/b, 2/a} {
+              \node[RoyalBlue] (B\n) at (2,\y) {\footnotesize $\n$};
+            }
+            \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen]
+            (A1) -- (Bc);
+            \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen]
+            (A2) -- (Bb);
+            \draw[arrows={-Latex[length=16pt,width=12pt]},thick,ForestGreen]
+            (A2) -- (Ba);
+          \end{tikzpicture}
+        \end{center}
+      \end{block}
+
+      \begin{exampleblock}{Equivalence \& Equivalence Classes}
+        A relation $\clg{E} \subseteq \clr{A} \times \clr{A}$ (do
+          note that it's a
+        relation \textbf{on a set}) is called an \alert{equivalence}
+        if it behaves
+        \textbf{something like `equals'}, that is,
+        \begin{itemize}[left=2em]
+          \item[(R)] it's \alert{reflexive}, i.e.
+            $\clr{a}\clg{E}\clr{a}$ for every
+            $\clr{a} \in \clr{A}$ (every element is equivalent to itself);
+          \item[(S)] it's \alert{symmetric}, i.e. if
+            $\clr{a_1}\clg{E}\clr{a_2}$, then
+            also $\clr{a_2}\clg{E}\clr{a_1}$ (all elements are \textbf{mutually}
+            equivalent);
+          \item[(T)] it's \alert{transitive}, i.e. if
+            $\clr{a_1}\clg{E}\clr{a_2}$ and
+            $\clr{a_2} \clg{E} \clr{a_3}$, then $\clr{a_1} \clg{E}
+            \clr{a_3}$ (it
+            \textbf{propagates} through a middle element).
+        \end{itemize}
+        A good example of equivalence to keep in mind is the relation
+        `\textbf{being
+        the same age}' on the set of all people. It's
+        \alert{reflexive} because I'm as
+        old as me. It's \alert{symmetric} because if I'm as old as
+        you, then you are as
+        old as me. And finally, it's \alert{transitive} because if
+        I'm as old as you
+        and you are as old as someone else, then I'm as old as that
+        someone. This
+        example also drives home the idea of equivalence `being like
+        equals'. It's not
+        that two people of the same age are \emph{equal}, they are
+        \emph{equal by some
+        criterion}. This is exactly what equivalence is, the relation
+        of being equal by
+        some criterion.
+
+        With an equivalence $\clg{E} \subseteq \clr{A} \times
+        \clr{A}$, we can divide
+        the set $\clr{A}$ into `packets' of elements -- each packet
+        consisting of
+        elements which are \textbf{equivalent} by $\clg{E}$. For
+        example, I can divide
+        the set of all people by putting equally old people to the same packet.
+        Formally, we write
+        \[
+          [\clr{a}]_{\clg{E}} = \{\clr{b} \in \clr{A} \mid
+          \clr{a}\clg{E}\clr{b}\},
+        \]
+        in other words, $[\clr{a}]_{\clg{E}}$ is the set of all
+        elements from $\clr{A}$
+        that are $\clg{equivalent}$ to $\clr{a}$. We call it
+        \alert{an equivalence
+        class}. The element $\clr{a}$ is then called a \alert{representative}.
+      \end{exampleblock}
+
+    \end{column}
+    \separatorcolumn
+
+  \end{columns}
+\end{frame}
+
+\end{document}
