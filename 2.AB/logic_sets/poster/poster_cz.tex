@@ -1,0 +1,580 @@
+% Unofficial University of Cambridge Poster Template
+% https://github.com/andiac/gemini-cam
+% a fork of https://github.com/anishathalye/gemini
+% also refer to https://github.com/k4rtik/uchicago-poster
+% TeX program = lualatex
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[czech,english]{babel}
+\usepackage[orientation=portrait,size=custom,width=120,height=100,scale=1]{beamerposter}
+\usetheme{gemini}
+\usepackage[dvipsnames]{xcolor}
+\usecolortheme{nott}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shapes.geometric}
+\usepackage{tkz-euclide}
+\tikzset{point style/.style = {%
+    draw = black,
+    inner sep = 0pt,
+    shape = circle,
+    minimum size = 5pt,
+    fill = black
+  },
+  every picture/.append style = {
+    scale = 1.5
+  },
+  every node/.append style={
+    scale=1.5
+  }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.01\paperwidth}
+\setlength{\colwidth}{0.32\paperwidth}
+
+\newcommand{\separatorcolumn}{
+  \begin{column}{\sepwidth}
+\end{column}}
+\newcommand{\bfalert}[1]{\textbf{\alert{#1}}}
+
+% Math shortcuts
+\newcommand{\R}{\mathbb{R}}
+
+% Inline shapes
+\newcommand{\mysquare}{\tikz[baseline=-7pt]{%
+    \node[rectangle,draw,thick,inner sep=6pt] at (0,0) {};
+}}
+\newcommand{\mytria}{\tikz[baseline=-3.25pt]{%
+    \node[isosceles triangle,isosceles triangle apex angle=60,draw,thick,inner
+    sep=3.25pt,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycirc}{\tikz[baseline=-7pt]{%
+    \node[circle,draw,thick,inner sep=4.5pt,baseline=0.5ex,rotate=90]
+    at (0,0) {};
+}}
+\newcommand{\mycross}{\tikz[baseline=-7pt,scale=0.2]{%
+    \draw[thick] (-1,1) -- (1,-1);
+    \draw[thick] (-1,-1) -- (1,1);
+}}
+
+% Colors %
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
+
+% ====================
+% Title
+% ====================
+
+\title{Cheatsheet z logiky a teorie množin}
+
+\author{2.AB PreIB Math}
+
+\institute[shortinst]{Adam Klepáč}
+
+% ====================
+% Footer (optional)
+% ====================
+
+% \footercontent{
+%   \href{https://utfpr.edu.br/ct/ppgca}{utfpr.edu.br/ct/ppgca} \hfill
+%   Mostra de Trabalhos do PPGCA --- TechTalks 2024 \hfill
+%   \href{mailto:ppgca-ct@utfpr.edu.br}{ppgca-ct@utfpr.edu.br}}
+% (can be left out to remove footer)
+
+% ====================
+% Logo (optional)
+% ====================
+
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=3.5cm]{logos/logo-white.png}}
+% \logoleft{\hspace{20ex}\includegraphics[height=3.5cm]{logos/ppgca-logo.png}}
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+% Refer to https://github.com/k4rtik/uchicago-poster
+% logo: https://www.cam.ac.uk/brand-resources/about-the-logo/logo-downloads
+% \addtobeamertemplate{headline}{}
+% {
+%     \begin{tikzpicture}[remember picture,overlay]
+%       \node [anchor=north west, inner sep=3cm] at
+% ([xshift=-2.5cm,yshift=1.75cm]current page.north west)
+%       {\includegraphics[height=7cm]{logos/unott-logo.eps}};
+%     \end{tikzpicture}
+% }
+
+\begin{frame}[t]
+  \begin{columns}[t]
+    \separatorcolumn
+
+    \begin{column}{\colwidth}
+
+      \begin{block}{Logika}
+        \alert{Logika} je jazykem matematiky. Využívá \alert{výroků}, aby
+        mluvila o množinách.
+
+        Výroky jsou věty, které jsou buď pravdivé, nebo lživé.
+
+        Například,
+        \begin{itemize}[label=\textbullet,left=24pt]
+          \item `\textbf{Kočky jsou černé.}' je výrok.;
+          \item `\textbf{Jak se máš?}' \emph{není} výrok;
+          \item `\textbf{Do roku 2500 kolonisujeme Mars.}' je taky výrok.
+        \end{itemize}
+      \end{block}
+      Jak třetí příklad napovídá, nemusíme nutně vědět, jestli je nějaký výrok
+      pravdivý, nebo ne. Výrok je to stále.
+
+      \vspace{1em}
+
+      \begin{exampleblock}{Logické operátory}
+        Výroky umíme přetvářet a slučovat pomocí \alert{logických operátorů}.
+        Svým významem víceméně odpovídají spojkám v běžném jazyce. Uvažme dva
+        výroky:
+        \begin{align*}
+          p &= \text{`Venku prší.'}\\
+          q &= \text{`Zůstanu doma.'}
+        \end{align*}
+        \begin{itemize}[left=40pt]
+          \item[($\wedge$)] Logické \alert{a} slučuje dva výroky do výroku,
+            které je pravda jedině ve chvíli, kdy jsou oba dílčí výroky rovněž
+            pravdivé. Přirozeně můžeme výrok $p \alert{ \wedge } q$ vyjádřit větou
+            \[
+              p \alert{ \wedge } q = \text{`Venku prší \alert{a} zůstanu doma.'}
+            \]
+          \item[($ \vee $)] Logické \alert{nebo} slučuje dva výroky do výroku,
+            který je pravdivý, když je aspoň jeden z dílčích výroků rovněž
+            pravdivý. Přirozeně můžeme výrok $p \alert{ \vee } q$ vyjádřit větou
+            \[
+              p \alert{ \vee } q = \text{`Venku prší \alert{nebo} zůstanu
+              doma.'}
+            \]
+            V matematické logice \textbf{není} \alert{nebo} \textbf{výlučné}! To
+            znamená, že $p \vee q$ je pravda, i když oba výroky $p$ i $q$ jsou
+            pravdivé.
+          \item[($\neg $)] 
+            Logické \alert{ne} obrací pravdivostní hodnotu výroku. V jazyce ji
+            můžeme vyjádřit prostým záporem:
+            \[
+              \alert{\neg }p = \text{`Venku \alert{ne}prší.'}
+            \]
+            Uvědomme si, že $\alert{\neg }p$ je \alert{pravda} přesně ve chvíli,
+            kdy $p$ je \alert{lež} a naopak.
+          \item[($ \Rightarrow $)] 
+            Logická \alert{implikace} je operátor, který z prvního výroku dělá
+            \emph{předpoklad} a z druhého \emph{závěr}. Výrok $p \alert{
+            \Rightarrow } q$ se čte mnoha způsoby. Například:
+            \begin{align*}
+              p \alert{ \Rightarrow } q &= \text{`\alert{Když} venku prší,
+              \alert{tak} zůstanu doma.'}\\
+              p \alert{ \Rightarrow } q &= \text{`To, že venku prší,
+              \alert{implikuje}, že zůstanu doma.'}\\
+              p \alert{ \Rightarrow } q &= \text{`\alert{Za předpokladu}, že
+                venku prší, zůstanu doma.'}
+            \end{align*}
+            Implikace umí být zákeřná. Je pravdivá, když $p$ i $q$ jsou pravdivé
+            a lživá, když $p$ je pravda, ale $q$ ne. Ovšem, implikace je taky
+            \alert{vždy pravdivá}, když $p$ je \alert{lež}. V matematické logice
+            cokoli, co plyne ze lži, je automaticky pravdivé.
+          \item[($ \Leftrightarrow $)] 
+            Logická \alert{ekvivalence} je pravdivá, jedině když jsou buď oba
+            výroky naráz pravdivé, nebo naráz lživé. V jazyce se většinou čte
+            takto:
+            \[
+              p \alert{ \Leftrightarrow }q = \text{`Prší \alert{právě tehdy,
+              když} zůstávám doma.'}
+            \]
+            Ekvivalence je v zásadě implikace oběma směry. Výrok $p$ je jak
+            předpoklad, tak závěr, výroku $q$ a výrok $q$ je jak předpoklad, tak
+            závěr, výroku $p$. Když prší, zůstávám doma, a když zůstávám doma,
+            tak prší.
+        \end{itemize}
+      \end{exampleblock}
+
+      \begin{block}{Pravdivostní tabulky}
+        Výrok složený z dílčích výroků je pravdivý nebo lživý na základě
+        pravdivosti výroku, jež jej tvoří. Všechny možné případy lze shrnout v
+        tzv. \alert{pravdivostní tabulce}. Je jí prostě tabulka s výčtem všech
+        možných kombinací pravdivostí $p$ a $q$ (nebo vlastně jakéhokoliv
+        množství výroků).  
+
+        Pravdivostní tabulka základních logických operátorů vypsaných výše
+        vypadá takto (pravdivost výroku označíme číslem \alert{1} a lživost
+        číslem \alert{0}).
+        \begin{center}
+          \begin{tabular}{c | c | c | c | c | c | c | c}
+            $p$ & $q$ & $\neg p$ & $\neg q$ & $p \wedge q$ & $p \vee
+            q$ & $p \Rightarrow
+            q$ & $p \Leftrightarrow q$\\
+            \toprule
+            0 & 0 & 1 & 1 & 0 & 0 & 1 & 1\\
+            \midrule
+            0 & 1 & 1 & 0 & 0 & 1 & 1 & 0\\
+            \midrule
+            1 & 0 & 0 & 1 & 0 & 1 & 0 & 0\\
+            \midrule
+            1 & 1 & 0 & 0 & 1 & 1 & 1 & 1
+          \end{tabular}
+        \end{center}
+      \end{block}
+    \end{column}
+
+    \separatorcolumn
+
+    \begin{column}{\colwidth}
+
+      \begin{exampleblock}{Množiny}
+        \alert{Množiny} jsou `hmotou', která tvoří svět matematiky. Jejich
+        základní vlastnosti jsou popsány pomocí \alert{logiky}.
+
+        Množiny nelze definovat uvnitř teorie množin, ale obvykle si je
+        představujeme jako \emph{skupiny věcí}.
+
+        V teorii množin existuje pouze jediný základní \emph{logický výrok} --
+        výrok `\alert{Objekt je prvkem množiny.}' Když označíme zmíněný objekt
+        $x$ a množinu $A$, pak tento výrok zapisujeme jako $\alert{x \in A}$
+        (symbol $\in$ je jen zkroucené `e' z anglického slova \emph{element},
+        \uv{prvek}). Slučování takových výroků pomocí logických operátorů dá
+        vzniknout různým konstrukcím v teorii množin.
+
+        Když má množina $A$, například, přesne tři prvky -- $\mysquare$,
+        $\mytria$ a $\mycirc$, pak ji můžeme zapsat jako seznam těchto tří prvků
+        uvnitř složených závorek $\{\}$. V tomto případě
+        \[
+          A = \{\mysquare,\mytria,\mycirc\}.
+        \]
+        
+        Dvě výstrahy ohledně množin:
+        \begin{itemize}[label=\textbullet,left=24pt]
+          \item \textbf{Množiny nejsou uspořádané}. Neexistuje nic jako `první',
+            `druhý' nebo `poslední' prvek množiny. Buď nějaký objekt \textbf{je}
+            prvkem množiny, nebo \textbf{není}. Nic víc, nic míň. Například,
+            tyto tři množiny jsou dokonale stejné, akorát zapsané jinak.
+            \[
+              \{\mysquare,\mytria,\mycirc\} = \{\mycirc,\mytria,\mysquare\} =
+              \{\mytria,\mysquare,\mycirc\}
+            \]
+          \item \textbf{Prvky množin nemají četnost}. 
+            Opět, prvek buď leží v množině, nebo ne. Nemůže v ní ležet dvakrát,
+            třikrát nebo milionkrát. Buď jednou, nebo vůbec. Tyto tři množiny
+            jsou rovněž dokonale stejné.
+            \[
+              \{\mysquare,\mytria,\mycirc\} =
+              \{\mysquare,\mytria,\mycirc,\mytria,\mycirc\} = \{
+              \mytria,\mysquare,\mysquare,\mytria,\mycirc,\mytria\}
+            \]
+        \end{itemize}
+
+        Existuje více způsobů, jak tvořit množiny. My se podíváme na dva:
+        \emph{výčtem prvků} a \emph{podmínkou}.
+
+        \emph{Výčtem} myslíme zkrátka definici množiny přes vypsaní všech jejích
+        prvků, jako výše. Rovnost $A = \{\mysquare,\mytria,\mycirc\}$ je
+        příkladem tvorby množiny výčtem.
+
+        Mnohem užitečnější způsob tvorby množin užívá logických výroků. Ať $x$
+        je nějaký objekt a $p(x)$ libovolný výrok hovořící o $x$. Například,
+        \begin{align*}
+          p(x) &= \text{`$x$ je nádherný.'}\\
+          p(x) &= \text{`$x$ je číslo.'}
+        \end{align*}
+
+        Množina $\{x \mid p(x)\}$ je množina všech objektů $x$, pro něž je výrok
+        $p(x)$ pravda. Představme si, že
+        \[
+          p(x) = \text{`$x$ je přirozené číslo, které je menší než $5$'}.
+        \]
+        Pak,
+        \[
+          \{x \mid p(x)\} = \{0,1,2,3,4\}.
+        \]
+      \end{exampleblock}
+
+      \begin{alertblock}{Množinové operace}
+        Užitím logických výroků můžeme vytvořit nové množiny z existujících nebo
+        stanovit jisté vztahy mezi množinami. Uvažme dvě množiny -- $A$ a $B$.
+        \begin{itemize}[left=40pt]
+          \item[($ \cap $)] 
+            Můžeme vyrobit množinu $\{x \mid x \in A \wedge x \in B\}$, tedy
+            množinu všech objektů, které \alert{leží jak v $A$, tak v $B$}. Této
+            množině přezdíváme \alert{průnik} $A$ a $B$ a značíme ji $A \cap B$.
+            Například,
+            \[
+              \{\mycirc,\mytria,\mysquare\} \cap
+              \{\mycross,\mycirc,\mysquare, \sim \} =
+              \{\mycirc,\mysquare\}.
+            \]
+          \item[($ \cup $)] 
+            Můžeme vyrobit množinu $\{x \mid x \in A \vee x \in
+            B\}$, tedy množinu všech objektů, které \alert{leží v $A$ nebo v
+            $B$}. Říká se jí \alert{sjednocení} $A$ s $B$ a píše se jako $A \cup
+            B$. Všechny prvky v $A \cup B$ buď leží \emph{pouze} v $A$,
+            \emph{pouze} v $B$, nebo v $A$ i v $B$. Například,
+            \[
+              \{\mycirc,\mytria,\mysquare\} \cup
+              \{\mycross,\mycirc,\mysquare, \sim \} =
+              \{\mycirc,\mytria,\mysquare,\mycross, \sim \}.
+            \]
+          \item[($ \neg $)] 
+            S negací samotnou toho moc nesvedeme, ale můžeme ji použít společně
+            s konjunkcí ($ \wedge $), abychom vytvořili \alert{rozdíl} dvou
+            množin. Množina $\{x \mid x \in A \wedge
+            \neg (x \in B)\} = \{x \mid x \in A \wedge x \notin B\}$ obsahuje
+            všechny prvky, které leží v $A$, ale \textbf{ne}leží v $B$ a píšeme
+            ji $A \setminus B$. Například,
+            \[
+              \{\mycirc,\mytria,\mysquare\} \setminus
+              \{\mycross,\mycirc,\mysquare, \sim \} = \{\mytria\}.
+            \]
+            \textbf{Pozor:} rozdíl množin (oproti sjednocení a průniku) není
+            komutativní, tj. $A \setminus B \neq B \setminus A$. V příkladu výše
+            \[
+              \{\mycross,\mycirc,\mysquare, \sim \} \setminus
+              \{\mycirc,\mytria,\mysquare\}= \{\mycross, \sim\}.
+            \]
+          \item[($ \Rightarrow $)] 
+            Použití implikace v teorii množin se trochu liší od průniku či
+            sjednocení. Popisuje mnoho různých množin jediným logickým výrokem.
+            Můžeme se ptát: \uv{Které množiny $A$ splňují výrok $x \in A
+            \Rightarrow x \in B$?} Jinak řečeno, které množiny $A$ \alert{mají
+            všechny své prvky obsaženy} v množině $B$? Odpovědí jsou
+            \alert{podmnožiny} $B$.
+          
+            Fakt, že $A$ je podmnožina $B$ píšeme jako $A \subseteq B$. Množina
+            $A$ smí obsahovat pouze prvky, které obsahuje rovněž $B$, ale ne
+            nutně všechny. Všechny podmnožiny množiny $B
+            = \{\mytria,\mycirc\}$ jsou vypsány níže.
+            \[
+              \{\}, \{\mytria\}, \{\mycirc\}, \{\mytria,\mycirc\},
+            \]
+            kde $\{\}$ je \alert{prázdná množina} -- množina bez prvků.
+          \item[($ \Leftrightarrow $)] 
+            Logická ekvivalence definuje \alert{rovnost} mezi množinami. Když
+            množiny $A$ a $B$ splňují výrok ${x \in A \Leftrightarrow x \in B}$,
+            pak musejí být stejné, poněvadž všechny prvky $A$ leží též v $B$ a
+            všechny prvky $B$ leží též v $A$. Tedy, $A = B$.
+        \end{itemize}
+      \end{alertblock}
+
+    \end{column}
+    \separatorcolumn
+
+    \begin{column}{\colwidth}
+      \begin{block}{Kreslení množinových operací}
+        Množinové operace lze visualisovat užitím tzv. \emph{Vennových
+        diagramů}. Ty spočívají v nakreslení množin pomocí protínajících se
+        kruhů. Například, dvě množiny -- $\clr{A}$ a $\clb{B}$ -- lze nakreslit
+        takto:
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            \fill[BrickRed,fill opacity=0.25] (180:1.5) circle (2);
+            \fill[RoyalBlue,fill opacity=0.25] (0:1.5) circle (2);
+            \draw[BrickRed,thick] (180:1.5) circle (2);
+            \draw[RoyalBlue,thick] (0:1.5) circle (2);
+            \node at (150:4.3) {\footnotesize $\clr{A}$};
+            \node at (30:4.3) {\footnotesize $\clb{B}$};
+          \end{tikzpicture}
+        \end{center}
+        Snadno též nakreslíme operace sjednocení, průniku a rozdílu. Sjednocení
+        $\clg{A \cup B}$ je celá oblast pokrytá kruhy $\clr{A}$ a $\clb{B}$.
+        Vypadá takto:
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            \def\firstcircle{(180:1.5) circle (2)}
+            \def\secondcircle{(0:1.5) circle (2)}
+            \filldraw[thick,ForestGreen] \firstcircle;
+            \filldraw[thick,ForestGreen] \secondcircle;
+            \node at (90:3) {\footnotesize $\clg{A \cup B}$};
+          \end{tikzpicture}
+        \end{center}
+        Průnik $\clm{A \cap B}$ je ten \uv{proužek} veprostřed -- ta oblast,
+        kterou sdílejí kruhy $\clr{A}$ a $\clb{B}$. Můžeme ho vykreslit takto:
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            \def\firstcircle{(180:1.5) circle (2)}
+            \def\secondcircle{(0:1.5) circle (2)}
+
+            \fill[BrickRed,fill opacity=0.25] \firstcircle;
+            \fill[RoyalBlue,fill opacity=0.25] \secondcircle;
+            \draw[BrickRed,thick] \firstcircle;
+            \draw[RoyalBlue,thick] \secondcircle;
+
+            \begin{scope}
+              \clip \firstcircle;
+              \fill[white] \secondcircle;
+              \filldraw[thick,Fuchsia] \secondcircle;
+            \end{scope}
+            \begin{scope}
+              \clip \secondcircle;
+              \draw[Fuchsia,thick] \firstcircle;
+            \end{scope}
+            \node at (90:3) {\footnotesize $\clm{A \cap B}$};
+          \end{tikzpicture}
+        \end{center}
+        Rozdíl $\clbr{A \setminus B}$ je část červeného kruhu $\clr{A}$, která
+        neprotíná modrý kruh $\clb{B}$. Rozdíl $\cly{B \setminus A}$ je
+        zrcadlením téhož obrázku. 
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            \def\firstcircle{(180:1.5) circle (2)}
+            \def\secondcircle{(0:1.5) circle (2)}
+
+            \fill[Sepia] \firstcircle;
+            \fill[white] \secondcircle;
+            \fill[RoyalBlue,fill opacity=0.25] \secondcircle;
+            \draw[RoyalBlue,thick] \secondcircle;
+            \node at (90:3) {\footnotesize $\clbr{A \setminus B}$};
+          \end{tikzpicture}
+          \begin{tikzpicture}[scale=0.5,xshift=10cm]
+            \def\firstcircle{(180:1.5) circle (2)}
+            \def\secondcircle{(0:1.5) circle (2)}
+
+            \fill[Dandelion] \secondcircle;
+
+            \fill[white] \firstcircle;
+            \fill[BrickRed,fill opacity=0.25] \firstcircle;
+            \draw[BrickRed,thick] \firstcircle;
+            \node at (90:3) {\footnotesize $\cly{B \setminus A}$};
+          \end{tikzpicture}
+        \end{center}
+
+        Přidáním třetí množiny $\clg{C}$ dostaneme takovýto obrázek.
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            \fill[BrickRed,fill opacity=0.25] (135:1.5) circle (2);
+            \fill[RoyalBlue,fill opacity=0.25] (45:1.5) circle (2);
+            \fill[ForestGreen,fill opacity=0.25] (270:1.5) circle (2);
+            \draw[BrickRed,thick] (135:1.5) circle (2);
+            \draw[RoyalBlue,thick] (45:1.5) circle (2);
+            \draw[ForestGreen,thick] (270:1.5) circle (2);
+            \node at (150:4.3) {\footnotesize $\clr{A}$};
+            \node at (30:4.3) {\footnotesize $\clb{B}$};
+            \node at (270:4.3) {\footnotesize $\clg{C}$};
+          \end{tikzpicture}
+        \end{center}
+        Každá oblast na tomto obrázku odpovídá jiné kombinaci množinových
+        operací. Například, isolovaná část \clr{červeného} kruhu obsahuje prvky,
+        které leží pouze v $\clr{A}$, ale nikoli v $\clb{B}$ nebo v $\clg{C}$.
+        Taková množina je výsledkem operace $(\clr{A} \setminus \clb{B})
+        \setminus \clg{C}$. Středová oblast, kde se protínají všechny tři kruhy
+        je odpovídá množině $\clr{A} \cap \clb{B} \cap \clg{C}$.
+
+        Uveďme konkrétní příklad. Volme množiny
+        \[
+          \clr{A} = \clr{\{2, 3, 5, 6\}}, \quad \clb{B} = \clb{\{1, 2, 3, 4,
+          7\}}, \quad \clg{C} = \clg{\{2, 4, 5, 8\}}.
+        \]
+        Když umístíme čísla do správných oblastí diagramu, dostaneme tento
+        obrázek.
+        \begin{center}
+          \begin{tikzpicture}[scale=1]
+            \fill[BrickRed,fill opacity=0.25] (135:1.5) circle (2);
+            \fill[RoyalBlue,fill opacity=0.25] (45:1.5) circle (2);
+            \fill[ForestGreen,fill opacity=0.25] (270:1.5) circle (2);
+            \draw[BrickRed,thick] (135:1.5) circle (2);
+            \draw[RoyalBlue,thick] (45:1.5) circle (2);
+            \draw[ForestGreen,thick] (270:1.5) circle (2);
+            \node at (150:4.3) {\footnotesize $\clr{A}$};
+            \node at (30:4.3) {\footnotesize $\clb{B}$};
+            \node at (270:4.3) {\footnotesize $\clg{C}$};
+
+            \node at (135:2.5) {$6$};
+            \node at (45:2.5) {$1,7$};
+            \node at (270:2.5) {$8$};
+
+            \node at (90:2) {$3$};
+            \node at (202.5:1.1) {$5$};
+            \node at (337.5:1.1) {$4$};
+
+            \node at (0,0) {$2$};
+          \end{tikzpicture}
+        \end{center}
+
+        Nakonec se podíváme na dva příklady různých kombinací množinových
+        operací.
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            \def\acircle{(135:1.5) circle (2)}
+            \def\bcircle{(45:1.5) circle (2)}
+            \def\ccircle{(270:1.5) circle (2)}
+            \fill[BrickRed,fill opacity=0.25] \acircle;
+            \fill[RoyalBlue,fill opacity=0.25] \bcircle;
+            \fill[ForestGreen,fill opacity=0.25] \ccircle;
+            \draw[BrickRed,thick] \acircle;
+            \draw[RoyalBlue,thick] \bcircle;
+            \draw[ForestGreen,thick] \ccircle;
+
+            \begin{scope}
+              \clip \acircle;
+              \filldraw[Fuchsia] \bcircle;
+            \end{scope}
+            \begin{scope}
+              \clip \bcircle;
+              \filldraw[Fuchsia] \ccircle;
+            \end{scope}
+
+            \node at (150:4.3) {\footnotesize $\clr{A}$};
+            \node at (30:4.3) {\footnotesize $\clb{B}$};
+            \node at (270:4.3) {\footnotesize $\clg{C}$};
+
+            \node at (90:5) {\footnotesize $\clm{(A \cap B) \cup (B \cap C)}$};
+          \end{tikzpicture}
+          \begin{tikzpicture}[scale=0.5,xshift=15cm]
+            \def\acircle{(135:1.5) circle (2)}
+            \def\bcircle{(45:1.5) circle (2)}
+            \def\ccircle{(270:1.5) circle (2)}
+            \fill[BrickRed,fill opacity=0.25] \acircle;
+            \fill[RoyalBlue,fill opacity=0.25] \bcircle;
+            \draw[BrickRed,thick] \acircle;
+            \draw[RoyalBlue,thick] \bcircle;
+
+            \filldraw[Fuchsia] \acircle;
+            \filldraw[Fuchsia] \bcircle;
+            \fill[white] \ccircle;
+            \fill[ForestGreen,fill opacity=0.25] \ccircle;
+            \draw[ForestGreen,thick] \ccircle;
+
+            \node at (150:4.3) {\footnotesize $\clr{A}$};
+            \node at (30:4.3) {\footnotesize $\clb{B}$};
+            \node at (270:4.3) {\footnotesize $\clg{C}$};
+
+            \node at (90:5) {\footnotesize $\clm{(A \cup B) \setminus C}$};
+          \end{tikzpicture}
+        \end{center}
+      \end{block}
+
+    \end{column}
+    \separatorcolumn
+  \end{columns}
+\end{frame}
+
+\end{document}
