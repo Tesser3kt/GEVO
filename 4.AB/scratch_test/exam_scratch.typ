@@ -48,4 +48,14 @@
   #align(center)[
     #image("figs/uloha3.png")
   ]
+][
+  [1 bod] Přidejte do spritu `Enemy` podmínku, která způsobí, že mu klesne
+  hodnota `hp` o $1$, kdykoli se dotkne spritu `Projectile`.
+  #align(center)[
+    #image("figs/uloha4.png")
+  ]
+]
+#pagebreak()
+#enum(start: 5)[
+  [3 body]
 ]
