@@ -55,7 +55,3 @@
     #image("figs/uloha4.png")
   ]
 ]
-#pagebreak()
-#enum(start: 5)[
-  [3 body]
-]
