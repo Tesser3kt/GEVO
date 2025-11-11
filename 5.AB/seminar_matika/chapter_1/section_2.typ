@@ -302,5 +302,107 @@ pokračujeme s proměnnou $x_3$.
     ][
       Pokračuj dalším sloupcem.
     ]
-  ]
+  ]<alg:gauss-jordan>
 ]
+
+Po skončení #link(<alg:gauss-jordan>, "Gauβova-Jordanova algoritmu") je lineární
+systém v tzv. _odstupňovaném tvaru_, což znamená, že každý řádek má méně
+proměnných než řádek přímo nad ním. Systém v tomto tvaru je připraven na zpětnou
+substituci, kdy spočteme řešení systému tak, že hodnoty proměnných spočtené v
+nižších řádcích dosazujeme do řádků vyšších.
+
+Princip #link(<alg:gauss-jordan>, "Gauβova-Jordanova algoritmu") ilustrujeme na
+ještě jednom příkladě. Spočteme řešení systému
+#math.equation(block: true)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    column-gutter: 0.3em,
+    row-gutter: 1em,
+    align: (end, center, end, center, center, center, end, center, start),
+    [], [], $-x_2$, $+$, $x_3$, $+$, $x_4$, $=$, $1$,
+    $2x_1$, [], [], $+$, $x_3$, [], [], $=$, $0$,
+    [], [], $x_2$, $+$, $3x_3$, $-$, $2x_4$, $=$, $8$,
+    $x_1$, $+$, $x_2$, $+$, $2x_3$, $+$, $x_4$, $=$, $2$,
+  )
+] <eq:lin-sys-gauss-1>
+
+Na začátku algoritmu je $i = 1$, začínáme tedy prvním sloupcem. Najdeme $k >= 1$
+takové, že $a_(k,1) != 0$. Jedna možnost je například $k = 4$, tj. čtvrtý řádek
+má v prvním sloupci něco jiného než $0$. Prohodíme první a čtvrtý řádek.
+#math.equation(numbering: none, block: true)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    column-gutter: 0.3em,
+    row-gutter: 1em,
+    align: (end, center, end, center, center, center, end, center, start),
+    $x_1$, $+$, $x_2$, $+$, $2x_3$, $+$, $x_4$, $=$, $2$,
+    $2x_1$, [], [], $+$, $x_3$, [], [], $=$, $0$,
+    [], [], $x_2$, $+$, $3x_3$, $-$, $2x_4$, $=$, $8$,
+    [], [], $-x_2$, $+$, $x_3$, $+$, $x_4$, $=$, $1$,
+  )
+]
+Nyní budeme pro každé $j > 1$ odčítat $(a_(j,1) slash a_(1,1))$-násobek prvního
+řádku od $j$-tého. Pro $j = 2$ je $a_(2,1) slash a_(1,1) = 2$, takže odečteme
+dvojnásobek prvního řádku od druhého. Pro $j = 3$ a $j = 4$ vychází $a_(j,1)
+slash a_(1,1) = 0$, takže nemusíme dělat nic.
+#math.equation(numbering: none, block: true)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    column-gutter: 0.3em,
+    row-gutter: 1em,
+    align: (end, center, end, center, center, center, end, center, start),
+    $x_1$, $+$, $x_2$, $+$, $2x_3$, $+$, $x_4$, $=$, $2$,
+    [], [], $-2x_2$, $-$, $3x_3$, $-$, $2x_4$, $=$, $-4$,
+    [], [], $x_2$, $+$, $3x_3$, $-$, $2x_4$, $=$, $8$,
+    [], [], $-x_2$, $+$, $x_3$, $+$, $x_4$, $=$, $1$,
+  )
+]
+Pokračujeme druhým sloupcem, tedy $i = 2$. Tentokrát je v druhém řádku a druhém
+sloupci nenulové číslo, takže nemusíme prohazovat nic. Spočteme, že $a_(3,2)
+slash a_(2,2) = -1 slash 2$ a $a_(4,2) slash a_(2,2) = 1 slash 2$, takže
+přičítáme polovinu druhého řádku ke třetímu a odečítáme polovinu druhého řádku
+od čtvrtého.
+#math.equation(numbering: none, block: true)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    column-gutter: 0.3em,
+    row-gutter: 1em,
+    align: (end, center, end, center, center, center, end, center, start),
+    $x_1$, $+$, $x_2$, $+$, $2x_3$, $+$, $x_4$, $=$, $2$,
+    [], [], $-2x_2$, $-$, $3x_3$, $-$, $2x_4$, $=$, $-4$,
+    [], [], [], [], $3/2 x_3$, $-$, $3x_4$, $=$, $6$,
+    [], [], [], [], $5/2 x_3$, $+$, $2x_4$, $=$, $3$,
+  )
+]
+Konečně, pokračujeme třetím sloupcem. Máme $a_(3,3) != 0$, takže nemusíme
+prohazovat. Spočteme $a_(4,3) slash a_(3,3) = 5 slash 3$. Odečteme pročež $(5
+  slash 3)$-násobek třetího řádku od čtvrtého.
+#math.equation(numbering: none, block: true)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    column-gutter: 0.3em,
+    row-gutter: 1em,
+    align: (end, center, end, center, center, center, end, center, start),
+    $x_1$, $+$, $x_2$, $+$, $2x_3$, $+$, $x_4$, $=$, $2$,
+    [], [], $-2x_2$, $-$, $3x_3$, $-$, $2x_4$, $=$, $-4$,
+    [], [], [], [], $3/2 x_3$, $-$, $3x_4$, $=$, $6$,
+    [], [], [], [], [], [], $7x_4$, $=$, $-7$,
+  )
+]
+Nyní je systém v odstupňovaném tvaru a provedeme zpětnou substituci. Z
+posledního řádku plyne, že $x_4 = -1$. Tuto hodnotu dosadíme za $x_4$ do řádku
+$3$ a spočteme rovnici
+#math.equation(numbering: none, block: true)[
+  $3/2 x_3 - 3 dot (-1) = 6$,
+]
+jejímž řešením je $x_3 = 2$. Spočtené hodnoty pro $x_3$ a $x_4$ dosadíme do
+řádku druhého a vyřešíme rovnici
+#math.equation(numbering: none, block: true)[
+  $-2x_2 -3 dot 2 - 2 dot (-1) = -4$.
+]
+Dostaneme $x_2 = 0$. Konečně, dosazením $x_2$, $x_3$ a $x_4$ do prvního řádku
+dopočítáme
+#math.equation(numbering: none, block: true)[
+  $x_1 + 0 + 2 dot 2 + (-1) = 2$,
+]
+čili $x_1 = -1$. Řešením systému je čtveřice $(-1, 0, 2, -1)$.

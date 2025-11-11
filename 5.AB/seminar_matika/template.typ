@@ -1,4 +1,4 @@
-#import "@preview/icu-datetime:0.1.2": fmt-date
+#import "@preview/icu-datetime:0.2.0": fmt
 #import "@preview/hydra:0.6.2": hydra
 #import "@preview/thmbox:0.3.0": *
 #import "@preview/equate:0.3.2": equate
@@ -6,7 +6,7 @@
 #import "@preview/zap:0.4.0"
 #import "@preview/cetz:0.4.2"
 #import "@preview/ctheorems:1.1.3": *
-#import "@preview/itemize:0.1.2" as el
+#import "@preview/itemize:0.2.0" as el
 #import "@preview/algo:0.3.6": algo, code, comment, d, i
 
 // Colors
@@ -106,7 +106,7 @@
   v(1em)
   // Date
   let today = datetime.today()
-  [#fmt-date(today, locale: "cs", length: "long")]
+  [#fmt(today, locale: "cs", length: "long")]
 
   v(1em)
   // Abstract
