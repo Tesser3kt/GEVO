@@ -406,3 +406,48 @@ dopočítáme
   $x_1 + 0 + 2 dot 2 + (-1) = 2$,
 ]
 čili $x_1 = -1$. Řešením systému je čtveřice $(-1, 0, 2, -1)$.
+
+=== Tvar řešení lineárních systémů
+
+V této sekci se nebudeme zabývat tím, jak lineární systémy řešit, ale spíše, jak
+množiny jejich řešení mohou vypadat. Konkrétně, rádi bychom uměli zobecnit
+situaci, kterou ilustruje následující systém.
+#math.equation(block: true)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    column-gutter: 0.3em,
+    row-gutter: 1em,
+    align: (end, center, end, center, center, center, end, center, start),
+    $2x_1$, $-$, $x_2$, $+$, $3x_3$, $-$, $x_4$, $=$, $2$,
+    [], [], [], [], $-x_3$, $+$, $3x_4$, $=$, $5$,
+  )
+]<eq:lin-sys-par-1>
+Tento systém *je* v odstupňovaném tvaru, protože druhý řádek "začíná víc
+napravo" než první. Ovšem, určitě se nedobereme jednoho konkrétního řešení,
+neboť z druhého řádku můžeme nanejvýš hodnotu proměnné $x_3$ vyjádřit pomocí
+proměnné $x_4$ nebo naopak. My budeme takovéto systému vždy řešit tak, že tu
+proměnnou, *která je nejvíc nalevo* v daném řádku nazveme #clr[pivotem] a zbytek
+proměnných v řádku (které *nejsou pivoty z nižších řádků*) nazveme #clb[volnými
+proměnnými] nebo #clb[parametry].
+
+Rozdělení na #clr[pivoty] a #clb[volné proměnné] v systému @eq:lin-sys-par-1
+vypadá takto:
+#math.equation(numbering: none, block: true)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    column-gutter: 0.3em,
+    row-gutter: 1em,
+    align: (end, center, end, center, center, center, end, center, start),
+    clr[$2x_1$], $-$, clb[$x_2$], $+$, clr[$3x_3$], $-$, clb[$x_4$], $=$, $2$,
+    [], [], [], [], clr[$-x_3$], $+$, clb[$3x_4$], $=$, $5$,
+  )
+]
+Řešení takových systémů budeme vždy zapisovat tím způsobem, že hodnoty všech
+#clr[pivotů] vyjádříme pomocí #clb[volných proměnných]. #clb[Volné proměnné]
+budeme obvykle přeznačovat písmeny $t_1$, $t_2$ atd., abychom je odlišili od
+#clr[pivotů].
+
+Z druhé rovnice systému @eq:lin-sys-par-1 můžeme vyjádřit #clr[$x_3$] pomocí
+#clb[$x_4$] jako $#clr[$x_3$] = 3#clb[$x_4$] - 5$. Jak jsme zmiňovali, pro
+přehlednost označíme volnou proměnnou #clb[$x_4$] jako #clb[$t_1$]. Máme tedy
+rovnost $#clr[$x_3$] = 3#clr[$t_1$] - 5$.

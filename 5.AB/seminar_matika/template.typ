@@ -14,8 +14,9 @@
 #let maindef = rgb("#387478")
 #let mainlight = rgb("#629584")
 #let mainlighter = rgb("#E2F1E7")
-#let blue = rgb("#2CC4EF")
+#let red = rgb("#D94B5A")
 #let green = rgb("#2EBDB6")
+#let blue = rgb("#2CC4EF")
 #let purple = rgb("#695BAA")
 
 // Define theorem envs
@@ -40,8 +41,14 @@
 #let proof = thmproof("proof", "Důkaz")
 
 // Coloring
+#let clr(body) = {
+  text(fill: red.darken(30%))[#body]
+}
 #let clb(body) = {
   text(fill: blue.darken(30%))[#body]
+}
+#let clg(body) = {
+  text(fill: green.darken(30%))[#body]
 }
 #let clp(body) = {
   text(fill: purple.darken(30%))[#body]
