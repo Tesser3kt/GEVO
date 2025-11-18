@@ -450,4 +450,65 @@ budeme obvykle přeznačovat písmeny $t_1$, $t_2$ atd., abychom je odlišili od
 Z druhé rovnice systému @eq:lin-sys-par-1 můžeme vyjádřit #clr[$x_3$] pomocí
 #clb[$x_4$] jako $#clr[$x_3$] = 3#clb[$x_4$] - 5$. Jak jsme zmiňovali, pro
 přehlednost označíme volnou proměnnou #clb[$x_4$] jako #clb[$t_1$]. Máme tedy
-rovnost $#clr[$x_3$] = 3#clr[$t_1$] - 5$.
+rovnost $#clr[$x_3$] = 3#clb[$t_1$] - 5$. Proměnná #clb[$x_2$] je též volná,
+označíme ji jako #clb[$t_2$]. Dosazením za #clr[$x_3$] a #clb[$x_4$] do první
+rovnice dostaneme
+#math.equation(numbering: none, block: true)[
+  $2 #clr[$x_1$] - #clb[$t_2$] + 3 dot (3#clb[$t_1$] - 5) - #clb[$t_1$] = 2$.
+]
+Odtud spočteme, že
+#math.equation(numbering: none, block: true)[
+  $#clr[$x_1$] = -4#clb[$t_1$] + 1/2#clb[$t_2$] + 17/2$.
+]
+Řešením systému jsou pročež všechny čtveřice $(-4#clb[$t_1$] + (1 slash 2)
+#clb[$t_2$] + 17 slash 2, clb(t_2), 3#clb[$t_1$] - 5, #clb[$t_1$])$, kde
+#clb[$t_1$] a #clb[$t_2$] jsou libovolná čísla.
+
+Abychom řešení takových systémů uměli zapsat přehledněji, zavedeme si pojmy
+_vektoru_ a _matice_. V příští kapitole se rozhovoříme o jejich geometrickém
+významu. Zatím pro nás budou pouze představovat pohodlný způsob zápisu.
+
+#definition("Matice")[
+  _Maticí_ $A$ velikosti $m times n$ nazveme tabulku čísel s $m$ řádky a $n$
+  sloupci, čili tabulku
+  #math.equation(numbering: none, block: true)[
+    $A = mat(
+      a_(1,1), a_(1,2), dots.c, a_(1,n);
+      a_(2,1), a_(2,2), dots.c, a_(2,n);
+      dots.v, dots.v, dots.down, dots.v;
+      a_(m,1), a_(m,2), dots.c, a_(m,n);
+    )$.
+  ]
+  Často budeme tabulku výše zapisovat zkráceným způsobem $A =
+  (a_(i,j))_(i,j=1)^(m,n)$. Číslům $a_(i,j)$ budeme říkat různě, většinou
+  _vstupy_, _složky_ či _souřadnice_ matice $A$.
+]
+#definition("Vektor")[
+  Matici s *pouze jedním sloupcem* nazveme _sloupcovým vektorem_. Matici s
+  *pouze jedním řádkem* zase _řádkovým vektorem_. Sloupcové i řádkové vektory
+  budeme značit malými písmeny s šipkou. Například
+  #math.equation(numbering: none, block: true)[
+    $vc(v) = vec(v_1, v_2, dots.v, v_n)$
+  ]
+  je sloupcový vektor s $n$ složkami.
+]
+#definition("Operace s vektory")[
+  Sloupcové i řádkové vektory můžeme spolu sčítat (mají-li stejně složek) a
+  násobit čísly. Ať
+  #math.equation(numbering: none, block: true)[
+    $vc(u) = vec(u_1, u_2, dots.v, u_n) " a " vc(v) = vec(v_1, v_2, dots.v, v_n)$ 
+  ]
+  jsou dva vektory a $r$ je číslo. Pak definujeme
+  #math.equation(numbering: none, block: true)[
+    $vc(u) + vc(v) = vec(u_1 + v_1, u_2 + v_2, dots.v, u_n + v_n)$
+  ]
+  a také
+  #math.equation(numbering: none, block: true)[
+    $r dot vc(v) = vec(r v_1, r v_2, dots.v, r v_n)$.
+  ]
+]
+#remark[
+  Násobení vektorů číslem budeme vždy značit symbolem $dot$ jako v případě $r
+  dot vc(v)$, zatímco běžné násobení čísel vyjádříme absencí symbolu, jako v
+  případě $r v_1$. Časem bude toto rozlišení důležité.
+]

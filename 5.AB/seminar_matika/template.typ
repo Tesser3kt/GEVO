@@ -28,6 +28,7 @@
   inset: 0.8em,
   padding: (top: 0em, bottom: 0em),
   radius: 0em,
+  base_level: 2
 )
 #let proposition = thmbox(
   "proposition",
@@ -37,7 +38,18 @@
   inset: 0.8em,
   padding: (top: 0em, bottom: 0em),
   radius: 0em,
+  base_level: 2
 )
+#let remark = thmbox(
+  "remark",
+  "Poznámka",
+  fill: green.transparentize(80%),
+  breakable: true,
+  inset: 0.8em,
+  padding: (top: 0em, bottom: 0em),
+  radius: 0em,
+  base_level: 2
+).with(numbering: none)
 #let proof = thmproof("proof", "Důkaz")
 
 // Coloring
@@ -52,6 +64,11 @@
 }
 #let clp(body) = {
   text(fill: purple.darken(30%))[#body]
+}
+
+// Math shortcuts
+#let vc(body) = {
+  $arrow(bold(body))$
 }
 
 // No strips for algorithm
