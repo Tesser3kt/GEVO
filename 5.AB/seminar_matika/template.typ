@@ -45,7 +45,7 @@
 #let theorem = thmbox(
   "theorem",
   "Věta",
-  fill: maindark.transparentize(80%),
+  fill: maindef.transparentize(80%),
   breakable: true,
   inset: 0.8em,
   padding: (top: 0em, bottom: 0em),
@@ -193,7 +193,7 @@
   }
 
   // Headings format
-  set heading(numbering: "I.1.1")
+  set heading(numbering: "1.1.1")
   show heading: set text(
     font: "TeX Gyre Adventor",
   )

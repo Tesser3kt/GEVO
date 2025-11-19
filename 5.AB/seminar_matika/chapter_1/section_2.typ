@@ -640,4 +640,132 @@ způsobem.
     ${vc(p) + t_1 dot vc(v_1) + t_2 dot vc(v_2) + ... + t_k dot vc(v_k)$},
   ]
   kde $vc(p)$ je jedno konkrétní řešení a $t_1,t_2,...,t_k$ jsou volné proměnné.
+]<thm:tvar-reseni>
+
+K důkazu @thm:tvar-reseni[věty] si pomůžeme malým obchvatem. Totiž, budeme se
+nejprve soustředit na lineární systémy, které mají na pravé straně samé nuly.
+Tvar množiny řešení takových systémů je jednodušší popsat z toho důvodu, že
+n-tice $(0,0,...,0)$ je *vždy* jedním konkrétním řešením. Tyto systémy nazveme
+_homogenní_.
+
+#definition("Homogenní systém")[
+  Lineární systém $A vc(x) = vc(b)$ nazveme _homogenním_, když
+  #math.equation(numbering: none, block: true)[
+    $vc(b) = vc(0) = vec(0, 0, dots.v, 0)$,
+  ]
+  čili jeho pravou stranou je vektor samých nul.
+]<def:homogenni-system>
+
+#proposition("Tvar řešení homogenního systému")[
+  Každý homogenní systém $A vc(x) = vc(0)$ má množinu řešení ve tvaru
+  #math.equation(numbering: none, block: true)[
+    ${t_1 dot vc(v_1) + t_2 dot vc(v_2) + ... + t_k dot vc(v_k)}$,
+  ]
+  kde $t_1,...,t_k$ jsou volné proměnné a $vc(v_1),...,vc(v_k)$ jsou vhodné
+  vektory koeficientů.
 ]
+#proof[
+  Tvrzení dokážeme podobným způsobem, jako bychom homogenní systém řešili.
+  Totiž, nejprve použijeme #link(<alg:gauss-jordan>, [Gauβův-Jordanův
+    algoritmus]), a dostaneme homogenní systém
+  #math.equation(numbering: none, block: true)[
+    #grid(
+      columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+      column-gutter: 0.3em,
+      row-gutter: 1em,
+      align: (end, center, end, center, center, center, end, center, start),
+      $a_(1,1) x_1$,
+      $+$,
+      $a_(1,2) x_2$,
+      $+$,
+      $...$,
+      $+$,
+      $a_(1,n) x_n$,
+      $=$,
+      $0$,
+
+      $a_(2,1) x_1$,
+      $+$,
+      $a_(2,2) x_2$,
+      $+$,
+      $...$,
+      $+$,
+      $a_(2,n) x_n$,
+      $=$,
+      $0$,
+
+      [], $dots.v$, [], $dots.v$, [], $dots.v$, [], $dots.v$, [],
+      $a_(m,1) x_1$,
+      $+$,
+      $a_(m,2) x_2$,
+      $+$,
+      $...$,
+      $+$,
+      $a_(m,n) x_n$,
+      $=$,
+      $0$,
+    )]
+  do odstupňovaného tvaru. Z odstupňovaného tvaru dokážeme totiž přesně vyčíst,
+  které proměnné jsou volné a které jsou pivoty. Konkrétně, připomínáme, že
+  pivoty jsou vždy proměnné s prvním nenulovým koeficientem v každém řádku anebo
+  pivoty z řádků pod ním. Všechny ostatní proměnné jsou volné. Pro představu
+  vizte @fig:lin-sys-odstupnovany[obrázek].
+
+  V tomto tvaru provedeme zpětnou substituci. To znamená, že vyjádříme pivota z
+  posledního řádku (tam je jen jeden) pomocí volných proměnných z posledního
+  řádku. Dosadíme z téhož pivota v řádku výše. Tím získáme rovnici, v níž
+  vystupují pouze volné proměnné a nejlevější pivot v tomto řádku. Opět jej
+  vyjádříme pomocí volných proměnných. Takhle postupujeme dále, dokud
+  nevyjádříme pivota v prvním řádku.
+
+  Že takový postup je formální, zajišťuje princip matematické indukce (vizte
+  @chap:matematicka-indukce[kapitolu]). Totiž, v prvním indukčním kroku zkrátka
+  vyjádříme pivot v posledním řádku pomocí volných proměnných. To jistě lze, jak
+  jsme si již rozmysleli, neb je v posledním řádku pivot pouze jeden.
+
+  V druhém indukčním kroku předpokládejme, že se nacházíme v $i$-tém řádku
+  zespoda a všechny pivoty v nižších řádcích jsou již vyjádřeny pomocí volných
+  proměnných. Dosazením do tohoto řádku způsobí, že všechny pivoty kromě
+  nejlevějšího "zmizí", neboť jsou vyjádřeny pomocí volných proměnných. Tudíž, i
+  tento jeden pivot můžeme vyjádřit pomocí volných proměnných a jsme hotovi.
+]
+
+#figure(
+  cetz.canvas({
+    import cetz.draw: *
+
+    for coor in ((0, 0), (3, 0), (4, 0), (6, 0)) {
+      circle(coor, fill: red, stroke: 0pt, radius: 0.2)
+    }
+    for (x, y) in ((1, 0), (2, 0), (5, 0), (7, 0)) {
+      rect((x - 0.2, y - 0.2), (x + 0.2, y + 0.2), fill: blue, stroke: 0pt)
+    }
+
+    for coor in ((3, -1), (4, -1), (6, -1)) {
+      circle(coor, fill: red, stroke: 0pt, radius: 0.2)
+    }
+    for (x, y) in ((5, -1), (7, -1)) {
+      rect((x - 0.2, y - 0.2), (x + 0.2, y + 0.2), fill: blue, stroke: 0pt)
+    }
+
+    for coor in ((4, -2), (6, -2)) {
+      circle(coor, fill: red, stroke: 0pt, radius: 0.2)
+    }
+    for (x, y) in ((5, -2), (7, -2)) {
+      rect((x - 0.2, y - 0.2), (x + 0.2, y + 0.2), fill: blue, stroke: 0pt)
+    }
+
+    circle((6, -3), fill: red, stroke: 0pt, radius: 0.2)
+    rect((7 - 0.2, -3 - 0.2), (7 + 0.2, -3 + 0.2), fill: blue, stroke: 0pt)
+  }),
+  caption: [Levá strana lineárního systému v odstupňovaném tvaru. Symboly
+    #box(baseline: 0.1em, rect(
+      width: 8pt,
+      height: 8pt,
+      fill: blue,
+      stroke: none,
+    ))
+    značí volné proměnné a symboly #box(baseline: 0.1em, circle(radius: 4pt, fill: red, stroke: none)) pivoty.],
+)<fig:lin-sys-odstupnovany>
+
+

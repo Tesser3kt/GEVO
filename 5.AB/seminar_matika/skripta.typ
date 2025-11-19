@@ -18,5 +18,8 @@
 )
 #show: thmrules
 
+// Chapters
 #include "chapter_1.typ"
 
+// Appendix
+#include "appendix.typ"
