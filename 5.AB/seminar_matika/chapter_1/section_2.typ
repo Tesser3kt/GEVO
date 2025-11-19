@@ -428,7 +428,7 @@ neboť z druhého řádku můžeme nanejvýš hodnotu proměnné $x_3$ vyjádři
 proměnné $x_4$ nebo naopak. My budeme takovéto systému vždy řešit tak, že tu
 proměnnou, *která je nejvíc nalevo* v daném řádku nazveme #clr[pivotem] a zbytek
 proměnných v řádku (které *nejsou pivoty z nižších řádků*) nazveme #clb[volnými
-proměnnými] nebo #clb[parametry].
+  proměnnými] nebo #clb[parametry].
 
 Rozdělení na #clr[pivoty] a #clb[volné proměnné] v systému @eq:lin-sys-par-1
 vypadá takto:
@@ -461,7 +461,7 @@ Odtud spočteme, že
   $#clr[$x_1$] = -4#clb[$t_1$] + 1/2#clb[$t_2$] + 17/2$.
 ]
 Řešením systému jsou pročež všechny čtveřice $(-4#clb[$t_1$] + (1 slash 2)
-#clb[$t_2$] + 17 slash 2, clb(t_2), 3#clb[$t_1$] - 5, #clb[$t_1$])$, kde
+  #clb[$t_2$] + 17 slash 2, clb(t_2), 3#clb[$t_1$] - 5, #clb[$t_1$])$, kde
 #clb[$t_1$] a #clb[$t_2$] jsou libovolná čísla.
 
 Abychom řešení takových systémů uměli zapsat přehledněji, zavedeme si pojmy
@@ -496,7 +496,7 @@ významu. Zatím pro nás budou pouze představovat pohodlný způsob zápisu.
   Sloupcové i řádkové vektory můžeme spolu sčítat (mají-li stejně složek) a
   násobit čísly. Ať
   #math.equation(numbering: none, block: true)[
-    $vc(u) = vec(u_1, u_2, dots.v, u_n) " a " vc(v) = vec(v_1, v_2, dots.v, v_n)$ 
+    $vc(u) = vec(u_1, u_2, dots.v, u_n) " a " vc(v) = vec(v_1, v_2, dots.v, v_n)$
   ]
   jsou dva vektory a $r$ je číslo. Pak definujeme
   #math.equation(numbering: none, block: true)[
@@ -511,4 +511,133 @@ významu. Zatím pro nás budou pouze představovat pohodlný způsob zápisu.
   Násobení vektorů číslem budeme vždy značit symbolem $dot$ jako v případě $r
   dot vc(v)$, zatímco běžné násobení čísel vyjádříme absencí symbolu, jako v
   případě $r v_1$. Časem bude toto rozlišení důležité.
+]
+
+Přeformulujeme pár pojmů z teorie lineárních systémů do maticové podoby. Pro
+lineární systém
+#math.equation(block: true)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    column-gutter: 0.3em,
+    row-gutter: 1em,
+    align: (end, center, end, center, center, center, end, center, start),
+    $a_(1,1) x_1$,
+    $+$,
+    $a_(1,2) x_2$,
+    $+$,
+    $...$,
+    $+$,
+    $a_(1,n) x_n$,
+    $=$,
+    $b_1$,
+
+    $a_(2,1) x_1$,
+    $+$,
+    $a_(2,2) x_2$,
+    $+$,
+    $...$,
+    $+$,
+    $a_(2,n) x_n$,
+    $=$,
+    $b_2$,
+
+    [], $dots.v$, [], $dots.v$, [], $dots.v$, [], $dots.v$, [],
+    $a_(m,1) x_1$,
+    $+$,
+    $a_(m,2) x_2$,
+    $+$,
+    $...$,
+    $+$,
+    $a_(m,n) x_n$,
+    $=$,
+    $b_m$,
+  )]<eq:lin-sys-2>
+označíme
+#math.equation(numbering: none, block: true)[
+  $A = mat(
+    a_(1,1), a_(1,2), dots.c, a_(1,n);
+    a_(2,1), a_(2,2), dots.c, a_(2,n);
+    dots.v, dots.v, dots.down, dots.v;
+    a_(m,1), a_(m,2), dots.c, a_(m,n);
+  )", "vc(b) = vec(b_1, b_2, dots.v, b_m) " a "
+  vc(x) = vec(x_1, x_2, dots.v, x_n)$.
+]
+Řekneme, že @eq:lin-sys-2 je lineární systém s maticí $A$ a vektorem pravé
+strany $vc(b)$. Často jej budeme zkráceně zapisovat jako
+#math.equation(numbering: none, block: true)[
+  $A vc(x) = vc(b)$.
+]
+Smysluplnost tohoto značení vysvětlíme později.
+
+Dále, řekneme, že vektor
+#math.equation(numbering: none, block: true)[
+  $vc(s) = vec(s_1, s_2, dots.v, s_n)$
+]
+je řešením systému @eq:lin-sys-2, když je n-tice $(s_1,s_2,...,s_n)$ jeho
+řešením ve smyslu @def:lin-sys.
+
+Zapíšeme řešení příkladného systému @eq:lin-sys-par-1 ve "vektorové podobě".
+Sepíšeme-li jednotlivé proměnné do řádků, dostaneme
+#math.equation(numbering: none, block: true)[
+  $x_1 &= 17/2 - 4t_1 + 1/2 t_2\
+  x_2 &= t_2\
+  x_3 &= -5 + 3t_1\
+  x_4 &= t_1$.
+]
+Navíc zápis upravíme tak, aby každá volná proměnná byla ve svém vlastním
+sloupci.
+#math.equation(numbering: none, block: true)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto),
+    column-gutter: 0.3em,
+    row-gutter: 1em,
+    align: (end, center, end, center, center, center, start),
+    $x_1$, $=$, $display(17 / 2)$, $-$, $4t_1$, $+$, $display(1/2 t_2)$,
+    $x_2$, $=$, [], [], [], [], $t_2$,
+    $x_3$, $=$, $-5$, $+$, $3t_1$, [], [],
+    $x_4$, $=$, [], [], $t_1$, [], [],
+  )
+]
+Abychom viděli, kde se v takovém zápisu schovávají ony vektory, doplníme prázdná
+místa nulami a zvýrazníme koeficienty.
+#math.equation(numbering: none, block: true)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto),
+    column-gutter: 0.3em,
+    row-gutter: 1em,
+    align: (end, center, end, center, end, center, start),
+    $x_1$,
+    $=$,
+    $clr(display(17 / 2))$,
+    $+$,
+    $clb(-4)t_1$,
+    $+$,
+    $display(clg(1/2) t_2)$,
+
+    $x_2$, $=$, $clr(0)$, $+$, $clb(0)t_1$, $+$, $clg(1)t_2$,
+    $x_3$, $=$, $clr(-5)$, $+$, $clb(3)t_1$, $+$, $clg(0)t_2$,
+    $x_4$, $=$, $clr(0)$, $+$, $clb(1)t_1$, $+$, $clg(0)t_2$,
+  )
+]
+Položíme
+#math.equation(numbering: none, block: true)[
+  $vc(x) = vec(x_1, x_2, x_3, x_4)", "clr(vc(p)) = vec(
+    clr(17/2), clr(0),
+    clr(-5), clr(0)
+  )", "clb(vc(v_1)) = vec(clb(-4), clb(0), clb(3), clb(1))" a "clg(vc(v_2)) =
+  vec(clg(1/2), clg(1), clg(0), clg(0))$.
+]
+Teď můžeme napsat řešení systému @eq:lin-sys-par-1 jako
+#math.equation(numbering: none, block: true)[
+  $vc(x) = clr(vc(p)) + t_1 dot clb(vc(v_1)) + t_2 dot clg(vc(v_2))$.
+]
+Tvrdíme, že množinu řešení *každého* lineárního systému lze vyjádřit tímto
+způsobem.
+
+#theorem("Tvar řešení lineárního systému")[
+  Množina řešení systému @eq:lin-sys má tvar
+  #math.equation(numbering: none, block: true)[
+    ${vc(p) + t_1 dot vc(v_1) + t_2 dot vc(v_2) + ... + t_k dot vc(v_k)$},
+  ]
+  kde $vc(p)$ je jedno konkrétní řešení a $t_1,t_2,...,t_k$ jsou volné proměnné.
 ]

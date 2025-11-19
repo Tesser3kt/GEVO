@@ -18,6 +18,8 @@
 #let green = rgb("#2EBDB6")
 #let blue = rgb("#2CC4EF")
 #let purple = rgb("#695BAA")
+#let orange = rgb("#DD8C3C")
+#let yellow = rgb("#DDC23C")
 
 // Define theorem envs
 #let definition = thmbox(
@@ -28,7 +30,7 @@
   inset: 0.8em,
   padding: (top: 0em, bottom: 0em),
   radius: 0em,
-  base_level: 2
+  base_level: 2,
 )
 #let proposition = thmbox(
   "proposition",
@@ -38,32 +40,48 @@
   inset: 0.8em,
   padding: (top: 0em, bottom: 0em),
   radius: 0em,
-  base_level: 2
+  base_level: 2,
 )
-#let remark = thmbox(
-  "remark",
-  "Poznámka",
-  fill: green.transparentize(80%),
+#let theorem = thmbox(
+  "theorem",
+  "Věta",
+  fill: maindark.transparentize(80%),
   breakable: true,
   inset: 0.8em,
   padding: (top: 0em, bottom: 0em),
   radius: 0em,
-  base_level: 2
+  base_level: 2,
+)
+#let remark = thmbox(
+  "remark",
+  "Poznámka",
+  fill: yellow.transparentize(70%),
+  breakable: true,
+  inset: 0.8em,
+  padding: (top: 0em, bottom: 0em),
+  radius: 0em,
+  base_level: 2,
 ).with(numbering: none)
 #let proof = thmproof("proof", "Důkaz")
 
 // Coloring
 #let clr(body) = {
-  text(fill: red.darken(30%))[#body]
+  text(fill: red.darken(20%))[#body]
 }
 #let clb(body) = {
-  text(fill: blue.darken(30%))[#body]
+  text(fill: blue.darken(20%))[#body]
 }
 #let clg(body) = {
-  text(fill: green.darken(30%))[#body]
+  text(fill: green.darken(20%))[#body]
 }
 #let clp(body) = {
-  text(fill: purple.darken(30%))[#body]
+  text(fill: purple.darken(20%))[#body]
+}
+#let clo(body) = {
+  text(fill: orange.darken(20%))[#body]
+}
+#let cly(body) = {
+  text(fill: yellow.darken(20%))[#body]
 }
 
 // Math shortcuts
