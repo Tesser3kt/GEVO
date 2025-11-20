@@ -1,4 +1,5 @@
 #import "../template.typ": *
+#let proposition = proposition.with(numbering: "A.1", base_level: 1)
 
 = Matematická indukce
 <chap:matematicka-indukce>
@@ -40,7 +41,7 @@ Jako příklad užití matematické indukce dokážeme jedno tvrzení.
   #math.equation(numbering: none, block: true)[
     $1 + 2 + ... + n + (n + 1) = ((n + 1)(n + 2))/2$
   ]
-  (tj. tatáž rovnost pro číslo $n + 1$). Nuže, na pravé straně máme výraz $1 + 2
+  (tj. tatáž rovnost pro číslo $n + 1$). Nuže, na levé straně máme výraz $1 + 2
   + ... + n$, o kterém předpokládáme, že je roven $n(n + 1) slash 2$. Dosaďme
   tedy za něj, abychom dostali
   #math.equation(numbering: none, block: true)[

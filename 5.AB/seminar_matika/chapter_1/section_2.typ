@@ -658,12 +658,12 @@ _homogenní_.
 
 #proposition("Tvar řešení homogenního systému")[
   Každý homogenní systém $A vc(x) = vc(0)$ má množinu řešení ve tvaru
-  #math.equation(numbering: none, block: true)[
+  #math.equation(block: true)[
     ${t_1 dot vc(v_1) + t_2 dot vc(v_2) + ... + t_k dot vc(v_k)}$,
-  ]
+  ]<eq:tvar-reseni-hom-systemu>
   kde $t_1,...,t_k$ jsou volné proměnné a $vc(v_1),...,vc(v_k)$ jsou vhodné
   vektory koeficientů.
-]
+]<prop:tvar-reseni-hom-systemu>
 #proof[
   Tvrzení dokážeme podobným způsobem, jako bychom homogenní systém řešili.
   Totiž, nejprve použijeme #link(<alg:gauss-jordan>, [Gauβův-Jordanův
@@ -728,6 +728,9 @@ _homogenní_.
   proměnných. Dosazením do tohoto řádku způsobí, že všechny pivoty kromě
   nejlevějšího "zmizí", neboť jsou vyjádřeny pomocí volných proměnných. Tudíž, i
   tento jeden pivot můžeme vyjádřit pomocí volných proměnných a jsme hotovi.
+
+  Teď už stačí zapsat řešení systému stejným způsobem jako před
+  @thm:tvar-reseni[větou].
 ]
 
 #figure(
@@ -768,4 +771,60 @@ _homogenní_.
     značí volné proměnné a symboly #box(baseline: 0.1em, circle(radius: 4pt, fill: red, stroke: none)) pivoty.],
 )<fig:lin-sys-odstupnovany>
 
+Rozšíříme důkaz @prop:tvar-reseni-hom-systemu[tvrzení] na obecné lineární
+systémy.
 
+#proof(ref(<thm:tvar-reseni>, supplement: "věty"))[
+  Mějme lineární systém
+  #math.equation(numbering: none, block: true)[
+    #grid(
+      columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+      column-gutter: 0.3em,
+      row-gutter: 1em,
+      align: (end, center, end, center, center, center, end, center, start),
+      $a_(1,1) x_1$,
+      $+$,
+      $a_(1,2) x_2$,
+      $+$,
+      $...$,
+      $+$,
+      $a_(1,n) x_n$,
+      $=$,
+      $b_1$,
+
+      $a_(2,1) x_1$,
+      $+$,
+      $a_(2,2) x_2$,
+      $+$,
+      $...$,
+      $+$,
+      $a_(2,n) x_n$,
+      $=$,
+      $b_2$,
+
+      [], $dots.v$, [], $dots.v$, [], $dots.v$, [], $dots.v$, [],
+      $a_(m,1) x_1$,
+      $+$,
+      $a_(m,2) x_2$,
+      $+$,
+      $...$,
+      $+$,
+      $a_(m,n) x_n$,
+      $=$,
+      $b_m$,
+    )
+  ]
+  Ať je vektor $vc(p)$ nějaké jeho řešení. Nejprve ukážeme, že každé řešení
+  umíme zapsat ve tvaru $vc(p) + vc(h)$, kde $vc(h)$ je řešení příslušného
+  homogenního systému (tedy systému se stejnou levou stranou a nulami na straně
+  pravé). To stačí, protože z @prop:tvar-reseni-hom-systemu[tvrzení] víme, že
+  $vc(h)$ je tvaru @eq:tvar-reseni-hom-systemu.
+
+  Ať je tedy $vc(s)$ nějaké jiné řešení systému. Pak je vektor $vc(s) - vc(p)$
+  řešením homogenního systému. Vskutku, protože jak $vc(s)$, tak $vc(p)$ jsou
+  řešeními, platí pro každé $i <= m$, že
+  #math.equation(numbering: none, block: true)[
+    $a_(i,1)s_1 + a_(i,2)s_2 + ... + a_(i,n)s_n &= b_i\
+    a_(i,1)p_1 + a_(i,2)p_2 + ... + a_(i,n)p_n &= b_i$
+  ]
+]
