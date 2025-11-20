@@ -95,6 +95,19 @@
   body
 }
 
+// Inline enum
+#let inline-enum(
+  ..items,
+  numbering: (i, body) => [#(i + 1)) #body], // default: "1) item"
+  sep: h(1em),
+) = {
+  let elems = items.pos()
+  for (i, item) in elems.enumerate() {
+    if i > 0 { sep }
+    [#numbering(i, item)]
+  }
+}
+
 #let template(
   img: none,
   title: none,

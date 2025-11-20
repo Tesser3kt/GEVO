@@ -425,10 +425,10 @@ situaci, kterou ilustruje následující systém.
 Tento systém *je* v odstupňovaném tvaru, protože druhý řádek "začíná víc
 napravo" než první. Ovšem, určitě se nedobereme jednoho konkrétního řešení,
 neboť z druhého řádku můžeme nanejvýš hodnotu proměnné $x_3$ vyjádřit pomocí
-proměnné $x_4$ nebo naopak. My budeme takovéto systému vždy řešit tak, že tu
-proměnnou, *která je nejvíc nalevo* v daném řádku nazveme #clr[pivotem] a zbytek
-proměnných v řádku (které *nejsou pivoty z nižších řádků*) nazveme #clb[volnými
-  proměnnými] nebo #clb[parametry].
+proměnné $x_4$ nebo naopak. My budeme takovéto systémy vždy řešit tak, že tu
+proměnnou, *která je nejvíc nalevo* v daném řádku, nazveme #clr[pivotem] a
+zbytek proměnných v řádku (které *nejsou pivoty z nižších řádků*) nazveme
+#clb[volnými proměnnými] nebo #clb[parametry].
 
 Rozdělení na #clr[pivoty] a #clb[volné proměnné] v systému @eq:lin-sys-par-1
 vypadá takto:
@@ -631,6 +631,8 @@ Teď můžeme napsat řešení systému @eq:lin-sys-par-1 jako
 #math.equation(numbering: none, block: true)[
   $vc(x) = clr(vc(p)) + t_1 dot clb(vc(v_1)) + t_2 dot clg(vc(v_2))$.
 ]
+Všimněme si, že vektor $vc(p)$ je jedním konkrétním řešením systému
+@eq:lin-sys-par-1, které dostaneme, když za volné proměnné dosadíme $0$.
 Tvrdíme, že množinu řešení *každého* lineárního systému lze vyjádřit tímto
 způsobem.
 
@@ -713,7 +715,7 @@ _homogenní_.
 
   V tomto tvaru provedeme zpětnou substituci. To znamená, že vyjádříme pivota z
   posledního řádku (tam je jen jeden) pomocí volných proměnných z posledního
-  řádku. Dosadíme z téhož pivota v řádku výše. Tím získáme rovnici, v níž
+  řádku. Dosadíme za téhož pivota do řádku výše. Tím získáme rovnici, v níž
   vystupují pouze volné proměnné a nejlevější pivot v tomto řádku. Opět jej
   vyjádříme pomocí volných proměnných. Takhle postupujeme dále, dokud
   nevyjádříme pivota v prvním řádku.
@@ -725,7 +727,7 @@ _homogenní_.
 
   V druhém indukčním kroku předpokládejme, že se nacházíme v $i$-tém řádku
   zespoda a všechny pivoty v nižších řádcích jsou již vyjádřeny pomocí volných
-  proměnných. Dosazením do tohoto řádku způsobí, že všechny pivoty kromě
+  proměnných. Dosazení za pivoty do tohoto řádku způsobí, že všechny kromě
   nejlevějšího "zmizí", neboť jsou vyjádřeny pomocí volných proměnných. Tudíž, i
   tento jeden pivot můžeme vyjádřit pomocí volných proměnných a jsme hotovi.
 
@@ -821,10 +823,105 @@ systémy.
   $vc(h)$ je tvaru @eq:tvar-reseni-hom-systemu.
 
   Ať je tedy $vc(s)$ nějaké jiné řešení systému. Pak je vektor $vc(s) - vc(p)$
-  řešením homogenního systému. Vskutku, protože jak $vc(s)$, tak $vc(p)$ jsou
+  řešením homogenního systému. Vskutku, protože jak $vc(s)$, tak $vc(p)$, jsou
   řešeními, platí pro každé $i <= m$, že
   #math.equation(numbering: none, block: true)[
     $a_(i,1)s_1 + a_(i,2)s_2 + ... + a_(i,n)s_n &= b_i\
-    a_(i,1)p_1 + a_(i,2)p_2 + ... + a_(i,n)p_n &= b_i$
+    a_(i,1)p_1 + a_(i,2)p_2 + ... + a_(i,n)p_n &= b_i$,
+  ]
+  a proto
+  #math.equation(numbering: none, block: true)[
+    $0 = b_i - b_i &= a_(i,1)s_1 + a_(i,2)s_2 + ... + a_(i,n)s_n - (a_(i,1)p_1 +
+      a_(i,2)p_2 + ... + a_(i,n)p_n)\
+    &=(a_(i,1)s_1 - a_(i,1)p_1) + (a_(i,2)s_2 - a_(i,2)p_2) + ... + (a_(i,n)s_n -
+      a_(i,n)p_n)\
+    &= a_(i,1)(s_1 - p_1) + a_(i,2)(s_2 - p_2) + ... + a_(i,n)(s_n - p_n)$.
+  ]
+  Stačí tedy zvolit $vc(h) = vc(s) - vc(p)$ a platí $vc(s) = vc(p) + vc(h)$.
+
+  Právě jsme dokázali, že každé řešení lineárního systému lze napsat jako $vc(p)
+  + vc(h)$. Zbývá se ujistit, že když je naopak vektor $vc(p)$ řešením systému,
+  pak je řešením i $vc(p) + vc(h)$ pro kterékoli řešení $vc(h)$ homogenního
+  systému. Jelikož $vc(p)$ je řešením, platí pro každé $i <= m$
+  #math.equation(numbering: none, block: true)[
+    $a_(i,1)p_1 + a_(i,2)p_2 + ... + a_(i,n)p_n = b_i$.
+  ]
+  Taky, protože $vc(h)$ je řešením *homogenního* systému, spočítáme
+  #math.equation(numbering: none, block: true)[
+    $a_(i,1)h_1 + a_(i,2)h_2 + ... + a_(i,n)h_n = 0$.
+  ]
+  Dohromady dostaneme
+  #math.equation(numbering: none, block: true)[
+    $b_i = b_i + 0 &= (a_(i,1)p_1 + a_(i,2)p_2 + ... + a_(i,n)p_n) + (a_(i,1)h_1
+      + a_(i,2)h_2 + ... + a_(i,n)h_n)\
+    &= (a_(i,1)p_1 + a_(i,1)h_1) + (a_(i,2)p_2 + a_(i,2)h_2) + ... + (a_(i,n)p_n
+      + a_(i,n)h_n)\
+    &= a_(i,1)(p_1 + h_1) + a_(i,2)(p_2 + h_2) + ... + a_(i,n)(p_n + h_n)$,
+  ]
+  takže vektor $vc(p) + vc(h)$ opravdu řeší zadaný systém.
+]
+
+=== Úlohy na závěr
+
+#enum(numbering: "1)")[
+  Vyjádřete řešení následujících dvou lineárních systémů ve vektorové podobě
+  (tj. v podobě z~@thm:tvar-reseni[věty]).
+  #align(center)[
+    #grid(
+      columns: 2,
+      gutter: 6em,
+      rows: 1,
+      align: top,
+      grid(
+        columns: (auto, auto, auto, auto, auto, auto, auto),
+        column-gutter: 0.3em,
+        row-gutter: 1em,
+        align: (end, center, end, center, end, center, start),
+        $3x_1$, $+$, $2x_2$, $+$, $x_3$, $=$, $1$,
+        $x_1$, $-$, $x_2$, $+$, $x_3$, $=$, $2$,
+        $5x_1$, $+$, $5x_2$, $+$, $x_3$, $=$, $0$,
+      ),
+      grid(
+        columns: (auto,) * 9,
+        column-gutter: 0.3em,
+        row-gutter: 1em,
+        align: (end, center, end, center, end, center, end, center, start),
+        $2x_1$, $-$, $x_2$, $-$, $x_3$, $+$, $x_4$, $=$, $4$,
+        $x_1$, $+$, $x_2$, $+$, $x_3$, [], [], $=$, $-1$,
+      ),
+    )
+  ]
+][
+  Najděte příklad lineárního systému se *čtyřmi rovnicemi* a *čtyřmi neznámými*,
+  který má
+  #enum(numbering: "a)")[
+    přesně $0$ volných proměnných;
+  ][
+    přesně $2$ volné proměnné.
+  ]
+][
+  Podle @thm:tvar-reseni[věty] lze vyjádřit množinu řešení lineárního systému
+  pomocí kteréhokoliv konkrétního řešení $vc(p)$ (tedy ne pouze toho, kde za
+  volné proměnné dosadíme $0$). Popište množinu řešení systému
+  #align(center)[
+    #grid(
+      columns: (auto,) * 9,
+      column-gutter: 0.3em,
+      row-gutter: 1em,
+      align: (end, center, end, center, end, center, end, center, start),
+      $x_1$, $-$, $x_2$, [], [], $+$, $x_4$, $=$, $4$,
+      $2x_1$, $+$, $3x_2$, $-$, $x_3$, [], [], $=$, $0$,
+      [], [], $x_2$, $+$, $x_3$, $+$, $x_4$, $=$, $4,$,
+    )
+  ]
+  #h(-26pt) pokud zvolené konkrétní řešení je
+
+  #inline-enum(numbering: (i, body) => [#str.at("abc", i)) #body])[
+    $vc(p) = vec(0, 0, 0, 4)$,
+  ][
+    $vc(p) = vec(-5, 1, -7, 10)$,
+  ][
+    $vc(p) = vec(2, -1, 1, 1)$.
   ]
 ]
+
