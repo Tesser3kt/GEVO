@@ -148,7 +148,7 @@ pravdivý? #text(crimson)[*Podrobně vysvětlete*] svůj postup a ujistěte se, 
 #v(45%)
 
 #block(width: 100%)[
-  == #text(airblue)[Bonusová úloha]
+  === #text(airblue)[Bonusová úloha]
   #points(10)
   Vezměte množinu $C$ z předchozí úlohy a definujte ji užitím
   #text(crimson)[pouze logických operátorů]. Tj. převeďte obě podmínky kladené
@@ -191,7 +191,7 @@ pravdivý? #text(crimson)[*Podrobně vysvětlete*] svůj postup a ujistěte se, 
 #pagebreak()
 #block(width: 100%)[
   #points(10)
-  == #text(airblue)[Bonusová úloha]
+  === #text(airblue)[Bonusová úloha]
   Velikost (*počet prvků*) množiny $A$ označujeme jako $|A|$. Například, pro
   množinu $S = {1,2,3}$ platí, že $|S|=3$. Výraz $|A| + |B| + |C|$ můžeme chápat
   jako #emph["počítání všech prvků ze všech množin"]. V každé z oblastí (je jich
