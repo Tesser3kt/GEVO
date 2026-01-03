@@ -18,8 +18,12 @@
 )
 #show: thmrules
 
+// Table of contents
+#outline()
+
 // Chapters
 #include "chapter_1.typ"
+#include "chapter_2.typ"
 
 // Appendix
 #include "appendix.typ"
