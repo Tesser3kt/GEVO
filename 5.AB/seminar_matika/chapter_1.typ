@@ -15,4 +15,3 @@ dosadit za proměnné, aby byly všechny rovnice splněny.
 
 #include "chapter_1/section_1.typ"
 #include "chapter_1/section_2.typ"
-#include "chapter_1/section_3.typ"

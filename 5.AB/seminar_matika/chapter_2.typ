@@ -126,4 +126,11 @@ budeme representovat jako množinu $RR^n$, čili jako $n$-tice reálných číse
 
 Přestože intuitivně vnímáme vektory jako šipky mezi body, formálně není mezi
 vektorem z~počátku do nějakého bodu a tímto bodem vlastně žádný rozdíl. Obojí
-jsou jen $n$-tice čísel.
+jsou jen $n$-tice čísel. Tedy, jelikož my se budeme v dalším textu zabývat
+hlavně vektory, prostor $RR^n$ pro nás bude množinou všech vektorů
+*začínajících* v počátku. Formálně,
+#math.equation(numbering: none, block: true)[
+  $RR^n = {vec(r_1, r_2, dots.v, r_n) | r_1,...,r_n in RR}$.
+]
+
+#include "chapter_2/section_1.typ"
