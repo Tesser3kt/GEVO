@@ -139,3 +139,111 @@ třikrát delší, jak vidno níže.
 )
 
 Násobení *záporným* číslem se navíc projevuje otočením směru.
+#align(center)[
+  #cetz.canvas({
+    import cetz.draw: *
+    import cetz.decorations: *
+
+    // X axis
+    line((-4, 0), (4, 0), mark: (start: ">", end: ">"), stroke: 1pt)
+    for x in (-3, -2, -1, 1, 2, 3) {
+      line((x, -3pt), (x, 3pt), stroke: 1pt)
+      content((x, 0), anchor: "south", padding: .3, [$#x$])
+    }
+
+    // Y axis
+    line((0, -3), (0, 3), mark: (start: ">", end: ">"), stroke: 1pt)
+    for y in (-2, -1, 1, 2) {
+      line((-3pt, y), (3pt, y), stroke: 1pt)
+      content((0, y), anchor: "west", padding: .3, [$#y$])
+    }
+
+    content((0, 0), anchor: "south-west", padding: .2, [$0$])
+
+    line(
+      (0, 0),
+      (-3, -1),
+      stroke: red + 2pt,
+      mark: (end: ">", fill: red),
+      name: "v",
+    )
+    content(
+      ("v.start", 50%, "v.end"),
+      anchor: "north",
+      padding: .2,
+      [#clr[$-1 dot vc(u)$]],
+    )
+  })
+]
+
+Sčítání vektorů lze charakterisovat slovy "nejdřív jedním směrem, pak druhým".
+Tedy, součet vektorů je vektor, který končí v bodě, kam se dostaneme, když
+nejprve sledujeme jeden z vektorů a pak druhý (na pořadí pochopitelně nezáleží,
+výsledek je stejný). Na obrázku můžete vidět vektor $#clg[$vc(w)$] =
+#clr[$vc(u)$] + #clb[$vc(v)$] = #clb[$vc(v)$] + #clr[$vc(u)$]$, kde
+$#clr[$vc(u)$] = vec(3, 1)$ a $#clb[$vc(v)$] = vec(1, 2)$.
+
+#align(center)[
+  #cetz.canvas({
+    import cetz.draw: *
+    import cetz.decorations: *
+
+    // X axis
+    line((-1, 0), (5, 0), mark: (start: ">", end: ">"), stroke: 1pt)
+    for x in (1, 2, 3, 4) {
+      line((x, -3pt), (x, 3pt), stroke: 1pt)
+      content((x, 0), anchor: "north", padding: .3, [$#x$])
+    }
+
+    // Y axis
+    line((0, -1), (0, 4), mark: (start: ">", end: ">"), stroke: 1pt)
+    for y in (1, 2, 3) {
+      line((-3pt, y), (3pt, y), stroke: 1pt)
+      content((0, y), anchor: "east", padding: .3, [$#y$])
+    }
+
+    content((0, 0), anchor: "north-east", padding: .2, [$0$])
+
+    line(
+      (0, 0),
+      (3, 1),
+      stroke: red + 2pt,
+      mark: (end: ">", fill: red),
+      name: "u",
+    )
+    content(
+      ("u.start", 50%, "u.end"),
+      anchor: "south",
+      padding: .2,
+      [#clr[$vc(u)$]],
+    )
+
+    line(
+      (3, 1),
+      (4, 3),
+      stroke: blue + 2pt,
+      mark: (end: ">", fill: blue),
+      name: "v",
+    )
+    content(
+      ("v.start", 50%, "v.end"),
+      anchor: "south-east",
+      padding: .1,
+      [#clb[$vc(v)$]],
+    )
+
+    line(
+      (0, 0),
+      (1, 2),
+      stroke: blue + 2pt,
+      mark: (end: ">", fill: blue),
+      name: "v",
+    )
+    content(
+      ("v.start", 50%, "v.end"),
+      anchor: "south-east",
+      padding: .1,
+      [#clb[$vc(v)$]],
+    )
+  })
+]
