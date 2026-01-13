@@ -115,7 +115,7 @@ $p$ a $q$ pravdivé nebo lživé? *Vysvětlete*.
 #v(30%)
 
 #block(width: 100%)[
-  === #text(airblue)[Bonusový příklad]
+  === #text(airblue)[Bonusová úloha]
   #points(10)
   Uvažujte nový logický operátor $dot.o$ daný následující pravdivostní tabulkou.
   #align(center)[
@@ -157,7 +157,7 @@ Svůj postup *nemusíte vysvětlovat*.
 #v(45%)
 
 #block(width: 100%)[
-  === #text(airblue)[Bonusový příklad]
+  === #text(airblue)[Bonusová úloha]
   #points(10)
   Uvažujte logický operátor $dot.o$ z předchozího bonusového příkladu.
   Určete množinu ${x | x in A dot.o x in B}$, kde $A$ a $B$ jsou definovány
@@ -199,7 +199,7 @@ Svůj postup *nemusíte vysvětlovat*.
 #v(35%)
 #block(width: 100%)[
   #points(10)
-  === #text(airblue)[Bonusový příklad]
+  === #text(airblue)[Bonusová úloha]
   *Doplněk* množiny $X$ v množině $Y$ je definován jako $Y without X$.
   Nakreslete Vennův diagram *doplňku* množiny $(A inter B) union C$ v množině
   $A union B union C$.
