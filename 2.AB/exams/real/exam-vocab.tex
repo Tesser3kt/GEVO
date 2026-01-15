@@ -1,0 +1,143 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+\usepackage{advdate}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+\usepackage{paracol}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\sffamily\large Vocabulary Exam -- 2.AB PreIB Math}
+\lhead{\sffamily\large \AdvanceDate[1]\today}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+% Title %
+\title{\Huge\textsf{Vocabulary Exam -- 2.AB PreIB Math}\\
+  \Large\textsf{Logic \& Set Theory}
+  \author{Áďa Klepáčů}
+  \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linktoc=all,
+  linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\renewcommand{\baselinestretch}{1.2}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\columnratio{.7}
+\begin{paracol}{2}
+  Logical \underline{\hspace{12ex}} are sentences that can be either
+  \underline{\hspace{12ex}}, or \underline{\hspace{12ex}}. If two such sentences
+  are both \underline{\hspace{12ex}} or \underline{\hspace{12ex}} under any
+  condition, we say that they are logically \underline{\hspace{12ex}}. If $p$
+  and $q$ are \underline{\hspace{12ex}}, the expression $p \Rightarrow q$ is
+  called an \underline{\hspace{12ex}}. The symbol $ \Rightarrow $ is an example
+  of a logical \underline{\hspace{12ex}}. Another example is $\neg $, which
+  reverses truth value and is called \underline{\hspace{12ex}}.
+
+  Let $A$ and $B$ be sets. We can combine $A$ and $B$ using \emph{set
+  operations} which arise by applying logical \underline{\hspace{12ex}} to the
+  \underline{\hspace{12ex}} ${x \in A}$ and $x \in B$. The expression ${x \in
+  A}$ is read as `$x$ is an \underline{\hspace{12ex}} of $A$'. Applying the
+  logical `and', that is, taking all $x$ satisfying $x \in A \wedge x \in B$,
+  results in a set of all $x$ that are common to both $A$ and $B$. Such set is
+  called the \underline{\hspace{12ex}} of $A$ and $B$. If we instead consider
+  all $x$ that lie in $A$ \emph{or} in $B$, we obtain a set called the
+  \underline{\hspace{12ex}} of $A$ and $B$. Finally, the set which contains all
+  \underline{\hspace{12ex}} contained in $A$ but \textbf{not} in $B$, is denoted
+  $A \setminus B$ and called the \underline{\hspace{12ex}} of $A$ and $B$.
+  \switchcolumn
+  \renewcommand{\arraystretch}{2}
+  \begin{tabular}{c}
+    \textbf{NEGATION}\\
+    \textbf{INTERSECTION}\\
+    \textbf{TRUE}\\
+    \textbf{UNION}\\
+    \textbf{ELEMENT}\\
+    \textbf{OPERATOR}\\
+    \textbf{PROPOSITION}\\
+    \textbf{IMPLICATION}\\
+    \textbf{FALSE}\\
+    \textbf{DIFFERENCE}\\
+    \textbf{EQUIVALENT}\\
+  \end{tabular}
+\end{paracol}
+
+\end{document}
