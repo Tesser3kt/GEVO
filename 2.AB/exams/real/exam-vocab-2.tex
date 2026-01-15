@@ -1,0 +1,146 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+\usepackage{advdate}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+\usepackage{paracol}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\sffamily\large Vocabulary Exam -- 2.AB PreIB Math}
+\lhead{\sffamily\large \today}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+% Title %
+\title{\Huge\textsf{Vocabulary Exam -- 2.AB PreIB Math}\\
+  \Large\textsf{Logic \& Set Theory}
+  \author{Áďa Klepáčů}
+  \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linktoc=all,
+  linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\renewcommand{\baselinestretch}{1.2}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\columnratio{.7}
+\begin{paracol}{2}
+  In logic, a \underline{\hspace{12ex}} is a declarative statement to which we
+  can assign a truth value. Said truth value can be either
+  \underline{\hspace{12ex}}, or \underline{\hspace{12ex}}.
+
+  When we want to reverse a truth value, we use \underline{\hspace{12ex}},
+  written $\neg p$. To combine statements, we use logical
+  \underline{\hspace{12ex}} such as $\wedge$, $\vee$, and $\Rightarrow$. The
+  expression $p \Rightarrow q$ is an \underline{\hspace{12ex}} meaning “if $p$
+  then $q$”.
+
+  Two propositions are logically \underline{\hspace{12ex}} if they always have
+  the same truth value, no matter how the variables are assigned.
+
+  In set theory, the notation $x \in A$ says that $x$ is an
+  \underline{\hspace{12ex}} of the set $A$. Applying logical operators to
+  statements like $x \in A$ and $x \in B$ leads to familiar set operations: the
+  \underline{\hspace{12ex}} contains the objects that lie in $A$ or in $B$ (or
+  in both), while the \underline{\hspace{12ex}} of $A$ and $B$ contains exactly
+  the objects that lie in both sets. Finally, $A \setminus B$ is the
+  \underline{\hspace{12ex}} of $A$ and $B$, containing everything in $A$ but not
+  in $B$.
+
+  \switchcolumn
+  \renewcommand{\arraystretch}{2}
+  \vspace*{-32pt}
+  \begin{tabular}{c}
+    \textbf{ELEMENT}\\
+    \textbf{NEGATION}\\
+    \textbf{DIFFERENCE}\\
+    \textbf{TRUE}\\
+    \textbf{OPERATOR}\\
+    \textbf{EQUIVALENT}\\
+    \textbf{IMPLICATION}\\
+    \textbf{UNION}\\
+    \textbf{PROPOSITION}\\
+    \textbf{FALSE}\\
+    \textbf{INTERSECTION}\\
+  \end{tabular}
+\end{paracol}
+
+\end{document}
