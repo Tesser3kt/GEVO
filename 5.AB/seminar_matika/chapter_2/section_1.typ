@@ -213,8 +213,8 @@ $#clr[$vc(u)$] = vec(3, 1)$ a $#clb[$vc(v)$] = vec(1, 2)$.
     )
     content(
       ("u.start", 50%, "u.end"),
-      anchor: "south",
-      padding: .2,
+      anchor: "north-west",
+      padding: .1,
       [#clr[$vc(u)$]],
     )
 
@@ -227,7 +227,7 @@ $#clr[$vc(u)$] = vec(3, 1)$ a $#clb[$vc(v)$] = vec(1, 2)$.
     )
     content(
       ("v.start", 50%, "v.end"),
-      anchor: "south-east",
+      anchor: "north-west",
       padding: .1,
       [#clb[$vc(v)$]],
     )
@@ -244,6 +244,153 @@ $#clr[$vc(u)$] = vec(3, 1)$ a $#clb[$vc(v)$] = vec(1, 2)$.
       anchor: "south-east",
       padding: .1,
       [#clb[$vc(v)$]],
+    )
+
+    line(
+      (1, 2),
+      (4, 3),
+      stroke: red + 2pt,
+      mark: (end: ">", fill: red),
+      name: "u",
+    )
+    content(
+      ("u.start", 50%, "u.end"),
+      anchor: "south-east",
+      padding: .1,
+      [#clr[$vc(u)$]],
+    )
+
+    line(
+      (0, 0),
+      (4, 3),
+      stroke: green + 2pt,
+      mark: (end: ">", fill: green),
+      name: "w",
+    )
+    content(
+      ("w.start", 50%, "w.end"),
+      anchor: "south-east",
+      padding: .1,
+      [#clg[$vc(w)$]],
+    )
+  })
+]
+
+Nyní si již můžeme představit, jak vypadá množina řešení lineárního systému.
+Začněme příkladem ve 2D. Řešením systému o dvou rovnicích a dvou neznámých je
+většinou pouze bod, takže tento případ přeskočíme. Uvažme místo toho systém o
+rovnici _jedné_.
+
+#math.equation(numbering: none, block: true)[
+  $2x_1 - x_2 = 3$
+]
+
+Jistě tušíte, že "grafem" takové rovnice je přímka. Tento fakt si teď umíme
+odvodit přes vektory a znalost tvaru řešení takové rovnice.
+
+Označíme $x_2$ jako volnou proměnnou $t_1$ a spočítáme $x_1 = (3 + t_1) slash
+2$. Když toto řešení přepíšeme do tvaru z @thm:tvar-reseni[věty], dostaneme
+#math.equation(numbering: none, block: true)[
+  $vec(x_1, x_2) = #clb[$vec(3 slash 2, 0)$] + t_1 dot #clr[$vec(1 slash 2,
+  1)$]$.
+]
+
+Odtud vidíme, že řešením rovnice budou všechny vektory, které umím získat jako
+součet vektoru #clb[$vec(3 slash 2, 0)$] s libovolným násobkem vektoru
+#clr[$vec(1 slash 2, 1)$]. Protože všechny násobky vektoru #clr[$vec(1 slash 2,
+1)$] tvoří přímku s přesně tímto směrem, je množinou řešení rovnice vlastně
+přímka se směrem #clr[$vec(1 slash 2, 1)$] posunutá od počátku o vektor
+#clb[$vec(3 slash 2, 0)$] jako na obrázku níže.
+
+#align(center)[
+  #cetz.canvas({
+    import cetz.draw: *
+    import cetz.decorations: *
+
+    // X axis
+    line((-1, 0), (5, 0), mark: (start: ">", end: ">"), stroke: 1pt)
+    for x in (1, 2, 3, 4) {
+      line((x, -3pt), (x, 3pt), stroke: 1pt)
+      content((x, 0), anchor: "north", padding: .3, [$#x$])
+    }
+
+    // Y axis
+    line((0, -1), (0, 4), mark: (start: ">", end: ">"), stroke: 1pt)
+    for y in (1, 2, 3) {
+      line((-3pt, y), (3pt, y), stroke: 1pt)
+      content((0, y), anchor: "east", padding: .3, [$#y$])
+    }
+
+    content((0, 0), anchor: "north-east", padding: .2, [$0$])
+
+    line(
+      (0, 0),
+      (3, 1),
+      stroke: red + 2pt,
+      mark: (end: ">", fill: red),
+      name: "u",
+    )
+    content(
+      ("u.start", 50%, "u.end"),
+      anchor: "north-west",
+      padding: .1,
+      [#clr[$vc(u)$]],
+    )
+
+    line(
+      (3, 1),
+      (4, 3),
+      stroke: blue + 2pt,
+      mark: (end: ">", fill: blue),
+      name: "v",
+    )
+    content(
+      ("v.start", 50%, "v.end"),
+      anchor: "north-west",
+      padding: .1,
+      [#clb[$vc(v)$]],
+    )
+
+    line(
+      (0, 0),
+      (1, 2),
+      stroke: blue + 2pt,
+      mark: (end: ">", fill: blue),
+      name: "v",
+    )
+    content(
+      ("v.start", 50%, "v.end"),
+      anchor: "south-east",
+      padding: .1,
+      [#clb[$vc(v)$]],
+    )
+
+    line(
+      (1, 2),
+      (4, 3),
+      stroke: red + 2pt,
+      mark: (end: ">", fill: red),
+      name: "u",
+    )
+    content(
+      ("u.start", 50%, "u.end"),
+      anchor: "south-east",
+      padding: .1,
+      [#clr[$vc(u)$]],
+    )
+
+    line(
+      (0, 0),
+      (4, 3),
+      stroke: green + 2pt,
+      mark: (end: ">", fill: green),
+      name: "w",
+    )
+    content(
+      ("w.start", 50%, "w.end"),
+      anchor: "south-east",
+      padding: .1,
+      [#clg[$vc(w)$]],
     )
   })
 ]
