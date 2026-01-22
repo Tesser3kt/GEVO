@@ -27,5 +27,3 @@
 
 // Appendix
 #include "appendix.typ"
-
-

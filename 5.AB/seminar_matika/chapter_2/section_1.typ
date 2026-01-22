@@ -291,14 +291,18 @@ odvodit přes vektory a znalost tvaru řešení takové rovnice.
 Označíme $x_2$ jako volnou proměnnou $t_1$ a spočítáme $x_1 = (3 + t_1) slash
 2$. Když toto řešení přepíšeme do tvaru z @thm:tvar-reseni[věty], dostaneme
 #math.equation(numbering: none, block: true)[
-  $vec(x_1, x_2) = #clb[$vec(3 slash 2, 0)$] + t_1 dot #clr[$vec(1 slash 2,
-  1)$]$.
+  $vec(x_1, x_2) = #clb[$vec(3 slash 2, 0)$] + t_1 dot #clr[$vec(
+    1 slash 2,
+    1
+  )$]$.
 ]
 
 Odtud vidíme, že řešením rovnice budou všechny vektory, které umím získat jako
 součet vektoru #clb[$vec(3 slash 2, 0)$] s libovolným násobkem vektoru
-#clr[$vec(1 slash 2, 1)$]. Protože všechny násobky vektoru #clr[$vec(1 slash 2,
-1)$] tvoří přímku s přesně tímto směrem, je množinou řešení rovnice vlastně
+#clr[$vec(1 slash 2, 1)$]. Protože všechny násobky vektoru #clr[$vec(
+  1 slash 2,
+  1
+)$] tvoří přímku s přesně tímto směrem, je množinou řešení rovnice vlastně
 přímka se směrem #clr[$vec(1 slash 2, 1)$] posunutá od počátku o vektor
 #clb[$vec(3 slash 2, 0)$] jako na obrázku níže.
 
@@ -308,15 +312,23 @@ přímka se směrem #clr[$vec(1 slash 2, 1)$] posunutá od počátku o vektor
     import cetz.decorations: *
 
     // X axis
-    line((-1, 0), (5, 0), mark: (start: ">", end: ">"), stroke: 1pt)
-    for x in (1, 2, 3, 4) {
+    line(
+      (-5, 0),
+      (5, 0),
+      stroke: (thickness: 1pt, dash: "dashed"),
+    )
+    for x in (-4, -3, -2, -1, 1, 2, 3, 4) {
       line((x, -3pt), (x, 3pt), stroke: 1pt)
       content((x, 0), anchor: "north", padding: .3, [$#x$])
     }
 
     // Y axis
-    line((0, -1), (0, 4), mark: (start: ">", end: ">"), stroke: 1pt)
-    for y in (1, 2, 3) {
+    line(
+      (0, -4),
+      (0, 4),
+      stroke: (thickness: 1pt, dash: "dashed"),
+    )
+    for y in (-3, -2, -1, 1, 2, 3) {
       line((-3pt, y), (3pt, y), stroke: 1pt)
       content((0, y), anchor: "east", padding: .3, [$#y$])
     }
@@ -325,72 +337,96 @@ přímka se směrem #clr[$vec(1 slash 2, 1)$] posunutá od počátku o vektor
 
     line(
       (0, 0),
-      (3, 1),
-      stroke: red + 2pt,
-      mark: (end: ">", fill: red),
-      name: "u",
-    )
-    content(
-      ("u.start", 50%, "u.end"),
-      anchor: "north-west",
-      padding: .1,
-      [#clr[$vc(u)$]],
-    )
-
-    line(
-      (3, 1),
-      (4, 3),
+      (3 / 2, 0),
       stroke: blue + 2pt,
       mark: (end: ">", fill: blue),
+      name: "u",
+    )
+    line((0, -3), (3, 3))
+    line(
+      (3 / 2, 0),
+      (2, 1),
+      stroke: red + 2pt,
+      mark: (end: ">", fill: red),
       name: "v",
     )
-    content(
-      ("v.start", 50%, "v.end"),
-      anchor: "north-west",
-      padding: .1,
-      [#clb[$vc(v)$]],
-    )
+  })
+]
+
+Do více dimensí se tento pohled na množiny řešení přenáší snadno. Totiž, mají-li
+vektory $vc(p), vc(v)_1, ..., vc(v)_k$ třeba $n$ reálných složek, pak je množina
+#math.equation(numbering: none, block: true)[
+  ${vc(p) + t_1 dot vc(v)_1 + ... + t_k dot vc(v)_k}$
+]
+rovná $k$-dimensionální plocha -- tedy vlastně prostor s $k$ "směry pohybu"
+určenými vektory $vc(v)_1,...,vc(v)_k$ -- posunutá o vektor $vc(p)$ od počátku.
+
+Pochopitelně, pro dimensi větší dvěma se takový prostor nekreslí lehko.
+Nakreslíme si pročež ještě množinu ${#clb[$vc(p)$] + t_1 dot #clr[$vc(v)_1$] +
+  t_2 dot #clg[$vc(v)_2$]}$ uvnitř $RR^3$, která popisuje řešení obecného systému
+o třech neznámých a jedné rovnici. Je jím právě dvoudimensionální rovina určená
+vektory #clr[$vc(v)_1$] a #clg[$vc(v)_2$] posunutá o vektor #clb[$vc(p)$].
+
+#align(center)[
+  #cetz.canvas({
+    import cetz.draw: *
+    import cetz.decorations: *
+
+    // Axes
+    line((-4, 0), (4, 0), mark: (start: ">", end: ">"), stroke: 1pt)
+    line((0, -4), (0, 4), mark: (start: ">", end: ">"), stroke: 1pt)
+    line((-4, -3), (4, 3), mark: (start: ">", end: ">"), stroke: 1pt)
 
     line(
       (0, 0),
-      (1, 2),
+      (2, 1),
       stroke: blue + 2pt,
       mark: (end: ">", fill: blue),
-      name: "v",
+      name: "p",
     )
     content(
-      ("v.start", 50%, "v.end"),
-      anchor: "south-east",
+      ("p.start", 50%, "p.end"),
+      anchor: "north-west",
       padding: .1,
-      [#clb[$vc(v)$]],
+      [#clb[$vc(p)$]],
     )
 
     line(
-      (1, 2),
-      (4, 3),
+      (2, 1),
+      (0, 3),
       stroke: red + 2pt,
       mark: (end: ">", fill: red),
-      name: "u",
+      name: "v1",
     )
     content(
-      ("u.start", 50%, "u.end"),
-      anchor: "south-east",
+      ("v1.start", 50%, "v1.end"),
+      anchor: "north-east",
       padding: .1,
-      [#clr[$vc(u)$]],
+      [#clr[$vc(v_1)$]],
     )
 
     line(
-      (0, 0),
-      (4, 3),
+      (2, 1),
+      (4, 1),
       stroke: green + 2pt,
       mark: (end: ">", fill: green),
-      name: "w",
+      name: "v2",
     )
     content(
-      ("w.start", 50%, "w.end"),
-      anchor: "south-east",
+      ("v2.start", 50%, "v2.end"),
+      anchor: "north-east",
       padding: .1,
-      [#clg[$vc(w)$]],
+      [#clg[$vc(v_2)$]],
+    )
+
+    line(
+      (-2, 1),
+      (7, 1),
+      (3, 4),
+      (-6, 4),
+      close: true,
+      fill: black.transparentize(90%),
+      stroke: none,
     )
   })
 ]
