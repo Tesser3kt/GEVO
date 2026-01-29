@@ -297,7 +297,7 @@ Označíme $x_2$ jako volnou proměnnou $t_1$ a spočítáme $x_1 = (3 + t_1) sl
   )$]$.
 ]
 
-Odtud vidíme, že řešením rovnice budou všechny vektory, které umím získat jako
+Odtud vidíme, že řešením rovnice budou všechny vektory, které umíme získat jako
 součet vektoru #clb[$vec(3 slash 2, 0)$] s libovolným násobkem vektoru
 #clr[$vec(1 slash 2, 1)$]. Protože všechny násobky vektoru #clr[$vec(
   1 slash 2,
@@ -428,5 +428,79 @@ vektory #clr[$vc(v)_1$] a #clg[$vc(v)_2$] posunutá o vektor #clb[$vc(p)$].
       fill: black.transparentize(90%),
       stroke: none,
     )
+  })
+]
+
+Předchozí odstavec nám pomůže nahlížet geometricky nejen na množiny řešení
+lineárních systémů, ale i na systémy samotné. Totiž, množina řešení *jedné*
+lineární rovnice o $n$ neznámých je -- jak jsme právě viděli --
+$(n-1)$-dimensionální rovina v $RR^n$, protože má $n - 1$ volných proměnných.
+Takže, počítáme-li systém o $m$ rovnicích v $n$ proměnných, hledáme vlastně
+průnik právě $m$ #box[$(n-1)$-dimensionálních] rovin. V obecném případě (roviny
+nejsou rovnoběžné ani stejné) je průnik dvou $(n-1)$-dimensionálních rovin
+rovina dimense $n - 2$. Jako příklady uvažte bod (dimense $0$) jako průnik dvou
+přímek (dimense $1$) nebo přímku jako průnik dvou rovin (dimense $2$).
+
+Nejčastěji (když se žádné roviny neshodují a nejsou rovnoběžné) bude řešením
+lineárního systému o $n$ proměnných a $m$ rovnicích rovina dimense $n - m$. Z
+toho též plyne, že má-li takový systém více rovnic než proměnných, nebude mít
+řešení (jinak by totiž dimense výsledného objektu byla záporná).
+
+Ukažme si právě diskutovaný pohled na příkladu lineárního systému
+#math.equation(numbering: none, block: true)[
+  $
+    #grid(
+      columns: (auto, auto, auto, auto, auto),
+      column-gutter: 0.3em,
+      row-gutter: 1em,
+      align: (end, center, end, center, start),
+      clr[$x_1$], clr[$+$], clr[$2x_2$], clr[$=$], clr[$3$],
+      clb[$-x_1$], clb[$-$], clb[$x_2$], clb[$=$], clb[$-2$],
+    )
+  $
+]
+Z toho, co víme, je množinou řešení každé z rovnic přímka v rovině (2D
+prostoru). Pokud se nejedná o stejné ani rovnoběžné přímky, pak bude jejich
+průnikem rovina dimense $0$, tj. *bod*. Ten představuje geometrickou paralelu
+jednoprvkové množiny řešení systému bez volných proměnných (v množině řešení je
+pouze onen vektor $vc(p)$ a žádné vektory volných proměnných). Tento systém je
+vyobrazen níže.
+#align(center)[
+  #cetz.canvas({
+    import cetz.draw: *
+    import cetz.decorations: *
+
+    // Axes
+    line((-4, 0), (4, 0), mark: (start: ">", end: ">"), stroke: 1pt)
+    line((0, -4), (0, 4), mark: (start: ">", end: ">"), stroke: 1pt)
+
+    line((1, -3pt), (1, 3pt), stroke: 1pt)
+    content((1, 0), anchor: "north", padding: .3, [$1$])
+
+    line((-3pt, 1), (3pt, 1), stroke: 1pt)
+    content((0, 1), anchor: "east", padding: .3, [$1$])
+
+    line(
+      (-3, 3),
+      (5, -1),
+      stroke: red + 2pt,
+      name: "p",
+    )
+
+    line(
+      (-3, 5),
+      (5, -3),
+      stroke: blue + 2pt,
+      mark: (end: ">", fill: red),
+      name: "q",
+    )
+
+    circle(
+      (1, 1),
+      radius: .15,
+      fill: black,
+    )
+    line((1, 0), (1, 1), stroke: (dash: "dashed"))
+    line((0, 1), (1, 1), stroke: (dash: "dashed"))
   })
 ]

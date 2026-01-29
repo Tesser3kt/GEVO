@@ -134,3 +134,4 @@ hlavně vektory, prostor $RR^n$ pro nás bude množinou všech vektorů
 ]
 
 #include "chapter_2/section_1.typ"
+#include "chapter_2/section_2.typ"
