@@ -132,6 +132,9 @@
   show link: set text(
     fill: maindef,
   )
+  show ref: set text(
+    fill: maindef,
+  )
   // Title page
 
   // Title
