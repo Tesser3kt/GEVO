@@ -150,9 +150,9 @@ Dosazením do rovnosti @eq:cosinova-veta-vektory pak vyjde
   u_1 v_1 + u_2 v_2 &= ||vc(u)|| ||vc(v)|| cos theta$.
 ]
 Tím získáváme vyjádření úhlu mezi vektory ve 2D jako
-#math.equation(numbering: none, block: true)[
-  $cos theta = (u_1 v_1 + u_2 v_2)/(||vc(u)|| ||vc(v)||)$.
-]
+#math.equation(block: true)[
+  $cos theta = (u_1 v_1 + u_2 v_2)/(||vc(u)|| ||vc(v)||)$
+]<eq:uhel-mezi-vektory-2d>
 
 Co ale úhel mezi vektory v libovolné dimensi? Snad překvapivě, dokonale stejný
 vzoreček funguje i tam. Totiž, jakékoli dva vektory leží na nějaké
@@ -162,6 +162,157 @@ pomocný trojúhelník. Pak můžeme použít #link(<thm:cosinova-veta>)[cosinov
   větu] a dostat úplně stejnou rovnost jako @eq:cosinova-veta-vektory. Akorát, v
 tomto případě mají vektory $#clr[$vc(u)$], #clb[$vc(v)$] in RR^n$ přesně $n$
 souřadnic, takže výsledný vzoreček vypadá takto:
-#math.equation(numbering: none, block: true)[
+#math.equation(block: true)[
   $cos theta = (u_1 v_1 + u_2 v_2 + u_3 v_3 + ... + u_n v_n)/(||vc(u)|| ||vc(v)||)$.
+]<eq:uhel-mezi-vektory>
+
+Má to však malý háček. Jak je vám nejspíš známo, funkce $cos$ nabývá hodnot
+pouze z intervalu $[-1, 1]$. Aby byl úhel mezi vektory správně definován, musíme
+si být naprosto jisti, že pravá strana ve vzorci @eq:uhel-mezi-vektory je vždy
+mezí $-1$ a $1$. K tomu si pomůžeme dvěma tvrzeními. První z~nich formalisuje
+naši geometrickou intuici, že jakákoli dvojice vektorů vždy určuje trojúhelník
+v~rovině. Totiž, mám-li tři úsečky délek $a$, $b$ a $c$, pak tyto mohou tvořit
+trojúhelník jedině v~případě, že součet libovolných dvou je větší, než ta třetí,
+např. $a + b > c$. Ověříme, že toto platí, když oněmi úsečkami jsou právě
+vektory v prostoru.
+
+Ještě předtím si však zavedeme jednu zajímavou operaci na vektorech, která pro
+nás zatím bude jen pohodlným značením. Povíme si pár jejích vlastností a časem
+se dostaneme i ke geometrické interpretaci.
+
+#definition("Skalární součin")[
+  Pro libovolné dva vektory $vc(u), vc(v) in RR^n$ definujeme
+  #math.equation(numbering: none, block: true)[
+    $vc(u) dot vc(v) = u_1 v_1 + u_2 v_2 + ... + u_n v_n$,
+  ]
+  kde $u_i$, resp. $v_i$, jsou souřadnice vektoru $vc(u)$, resp. $vc(v)$.
+]
+
+Jistě vidíte souvislost s právě odvozeným vzorečkem @eq:uhel-mezi-vektory.
+Pomocí skalárního součinu jej můžeme vyjádřit snadněji jako
+#math.equation(numbering: none, block: true)[
+  $cos theta = (vc(u) dot vc(v))/(||vc(u)|| ||vc(v)||)$.
+]
+
+Skalární součin má pár základních vlastností, které nyní shrneme a důkaz necháme
+jako úlohu na závěr.
+
+#lemma("Vlastnosti skalárního součinu")[
+  Ať $vc(u), vc(v), vc(w) in RR^n$ jsou tři vektory.
+  #enum[
+    Skalární součin je _asociativní_, tj. $(vc(u) dot vc(v)) dot vc(w) = vc(u) dot
+    (vc(v) dot vc(w))$.
+  ][
+    Skalární součin je _komutativní_, tj. $vc(u) dot vc(v) = vc(v) dot vc(u)$.
+  ][
+    Skalární součin je distributivní, tj. $vc(u) dot (vc(v) + vc(w)) = vc(u) dot
+    vc(v) + vc(u) dot vc(w)$.
+  ][
+    Normu vektoru lze zapsat pomocí skalárního součinu jako $||vc(u)||^2 = vc(u)
+    dot vc(u)$.
+  ]
+]<lem:vlastnosti-skalarniho-soucinu>
+#proof[
+  Ponechán jako úloha.
+]
+
+#proposition("Trojúhelníková nerovnost")[
+  Pro libovolné dva vektory $vc(u), vc(v) in RR^n$ platí nerovnost
+  #math.equation(block: true)[
+    $||vc(u) + vc(v)|| <= ||vc(u)|| + ||vc(v)||$,
+  ]<eq:trojuhelnikova-nerovnost>
+  přičemž rovnost nastává jedině v případě, že $vc(u)$ je násobek $vc(v)$, čili
+  $vc(u) = c dot vc(v)$ pro nějaké $c in RR$. To znamená, že leží $vc(u)$ i
+  $vc(v)$ leží na jedné přímce.
+
+  Důvod přízviska "trojúhelníková" vysvětluje
+  #ref(<fig:trojuhelnikova-nerovnost>, supplement: "obrázek").
+]<thm:trojuhelnikova-nerovnost>
+
+#figure(
+  cetz.canvas({
+    import cetz.draw: *
+    import cetz.angle: *
+
+    line(
+      (0, 0),
+      (3, -1),
+      mark: (end: ">", fill: red),
+      stroke: red + 2pt,
+      name: "u",
+    )
+    content(
+      ("u.start", 50%, "u.end"),
+      anchor: "north-east",
+      padding: .1,
+      clr[$vc(u)$],
+    )
+
+    line(
+      (3, -1),
+      (6, 1),
+      mark: (end: ">", fill: blue),
+      stroke: blue + 2pt,
+      name: "v",
+    )
+    content(
+      ("v.start", 50%, "v.end"),
+      anchor: "north-west",
+      padding: .1,
+      clb[$vc(v)$],
+    )
+
+    line(
+      (0, 0),
+      (6, 1),
+      mark: (end: ">", fill: purple),
+      stroke: purple + 2pt,
+      name: "w",
+    )
+    content(
+      ("w.start", 60%, "w.end"),
+      anchor: "south-east",
+      padding: .1,
+      clp[$vc(u) + vc(v)$],
+    )
+  }),
+  caption: [Trojúhelníková nerovnost],
+)<fig:trojuhelnikova-nerovnost>
+
+#proof(ref(<thm:trojuhelnikova-nerovnost>, supplement: "tvrzení"))[
+  Protože jsou obě strany rovnosti kladná čísla, můžeme je umocnit na druhou a
+  dokazovat, že
+  #math.equation(numbering: none, block: true)[
+    $||vc(u) + vc(v)||^2 <= (||vc(u)|| + ||vc(v)||)^2$.
+  ]
+  Díky #link(<lem:vlastnosti-skalarniho-soucinu>)[vlastnostem skalárního
+    součinu] můžeme tuto nerovnost přepsat jako
+  #math.equation(numbering: none, block: true)[
+    $(vc(u) + vc(v)) dot (vc(u) + vc(v)) &<= ||vc(u)||^2 + 2 ||vc(u)|| ||vc(v)||
+    + ||vc(v)||^2\
+    vc(u) dot vc(u) + vc(u) dot vc(v) + vc(v) dot vc(u) + vc(v) dot vc(v) &<=
+    vc(u) dot vc(u) + 2 ||vc(u)|| ||vc(v)|| + vc(v) dot vc(v)$.
+  ]
+  Po zkrácení $vc(u) dot vc(u)$ a $vc(v) dot vc(v)$ a použití rovnosti $vc(u)
+  dot vc(v) = vc(v) dot vc(u)$ nám zůstane
+  #math.equation(numbering: none, block: true)[
+    $2 (vc(u) dot vc(v)) <= 2 ||vc(u)|| ||vc(v)||$.
+  ]
+  Vynásobíme obě strany nerovnosti kladnými čísly $||vc(u)||$ a $||vc(v)||$ a
+  mírně upravíme, abychom dostali
+  #math.equation(numbering: none, block: true)[
+    $2(||vc(v)|| vc(u)) dot (||vc(u)|| vc(v)||) <= 2 ||vc(u)||^2 ||vc(v)||^2$.
+  ]
+  Přesuneme vše na jednu stranu a dále upravíme
+  #math.equation(numbering: none, block: true)[
+    $0 &<= ||vc(u)||^2 ||vc(v)||^2 - 2 (||vc(v)|| vc(u)) dot (||vc(u)|| vc(v)) +
+    ||vc(u)||^2 ||vc(v)||^2\
+    0 &<= (||vc(v)|| vc(u) - ||vc(u)|| vc(v)) dot (||vc(v)|| vc(u) - ||vc(u)||
+      vc(v))\
+    0 &<= || ||vc(v)|| vc(u) - ||vc(u)|| vc(v) ||^2$.
+  ]
+  Číslo napravo je druhá mocnina, tedy jistě kladné. Tím jsme dokázali, že
+  nerovnost opravdu vždy platí. Důkaz faktu, že rovnost v
+  @eq:trojuhelnikova-nerovnost nastane, když $vc(u)$ je násobek $vc(v)$, necháme
+  jako úlohu na závěr.
 ]

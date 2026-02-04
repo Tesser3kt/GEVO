@@ -32,6 +32,16 @@
   radius: 0em,
   base_level: 2,
 )
+#let lemma = thmbox(
+  "lemma",
+  "Lemma",
+  fill: mainlighter.transparentize(60%),
+  breakable: true,
+  inset: 0.8em,
+  padding: (top: 0em, bottom: 0em),
+  radius: 0em,
+  base_level: 2,
+)
 #let proposition = thmbox(
   "proposition",
   "Tvrzení",
