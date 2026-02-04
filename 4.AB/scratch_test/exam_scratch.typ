@@ -32,7 +32,8 @@
 ][
   [2 body] Zařiďte, aby při kliknutí na věž dostala tato upgrade tím, že se jí
   zvýší `range` a `fire rate`. Upgrade smí nastat jedině, když má hráč dostatek
-  `gold`. Základní strukturu už máte připravenou.
+  `gold`. Základní strukturu už máte připravenou. Nezapomeňte odečíst z `gold`
+  cenu upgradu.
   #align(center)[
     #image("figs/uloha2.png")
   ]

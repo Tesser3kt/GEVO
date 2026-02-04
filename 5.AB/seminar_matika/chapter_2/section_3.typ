@@ -227,7 +227,7 @@ jako úlohu na závěr.
 
   Důvod přízviska "trojúhelníková" vysvětluje
   #ref(<fig:trojuhelnikova-nerovnost>, supplement: "obrázek").
-]<thm:trojuhelnikova-nerovnost>
+]<prop:trojuhelnikova-nerovnost>
 
 #figure(
   cetz.canvas({
@@ -279,7 +279,7 @@ jako úlohu na závěr.
   caption: [Trojúhelníková nerovnost],
 )<fig:trojuhelnikova-nerovnost>
 
-#proof(ref(<thm:trojuhelnikova-nerovnost>, supplement: "tvrzení"))[
+#proof(ref(<prop:trojuhelnikova-nerovnost>, supplement: "tvrzení"))[
   Protože jsou obě strany rovnosti kladná čísla, můžeme je umocnit na druhou a
   dokazovat, že
   #math.equation(numbering: none, block: true)[
@@ -295,9 +295,9 @@ jako úlohu na závěr.
   ]
   Po zkrácení $vc(u) dot vc(u)$ a $vc(v) dot vc(v)$ a použití rovnosti $vc(u)
   dot vc(v) = vc(v) dot vc(u)$ nám zůstane
-  #math.equation(numbering: none, block: true)[
+  #math.equation(block: true)[
     $2 (vc(u) dot vc(v)) <= 2 ||vc(u)|| ||vc(v)||$.
-  ]
+  ]<eq:skoro-c-s>
   Vynásobíme obě strany nerovnosti kladnými čísly $||vc(u)||$ a $||vc(v)||$ a
   mírně upravíme, abychom dostali
   #math.equation(numbering: none, block: true)[
@@ -315,4 +315,39 @@ jako úlohu na závěr.
   nerovnost opravdu vždy platí. Důkaz faktu, že rovnost v
   @eq:trojuhelnikova-nerovnost nastane, když $vc(u)$ je násobek $vc(v)$, necháme
   jako úlohu na závěr.
+]
+
+Pomocí #link(<prop:trojuhelnikova-nerovnost>)[trojúhelníkové nerovnosti]
+dokážeme, že úhel mezi vektory je správně definován. Na to se musíme ujistit, že
+číslo $vc(u) dot vc(v) slash ||vc(u)|| ||vc(v)||$ je vždy mezi $-1$ a $1$,
+neboli v absolutní hodnotě menší než $1$. To nastane právě tehdy, když $|vc(u)
+dot vc(v)| <= ||vc(u)|| ||vc(v)||$. Této nerovnosti se přezdívá
+_Cauchyho-Schwarzova_ a je jednou z nejdůležitějších nerovností v matematice
+vůbec.
+
+#theorem("Cauchyho-Schwarzova nerovnost")[
+  Ať $vc(u), vc(v) in RR^n$ jsou vektory. Pak
+  #math.equation(block: true)[
+    $|vc(u) dot vc(v)| <= ||vc(u)|| ||vc(v)||$.
+  ]<eq:cauchy-schwarz>
+]
+#proof[
+  Je-li číslo $vc(u) dot vc(v)$ kladné, pak již víme, že nerovnost
+  #math.equation(numbering: none, block: true)[
+    $vc(u) dot vc(v) <= ||vc(u)|| ||vc(v)||$
+  ]  platí, neboť to je přesně nerovnost, ke které jsme došli v rámci důkazu
+  #ref(<prop:trojuhelnikova-nerovnost>, supplement: "tvrzení"), konkrétně
+  nerovnost @eq:skoro-c-s. Předpokládejme tedy, že $vc(u) dot vc(v) < 0$. Pak
+  #math.equation(numbering: none, block: true)[
+    $|vc(u) dot vc(v)| = -(vc(u) dot vc(v)) = (-vc(u)) dot vc(v)$,
+  ]
+  kde druhá rovnost platí díky
+  #link(<lem:vlastnosti-skalarniho-soucinu>)[vlastnostem skalárního součinu].
+  Vlastně tedy stačí nahradit vektor $vc(u)$ za $-vc(u)$. Protože $||-vc(u)|| =
+  ||vc(u)||$ dostaneme, že
+  #math.equation(numbering: none, block: true)[
+    $|vc(u) dot vc(v)| = (-vc(u)) dot vc(v) <= ||-vc(u)|| ||vc(v)|| = ||vc(u)||
+    ||vc(v)||$,
+  ]
+  takže nerovnost platí i v tomto případě.
 ]
