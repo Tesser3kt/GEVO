@@ -4,7 +4,7 @@
 
 Na rozdíl od velikosti vektoru, nelze směr vektoru určit absolutně. Důvod je
 jednoduchý: když stojím před vámi a upažím pravou ruku, z vašeho pohledu ukazuji
-_doleva_, zatímco ze svého _doprava_. Kam nějaká šipka vede můžeme určit pouze
+_doleva_, zatímco ze svého _doprava_. Kam nějaká šipka vede, můžeme určit pouze
 relativně k jiným bodům či vektorům. Umíme vlastně říci jen, "jak moc vede druhá
 šipka jinam než první".
 
@@ -151,7 +151,7 @@ Dosazením do rovnosti @eq:cosinova-veta-vektory pak vyjde
 ]
 Tím získáváme vyjádření úhlu mezi vektory ve 2D jako
 #math.equation(block: true)[
-  $cos theta = (u_1 v_1 + u_2 v_2)/(||vc(u)|| ||vc(v)||)$
+  $cos theta = (u_1 v_1 + u_2 v_2)/(||vc(u)|| ||vc(v)||)$.
 ]<eq:uhel-mezi-vektory-2d>
 
 Co ale úhel mezi vektory v libovolné dimensi? Snad překvapivě, dokonale stejný
@@ -159,7 +159,7 @@ vzoreček funguje i tam. Totiž, jakékoli dva vektory leží na nějaké
 dvoudimensionální rovině, jak jsme si rozmysleli v úvodu do této kapitoly. Úhel
 mezi nimi pak definujeme právě na této rovině, kde si můžeme dokreslit i onen
 pomocný trojúhelník. Pak můžeme použít #link(<thm:cosinova-veta>)[cosinovou
-  větu] a dostat úplně stejnou rovnost jako @eq:cosinova-veta-vektory. Akorát, v
+  větu] a dostat úplně stejnou rovnost jako @eq:cosinova-veta-vektory. Akorát v
 tomto případě mají vektory $#clr[$vc(u)$], #clb[$vc(v)$] in RR^n$ přesně $n$
 souřadnic, takže výsledný vzoreček vypadá takto:
 #math.equation(block: true)[
@@ -171,9 +171,9 @@ pouze z intervalu $[-1, 1]$. Aby byl úhel mezi vektory správně definován, mu
 si být naprosto jisti, že pravá strana ve vzorci @eq:uhel-mezi-vektory je vždy
 mezí $-1$ a $1$. K tomu si pomůžeme dvěma tvrzeními. První z~nich formalisuje
 naši geometrickou intuici, že jakákoli dvojice vektorů vždy určuje trojúhelník
-v~rovině. Totiž, mám-li tři úsečky délek $a$, $b$ a $c$, pak tyto mohou tvořit
-trojúhelník jedině v~případě, že součet libovolných dvou je větší, než ta třetí,
-např. $a + b > c$. Ověříme, že toto platí, když oněmi úsečkami jsou právě
+v~nějaké rovině. Totiž, mám-li tři úsečky délek $a$, $b$ a $c$, pak tyto mohou
+tvořit trojúhelník jedině v~případě, že součet libovolných dvou je větší, než ta
+třetí, např. $a + b > c$. Ověříme, že toto platí, když oněmi úsečkami jsou právě
 vektory v prostoru.
 
 Ještě předtím si však zavedeme jednu zajímavou operaci na vektorech, která pro
@@ -205,8 +205,8 @@ jako úlohu na závěr.
   ][
     Skalární součin je _komutativní_, tj. $vc(u) dot vc(v) = vc(v) dot vc(u)$.
   ][
-    Skalární součin je distributivní, tj. $vc(u) dot (vc(v) + vc(w)) = vc(u) dot
-    vc(v) + vc(u) dot vc(w)$.
+    Skalární součin je _distributivní_, tj. $vc(u) dot (vc(v) + vc(w)) = vc(u)
+    dot vc(v) + vc(u) dot vc(w)$.
   ][
     Normu vektoru lze zapsat pomocí skalárního součinu jako $||vc(u)||^2 = vc(u)
     dot vc(u)$.
@@ -222,8 +222,8 @@ jako úlohu na závěr.
     $||vc(u) + vc(v)|| <= ||vc(u)|| + ||vc(v)||$,
   ]<eq:trojuhelnikova-nerovnost>
   přičemž rovnost nastává jedině v případě, že $vc(u)$ je násobek $vc(v)$, čili
-  $vc(u) = c dot vc(v)$ pro nějaké $c in RR$. To znamená, že leží $vc(u)$ i
-  $vc(v)$ leží na jedné přímce.
+  $vc(u) = c dot vc(v)$ pro nějaké $c in RR$. To znamená, že $vc(u)$ i $vc(v)$
+  leží na jedné přímce.
 
   Důvod přízviska "trojúhelníková" vysvětluje
   #ref(<fig:trojuhelnikova-nerovnost>, supplement: "obrázek").
@@ -301,7 +301,7 @@ jako úlohu na závěr.
   Vynásobíme obě strany nerovnosti kladnými čísly $||vc(u)||$ a $||vc(v)||$ a
   mírně upravíme, abychom dostali
   #math.equation(numbering: none, block: true)[
-    $2(||vc(v)|| vc(u)) dot (||vc(u)|| vc(v)||) <= 2 ||vc(u)||^2 ||vc(v)||^2$.
+    $2(||vc(v)|| vc(u)) dot (||vc(u)|| vc(v)) <= 2 ||vc(u)||^2 ||vc(v)||^2$.
   ]
   Přesuneme vše na jednu stranu a dále upravíme
   #math.equation(numbering: none, block: true)[
@@ -350,4 +350,14 @@ vůbec.
     ||vc(v)||$,
   ]
   takže nerovnost platí i v tomto případě.
+]
+
+Nyní již máme jistotu, že číslo $vc(u) dot vc(v) slash ||vc(u)|| ||vc(v)||$ je
+vždy mezi $-1$ a $1$ a naše definice úhlu mezi vektory dává smysl.
+
+#definition("Úhel mezi vektory")[
+  Úhel $theta$ svíraný vektory $vc(u), vc(v) in RR^n$ definujeme jako číslo
+  #math.equation(numbering: none, block: true)[
+    $theta = arccos((vc(u) dot vc(v)) / (||vc(u)|| ||vc(v)||))$.
+  ]
 ]

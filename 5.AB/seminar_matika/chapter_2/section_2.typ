@@ -6,9 +6,9 @@ Pokračujeme s geometrickou interpretací vektorů jako šipek v prostoru. Prvn�
 možnost, jak určit vektor, je specifikovat jeho začátek (my zásadně používáme
 počátek soustavy souřadnic) a konec. Takto jsme ztotožnili body s vektory, tedy
 vlastně vektory s jejich konci. Ovšem, další přirozenou alternativou, jak
-definovat "šipku", je udat její *velikost* a *směr*. Jelikož směr vektoru je
-ošemetná záležitost (lze definovat jen _relativně_ vůči ostatním vektorům).
-Velikost (či formálně _norma_) vektoru je však popsatelný výrazně snadněji.
+definovat "šipku", je udat její *velikost* a *směr*. Směr vektoru je ošemetná
+záležitost (lze definovat jen _relativně_ vůči ostatním vektorům). Velikost (či
+formálně _norma_) vektoru je však popsatelná výrazně snadněji.
 
 Začneme pozorováním: velikost šipky z bodu $(0, 0)$ do bodu $(v_1, v_2)$ je
 přesně délka uhlopříčky obdélníku se stranami $|v_1|$ a $|v_2|$ (musíme psát
@@ -60,7 +60,7 @@ Ve více dimensích můžeme normu spočítat podobně. Totiž, obecně v $RR^n$
 velikost šipky s~počátkem v bodě $(0,0,...,0)$ a koncem v bodě
 $(v_1,v_2,...,v_n)$ rovna délce tělesové uhlopříčky $n$-dimensionálního kvádru
 se stranami $|v_1|, |v_2|, ..., |v_n|$. To je samozřejmě obtížné si představit.
-Podívejme se ještě na případ tří dimensí. Spočítáme délku tělesové uhlopříčky
+Podívejme se ještě na případ dimensí tří. Spočítáme délku tělesové uhlopříčky
 kvádru se stranami délek $|v_1|, |v_2|$ a $|v_3|$.
 
 #align(center)[
@@ -120,9 +120,9 @@ kvádru se stranami délek $|v_1|, |v_2|$ a $|v_3|$.
     )
   })
 ]
-Budeme muset použít Pythagorovu větu dvakrát: nejprve na obdélník s uhlopříčkou
-$vc(x)$ a stranami $|v_1|$ a $|v_2|$ a potom na obdélník s uhlopříčkou $vc(v)$ a
-stranami $vc(x)$ a $|v_3|$.
+Budeme muset použít Pythagorovu větu dvakrát: nejprve na obdélník (podstavu) s
+uhlopříčkou $vc(x)$ a stranami $|v_1|$ a $|v_2|$ a potom na obdélník s
+uhlopříčkou $vc(v)$ a stranami $vc(x)$ a $|v_3|$.
 
 První výpočet dá $||vc(x)|| = sqrt(v_1^2 + v_2^2)$. Potom
 #math.equation(numbering: none, block: true)[
