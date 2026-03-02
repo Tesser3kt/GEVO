@@ -1,0 +1,337 @@
+% Unofficial University of Cambridge Poster Template
+% https://github.com/andiac/gemini-cam
+% a fork of https://github.com/anishathalye/gemini
+% also refer to https://github.com/k4rtik/uchicago-poster
+% TeX program = lualatex
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english,czech]{babel}
+\shorthandoff{-}
+\usepackage[orientation=portrait,size=custom,width=60,height=100,scale=1]{beamerposter}
+\usetheme{gemini}
+\usepackage[dvipsnames]{xcolor}
+\usecolortheme{nott}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shapes.geometric}
+\usepackage{tkz-euclide}
+\tikzset{point style/.style = {%
+  draw = black,
+  inner sep = 0pt,
+  shape = circle,
+  minimum size = 5pt,
+  fill = black
+ },
+ every picture/.append style = {
+  scale = 1.5
+ },
+ every node/.append style={
+  scale=1.5
+ }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.02\paperwidth}
+\setlength{\colwidth}{0.96\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+\newcommand{\bfalert}[1]{\textbf{\alert{#1}}}
+
+% Math shortcuts
+\newcommand{\R}{\mathbb{R}}
+
+% Inline shapes
+\newcommand{\mysquare}{\tikz[baseline=-7pt]{%
+  \node[rectangle,draw,thick,inner sep=6pt] at (0,0) {};
+}}
+\newcommand{\mytria}{\tikz[baseline=-3.25pt]{%
+  \node[isosceles triangle,isosceles triangle apex angle=60,draw,thick,inner
+  sep=3.25pt,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycirc}{\tikz[baseline=-7pt]{%
+  \node[circle,draw,thick,inner sep=4.5pt,baseline=0.5ex,rotate=90] at (0,0) {};
+}}
+\newcommand{\mycross}{\tikz[baseline=-7pt,scale=0.2]{%
+  \draw[thick] (-1,1) -- (1,-1);
+  \draw[thick] (-1,-1) -- (1,1);
+}}
+
+% Colors %
+\newcommand{\clr}{\textcolor{BrickRed}}
+\newcommand{\clb}{\textcolor{RoyalBlue}}
+\newcommand{\clg}{\textcolor{ForestGreen}}
+\newcommand{\clm}{\textcolor{Fuchsia}}
+\newcommand{\clv}{\textcolor{violet}}
+\newcommand{\clbr}{\textcolor{Sepia}}
+\newcommand{\cly}{\textcolor{Dandelion}}
+
+% ====================
+% Title
+% ====================
+
+\title{Cheatsheet z relací a ekvivalence}
+
+\author{2.AB PreIB Math}
+
+\institute[shortinst]{Adam Klepáč}
+
+% ====================
+% Footer (optional)
+% ====================
+
+% \footercontent{
+%   \href{https://utfpr.edu.br/ct/ppgca}{utfpr.edu.br/ct/ppgca} \hfill
+%   Mostra de Trabalhos do PPGCA --- TechTalks 2024 \hfill
+%   \href{mailto:ppgca-ct@utfpr.edu.br}{ppgca-ct@utfpr.edu.br}}
+% (can be left out to remove footer)
+
+
+% ====================
+% Logo (optional)
+% ====================
+
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=3.5cm]{logos/logo-white.png}}
+% \logoleft{\hspace{20ex}\includegraphics[height=3.5cm]{logos/ppgca-logo.png}}
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+% Viz https://github.com/k4rtik/uchicago-poster
+% logo: https://www.cam.ac.uk/brand-resources/about-the-logo/logo-downloads
+% \addtobeamertemplate{headline}{}
+% {
+%     \begin{tikzpicture}[remember picture,overlay]
+%       \node [anchor=north west, inner sep=3cm] at ([xshift=-2.5cm,yshift=1.75cm]current page.north west)
+%       {\includegraphics[height=7cm]{logos/unott-logo.eps}}; 
+%     \end{tikzpicture}
+% }
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+\begin{alertblock}{Součin množin \& relace}
+ Předtím než zavedeme \emph{součin} množin, musíme definovat \emph{uspořádanou
+ dvojici}. Jednoduše řečeno, \alert{uspořádaná dvojice} prvků $(a,b)$ je
+ prostě množina obsahující $a$ a $b$ \textbf{s pořadím}, tj. $a$ je
+ \textbf{první} prvek $(a,b)$ a $b$ je \textbf{druhý}. To znamená, že $(a,b)
+ \neq (b,a)$, protože pořadí není stejné.
+
+ Nyní, \alert{součin} množin $A$ a $B$, značený $A \times B$, je množina
+ všech dvojic $(a,b)$, kde $a \in A$ a $b \in B$. Například, když
+ \[
+  A = \{\mycirc,\mytria\} \quad \text{a} \quad B = \{\mytria,\mycross, \sim
+  \},
+ \]
+ pak
+ \[
+  A \times B = \{(\mycirc,\mytria),(\mycirc,\mycross),(\mycirc, \sim),
+  (\mytria,\mytria), (\mytria,\mycross), (\mytria, \sim)\}.
+ \]
+ Všimněte si, že $A \times B \neq B \times A$, protože \textbf{pořadí} prvků
+ v uspořádané dvojici je \textbf{důležité}. V tomto případě
+ \[
+  B \times A = \{(\mytria,\mycirc), (\mytria,\mytria), (\mycross,\mycirc),
+  (\mycross,\mytria), ( \sim, \mycirc), ( \sim, \mytria)\}.
+ \]
+
+ Jako další příklad uvažujme \emph{reálnou rovinu} -- množinu všech bodů
+ se dvěma souřadnicemi. To je jednoduše množina dvojic reálných čísel, $\R
+ \times \R$.
+
+ Matematický způsob, jak definovat \alert{vztah} mezi dvěma množinami, je
+ zkrátka \textbf{vypsat všechny prvky, které jsou ve vztahu}. Formálně řečeno,
+ vztah či relace $R$ je podmnožina $R \subseteq A \times B$. Například,
+ \[
+  \{(\mytria,\mycross),(\mytria, \sim )\} \subseteq \{\mycirc,\mytria\} \times
+  \{\mytria,\mycross, \sim\}
+ \]
+ je relace mezi množinami $A$ a $B$ z výše uvedeného příkladu. Doslova říká, že
+ $\mytria$ je v relaci s $\mycross$ a $ \sim $. Místo zápisu $(\mytria,\mycross)
+ \in R$ píšeme $\mytria R \mycross$, protože je to přirozenější. Typickými
+ příklady relací jsou $ \leq $ a $=$ a nepíšeme $(2,3) \in~\leq $, ale $2 \leq
+ 3$. 
+\end{alertblock}
+
+\begin{block}{Kreslení součinů a relací}
+ Součin $A \times B$ lze nakreslit podobně jako soustavu souřadnic -- tak, že
+ prvky $A$ rozmístíme vodorovně a prvky $B$ svisle. Každý bod ve vzniklé mřížce
+ představuje prvek $A \times B$.
+
+ Vezměme například $\clr{A = \{1, 2, 3, 4\}}$ a $\clb{B = \{a, b, c\}}$. Množinu
+ $\clr{A} \times \clb{B}$ můžeme znázornit takto:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{\x + 1}
+    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/a, 1/b, 2/c} {
+    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
+   }
+   \foreach \x in {0, 1, 2, 3} {
+    \foreach \y in {0, 1, 2} {
+     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
+    }
+   }
+  \end{tikzpicture}
+ \end{center}
+ Libovolnou relaci $\clg{R} \subseteq \clr{A} \times \clb{B}$ lze nyní snadno
+ zakreslit do mřížky tím, že označíme některé body. Například relace $\clg{R =
+ \{}(\clr{1},\clb{c}), (\clr{2},\clb{b}),(\clr{2},\clb{a})\clg{\}} \subseteq
+ \clr{A} \times \clb{B}$ vypadá takto:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{\x + 1}
+    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/a, 1/b, 2/c} {
+    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\n$};
+   }
+   \foreach \x in {0, 1, 2, 3} {
+    \foreach \y in {0, 1, 2} {
+     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
+    }
+   }
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (0, 2)
+    {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 0)
+    {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 1)
+    {};
+  \end{tikzpicture}
+ \end{center}
+ Existuje ještě jiný způsob, jak relace kreslit -- jako šipky z $\clr{A}$ do
+ $\clb{B}$. Tento styl zdůrazňuje „jednosměrnou“ povahu relací.
+ Stejná relace $\clg{R} \subseteq \clr{A} \times \clb{B}$ je pomocí šipek
+ znázorněna takto:
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \y in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{4-\y}
+    \node[BrickRed] (A\z) at (-2,\y) {\footnotesize $\z$};
+   }
+   \foreach \y/\n in {0/c, 1/b, 2/a} {
+    \node[RoyalBlue] (B\n) at (2,\y) {\footnotesize $\n$};
+   }
+   \draw[thick,ForestGreen,->] (A1) -- (Bc);
+   \draw[thick,ForestGreen,->] (A2) -- (Bb);
+   \draw[thick,ForestGreen,->] (A2) -- (Ba);
+  \end{tikzpicture}
+ \end{center}
+\end{block}
+
+\begin{exampleblock}{Ekvivalence \& třídy ekvivalence}
+ Relace $\clg{E} \subseteq \clr{A} \times \clr{A}$ (všimněte si, že jde o relaci
+ \textbf{na jedné množině}) se nazývá \alert{ekvivalence}, pokud se chová
+ \textbf{podobně jako \uv{rovnost}}, tedy,
+ \begin{itemize}[left=2em]
+  \item[(R)] je \alert{reflexivní}, tj. $\clr{a}\clg{E}\clr{a}$ pro každé
+   $\clr{a} \in \clr{A}$ (každý prvek je ekvivalentní sám sobě);
+  \item[(S)] je \alert{symetrická}, tj. pokud $\clr{a_1}\clg{E}\clr{a_2}$, pak
+   také $\clr{a_2}\clg{E}\clr{a_1}$ (všechny prvky jsou \textbf{navzájem}
+   ekvivalentní);
+  \item[(T)] je \alert{transitivní}, tj. pokud $\clr{a_1}\clg{E}\clr{a_2}$ a
+   $\clr{a_2} \clg{E} \clr{a_3}$, pak $\clr{a_1} \clg{E} \clr{a_3}$ (relace se
+   \textbf{přenáší} přes prostřední prvek).
+ \end{itemize}
+ Příkladem ekvivalence, který je dobré mít na paměti, je relace \uv{\textbf{být
+ stejně starý}} na množině všech lidí. Je \alert{reflexivní}, protože jsem
+ stejně starý jako já sám. Je \alert{symetrická}, protože pokud jsem stejně
+ starý jako ty, pak ty jsi stejně starý jako já. A konečně je
+ \alert{transitivní}, protože pokud jsem stejně starý jako ty a ty jsi stejně
+ starý jako někdo jiný, pak jsem stejně starý jako ten někdo. Tento příklad také
+ hezky vystihuje myšlenku ekvivalence ve smyslu \uv{být jako rovnost}. Není to
+ tak, že by dva lidé stejného věku byli \emph{stejní}, ale jsou si \emph{rovni
+ podle nějakého kritéria}. Přesně to je ekvivalence: relace být si roven podle
+ určitého kritéria.
+
+ Pomocí ekvivalence $\clg{E} \subseteq \clr{A} \times \clr{A}$ můžeme rozdělit
+ množinu $\clr{A}$ na \uv{balíčky} prvků -- každý balíček tvořen prvky, které
+ jsou \textbf{ekvivalentní} podle $\clg{E}$. Například mohu rozdělit množinu
+ všech lidí tak, že lidi stejného věku dám do stejného balíčku. Formálně píšeme
+ \[
+  [\clr{a}]_{\clg{E}} = \{\clr{b} \in \clr{A} \mid \clr{a}\clg{E}\clr{b}\};
+ \]
+ jinými slovy, $[\clr{a}]_{\clg{E}}$ je množina všech prvků z $\clr{A}$, které
+ jsou \clg{ekvivalentní} s $\clr{a}$. Tomu říkáme \alert{třída ekvivalence}.
+ Prvek $\clr{a}$ se pak nazývá \alert{representant}.
+
+ Visuálně vypadá každá ekvivalenční třída jako \uv{čtverec} (nebo jeden bod) v
+ mřížce $\clr{A} \times \clr{A}$. Vezměme množinu $\clr{A} = \{1, 2, 3, 4\}$.
+ Ekvivalence $\clg{E} \subseteq \clr{A} \times \clr{A}$, která dělá čísla $1, 2$
+ a $3$ ekvivalentními, se dá nakreslit takto: 
+ \begin{center}
+  \begin{tikzpicture}
+   \foreach \x in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{\x + 1}
+    \node[BrickRed] (A\x) at (\x, -1) {\footnotesize $\z$};
+   }
+   \foreach \y in {0, 1, 2, 3} {
+    \pgfmathtruncatemacro\z{\y + 1}
+    \node[RoyalBlue] (B\y) at (-1, \y) {\footnotesize $\z$};
+   }
+   \foreach \x in {0, 1, 2, 3} {
+    \foreach \y in {0, 1, 2, 3} {
+     \node[circle,inner sep=2pt,fill=black] at (\x,\y) {};
+    }
+   }
+   \foreach \x in {0, 1, 2, 3} {
+     \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (\x,
+       \x) {};
+   }
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (0, 1) {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 0) {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (0, 2) {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (2, 0) {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (1, 2) {};
+   \node[ultra thick,circle,inner sep=5pt,fill=none,draw=ForestGreen] at (2, 1) {};
+
+   \draw[thick, dashed] (-0.4, -0.4) rectangle (2.4, 2.4);
+   \draw[thick, dashed] (2.6, 2.6) rectangle (3.4, 3.4);
+
+   \draw[ultra thick,Fuchsia] (-1, -1) -- (4, 4);
+  \end{tikzpicture}
+ \end{center}
+ Skutečnost, že ekvivalence je \alert{reflexivní}, vyžaduje, aby všechny prvky
+ na \clm{fialové diagonále} byly zahrnuty. Vlastnost \alert{symetrie} způsobí,
+ že obrázek je \emph{symetrický} při převrácení podle \clm{fialové diagonály}. A
+ konečně díky vlastnosti \alert{transitivity} vypadá každá třída ekvivalence
+ jako \emph{čtverec} (kdyby v něm byly nějaké \uv{díry}, znamenalo by to, že se
+ ekvivalence na tyto prvky \emph{nepřenesla}).
+\end{exampleblock}
+
+\end{column}
+\separatorcolumn
+
+\end{columns}
+\end{frame}
+
+\end{document}
