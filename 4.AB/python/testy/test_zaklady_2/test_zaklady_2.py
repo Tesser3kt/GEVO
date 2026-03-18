@@ -2,32 +2,20 @@ from random import random, seed
 
 
 # Úloha 1 (25 %)
-# Ve slovníku 'users' máte seznam uživatelů spolu s jejich "zahashovanými"
-# hesly. Ověřte, zda jsou v proměnných 'login' a 'password' správné
-# přihlašovací údaje, tj. jestli jménu 'login' odpovídá 'hash(password)'.
-# Pokud ano, vytiskněte "LOGIN SUCCESSFUL", jinak "ERROR".
-def hash(password):
-    return password[len(password) // 2 :] + password[: len(password) // 2][::-1]
+# V seznamu words máte jednotlivá slova. Spojte je ve větu a uložte ji do
+# proměnné. Nezapomeňte přidat na její konec tečku.
+# Například ze seznamu ["Krajty", "jsou", "boží"] má vzniknout věta "Krajty jsou boží."
 
-
-users = {
-    "xXxYourM0mxXx": "56784321",
-    "DeathKnight": "yhardsrtzegg",
-    "PythonKing": "rajty223KujuLiM",
-}
-login = "PythonKing"
-password = "MilujuKrajty223"
+words = ["Tahle", "úloha", "je", "příliš", "lehká"]
 
 # Sem pište řešení.
 
 
 # Úloha 2 (25 %)
 
-# Podle seznamu slov 'words' vytvořte seznam s jejich délkami na příslušných místech,
-# tedy například k seznamu ["kocka", "pes"] vyrobte seznam [5, 3].
-# Připomínám, že délku stringu získáte přes funkci len().
-
-words = ["slunce", "mesic", "planeta"]
+# Napište funkci final_price, která dostane dva parametry -- původní cenu a slevu (v procentech) --
+# a vypočte výslednou cenu. Tedy, třeba, final_price(200, 70) = 140 
+ 
 # Sem doplňte řešení.
 
 
