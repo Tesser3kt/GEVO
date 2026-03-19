@@ -1,6 +1,3 @@
-from random import random, seed
-
-
 # Úloha 1 (25 %)
 # V seznamu words máte jednotlivá slova. Spojte je ve větu a uložte ji do
 # proměnné. Nezapomeňte přidat na její konec tečku.
@@ -11,41 +8,36 @@ words = ["Tahle", "úloha", "je", "příliš", "lehká"]
 # Sem pište řešení.
 
 
+
 # Úloha 2 (25 %)
 
 # Napište funkci final_price, která dostane dva parametry -- původní cenu a slevu (v procentech) --
-# a vypočte výslednou cenu. Tedy, třeba, final_price(200, 70) = 140 
+# a vypočte výslednou cenu. Tedy, třeba, final_price(200, 30) = 140 
  
 # Sem doplňte řešení.
 
 
+
 # Úloha 3 (50 %)
+# Hackeři se snaží prolomit systém jeden po jednom v daném pořadí.
+# Každý hacker má "skill level" (celé číslo).
+# Systém má "security level" (celé číslo).
+# Po každém neúspěšném pokusu o prolomení se zvýší security level o danou hodnotu "increase".
+
 # Máte dány proměnné
-# - tank_volume: kapacita nádrže
-# - goal: počet km do cíle
-# - refuel_km: počet km, po kterých můžete znovu natankovat (tedy pokaždé po tolika ujetých kilometrech od posledního tankování)
-# - refuel_volume: objem paliva, který můžete natankovat
-# a funkci
-# - get_consumption(): ta vrátí náhodné číslo představující spotřebu za poslední JEDEN KILOMETR
+# - seznam "hackers" se skill levely jednotlivých hackerů,
+# - číslo security level,
+# - číslo increase (o kolik se má zvýšit security level po každém neúspěšném pokusu o prolomení)
 
-# Napište program, který spočítá, zda dojedete do cíle. Pokud ano, vytiskněte
-# "CÍL", jinak vypište počet najetých kilometrů před vyprázdněním nádrže.
-# Počítejte s tím, že na začátku máte plnou nádrž.
+# Pravidla:
+# - Hackeři se snaží prolomit systém jeden po druhém.
+# - Když je skill hackera *ostře větší* než security level, dojde k prolomení.
+# - Když je skill hackera *menší nebo roven* security levelu, k prolomení nedojde a zvýší se security level o increase.
 
-# HINT: Použijte while cyklus a postupně zvyšujte km. Po každém kilometru
-# odečtěte od objemu nádrže výsledek funkce get_consumption. Pozor!
-# Nezapomeňte, že můžete natankovat maximálně do objemu nádrže, takže nelze
-# prostě přičíst refuel_volume.
+# Vytiskněte počet úspěšných prolomení systému hackery.
 
-
-def get_consumption():
-    return 8.8 * random() / 100 + 0.075
-
-
-seed()  # Nevšímejte si, inicializuje generátor náhodných čísel
-tank_volume = 60
-goal = 2000
-refuel_km = 500
-refuel_volume = 28
+hackers = [7, 6, 8, 9]
+security_level = 6
+increase = 2
 
 # Sem doplňte řešení.
