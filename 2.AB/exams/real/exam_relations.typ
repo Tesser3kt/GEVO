@@ -153,24 +153,68 @@
   the same as above) is called a *function* if every element #clr[$a in A$] is
   #clg[related] to *exactly one* element #clb[$b in B$]. Below, you see pictures
   of two relations from #clr[$A$] to #clb[$B$]. Are they functions? *Why*?
-  #align(center)[
-    #grid(
-      columns: (1fr, 1fr),
-      gutter: 1em,
-      cetz.canvas({
-        import cetz.draw: *
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 1pt,
+    align: center,
+    [#cetz.canvas({
+      import cetz.draw: *
 
-        content((0, 0), dog, anchor: "mid")
-        content((0, 1), flamingo, anchor: "mid")
-        content((0, 2), eagle, anchor: "mid")
+      content((0, 0), dog, anchor: "mid", name: "dog")
+      content((0, 1), flamingo, anchor: "mid", name: "flam")
+      content((0, 2), eagle, anchor: "mid", name: "eagle")
 
-        content((2, 0), mycirc(), anchor: "mid")
-        content((2, 1), myrect(), anchor: "mid")
+      content((2, 0), mycirc(), anchor: "mid", name: "circ")
+      content((2, 1), myrect(), anchor: "mid", name: "rect")
 
-        line((0, 0), (2, 0), stroke: raingreen + 1pt, end: ">")
-      }),
-    )
-  ]
+      line("dog", "circ", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("eagle", "circ", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("flam", "rect", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+    })],
+    [#cetz.canvas({
+      import cetz.draw: *
+
+      content((0, 0), dog, anchor: "mid", name: "dog")
+      content((0, 1), flamingo, anchor: "mid", name: "flam")
+      content((0, 2), eagle, anchor: "mid", name: "eagle")
+
+      content((2, 0), mycirc(), anchor: "mid", name: "circ")
+      content((2, 1), myrect(), anchor: "mid", name: "rect")
+
+      line("dog", "circ", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("dog", "rect", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("flam", "circ", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("eagle", "circ", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+    })],
+  )
 ]
 #pagebreak()
 
@@ -186,84 +230,23 @@
 
   Determine if the relation
   #math.equation(numbering: none, block: true)[
-    #text(raingreen)[$R = {(1, 1), (2, 2), (3, 3), (1, 3), (3, 1), (1, 2)}$]
+    #text(
+      raingreen,
+    )[$R = {(a, a), (b, b), (d, d), (d, e), (e, d), (a, b), (a, c)}$]
   ]
-  is an equivalence on the set #text(crimson)[$A = {1, 2, 3, 4}$]. If not, add
-  *as few pairs as possible* to make it into an equivalence. *Explain*.
+  is an equivalence on the set #text(crimson)[$A = {a, b, c, d, e}$]. If not,
+  add *as few pairs as possible* to make it into an equivalence. *Explain*.
 ]
 #v(15%)
 #block(width: 100%)[
   #points(25)
-  In the diagrams below, there are two different equivalences on the set
-  #text(crimson)[$A = {1, 2, 3, 4}$].
-  #align(center)[
-    #cetz.canvas({
-      import cetz.draw: *
-
-      content((-1, 1), text(crimson)[$1$], anchor: "mid")
-      content((-1, 2), text(crimson)[$2$], anchor: "mid")
-      content((-1, 3), text(crimson)[$3$], anchor: "mid")
-      content((-1, 4), text(crimson)[$4$], anchor: "mid")
-
-      content((0, 0), text(crimson)[$1$], anchor: "mid")
-      content((1, 0), text(crimson)[$2$], anchor: "mid")
-      content((2, 0), text(crimson)[$3$], anchor: "mid")
-      content((3, 0), text(crimson)[$4$], anchor: "mid")
-      for x in range(0, 4) {
-        for y in range(1, 5) {
-          circle((x, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
-        }
-      }
-
-      circle((0, 0.95), stroke: 1pt + airblue, radius: 6pt)
-      circle((1, 1.95), stroke: 1pt + airblue, radius: 6pt)
-      circle((2, 2.95), stroke: 1pt + airblue, radius: 6pt)
-      circle((3, 3.95), stroke: 1pt + airblue, radius: 6pt)
-
-      circle((2, 3.95), stroke: 1pt + airblue, radius: 6pt)
-      circle((3, 2.95), stroke: 1pt + airblue, radius: 6pt)
-
-      content((6, 1), text(crimson)[$1$], anchor: "mid")
-      content((6, 2), text(crimson)[$2$], anchor: "mid")
-      content((6, 3), text(crimson)[$3$], anchor: "mid")
-      content((6, 4), text(crimson)[$4$], anchor: "mid")
-
-      content((7, 0), text(crimson)[$1$], anchor: "mid")
-      content((8, 0), text(crimson)[$2$], anchor: "mid")
-      content((9, 0), text(crimson)[$3$], anchor: "mid")
-      content((10, 0), text(crimson)[$4$], anchor: "mid")
-      for x in range(0, 4) {
-        for y in range(1, 5) {
-          circle((x + 7, y - 0.05), fill: black, stroke: 0pt, radius: 2pt)
-        }
-      }
-
-      circle((7, 0.95), stroke: 1pt + raingreen, radius: 6pt)
-      circle((8, 1.95), stroke: 1pt + raingreen, radius: 6pt)
-      circle((9, 2.95), stroke: 1pt + raingreen, radius: 6pt)
-      circle((10, 3.95), stroke: 1pt + raingreen, radius: 6pt)
-
-      circle((7, 3.95), stroke: 1pt + raingreen, radius: 6pt)
-      circle((10, 0.95), stroke: 1pt + raingreen, radius: 6pt)
-      circle((8, 0.95), stroke: 1pt + raingreen, radius: 6pt)
-      circle((10, 1.95), stroke: 1pt + raingreen, radius: 6pt)
-      circle((8, 3.95), stroke: 1pt + raingreen, radius: 6pt)
-      circle((7, 1.95), stroke: 1pt + raingreen, radius: 6pt)
-    })
+  Describe (as a set of pairs, by a picture, ...) an equivalence on the set
+  #clr[$A = {1, 2, 3, 4, 5}$] which has the following *classes of equivalence*:
+  #v(6pt)
+  #list(indent: 1em)[
+    ${1, 3}$ and ${2, 4, 5}$
+  ][
+    ${1, 4}$, ${2}$, ${3}$ and ${5}$.
   ]
-
-  For both equivalences, determine the *class of equivalence* of every element
-  from the set #text(crimson)[$A$]. That is, if we label the equivalences
-  #text(airblue)[$E_1$] and #text(raingreen)[$E_2$], determine
-  #math.equation(numbering: none, block: true)[
-    $[#text(crimson)[$1$]]_(#text(airblue)[$E_1$]),
-    [#text(crimson)[$2$]]_(#text(airblue)[$E_1$]),
-    [#text(crimson)[$3$]]_(#text(airblue)[$E_1$]),
-    [#text(crimson)[$4$]]_(#text(airblue)[$E_1$])$  and
-    $[#text(crimson)[$1$]]_(#text(raingreen)[$E_2$]),
-    [#text(crimson)[$2$]]_(#text(raingreen)[$E_2$]),
-    [#text(crimson)[$3$]]_(#text(raingreen)[$E_2$]),
-    [#text(crimson)[$4$]]_(#text(raingreen)[$E_2$])$.
-  ]
-  You *don't have to* explain yourself.
+  *Explain*.
 ]
