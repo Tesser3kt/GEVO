@@ -12,7 +12,7 @@
 
 // Set page and fonts
 #let page-counter(cur, last) = {
-  strfmt("Strana {} z {}", cur, last)
+  strfmt("Page {} of {}", cur, last)
 }
 #set page(
   paper: "a4",
@@ -20,7 +20,7 @@
   header: context {
     let current-page = counter(page).get().first()
     if current-page > 1 [
-      Mock test
+      Exam A
       #h(1fr)
       #counter(page).display(
         page-counter,
@@ -75,11 +75,11 @@
   size: 24pt,
 )
 #align(center)[
-  Relace \& Ekvivalence
+  Relations \& Equivalence
 ]
 #v(-12pt)
 #align(center)[
-  #text(size: 18pt)[2.AB PreIB Maths -- Mock test]
+  #text(size: 18pt)[2.AB PreIB Maths -- Exam A]
 ]
 #set text(
   font: "TeX Gyre Schola",
@@ -95,74 +95,75 @@
     inset: 12pt,
     fill: ashgray.transparentize(80%),
   )[
-    Není-li uvedeno jinak, #text(crimson)[*vždy*] (alespoň stručně) vysvětlete
-    svůj myšlenkový pochod. I v uzavřených úlohách.
+    Unless specified otherwise, you are to #text(crimson)[*always*] (at least
+    briefly) explain your reasoning. Even in closed questions.
   ]
 ]
 #v(12pt)
 
 // First page
-= Součin množin \& relace
+= Product of Sets \& Relations
 #v(6pt)
 #block(width: 100%)[
   #points(25)
-  Ať #text(crimson)[$A = {1, 2}$] a #text(airblue)[$B = {a, b, c}$]. Označte
-  všechna *správná* tvrzení z níže uvedených. *Nemusíte* své odpovědi
-  vysvětlovat.
+  Let #text(crimson)[$A = {1, 2}$] and #text(airblue)[$B = {a, b, c}$]. Check
+  all *correct* statements of the ones below. You *don't have to* explain
+  yourself.
   #show: checklist.with(fill: white, stroke: black, radius: 0pt)
   #v(6pt)
-  - [ ] ${(1, a), (1, b), (1, c)}$ je relace z #text(crimson)[$A$]
-    do~#text(airblue)[$B$].
+  - [ ] ${(1, a), (1, b), (1, c)}$ is a relation from #text(crimson)[$A$]
+    to~#text(airblue)[$B$].
   #v(6pt)
-  - [ ] ${(a, b), (a, a), (c, a)}$ je relace *na* #text(airblue)[$B$] (tedy
-    relace z #text(airblue)[$B$] do #text(airblue)[$B$]).
+  - [ ] ${(a, b), (a, a), (c, a)}$ is a relation *on* #text(airblue)[$B$] (that
+    is, a relation from #text(airblue)[$B$] to #text(airblue)[$B$]).
   #v(6pt)
-  - [ ] Existuje *pět* relací z #text(crimson)[$A$] do
+  - [ ] There are *five* relations from #text(crimson)[$A$] to
     #text(airblue)[$B$].
   #v(6pt)
-  - [ ] Dvojice $(b, 2)$ leží v $#text(crimson)[$A$] times
+  - [ ] The element $(b, 2)$ lies in $#text(crimson)[$A$] times
     #text(airblue)[$B$]$.
   #v(6pt)
-  - [ ] ${(a, 1), (a, 2)}$ je relace z #text(airblue)[$B$] do
+  - [ ] ${(a, 1), (a, 2)}$ is a relation from #text(airblue)[$B$] to
     #text(crimson)[$A$].
   #v(6pt)
 ]
 #v(5%)
 #block(width: 100%)[
   #points(25)
-  Relace $#text(raingreen)[$R$]$ na #text(airblue)[$B = {a, b, c}$] je
-  *antisymetrická*, jestliže kdykoli je #text(airblue)[$x$] #text(raingreen)[v
-  relaci] s #text(airblue)[$y$], nemůže být #text(airblue)[$y$]
-  #text(raingreen)[v relaci] s #text(airblue)[$x$] (pro #text(airblue)[$x, y in
-  B$]). Jako příklad vezměte relaci „být matkou“ na množině lidí. Je-li žena
-  matkou dítěte, ono dítě samozřejmě není matkou své vlastní matky.
+  A relation $#text(raingreen)[$R$]$ from #text(crimson)[$A = {1, 2}$] to #text(airblue)[$B = {a, b,
+  c}$] is *anti-symmetric* if whenever #text(crimson)[$a$] is
+  #text(raingreen)[related] to #text(airblue)[$b$], #text(airblue)[$b$] cannot
+  be #text(raingreen)[related] to #text(crimson)[$a$] (for #text(crimson)[$a in
+  A$] and #text(airblue)[$b in B$]). As an example, take the relation of "being
+  a mother" on the set of people. If a woman is a child's mother, the child is
+  of course not its mother's own mother.
 
-  Uveďte příklad *antisymetrické* relace na #text(airblue)[$B$] s *alespoň třemi
-  dvojicemi*. *Vysvětlete*.
+  Give an example of an *anti-symmetric* relation from #text(crimson)[$A$] to
+  #text(airblue)[$B$] with *at least three pairs*. *Explain*.
 ]
 #pagebreak()
 
 // Second page
-= Ekvivalence
+= Equivalence
 #v(12pt)
 #block(width: 100%)[
   #points(25)
-  Připomeňme, že relace _ekvivalence_ je dána třemi podmínkami:
-  - *reflexivita*: každý prvek je ekvivalentní sám sobě;
-  - *symetrie*: jestliže $a$ je ekvivalentní s $b$, pak $b$ je ekvivalentní s $a$;
-  - *transitivita*: jestliže $a$ je ekv. s $b$ a $b$ je ekv. s $c$, pak $a$ je ekv. s $c$.
+  Recall that the relation of _equivalence_ is given by three conditions:
+  - *reflexivity*: every element is equivalent to itself;
+  - *symmetry*: if $a$ is equivalent to $b$, then $b$ is equivalent to $a$;
+  - *transitivity*: if $a$ is eq. to $b$ and $b$ is eq. to $c$, then $a$ is eq. to $c$.
 
-  Určete, zda je relace
+  Determine if the relation
   #math.equation(numbering: none, block: true)[
     #text(raingreen)[$R = {(1, 1), (2, 2), (3, 3), (1, 3), (3, 1), (1, 2)}$]
   ]
-  ekvivalence na množině #text(crimson)[$A = {1, 2, 3, 4}$]. Pokud ne, doplňte
-  *co nejméně dvojic*, aby se z ní ekvivalence stala. *Vysvětlete*.
+  is an equivalence on the set #text(crimson)[$A = {1, 2, 3, 4}$]. If not, add
+  *as few pairs as possible* to make it into an equivalence. *Explain*.
 ]
 #v(15%)
 #block(width: 100%)[
   #points(25)
-  Na níže uvedených diagramech jsou dvě různé ekvivalence na množině
+  In the diagrams below, there are two different equivalences on the set
   #text(crimson)[$A = {1, 2, 3, 4}$].
   #align(center)[
     #cetz.canvas({
@@ -220,18 +221,18 @@
     })
   ]
 
-  Pro obě ekvivalence určete *třídu ekvivalence* každého prvku z množiny
-  #text(crimson)[$A$]. Tedy -- označíme-li tyto ekvivalence
-  #text(airblue)[$E_1$] a #text(raingreen)[$E_2$] -- určete
+  For both equivalences, determine the *class of equivalence* of every element
+  from the set #text(crimson)[$A$]. That is, if we label the equivalences
+  #text(airblue)[$E_1$] and #text(raingreen)[$E_2$], determine
   #math.equation(numbering: none, block: true)[
     $[#text(crimson)[$1$]]_(#text(airblue)[$E_1$]),
     [#text(crimson)[$2$]]_(#text(airblue)[$E_1$]),
     [#text(crimson)[$3$]]_(#text(airblue)[$E_1$]),
-    [#text(crimson)[$4$]]_(#text(airblue)[$E_1$])$  a
+    [#text(crimson)[$4$]]_(#text(airblue)[$E_1$])$  and 
     $[#text(crimson)[$1$]]_(#text(raingreen)[$E_2$]),
     [#text(crimson)[$2$]]_(#text(raingreen)[$E_2$]),
     [#text(crimson)[$3$]]_(#text(raingreen)[$E_2$]),
     [#text(crimson)[$4$]]_(#text(raingreen)[$E_2$])$.
   ]
-  *Nemusíte* své odpovědi vysvětlovat.
+  You *don't have to* explain yourself.
 ]

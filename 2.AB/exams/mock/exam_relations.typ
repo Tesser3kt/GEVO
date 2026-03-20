@@ -130,16 +130,16 @@
 #v(5%)
 #block(width: 100%)[
   #points(25)
-  A relation $#text(raingreen)[$R$]$ from #text(crimson)[$A = {1, 2}$] to #text(airblue)[$B = {a, b,
-  c}$] is *anti-symmetric* if whenever #text(crimson)[$a$] is
-  #text(raingreen)[related] to #text(airblue)[$b$], #text(airblue)[$b$] cannot
-  be #text(raingreen)[related] to #text(crimson)[$a$] (for #text(crimson)[$a in
-  A$] and #text(airblue)[$b in B$]). As an example, take the relation of "being
-  a mother" on the set of people. If a woman is a child's mother, the child is
-  of course not its mother's own mother.
+  A relation $#text(raingreen)[$R$]$ on #text(airblue)[$B = {a, b, c}$] is
+  *anti-symmetric* if whenever #text(airblue)[$x$] is #text(raingreen)[related]
+  to #text(airblue)[$y$], #text(airblue)[$y$] cannot be
+  #text(raingreen)[related] to #text(airblue)[$x$] (for #text(airblue)[$x, y in
+  B$]). As an example, take the relation of "being a mother" on the set of
+  people. If a woman is a child's mother, the child is of course not its
+  mother's own mother.
 
-  Give an example of an *anti-symmetric* relation from #text(crimson)[$A$] to
-  #text(airblue)[$B$] with *at least three pairs*. *Explain*.
+  Give an example of an *anti-symmetric* relation on #text(airblue)[$B$] with
+  *at least three pairs*. *Explain*.
 ]
 #pagebreak()
 
