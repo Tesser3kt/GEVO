@@ -4,11 +4,31 @@
 #import "@preview/cetz-venn:0.1.4"
 #import "@preview/oxifmt:0.2.1": strfmt
 
+#import emoji: dog, eagle, flamingo
+
 // Define custom colors
 #let crimson = rgb("#B80F0A")
 #let airblue = rgb("#00308F")
 #let raingreen = rgb("#00755E")
 #let ashgray = rgb("#B2BEB5")
+
+// Aux functions
+#let mycirc(fill: crimson) = {
+  circle(radius: 4pt, stroke: fill)
+}
+#let myrect(fill: crimson) = {
+  rect(width: 7pt, height: 7pt, stroke: fill)
+}
+
+#let clr(body) = {
+  text(crimson)[#body]
+}
+#let clb(body) = {
+  text(airblue)[#body]
+}
+#let clg(body) = {
+  text(raingreen)[#body]
+}
 
 // Set page and fonts
 #let page-counter(cur, last) = {
@@ -106,40 +126,51 @@
 #v(6pt)
 #block(width: 100%)[
   #points(25)
-  Let #text(crimson)[$A = {1, 2}$] and #text(airblue)[$B = {a, b, c}$]. Check
-  all *correct* statements of the ones below. You *don't have to* explain
-  yourself.
+  Let #text(crimson)[$A = {#mycirc(), #myrect()}$] and #text(airblue)[$B = {dog,
+    flamingo, eagle}$]. Check all *correct* statements of the ones below. You
+  *don't have to* explain yourself.
+
   #show: checklist.with(fill: white, stroke: black, radius: 0pt)
   #v(6pt)
-  - [ ] ${(1, a), (1, b), (1, c)}$ is a relation from #text(crimson)[$A$]
-    to~#text(airblue)[$B$].
+  - [ ] ${(dog, #mycirc()), (dog, #myrect()), (flamingo, #mycirc())}$ is a
+    relation from #clr[$A$] to #clb[$B$].
   #v(6pt)
-  - [ ] ${(a, b), (a, a), (c, a)}$ is a relation *on* #text(airblue)[$B$] (that
-    is, a relation from #text(airblue)[$B$] to #text(airblue)[$B$]).
+  - [ ] The product $#clr[$A$] times #clb[$B$]$ has exactly *six* elements.
   #v(6pt)
-  - [ ] There are *five* relations from #text(crimson)[$A$] to
-    #text(airblue)[$B$].
+  - [ ] The element $(flamingo, flamingo)$ lies in $#clb[$B$] times #clb[$B$]$.
   #v(6pt)
-  - [ ] The element $(b, 2)$ lies in $#text(crimson)[$A$] times
-    #text(airblue)[$B$]$.
+  - [ ] The sets $#clr[$A$] times #clb[$B$]$ and $#clb[$B$] times #clr[$A$]$
+    share exactly *two* elements.
   #v(6pt)
-  - [ ] ${(a, 1), (a, 2)}$ is a relation from #text(airblue)[$B$] to
-    #text(crimson)[$A$].
+  - [ ] ${(#mycirc(), #mycirc()), (#myrect(), #myrect())}$ is a relation on
+    #clr[$A$].
   #v(6pt)
 ]
 #v(5%)
 #block(width: 100%)[
   #points(25)
-  A relation $#text(raingreen)[$R$]$ from #text(crimson)[$A = {1, 2}$] to #text(airblue)[$B = {a, b,
-  c}$] is *anti-symmetric* if whenever #text(crimson)[$a$] is
-  #text(raingreen)[related] to #text(airblue)[$b$], #text(airblue)[$b$] cannot
-  be #text(raingreen)[related] to #text(crimson)[$a$] (for #text(crimson)[$a in
-  A$] and #text(airblue)[$b in B$]). As an example, take the relation of "being
-  a mother" on the set of people. If a woman is a child's mother, the child is
-  of course not its mother's own mother.
+  A relation #clg[$F$] from #clr[$A$] to #clb[$B$] (#clr[$A$] and #clb[$B$] are
+  the same as above) is called a *function* if every element #clr[$a in A$] is
+  #clg[related] to *exactly one* element #clb[$b in B$]. Below, you see pictures
+  of two relations from #clr[$A$] to #clb[$B$]. Are they functions? *Why*?
+  #align(center)[
+    #grid(
+      columns: (1fr, 1fr),
+      gutter: 1em,
+      cetz.canvas({
+        import cetz.draw: *
 
-  Give an example of an *anti-symmetric* relation from #text(crimson)[$A$] to
-  #text(airblue)[$B$] with *at least three pairs*. *Explain*.
+        content((0, 0), dog, anchor: "mid")
+        content((0, 1), flamingo, anchor: "mid")
+        content((0, 2), eagle, anchor: "mid")
+
+        content((2, 0), mycirc(), anchor: "mid")
+        content((2, 1), myrect(), anchor: "mid")
+
+        line((0, 0), (2, 0), stroke: raingreen + 1pt, end: ">")
+      }),
+    )
+  ]
 ]
 #pagebreak()
 
@@ -191,7 +222,7 @@
 
       circle((2, 3.95), stroke: 1pt + airblue, radius: 6pt)
       circle((3, 2.95), stroke: 1pt + airblue, radius: 6pt)
-    
+
       content((6, 1), text(crimson)[$1$], anchor: "mid")
       content((6, 2), text(crimson)[$2$], anchor: "mid")
       content((6, 3), text(crimson)[$3$], anchor: "mid")
@@ -228,7 +259,7 @@
     $[#text(crimson)[$1$]]_(#text(airblue)[$E_1$]),
     [#text(crimson)[$2$]]_(#text(airblue)[$E_1$]),
     [#text(crimson)[$3$]]_(#text(airblue)[$E_1$]),
-    [#text(crimson)[$4$]]_(#text(airblue)[$E_1$])$  and 
+    [#text(crimson)[$4$]]_(#text(airblue)[$E_1$])$  and
     $[#text(crimson)[$1$]]_(#text(raingreen)[$E_2$]),
     [#text(crimson)[$2$]]_(#text(raingreen)[$E_2$]),
     [#text(crimson)[$3$]]_(#text(raingreen)[$E_2$]),
