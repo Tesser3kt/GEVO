@@ -146,7 +146,6 @@
     #clr[$A$].
   #v(6pt)
 ]
-#v(5%)
 #block(width: 100%)[
   #points(25)
   A relation #clg[$F$] from #clr[$A$] to #clb[$B$] (#clr[$A$] and #clb[$B$] are
@@ -216,6 +215,91 @@
     })],
   )
 ]
+=== #clb[Bonus Problem]
+#block(width: 100%)[
+  #points(10)
+  The *composition* of relations $R$ from $A$ to $B$ and $S$ from $B$ to $C$ is
+  the relation written as $R compose S$ from $A$ to $C$ that is defined by
+  #math.equation(numbering: none, block: true)[
+    $a(R compose S)c$ in case that $a R b$ and $b S c$
+  ]
+  for any elements $a in A, b in B, c in C$. Draw the picture for the relation
+  $R compose S$ if the pictures of $R$ and $S$ are as below.
+  #grid(
+    columns: (1fr, 1fr, 1fr),
+    gutter: 1pt,
+    align: center,
+    [#cetz.canvas({
+      import cetz.draw: *
+
+      content((0, 0), dog, anchor: "mid", name: "dog")
+      content((0, 1), flamingo, anchor: "mid", name: "flam")
+      content((0, 2), eagle, anchor: "mid", name: "eagle")
+
+      content((2, 0), mycirc(fill: black), anchor: "mid", name: "circ")
+      content((2, 1), myrect(fill: black), anchor: "mid", name: "rect")
+
+      content((1, 3), [#clg[$R$]], anchor: "mid")
+
+      line("dog", "circ", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("eagle", "circ", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("flam", "rect", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+    })],
+    [#cetz.canvas({
+      import cetz.draw: *
+
+      content((0, 0), mycirc(fill: black), anchor: "mid", name: "circ")
+      content((0, 1), myrect(fill: black), anchor: "mid", name: "rect")
+
+      content((2, 0), [$1$], anchor: "mid", name: "1")
+      content((2, 1), [$2$], anchor: "mid", name: "2")
+      content((2, 2), [$3$], anchor: "mid", name: "3")
+
+      content((1, 3), [#clb[$S$]], anchor: "mid")
+
+      line("circ", "1", stroke: airblue + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: airblue,
+      ))
+      line("circ", "2", stroke: airblue + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: airblue,
+      ))
+      line("rect", "3", stroke: airblue + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: airblue,
+      ))
+    })],
+    [#cetz.canvas({
+      import cetz.draw: *
+
+      content((0, 0), dog, anchor: "mid", name: "dog")
+      content((0, 1), flamingo, anchor: "mid", name: "flam")
+      content((0, 2), eagle, anchor: "mid", name: "eagle")
+
+      content((2, 0), [$1$], anchor: "mid", name: "1")
+      content((2, 1), [$2$], anchor: "mid", name: "2")
+      content((2, 2), [$3$], anchor: "mid", name: "3")
+
+      content((1, 3), [Draw $R compose S$ here.], anchor: "mid", name: "eagle")
+    })],
+  )
+] 
 #pagebreak()
 
 // Second page
@@ -242,11 +326,17 @@
   #points(25)
   Describe (as a set of pairs, by a picture, ...) an equivalence on the set
   #clr[$A = {1, 2, 3, 4, 5}$] which has the following *classes of equivalence*:
-  #v(6pt)
   #list(indent: 1em)[
     ${1, 3}$ and ${2, 4, 5}$
   ][
     ${1, 4}$, ${2}$, ${3}$ and ${5}$.
   ]
   *Explain*.
+]
+#v(15%)
+=== #clb[Bonus Problem]
+#block(width: 100%)[
+  #points(10)
+  Suppose some set $A$ has exactly $5$ elements. How many different
+  *equivalences* are there on the set $A$? *Explain*. 
 ]
