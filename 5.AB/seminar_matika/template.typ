@@ -4,7 +4,7 @@
 #import "@preview/equate:0.3.2": equate
 #import "@preview/headcount:0.1.0": *
 #import "@preview/zap:0.4.0"
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.1"
 #import "@preview/ctheorems:1.1.3": *
 #import "@preview/itemize:0.2.0" as el
 #import "@preview/algo:0.3.6": algo, code, comment, d, i

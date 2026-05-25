@@ -357,4 +357,4 @@ vždy mezi $-1$ a $1$ a naše definice úhlu mezi vektory dává smysl.
   #math.equation(numbering: none, block: true)[
     $theta = arccos((vc(u) dot vc(v)) / (||vc(u)|| ||vc(v)||))$.
   ]
-]
+] <def:uhel-mezi-vektory>
