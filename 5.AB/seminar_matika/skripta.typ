@@ -24,6 +24,7 @@
 // Chapters
 #include "chapter_1.typ"
 #include "chapter_2.typ"
+#include "chapter_3.typ"
 
 // Appendix
 #include "appendix.typ"
