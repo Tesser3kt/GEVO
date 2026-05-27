@@ -324,6 +324,7 @@ dolním rohem bod $(0, 0)$) namísto odporného čísla, které jsem líný
 dopočítávat.
 
 === Volební systémy
+<ssec:volebni-systemy>
 
 V mnoha státech na planetě se používá tzv. "preferenční" volební systém, kde
 jeden hlas sestává z uspořádání kandidujících stran od nejvíce preferované po
@@ -352,20 +353,20 @@ náhodným rozdělením hlasů.
 
 Zmíněný paradox spočívá v absenci jasného vítěze těchto voleb. Totiž, počet
 voličů, kteří preferovali $A$ proti $B$, je $17$ a počet voličů, kteří zase
-volili pro $B$ proti $A$ je $12$. To znamená, že soutěžily-li by tyto dvě
+volili pro $B$ proti $A$, je $12$. To znamená, že soutěžily-li by tyto dvě
 strany proti sobě, vyhrála by strana $A$ proti straně $B$ o $5$ hlasů. Podobně,
 strana $B$ by vyhrála v soutěži proti $C$ o $1$ hlas. Ovšem, strana $C$ by
 _vyhrála_ proti straně $A$ v přímé konfrontaci o $7$ hlasů. Která strana tedy
 zvítězila, když $A$ vítězí nad $B$, $B$ vítězí nad $C$ a $C$ vítězí nad $A$?
 Jak tušíte, tato otázka nemá jednoznačnou odpověď. Existují různé vesměs
 neuspokojivé způsoby, jak tento volební paradox řešit. O ty se zde zajímat
-nebudeme. My si pouze rozmyslíme, proč k~němu dochází.
+nebudeme. My si pouze částečně rozmyslíme, proč k~němu dochází.
 
 Totiž, volba každého jednoho voliče je dokonale "neparadoxní"; zkrátka uspořádá
-strany za sebe podle svých preferencí. A přesto jejich sloučení dá vzniknout
+strany za sebe podle své náklonnosti. A přesto jejich sloučení dá vzniknout
 uspořádání $A > B > C > A$, které je zřejmě problematické.
 
-Přeneseme problém do jazyka lineární algebry. Strany si nakreslíme do kruhu a
+Přeneseme úlohu do jazyka lineární algebry. Strany si nakreslíme do kruhu a
 přidáme mezi ně šipky tímto způsobem:
 #align(center)[
   #cetz.canvas(pref_circle($5$, $1$, $7$))
@@ -485,7 +486,7 @@ uspořádáním by odpovídaly hlasy $vec(1, 1, 1)$ a $vec(-1, -1, -1)$, které
 pochopitelně v @fig:hlasy-kruhem[tabulce] nenajdeme, neboť nejsou validní. To
 však neznamená, že nejsou _teoreticky_ důležité. Totiž, tato dvě uspořádání
 stran jsou právě ta _čistě cyklická_, ze kterých nelze získat žádné smysluplné
-uspořádání. Dává smysl, že tyto vektory (a jejich násobky) označíme za onu
+uspořádání. Dává smysl, že tyto vektory (a jejich násobky) položíme za onu
 _cyklickou_ část třídimensionálního prostoru.
 
 Formálněji, označíme
@@ -525,8 +526,7 @@ dostaneme
   2/3 dot.c vec(0, -1, 1)$.
 ]
 Cyklickou část vektoru jsme označili #clr[červeně]. Jak vidíme, i vektor
-representující výsledně acyklické uspořádání přispívá částečně k výslednému
-zacyklení.
+representující acyklické uspořádání přispívá částečně k výslednému zacyklení.
 
 Je na čase dovršit úvahu o tom, kdy vlastně k zacyklení dojde. Upřete pohled na
 @fig:hlasy-kruhem[tabulku]. Vektory / kruhy representující hlasy jsme rozdělili
@@ -538,27 +538,224 @@ pro $B > C > A$. To je přímo vidět z faktu, že součet odpovídajících vek
 $vec(1, -1, -1)$ a $vec(-1, 1, 1)$ je vektor $vec(0, 0, 0)$, který výslednému
 součtu ničím nepřispívá.
 
-Tvrdíme, že k zacyklení dojde přesně ve chvíli, kdy po vykrácení všech
-protichůdných hlasů jsou zůstavší hlasy buď všechny z levého sloupce nebo
-všechny ze sloupce pravého. Toto tvrzení si dokážeme.
+Zodpovíme zde pouze část položené otázky: došlo-li k zacyklení, tak po
+vykrácení protichůdných hlasů musely zbylé hlasy být buď všechny z levého nebo
+všechny z pravého sloupce. Opačné tvrzení není pravdivé. I v případě, že jsou
+všechny hlasy z jednoho sloupce, nemusí volební paradox nastat. Příklad si
+rozmyslíte v rámci úlohy.
 
-Předpokládejme tedy, že po vykrácení hlasů zůstaly pouze hlasy z levého sloupce
-(argument pro pravý sloupec je totožný). To znamená, že součet všech hlasů je tvaru
-#math.equation(numbering: none, block: true)[
-  $n_1 dot.c vec(1, 1, -1) + n_2 dot.c vec(1, -1, 1) + n_3 dot.c vec(-1, 1, 1)
-  = vec(n_1 + n_2 - n_3, n_1 - n_2 + n_3, -n_1 + n_2 + n_3)$
-]
-pro nějaká přirozená čísla $n_1, n_2, n_3 in NN$. Víme, že vektor napravo
-představuje cyklické uspořádání, když jsou jeho složky všechny kladné nebo
-všechny záporné. Ukážeme, že když jsou dvě složky tohoto vektoru kladné, resp.
-záporné, pak i ta třetí musí být kladná, resp. záporná. To už nutně znamená, že
-mají všechny složky stejné znaménko. Ať jsou tedy třeba první a druhá složka
-obě kladné (kdyby byly záporné, tak prostě otočíme všechny nerovnosti, a kdyby
-měly opačné znaménko, tak vezmeme jiné dvě složky). To znamená, že
+Předpokládejme tedy, že součet hlasů je vektor se třemi kladnými složkami
+(jsou-li naopak všechny záporné, tak zkrátka prohodíme všechny následující
+nerovnosti). Po vykrácení protichůdných hlasů sestává tento součet pouze ze tří
+druhů hlasů (z každého řádku jeden). Výsledný součet proto můžeme napsat jako
+#math.equation(block: true)[
+  $z_1 dot.c vec(1, 1, -1) + z_2 dot.c vec(1, -1, 1) + z_3 dot.c vec(-1, 1, 1)
+  = vec(z_1 + z_2 - z_3, z_1 - z_2 + z_3, -z_1 + z_2 + z_3)$,
+] <eq:soucet-hlasu>
+kde celá čísla $z_1, z_2, z_3 in ZZ$ jsou kladná, pokud je příslušný hlas z
+levého sloupce, a záporná, jest-li týž z~pravého. Podle předpokladu má vektor
+na pravé straně rovnosti @eq:soucet-hlasu všechny složky kladné, čili
 #math.equation(numbering: none, block: true)[
   $
-    n_1 + n_2 - n_3 & >= 0, \
-    n_1 - n_2 + n_3 & >= 0.
+     z_1 + z_2 - z_3 & >= 0, \
+     z_1 - z_2 + z_3 & >= 0, \
+    -z_1 + z_2 + z_3 & >=0.
   $
 ]
-Odečtením těchto nerovností dostaneme $2n_2 - 2n_3 >= 0$, takže $n_2 >= n_3$.
+Sečtením první a druhé nerovnosti získáme $z_1 >= 0$. Podobně, součet první s
+třetí dá $z_2 >= 0$ a, konečně, součet druhé a třetí zas $z_3 >= 0$. Čili,
+je-li součtem hlasů kladný vektor, pak všechny jednotlivé hlasy, z nichž se
+skládá, musejí náležet stejnému sloupci v @fig:hlasy-kruhem[tabulce].
+Připomínáme, že opak není pravdou.
+
+=== Rozměrová analýza
+
+Poslední aplikací soustav souřadnic, již zmíníme, je schopnost analysovat
+fyzikální systémy pomocí jednotek zúčastněných veličin. Totiž, jednotky
+fyzikálních veličin hrají ve fyzikálních systémech větší roli, než si snad
+uvědomujeme. Vezměme následující výpočet vteřin v (nepřestupném) roce:
+#math.equation(numbering: none, block: true)[
+  $365 "den"/"rok" dot.c 24 "hodina"/"den" dot.c 60 "minuta"/"hodina" dot.c 60
+  "vteřina"/"minuta" = 31 536 000 "vteřina"/"rok"$.
+]
+Uvědomme si, že jednotky na pravé straně rovnosti jsou již zcela určeny
+jednotkami na straně levé. Totiž, s jednotkami můžeme provádět zcela stejné
+operace jako s proměnnými. Vykrácením dostaneme
+#math.equation(numbering: none, block: true)[
+  $#clr[#strike[den]]/#clb[rok] dot.c #clg[#strike[hodina]]/#clr[#strike[den]]
+  dot.c #clp[#strike[minuta]]/#clg[#strike[hodina]] dot.c
+  #clo[vteřina]/#clp[#strike[minuta]] = #clo[vteřina]/#clb[rok]$.
+]
+To samo o sobě není dvakrát užitečné, dokud rovněž neprohlédneme, že v klasické
+mechanice je většina fyzikálních jednotek odvozena ze tří základních --
+hmotnosti, délky a času. Například, objem se měří v třetí mocnině jednotky
+délky, v $m^3$; síla se měří v jednotkách $("hmotnost" dot.c "délka") /
+"čas"^2$ apod. V intuitivním smyslu, který záhy formalisujeme, tvoří hmotnost,
+délka a čas soustavu souřadnic většiny fyzikálních jednotek v klasické
+mechanice.
+
+Konkrétně, mnoho fyzikálních jednotek můžeme zapsat jako součin mocnin
+hmotnosti, délky a času. Pochopitelně, tyto veličiny samotné mají vícero
+rozličných jednotek, ale to není naší analýse nyní důležité. Pro pohodlí si
+jednotky těchto veličin označíme po řadě písmeny $H$, $D$ a $C$. Ostatní
+jednotky pak můžeme vyjádřit ve tvaru $H^k D^l C^m$, kde $k, l, m$ jsou celá
+čísla. Například, již zmíněnou jednotku síly můžeme vyjádřit jako $H^1 D^1
+C^(-2)$ nebo třeba jednotku hustoty jako $H^1 D^(-3) C^0$. Pochopitelně, ony
+"základní" jednotky hmotnosti, délky a času vyjádříme po řadě jako $H^1 D^0
+C^0$, $H^0 D^1 C^0$ a $H^0 D^0 C^1$. Podobně jako v
+#link(<ssec:volebni-systemy>, [předchozí sekci]) můžeme přenést celou konstrukci
+do světa lineární algebry tak, že jednotku $H^k D^l C^m$ zapíšeme jako vektor
+$vec(k, l, m)$ v soustavě souřadnic tří kolmých os
+#math.equation(numbering: none, block: true)[
+  $(vec(1, 0, 0), vec(0, 1, 0), vec(0, 0, 1))$.
+]
+Násobení jednotek pak odpovídá součtu jim odpovídajících vektorů. Například sílu
+můžeme vyjádřit jako $"hmotnost" dot.c "akcelerace"$, kde jednotkou prvé je $H^1
+D^0 C^0$ a druhé $H^0 D^1 C^(-2)$. Podle běžných pravidel počítání s mocninami
+dostaneme
+#math.equation(numbering: none, block: true)[
+  $H^1 D^0 C^0 dot.c H^0 D^1 C^(-2) = H^(1 + 0) D^(0 + 1) C^(0 - 2) = H^1 D^1
+  C^(-2)$.
+]
+Ve vektorové podobě by takový výpočet vypadal
+#math.equation(numbering: none, block: true)[
+  $vec(1, 0, 0) + vec(0, 1, -2) = vec(1, 1, -2)$.
+]
+Bychom však zůstali věrni fyzikálnímu pohledu na zvolenou soustavu souřadnic,
+podržíme se v~této sekci spíše mocninného zápisu.
+
+Rozměrová analýza stojí na poměrně intuitivním faktu, že každý fyzikální systém
+lze popsat systémem (*ne nutně lineárních*) rovnic a jednotky na obou stranách
+každé rovnice musejí být totožné. Ukážeme si, jak nám tato idea může pomoci
+hledat rovnice pro jednoduché systémy, aniž bychom hluboce rozuměli jejich
+skutečné povaze.
+
+Uvažme systém o jednom zavěšeném kyvadle v pohybu. Budeme chtít najít vzorec pro
+jeho _periodu_, tedy pro čas, který uběhne, než se kyvadlo vrátí do stejné
+polohy (odpor vzduchu zanedbáváme). Při studiu pohybu kyvadla přichází v úvahu
+několik veličin představených @fig:kyvadlo[obrázkem] a vypsaných spolu s jejich
+jednotkami v @tbl:kyvadlo-veliciny[tabulce].
+
+#figure(
+  cetz.canvas({
+    import cetz.draw: *
+    import cetz.angle: *
+
+    line((1, 0), (260deg, 2), name: "string")
+    line((1, 0), (1, -2), stroke: (dash: "dashed"))
+    line(
+      (-0.347, -1.97),
+      (-0.347, -3.2),
+      mark: (end: ")>", fill: black),
+      name: "gravity",
+    )
+    angle(
+      (1, 0),
+      (260deg, 2),
+      (300deg, 2),
+      radius: 1.2,
+      label: $theta$,
+      label-radius: 0.8,
+    )
+    rect((0, 0), (2, 0.1), fill: black, name: "base")
+    circle(
+      (260deg, 2),
+      radius: 0.2,
+      fill: gray,
+      name: "bob",
+    )
+    content(
+      ("string.start", 70%, "string.end"),
+      anchor: "south-east",
+      padding: .1,
+      $l$,
+    )
+    content(
+      "bob.west",
+      anchor: "east",
+      padding: .1,
+      $m$,
+    )
+    content(
+      ("gravity.start", 50%, "gravity.end"),
+      anchor: "west",
+      padding: .2,
+      $g$,
+    )
+  }),
+  caption: [Diagram kyvadla.],
+) <fig:kyvadlo>
+
+#figure(
+  table(
+    columns: (auto, auto),
+    inset: 10pt,
+    align: (right, left),
+    stroke: (x, y) => if y == 0 { (bottom: 0.7pt + black) },
+    table.header([*Veličina*], [*Jednotky*]),
+    [perioda $p$], [$H^0 D^0 C^1$],
+    [délka pružiny $l$], [$H^0 D^1 C^0$],
+    [hmotnost kuličky $m$], [$H^1 D^0 C^0$],
+    [gravitační zrychlení $g$], [$H^0 D^1 C^(-2)$],
+    [počáteční úhel $theta$], [$H^0 D^0 C^0$],
+  ),
+  caption: [Veličiny v systému kyvadla.],
+) <tbl:kyvadlo-veliciny>
+
+Vzorec pro periodu bude tvaru
+#math.equation(numbering: none, block: true)[
+  $p = "nějaký výraz v "l, m, g" a "theta$.
+]
+Víme, že jednotky periody $H^0 D^0 C^1$ se musejí rovnat výsledným jednotkám
+jakéhokoli výrazu napravo, který vznikne součinem mocnin přítomných veličin.
+Pravá strana obsahuje čtyři různé veličiny, jejichž mocniny postupně označíme
+proměnnými $x_1, x_2, x_3$ a $x_4$. Porovnání jednotek dá rovnost
+#math.equation(block: true)[
+  $H^0 D^0 C^1 & = (H^0 D^1 C^0)^(x_1) dot.c (H^1 D^0 C^0)^(x_2) dot.c (H^0 D^1
+    C^(-2))^(x_3) dot.c (H^0 D^0 C^0)^(x_4)\
+  & = H^(x_2) D^(x_1 + x_3) C^(-2 x_3)$.
+] <eq:perioda-kyvadla>
+Porovnáním mocnin u všech základních veličin na obou stranách dostaneme soustavu
+rovnic
+#math.equation(numbering: none, block: true)[
+  $
+    #grid(
+      columns: (auto, auto, auto, auto, auto, auto, auto),
+      column-gutter: 0.3em,
+      row-gutter: 1em,
+      align: (end, center, end, center, end, center, end),
+      $0$, $=$, [], [], $x_2$, [], [],
+      $0$, $=$, $x_1$, [], [], $+$, $x_3$,
+      $1$, $=$, [], [], [], [], $-2x_3$,
+    ),
+  $
+]
+jejímž řešením je zřejmě $x_1 = 1 slash 2, x_2 = 0, x_3 = -1 slash 2, x_4 = t$,
+kde $t in RR$ je parametr.
+
+Toto řešení nám poskytlo notnou dávku znalosti o rovnici periody kyvadla.
+Postupně:
+#list[
+  Fakt, že $x_2 = 0$, znamená, že hmotnost kuličky $m$ vystupuje v pravé straně
+  rovnice @eq:perioda-kyvadla v~nulté mocnině, tj. vůbec tam není. Jinak řečeno,
+  perioda kyvadla nezávisí na hmotnosti kuličky.
+][
+  Rovnosti $x_1 = 1 slash 2$ a $x_3 = -1 slash 2$ určují, že délka pružiny
+  vystupuje v pravé straně rovnice @eq:perioda-kyvadla v mocnině $1 slash 2$
+  (tj. v druhé odmocnině) a gravitační zrychlení v obrácené hodnotě druhé
+  odmocniny. Symbolicky, pravá strana obsahuje výraz $sqrt(l slash g)$.
+][
+  Na základě porovnání jednotek nelze o relevanci úhlu $theta$ ve vzorci pro
+  periodu nic rozhodnout, neboť nemá jednotky (nebo též můžeme říci, že jsou
+  jeho jednotky "bezrozměrné"). Jediné, co smíme prohlásit, je, že výraz $sqrt(
+    l slash
+    g
+  )$ bude násoben nějakou funkcí $f(theta)$ závislou na $theta$, jejíž podoba
+  nám však zůstává bez hlubší úvahy zcela skryta.
+]
+
+Shrnuto, dozvěděli jsme se, že rovnice pro periodu jednoduchého kyvadla je
+#math.equation(numbering: none, block: true)[
+  $p = sqrt(l / g) dot.c f(theta)$
+]
+pro nějakou neznámou funkci $f$.
