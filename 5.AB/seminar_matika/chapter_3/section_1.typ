@@ -759,3 +759,92 @@ Shrnuto, dozvěděli jsme se, že rovnice pro periodu jednoduchého kyvadla je
   $p = sqrt(l / g) dot.c f(theta)$
 ]
 pro nějakou neznámou funkci $f$.
+
+=== Úlohy na závěr
+
+#enum[
+  V @fig:grafen[obrázku] uvažte atom uhlíku 5.68 Ångstromů doprava a 2.46
+  Ångstromů nahoru.
+  #enum[
+    Vyjádřete souřadnice tohoto atomu vzhledem k nalezené "hexagonální" soustavě
+    souřadnic
+    #math.equation(numbering: none, block: true)[
+      $(vec(1.42, 0), vec(0.71, 1.23))$.
+    ]
+  ][
+    Nyní uvažme stejný atom, ale méně vhodnou soustavu souřadnic
+    #math.equation(numbering: none, block: true)[
+      $(vec(1.42, 0), vec(0, 1.42))$
+    ]
+    o dvou kolmých osách se stejnou jednotkovou délkou. Vyjádřete souřadnice
+    téhož atomu k této soustavě souřadnic.
+  ][
+    Dokázali byste pomocí části (a) a (b) najít nějaký "vzorec" pro převod
+    souřadnic libovolného atomu ze soustavy z části (a) do soustavy z části (b)?
+  ]
+][
+  K volebnímu paradoxu *nemusí* dojít, i když jsou po vykrácení protichůdných
+  hlasů všechny zbývající hlasy z jednoho sloupce @fig:hlasy-kruhem[tabulky].
+  #enum[
+    Najděte příklad takového rozdělení hlasů, že jejich výsledný součet je
+    cyklický, ale přidání jen jednoho dalšího hlasu *ze stejného sloupce*
+    @fig:hlasy-kruhem[tabulky] cyklus odstraní.
+  ][
+    Může se stát i opak? Tedy, je možné, aby přidání hlasu *z vedlejšího
+    sloupce* vytvořilo cyklus, když původní součet hlasů cyklický nebyl?
+    Dokažte, že ne, nebo uveďte příklad situace, kdy ano.
+  ][
+    Pomocí částí (a) a (b) zkuste najít *obecnou* podmínku, která zaručuje vznik
+    cyklu ve výsledném součtu hlasů.
+  ]
+][
+  Uvažte systém o dvou tělesech, která kolem sebe vzájemně obíhají vlivem
+  gravitace (tzv. #link("https://en.wikipedia.org/wiki/Two-body_problem", [Two
+    Body Problem])). Pro náhled vizte @fig:two-body-problem[obrázek].
+  #figure(
+    cetz.canvas({
+      import cetz.draw: *
+
+      line((2, 1), (-2, -1), stroke: (dash: "dashed"), name: "distance")
+      content(
+        ("distance.start", 55%, "distance.end"),
+        anchor: "south",
+        padding: .2,
+        [$r$],
+      )
+
+      circle((2, 1), radius: 0.5, fill: gray)
+      arc-through((1.5, 1), (2, 0.85), (2.5, 1))
+      content((2, 0), [$m_1$], anchor: "south")
+
+      circle((-2, -1), radius: 0.3, fill: gray)
+      arc-through((-2.3, -1), (-2, -1.1), (-1.7, -1))
+      content((-2, -0.5), anchor: "south", [$m_2$])
+    }),
+    caption: [Two Body Problem],
+  )<fig:two-body-problem>
+
+  Budeme chtít zjistit periodu oběhu $p$ (tj. za jak dlouho oběhnou obě tělesa
+  kolem sebe a vrátí se do původní konfigurace). Předpokládejme, že systém
+  závisí na veličinách uvedených spolu s jejich jednotkami v
+  @fig:two-body-units[tabulce].
+  #figure(
+    table(
+      columns: (auto, auto),
+      inset: 10pt,
+      align: (right, left),
+      stroke: (x, y) => if y == 0 { (bottom: 0.7pt + black) },
+      table.header([*Veličina*], [*Jednotky*]),
+      [oběžná doba $p$], [$H^0 D^0 C^1$],
+      [průměrná vzdálenost těles $r$], [$H^0 D^1 C^0$],
+      [hmotnost prvního tělesa $m_1$], [$H^1 D^0 C^0$],
+      [hmotnost druhého tělesa $m_2$], [$H^1 D^0 C^0$],
+      [gravitační konstanta $G$], [$H^(-1) D^3 C^(-2)$],
+    ),
+  ) <fig:two-body-units>
+  Použijte rozměrovou analýzu, abyste odhadli možnou podobu rovnice pro oběžnou
+  dobu $p$. Svůj výsledek porovnejte se skutečnou rovnicí. Je problém ovlivněn
+  rozdílem hmotností obou těles (třeba v případě, kdy první těleso je hvězda a
+  druhé planeta)?
+]
+
