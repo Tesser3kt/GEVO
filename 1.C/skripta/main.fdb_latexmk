@@ -1,18 +1,18 @@
 # Fdb version 4
-["biber main"] 1779914207.71812 "main.bcf" "main.bbl" "main" 1779915176.29882 0
-  "main.bcf" 1779915176.24018 108679 0fd0e3dd39f7c8d9088a3f3f0789442b "pdflatex"
-  "sample.bib" 1779911194.1974 423 68b8f6cb50917872bb3a29f3e28dd3c7 ""
+["biber main"] 1779914207.71812 "main.bcf" "main.bbl" "main" 1780039912.62637 0
+  "main.bcf" 1780039912.45153 108679 0fd0e3dd39f7c8d9088a3f3f0789442b "pdflatex"
+  "sample.bib" 1779949667.02482 423 68b8f6cb50917872bb3a29f3e28dd3c7 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1779914634.58734 "main.idx" "main.ind" "main" 1779915176.29721 0
-  "main.idx" 1779915176.24128 1222 365be7d9bf8e833bed85735d51705f63 "pdflatex"
+["makeindex main.idx"] 1779972521.35497 "main.idx" "main.ind" "main" 1780039912.62621 0
+  "main.idx" 1780039912.45244 1222 3aafa03b6b819788836799585fea0501 "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1779915175.47933 "main.tex" "main.pdf" "main" 1779915176.29729 2
+["pdflatex"] 1780039910.9477 "main.tex" "main.pdf" "main" 1780039912.62664 0
   "/nix/store/0klcf1683p82fqa76by11hqv31kah2xs-texlive-2025-r78234-final-env-texmfdist/fonts/enc/dvips/base/8r.enc" 1 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/nix/store/0klcf1683p82fqa76by11hqv31kah2xs-texlive-2025-r78234-final-env-texmfdist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1 2971 def0b6c1f0b107b3b936def894055589 ""
   "/nix/store/0klcf1683p82fqa76by11hqv31kah2xs-texlive-2025-r78234-final-env-texmfdist/fonts/map/fontname/texfonts.map" 1 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -252,19 +252,21 @@
   "/nix/store/24hakvlxx9ljv10dwah1s7k74rhzlwb3-texlive-2025-r78234-final-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 5541489 255bd182881305c74746b27330a68f6c ""
   "/nix/store/24hakvlxx9ljv10dwah1s7k74rhzlwb3-texlive-2025-r78234-final-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 3637270 2f5a0a831f2ff9f2929d06d36e122866 ""
   "/nix/store/24hakvlxx9ljv10dwah1s7k74rhzlwb3-texlive-2025-r78234-final-env/share/texmf-var/web2c/texmf.cnf" 1 44263 9cbe6fac10b7e67667528e8c6cb41d48 ""
-  "LegrandOrangeBook.cls" 1779915174.04914 35241 091ab6b19d01fa4f79c4e6184b4436b2 ""
-  "figs/background.pdf" 1779914207.25787 13886067 51629c61750d5c30eb8d20b5c7e24595 ""
-  "figs/creodocs_logo.pdf" 1779912558.57254 53612 ef0ff49bbb82d1f6f4dc0ed64db5e31d ""
-  "figs/orange1.jpg" 1779912558.57259 283287 61c5996d25d4b43c0b134a24fe0e77c7 ""
-  "figs/orange2.jpg" 1779912558.5727 158800 1a62e512d8231388f6c96a9eb2a124eb ""
-  "figs/orange3.jpg" 1779912558.57276 163089 478f46331115e18b4a694b6aa5a7544f ""
-  "main.aux" 1779915176.23618 17437 9da2c3ec0f9b0e5fdcfdb545f513a4ed "pdflatex"
-  "main.bbl" 1779914208.07288 3461 1c7620aa3598dddb7fda5c9738da57d9 "biber main"
-  "main.ind" 1779914634.61673 1270 67e6062f9b71bea8d73d63cf59c37a43 "makeindex main.idx"
-  "main.ptc" 1779915176.24128 3541 0fe2d052318924e892e42d0312398915 "pdflatex"
-  "main.run.xml" 1779915176.24128 2330 850b8e9f5720bc36eb133a319c1d790f "pdflatex"
-  "main.tex" 1779914959.93845 28918 a2d13f0b1d43a1866e76ebe4a0293941 ""
-  "main.toc" 1779915176.24128 3451 97a6ac915f17740335973732049b03cc "pdflatex"
+  "LegrandOrangeBook.cls" 1779971867.03231 35794 edbc59796e026b97a014e08647aee4c8 ""
+  "figs/background.pdf" 1779949666.95083 13886067 51629c61750d5c30eb8d20b5c7e24595 ""
+  "figs/creodocs_logo.pdf" 1779949666.95083 53612 ef0ff49bbb82d1f6f4dc0ed64db5e31d ""
+  "figs/orange2.jpg" 1779949666.95383 158800 1a62e512d8231388f6c96a9eb2a124eb ""
+  "figs/orange3.jpg" 1779949666.95383 163089 478f46331115e18b4a694b6aa5a7544f ""
+  "figs/part1.jpg" 1779971858.82616 76435 5114e3179f4cdcf49093efe406fbbca5 ""
+  "figs/section1.jpg" 1780039773.33605 25586 f54de5d73b4c0c73811994a2802a0d0c ""
+  "main.aux" 1780039912.44453 18328 75b1095344a409ad051c6f83dfa045a3 "pdflatex"
+  "main.bbl" 1779949666.95483 3461 1c7620aa3598dddb7fda5c9738da57d9 "biber main"
+  "main.ind" 1779972521.44253 1270 d84dfe513991b30954a1ef066fa76c0e "makeindex main.idx"
+  "main.ptc" 1780039912.45244 3428 586a76a33820f5e5f7603d058e3b5cea "pdflatex"
+  "main.run.xml" 1780039912.45244 2330 850b8e9f5720bc36eb133a319c1d790f "pdflatex"
+  "main.tex" 1780039908.52746 28649 5332a125e312d11585fe3d26d3da92a9 ""
+  "main.toc" 1780039912.45244 3383 47c1f27469a24c54d476067e8cc0093f "pdflatex"
+  "mnoziny_logika.tex" 1779962505.16516 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
   "main.aux"
   "main.bcf"

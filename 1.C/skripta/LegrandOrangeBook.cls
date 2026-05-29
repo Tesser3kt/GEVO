@@ -151,7 +151,7 @@
     % Part number
     \node[anchor=north east, inner sep=0pt, xshift=-\Gm@rmargin,
     yshift=-\Gm@tmargin] at (current page.north east)
-    {\fontsize{30pt}{30pt}\selectfont\sffamily\bfseries\textcolor{white}{\strut
+    {\fontsize{30pt}{30pt}\selectfont\sffamily\bfseries\textcolor{DarkCyan}{\strut
     #2}}; % Part title
     \node[anchor=south east, inner sep=0pt, xshift=-\Gm@rmargin,
     yshift=\Gm@bmargin] at (current page.south east) { % Mini table of contents
@@ -897,3 +897,18 @@
 
 \usepackage{tikz} % Required for drawing custom shapes and
 % positioning elements absolutely on the page
+
+%----------------------------------------------------------------------------------------
+%   HELPFUL COMMANDS AND MACROS
+%----------------------------------------------------------------------------------------
+
+\newcommand{\clr}[1]{\textcolor{FireBrick}{#1}}
+\newcommand{\clb}[1]{\textcolor{RoyalBlue}{#1}}
+\newcommand{\clg}[1]{\textcolor{ForestGreen}{#1}}
+\newcommand{\clp}[1]{\textcolor{DarkViolet}{#1}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mahtbb{R}}
+\newcommand{\C}{\mathbb{C}}
