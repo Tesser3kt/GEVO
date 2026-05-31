@@ -1,0 +1,151 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[czech,english]{babel}
+% Fonts %
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+\usepackage{advdate}
+
+% Colors %
+\usepackage[dvipsnames]{color}
+\usepackage{xcolor}
+
+% Page Layout %
+\usepackage[margin=1in]{geometry}
+\usepackage{paracol}
+
+% Fancy Headers %
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\sffamily\large Vocabulary Exam -- 2.AB PreIB Math}
+\lhead{\sffamily\large \today}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{16pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{import}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{cd,positioning,babel,shapes}
+\usepackage{tkz-base}
+\usepackage{tkz-euclide}
+
+% Theorems
+\usepackage{thmtools}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+
+% Title %
+\title{\Huge\textsf{Vocabulary Exam -- 2.AB PreIB Math}\\
+  \Large\textsf{Logic \& Set Theory}
+  \author{Áďa Klepáčů}
+  \date{\today}
+}
+
+% Table of Contents %
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linktoc=all,
+  linkcolor=blue
+}
+
+% Tables %
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Patch for hyphens
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+\newcolumntype{s}{>{\centering\arraybackslash}p{.4\textwidth}}
+
+% Operators %
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+% Common operators %
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\tb}{\textcolor{blue}}
+\newcommand{\tg}{\textcolor{green}}
+\newcommand{\tm}{\textcolor{magenta}}
+\newcommand{\tv}{\textcolor{violet}}
+
+% American Paragraph Skip %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Document %
+\pagestyle{fancy}
+\renewcommand{\baselinestretch}{1.2}
+\newcommand{\blank}{\underline{\hspace{12ex}}}
+\begin{document}
+
+\thispagestyle{fancy}
+
+
+\columnratio{.7}
+\begin{paracol}{2}
+  In traditional mathematics, we distinguish a few different number sets. The
+  basis for all of them is the set of numbers we use for `counting' things --
+  these numbers are called \blank. Operations on these numbers include \blank,
+  \blank~and \blank~with the next operation being basically just a convenient
+  way to express repetition of the previous one.
+  
+  Next in line is the set of \blank~-- numbers which can be positive or negative
+  and thus moreover express notions like `absence' or `debt'. Often defined as
+  \blank~between two positive numbers, they also include the operation of
+  \blank~which isn't sensible on positive numbers as the \blank~of two positive
+  numbers may be negative.
+
+  If we also in need of numbers able to express \emph{parts of objects},
+  \blank~numbers come to the rescue. We write them as either decimal numbers or
+  \blank, with the latter form getting across the idea that they are essentially
+  results of dividing one whole number by another: or, as we call the results of
+  division, \blank.
+
+  Finally, there are also irrational numbers -- numbers which literally can't be
+  written as a `ratio' of two whole numbers. They come about for example as
+  \blank~of many positive numbers that are not powers of other numbers, like
+  $2$, $3$ or $5$. The numbers that also include irrational numbers and are
+  heavily used in geometry are called \blank.
+
+  \switchcolumn
+  \renewcommand{\arraystretch}{2}
+  \vspace*{-32pt}
+  \begin{tabular}{c}
+    \textbf{EXPONENTIATION}\\
+    \textbf{SUBTRACTION}\\
+    \textbf{INTEGER}\\
+    \textbf{QUOTIENT}\\
+    \textbf{REAL}\\
+    \textbf{FRACTION}\\
+    \textbf{MULTIPLICATION}\\
+    \textbf{ROOT}\\
+    \textbf{RATIONAL}\\
+    \textbf{ADDITION}\\
+    \textbf{DIFFERENCE}\\
+    \textbf{NATURAL}\\
+  \end{tabular}
+\end{paracol}
+
+\end{document}
