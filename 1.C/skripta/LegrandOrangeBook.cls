@@ -75,15 +75,13 @@
 %  LANGUAGE
 %----------------------------------------------------------------------------------------
 
-\usepackage[english, czech]{babel}
+\usepackage[greek, english, czech]{babel}
 
 %----------------------------------------------------------------------------------------
 %  FONTS
 %----------------------------------------------------------------------------------------
 
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Output font encoding for international characters
-
+\usepackage[LGR, T1]{fontenc}
 \usepackage{avant} % Use the Avantgarde font for headings
 
 \usepackage{mathptmx} % Use the Adobe Times Roman as the default text
