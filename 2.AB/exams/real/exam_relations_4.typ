@@ -49,7 +49,7 @@
   header: context {
     let current-page = counter(page).get().first()
     if current-page > 1 [
-      Exam C
+      Exam D
       #h(1fr)
       #counter(page).display(
         page-counter,
@@ -108,7 +108,7 @@
 ]
 #v(-12pt)
 #align(center)[
-  #text(size: 18pt)[2.AB PreIB Maths -- Exam C]
+  #text(size: 18pt)[2.AB PreIB Maths -- Exam D]
 ]
 #set text(
   font: "TeX Gyre Schola",
@@ -161,10 +161,10 @@
   whenever $#clr[$a_1$]#clg[$R$]#clb[$b$]$ and $#clr[$a_2$]#clg[$R$]#clb[$b$]$,
   then $#clr[$a_1$] = #clr[$a_2$]$ for $#clr[$a_1$], #clr[$a_2$] in #clr[$A$]$
   and $#clb[$b$] in #clb[$B$]$. In words, no two *different* elements from
-  #clr[$A$] can be related to the *same* element in #clb[$B$]. Determine if the
-  two relations below are injective or not. *Briefly explain*.
+  #clr[$A$] can be related to the *same* element in #clb[$B$]. Mark only those
+  relations below that are injective.
   #grid(
-    columns: (1fr, 1fr),
+    columns: (1fr, 1fr, 1fr, 1fr),
     gutter: 1pt,
     align: center,
     [#cetz.canvas({
@@ -219,6 +219,63 @@
         fill: raingreen,
       ))
       line("rect", "coo", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+    })],
+    [#cetz.canvas({
+      import cetz.draw: *
+
+      content((0, 0), banana, anchor: "mid", name: "ban1")
+      content((0, 1), bacon, anchor: "mid", name: "bac")
+
+      content((2, 0), banana, anchor: "mid", name: "ban2")
+      content((2, 1), blueberries, anchor: "mid", name: "blu")
+      content((2, 2), cookie, anchor: "mid", name: "coo")
+
+      line("ban1", "ban2", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("bac", "blu", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("bac", "coo", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("bac", "ban2", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+    })],
+    [#cetz.canvas({
+      import cetz.draw: *
+
+      content((0, 0), banana, anchor: "mid", name: "ban1")
+      content((0, 1), bacon, anchor: "mid", name: "bac")
+
+      content((2, 0), banana, anchor: "mid", name: "ban2")
+      content((2, 1), blueberries, anchor: "mid", name: "blu")
+      content((2, 2), cookie, anchor: "mid", name: "coo")
+
+      line("ban1", "blu", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("ban1", "coo", stroke: raingreen + 1pt, mark: (
+        offset: .1,
+        end: ">",
+        fill: raingreen,
+      ))
+      line("bac", "ban2", stroke: raingreen + 1pt, mark: (
         offset: .1,
         end: ">",
         fill: raingreen,
@@ -326,28 +383,71 @@
     )[$R = {(1, 1), (1, 2), (2, 2), (3, 2), (4, 4), (4, 1)}$]
   ]
   is an equivalence on the set #text(crimson)[$A = {1, 2, 3, 4, 5}$]. If not,
-  add *as few pairs as possible* to make it into an equivalence. *Explain*.
+  encircle all the pairs below *that must be added* to #clg[$R$] because of one
+  of the rules above.
+  #math.equation(numbering: none, block: true)[
+    $(3, 3) &#h(1cm) (2, 3) &#h(1cm) (1, 5) &#h(1cm) (5, 2) &#h(1cm) (5, 5)\
+    #v(1cm)
+    (2, 4) &#h(1cm) (1, 3) &#h(1cm) (3, 4) &#h(1cm) (1, 4) &#h(1cm) (5, 1)$
+  ]
 ]
-#v(15%)
 #block(width: 100%)[
   #points(25)
-  Describe (as a set of pairs, by a picture, ...) an equivalence on the set
+  Describe using a picture an equivalence on the set
   #clr[$A = {1, 2, 3, 4, 5}$] which has the following *classes of equivalence*:
   #list(indent: 1em)[
     ${1, 2}$, ${3, 4}$ and ${5}$.
   ][
     ${1, 5}$ and ${2, 3, 4}$.
   ]
-  You *don't need to* explain anything.
 ]
 #v(15%)
 === #clb[Bonus Problem]
 #block(width: 100%)[
   #points(10)
-  Find a relation on the set #clr[$A = {1, 2, 3, 4, 5}$], which is
+  Draw a relation on the set #clr[$A = {1, 2, 3, 4, 5}$], which is
   #enum(numbering: "(a)", indent: 12pt)[
     symmetric and transitive but *not* reflexive.
   ][
     reflexive and transitive but *not* symmetric.
   ]
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 1pt,
+    align: center,
+    [#cetz.canvas({
+      import cetz.draw: *
+
+      content((1.5, 4.5), [(a)])
+
+      content((0, 0), $1$, anchor: "mid", name: "circ")
+      content((0, 1), $2$, anchor: "mid", name: "rect")
+      content((0, 2), $3$, anchor: "mid", name: "circ")
+      content((0, 3), $4$, anchor: "mid", name: "rect")
+      content((0, 4), $5$, anchor: "mid", name: "rect")
+
+      content((3, 0), $1$, anchor: "mid", name: "circ")
+      content((3, 1), $2$, anchor: "mid", name: "rect")
+      content((3, 2), $3$, anchor: "mid", name: "circ")
+      content((3, 3), $4$, anchor: "mid", name: "rect")
+      content((3, 4), $5$, anchor: "mid", name: "rect")
+    })],
+    [#cetz.canvas({
+      import cetz.draw: *
+
+      content((1.5, 4.5), [(b)])
+
+      content((0, 0), $1$, anchor: "mid", name: "circ")
+      content((0, 1), $2$, anchor: "mid", name: "rect")
+      content((0, 2), $3$, anchor: "mid", name: "circ")
+      content((0, 3), $4$, anchor: "mid", name: "rect")
+      content((0, 4), $5$, anchor: "mid", name: "rect")
+
+      content((3, 0), $1$, anchor: "mid", name: "circ")
+      content((3, 1), $2$, anchor: "mid", name: "rect")
+      content((3, 2), $3$, anchor: "mid", name: "circ")
+      content((3, 3), $4$, anchor: "mid", name: "rect")
+      content((3, 4), $5$, anchor: "mid", name: "rect")
+    })],
+  )
 ]

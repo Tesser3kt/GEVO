@@ -200,9 +200,6 @@ jako úlohu na závěr.
 #lemma("Vlastnosti skalárního součinu")[
   Ať $vc(u), vc(v), vc(w) in RR^n$ jsou tři vektory.
   #enum[
-    Skalární součin je _asociativní_, tj. $(vc(u) dot vc(v)) dot vc(w) = vc(u) dot
-    (vc(v) dot vc(w))$.
-  ][
     Skalární součin je _komutativní_, tj. $vc(u) dot vc(v) = vc(v) dot vc(u)$.
   ][
     Skalární součin je _distributivní_, tj. $vc(u) dot (vc(v) + vc(w)) = vc(u)
@@ -360,4 +357,4 @@ vždy mezi $-1$ a $1$ a naše definice úhlu mezi vektory dává smysl.
   #math.equation(numbering: none, block: true)[
     $theta = arccos((vc(u) dot vc(v)) / (||vc(u)|| ||vc(v)||))$.
   ]
-]
+] <def:uhel-mezi-vektory>

@@ -12,6 +12,7 @@ Podle @thm:tvar-reseni[věty] má lineární systém množinu řešení tvaru
   ${vc(p) + t_1 dot vc(v)_1 + t_2 dot vc(v)_2 + ... + t_k dot vc(v)_k}$,
 ]
 kde $t_1,...,t_k$ jsou volné proměnné. Abychom si mohli tuto množinu
+
 "nakreslit", musíme nejprve pochopit, jak lze geometricky vyjádřit násobení
 vektorů čísly a sčítání vektorů.
 

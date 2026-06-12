@@ -1,0 +1,134 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 3.1 (February 18, 2022)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Authors:
+% Vel (vel@latextemplates.com)
+% Mathias Legrand (legrand.mathias@gmail.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s indexstyle.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times
+% afterwards to propagate your changes to the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%  PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+  12pt, % Default font size, select one of 10pt, 11pt or 12pt
+  fleqn, % Left align equations
+  a4paper, % Paper size, use either 'a4paper' for A4 size or
+  % 'letterpaper' for US letter size
+  %oneside, % Uncomment for oneside mode, this doesn't start new
+  % chapters and parts on odd pages (adding an empty page if
+  % required), this mode is more suitable if the book is to be read
+  % on a screen instead of printed
+]{LegrandOrangeBook}
+
+% Book information for PDF metadata, remove/comment this block if not required
+\hypersetup{
+  pdftitle={Title}, % Title field
+  pdfauthor={Author}, % Author field
+  pdfsubject={Subject}, % Subject field
+  pdfkeywords={Keyword1, Keyword2, ...}, % Keywords
+  pdfcreator={LaTeX}, % Content creator field
+}
+
+\addbibresource{sample.bib} % Bibliography file
+
+\definecolor{ocre}{RGB}{243, 102, 25} % Define the color used for
+% highlighting throughout the book
+
+\chapterimage{part1.jpg} % Chapter heading image
+\chapterspaceabove{2cm} % Default whitespace from the top of the
+% page to the chapter title on chapter pages
+\chapterspacebelow{2cm} % Default amount of vertical whitespace
+% from the top margin to the start of the text on chapter pages
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%  TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\titlepage % Output the title page
+{\includegraphics[width=\paperwidth]{background.pdf}} % Code to
+% output the background image, which should be the same dimensions as
+% the paper to fill the page entirely; leave empty for no background image
+{ % Title(s) and author(s)
+  \centering\sffamily % Font styling
+  {\Huge\bfseries Logika, množiny, číselné obory,\\
+  rovnice a nerovnice\par} % Book title
+  \vspace{16pt} % Vertical whitespace
+  {\LARGE Skripta\par} % Subtitle
+  \vspace{24pt} % Vertical whitespace
+  {\huge\bfseries Adam Klepáč\par} % Author name
+}
+
+%----------------------------------------------------------------------------------------
+%  COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+%
+\thispagestyle{empty} % Suppress headers and footers on this page
+
+~\vfill % Push the text down to the bottom of the page
+
+\noindent
+\section*{Abstrakt}
+
+\noindent Tento text slouží jako strohý úvod do predikátové logiky, teorie
+množin, číselných oborů a rovnic a nerovnic lineárních i vyšších stupňů. Slouže
+jako pouhá pomůcka k usnadnění učiva, \textbf{nenahrazuje} obsahem ani
+zevrubností náplň vyučovacích hodin.
+
+\noindent \textit{Poslední aktualisace: \today} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%  TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\pagestyle{empty} % Disable headers and footers for the following pages
+
+\tableofcontents % Output the table of contents
+
+% \listoffigures % Output the list of figures, comment or remove this
+% command if not required
+
+% \listoftables % Output the list of tables, comment or remove this
+% command if not required
+
+\pagestyle{fancy} % Enable default headers and footers again
+
+\cleardoublepage
+
+\chapterimage{section1.jpg} % Chapter heading image
+\chapterspaceabove{2cm} % Default whitespace from the top of the
+% page to the chapter title on chapter pages
+\chapterspacebelow{2cm} % Default amount of vertical whitespace
+% from the top margin to the start of the text on chapter pages
+
+\part{Teorie množina a logika}
+\input{mnoziny_logika.tex}
+
+\end{document}

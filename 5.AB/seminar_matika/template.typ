@@ -4,7 +4,7 @@
 #import "@preview/equate:0.3.2": equate
 #import "@preview/headcount:0.1.0": *
 #import "@preview/zap:0.4.0"
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.1"
 #import "@preview/ctheorems:1.1.3": *
 #import "@preview/itemize:0.2.0" as el
 #import "@preview/algo:0.3.6": algo, code, comment, d, i
@@ -115,6 +115,71 @@
   for (i, item) in elems.enumerate() {
     if i > 0 { sep }
     [#numbering(i, item)]
+  }
+}
+
+// Circles representing preference votes
+#let pref_circle(a, b, c) = {
+  import cetz.draw: *
+
+  // Candidates
+  content((90deg, 1), [$A$], name: "A")
+  content((210deg, 1), [$B$], name: "B")
+  content((330deg, 1), [$C$], name: "C")
+
+  // Arrows
+  arc(
+    (0, 0),
+    start: 110deg,
+    stop: 190deg,
+    anchor: "origin",
+    radius: 0.90,
+    mark: (end: ")>", fill: black),
+    name: "A-B",
+  )
+  arc(
+    (0, 0),
+    start: 230deg,
+    stop: 310deg,
+    anchor: "origin",
+    radius: 0.90,
+    mark: (end: ")>", fill: black),
+    name: "B-C",
+  )
+  arc(
+    (0, 0),
+    start: -10deg,
+    stop: 70deg,
+    anchor: "origin",
+    radius: 0.90,
+    mark: (end: ")>", fill: black),
+    name: "C-A",
+  )
+
+  // Votes
+  if a != "" {
+    content(
+      ("A-B.start", 50%, "A-B.end"),
+      padding: .2,
+      anchor: "south-east",
+      [#a],
+    )
+  }
+  if b != "" {
+    content(
+      ("B-C.start", 50%, "B-C.end"),
+      padding: .3,
+      anchor: "north",
+      [#b],
+    )
+  }
+  if c != "" {
+    content(
+      ("C-A.start", 30%, "C-A.end"),
+      padding: .2,
+      anchor: "south-west",
+      [#c],
+    )
   }
 }
 

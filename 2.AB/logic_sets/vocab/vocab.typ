@@ -12,14 +12,11 @@
   fill: (x, y) => {
     if calc.even(y) and y > 0 {
       gray.lighten(90%)
-    }
-    else if y == 0 {
+    } else if y == 0 {
       gray.lighten(60%)
     }
   },
-  table.header(
-    [*English*], [*Česky*]
-  ),
+  table.header([*English*], [*Česky*]),
   table.hline(),
   [proposition], [výrok],
   [true], [pravdivý],
