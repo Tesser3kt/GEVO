@@ -725,26 +725,26 @@
 
 % Orange theorem number and optional black title with no padding above and below
 \theoremstyle{DarkCyannumbox}
-\newtheorem{theoremeT}{Theorem}[chapter] % Theorems, the first
+\newtheorem{theoremeT}{Věta}[chapter] % Theorems, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
-\newtheorem{problem}{Problem}[chapter] % Problems, the first argument
+\newtheorem{problem}{Úloha}[chapter] % Problems, the first argument
 % is the theorem name, the second the theorem title used before the
 % number and the third optional argument is whether to number under
 % chapters (e.g. 2.1) or sections (e.g. 2.1.1)
-\newtheorem{exerciseT}{Exercise}[chapter] % Exercises, the first
+\newtheorem{exerciseT}{Cvičení}[chapter] % Exercises, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
 
 % Black theorem number and optional black title no padding above and below
 \theoremstyle{blacknumex}
-\newtheorem{exampleT}{Example}[chapter] % Examples, the first
+\newtheorem{exampleT}{Příklad}[chapter] % Examples, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
-\newtheorem{notation}{Notation}[chapter] % Notations, the first
+\newtheorem{notation}{Značení}[chapter] % Notations, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
@@ -755,11 +755,11 @@
 
 % Black theorem number and optional black title with padding above and below
 \theoremstyle{blacknumbox}
-\newtheorem{definitionT}{Definition}[chapter] % Definitions, the
+\newtheorem{definitionT}{Definice}[chapter] % Definitions, the
 % first argument is the theorem name, the second the theorem title
 % used before the number and the third optional argument is whether
 % to number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
-\newtheorem{corollaryT}{Corollary}[chapter] % Corollaries, the first
+\newtheorem{corollaryT}{Důsledek}[chapter] % Corollaries, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
@@ -774,22 +774,22 @@
 
 % Theorem box
 \newmdenv[
-  skipabove=7pt, % Whitespace above box
-  skipbelow=7pt, % Whitespace below box
+  skipabove=12pt, % Whitespace above box
+  skipbelow=12pt, % Whitespace below box
   backgroundcolor=black!5, % Background color
   linecolor=DarkCyan, % Border color
-  innerleftmargin=5pt, % Inside left margin width
-  innerrightmargin=5pt, % Inside right margin width
-  innertopmargin=5pt, % Inside top margin height
-  innerbottommargin=5pt, % Inside bottom margin height
+  innerleftmargin=10pt, % Inside left margin width
+  innerrightmargin=10pt, % Inside right margin width
+  innertopmargin=20pt, % Inside top margin height
+  innerbottommargin=10pt, % Inside bottom margin height
   leftmargin=0cm, % Outside left margin width
   rightmargin=0cm % Outside right margin width
 ]{tBox}
 
 % Exercise box
 \newmdenv[
-  skipabove=7pt, % Whitespace above box
-  skipbelow=7pt, % Whitespace below box
+  skipabove=12pt, % Whitespace above box
+  skipbelow=12pt, % Whitespace below box
   rightline=false, % Right line visible
   leftline=true, % Left line visible
   topline=false, % Top line visible
@@ -797,28 +797,28 @@
   linecolor=DarkCyan, % Line color
   linewidth=4pt, % Line width
   backgroundcolor=DarkCyan!10, % Background color
-  innerleftmargin=5pt, % Inside left margin width
-  innerrightmargin=5pt, % Inside right margin width
-  innertopmargin=5pt, % Inside top margin height
-  innerbottommargin=5pt, % Inside bottom margin height
+  innerleftmargin=10pt, % Inside left margin width
+  innerrightmargin=10pt, % Inside right margin width
+  innertopmargin=20pt, % Inside top margin height
+  innerbottommargin=10pt, % Inside bottom margin height
   leftmargin=0cm, % Outside left margin width
   rightmargin=0cm % Outside right margin width
 ]{eBox}
 
 % Definition box
 \newmdenv[
-  skipabove=7pt, % Whitespace above box
-  skipbelow=7pt, % Whitespace below box
+  skipabove=12pt, % Whitespace above box
+  skipbelow=12pt, % Whitespace below box
   rightline=false, % Right line visible
   leftline=true, % Left line visible
   topline=false, % Top line visible
   bottomline=false, % Bottom line visible
   linecolor=DarkCyan, % Border color
   linewidth=4pt, % Border width
-  innerleftmargin=5pt, % Inside left margin width
-  innerrightmargin=5pt, % Inside right margin width
-  innertopmargin=0pt, % Inside top margin height
-  innerbottommargin=0pt, % Inside bottom margin height
+  innerleftmargin=10pt, % Inside left margin width
+  innerrightmargin=10pt, % Inside right margin width
+  innertopmargin=220pt, % Inside top margin height
+  innerbottommargin=10pt, % Inside bottom margin height
   leftmargin=0cm, % Outside left margin width
   rightmargin=0cm % Outside right margin width
 ]{dBox}
