@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  30 JUN 2026 19:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  1 JUL 2026 20:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1014,11 +1014,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip98
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 600.
+Package hyperref Info: Option `colorlinks' set `true' on input line 605.
 
 
 Package hyperref Warning: Option `hyperindex' has already been used,
-(hyperref)                setting the option has no effect on input line 600.
+(hyperref)                setting the option has no effect on input line 605.
 
 (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -1114,10 +1114,11 @@ Package: amsthm 2020/05/29 v2.20.6
 \c@problem=\count467
 \c@exerciseT=\count468
 \c@exampleT=\count469
-\c@notation=\count470
-\c@vocabulary=\count471
-\c@definitionT=\count472
-\c@corollaryT=\count473
+\c@parableT=\count470
+\c@notation=\count471
+\c@vocabulary=\count472
+\c@definitionT=\count473
+\c@corollaryT=\count474
  (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
  (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/zref/zref-abspage.sty
@@ -1133,13 +1134,13 @@ Package zref Info: New property list: main on input line 767.
 Package zref Info: New property: default on input line 768.
 Package zref Info: New property: page on input line 769.
 )
-\c@abspage=\count474
+\c@abspage=\count475
 Package zref Info: New property: abspage on input line 67.
 ) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/needspace/needspace.sty
 Package: needspace 2025/03/13 v1.3e reserve vertical space
 )
 \mdf@templength=\skip105
-\c@mdf@globalstyle@cnt=\count475
+\c@mdf@globalstyle@cnt=\count476
 \mdf@skipabove@length=\skip106
 \mdf@skipbelow@length=\skip107
 \mdf@leftmargin@length=\skip108
@@ -1214,16 +1215,16 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@horizontalspaceofbox=\skip169
 \mdfsubtitleheight=\skip170
 \mdfsubsubtitleheight=\skip171
-\c@mdfcountframes=\count476
+\c@mdfcountframes=\count477
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count477
-\c@mdf@env@i=\count478
-\c@mdf@env@ii=\count479
-\c@mdf@zref@counter=\count480
+\mdf@envdepth=\count478
+\c@mdf@env@i=\count479
+\c@mdf@env@ii=\count480
+\c@mdf@zref@counter=\count481
 Package zref Info: New property: mdf@pagevalue on input line 895.
 ) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/pgf/frontendlayer/tikz.sty (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/pgf/basiclayer/pgf.sty (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/pgf/utilities/pgfrcs.sty
 (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/utilities/pgfutil-common.tex
@@ -1256,14 +1257,14 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@yd=\dimen265
 \w@pgf@writea=\write5
 \r@pgf@reada=\read4
-\c@pgf@counta=\count481
-\c@pgf@countb=\count482
-\c@pgf@countc=\count483
-\c@pgf@countd=\count484
+\c@pgf@counta=\count482
+\c@pgf@countb=\count483
+\c@pgf@countc=\count484
+\c@pgf@countd=\count485
 \t@pgf@toka=\toks43
 \t@pgf@tokb=\toks44
 \t@pgf@tokc=\toks45
-\pgf@sys@id@count=\count485
+\pgf@sys@id@count=\count486
  (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
@@ -1274,8 +1275,8 @@ File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 ))) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count486
-\pgfsyssoftpath@bigbuffer@items=\count487
+\pgfsyssoftpath@smallbuffer@items=\count487
+\pgfsyssoftpath@bigbuffer@items=\count488
 ) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcore.code.tex
@@ -1283,13 +1284,13 @@ Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
 
 (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmath.code.tex (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathutil.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen266
-\pgfmath@count=\count488
+\pgfmath@count=\count489
 \pgfmath@box=\box68
 \pgfmath@toks=\toks46
 \pgfmath@stack@operand=\toks47
 \pgfmath@stack@operation=\toks48
 ) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count489
+\c@pgfmathroundto@lastzeros=\count490
 ))
 (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfint.code.tex) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
@@ -1320,7 +1321,7 @@ File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfpic=\box69
 \pgf@hbox=\box70
 \pgf@layerbox@main=\box71
-\pgf@picture@serial@count=\count490
+\pgf@picture@serial@count=\count491
 ) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgflinewidth=\dimen285
@@ -1341,8 +1342,8 @@ File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@max=\dimen290
-\pgf@sys@shading@range@num=\count491
-\pgf@shadingcount=\count492
+\pgf@sys@shading@range@num=\count492
+\pgf@shadingcount=\count493
 ) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -1379,7 +1380,7 @@ Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
 
 (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count493
+\pgf@plot@mark@count=\count494
 \pgfplotmarksize=\dimen295
 )
 \tikz@lastx=\dimen296
@@ -1394,17 +1395,17 @@ File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \tikz@figbox@bg=\box75
 \tikz@tempbox=\box76
 \tikz@tempbox@bg=\box77
-\tikztreelevel=\count494
-\tikznumberofchildren=\count495
-\tikznumberofcurrentchild=\count496
-\tikz@fig@count=\count497
+\tikztreelevel=\count495
+\tikznumberofchildren=\count496
+\tikznumberofcurrentchild=\count497
+\tikz@fig@count=\count498
  (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count498
-\pgfmatrixcurrentcolumn=\count499
-\pgf@matrix@numberofcolumns=\count500
+\pgfmatrixcurrentrow=\count499
+\pgfmatrixcurrentcolumn=\count500
+\pgf@matrix@numberofcolumns=\count501
 )
-\tikz@expandcount=\count501
+\tikz@expandcount=\count502
  (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))))
@@ -1412,8 +1413,8 @@ File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count502
-\@quotereset=\count503
+\@quotelevel=\count503
+\@quotereset=\count504
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 73.
 (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -1449,16 +1450,16 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
 LaTeX Font Info:    ... okay on input line 73.
  (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count504
+\scratchcounter=\count505
 \scratchdimen=\dimen304
 \scratchbox=\box78
-\nofMPsegments=\count505
-\nofMParguments=\count506
+\nofMPsegments=\count506
+\nofMParguments=\count507
 \everyMPshowfont=\toks51
-\MPscratchCnt=\count507
+\MPscratchCnt=\count508
 \MPscratchDim=\dimen305
-\MPnumerator=\count508
-\makeMPintoPDFobject=\count509
+\MPnumerator=\count509
+\makeMPintoPDFobject=\count510
 \everyMPtoPDFconversion=\toks52
 ) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1543,9 +1544,8 @@ Package biblatex Info: Automatic encoding selection.
 \openout3 = `main.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' not found.
-
-No file main.bbl.
+Package biblatex Info: ... file 'main.bbl' found.
+ (./main.bbl)
 Package biblatex Info: Reference section=0 on input line 73.
 Package biblatex Info: Reference segment=0 on input line 73.
 Package hyperref Info: Link coloring ON on input line 73.
@@ -1555,7 +1555,7 @@ File: figs/background.pdf Graphic file (type pdf)
 Package pdftex.def Info: figs/background.pdf  used on input line 91.
 (pdftex.def)             Requested size: 597.50787pt x 845.25565pt.
 LaTeX Font Info:    Trying to load font information for T1+pag on input line 91.
-(/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/psnfss/t1pag.fd
+ (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/psnfss/t1pag.fd
 File: t1pag.fd 2001/06/04 font definitions for T1/pag.
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -1632,7 +1632,7 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <14.4> not available
  <./figs/part1.jpg>] [4
 
 ]
-\c@ttl@toc@part=\count510
+\c@ttl@toc@part=\count511
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <220> not available
 (Font)              Font shape `T1/pag/db/n' tried instead on input line 135.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
@@ -1641,7 +1641,7 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
 
 ] [6] (./mnoziny_logika.tex
 Kapitola 1.
-<figs/section1.jpg, id=66, 1927.2pt x 451.6875pt>
+<figs/section1.jpg, id=73, 1927.2pt x 451.6875pt>
 File: figs/section1.jpg Graphic file (type jpg)
 <use figs/section1.jpg>
 Package pdftex.def Info: figs/section1.jpg  used on input line 1.
@@ -1657,27 +1657,60 @@ LaTeX Font Warning: Font shape `LGR/ptm/m/n' undefined
 (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-Package mdframed Info: mdframed works in twoside mode on input line 31.
+Package mdframed Info: mdframed works in twoside mode on input line 36.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 31.
+(mdframed)              on input line 36.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <10.95> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 32.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 37.
+ [7
+
+ <./figs/section1.jpg>]
+Package mdframed Info: mdframed works in twoside mode on input line 43.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 43.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 47.
+ (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+Package mdframed Info: Not enough space on this page on input line 50.
+ (./mnoziny_logika/logika/teorie-modelu.tex
+Package mdframed Info: mdframed works in twoside mode on input line 4.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4.
+LaTeX Font Info:    Font shape `T1/pag/b/n' in size <6> not available
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 12.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
-))
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
+Package mdframed Info: mdframed works in twoside mode on input line 27.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 27.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
+)))
 \tf@ptc=\write7
 \openout7 = `main.ptc'.
 
- [7
+Package babel Info: 'czech' activates 'czech' shorthands.
+(babel)             Reported on input line 138.
 
- <./figs/section1.jpg>] (./main.aux)
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.73pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.73pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.50363pt}.
+
+[8
+
+] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1691,18 +1724,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36955 strings out of 467535
- 708064 string characters out of 5388798
- 1582833 words of memory out of 5000000
- 65005 multiletter control sequences out of 15000+600000
- 726480 words of font info for 288 fonts, out of 8000000 for 9000
+ 37097 strings out of 467535
+ 710293 string characters out of 5388798
+ 1584201 words of memory out of 5000000
+ 65078 multiletter control sequences out of 15000+600000
+ 734072 words of font info for 322 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,11n,108p,969b,2387s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/cbfonts/grmn1200.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagk8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmb8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmr8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (7 pages, 14077766 bytes).
+ 99i,12n,108p,969b,2387s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/cbfonts/grmn1200.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagk8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmb8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmr8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (8 pages, 14080404 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 115244 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 141 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
+ 19 named destinations out of 1000 (max. 500000)
+ 125492 words of extra memory for PDF output out of 128383 (max. 10000000)
 

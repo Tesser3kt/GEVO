@@ -1,0 +1,41 @@
+V matematické logice rozlišujeme tři zásadní pojmy: \textbf{jazyk},
+\textbf{teorii} a \textbf{model}.
+
+\begin{definition}[Jazyk]
+  \label{def:jazyk}
+  Jazykem myslíme soubor symbolů (abecedu) spolu s gramatikou -- pravidly pro
+  spojování symbolů (tj. určení, které posloupnosti symbolů jsou správné a které
+  ne).
+\end{definition}
+
+\begin{parable}
+  \label{par:jazyk}
+  O \emph{jazyce} ve smyslu matematické logiky lze přemýšlet jako o češtině --
+  jenom některé posloupnosti písmen jsou českými slovy (např. \emph{gyufj} není,
+  zatímco \emph{kočka} je) a pouze některé posloupnosti slov jsou gramaticky
+  správné věty.
+
+  \textbf{Pozor!} \emph{Gramaticky správné} věty ještě nemusejí
+  \uv{dávat smysl}. Gramatika pouze určuje, jak lze stavět písmena do slov a
+  slova do vět, nikoli které z těchto staveb mají \uv{věcný význam}. Čili, třeba
+  věta: \uv{Uzený pes rozkládal v hořčičné periferii,} je gramaticky správně,
+  ačkoli spíše nedává smysl.
+\end{parable}
+
+Jazyku přiřazuje význam teprve tzv. \emph{teorie}.
+
+\begin{definition}[Teorie]
+  \label{def:teorie}
+  Ať $L$ je nějaký \hyperref[def:jazyk]{jazyk}. Teorií v jazyce $L$ rozumíme
+  soubor gramaticky správných posloupností symbolů v jazyce $L$.
+
+  Intuitivně vzato je teorie výčet vět v jazyce $L$, které \uv{dávají smysl}.
+\end{definition}
+
+\begin{parable}
+  \label{par:teorie}
+  Je-li jazyk $L$ čeština, pak jednou jeho možnou teorií je soubor všech vět,
+  které nám dávají smysl, i když nemusejí být nutně fakticky správné. Například
+  již vyřčená věta \uv{Uzený pes rozkládal v hořčičné periferii,} by součástí
+  takové teorie nebyla, ale třeba \uv{Mám rád modrou barvu,} již ano.
+\end{parable}

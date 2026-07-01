@@ -1,5 +1,9 @@
 [0] Config.pm:324> INFO - This is Biber 2.21 (beta)
 [0] Config.pm:327> INFO - Logfile is 'main.blg'
-[69] biber:342> INFO - === Fri May 29, 2026, 15:40:20
-[83] Utils.pm:479> ERROR - main.bcf is malformed, last biblatex run probably failed. Deleted main.bbl
-[83] Biber.pm:137> INFO - ERRORS: 1
+[52] biber:342> INFO - === Wed Jul  1, 2026, 18:54:01
+[70] Biber.pm:421> INFO - Reading 'main.bcf'
+[120] Biber.pm:1002> INFO - Found 0 citekeys in bib section 0
+[135] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[135] bbl.pm:779> INFO - Output to main.bbl
+[135] Biber.pm:132> WARN - The file 'main.bcf' does not contain any citations!
+[135] Biber.pm:134> INFO - WARNINGS: 1

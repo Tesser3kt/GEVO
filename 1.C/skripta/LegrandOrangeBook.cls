@@ -571,6 +571,11 @@
 \renewcommand{\labelenumiii}{\roman{enumiii}.} % Customize the third
 % level numbered list characters
 
+% no topsep for enumerate and itemize
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{topsep=-6pt}
+\setlist[itemize]{topsep=-6pt}
+
 %------------------------------------------------
 
 \renewcommand{\labelitemi}{\raisebox{-2pt}{\Large \textbullet}} %
@@ -591,7 +596,7 @@
   % around links if this is false)
   %hidelinks, % Hide the default boxes around links
   urlcolor=DarkCyan, % Color for \url and \href links
-  linkcolor=black, % Color for \ref/\nameref links
+  linkcolor=DarkCyan, % Color for \ref/\nameref links
   citecolor=DarkCyan, % Color for reference citations like \cite{}
   hyperindex=true, % Adds links from the page numbers in the index to
   % the relevant page
@@ -744,6 +749,10 @@
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
+\newtheorem{parableT}{Příměr}[chapter] % Examples, the first
+% argument is the theorem name, the second the theorem title used
+% before the number and the third optional argument is whether to
+% number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
 \newtheorem{notation}{Značení}[chapter] % Notations, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
@@ -789,7 +798,7 @@
 % Exercise box
 \newmdenv[
   skipabove=12pt, % Whitespace above box
-  skipbelow=12pt, % Whitespace below box
+  skipbelow=0pt, % Whitespace below box
   rightline=false, % Right line visible
   leftline=true, % Left line visible
   topline=false, % Top line visible
@@ -817,7 +826,7 @@
   linewidth=4pt, % Border width
   innerleftmargin=10pt, % Inside left margin width
   innerrightmargin=10pt, % Inside right margin width
-  innertopmargin=220pt, % Inside top margin height
+  innertopmargin=20pt, % Inside top margin height
   innerbottommargin=10pt, % Inside bottom margin height
   leftmargin=0cm, % Outside left margin width
   rightmargin=0cm % Outside right margin width
@@ -852,7 +861,7 @@
 \end{tBox}}
 \newenvironment{exercise}{
   \begin{eBox}
-  \begin{exerciseT}}{\hfill{\color{DarkCyan}\tiny\ensuremath{\blacksquare}}
+  \begin{exerciseT}}{
     \end{exerciseT}
 \end{eBox}}
 \newenvironment{definition}{
@@ -861,8 +870,11 @@
     \end{definitionT}
 \end{dBox}}
 \newenvironment{example}{
-\begin{exampleT}}{\hfill{\tiny\ensuremath{\blacksquare}}
+\begin{exampleT}}{
 \end{exampleT}}
+\newenvironment{parable}{
+\begin{parableT}}{
+\end{parableT}}
 \newenvironment{corollary}{
   \begin{cBox}
   \begin{corollaryT}}{
