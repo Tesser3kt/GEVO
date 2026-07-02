@@ -39,3 +39,73 @@ Jazyku přiřazuje význam teprve tzv. \emph{teorie}.
   již vyřčená věta \uv{Uzený pes rozkládal v hořčičné periferii,} by součástí
   takové teorie nebyla, ale třeba \uv{Mám rád modrou barvu,} již ano.
 \end{parable}
+
+Konečně, \emph{model} je struktura, která vznikne, když všechny věty z teorie
+označíme za \emph{pravdivé} nebo \emph{fakticky správné}.
+
+\begin{definition}[Model]
+  \label{def:model}
+  Ať $L$ je jazyk a $T$ teorie v jazyce $L$. \emph{Modelem} teorie $T$ je
+  struktura, v níž jsou všechny věty (či formálněji všechny gramaticky správné
+  posloupnosti symbolů) teorie $T$ pravdivé.
+\end{definition}
+
+\begin{parable}
+  Označíme-li každou gramaticky správnou českou větu za pravdivou, tak dostaneme
+  poněkud nesmyslný model (s každou větou v něm bude platit i její opak).
+  Představme si ideální situaci, kdy jsme všeznalí a přesně víme, které věty
+  jsou pravdivé a které lživé. Když všechny \emph{pravdivé} (a žádné
+  \emph{lživé}) věty zahrneme do teorie $T$ jazyka českého, pak jeho modelem
+  bude přesně náš svět -- tedy struktura, ve které platí každá věta, o níž při
+  své všeznalosti víme, že je pravdivá.
+\end{parable}
+
+Nyní uvedeme \emph{jazyk} výrokové a predikátové logiky. Spolu s pár dalšími
+symboly tvoří tyto jazyk \emph{teorie} množin, teorie, jejímž jedním modelem je
+většina moderní matematiky.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \begin{scope}
+      % Ellipse with label
+      \node[ellipse,draw=FireBrick,minimum width=4cm,minimum
+      height=2cm,thick] (ej) at (0,0) {};
+      \node at (90:1.4) {\clr{\textsf{Jazyk}}};
+
+      % Alphabet
+      \node at (0,0.5) {a};
+      \node at (0.6, 0.4) {z};
+      \node at (1, -0.3) {j};
+      \node at (-0.7, -0.2) {.};
+      \node at (-0.2, 0.1) {?};
+      \node at (0.4, -0.7) {f};
+      \node at (-0.7, 0.4) {Y};
+      \node at (0.2, 0) {/};
+      \node at (-0.1, -0.5) {W};
+    \end{scope}
+    \draw[thick,-Latex] (2.1,0) -- (2.9,0);
+    \begin{scope}[xshift=5cm]
+      % Ellipse with label
+      \node[ellipse,draw=RoyalBlue,minimum width=4cm,minimum
+      height=2cm,thick] (et) at (0,0) {};
+      \node at (90:1.4) {\clb{\textsf{Teorie}}};
+
+      % Sentences
+      \node at (0, 0.3) {Slunce zapadá.};
+      \node at (0, -0.3) {Jelen se pase.};
+    \end{scope}
+    \draw[thick,-Latex] (7.1,0) -- (7.9,0);
+    \begin{scope}[xshift=10cm]
+      % Ellipse with label
+      \node[ellipse,draw=ForestGreen,minimum width=4cm,minimum
+      height=2cm,thick] (em) at (0,0) {};
+      \node at (90:1.4) {\clg{\textsf{Model}}};
+
+      % Picture
+      % TODO get picture
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Vztah mezi jazykem, teorií a modelem.}
+  \label{fig:jazyk-teorie-model}
+\end{figure}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  1 JUL 2026 20:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  2 JUL 2026 16:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1408,7 +1408,17 @@ File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \tikz@expandcount=\count502
  (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))))
+))) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen304
+\pgfarrowlength=\dimen305
+\pgfarrowwidth=\dimen306
+\pgfarrowlinewidth=\dimen307
+))
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
@@ -1451,13 +1461,13 @@ LaTeX Font Info:    ... okay on input line 73.
  (/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count505
-\scratchdimen=\dimen304
+\scratchdimen=\dimen308
 \scratchbox=\box78
 \nofMPsegments=\count506
 \nofMParguments=\count507
 \everyMPshowfont=\toks51
 \MPscratchCnt=\count508
-\MPscratchDim=\dimen305
+\MPscratchDim=\dimen309
 \MPnumerator=\count509
 \makeMPintoPDFobject=\count510
 \everyMPtoPDFconversion=\toks52
@@ -1641,7 +1651,7 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
 
 ] [6] (./mnoziny_logika.tex
 Kapitola 1.
-<figs/section1.jpg, id=73, 1927.2pt x 451.6875pt>
+<figs/section1.jpg, id=80, 1927.2pt x 451.6875pt>
 File: figs/section1.jpg Graphic file (type jpg)
 <use figs/section1.jpg>
 Package pdftex.def Info: figs/section1.jpg  used on input line 1.
@@ -1694,12 +1704,15 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
-)))
-\tf@ptc=\write7
-\openout7 = `main.ptc'.
+Package mdframed Info: mdframed works in twoside mode on input line 46.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 46.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package babel Info: 'czech' activates 'czech' shorthands.
-(babel)             Reported on input line 138.
+(babel)             Reported on input line 61.
 
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
@@ -1710,7 +1723,19 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 
 [8
 
-] (./main.aux)
+]) (./mnoziny_logika/logika/vyrokova-a-predikatova-logika.tex)))
+\tf@ptc=\write7
+\openout7 = `main.ptc'.
+
+
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
+
+[9] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1724,18 +1749,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37097 strings out of 467535
- 710293 string characters out of 5388798
- 1584201 words of memory out of 5000000
- 65078 multiletter control sequences out of 15000+600000
- 734072 words of font info for 322 fonts, out of 8000000 for 9000
+ 38019 strings out of 467535
+ 733828 string characters out of 5388798
+ 1618260 words of memory out of 5000000
+ 65971 multiletter control sequences out of 15000+600000
+ 734673 words of font info for 329 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,12n,108p,969b,2387s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,12n,108p,969b,2389s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/cbfonts/grmn1200.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagk8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmb8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmr8a.pfb></nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (8 pages, 14080404 bytes).
+Output written on main.pdf (9 pages, 14086430 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 500000)
- 125492 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 158 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 125500 words of extra memory for PDF output out of 128383 (max. 10000000)
 

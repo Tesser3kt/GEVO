@@ -907,6 +907,7 @@
 
 \usepackage{tikz} % Required for drawing custom shapes and
 % positioning elements absolutely on the page
+\usetikzlibrary{shapes.geometric,arrows.meta}
 
 %----------------------------------------------------------------------------------------
 %   HELPFUL COMMANDS AND MACROS
