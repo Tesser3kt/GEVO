@@ -1,23 +1,24 @@
 # Fdb version 4
-["biber main"] 1782924840.28407 "main.bcf" "main.bbl" "main" 1783001834.23777 0
-  "main.bcf" 1783001834.10453 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
+["biber main"] 1783192817.89011 "main.bcf" "main.bbl" "main" 1783195979.48095 0
+  "main.bcf" 1783195979.33833 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1780061509.00015 "main.idx" "main.ind" "main" 1783001834.23762 0
-  "main.idx" 1783001833.4835 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1780061509.00015 "main.idx" "main.ind" "main" 1783195979.47759 0
+  "main.idx" 1783195978.79231 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1783001832.80771 "main.tex" "main.pdf" "main" 1783001834.23802 0
+["pdflatex"] 1783195978.12677 "main.tex" "main.pdf" "main" 1783195979.47775 2
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/enc/dvips/base/8r.enc" 1 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/map/fontname/texfonts.map" 1 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/avantgar/pagd8r.tfm" 1 4840 6a894dde946186de9a64269f0edd24e5 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/avantgar/pagd8t.tfm" 1 7216 ce159066bacd323ac1e4527281f7a233 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/avantgar/pagk8r.tfm" 1 5036 723de33948f8971252bfe397b4190283 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/avantgar/pagk8t.tfm" 1 7340 62d51a8cc96448508dcbcfef0e69f404 ""
+  "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/symbol/psyr.tfm" 1 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/times/psyro.tfm" 1 1544 23a042a74981a3e4b6ce2e350e390409 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/times/ptmb7t.tfm" 1 2172 fd0c924230362ff848a33632ed45dc23 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/times/ptmb8r.tfm" 1 4524 6bce29db5bc272ba5f332261583fee9c ""
@@ -38,6 +39,9 @@
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/public/cbfonts/grmn1200.tfm" 1 2848 b1a6a10714c1e712320f7ebdeeab1248 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/public/cm/cmmi10.tfm" 1 1528 abec98dbc43e172678c11b3b9031252a ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/public/cm/cmr12.tfm" 1 1288 655e228510b4c2a1abe905c368440826 ""
+  "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/public/cm/cmsy10.tfm" 1 1124 6c73e740cf17375f03eec0ee63599741 ""
+  "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/public/rsfs/rsfs10.tfm" 1 688 37338d6ab346c2f1466b29e195316aa4 ""
+  "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/cbfonts/grmn1200.pfb" 1 82406 d18c276c53ecf0006854fdd0a702cfc0 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb" 1 36354 f20bee7d266ac21e410927874882a384 ""
@@ -52,6 +56,7 @@
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/vf/adobe/times/ptmr8t.vf" 1 2348 91706c542228501c410c266421fbe30c ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/vf/adobe/times/ptmri8t.vf" 1 2328 6cd7df782b09b29cfc4d93e55b6b9a59 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/vf/adobe/times/zptmcm7m.vf" 1 1132 27520247d3fe18d4266a226b461885c2 ""
+  "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/fonts/vf/adobe/times/zptmcm7y.vf" 1 964 5673178ff30617b900214de28ab32b38 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/context/base/mkii/supp-pdf.mkii" 1 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/babel-czech/czech.ldf" 1 15910 20b36fee6c6cdcfa90232891da7a9f34 ""
   "/nix/store/rn940m7hdyfzsbyvj68k96f0ipyf1xpf-texlive-2025-r78234-final-env-texmfdist/tex/generic/babel-english/english.ldf" 1 7008 9ff5fdcc865b01beca2b0fe4a46231d4 ""
@@ -245,21 +250,22 @@
   "/nix/store/z2nxi1rr657hshj9xj6fwfkqza3dww1d-texlive-2025-r78234-final-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 5541489 143dc2186d04c47a4228066a191551b8 ""
   "/nix/store/z2nxi1rr657hshj9xj6fwfkqza3dww1d-texlive-2025-r78234-final-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 3637263 f0f4d2781455d1af306b1fa9a27e4b2a ""
   "/nix/store/z2nxi1rr657hshj9xj6fwfkqza3dww1d-texlive-2025-r78234-final-env/share/texmf-var/web2c/texmf.cnf" 1 44263 08bae6bd7c847d191bf49470a42d9cf7 ""
-  "LegrandOrangeBook.cls" 1783001795.48919 36104 731e8bfb0c8831e29b5824ae692509ac ""
+  "LegrandOrangeBook.cls" 1783193485.10682 37742 133e266c29364eb19092ce59755c18db ""
   "figs/background.pdf" 1779949666.95083 13886067 51629c61750d5c30eb8d20b5c7e24595 ""
+  "figs/deer-grazing.jpg" 1783159271.33437 221807 be685400dfe7508c045ff14a2ab9cbd0 ""
   "figs/part1.jpg" 1779971858.82616 76435 5114e3179f4cdcf49093efe406fbbca5 ""
   "figs/section1.jpg" 1780039773.33605 25586 f54de5d73b4c0c73811994a2802a0d0c ""
-  "main.aux" 1783001834.10253 3831 8bbb279425c4a8da6178a4dcf69b6dab "pdflatex"
-  "main.bbl" 1782924841.32508 466 76d65a242ec496c9b4361af646ff12cb "biber main"
+  "main.aux" 1783195979.33633 5228 7169942ed3418f1054b7d35629b89436 "pdflatex"
+  "main.bbl" 1783192818.99288 466 76d65a242ec496c9b4361af646ff12cb "biber main"
   "main.ind" 1780061509.08658 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.ptc" 1783001834.10574 413 2d2ae15b3eb759493ada54da3c030c08 "pdflatex"
-  "main.run.xml" 1783001834.10574 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
-  "main.tex" 1782999717.56968 5028 07f99cebf406cf3335872c788eaa2f09 ""
-  "main.toc" 1783001834.10574 390 eb901cfaab72633c2fcb55b67a757f6b "pdflatex"
+  "main.ptc" 1783195979.34058 413 2d2ae15b3eb759493ada54da3c030c08 "pdflatex"
+  "main.run.xml" 1783195979.34058 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
+  "main.tex" 1783186341.74516 5028 07f99cebf406cf3335872c788eaa2f09 ""
+  "main.toc" 1783195979.34058 390 eb901cfaab72633c2fcb55b67a757f6b "pdflatex"
   "mnoziny_logika.tex" 1782999726.34763 60 01cd6f1093cc77a499a8e0eb618b41f0 ""
-  "mnoziny_logika/logika.tex" 1782999700.31874 3226 c878b35294313fdbf21f2c1cca56ce0d ""
-  "mnoziny_logika/logika/teorie-modelu.tex" 1783001832.68348 4368 b96d2d67d807ddc6ec3cc32ad486d815 ""
-  "mnoziny_logika/logika/vyrokova-a-predikatova-logika.tex" 1782999826.67948 117 dff104a0b7b16ec3e1071bd1518fc595 ""
+  "mnoziny_logika/logika.tex" 1783160429.6061 3226 c878b35294313fdbf21f2c1cca56ce0d ""
+  "mnoziny_logika/logika/teorie-modelu.tex" 1783190872.60078 4513 d81a49eaa5ab19471918e537e0ee8781 ""
+  "mnoziny_logika/logika/vyrokova-a-predikatova-logika.tex" 1783195979.27233 5550 fa97e685104d351212e0c2d6efe1503a ""
   (generated)
   "main.aux"
   "main.bcf"

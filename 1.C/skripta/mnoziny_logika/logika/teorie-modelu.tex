@@ -45,9 +45,10 @@ označíme za \emph{pravdivé} nebo \emph{fakticky správné}.
 
 \begin{definition}[Model]
   \label{def:model}
-  Ať $L$ je jazyk a $T$ teorie v jazyce $L$. \emph{Modelem} teorie $T$ je
-  struktura, v níž jsou všechny věty (či formálněji všechny gramaticky správné
-  posloupnosti symbolů) teorie $T$ pravdivé.
+  Ať $L$ je \hyperref[def:jazyk]{jazyk} a $T$ \hyperref[def:teorie]{teorie} v
+  jazyce $L$. \emph{Modelem} teorie $T$ je struktura, v níž jsou všechny věty
+  (či formálněji všechny gramaticky správné posloupnosti symbolů) teorie $T$
+  pravdivé.
 \end{definition}
 
 \begin{parable}
@@ -99,11 +100,12 @@ většina moderní matematiky.
     \begin{scope}[xshift=10cm]
       % Ellipse with label
       \node[ellipse,draw=ForestGreen,minimum width=4cm,minimum
-      height=2cm,thick] (em) at (0,0) {};
+      height=2cm,ultra thick] (em) at (0,0) {};
       \node at (90:1.4) {\clg{\textsf{Model}}};
 
       % Picture
-      % TODO get picture
+      \clip (0,0) ellipse (2cm and 1cm);
+      \node at (0,0) { \includegraphics[width=4cm]{figs/deer-grazing.jpg}};
     \end{scope}
   \end{tikzpicture}
   \caption{Vztah mezi jazykem, teorií a modelem.}

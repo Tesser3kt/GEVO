@@ -654,7 +654,7 @@
 
 %------------------------------------------------
 
-% Orange theorem number and optional black title with padding above and below
+% Cyan theorem number and optional black title with padding above and below
 \newtheoremstyle{DarkCyannum} % Theorem style name
 {6pt} % Space above
 {6pt} % Space below
@@ -670,7 +670,7 @@
 
 %------------------------------------------------
 
-% Orange theorem number and optional black title with no padding above and below
+% Cyan theorem number and optional black title with no padding above and below
 \newtheoremstyle{DarkCyannumbox} % Theorem style name
 {0pt} % Space above
 {0pt} % Space below
@@ -684,12 +684,25 @@
 \thmnote{\the\thm@notefont\sffamily\bfseries\color{black}---~#3.\hspace{0.25em}}}
 % Optional theorem note
 
+\newtheoremstyle{FireBricknumbox} % Theorem style name
+{0pt} % Space above
+{0pt} % Space below
+{\normalfont} % Body font
+{} % Indent amount
+{} % Theorem head font
+{} % Punctuation after theorem head
+{0.25em} % Space after theorem head
+{\small\sffamily\bfseries\color{FireBrick}\thmname{#1}~\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}
+  % Theorem text (e.g. Theorem 2.1)
+\thmnote{\the\thm@notefont\sffamily\bfseries\color{black}---~#3.\hspace{0.25em}}}
+% Optional theorem note
+
 %------------------------------------------------
 
 % Black theorem number and optional black title no padding above and below
 \newtheoremstyle{blacknumex} % Theorem style name
 {6pt} % Space above
-{6pt} % Space below
+{0pt} % Space below
 {\normalfont} % Body font
 {} % Indent amount
 {} % Theorem head font
@@ -739,6 +752,12 @@
 % number and the third optional argument is whether to number under
 % chapters (e.g. 2.1) or sections (e.g. 2.1.1)
 \newtheorem{exerciseT}{Cvičení}[chapter] % Exercises, the first
+% argument is the theorem name, the second the theorem title used
+% before the number and the third optional argument is whether to
+% number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
+
+\theoremstyle{FireBricknumbox}
+\newtheorem{warningT}{Výstraha}[chapter] % Exercises, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
@@ -798,7 +817,7 @@
 % Exercise box
 \newmdenv[
   skipabove=12pt, % Whitespace above box
-  skipbelow=0pt, % Whitespace below box
+  skipbelow=12pt, % Whitespace below box
   rightline=false, % Right line visible
   leftline=true, % Left line visible
   topline=false, % Top line visible
@@ -832,6 +851,25 @@
   rightmargin=0cm % Outside right margin width
 ]{dBox}
 
+% Warning box
+\newmdenv[
+  skipabove=12pt, % Whitespace above box
+  skipbelow=12pt, % Whitespace below box
+  rightline=false, % Right line visible
+  leftline=true, % Left line visible
+  topline=false, % Top line visible
+  bottomline=false, % Bottom line visible
+  linecolor=FireBrick, % Line color
+  linewidth=4pt, % Line width
+  backgroundcolor=FireBrick!10, % Background color
+  innerleftmargin=10pt, % Inside left margin width
+  innerrightmargin=10pt, % Inside right margin width
+  innertopmargin=20pt, % Inside top margin height
+  innerbottommargin=10pt, % Inside bottom margin height
+  leftmargin=0cm, % Outside left margin width
+  rightmargin=0cm % Outside right margin width
+]{wBox}
+
 % Corollary box
 \newmdenv[
   skipabove=7pt, % Whitespace above box
@@ -864,6 +902,11 @@
   \begin{exerciseT}}{
     \end{exerciseT}
 \end{eBox}}
+\newenvironment{warning}{
+  \begin{wBox}
+  \begin{warningT}}{
+    \end{warningT}
+\end{wBox}}
 \newenvironment{definition}{
   \begin{dBox}
   \begin{definitionT}}{
@@ -923,3 +966,6 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mahtbb{R}}
 \newcommand{\C}{\mathbb{C}}
+
+% Make space between two immediate boxes smaller.
+\newcommand{\lessboxspace}{\vspace*{-12pt}}

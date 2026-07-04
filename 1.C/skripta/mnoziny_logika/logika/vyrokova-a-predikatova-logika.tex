@@ -1,2 +1,132 @@
-Výroková logika pracuje s tzv. \emph{výroky} -- intuitivně vzato větami, o
-nichž můžeme prohlásit, zda jsou
+Výroková logika pracuje s tzv. \emph{výroky} -- intuitivně vzato větami, o nichž
+můžeme prohlásit, zda jsou pravdivé, či lživé. Výroky pojíme dohromady tzv.
+\emph{logickými spojkami}, kterých je obecně mnoho, ale my se soustředíme na ty
+v matematice snad nejběžněji užívané.
+
+\begin{definition}[Výrok]
+  \label{def:vyrok}
+  Výrokem nazveme jakoukoli větu, o níž můžeme prohlásit, zda platí, či nikoliv.
+\end{definition}
+\lessboxspace
+\begin{warning}
+  Na skutečnost, zda je nějaká věta výrokem, nebo ne, nemá žádný vliv to, jestli
+  jsme schopni \emph{rozhodnout} o její platnosti. I věty, o nichž nevíme, zda
+  jsou pravdivé, či ne, ale víme, že buď jsou, nebo nejsou, jsou výroky.
+\end{warning}
+\begin{example}
+  \label{exam:vyrok}
+  Věty
+  \begin{itemize}
+    \item Zítra bude pršet.
+    \item Mám rád kočky.
+    \item Čenda je druhý příchod Ježíše.
+  \end{itemize}
+  \textbf{jsou} výroky, zatímco věty
+  \begin{itemize}
+    \item Přineš mi kafe!
+    \item Co bych si tak mohl zahrát.
+    \item Pochopím tohle někdy?
+  \end{itemize}
+  výroky \textbf{nejsou}.
+\end{example}
+
+Pravda a lež, jsouce základními logickými koncepty, mají své vlastní nezávislé
+jedinečné symboly, třeba $T$ (pro \uv{true}) a $F$ (pro \uv{false}). Poslední
+sadou symbolů výrokové logiky jsou symbol negace ($\neg$) a logické spojky ($
+\wedge $, $ \vee $, $ \Rightarrow $ a $ \Leftrightarrow $). Povíme si, co
+znamenají.
+
+\begin{definition}[Negace]
+  \label{def:negace}
+  Ať $p$ je nějaký výrok. Potom $\neg p$ (čteno \uv{ne $p$} nebo \uv{negace
+  $p$}) je výrok s opačnou pravdivostní hodnotou od $p$, čili, jest-li $p$
+  pravda, pak $\neg p$ je lež a naopak.
+\end{definition}
+
+\begin{example}
+  \label{exam:negace}
+  Pokud za $p$ označíme výrok: \uv{Chutná mi pivo,} pak $\neg p$ je výrok:
+  \uv{Nechutná mi pivo.}
+\end{example}
+
+Logické spojky $ \wedge $, $ \vee $, $ \Rightarrow $ a $ \Leftrightarrow $
+slučují dva výroky do jednoho, jehož pravdivostní hodnota (tj. fakt, zda je
+pravdivý, či lživý) závisí na hodnotě slučovaných výroků. Představíme si
+\emph{konjunkci} a \emph{disjunkci}, jež odpovídají českým spojkám \emph{a} a
+\emph{nebo}.
+
+\begin{definition}[Konjunkce]
+  \label{def:konjunkce}
+  Ať $p$ a $q$ jsou výroky. \emph{Konjunkce} (či lidštěji logické \emph{a}) je
+  logická spojka se symbolem $ \wedge $ s vlastností, že $p \wedge q$ (čten
+  \uv{$p$ a $q$}) je pravda \textbf{jedině tehdy}, když $p$ je pravda i $q$ je
+  pravda.
+\end{definition}
+
+\begin{example}
+  \label{exam:konjunkce}
+  Je-li $p$ výrok: \uv{Venku sněží,} a $q$ je výrok: \uv{Je mi zima,} pak $p
+  \clr{ \wedge } q$ je výrok: \uv{Venku sněží \textbf{\clr{a}} je mi zima.}
+\end{example}
+
+\begin{definition}[Disjunkce]
+  \label{def:disjunkce}
+  At́ $p$ a $q$ jsou výroky. \emph{Disjunkce} (či lidštěji logické \emph{nebo})
+  je logická spojka se symbolem $ \vee $ s vlastností, že $p \vee q$ (čten
+  \uv{$p$ nebo $q$}) je pravda, \textbf{jedině tehdy}, když aspoň jeden (ale lze
+  i oba) z výroků $p$ a $q$ je pravda.
+\end{definition}
+
+\begin{example}
+  \label{exam:disjunkce}
+  Je-li $p$ výrok: \uv{Neumím počítat,} a $q$ je výrok: \uv{Jsem prostě mimo,}
+  pak $p \clr{ \vee } q$ je výrok: \uv{Neumím počítat
+  \textbf{\clr{nebo}} jsem prostě mimo}.
+\end{example}
+
+Poslední dva symboly -- $ \Rightarrow $ a $ \Leftrightarrow $ -- patří implikaci
+a ekvivalenci, což jsou logické spojky užívané k vyjádření podmínky.
+
+\begin{definition}[Implikace]
+  \label{def:implikace}
+  Ať $p$ a $q$ jsou výroky. \emph{Implikace} je logická spojka se symbolem $
+  \Rightarrow $ s vlastností, že $p \Rightarrow q$ (čten třeba \uv{Když $p$, tak
+  $q$,} nebo \uv{Z $p$ plyne $q$.}) je pravda \textbf{v těchto dvou případech}:
+  \begin{itemize}
+    \item $p$ je pravda a $q$ je pravda;
+    \item $p$ je lež.
+  \end{itemize}
+  Výroku $p$ často říkáme \emph{předpoklad} a výroku $q$ \emph{závěr}.
+\end{definition}
+\begin{example}
+  \label{exam:implikace}
+  Jsou-li $p$ a $q$ výroky po řadě: \uv{Vstanu včas,} a \uv{Stihnu bus,} tak $p
+  \clr{ \Rightarrow } q$ je výrok: \uv{\textbf{\clr{Když}} vstanu včas,
+  \textbf{\clr{tak}} stihnu bus.}
+\end{example}
+\begin{warning}
+  Logická definice implikace $ \Rightarrow $ je v lehké oposici jejímu
+  přirozenému vnímání v češtině. Totiž, je-li předpoklad $p$ lež, pak celý výrok
+  $p \Rightarrow q$ je pravda. Matematická logika se v tomto případě řídí
+  pravidlem, že \textbf{ze lži může plynout jakýkoli závěr}.
+\end{warning}
+\lessboxspace
+\begin{definition}[Ekvivalence]
+  \label{def:ekvivalence}
+  \emph{Ekvivalence} je logická spojka se symbolem $ \Leftrightarrow $
+  s~vlastností, že $p \Leftrightarrow q$ (čten \uv{$p$ právě tehdy, když $q$})
+  je pravda, když výroky $p$ a $q$ mají stejnou pravdivostní hodnotu, tj.
+  \textbf{v těchto dvou případech}:
+  \begin{itemize}
+    \item $p$ je pravda a $q$ je
+      pravda;
+    \item $p$ je lež a $q$ je lež.
+  \end{itemize} Je-li ekvivalence $p
+  \Leftrightarrow q$ pravdivá, výroky $p$ a $q$ nazýváme \emph{ekvivalentní}.
+\end{definition}
+\begin{example}
+  \label{exam:ekvivalence}
+  Je-li $p$ výrok: \uv{Čekám deset minut na přestup,} a $q$ výrok: \uv{Spěchám
+  do školy,}, pak $p \clr{ \Leftrightarrow } q$ je výrok: \uv{Čekám deset minut
+  na přestup \textbf{\clr{právě tehdy, když}} spěchám do školy.}
+\end{example}
