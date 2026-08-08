@@ -11,7 +11,8 @@ v matematice snad nejběžněji užívané.
 \begin{warning}
   Na skutečnost, zda je nějaká věta výrokem, nebo ne, nemá žádný vliv to, jestli
   jsme schopni \emph{rozhodnout} o její platnosti. I věty, o nichž nevíme, zda
-  jsou pravdivé, či ne, ale víme, že buď jsou, nebo nejsou, jsou výroky.
+  jsou pravdivé, či ne, ale víme, že takovými buď jsou, nebo nejsou, jsou
+  výroky.
 \end{warning}
 \begin{example}
   \label{exam:vyrok}
@@ -72,7 +73,7 @@ pravdivý, či lživý) závisí na hodnotě slučovaných výroků. Představí
 \begin{definition}[Disjunkce]
   \label{def:disjunkce}
   At́ $p$ a $q$ jsou výroky. \emph{Disjunkce} (či lidštěji logické \emph{nebo})
-  je logická spojka se symbolem $ \vee $ s vlastností, že $p \vee q$ (čten
+  je logická spojka se symbolem $\vee$ s vlastností, že $p \vee q$ (čten
   \uv{$p$ nebo $q$}) je pravda, \textbf{jedině tehdy}, když aspoň jeden (ale lze
   i oba) z výroků $p$ a $q$ je pravda.
 \end{definition}
@@ -81,11 +82,11 @@ pravdivý, či lživý) závisí na hodnotě slučovaných výroků. Představí
   \label{exam:disjunkce}
   Je-li $p$ výrok: \uv{Neumím počítat,} a $q$ je výrok: \uv{Jsem prostě mimo,}
   pak $p \clr{ \vee } q$ je výrok: \uv{Neumím počítat
-  \textbf{\clr{nebo}} jsem prostě mimo}.
+  \textbf{\clr{nebo}} jsem prostě mimo.}
 \end{example}
 
-Poslední dva symboly -- $ \Rightarrow $ a $ \Leftrightarrow $ -- patří implikaci
-a ekvivalenci, což jsou logické spojky užívané k vyjádření podmínky.
+Poslední dva symboly, $ \Rightarrow $ a $ \Leftrightarrow $, patří implikaci a
+ekvivalenci, což jsou logické spojky užívané k vyjádření podmínek.
 
 \begin{definition}[Implikace]
   \label{def:implikace}
@@ -108,7 +109,7 @@ a ekvivalenci, což jsou logické spojky užívané k vyjádření podmínky.
   Logická definice implikace $ \Rightarrow $ je v lehké oposici jejímu
   přirozenému vnímání v češtině. Totiž, je-li předpoklad $p$ lež, pak celý výrok
   $p \Rightarrow q$ je pravda. Matematická logika se v tomto případě řídí
-  pravidlem, že \textbf{ze lži může plynout jakýkoli závěr}.
+  pravidlem, že \textbf{ze lži plyne jakýkoli závěr}.
 \end{warning}
 \lessboxspace
 \begin{definition}[Ekvivalence]
@@ -129,4 +130,168 @@ a ekvivalenci, což jsou logické spojky užívané k vyjádření podmínky.
   Je-li $p$ výrok: \uv{Čekám deset minut na přestup,} a $q$ výrok: \uv{Spěchám
   do školy,}, pak $p \clr{ \Leftrightarrow } q$ je výrok: \uv{Čekám deset minut
   na přestup \textbf{\clr{právě tehdy, když}} spěchám do školy.}
+\end{example}
+
+Pro přehlednost shrneme definice negace a logických spojek do tabulky, tzv.
+\emph{pravdivostní tabulky}. Pro libovolné dva výroky $p$ a $q$ uvažujeme čtyři
+možnosti:
+\begin{itemize}
+  \item Výroky $p$ i $q$ jsou pravdivé.
+  \item Výrok $p$ je pravda a výrok $q$ je lež.
+  \item Výrok $p$ je lež a výrok $q$ je lež.
+  \item Výroky $p$ i $q$ jsou lživé.
+\end{itemize}
+Každé z těchto možností odpovídá v pravdivostní tabulce jeden řádek. Ve
+sloupcích jsou negace výroků $p$, $q$ a jejich sloučení logickými spojkami $
+\wedge $, $ \vee $, $ \Rightarrow $ a $ \Leftrightarrow $. V řádcích je pak
+jejich pravdivostní hodnota (tedy $T$ pro \uv{pravdu} a $F$ pro \uv{lež}) v
+závislosti na pravdivosti původních výroků $p$ a $q$. Vizte
+\myref{tabulku}{table:pravdivostni-tabulka}.
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{cc|cccccc}
+    $p$ & $q$ & $\neg p$ & $\neg q$ & $p \wedge q$ & $p \vee q$ & $p \Rightarrow
+    q$ & $p \Leftrightarrow q$\\[3pt]
+    \toprule
+    $T$ & $T$ & $F$ & $F$ & $T$ & $T$ & $T$ & $T$\\
+    $T$ & $F$ & $F$ & $T$ & $F$ & $T$ & $F$ & $F$\\
+    $F$ & $T$ & $T$ & $F$ & $F$ & $T$ & $T$ & $F$\\
+    $F$ & $F$ & $T$ & $T$ & $F$ & $F$ & $T$ & $T$\\
+    \bottomrule
+  \end{tabular}
+  \caption{Pravdivostní tabulka pro negaci, konjunkci, disjunkci, implikaci a
+  ekvivalenci.}
+  \label{table:pravdivostni-tabulka}
+\end{table}
+
+Pravdivostní tabulky jsou též užitečné při manipulaci s komplikovanými výroky.
+Můžeme se ptát na otázky typu:
+\begin{itemize}
+  \item Kdy je pravdivý výrok $(p \vee \neg q) \Rightarrow (r \wedge
+      (\neg p \vee
+    q))$ v závislosti na pravdivosti výroků $p, q$ a $r$?
+  \item Lze nějak jednodušeji vyjádřit negaci implikace, tedy výrok $\neg (p
+    \Rightarrow q)$?
+  \item Je výrok $(\neg p \vee q) \Rightarrow (p \vee \neg q)$ tzv.
+    \emph{tautologie}, tedy, je pravdivý bez ohledu na pravdivost výroků $p$ a
+    $q$?
+\end{itemize}
+
+% TODO appendix
+Všechny tyto otázky zde zodpovíme. Těm, kdož sobě pokládají onu hříšnou otázku:
+\uv{K~čemu tohle je?} nabízíme kapitolu 1 appendixu, kde ukazujeme, že váš mobil
+je v~jistém smyslu rozsáhlý elektrický obvod, který extrémně rychle vyhodnocuje
+pravdivost logických výrazů.
+
+\begin{example}
+  \label{exam:pravdivostni-tabulka-1}
+  Určíme, kdy je výrok
+  \begin{equation}
+    \label{eq:vyrok-1}
+    (p \vee \neg q) \Rightarrow (r \wedge (\neg p \vee q))
+  \end{equation}
+  pravdivý a kdy lživý. Za tím účelem pro něj sestavíme pravdivostní tabulku.
+  Výrok~\eqref{eq:vyrok-1} se zřejmě skládá z výroků $p$, $q$ a $r$. Dále jej
+  můžeme roztrhnout na výroky $p \vee \neg q$ a $r \wedge (\neg p \vee q)$,
+  které jsou sloučené implikací. Ve výroku $p \vee \neg q$ vystupuje negace $q$
+  a výrok $r \wedge (\neg p \vee q)$ můžeme dále rozdělit na výroky $r$ a $\neg
+  p \vee q$, kde vystupuje negace $p$. Všechny tyto dílčí výroky zaneseme
+  postupně do pravdivostní tabulky a vyhodnotíme jejich pravdivost podle
+  \myref{tabulky}{table:pravdivostni-tabulka}.
+
+  Protože pracujeme se třemi výroky, má pravdivostní tabulka \emph{osm} řádků,
+  pokrývajíc všechny možné kombinace pravdivostí výroků $p$, $q$ a $r$. Je jí
+  \myref{tabulka}{table:pravdivostni-tabulka-1}.
+
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}{ccc|cccccc}
+      $p$ & $q$ & $r$ & $\neg p$ & $\neg q$ & $p \vee \neg q$ & $\neg p \vee q$
+      & $r \wedge (\neg p \vee q)$ & $(p \vee \neg q) \Rightarrow (r \wedge
+      (\neg p \vee q))$\\[3pt]
+      \toprule
+      $T$ & $T$ & $T$ & $F$ & $F$ & $T$ & $T$ & $T$ & $T$\\
+      $T$ & $T$ & $F$ & $F$ & $F$ & $T$ & $T$ & $F$ & $F$\\
+      $T$ & $F$ & $T$ & $F$ & $T$ & $T$ & $F$ & $F$ & $F$\\
+      $F$ & $T$ & $T$ & $T$ & $F$ & $F$ & $T$ & $T$ & $T$\\
+      $T$ & $F$ & $F$ & $F$ & $T$ & $T$ & $F$ & $F$ & $F$\\
+      $F$ & $T$ & $F$ & $T$ & $F$ & $F$ & $T$ & $F$ & $T$\\
+      $F$ & $F$ & $T$ & $T$ & $T$ & $T$ & $T$ & $T$ & $T$\\
+      $F$ & $F$ & $F$ & $T$ & $T$ & $T$ & $T$ & $F$ & $F$\\
+      \bottomrule
+    \end{tabular}
+    \caption{Pravdivostní tabulka výroku $(p \vee \neg q) \Rightarrow (r \wedge
+    (\neg p \vee q))$.}
+    \label{table:pravdivostni-tabulka-1}
+  \end{table}
+
+  Vidíme, že výrok~\eqref{eq:vyrok-1} je pravdivý, když jsou pravdivosti výroků
+  $p$, $q$ a $r$ jako na prvním, čtvrtém, šestém nebo sedmém řádku
+  \myref{tabulky}{table:pravdivostni-tabulka-1}.
+\end{example}
+\begin{example}
+  \label{exam:negace-implikace}
+  Při hledání vyjádření pro negaci implikace, tedy výroku $\neg (p \Rightarrow
+  q)$, pravdivostní tabulka sama nám nestačí. Je však dobrým nástrojem k ověření
+  správnosti výsledku. Učiníme snadné pozorování: podle
+  \myref{tabulky}{table:pravdivostni-tabulka} je implikace $p \Rightarrow q$
+  lživá jedině v případě, kdy $p$ je pravda a $q$ je lež. To nás s trochou
+  představivosti přivede k myšlence, že negací implikace bude výrok $p \wedge
+  \neg q$, vlastně \uv{ano $p$ a ne $q$}.
+
+  Pomocí pravdivostní tabulky můžeme svou myšlenku obhájit. Aby byl výrok $p
+  \wedge \neg q$ opakem výroku $p \Rightarrow q$, musí být pravdivý, když $p
+  \Rightarrow q$ je lživý, a naopak. Čili, musí mít na témže řádku pravdivostní
+  tabulky $T$, když $p \Rightarrow q$ má $F$, a $F$, když $p \Rightarrow q$ má
+  $T$.
+
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}{cc|ccc}
+      $p$ & $q$ & $\neg q$ & $p \Rightarrow q$ & $p \wedge \neg q$\\[3pt]
+      \toprule
+      $T$ & $T$ & $F$ & $T$ & $F$\\
+      $T$ & $F$ & $T$ & $F$ & $T$\\
+      $F$ & $T$ & $F$ & $T$ & $F$\\
+      $F$ & $F$ & $T$ & $T$ & $F$\\
+      \bottomrule
+    \end{tabular}
+
+    \caption{Tabulka negace implikace.}
+    \label{table:negace-implikace}
+  \end{table}
+  Vskutku, podle pravdivostní \myref{tabulky}{table:negace-implikace} je výrok
+  $p \wedge \neg q$ přesně opačný výroku $p \Rightarrow q$.
+\end{example}
+\begin{example}
+  \label{exam:tautologie}
+  Pomocí pravdivostní tabulky rozhodneme, zda je výrok
+  \begin{equation}
+    \label{eq:vyrok-2}
+    (\neg p \vee q) \Rightarrow (p \vee \neg q)
+  \end{equation}
+  tautologie. K tomu je potřeba, aby byl \emph{vždy} pravdivý, tedy, aby ve
+  všech řádcích pravdivostní tabulky měl $T$.
+
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}{cc|ccccc}
+      $p$ & $q$ & $\neg p$ & $\neg q$ & $\neg p \vee q$ & $p \vee \neg q$ &
+      $(\neg p \vee q) \Rightarrow (p \vee \neg q)$\\[3pt]
+      \toprule
+      $T$ & $T$ & $F$ & $F$ & $T$ & $T$ & $T$\\
+      $T$ & $F$ & $F$ & $T$ & $F$ & $T$ & $T$\\
+      $F$ & $T$ & $T$ & $F$ & $T$ & $F$ & $F$\\
+      $F$ & $F$ & $T$ & $T$ & $T$ & $T$ & $T$\\
+      \bottomrule
+    \end{tabular}
+    \caption{Pravdivostní tabulka výroku $(\neg p \vee q) \Rightarrow (p \vee
+    \neg q)$.}
+    \label{table:pravdivostni-tabulka-2}
+  \end{table}
+
+  Vidíme, že výrok~\eqref{eq:vyrok-2} tautologie \emph{není}, protože je podle
+  třetího řádku \myref{tabulky}{table:pravdivostni-tabulka-2} lživý, když $p$ je
+  lež a $q$ je pravda.
 \end{example}

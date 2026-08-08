@@ -556,6 +556,16 @@
 
 \usepackage{booktabs} % Required for high quality horizontal rules in tables
 
+% Remove gaps around table rules.
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+
+% Add extra row padding.
+\setlength{\extrarowheight}{.75ex}
+
+% Make rows alternate colors.
+\rowcolors{2}{DarkCyan!10}{white}
+
 %----------------------------------------------------------------------------------------
 %   LISTS
 %----------------------------------------------------------------------------------------
@@ -969,3 +979,5 @@
 
 % Make space between two immediate boxes smaller.
 \newcommand{\lessboxspace}{\vspace*{-12pt}}
+% Extra custom commands %
+\newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
