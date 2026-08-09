@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  8 AUG 2026 14:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  9 AUG 2026 14:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1555,8 +1555,9 @@ Package biblatex Info: Automatic encoding selection.
 \openout3 = `main.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' found.
- (./main.bbl)
+Package biblatex Info: ... file 'main.bbl' not found.
+
+No file main.bbl.
 Package biblatex Info: Reference section=0 on input line 73.
 Package biblatex Info: Reference segment=0 on input line 73.
 Package hyperref Info: Link coloring ON on input line 73.
@@ -1566,7 +1567,7 @@ File: figs/background.pdf Graphic file (type pdf)
 Package pdftex.def Info: figs/background.pdf  used on input line 91.
 (pdftex.def)             Requested size: 597.50787pt x 845.25565pt.
 LaTeX Font Info:    Trying to load font information for T1+pag on input line 91.
- (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/latex/psnfss/t1pag.fd
+(/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/latex/psnfss/t1pag.fd
 File: t1pag.fd 2001/06/04 font definitions for T1/pag.
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -1652,7 +1653,7 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
 
 ] [6] (./mnoziny_logika.tex
 Kapitola 1.
-<figs/section1.jpg, id=80, 1927.2pt x 451.6875pt>
+<figs/section1.jpg, id=88, 1927.2pt x 451.6875pt>
 File: figs/section1.jpg Graphic file (type jpg)
 <use figs/section1.jpg>
 Package pdftex.def Info: figs/section1.jpg  used on input line 1.
@@ -1725,24 +1726,20 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 [8
 
 ]
-<figs/deer-grazing.jpg, id=103, 602.25pt x 333.245pt>
+<figs/deer-grazing.jpg, id=111, 602.25pt x 333.245pt>
 File: figs/deer-grazing.jpg Graphic file (type jpg)
 <use figs/deer-grazing.jpg>
 Package pdftex.def Info: figs/deer-grazing.jpg  used on input line 108.
 (pdftex.def)             Requested size: 113.81102pt x 62.97142pt.
 ) (./mnoziny_logika/logika/vyrokova-a-predikatova-logika.tex
-Package mdframed Info: mdframed works in twoside mode on input line 6.
+Package mdframed Info: mdframed works in twoside mode on input line 15.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 6.
-Package mdframed Info: mdframed works in twoside mode on input line 11.
+(mdframed)              on input line 15.
+Package mdframed Info: mdframed works in twoside mode on input line 20.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 11.
-Package mdframed Info: mdframed works in twoside mode on input line 40.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 40.
+(mdframed)              on input line 20.
 
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
@@ -1752,41 +1749,22 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
 [9 <./figs/deer-grazing.jpg>]
-Package mdframed Info: Not enough space on this page on input line 45.
-Package mdframed Info: mdframed works in twoside mode on input line 59.
+Package mdframed Info: mdframed works in twoside mode on input line 49.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 59.
-Package mdframed Info: mdframed works in twoside mode on input line 73.
+(mdframed)              on input line 49.
+Package mdframed Info: mdframed works in twoside mode on input line 68.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 73.
-
-
-./mnoziny_logika/logika/vyrokova-a-predikatova-logika.tex:75: LaTeX Error: Unicode character ́ (U+0301)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.75   At́
-            $p$ a $q$ jsou výroky. \emph{Disjunkce} (či lidštěji logick�...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-Package mdframed Info: mdframed works in twoside mode on input line 91.
+(mdframed)              on input line 68.
+Package mdframed Info: mdframed works in twoside mode on input line 82.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 91.
-Package mdframed Info: mdframed works in twoside mode on input line 108.
+(mdframed)              on input line 82.
+Package mdframed Info: mdframed works in twoside mode on input line 100.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 108.
-Package mdframed Info: mdframed works in twoside mode on input line 115.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 115.
+(mdframed)              on input line 100.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1799,7 +1777,14 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.50363pt}.
 
 [10]
-Package mdframed Info: Not enough space on this page on input line 127.
+Package mdframed Info: mdframed works in twoside mode on input line 117.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 117.
+Package mdframed Info: mdframed works in twoside mode on input line 124.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 124.
 
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
@@ -1816,7 +1801,68 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.50363pt}.
 
-[12])))
+[12]
+Package mdframed Info: mdframed works in twoside mode on input line 307.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 307.
+Package mdframed Info: mdframed works in twoside mode on input line 318.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 318.
+Package mdframed Info: mdframed works in twoside mode on input line 325.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 325.
+Package mdframed Info: mdframed works in twoside mode on input line 332.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 332.
+
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
+
+[13]
+Package mdframed Info: mdframed works in twoside mode on input line 341.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 341.
+Package mdframed Info: mdframed works in twoside mode on input line 395.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 395.
+Package mdframed Info: Not enough space on this page on input line 405.
+
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.73pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.73pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.50363pt}.
+
+[14]
+Package mdframed Info: Not enough space on this page on input line 405.
+Package mdframed Info: mdframed works in twoside mode on input line 407.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 407.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 421.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 421.
+Package mdframed Info: mdframed works in twoside mode on input line 428.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 428.
+Package mdframed Info: mdframed works in twoside mode on input line 438.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 438.
+)))
 \tf@ptc=\write7
 \openout7 = `main.ptc'.
 
@@ -1828,7 +1874,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[13] (./main.aux)
+[15] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1842,18 +1888,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38191 strings out of 467535
- 736160 string characters out of 5388798
- 1637958 words of memory out of 5000000
- 66041 multiletter control sequences out of 15000+600000
- 739746 words of font info for 381 fonts, out of 8000000 for 9000
+ 38349 strings out of 467535
+ 738829 string characters out of 5388798
+ 1638667 words of memory out of 5000000
+ 66129 multiletter control sequences out of 15000+600000
+ 756729 words of font info for 432 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,13n,108p,969b,2389s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,12n,108p,969b,2389s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/cbfonts/grmn1200.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagk8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmb8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmr8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (13 pages, 14355625 bytes).
+Output written on main.pdf (15 pages, 14367015 bytes).
 PDF statistics:
- 233 PDF objects out of 1000 (max. 8388607)
- 179 compressed objects within 2 object streams
- 51 named destinations out of 1000 (max. 500000)
- 125505 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 274 PDF objects out of 1000 (max. 8388607)
+ 215 compressed objects within 3 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 142913 words of extra memory for PDF output out of 154059 (max. 10000000)
 

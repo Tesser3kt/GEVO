@@ -1,3 +1,12 @@
+Výroková logika a predikátová logika jsou jazyky formalisující \uv{běžný lidský}
+způsob myšlení a zavádějí mechanismy pro, řekněme, \emph{zúplnění} tohoto
+procesu ve smyslu, že přímo vymezují, které \uv{myšlení} je správné a které
+nikoliv. Pro jisté praktické i historické důvody se však od našeho selského
+rozumu vymezují, pročež si zde oba jazyky představíme.
+
+\subsection{Výroková logika}
+\label{ssec:vyrokova-logika}
+
 Výroková logika pracuje s tzv. \emph{výroky} -- intuitivně vzato větami, o nichž
 můžeme prohlásit, zda jsou pravdivé, či lživé. Výroky pojíme dohromady tzv.
 \emph{logickými spojkami}, kterých je obecně mnoho, ale my se soustředíme na ty
@@ -24,7 +33,7 @@ v matematice snad nejběžněji užívané.
   \end{itemize}
   \textbf{jsou} výroky, zatímco věty
   \begin{itemize}
-    \item Přineš mi kafe!
+    \item Přines mi kafe!
     \item Co bych si tak mohl zahrát.
     \item Pochopím tohle někdy?
   \end{itemize}
@@ -72,7 +81,7 @@ pravdivý, či lživý) závisí na hodnotě slučovaných výroků. Představí
 
 \begin{definition}[Disjunkce]
   \label{def:disjunkce}
-  At́ $p$ a $q$ jsou výroky. \emph{Disjunkce} (či lidštěji logické \emph{nebo})
+  Ať $p$ a $q$ jsou výroky. \emph{Disjunkce} (či lidštěji logické \emph{nebo})
   je logická spojka se symbolem $\vee$ s vlastností, že $p \vee q$ (čten
   \uv{$p$ nebo $q$}) je pravda, \textbf{jedině tehdy}, když aspoň jeden (ale lze
   i oba) z výroků $p$ a $q$ je pravda.
@@ -295,3 +304,142 @@ pravdivost logických výrazů.
   třetího řádku \myref{tabulky}{table:pravdivostni-tabulka-2} lživý, když $p$ je
   lež a $q$ je pravda.
 \end{example}
+\begin{exercise}
+  Rozhodněte, zda je výrok
+  \begin{enumerate}
+    \item $p \wedge \neg (q \vee \neg p)$;
+    \item $(\neg q \wedge p) \Leftrightarrow (r \Rightarrow (p \wedge q))$;
+    \item $(r \Rightarrow p) \Leftrightarrow (p \Rightarrow q) \Leftrightarrow
+      (q \Rightarrow r)$
+  \end{enumerate}
+  pravdivý, když $p$ je lež, $q$ je lež a $r$ je pravda.
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Sestavte pravdivostní tabulku pro výrok
+  \[
+    p \Leftrightarrow (\neg q \Rightarrow p).
+  \]
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Rozhodněte, zda je výrok
+  \[
+    (p \wedge q) \vee (\neg p \vee \neg q)
+  \]
+  tautologie, či nikoliv.
+\end{exercise}
+\begin{exercise}
+  Najděte negaci výroku
+  \[
+    p \wedge (q \vee \neg r).
+  \]
+\end{exercise}
+
+Na závěr shrneme právě zkonstruovaný jazyk výrokové logiky.
+
+\begin{definition}[Výroková logika]
+  \label{def:vyrokova-logika}
+  \emph{Výroková logika} je \hyperref[def:jazyk]{jazyk} se symboly:
+  \begin{itemize}
+    \item proměnnými pro výroky (obvykle $p$, $q$, $r$, ...),
+    \item konstantami $T$ a $F$,
+    \item unární operací (operací na \emph{jednom} prvku) $\neg $,
+    \item binárními operacemi (operacemi na \emph{dvou} prvcích) $ \wedge $, $
+      \vee $, $ \Rightarrow $ a $ \Leftrightarrow $,
+    \item pomocnými symboly $($ a $)$ určujícími pořadí operací.
+  \end{itemize}
+  Gramatika výrokové logiky je zevrubně popsána výše.
+\end{definition}
+
+\subsection{Predikátová logika}
+\label{ssec:predikatova-logika}
+
+\hyperref[def:vyrokova-logika]{Výroková logika} má z pohledu teorie množin
+(zatím chápejme \uv{souborů věcí}) jeden zásadní nedostatek: nemá žádný
+\emph{kvantitativní} charakter. Uvažme například výrok: \uv{Dům je velký.}
+Pravdivost takového výroku jistě závisí na tom \emph{který} dům. Rádi bychom
+uměli formalisovat tvrzení tvaru: \uv{\textbf{Každý} mrakodrap je velký.} K tomu
+nám přispěchá na pomoc \emph{predikátová} logika, která
+\hyperref[def:vyrokova-logika]{logiku výrokovou} rozšiřuje o symboly $ \forall $
+a $ \exists $, které čteme jako \uv{pro každý} a \uv{existuje}. Větu: \uv{Každý
+mrakodrap je velký,} můžeme v predikátové logice vyjádřit například jako
+\begin{equation}
+  \label{eq:predikat-mrakodrap}
+  ( \forall x)(x \text{ je mrakodrap} \Rightarrow x \text{ je velký}),
+\end{equation}
+neboli, poněkud krkolomně: \uv{Pro každé $x$ platí, že je-li $x$ mrakodrap, pak
+je $x$ velký.}
+
+Chtěli-li bychom naopak vyjádřit skutečnost, že aspoň jedna věc má jistou
+vlastnost, můžeme použít kvantifikátor $ \exists $. Například, věta: \uv{Někteří
+blonďáci mají modré oči,} má v~predikátové logice paralelu
+\begin{equation}
+  \label{eq:predikat-blondak}
+  ( \exists x)(x \text{ je blonďák} \wedge x \text{ má modré oči}),
+\end{equation}
+čili: \uv{Existuje $x$, že $x$ je blonďák a $x$ má modré oči.}
+
+Zavedení tzv. \emph{kvantifikátorů} $ \forall $ a $ \exists $ s sebou nese
+rozšíření \hyperref[def:vyrokova-logika]{výrokové logiky} o výroku \emph{závislé
+na proměnných}. Těmi jsou například již vyřčené: \uv{$x$ je velký,} nebo:
+\uv{$x$ má modré oči.} O těchto výrocích nemůžeme prohlásit, že jsou jednoznačně
+pravdivé či lživé; jsou takovými až \emph{v závislosti} na hodnotě proměnné $x$.
+
+\begin{notation}
+  Fakt, že výrok $p$ je \emph{závislý} na proměnné $x$ (tedy, hrubě řečeno,
+  tvrdí něco o proměnné $x$) zapíšeme jako $p(x)$. Je-li tentýž výrok závislý
+  rovněž na proměnných $y$ a $z$, vypadá zápis takto: $p(x, y, z)$.
+\end{notation}
+
+\begin{definition}[Universální kvantifikátor]
+  \label{def:universalni-kvantifikator}
+  Symbolu $ \forall $ (čten \uv{pro všechna}) říkáme \emph{universální
+  kvantifikátor}. Je-li $x$ proměnná a $p(x)$ výrok závislý na $x$, pak
+  \begin{equation}
+    \label{eq:universalni-kvantifikator}
+    ( \forall x) p(x)
+  \end{equation}
+  je výrok: \uv{Pro všechna $x$ platí $p(x)$,} a vyjadřuje, že výrok $p(x)$ je
+  pravdivý bez ohledu na hodnotu proměnné $x$.
+\end{definition}
+\lessboxspace
+\begin{definition}[Existenční kvantifikátor]
+  \label{def:existencni-kvantifikator}
+  Symbolu $ \exists $ (čten \uv{existuje}) říkáme \emph{existenční
+  kvantifikátor}. Je-li $x$ proměnná a $p(x)$ výrok závislý na $x$, pak
+  \begin{equation}
+    \label{eq:existencni-kvantifikator}
+    ( \exists x) p(x)
+  \end{equation}
+  je výrok: \uv{Existuje $x$, pro něž platí $p(x)$,} či též: \uv{Pro některá $x$
+  platí $p(x)$,} a vyjadřuje, že lze nalézt aspoň jednu hodnotu proměnné $x$,
+  pro niž je výrok $p(x)$ pravdivý.
+\end{definition}
+\lessboxspace
+\begin{remark}
+  Negací výroku $( \forall x) p(x)$ není $( \forall x) \neg p(x)$, nýbrž $(
+  \exists x) \neg p(x)$. Totiž, vezměme například za $p(x)$ větu: \uv{$x$ se
+  skládá z atomů.} Výrok $( \forall x) p(x)$ můžeme číst jako: \uv{Vše se skládá
+  z atomů.} Opakem takové věty \textbf{není}: \uv{Nic se neskládá z atomů,} ale:
+  \uv{Něco se neskládá z atomů,} či formálněji: \uv{Existuje $x$, které není
+  složeno z atomů,} čili výrok $( \exists x) \neg p(x)$.
+\end{remark}
+\begin{exercise}
+  Vyjádřete následující věty pomocí kvantifikátorů a výroků závislých na
+  proměnných (někdy na \textbf{více než jedné}):
+  \begin{itemize}
+    \item Nikdo nemá rád špenát.
+    \item Pes je nejlepší přítel člověka.
+    \item Kdo jinému jámu kopá, sám do ní padá.
+  \end{itemize}
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Vyjádřete (v běžném jazyce) negace následujících výroků:
+  \begin{itemize}
+    \item Všichni umějí číst a psát.
+    \item Žádný pátek nemáme odpoledku.
+    \item Jestli mám tady něco špatně, tak se zblázním.
+  \end{itemize}
+\end{exercise}

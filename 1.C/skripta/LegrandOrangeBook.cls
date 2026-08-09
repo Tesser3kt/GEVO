@@ -946,7 +946,7 @@
     \begin{tikzpicture}[overlay]
       \node[draw=DarkCyan!60,line
         width=1pt,circle,fill=DarkCyan!25,font=\sffamily\bfseries,inner
-      sep=3pt,outer sep=0pt] at (-15pt,0pt){\textcolor{DarkCyan}{R}}; %
+      sep=3pt,outer sep=0pt] at (-15pt,0pt){\textcolor{DarkCyan}{P}}; %
       % Orange R in a circle
     \end{tikzpicture}
     \advance\baselineskip -1pt% Reduce line spacing

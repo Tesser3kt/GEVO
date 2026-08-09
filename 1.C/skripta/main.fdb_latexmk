@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber main"] 1786168431.38423 "main.bcf" "main.bbl" "main" 1786193684.25209 0
-  "main.bcf" 1786193684.16314 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
+["biber main"] 1786268687.66045 "main.bcf" "main.bbl" "main" 1786279259.59885 2
+  "main.bcf" 1786279259.51159 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1780061509.00015 "main.idx" "main.ind" "main" 1786193684.24999 0
-  "main.idx" 1786193683.55612 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1780061509.00015 "main.idx" "main.ind" "main" 1786279259.59876 0
+  "main.idx" 1786279258.89758 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1786193683.09982 "main.tex" "main.pdf" "main" 1786193684.25008 2
+["pdflatex"] 1786279258.47124 "main.tex" "main.pdf" "main" 1786279259.59902 0
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/enc/dvips/base/8r.enc" 1 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/map/fontname/texfonts.map" 1 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/avantgar/pagd8r.tfm" 1 4840 6a894dde946186de9a64269f0edd24e5 ""
@@ -254,22 +254,22 @@
   "/nix/store/46z7p23b3pbs29w5z90d2qbdfrad6j3k-texlive-2025-r78234-final-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 5541489 d2c12742d44c34be8eff5dc71415ec3a ""
   "/nix/store/46z7p23b3pbs29w5z90d2qbdfrad6j3k-texlive-2025-r78234-final-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 3637240 ec32c15dd725c2982dccd90e57a64ea4 ""
   "/nix/store/46z7p23b3pbs29w5z90d2qbdfrad6j3k-texlive-2025-r78234-final-env/share/texmf-var/web2c/texmf.cnf" 1 44263 752c4390f7ad688d310d3b88c055dac7 ""
-  "LegrandOrangeBook.cls" 1786190386.09075 38043 aedd577f4fdc50ba2e7211e37e0352f0 ""
+  "LegrandOrangeBook.cls" 1786278397.57072 38043 e54a7e72471ac8c556be678a96871a59 ""
   "figs/background.pdf" 1779949666.95083 13886067 51629c61750d5c30eb8d20b5c7e24595 ""
   "figs/deer-grazing.jpg" 1783159271.33437 221807 be685400dfe7508c045ff14a2ab9cbd0 ""
   "figs/part1.jpg" 1779971858.82616 76435 5114e3179f4cdcf49093efe406fbbca5 ""
   "figs/section1.jpg" 1780039773.33605 25586 f54de5d73b4c0c73811994a2802a0d0c ""
-  "main.aux" 1786193684.16014 6760 2176929c57e6f6508406a9b3acab0350 "pdflatex"
-  "main.bbl" 1786168431.99994 466 76d65a242ec496c9b4361af646ff12cb "biber main"
+  "main.aux" 1786279259.50859 8627 0554f6159f076eb7dba7d9b59293a748 "pdflatex"
+  "main.bbl" 0 -1 0 "biber main"
   "main.ind" 1780061509.08658 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.ptc" 1786193684.16457 413 2d2ae15b3eb759493ada54da3c030c08 "pdflatex"
-  "main.run.xml" 1786193684.16457 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
+  "main.ptc" 1786279259.51259 591 5f5e0ef619a22980327cdb8b44df9bbe "pdflatex"
+  "main.run.xml" 1786279259.51259 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
   "main.tex" 1783186341.74516 5028 07f99cebf406cf3335872c788eaa2f09 ""
-  "main.toc" 1786193684.16457 390 eb901cfaab72633c2fcb55b67a757f6b "pdflatex"
+  "main.toc" 1786279259.51259 568 111fe10a166457887128c354698ec6f0 "pdflatex"
   "mnoziny_logika.tex" 1782999726.34763 60 01cd6f1093cc77a499a8e0eb618b41f0 ""
-  "mnoziny_logika/logika.tex" 1786121217.90061 3246 ba1659c9a4e5e6f46f506d760d061b49 ""
+  "mnoziny_logika/logika.tex" 1786259903.83757 3246 ba1659c9a4e5e6f46f506d760d061b49 ""
   "mnoziny_logika/logika/teorie-modelu.tex" 1786168370.61282 4515 38c3c0d4b3c76f3302fefe70975c04df ""
-  "mnoziny_logika/logika/vyrokova-a-predikatova-logika.tex" 1786193681.50505 12696 6f5e4ee6db926422204dda7aa191c2ae ""
+  "mnoziny_logika/logika/vyrokova-a-predikatova-logika.tex" 1786279257.98456 19094 98af6ed581bddca7f1593d0078d64112 ""
   (generated)
   "main.aux"
   "main.bcf"
