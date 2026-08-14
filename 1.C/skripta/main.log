@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  9 AUG 2026 14:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  10 AUG 2026 16:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1653,7 +1653,7 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
 
 ] [6] (./mnoziny_logika.tex
 Kapitola 1.
-<figs/section1.jpg, id=88, 1927.2pt x 451.6875pt>
+<figs/section1.jpg, id=102, 1927.2pt x 451.6875pt>
 File: figs/section1.jpg Graphic file (type jpg)
 <use figs/section1.jpg>
 Package pdftex.def Info: figs/section1.jpg  used on input line 1.
@@ -1726,7 +1726,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 [8
 
 ]
-<figs/deer-grazing.jpg, id=111, 602.25pt x 333.245pt>
+<figs/deer-grazing.jpg, id=125, 602.25pt x 333.245pt>
 File: figs/deer-grazing.jpg Graphic file (type jpg)
 <use figs/deer-grazing.jpg>
 Package pdftex.def Info: figs/deer-grazing.jpg  used on input line 108.
@@ -1862,10 +1862,14 @@ Package mdframed Info: mdframed works in twoside mode on input line 438.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 438.
-)))
-\tf@ptc=\write7
-\openout7 = `main.ptc'.
-
+Package mdframed Info: mdframed works in twoside mode on input line 447.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 447.
+Package mdframed Info: mdframed works in twoside mode on input line 458.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 458.
 
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
@@ -1874,7 +1878,29 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[15] (./main.aux)
+[15]
+Package mdframed Info: Not enough space on this page on input line 466.
+))
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.73pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.73pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.50363pt}.
+
+[16]
+Kapitola 2.
+File: figs/section1.jpg Graphic file (type jpg)
+<use figs/section1.jpg>
+Package pdftex.def Info: figs/section1.jpg  used on input line 5.
+(pdftex.def)             Requested size: 597.50787pt x 140.03545pt.
+(./mnoziny_logika/mnoziny.tex (./mnoziny_logika/mnoziny/axiomy.tex)))
+\tf@ptc=\write7
+\openout7 = `main.ptc'.
+
+ [17
+
+] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1888,18 +1914,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38349 strings out of 467535
- 738829 string characters out of 5388798
- 1638667 words of memory out of 5000000
- 66129 multiletter control sequences out of 15000+600000
- 756729 words of font info for 432 fonts, out of 8000000 for 9000
+ 38407 strings out of 467535
+ 739827 string characters out of 5388798
+ 1638947 words of memory out of 5000000
+ 66149 multiletter control sequences out of 15000+600000
+ 758080 words of font info for 449 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,12n,108p,969b,2389s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,12n,108p,969b,2391s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/cbfonts/grmn1200.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagk8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmb8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmr8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (15 pages, 14367015 bytes).
+Output written on main.pdf (17 pages, 14374542 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 215 compressed objects within 3 object streams
- 72 named destinations out of 1000 (max. 500000)
- 142913 words of extra memory for PDF output out of 154059 (max. 10000000)
+ 318 PDF objects out of 1000 (max. 8388607)
+ 253 compressed objects within 3 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 142929 words of extra memory for PDF output out of 154059 (max. 10000000)
 

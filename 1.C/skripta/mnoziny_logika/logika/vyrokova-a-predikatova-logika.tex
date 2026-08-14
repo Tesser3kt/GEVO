@@ -440,6 +440,27 @@ pravdivé či lživé; jsou takovými až \emph{v závislosti} na hodnotě prom�
   \begin{itemize}
     \item Všichni umějí číst a psát.
     \item Žádný pátek nemáme odpoledku.
-    \item Jestli mám tady něco špatně, tak se zblázním.
+    \item Jestli mám tady něco špatně, tak se picnu.
   \end{itemize}
 \end{exercise}
+\lessboxspace
+\begin{warning}
+  Je-li $x$ proměnná a $p(x)$ výrok závislý na $x$, tak $( \forall x)p(x)$ a $(
+  \exists x)p(x)$ jsou rovněž výroky, které však již \textbf{na proměnné $x$
+  nezávisejí}.
+
+  Totiž, vezměme třeba výrok: \uv{$x$ má modré vlasy.} Ten je zřejmě výrok
+  závislý na $x$. Avšak výrok: \uv{Existuje $x$, který má modré vlasy,} či
+  přirozeněji: \uv{Někdo má modré vlasy,} již na $x$ zcela nezávisí.
+\end{warning}
+
+Shrneme zde ku čtenářově pohodlí vlastnosti jazyka predikátové logiky.
+\begin{definition}[Predikátová logika]
+  \label{def:predikatova-logika}
+  \emph{Predikátová logika} je jazyk rozšiřující symboly i gramatiku
+  \hyperref[def:vyrokova-logika]{výrokové logiky} o
+  \begin{itemize}
+    \item kvantifikátory $ \forall $ a $ \exists $,
+    \item výroky závislé na proměnných.
+  \end{itemize}
+\end{definition}
