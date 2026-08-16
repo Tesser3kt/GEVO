@@ -1,17 +1,112 @@
 Připomínáme, že slovo \emph{axiom} je označením pro gramaticky správnou
 posloupnost symbolů v daném \hyperref[def:jazyk]{jazyce}, která tvoří část
-\hyperref[def:teorie]{teorie}, je tedy vlastně \uv{označena za
+\hyperref[def:teorie]{teorie}; je tedy vlastně \uv{označena za
 \emph{pravdivou}}. Protože \hyperref[def:jazyk]{jazyk} teorie množin dědí jazyk
 \hyperref[def:predikatova-logika]{predikátové logiky}, jsou axiomy teorie množin
 \hyperref[def:vyrok]{výroky}, o kterých prohlásíme, že platí.
 
 Zásluhou mnoha matematiků (převážně) 20. století, je teorie množin redukována na
-rozumně malé množství axiomů. Cílem však často není získat tu nejmenší možnou
-teorii, ale též zachovat jistou \uv{intuitivnost} zvolených axiomů. Teorie
-množin nejsouc tedy tak malá, jak by jistě mohla být, zachovává si jistý vyšší
-stupeň srozumitelnosti.
+rozumně malé množství (skupin) axiomů. Cílem však často není získat tu nejmenší
+možnou teorii, ale též zachovat jistou \uv{intuitivnost} zvolených axiomů.
+Teorie množin nejsouc sic tak malá, jak by jistě mohla být, zachovává si jistý
+vyšší stupeň srozumitelnosti.
 
 Probereme se nyní jejími axiomy -- dá se říci od nejlehčích po nejtěžší -- a u
 každého předneseme vysvětlení, příměry a snahy o \uv{polidštění}. Mnoho axiomů
 též dává možnost vzniknout operacím na množinách, jež nám přijde vhodné uvést
 společně s nimi.
+
+\subsection{Axiom existence}
+\label{ssec:axiom-existence}
+
+Mnozí teologové v průběhu tisíciletí našeho letopočtu vnímali Boha jako prapůvod
+existence -- tvůrce, jenž stvořil z ničeho něco. Otázka, proč ve vesmíru vůbec
+něco je, zůstává ve fyzice a filosofii víceméně otevřená. Teorie množin, jejímiž
+architekty jsou bezesporu lidé, pročež obsahuje \emph{axiom existence}, který
+zaručuje, že v matematickém vesmíru vůbec něco je.
+
+Formulovat jej není pravda obtížné, ale vyžaduje chvíli zamyšlení. Totiž
+\hyperref[def:existencni-kvantifikator]{existenční kvantifikátor} umožňuje
+vyjádřit, že \emph{existuje $x$}. Avšak, jaké $x$? Podle pravidel
+\hyperref[def:predikatova-logika]{predikátové logiky} musí kvantifikátoru
+následovat výrok. Jelikož zatím žádné množiny k disposici nemáme, nabízí se
+výrok $x = x$. Tedy, axiom existence vlastně říká, že \textbf{existuje množina
+rovna sobě samé}. Jeho přesná formulace jest
+\begin{equation}
+  \label{eq:axiom-existence}
+  ( \exists x)(x = x).
+\end{equation}
+Axiom existence si můžeme pamatovat pod triviálním heslem:
+\begin{highlightBox}
+  \alert{Existuje něco.}
+\end{highlightBox}
+
+\subsection{Axiom extensionality}
+\label{ssec:axiom-extensionality}
+
+Název tohoto axiomu je záhadný, ale vyjadřuje přirozenou intuici, že dvě
+množiny, které mají přesně ty samé prvky, už nutně musejí být stejné. Heslovitě,
+v teorii množin platí:
+\begin{highlightBox}
+  \alert{Celek je přesně (tedy ani víc ani méně) než součet svých částí.}
+\end{highlightBox}
+Formulovat jej opět není obtížné, stačí přeformulovat větu: \uv{Množiny $x$ a
+$y$ mají stejné prvky.} Inu, to se stane přesně tehdy, když pro každou množinu
+platí, že je prvkem $x$ právě tehdy, když je prvkem $y$. V jazyce teorie množin,
+výrok
+\[
+  ( \forall z)(z \in x \Leftrightarrow z \in y)
+\]
+přesně vyjadřuje, že množiny $x$ a $y$ mají totožné prvky. \emph{Axiom
+extensionality} tvrdí, že v~tomto případě již je $x$ rovna $y$. Ještě jednou
+vyslovíme \emph{axiom extensionality} slovně a pak jej vyjádříme symbolicky.
+Tedy, v teorii množin platí výrok: \uv{Když je každá množina prvkem $x$ právě
+tehdy, když je prvkem $y$, pak jsou množiny $x$ a $y$ stejné}. Symbolicky:
+\begin{equation}
+  \label{eq:axiom-extensionality}
+  ( \forall z)(z \in x \Leftrightarrow z \in y) \Rightarrow (x = y).
+\end{equation}
+\begin{notation}
+  Fakt, že množina $a$ má za prvky množiny $b, c$ a $d$ a \emph{žádné jiné}
+  zapisujeme
+  \[
+    a = \{b, c, d\}.
+  \]
+\end{notation}
+\begin{warning}
+  Pozor! \hyperref[ssec:axiom-extensionality]{Axiom extensionality} v žádném
+  smyslu nehovoří o \emph{uspořádání} nebo \emph{pořadí} prvků v množinách.
+  Obecné \textbf{množiny nemají uspořádané prvky}. Vskutku, podle
+  \hyperref[ssec:axiom-extensionality]{axiomu extensionality} jsou množiny
+  \[
+    a = \{x, y, z\} \quad \text{a} \quad b = \{z, y, x\}
+  \]
+  \emph{naprosto stejné}, přestože jsme se rozhodli napsat prvky množiny $b$ v
+  jiném pořadí než prvky množiny $a$.
+\end{warning}
+
+Když na levé straně výroku~\eqref{eq:axiom-extensionality} platí pouze implikace
+zleva doprava, tj. když platí výrok
+\[
+  ( \forall z)(z \in x \Rightarrow z \in y),
+\]
+který lze přetlumočit na: \uv{Každá množina, jež je prvkem $x$, je taky prvkem
+$y$,} pak říkáme, že $x$ \emph{je podmnožina} $y$; tento vztah jednoduše
+znamená, že $x$ se skládá z některých částí $y$.
+
+\begin{definition}[Podmnožina]
+  \label{def:podmnozina}
+  O množině $x$ řekneme, že je \emph{podmnožinou} množiny $y$ -- a píšeme $x
+  \subseteq y$ -- pokud platí
+  \begin{equation}
+    \label{eq:podmnozina}
+    ( \forall z)(z \in x \Rightarrow z \in y).
+  \end{equation}
+\end{definition}
+\begin{example}
+  \label{exam:podmnozina}
+  Je-li $x$ množina lidí a $y$ množina \emph{dospělých} lidí, pak platí $y
+  \subseteq x$, tedy $y$ je \hyperref[def:podmnozina]{podmnožinou} $x$. Je tomu
+  tak pro to, že každý dospělý člověk je samozřejmě též člověk, ale ne každý
+  člověk je nezbytně dospělý.
+\end{example}

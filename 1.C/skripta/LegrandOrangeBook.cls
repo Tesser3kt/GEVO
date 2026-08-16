@@ -955,6 +955,27 @@
 }
 
 %----------------------------------------------------------------------------------------
+%   COLORED BOXES FOR HIGHLIGHT
+%----------------------------------------------------------------------------------------
+
+\usepackage{tcolorbox}
+\tcbset{
+  sharp corners,
+  colback = DarkCyan!10,
+  before skip = 7pt,    % add extra space before the box
+  after skip = 7pt,      % add extra space after the box
+  halign = center,
+  add to width=-20pt,
+  center
+}
+\newtcolorbox{highlightBox}{
+  colframe = DarkCyan,
+  boxrule = -0.3pt,
+  toprule = 3pt, % top rule weight
+  bottomrule = 3pt % bottom rule weight
+}
+
+%----------------------------------------------------------------------------------------
 %   LOAD PACKAGES THAT CLASH WITH OTHER PACKAGES
 %----------------------------------------------------------------------------------------
 
@@ -981,3 +1002,4 @@
 \newcommand{\lessboxspace}{\vspace*{-12pt}}
 % Extra custom commands %
 \newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
+\newcommand{\alert}[1]{\textbf{\textcolor{DarkCyan}{#1}}}
