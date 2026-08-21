@@ -89,6 +89,8 @@
 % Com­puter Modern fonts
 
 \usepackage{microtype} % Improve typography
+% Better line spacing.
+\renewcommand{\baselinestretch}{1.1}
 
 %----------------------------------------------------------------------------------------
 %  HEADERS AND FOOTERS

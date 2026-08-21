@@ -132,12 +132,13 @@ měly), jejich formulace je na první pohled zbytečně komplikovaná. Onu slož
 rodí jisté \emph{paradoxy}, které v teorii množin nastanou, pokud axiomy
 vydělení formulujeme příliš přímočaře.
 
-Osvětlíme místo, kde sejdeme z logické cesty při tvorbě axiomů vydělení. Ať je
-nejprve $p(x)$ výrok závislý na $x$: ten představuje onu \emph{vlastnost}, dle
-níž vydělujeme. V příkladě výše by $p(x)$ byl výrok: \uv{$x$ je dospělý.}
-Budeme chtít tvrdit, že pro libovolný výrok $p(x)$ existuje množina prvků, které
-mají tuto vlastnost. První pokus bude tento: \uv{Existuje množina $y$ taková, že
-$x$ je prvkem $y$ přesně tehdy, když platí $p(x)$.} V jazyce
+Osvětlíme místo, kde lze z nepozornosti sejít na logické scestí při tvorbě
+axiomů vydělení. Ať je nejprve $p(x)$ výrok závislý na $x$: ten představuje onu
+\emph{vlastnost}, dle níž vydělujeme. V příkladě výše by $p(x)$ byl výrok:
+\uv{$x$ je dospělý.} Budeme chtít tvrdit, že pro libovolný výrok $p(x)$ existuje
+množina prvků, které mají tuto vlastnost. První pokus bude tento: \uv{Existuje
+množina $y$ taková, že $x$ je prvkem $y$ přesně tehdy, když platí $p(x)$.} V
+jazyce
 \hyperref[def:predikatova-logika]{predikátové logiky}:
 \begin{equation}
   \label{eq:russelluv-paradox}
@@ -157,7 +158,7 @@ $x$ je prvkem $y$ přesně tehdy, když platí $p(x)$.} V jazyce
   Uvážíme oba případy:
   \begin{itemize}
     \item Řekněme, že se holič holí. Potom ale holí někoho (sebe), kdo se sám
-      holí , a tudíž nemůže holit jenom ty, kdo se neholí sami.
+      holí, a tudíž nemůže holit jenom ty, kdo se neholí sami.
     \item Naopak, řekněme, že holič sám sebe neholí. Pak ale nemůže holit
       všechny lidi, kdo se neholí sami, protože sám sebe neholí.
   \end{itemize}
@@ -182,7 +183,7 @@ tehdy, když $x \notin x$ (čili \uv{$x$ se neholí sám.}). Pokud platí $h \in
 (tedy, \uv{$h$ se holí sám.}), pak ale z definice množiny $h$ platí $h \notin h$
 (protože $h$ obsahuje právě všechny prvky $x$ splňující $x \notin x$). Naopak,
 pokud $h \notin h$, pak opět z definice $h$ platí $h \in h$, protože $h$
-obsahuje všechna $x$, pro něž platí $x \in x$. V obou případech vidíme, že je
+obsahuje všechna $x$, pro něž platí $x \notin x$. V obou případech vidíme, že je
 výrok $h \in h$ pravdivý i lživý zároveň. Má-li teorie množin dávat smysl,
 musíme požadovat, aby taková množina $h$ nesměla existovat.
 
@@ -210,7 +211,7 @@ množiny $a$.
   řečeno, existuje množina $y$ obsahující všechny dospělé lidi.
 \end{example}
 \begin{notation}
-  Fakt, že $y$ je množina všech prvků $x \in a$ splňujících $p(x)$ píšeme jako
+  Fakt, že $y$ je množina všech prvků $x \in a$ splňujících $p(x)$, píšeme jako
   \[
     y = \{x \in a \mid p(x)\}.
   \]
@@ -229,7 +230,6 @@ množiny $a$.
       \[
         t = \{x \in g \mid \text{součet vnitřních úhlů } x = 180^{ \circ }\}.
       \]
-    \item
   \end{itemize}
 \end{example}
 
@@ -251,7 +251,7 @@ kteří \emph{nemají} modré oči.
     \label{eq:prunik-mnozin}
     x \cap y = \{z \in x \mid z \in y\}.
   \end{equation}
-  Jeho existence plyne z \hyperref[eq:axiom-vyberu]{axiomu výběru} pro výrok
+  Jeho existence plyne z \hyperref[eq:axiom-vydeleni]{axiomu vydělení} pro výrok
   $p(z) = z \in y$ s volbou $a = x$.
 \end{definition}
 \begin{example}
@@ -270,7 +270,7 @@ kteří \emph{nemají} modré oči.
     \label{eq:rozdil-mnozin}
     x \setminus y = \{z \in x \mid z \notin y\}.
   \end{equation}
-  Jeho existence plyne z \hyperref[eq:axiom-vyberu]{axiomu výběru} pro výrok
+  Jeho existence plyne z \hyperref[eq:axiom-vydeleni]{axiomu vydělení} pro výrok
   $p(z) = z \notin y$ s volbou $a = x$.
 \end{definition}
 \begin{example}
@@ -290,19 +290,31 @@ jakoukoli množinu $x$. Totiž, podíváme-li se na množinu $x \setminus x$ pod
   x \setminus x = \{z \in x \mid z \notin x\}
 \]
 a množina $x \setminus x$ sestává ze všech prvků $z$, které patří do $x$, pro
-něž platí, že ... ehm ... \emph{nepatří} do $x$. Je jasné, že žádný prvek nemůže
-takovému výroku vyhovět, pročež $x \setminus x$ nehostí žádných prvkův.
+něž platí, že ... ehm ... \emph{nepatří} do $x$. Je jasné, že žádný prvek snaže
+se sebevíc nemůže takovému výroku vyhovět, pročež $x \setminus x$ nehostí
+žádných prvkův.
 
 \begin{definition}[Prázdná množina]
   \label{def:prazdna-mnozina}
   \emph{Prázdná} množina, značená $0$, je množina neobsahující prvky. Též můžeme
   formálně říci, že výrok $x \in 0$ je \emph{lživý} pro každou množinu $x$. Její
-  existence plyne z \hyperref[eq:axiom-vyberu]{axiomu výběru} pro výrok $p(z) =
-  z \notin x$ a volbu $a = x$.
+  existence plyne z \hyperref[eq:axiom-vydeleni]{axiomu vydělení} pro výrok
+  $p(z) = z \notin x$ a volbu $a = x$.
 \end{definition}
 \lessboxspace
 \begin{remark}
   Označení $0$ pro prázdnou množinu není náhodné ani konfliktní. V sekci
   [TODO:odkaz na číselné množiny] se dozvíme, že prázdná množina $0$ je vskutku
-  dokonale to samé, co přirozené číslo $0$.
+  dokonale to samé, jak přirozené číslo $0$.
 \end{remark}
+
+\subsection{Axiom dvojice}
+\label{ssec:axiom-dvojice}
+
+Zatím jsme na svém průchodu křovinami teorie množin na místě, kde máme z
+\hyperref[ssec:axiom-existence]{axiomu existence} zaručeny existence aspoň
+nějakých množin a \hyperref[ssec:axiom-vydeleni]{axiomy vydělení} umíme z
+existujících množin dělat množiny \emph{menší}. Zatím nám však schází výroky,
+kterými se naučíme \uv{slepovat} množiny dohromady. Prvním z nich je tzv.
+\emph{axiom dvojice}, který nám umožní sloučit dvě existující množiny v novou
+množinu. Zaheslujeme

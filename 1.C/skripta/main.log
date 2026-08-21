@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  20 AUG 2026 10:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  21 AUG 2026 08:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1014,11 +1014,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip98
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 615.
+Package hyperref Info: Option `colorlinks' set `true' on input line 617.
 
 
 Package hyperref Warning: Option `hyperindex' has already been used,
-(hyperref)                setting the option has no effect on input line 615.
+(hyperref)                setting the option has no effect on input line 617.
 
 (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -1678,7 +1678,7 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
 
 ] [6] (./mnoziny_logika.tex
 Kapitola 1.
-<figs/section1.jpg, id=114, 1927.2pt x 451.6875pt>
+<figs/section1.jpg, id=118, 1927.2pt x 451.6875pt>
 File: figs/section1.jpg Graphic file (type jpg)
 <use figs/section1.jpg>
 Package pdftex.def Info: figs/section1.jpg  used on input line 1.
@@ -1751,7 +1751,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 [8
 
 ]
-<figs/deer-grazing.jpg, id=137, 602.25pt x 333.245pt>
+<figs/deer-grazing.jpg, id=140, 602.25pt x 333.245pt>
 File: figs/deer-grazing.jpg Graphic file (type jpg)
 <use figs/deer-grazing.jpg>
 Package pdftex.def Info: figs/deer-grazing.jpg  used on input line 108.
@@ -1791,9 +1791,6 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 100.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
 (fancyhdr)                Make it at least 14.73pt, for example:
@@ -1810,6 +1807,9 @@ Package mdframed Info: mdframed works in twoside mode on input line 124.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 124.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
@@ -1831,6 +1831,22 @@ Package mdframed Info: mdframed works in twoside mode on input line 307.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 307.
+
+
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 316.
+
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
+
+[13]
 Package mdframed Info: mdframed works in twoside mode on input line 318.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -1843,24 +1859,13 @@ Package mdframed Info: mdframed works in twoside mode on input line 332.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 332.
-
-
-Package fancyhdr Warning: \headheight is too small (14.22636pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
-
-[13]
 Package mdframed Info: mdframed works in twoside mode on input line 341.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 341.
-Package mdframed Info: mdframed works in twoside mode on input line 395.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 395.
-Package mdframed Info: Not enough space on this page on input line 405.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
@@ -1870,7 +1875,10 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.50363pt}.
 
 [14]
-Package mdframed Info: Not enough space on this page on input line 405.
+Package mdframed Info: mdframed works in twoside mode on input line 395.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 395.
 Package mdframed Info: mdframed works in twoside mode on input line 407.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -1883,6 +1891,15 @@ Package mdframed Info: mdframed works in twoside mode on input line 428.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 428.
+
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
+
+[15]
 Package mdframed Info: mdframed works in twoside mode on input line 438.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -1895,16 +1912,6 @@ Package mdframed Info: mdframed works in twoside mode on input line 458.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 458.
-
-
-Package fancyhdr Warning: \headheight is too small (14.22636pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
-
-[15]
-Package mdframed Info: Not enough space on this page on input line 466.
 ))
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
@@ -1925,12 +1932,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [17
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 76.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 76.
-Package mdframed Info: Not enough space on this page on input line 86.
-
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1939,7 +1940,10 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
 [18]
-Package mdframed Info: Not enough space on this page on input line 86.
+Package mdframed Info: mdframed works in twoside mode on input line 76.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 76.
 Package mdframed Info: mdframed works in twoside mode on input line 97.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -1953,10 +1957,6 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
 [19]
-Overfull \hbox (4.32152pt too wide) in paragraph at lines 189--193
-[]\T1/ptm/m/n/12 (-20) êe≤enÌ je na-≤t•stÌ na-snad•. Sta£Ì, kdy∫ ve v˝-roku [] bu-deme prvky $\OML/ztmcm/m/it/12 x$ \T1/ptm/m/n/12 (-20) vy-bÌ-rat (^^Rvyd•lovat^^P)
- []
-
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1965,24 +1965,17 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
 [20]
+Overfull \hbox (4.32152pt too wide) in paragraph at lines 190--194
+[]\T1/ptm/m/n/12 (-20) êe≤enÌ je na-≤t•stÌ na-snad•. Sta£Ì, kdy∫ ve v˝-roku [] bu-deme prvky $\OML/ztmcm/m/it/12 x$ \T1/ptm/m/n/12 (-20) vy-bÌ-rat (^^Rvyd•lovat^^P)
+ []
+
 Package mdframed Info: mdframed works in twoside mode on input line 246.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 246.
-
-
-LaTeX Warning: Hyper reference `eq:axiom-vyberu' on page 21 undefined on input line 254.
-
-Package mdframed Info: mdframed works in twoside mode on input line 265.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 265.
-
-LaTeX Warning: Hyper reference `eq:axiom-vyberu' on page 21 undefined on input line 273.
-
-
-LaTeX Warning: Hyper reference `eq:axiom-vyberu' on page 21 undefined on input line 284.
-
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 256.
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1991,13 +1984,20 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
 [21]
-Package mdframed Info: mdframed works in twoside mode on input line 296.
+Package mdframed Info: mdframed works in twoside mode on input line 265.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 296.
+(mdframed)              on input line 265.
 
 
-LaTeX Warning: Hyper reference `eq:axiom-vyberu' on page 22 undefined on input line 300.
+LaTeX Warning: Hyper reference `eq:axiom-vyberu' on page 22 undefined on input line 284.
+
+Package mdframed Info: mdframed works in twoside mode on input line 297.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 297.
+
+LaTeX Warning: Hyper reference `ssec:axiom-vydeleni' on page 22 undefined on input line 316.
 
 )))
 \tf@ptc=\write7
@@ -2028,18 +2028,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40625 strings out of 467535
- 798017 string characters out of 5388798
- 1689399 words of memory out of 5000000
- 68278 multiletter control sequences out of 15000+600000
- 762351 words of font info for 481 fonts, out of 8000000 for 9000
+ 40634 strings out of 467535
+ 798164 string characters out of 5388798
+ 1692537 words of memory out of 5000000
+ 68283 multiletter control sequences out of 15000+600000
+ 762576 words of font info for 483 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,13n,122p,969b,2391s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/cbfonts/grmn1200.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagk8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmb8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmr8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (22 pages, 14406031 bytes).
+Output written on main.pdf (22 pages, 14407555 bytes).
 PDF statistics:
- 401 PDF objects out of 1000 (max. 8388607)
- 325 compressed objects within 4 object streams
- 107 named destinations out of 1000 (max. 500000)
+ 410 PDF objects out of 1000 (max. 8388607)
+ 333 compressed objects within 4 object streams
+ 108 named destinations out of 1000 (max. 500000)
  142929 words of extra memory for PDF output out of 154059 (max. 10000000)
 
