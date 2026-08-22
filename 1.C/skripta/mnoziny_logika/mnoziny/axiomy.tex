@@ -303,7 +303,7 @@ se sebevíc nemůže takovému výroku vyhovět, pročež $x \setminus x$ nehost
 \end{definition}
 \lessboxspace
 \begin{remark}
-  Označení $0$ pro prázdnou množinu není náhodné ani konfliktní. V sekci
+  Označení $0$ pro prázdnou množinu není náhodné ani konfliktní. V oddílu
   [TODO:odkaz na číselné množiny] se dozvíme, že prázdná množina $0$ je vskutku
   dokonale to samé, jak přirozené číslo $0$.
 \end{remark}
@@ -317,4 +317,89 @@ nějakých množin a \hyperref[ssec:axiom-vydeleni]{axiomy vydělení} umíme z
 existujících množin dělat množiny \emph{menší}. Zatím nám však schází výroky,
 kterými se naučíme \uv{slepovat} množiny dohromady. Prvním z nich je tzv.
 \emph{axiom dvojice}, který nám umožní sloučit dvě existující množiny v novou
-množinu. Zaheslujeme
+množinu. Zaheslujeme ho pod větou
+\begin{highlightBox}
+  \alert{Každé dva celky tvoří celek.}
+\end{highlightBox}
+Intuitivně by axiom dvojice měl být snadno přijatelný: dáme-li libovolné dvě
+věci dohromady, dostaneme přeci soubor dvou věcí, který je odlišný od obou věcí,
+jež obsahuje. Mezi příklady čítáme třebas sloučení množin mělkých a hlubokých
+talířů tvořící množinu \emph{všech} talířů nebo množina všech lidí jako sloučení
+množin všech dětí a všech dospělých.
+
+Formálně, axiom dvojice říká přesně toto: \uv{Pro každé dvě množiny $a$ a $b$,
+existuje množina $y$, která je obsahuje.} V jazyce teorie množin:
+\begin{equation}
+  \label{eq:axiom-dvojice}
+  ( \forall a) ( \forall b)( \exists y)( \forall x)(x \in y \Leftrightarrow (x =
+  a \vee x = b)).
+\end{equation}
+\begin{example}
+  \label{exam:axiom-dvojice}
+  Vezměme množinu $a = \{x, y\}$ a množinu $b = \{x, y, z\}$. Pak podle
+  \hyperref[eq:axiom-dvojice]{axiomu dvojice} existuje množina
+  \[
+    \{a, b\} = \{\{x, y\}, \{x, y, z\}\}.
+  \]
+\end{example}
+\lessboxspace
+\begin{warning}
+  Axiom dvojice \textbf{neříká}, že pro dvě množiny $a, b$ existuje množina
+  obsahující jejich \textbf{prvky}. Říká pouze, že existuje množina, která
+  obsahuje množiny $a$ a $b$ jako své prvky. Vizte
+  \myref{příklad}{exam:axiom-dvojice}.
+\end{warning}
+
+Axiom dvojice dává vzniknout dvěma novým konceptům teorie množin, jež nabudou
+svého významu již ve formulaci budoucích axiomů. Jsou jimi pojmy uspořádané a
+neuspořádané dvojice.
+
+\begin{definition}[Dvojice]
+  \label{def:dvojice}
+  Každou dvouprvkovou množinu nazýváme (\emph{neuspořádanou}) \emph{dvojicí}.
+\end{definition}
+\begin{example}
+  \label{exam:dvojice}
+  Množiny $\{a, b\}, \{\{a\}, 0\}$ a $\{\{a, b, c, d\}, \{\{\{a\}\}, b\}\}$
+  \emph{jsou} dvojice, zatímco třeba množiny $\{a, b, c\}$ nebo $\{\{0, a\},
+  \{a\}, \{\{b\}\}\}$ ne.
+\end{example}
+
+Pojem \emph{uspořádané} dvojice je mírně složité definovat. Má zachycovat
+\hyperref[def:dvojice]{dvojici}, u níž záleží na pořadí jejích prvků. Množiny
+však samy o sobě uspořádané nejsou, musíme pročež sáhnout ke komplikovanější
+konstrukci. Její standardní podobu vizte níže.
+\begin{definition}[Uspořádaná dvojice]
+  \label{def:usporadana-dvojice}
+  Jsou-li $a, b$ dvě množiny, pak množinu $\{\{a\}, \{a, b\}\}$, kterou značíme
+  $(a, b)$, nazýváme \emph{uspořádanou dvojicí} s prvky $a$ a $b$.
+\end{definition}
+Všimněme si, že $(a, b) \neq (b, a)$, protože $(a, b) = \{\{a\}, \{a, b\}\}$
+zatímco $(b, a) = \{\{b\}, \{a, b\}\}$. Získali jsme tedy dvouprvkovou množinu,
+kde o jednom z prvků můžeme prohlásit, že je \uv{první} a o tom druhém, že je
+... \uv{druhý}.
+\begin{example}
+  \label{exam:usporadana-dvojice}
+  Čtenáři se měli příležitost setkat s
+  \hyperref[def:usporadana-dvojice]{uspořádanými dvojicemi} v kontextu soustav
+  souřadnic. Body v rovině (jež mohli vidět značeny různě: jako $(3, 5)$, $[3,
+  5]$ nebo též $[3; 5]$) jsou zkrátka uspořádanými dvojicemi reálných čísel.
+\end{example}
+\begin{remark}
+  Existence \hyperref[def:usporadana-dvojice]{uspořádané dvojice} $(a, b)$ plyne
+  z \hyperref[eq:axiom-dvojice]{axiomu dvojice}, ale též z
+  \hyperref[eq:axiom-vydeleni]{axiomu vydělení}. Rozeberme si její konstrukci
+  podrobně:
+  \begin{enumerate}
+    \item Z axiomu dvojice plyne pro $a, b$ existence množiny $\{a, b\}$.
+    \item Z axiomu vydělení plyne pro výrok $p(x) = (x = a)$ a množinu $\{a,
+      b\}$ existence množiny
+      \[
+        y = \{x \in \{a, b\} \mid p(x)\} = \{x \in \{a, b\} \mid x = a\}
+      \]
+      tedy množiny všech prvků z $\{a, b\}$, které splňují, že $x = a$. Ale tou
+      je právě množina $\{a\}$.
+    \item Opětovným použitím axiomu dvojice na množiny $\{a\}$ a $\{a, b\}$
+      dostaneme existenci množiny $\{\{a\}, \{a, b\}\}$.
+  \end{enumerate}
+\end{remark}
