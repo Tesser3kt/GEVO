@@ -281,11 +281,11 @@ kteří \emph{nemají} modré oči.
   \]
 \end{example}
 
-Z \hyperref[eq:axiom-vyberu]{axiomu výběru} též plyne existence \emph{prázdné
-množiny}: množiny neobsahující žádné prvky. Získáme ji velmi jednoduše třeba
-jako rozdíl libovolné množiny se sebou samou, tedy jako $x \setminus x$ pro
-jakoukoli množinu $x$. Totiž, podíváme-li se na množinu $x \setminus x$ podle
-\myref{definice}{def:rozdil-mnozin}, vidíme, že
+Z \hyperref[eq:axiom-vydeleni]{axiomu vydělení} též plyne existence
+\emph{prázdné množiny}: množiny neobsahující žádné prvky. Získáme ji velmi
+jednoduše třeba jako rozdíl libovolné množiny se sebou samou, tedy jako $x
+\setminus x$ pro jakoukoli množinu $x$. Totiž, podíváme-li se na množinu $x
+\setminus x$ podle \myref{definice}{def:rozdil-mnozin}, vidíme, že
 \[
   x \setminus x = \{z \in x \mid z \notin x\}
 \]
@@ -311,13 +311,13 @@ se sebevíc nemůže takovému výroku vyhovět, pročež $x \setminus x$ nehost
 \subsection{Axiom dvojice}
 \label{ssec:axiom-dvojice}
 
-Zatím jsme na svém průchodu křovinami teorie množin na místě, kde máme z
+Zatím jsme ve svém průchodu křovinami teorie množin na místě, kde máme z
 \hyperref[ssec:axiom-existence]{axiomu existence} zaručeny existence aspoň
-nějakých množin a \hyperref[ssec:axiom-vydeleni]{axiomy vydělení} umíme z
+nějakých množin a \hyperref[ssec:axiomy-vydeleni]{axiomy vydělení} umíme z
 existujících množin dělat množiny \emph{menší}. Zatím nám však schází výroky,
-kterými se naučíme \uv{slepovat} množiny dohromady. Prvním z nich je tzv.
-\emph{axiom dvojice}, který nám umožní sloučit dvě existující množiny v novou
-množinu. Zaheslujeme ho pod větou
+kterými se naučíme \uv{slepovat} množiny dohromady a robit množiny \emph{větší}.
+Prvním z nich je tzv. \emph{axiom dvojice}, který nám umožní sloučit dvě
+existující množiny v novou množinu. Zaheslujeme ho pod větou:
 \begin{highlightBox}
   \alert{Každé dva celky tvoří celek.}
 \end{highlightBox}
@@ -346,10 +346,9 @@ existuje množina $y$, která je obsahuje.} V jazyce teorie množin:
 \begin{warning}
   Axiom dvojice \textbf{neříká}, že pro dvě množiny $a, b$ existuje množina
   obsahující jejich \textbf{prvky}. Říká pouze, že existuje množina, která
-  obsahuje množiny $a$ a $b$ jako své prvky. Vizte
+  obsahuje množiny $a$ a $b$ jako své vlastní prvky. Vizte
   \myref{příklad}{exam:axiom-dvojice}.
 \end{warning}
-
 Axiom dvojice dává vzniknout dvěma novým konceptům teorie množin, jež nabudou
 svého významu již ve formulaci budoucích axiomů. Jsou jimi pojmy uspořádané a
 neuspořádané dvojice.
@@ -403,3 +402,123 @@ kde o jednom z prvků můžeme prohlásit, že je \uv{první} a o tom druhém, �
       dostaneme existenci množiny $\{\{a\}, \{a, b\}\}$.
   \end{enumerate}
 \end{remark}
+S konceptem \hyperref[def:usporadana-dvojice]{uspořádané dvojice} se přirozeně
+váže tzv. (\emph{kartézský}) \emph{součin} množin -- množina všech uspořádaných
+dvojic prvků z vybraných dvou množin.
+\begin{definition}[Součin množin]
+  \label{def:soucin-mnozin}
+  Ať jsou $a, b$ dvě množiny. Jejich (\emph{kartézským}) \emph{součinem} myslíme
+  množiny všech uspořádaných dvojic $(x, y)$, kde $x \in a$ a $y \in b$, a
+  značíme jej $a \times b$. Symbolicky:
+  \begin{equation}
+    \label{eq:soucin-mnozin}
+    a \times b = \{(x, y) \mid x \in a \wedge y \in b\}.
+  \end{equation}
+\end{definition}
+\begin{example}
+  \label{exam:soucin-mnozin}
+  Je-li $a = \{x, y\}$ a $b = \{x, y, z\}$, pak součin $a \times b$ je množina
+  \[
+    a \times b = \{(x, x), (x, y), (x, z), (y, x), (y, y), (y, z)\}.
+  \]
+  O \hyperref[def:soucin-mnozin]{součinu množin} lze přemýšlet podobně jako o
+  roznásobování závorek s výrazy. Vlastně \uv{násobíme} každý prvek z $a$ s
+  každým prvkem z $b$. Všimněte si podobnosti mezi množinou $a \times b$ a
+  výrazem
+  \[
+    (x + y) \cdot (x + y + z) = x \cdot x + x \cdot y + x \cdot z + y \cdot x +
+    y \cdot y + y \cdot z.
+  \]
+  Jedním rozdílem pochopitelně je, že $x \cdot y = y \cdot x$, zatímco $(x, y)
+  \neq (y, x)$.
+\end{example}
+\begin{warning}
+  Fakt, že součin množin \emph{existuje} pro každé dvě množiny $a$ a $b$ není
+  samozřejmý a plyne z axiomů [TODO:axiom sumy] a [TODO:axiom potence], které
+  jsme ještě nepředstavili. Problém je v tom, že v
+  \hyperref[eq:soucin-mnozin]{definici součinu množin} nevybíráme dvojice $(a,
+  b)$ z žádné předem existující množiny (vizte
+  \hyperref[exam:russelluv-paradox]{Russellův paradox}), tedy by jeho definice
+  mohla způsobit obtíže.
+\end{warning}
+\hyperref[def:soucin-mnozin]{Součin množin} je jednou z nejdůležitějších definic
+v matematice a vede ke konceptům, s~nimiž jste se již jistě setkali:
+\emph{souřadnice}, \emph{zlomek}, \emph{funkce} nebo třeba \emph{nerovnost}.
+Osvětlíme.
+
+\subsubsection{Relace}
+\label{sssec:relace}
+
+\hyperref[def:soucin-mnozin]{Součin množin} umožňuje dávat dvě množiny, které
+spolu nemusejí sdílet žádné prvky, do \uv{vztahu}. Uvažme množinu $l$ všech lidí
+a množinu $d$ všech domů. Díky \hyperref[def:soucin-mnozin]{součinu množin}
+umíme v jazyce teorie množin dát abstraktní podobu vztahu: \uv{Člověk $x$ bydlí
+v domě $y$.} Totiž, množina $l \times d$ sestává právě ze všech dvojic $(x, y)$,
+kde $x$ je člověk a $y$ je dům. Ovšem, \emph{celá} množina $l \times d$ je zde
+poněkud nepraktická, protože jeden daný člověk je ve dvojici s úplně každým
+domem. Vezměme spíše nějakou její podmnožinu $k \subseteq l \times d$. Větu:
+\uv{Člověk $x$ bydlí v domě $y$,} můžeme nahradit výrokem $(x, y) \in k$.
+Množina $k$ je vlastně jakýmsi zjednodušeným \uv{katastrem}, kde dvojici $(x,
+y)$ najdeme v tomto \uv{katastru} právě tehdy, když člověk $x$ bydlí v domě $y$.
+O $k$ můžeme též přemýšlet jako o tabulce mající v~prvním sloupci lidi z množiny
+$l$, v druhém sloupci domy z množiny $d$ a člověk $x$ je na stejném řádku jako
+dům $y$, když v něm bydlí. Formálně se podmnožinám součinu říká
+\emph{relace} (z lat. \emph{relātiō}, \uv{vztah}).
+\begin{definition}[Relace]
+  \label{def:relace}
+  Ať $a, b$ jsou dvě množiny. Jakoukoli podmnožinu $r \subseteq a \times b$
+  nazýváme \emph{relací} z množiny $a$ do množiny $b$.
+\end{definition}
+\begin{example}
+  \label{exam:relace}
+  Je-li $a = \{x, y\}$ a $b = \{x, y, z\}$, pak množiny
+  \begin{align*}
+    r &= \{(x, y), (x, z)\},\\
+    s &= \{(x, x), (y, y), (y, z)\}
+  \end{align*}
+  jsou \emph{relace} z $a$ do $b$. Relace $r$ vyjadřuje, že $x$ je ve vztahu s
+  $y$ a též se $z$, zatímco relace $s$ říká, že $x$ je ve vztahu se sebou samým
+  a $y$ je ve vztahu se sebou samým a se $z$.
+\end{example}
+
+Možná nejčastějším druhem relace v matematice je relace \emph{funkce}. Čtenáři
+jistě neměli možnost přemýšlet o funkcích jako o relacích. Vysvětlíme. Totiž,
+uvažme kupříkladu lineární funkci zapsanou rovnicí $y = 2x + 5$. Tato rovnice
+říká, že druhá souřadnice $y$ je rovna $2x + 5$, když první souřadnice je $x$.
+Je-li třeba $x = 2$, pak $y = 2 \cdot 2 + 5 = 9$, čili zápis $y = 2x + 5$
+zachycuje \textbf{množinu těch uspořádaných dvojic} reálných čísel $(x, y)$,
+pro něž platí, že $y = 2x + 5$. Ovšem, množinu uspořádaných dvojic je přeci
+\hyperref[def:relace]{relace}. Čili, zápis funkce $y = 2x + 5$ můžeme přímočaře
+chápat jako definici relace $\{(x, y) \mid y = 2x + 5\}$.
+
+Všechny funkce jsou relacemi, ale jistě ne všechny relace jsou funkcemi.
+Součástí definice funkce je fakt, že: \uv{Jednomu $x$ odpovídá nejvýše jedno
+$y$,} což v jazyce relací znamená, že jeden prvek $x$ první množiny smí být ve
+vztahu (ve dvojici) s nejvýše jedním prvkem $y$ z~množiny druhé. Právě jsme
+vyřkli definici funkce, již pro úplnost vytesáme do ... papíru.
+
+\begin{definition}[Funkce]
+  \label{def:funkce}
+  Ať $a, b$ jsou množiny. Relaci $f \subseteq a \times b$ z $a$ do $b$ nazveme
+  \emph{funkcí}, pokud platí, že pro jeden prvek $x \in a$ existuje maximálně
+  jeden prvek $y \in b$ takový, že $(x, y) \in f$. Symbolicky lze tuto větu
+  shrnout takto:
+  \begin{equation}
+    \label{eq:funkce}
+    ( \forall x \in a)( \forall y_1, y_2 \in b)(((x, y_1) \in f \wedge (x, y_2)
+    \in f) \Rightarrow y_1 = y_2),
+  \end{equation}
+  neboli: \uv{Když je nějaký prvek $x \in a$ ve vztahu s $y_1 \in b$ i s $y_2
+  \in b$, pak nutně $y_1 = y_2$.}
+\end{definition}
+\begin{notation}
+  \hyperref[def:funkce]{Funkce} jsou natolik běžným druhem
+  \hyperref[def:relace]{relací}, že sobě vysloužily vlastní značení. Fakt, že
+  relace $f$ z množiny $a$ do množiny $b$ je \emph{funkce}, zapisujeme symbolem
+  $f\colon a \to b$. Fakt $(x, y) \in f$ píšeme jako $f(x) = y$.
+\end{notation}
+O funkcích budeme šířeji hovořit až výrazně později v tomto textu.
+
+Nyní představíme několik běžných vlastností, kterých mohou relace nabývat, a
+poté několik speciálních typů relací -- vzniknuvších kombinací těchto vlastností
+-- jejichž užitečnost zůstane chvíli halena rouchem časův budoucích.

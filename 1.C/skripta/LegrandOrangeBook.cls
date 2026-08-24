@@ -76,6 +76,7 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage[greek, english, czech]{babel}
+\usepackage{csquotes}
 
 %----------------------------------------------------------------------------------------
 %  FONTS
@@ -352,7 +353,7 @@
 
 \usepackage{titletoc} % Required for manipulating the table of contents
 
-\setcounter{tocdepth}{2} % Display down to subsections in the table of contents
+\setcounter{tocdepth}{3} % Display down to subsections in the table of contents
 
 \contentsmargin{0cm} % Removes the default right margin
 
