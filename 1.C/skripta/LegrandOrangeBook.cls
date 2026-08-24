@@ -710,6 +710,19 @@
 \thmnote{\the\thm@notefont\sffamily\bfseries\color{black}---~#3.\hspace{0.25em}}}
 % Optional theorem note
 
+\newtheoremstyle{VioletRednumbox} % Theorem style name
+{0pt} % Space above
+{0pt} % Space below
+{\normalfont} % Body font
+{} % Indent amount
+{} % Theorem head font
+{} % Punctuation after theorem head
+{0.25em} % Space after theorem head
+{\small\sffamily\bfseries\color{MediumVioletRed}\thmname{#1}~\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}
+  % Theorem text (e.g. Theorem 2.1)
+\thmnote{\the\thm@notefont\sffamily\bfseries\color{black}---~#3.\hspace{0.25em}}}
+% Optional theorem note
+
 %------------------------------------------------
 
 % Black theorem number and optional black title no padding above and below
@@ -771,6 +784,12 @@
 
 \theoremstyle{FireBricknumbox}
 \newtheorem{warningT}{Výstraha}[chapter] % Exercises, the first
+% argument is the theorem name, the second the theorem title used
+% before the number and the third optional argument is whether to
+% number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
+
+\theoremstyle{VioletRednumbox}
+\newtheorem{hardExerciseT}{Těžké cvičení}[chapter] % Hard Exercises, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
@@ -846,6 +865,25 @@
   rightmargin=0cm % Outside right margin width
 ]{eBox}
 
+% Hard Exercise box
+\newmdenv[
+  skipabove=12pt, % Whitespace above box
+  skipbelow=12pt, % Whitespace below box
+  rightline=false, % Right line visible
+  leftline=true, % Left line visible
+  topline=false, % Top line visible
+  bottomline=false, % Bottom line visible
+  linecolor=MediumVioletRed, % Line color
+  linewidth=4pt, % Line width
+  backgroundcolor=MediumVioletRed!10, % Background color
+  innerleftmargin=10pt, % Inside left margin width
+  innerrightmargin=10pt, % Inside right margin width
+  innertopmargin=20pt, % Inside top margin height
+  innerbottommargin=10pt, % Inside bottom margin height
+  leftmargin=0cm, % Outside left margin width
+  rightmargin=0cm % Outside right margin width
+]{heBox}
+
 % Definition box
 \newmdenv[
   skipabove=12pt, % Whitespace above box
@@ -915,6 +953,11 @@
   \begin{exerciseT}}{
     \end{exerciseT}
 \end{eBox}}
+\newenvironment{hardExercise}{
+  \begin{heBox}
+  \begin{hardExerciseT}}{
+    \end{hardExerciseT}
+\end{heBox}}
 \newenvironment{warning}{
   \begin{wBox}
   \begin{warningT}}{
@@ -975,7 +1018,8 @@
   colframe = DarkCyan,
   boxrule = -0.3pt,
   toprule = 3pt, % top rule weight
-  bottomrule = 3pt % bottom rule weight
+  bottomrule = 3pt, % bottom rule weight
+  fontupper = \bfseries
 }
 
 %----------------------------------------------------------------------------------------
@@ -1005,4 +1049,4 @@
 \newcommand{\lessboxspace}{\vspace*{-12pt}}
 % Extra custom commands %
 \newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
-\newcommand{\alert}[1]{\textbf{\textcolor{DarkCyan}{#1}}}
+\newcommand{\alert}[1]{\textcolor{DarkCyan}{#1}}

@@ -308,6 +308,32 @@ se sebevíc nemůže takovému výroku vyhovět, pročež $x \setminus x$ nehost
   dokonale to samé, jak přirozené číslo $0$.
 \end{remark}
 
+\begin{exercise}
+  Pomocí \hyperref[eq:axiom-vydeleni]{axiomu vydělení} vyrobte množinu
+  \begin{enumerate}
+    \item všech záporných čísel jako podmnožinu množiny $\Z$ všech celých
+      čísel;
+    \item přirozených čísel dělitelných $5$, ale ne $7$, jako podmnožinu množiny
+      $\N$ všech přirozených čísel;
+    \item množinu všech indukčních sporáků jako podmnožinu množiny $s$ všech
+      sporáků.
+  \end{enumerate}
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Pro $a = \{x, y, z\}$ a $b = \{x, y, v, w\}$ spočtěte
+  \begin{enumerate}
+    \item $a \cap b$,
+    \item $a \setminus b$,
+    \item $a \setminus (b \cap a)$.
+  \end{enumerate}
+\end{exercise}
+\lessboxspace
+\begin{hardExercise}
+  Ukažte, že když pro dvě množiny $a, b$ platí $a \setminus b = b \setminus a$,
+  pak už nutně $a = b$.
+\end{hardExercise}
+
 \subsection{Axiom dvojice}
 \label{ssec:axiom-dvojice}
 
@@ -515,10 +541,155 @@ vyřkli definici funkce, již pro úplnost vytesáme do ... papíru.
   \hyperref[def:funkce]{Funkce} jsou natolik běžným druhem
   \hyperref[def:relace]{relací}, že sobě vysloužily vlastní značení. Fakt, že
   relace $f$ z množiny $a$ do množiny $b$ je \emph{funkce}, zapisujeme symbolem
-  $f\colon a \to b$. Fakt $(x, y) \in f$ píšeme jako $f(x) = y$.
+  $f\colon a \to b$. Fakt $(x, y) \in f$ píšeme jako $f(x) = y$, kde použití
+  rovnosti je ospravedlněno právě podmínkou, že k danému $x$ takové $y$ existuje
+  jen jedno.
 \end{notation}
 O funkcích budeme šířeji hovořit až výrazně později v tomto textu.
 
-Nyní představíme několik běžných vlastností, kterých mohou relace nabývat, a
-poté několik speciálních typů relací -- vzniknuvších kombinací těchto vlastností
--- jejichž užitečnost zůstane chvíli halena rouchem časův budoucích.
+Mimo funkce se šířeji zmíníme o relacích \emph{na množině}. Tak přezdíváme
+relacím, které vedou z množiny do téže množiny, tedy relacím $r \subseteq a
+\times a$. Představíme několik běžných vlastností, kterých mohou relace na
+množině nabývat, a poté několik speciálních typů relací -- vzniknuvších
+kombinací těchto vlastností -- jejichž užitečnost zůstane chvíli halena rouchem
+časův budoucích.
+
+\begin{definition}[Vlastnosti relací na množině]
+  \label{def:vlastnosti-relaci-na-mnozine}
+  Ať $r$ je relace na množině $a$, tedy $r \subseteq a \times a$. Řekneme, že
+  $r$ je
+  \begin{itemize}
+    \item \alert{reflexivní}, když $(x, x) \in r$ pro každé $x \in a$, čili
+      \alert{každý prvek je ve vztahu sám se sebou};
+    \item \alert{symetrická}, když $(x, y) \in r \Rightarrow (y, x) \in r$ pro
+      všechna $x, y \in a$, neboli \alert{vztah mezi prvky je vzájemný};
+    \item \alert{antisymetrická}, když $(x, y) \in r \Rightarrow (y, x) \notin
+      r$ pro všechna $x, y \in a$, neboli \alert{vztah mezi prvky je
+      jednosměrný};
+    \item \alert{slabě antisymetrická}, když $((x, y) \in r \wedge (y, x) \in
+      r) \Leftarrow x = y$ pro všechna $x, y \in a$, neboli
+      \alert{antisymetrická až na vztah prvků k sobě samým};
+    \item \alert{transitivní}, když $((x, y) \in r \wedge (y, z) \in r)
+      \Rightarrow (x, z) \in r$ pro všechna $x, y, z \in r$, neboli \alert{vztah
+      se přenáší přes prostředníka}.
+  \end{itemize}
+\end{definition}
+
+Mnoho s relací, s nimiž jste se již setkali (akorát jste jich nenazývali
+relacemi) nesou některé z vlastností výše. Pro naše účely definujeme dva
+mimořádné druhy relací: \emph{ekvivalenci} a \emph{uspořádání}.
+
+Relace \emph{ekvivalence} je relace na množině, jejímž účelem je být jakousi
+\emph{zobecněnou rovností} či rovností podle daného kritéria. Například, uvažme
+množinu všech lidí, na níž lze určit, že dva lidé jsou ve vztahu, když jsou
+stejně staří. Tím se nám přirozeně množina lidí rozpadá na podmnožiny stejně
+starých lidí. Pochopitelně, dva lidé nejsou \emph{doslova} stejní, když jsou
+stejného věku, ale sdílejí spolu jistou vlastnost -- jsou \emph{ekvivalentní}
+podle relace \uv{být stejně starý}.
+
+\begin{definition}[Relace ekvivalence]
+  \label{def:relace-ekvivalence}
+  Relace $r$ na množině $a$ se nazývá \emph{ekvivalence}, když je
+  \emph{reflexivní}, \emph{symetrická} a \emph{transitivní}.
+\end{definition}
+\begin{example}
+  \label{exam:relace-ekvivalence}
+  Relace \uv{být stejně starý} na množině lidí je
+  \hyperref[def:relace-ekvivalence]{ekvivalence}. Je
+  \begin{itemize}
+    \item \emph{reflexivní}, protože každý člověk je stejně starý jako on sám;
+    \item \emph{symetrická}, protože když je Adam stejně starý jako Bedřich, pak
+      je jistě Bedřich stejně starý jako Adam;
+    \item \emph{transitivní}: když je Adam stejně starý jako Bedřich a Bedřich
+      stejně starý jako Cyril, pak je Adam stejně starý jako Cyril.
+  \end{itemize}
+\end{example}
+\begin{example}
+  \label{exam:ekvivalence-2}
+  Relace
+  \[
+    r = \{(x, x), (y, y), (z, z), (w, w), (x, y), (y, x), (y, w), (w, y), (x,
+    w), (w, x)\}
+  \]
+  je \hyperref[def:relace-ekvivalence]{ekvivalence} na množině $\{x, y, z, w\}$.
+  Vskutku, je
+  \begin{itemize}
+    \item \emph{reflexivní}, protože obsahuje dvojice $(x, x), (y, y), (z,
+      z)$ a $(w, w)$.
+    \item \emph{symetrická}, protože s dvojicí $(x, y)$ obsahuje též dvojici
+      $(y, x)$, s dvojicí $(y, w)$ též dvojici $(w, y)$ a s dvojicí $(x, w)$ též
+      dvojici $(w, x)$.
+    \item \emph{transitivní}, protože s dvojicemi $(x, y)$ a $(y, w)$ obsahuje
+      též dvojici $(x, w)$ apod.
+  \end{itemize}
+  Tato ekvivalence říká, že na množině $\{x, y, z, w\}$ jsou prvky $x, y$ a $w$
+  ekvivalentní a $z$ je ekvivalentní pouze sám sobě.
+\end{example}
+\begin{example}
+  \label{exam:ekvivalence-zlomky}
+  Relace \uv{mít stejnou hodnotu} na množině všech zlomků (čili množině všech
+  výrazů typu $x / y$, kde $x, y$ jsou celá) je
+  \hyperref[def:relace-ekvivalence]{ekvivalence}. Všimněme si, že například
+  zlomky $2 / 5$ a $4 / 10$ \textbf{si nejsou rovny}, protože $2 \neq 4$ a $5
+  \neq 10$, ale \textbf{jsou ekvivalentní} ve smyslu, že představují tutéž
+  hodnotu, kterou můžeme vyjádřit třeba desetinným číslem $0.4$.
+\end{example}
+\begin{example}
+  \label{exam:ekvivalence-rovnost}
+  Relace $=$ (být roven) je \hyperref[def:relace-ekvivalence]{ekvivalencí} na
+  jakékoli množině. Je \emph{reflexivní}, anobrž každý prvek jest sám sobě
+  roven, a je triviálně \emph{symetrická} i \emph{transitivní}, protože žádné
+  dva různé prvky nejsou ve vztahu rovnosti.
+\end{example}
+
+\begin{notation}
+  Některé relace jsou natolik běžné, že sobě vysloužily vlastní značení,
+  například relace rovnosti z \myref{příkladu}{exam:ekvivalence-rovnost}.
+  Nezacházíme s nimi jako s množinami a symbol relace píšeme mezi prvky dvojice,
+  i.e. píšeme $x = y$ místo \uv{správného} $(x, y) \in~=$, nebo též relace $<$ a
+  $ \leq $ (více o nich níže). My samozřejmě toto značení upravovat nebudeme,
+  ale budeme-li relace značit písmeny (třeba $r$), budeme stále psát $(x, y) \in
+  r$, a ne $xry$, abychom tvrdili, že $x$ je ve vztahu $r$ s $y$.
+\end{notation}
+
+Další v řadě (pun intended) je relace \emph{uspořádání}, která je zobecněním
+vztahu \uv{být menší~/~větší} na libovolné množině. Umožňuje množinu rozdělit na
+podmnožiny postupně větších prvků.
+
+\begin{definition}[Uspořádání]
+  \label{def:usporadani}
+  Relace $r$ na množině $a$ se nazývá \emph{ostré uspořádání}, když je
+  \emph{antisymetrická} a \emph{transitivní}.
+
+  Nazývá se \emph{neostré uspořádání}, když je \emph{reflexivní}, \emph{slabě
+  antisymetrická} a \emph{transitivní}.
+\end{definition}
+\begin{example}
+  \label{exam:usporadani}
+  Relace $<$ (být menší) na množině přirozených čísel je
+  \hyperref[def:usporadani]{ostré uspořádání}. Je
+  \begin{itemize}
+    \item \emph{antisymetrická}: když $x < y$, pak jistě neplatí $y < x$;
+    \item \emph{transitivní}: když $x < y$ a $y < z$, pak $x < z$.
+  \end{itemize}
+  Oproti tomu, relace $ \leq $ (být menší nebo roven) je
+  \hyperref[def:usporadani]{neostré uspořádání}. Je
+  \begin{itemize}
+    \item \emph{reflexivní}, protože $x \leq x$ pro každé číslo $x$;
+    \item \emph{slabě antisymetrická}: když platí $x \leq y$ a $y \leq x$, tak
+      potom $x = y$;
+    \item \emph{transitivní}: když $x \leq y$ a $y \leq z$, pak $x \leq z$.
+  \end{itemize}
+\end{example}
+\begin{example}
+  \label{exam:usporadani-delitelnosti}
+  Relace \uv{být dělitelem} na množině přirozených čísel je
+  \hyperref[def:usporadani]{neostré uspořádání}. Je
+  \begin{itemize}
+    \item \emph{reflexivní}, protože každé číslo dělí samo sebe;
+    \item \emph{slabě antisymetrické}: když číslo $x$ dělí číslo $y$ a zároveň
+      $y$ dělí $x$, pak se $x$ a $y$ musejí rovnat;
+    \item \emph{transitivní}: když $x$ dělí $y$ a $y$ dělí $z$, tak potom $x$
+      dělí $z$.
+  \end{itemize}
+\end{example}
