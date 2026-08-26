@@ -157,7 +157,8 @@
     \node[anchor=south east, inner sep=0pt, xshift=-\Gm@rmargin,
     yshift=\Gm@bmargin] at (current page.south east) { % Mini table of contents
       \parbox[t][][t]{8.5cm}{ % Width of box holding the mini ToC
-        \printcontents[part]{l}{0}{\setcounter{tocdepth}{1}} %
+        \begingroup\setcounter{tocdepth}{1}\printcontents[part]{l}{0}{}\endgroup
+        %
         % Display the mini table of contents showing chapters and
         % sections, change tocdepth to 2 to also show subsections or
         % 0 to only show chapters
@@ -353,7 +354,7 @@
 
 \usepackage{titletoc} % Required for manipulating the table of contents
 
-\setcounter{tocdepth}{3} % Display down to subsections in the table of contents
+\setcounter{tocdepth}{2} % Display down to subsections in the table of contents
 
 \contentsmargin{0cm} % Removes the default right margin
 
@@ -626,6 +627,7 @@
 \bookmarksetup{
   open, % Open all bookmark drawers automatically
   numbered, % Add section numbers to bookmarks
+  depth=3, % Show bookmarks down to subsubsections (matches tocdepth)
   addtohook={%
     \ifnum\bookmarkget{level}=-1 % Customize part bookmarks
     \bookmarksetup{color=DarkCyan, bold}% Bold and colored
