@@ -539,20 +539,55 @@ vyřkli definici funkce, již pro úplnost vytesáme do ... papíru.
 \end{definition}
 \begin{notation}
   \hyperref[def:funkce]{Funkce} jsou natolik běžným druhem
-  \hyperref[def:relace]{relací}, že sobě vysloužily vlastní značení. Fakt, že
-  relace $f$ z množiny $a$ do množiny $b$ je \emph{funkce}, zapisujeme symbolem
-  $f\colon a \to b$. Fakt $(x, y) \in f$ píšeme jako $f(x) = y$, kde použití
-  rovnosti je ospravedlněno právě podmínkou, že k danému $x$ takové $y$ existuje
-  jen jedno.
+  \hyperref[def:relace]{relací}, že sobě vysloužily vlastních značení a
+  pojmenování. Fakt, že relace $f$ z množiny $a$ do množiny $b$ je
+  \emph{funkce}, zapisujeme symbolem $f\colon a \to b$. Fakt $(x, y) \in f$
+  píšeme jako $f(x) = y$, kde použití rovnosti je ospravedlněno právě podmínkou,
+  že k danému $x$ takové $y$ existuje jen jedno. Místo slova \emph{funkce} též
+  často používáme \emph{zobrazení}.
+
+  Pro prvky ve dvojicích jisté funkce se rovněž ujala zvláštní slova. Vezměme
+  nějakou funkci $f\colon a \to b$.
+  \begin{itemize}
+    \item Je-li $x \in a$, pak prvek $f(x) \in b$ sluje \emph{obraz} prvku $x$
+      při zobrazení $f$.
+    \item Naopak, když $y \in b$, pak \textbf{množinu} všech prvků $x$, pro
+      které platí $f(x) = y$, nazýváme \emph{vzorem} prvku $y$ při zobrazení
+      $f$. Zapisujeme ji jako $f^{-1}(y)$. Symbolicky
+      \[
+        f^{-1}(y) = \{x \in a \mid f(x) = y\}.
+      \]
+    \item Pojmy \emph{vzor} a \emph{obraz} rozšiřujeme též na podmnožiny množin
+      $a$ a $b$. Je-li $c \subseteq a$, pak definujeme
+      \[
+        f(c) = \{f(x) \in b \mid x \in a\},
+      \]
+      tedy množinu všech obrazů prvků z $c$, které říkáme také \emph{obraz}
+      množiny $c$. Naopak, je-li $d \subseteq b$, pak definujeme
+      \[
+        f^{-1}(d) = \{x \in a \mid f(x) \in d\},
+      \]
+      tedy množinu všech vzorů prvků z množiny $d$, které též říkáme \emph{vzor}
+      množiny $d$ při zobrazení $f$.
+  \end{itemize}
 \end{notation}
+\begin{example}
+  \label{exam:funkce}
+  Uvažme množinu všech lidí $l$ a množinu všech přirozených čísel $\N$. Ať
+  $f\colon l \to \N$ je funkce, která každému člověku přiřadí jeho rok narození.
+  Tedy, když se třeba Adam narodil v roce 1996, pak $f(\text{Adam}) = 1996$. Rok
+  $1996$ je \emph{obrazem} člověka Adama při zobrazení $f$. To též znamená, že
+  $\text{Adam} \in f^{-1}(1996)$, tedy člověk Adam patří do \emph{vzoru} roku
+  1996 při zobrazení $f$. Není ale v tomto vzoru sám; jsou v něm všichni lidé,
+  kteří se narodili v roce 1996.
+\end{example}
 O funkcích budeme šířeji hovořit až výrazně později v tomto textu.
 
-Mimo funkce se šířeji zmíníme o relacích \emph{na množině}. Tak přezdíváme
-relacím, které vedou z množiny do téže množiny, tedy relacím $r \subseteq a
-\times a$. Představíme několik běžných vlastností, kterých mohou relace na
-množině nabývat, a poté několik speciálních typů relací -- vzniknuvších
-kombinací těchto vlastností -- jejichž užitečnost zůstane chvíli halena rouchem
-časův budoucích.
+Mimo funkce se zmíníme o relacích \emph{na množině}. Tak přezdíváme relacím,
+které vedou z~množiny do téže množiny, tedy relacím $r \subseteq a \times a$.
+Představíme několik běžných vlastností, kterých mohou relace na množině nabývat,
+a poté několik speciálních typů relací -- vzniknuvších kombinací těchto
+vlastností -- jejichž užitečnost zůstane chvíli halena rouchem časův budoucích.
 
 \begin{definition}[Vlastnosti relací na množině]
   \label{def:vlastnosti-relaci-na-mnozine}
