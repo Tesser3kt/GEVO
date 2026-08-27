@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber main"] 1787654019.05281 "main.bcf" "main.bbl" "main" 1787765543.57992 0
-  "main.bcf" 1787765543.48303 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
+["biber main"] 1787654019.05281 "main.bcf" "main.bbl" "main" 1787910178.54531 0
+  "main.bcf" 1787910178.44807 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1787653830.0488 "main.idx" "main.ind" "main" 1787765543.57984 0
-  "main.idx" 1787765542.71 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1787653830.0488 "main.idx" "main.ind" "main" 1787910178.54521 0
+  "main.idx" 1787910177.36104 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1787765542.29632 "main.tex" "main.pdf" "main" 1787765543.58008 0
+["pdflatex"] 1787910176.92529 "main.tex" "main.pdf" "main" 1787910178.54547 0
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/enc/dvips/base/8r.enc" 1 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/map/fontname/texfonts.map" 1 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/avantgar/pagd8r.tfm" 1 4840 6a894dde946186de9a64269f0edd24e5 ""
@@ -104,6 +104,7 @@
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex" 1 35251 5ff5b5b310c5ac882610e0ccc99095e7 ""
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex" 1 22012 81b34a0aa8fa1a6158cc6220b00e4f10 ""
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex" 1 8893 e851de2175338fdf7c17f3e091d94618 ""
+  "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex" 1 3937 3f208572dd82c71103831da976d74f1a ""
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex" 1 339 be0fe46d92a80e3385dd6a83511a46f2 ""
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex" 1 11518 738408f795261b70ce8dd47459171309 ""
   "/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex" 1 186859 0445d9a41a87648b4723e04765409541 ""
@@ -262,24 +263,24 @@
   "/nix/store/46z7p23b3pbs29w5z90d2qbdfrad6j3k-texlive-2025-r78234-final-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 5541489 d2c12742d44c34be8eff5dc71415ec3a ""
   "/nix/store/46z7p23b3pbs29w5z90d2qbdfrad6j3k-texlive-2025-r78234-final-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 3637240 ec32c15dd725c2982dccd90e57a64ea4 ""
   "/nix/store/46z7p23b3pbs29w5z90d2qbdfrad6j3k-texlive-2025-r78234-final-env/share/texmf-var/web2c/texmf.cnf" 1 44263 752c4390f7ad688d310d3b88c055dac7 ""
-  "LegrandOrangeBook.cls" 1787764117.19674 40507 5702793e5395dc7034f8cf2d236ce090 ""
-  "figs/background.pdf" 1784719589.72583 13886067 51629c61750d5c30eb8d20b5c7e24595 ""
-  "figs/deer-grazing.jpg" 1784719589.72683 221807 be685400dfe7508c045ff14a2ab9cbd0 ""
-  "figs/part1.jpg" 1784719589.72883 76435 5114e3179f4cdcf49093efe406fbbca5 ""
-  "figs/section1.jpg" 1784719589.72883 25586 f54de5d73b4c0c73811994a2802a0d0c ""
-  "main.aux" 1787765543.48003 18018 4168ac8e4395696fcb69a8119fbae6d0 "pdflatex"
-  "main.bbl" 1787764117.19674 466 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.ind" 1784719589.72983 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.ptc" 1787765543.484 1180 f9d80994724b80e4a0140c01e2a127cc "pdflatex"
-  "main.run.xml" 1787765543.484 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
-  "main.tex" 1787764231.44437 5028 07f99cebf406cf3335872c788eaa2f09 ""
-  "main.toc" 1787765543.484 1157 cad826ce013fc3ef6a3482d010321bcb "pdflatex"
-  "mnoziny_logika.tex" 1786900282.97009 176 4b520f85d7396f707598bbc46ddf6ac3 ""
-  "mnoziny_logika/logika.tex" 1786900282.97009 3246 ba1659c9a4e5e6f46f506d760d061b49 ""
-  "mnoziny_logika/logika/teorie-modelu.tex" 1786900282.97009 4515 38c3c0d4b3c76f3302fefe70975c04df ""
-  "mnoziny_logika/logika/vyrokova-a-predikatova-logika.tex" 1786900282.97009 19996 a98fc41682d0562d3efcc7f638e10b1f ""
-  "mnoziny_logika/mnoziny.tex" 1787208762.99724 2367 682c4dcbe71a94c8c242046417bf66e1 ""
-  "mnoziny_logika/mnoziny/axiomy.tex" 1787765541.56495 36292 ba554e9f6bf1a87dfff213c1855955fd ""
+  "LegrandOrangeBook.cls" 1787905350.98688 40509 c0c1423357ab784e0641da4e157b8c7d ""
+  "figs/background.pdf" 1779949666.95083 13886067 51629c61750d5c30eb8d20b5c7e24595 ""
+  "figs/deer-grazing.jpg" 1783159271.33437 221807 be685400dfe7508c045ff14a2ab9cbd0 ""
+  "figs/part1.jpg" 1779971858.82616 76435 5114e3179f4cdcf49093efe406fbbca5 ""
+  "figs/section1.jpg" 1780039773.33605 25586 f54de5d73b4c0c73811994a2802a0d0c ""
+  "main.aux" 1787910178.44307 22457 20643a4b8f26d4eca9c8d17af77776ec "pdflatex"
+  "main.bbl" 1787654019.87924 466 76d65a242ec496c9b4361af646ff12cb "biber main"
+  "main.ind" 1787653830.14191 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.ptc" 1787910178.44907 1278 41bb5390cf297a3af822186c4fdf043e "pdflatex"
+  "main.run.xml" 1787910178.44907 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
+  "main.tex" 1787908852.21725 5028 07f99cebf406cf3335872c788eaa2f09 ""
+  "main.toc" 1787910178.44907 1255 7525d50f606d7ae8e1650fd804b4dcfd "pdflatex"
+  "mnoziny_logika.tex" 1786362315.5491 176 4b520f85d7396f707598bbc46ddf6ac3 ""
+  "mnoziny_logika/logika.tex" 1786259903.83757 3246 ba1659c9a4e5e6f46f506d760d061b49 ""
+  "mnoziny_logika/logika/teorie-modelu.tex" 1786168370.61282 4515 38c3c0d4b3c76f3302fefe70975c04df ""
+  "mnoziny_logika/logika/vyrokova-a-predikatova-logika.tex" 1786362107.78945 19996 a98fc41682d0562d3efcc7f638e10b1f ""
+  "mnoziny_logika/mnoziny.tex" 1787652575.45777 2367 682c4dcbe71a94c8c242046417bf66e1 ""
+  "mnoziny_logika/mnoziny/axiomy.tex" 1787910176.314 47226 39edc6c0cd1d18ae023d3de9d3f49876 ""
   (generated)
   "main.aux"
   "main.bcf"

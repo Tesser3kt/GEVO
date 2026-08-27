@@ -728,3 +728,286 @@ podmnožiny postupně větších prvků.
       dělí $z$.
   \end{itemize}
 \end{example}
+
+\begin{exercise}
+  Najděte aspoň tři různé ekvivalence a tři různá uspořádání na množině všech
+  lidí.
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Uvažte relaci $r \subseteq a \times a$ na množině $a = \{x, y, z\}$ danou jako
+  \[
+    r = \{(x, x), (y, y), (x, y), (y, x), (x, z), (z, x)\}.
+  \]
+  Je $r$
+  \begin{enumerate}
+    \item funkce (z $a$ do $a$)?
+    \item ekvivalence?
+    \item ostré uspořádání?
+    \item neostré uspořádání?
+  \end{enumerate}
+  Proč?
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Odeberte nebo přidejte \textbf{co nejmenší počet dvojic}, aby se z relace
+  \[
+    r = \{(\vartriangleright, 1), (\odot, 1), (\odot, 2)\}
+  \]
+  stala funkce z $\{\vartriangleright, \odot, \times\}$ do $\{1, 2, 3\}$.
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Najděte dvě různé ekvivalence a dvě různá ostrá uspořádání na množině
+  \[
+    a = \{\vartriangleright, \odot, \times\}.
+  \]
+\end{exercise}
+
+\subsubsection{Kreslení relací}
+\label{sssec:kresleni-relaci}
+
+Rozebereme dva oblíbené způsoby zakreslení součinu množin a relací. Jak jsme
+uvedli v \myref{příkladu}{exam:usporadana-dvojice}, čtenáři se jistě měli
+možnost setkat s \hyperref[def:soucin-mnozin]{součinem množin} v souvislosti se
+souřadnicemi v rovině: body v rovině jsou uspořádané dvojice reálných čísel.
+Tyto body obvykle zakreslujeme tak, že první ze souřadnic umístíme na vodorovnou
+osu a druhou ze souřadnic na osu na ni kolmou: vertikální. Zcela stejně můžeme
+zakreslit i součin libovolných dvou množin. Pro dvě množiny $\clr{a = \{x, y\}}$
+a $\clb{b = \{\vartriangleright, \odot, \times\}}$ je jeden způsob, kterak
+kreslit množinu $\clr{a} \times \clb{b}$, vyobrazen
+\myref{obrázkem}{fig:nakresleni-soucinu}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (x) {$\strut\clr{x}$};
+    \node[baseline=x.base] at (1, -0.75) {$\strut\clr{y}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+    \node[above right=-1pt and -1pt] at (1, 1) {$(\clr{y}, \clb{\odot})$};
+  \end{tikzpicture}
+
+  \caption{Nakreslení množiny $\clr{\{x, y\}} \times \clb{\{\vartriangleright,
+  \odot, \times\}}.$}
+  \label{fig:nakresleni-soucinu}
+\end{figure}
+
+Protože relace z $\clr{a}$ do $\clb{b}$ jsou pouhými podmnožinami součinu
+$\clr{a} \times \clb{b}$ můžeme je zakreslit do mříže na
+\myref{obrázku}{fig:nakresleni-soucinu} zkrátka tak, že zvýrazníme dvojice, jež
+do ní patří. Pro příklad uvažme relaci $\clg{r = \{(x, \vartriangleright), (x,
+\odot), (x, \times), (y, \odot)\}}$ z $\clr{a}$ do $\clb{b}$. Nakreslení takové
+relace můžete vidět na \myref{obrázku}{fig:nakresleni-relace-mriz}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (x) {$\strut\clr{x}$};
+    \node[baseline=x.base] at (1, -0.75) {$\strut\clr{y}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+
+    \foreach \y in {0, 1, 2} {
+      \node[circle,draw=ForestGreen,inner sep=4pt,thick] at (0, \y) {};
+    }
+    \node[circle,draw=ForestGreen,inner sep=4pt,thick] at (1, 1) {};
+  \end{tikzpicture}
+
+  \caption{Nakreslení relace $\clg{r = \{(x, \vartriangleright), (x,\odot), (x,
+  \times), (y, \odot)\}}$.}
+  \label{fig:nakresleni-relace-mriz}
+\end{figure}
+
+Pro zajímavost a rozšíření katalogu příkladů relací ukážeme, jak se některé
+\hyperref[def:vlastnosti-relaci-na-mnozine]{vlastnosti relací na množině}
+projevují v jejich visuální podobě.
+
+Relace na \myref{obrázku}{fig:nakresleni-funkce-mriz} je \emph{funkce}. Lze to
+poznat stejným způsobem, na který jste zvyklí z~\emph{grafů} funkcí: na každé
+svislé čáře smí ležet maximálně jeden její bod.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (t) {$\strut\clb{\vartriangleright}$};
+    \node[baseline=t.base] at (1, -0.75) {$\strut\clb{\odot}$};
+    \node[baseline=t.base] at (2, -0.75) {$\strut\clb{\times}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1, 2} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 0) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 2) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 1) {};
+  \end{tikzpicture}
+
+  \caption{Zakreslení funkce $\clg{f = \{(\vartriangleright,
+  \vartriangleright), (\odot, \times), (\times, \odot)\}}$.}
+  \label{fig:nakresleni-funkce-mriz}
+\end{figure}
+
+Dále, na \myref{obrázku}{fig:nakresleni-reflexivni-relace} můžete vidět příklad
+\emph{reflexivní} relace. Poznáte je tak, že body na uhlopříčce z levého dolního
+rohu do pravého horního rohu, jež odpovídají dvojicím obsahujícím dvakrát týž
+prvek, jsou vyznačeny. Ostatní body vyznačeny být mohou, leč nemusejí.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (t) {$\strut\clb{\vartriangleright}$};
+    \node[baseline=t.base] at (1, -0.75) {$\strut\clb{\odot}$};
+    \node[baseline=t.base] at (2, -0.75) {$\strut\clb{\times}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1, 2} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 0) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 2) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 2) {};
+  \end{tikzpicture}
+
+  \caption{Zakreslení \emph{reflexivní} relace $\clg{r = \{(\vartriangleright,
+        \vartriangleright), (\odot, \odot), (\times, \times),
+  (\vartriangleright, \odot), (\vartriangleright, \times)\}}$.}
+  \label{fig:nakresleni-reflexivni-relace}
+\end{figure}
+
+Relace \emph{symetrické} jsou rovněž \emph{geometricky} symetrické. Jejich
+obrázky jsou vždy souměrné podle již zmíněné uhlopříčky z levého dolního do
+pravého horního rohu. Vizte \myref{obrázek}{fig:nakresleni-symetricke-relace}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (t) {$\strut\clb{\vartriangleright}$};
+    \node[baseline=t.base] at (1, -0.75) {$\strut\clb{\odot}$};
+    \node[baseline=t.base] at (2, -0.75) {$\strut\clb{\times}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1, 2} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 0) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 0) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 2) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 1) {};
+  \end{tikzpicture}
+
+  \caption{Nakreslení symetrické relace $\clg{r = \{(\vartriangleright,
+        \vartriangleright), (\vartriangleright, \odot), (\odot,
+        \vartriangleright),
+  (\odot, \times), (\times, \odot)\}}$.}
+  \label{fig:nakresleni-symetricke-relace}
+\end{figure}
+
+Transitivní relace mají geometricky neprůzračnou interpretaci -- můžete ji
+zkusit odhalit za cvičení.
+
+\begin{hardExercise}
+  Popište podrobně geometrické vlastnosti obrázků \emph{transitivních} relací na
+  množině.
+\end{hardExercise}
+
+Oproti symetrickým relacím jsou \emph{slabě antisymetrické} relace právě
+(překvápko...) zcela geometricky nesymetrické. Mohou obsahovat prvky na
+uhlopříčce, ale v moment, kdy obsahují bod mimo uhlopříčku, tak nesmějí z
+definice obsahovat bod zrcadlený podle téže uhlopříčky. Příklad nakreslení slabě
+antisymetrické relace vizte na
+\myref{obrázku}{fig:nakresleni-slabe-antisymetricke-relace}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (t) {$\strut\clb{\vartriangleright}$};
+    \node[baseline=t.base] at (1, -0.75) {$\strut\clb{\odot}$};
+    \node[baseline=t.base] at (2, -0.75) {$\strut\clb{\times}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1, 2} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 2) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 1) {};
+  \end{tikzpicture}
+
+  \caption{Nakreslení \emph{slabě antisymetrické} relace $\clg{r =
+      \{(\vartriangleright, \odot), (\odot, \odot), (\times, \times), (\times,
+  \odot)\}}$.}
+  \label{fig:nakresleni-slabe-antisymetricke-relace}
+\end{figure}
+
+Mimo kreslení relace do soustavy souřadnic součinu množin, jehož podmnožinou
+jsou, můžeme též vztahy mezi prvky značit šipkami mezi nimi. Tento způsob
+zakreslování relací je zvlášť užitečný pro funkce, o nichž často přemýšlíme jako
+o relací, které z \uv{prvků jedné množiny dělají prvky množiny druhé}.
+Kupříkladu funkci $\clg{f}\colon \clr{\{x, y\}} \to \clb{\{\vartriangleright,
+\odot, \times\}}$, danou předpisy $\clg{f}(\clr{x}) = \clb{\odot}$ a
+$\clg{f}(\clr{y}) = \clb{\vartriangleright}$ můžete vidět nakreslenou šipkami na
+\myref{obrázku}{fig:nakresleni-funkce-sipkami}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, 0) {$\clr{x}$};
+    \node at (0, 1) {$\clr{y}$};
+    \node at (2, 0) {$\clb{\vartriangleright}$};
+    \node at (2, 1) {$\clb{\odot}$};
+    \node at (2, 2) {$\clb{\times}$};
+
+    \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+    0) -- (2, 1);
+    \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+    1) -- (2, 0);
+  \end{tikzpicture}
+
+  \caption{Nakreslení funkce $\clg{f} = \{(\clr{x}, \clb{\odot}), (\clr{y},
+  \clb{\vartriangleright})\}$.}
+  \label{fig:nakresleni-funkce-sipkami}
+\end{figure}
