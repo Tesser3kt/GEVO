@@ -38,7 +38,7 @@
 \usepackage{float} % Allows more precisely positioning floats e.g.
 % \begin{figure}[H]
 
-\usepackage[usenames, svgnames, table]{xcolor} % Required for
+\usepackage[svgnames, table]{xcolor} % Required for
 % defining and using custom colors
 
 \usepackage{calc} % For simpler calculations - used for spacing the
@@ -1030,7 +1030,7 @@
 
 \usepackage{tikz} % Required for drawing custom shapes and
 % positioning elements absolutely on the page
-\usetikzlibrary{shapes.geometric,arrows.meta}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning}
 
 %----------------------------------------------------------------------------------------
 %   HELPFUL COMMANDS AND MACROS
