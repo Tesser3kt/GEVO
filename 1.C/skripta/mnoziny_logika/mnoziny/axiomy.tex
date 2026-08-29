@@ -932,7 +932,7 @@ pravého horního rohu. Vizte \myref{obrázek}{fig:nakresleni-symetricke-relace}
     \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 1) {};
   \end{tikzpicture}
 
-  \caption{Zakreslení symetrické relace $\clg{r = \{(\vartriangleright,
+  \caption{Nakreslení symetrické relace $\clg{r = \{(\vartriangleright,
         \vartriangleright), (\vartriangleright, \odot), (\odot,
         \vartriangleright),
   (\odot, \times), (\times, \odot)\}}$.}
@@ -946,3 +946,68 @@ zkusit odhalit za cvičení.
   Popište podrobně geometrické vlastnosti obrázků \emph{transitivních} relací na
   množině.
 \end{hardExercise}
+
+Oproti symetrickým relacím jsou \emph{slabě antisymetrické} relace právě
+(překvápko...) zcela geometricky nesymetrické. Mohou obsahovat prvky na
+uhlopříčce, ale v moment, kdy obsahují bod mimo uhlopříčku, tak nesmějí z
+definice obsahovat bod zrcadlený podle téže uhlopříčky. Příklad nakreslení slabě
+antisymetrické relace vizte na
+\myref{obrázku}{fig:nakresleni-slabe-antisymetricke-relace}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (t) {$\strut\clb{\vartriangleright}$};
+    \node[baseline=t.base] at (1, -0.75) {$\strut\clb{\odot}$};
+    \node[baseline=t.base] at (2, -0.75) {$\strut\clb{\times}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1, 2} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 2) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 1) {};
+  \end{tikzpicture}
+
+  \caption{Nakreslení \emph{slabě antisymetrické} relace $\clg{r =
+      \{(\vartriangleright, \odot), (\odot, \odot), (\times, \times), (\times,
+  \odot)\}}$.}
+  \label{fig:nakresleni-slabe-antisymetricke-relace}
+\end{figure}
+
+Mimo kreslení relace do soustavy souřadnic součinu množin, jehož podmnožinou
+jsou, můžeme též vztahy mezi prvky značit šipkami mezi nimi. Tento způsob
+zakreslování relací je zvlášť užitečný pro funkce, o nichž často přemýšlíme jako
+o relací, které z \uv{prvků jedné množiny dělají prvky množiny druhé}.
+Kupříkladu funkci $\clg{f}\colon \clr{\{x, y\}} \to \clb{\{\vartriangleright,
+\odot, \times\}}$, danou předpisy $\clg{f}(\clr{x}) = \clb{\odot}$ a
+$\clg{f}(\clr{y}) = \clb{\vartriangleright}$ můžete vidět nakreslenou šipkami na
+\myref{obrázku}{fig:nakresleni-funkce-sipkami}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, 0) {$\clr{x}$};
+    \node at (0, 1) {$\clr{y}$};
+    \node at (2, 0) {$\clb{\vartriangleright}$};
+    \node at (2, 1) {$\clb{\odot}$};
+    \node at (2, 2) {$\clb{\times}$};
+
+    \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+    0) -- (2, 1);
+    \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+    1) -- (2, 0);
+  \end{tikzpicture}
+
+  \caption{Nakreslení funkce $\clg{f} = \{(\clr{x}, \clb{\odot}), (\clr{y},
+  \clb{\vartriangleright})\}$.}
+  \label{fig:nakresleni-funkce-sipkami}
+\end{figure}
