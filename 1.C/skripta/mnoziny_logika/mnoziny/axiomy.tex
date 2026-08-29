@@ -513,15 +513,15 @@ uvažme kupříkladu lineární funkci zapsanou rovnicí $y = 2x + 5$. Tato rovn
 říká, že druhá souřadnice $y$ je rovna $2x + 5$, když první souřadnice je $x$.
 Je-li třeba $x = 2$, pak $y = 2 \cdot 2 + 5 = 9$, čili zápis $y = 2x + 5$
 zachycuje \textbf{množinu těch uspořádaných dvojic} reálných čísel $(x, y)$,
-pro něž platí, že $y = 2x + 5$. Ovšem, množinu uspořádaných dvojic je přeci
+pro něž platí, že $y = 2x + 5$. Ovšem, množina uspořádaných dvojic je přeci
 \hyperref[def:relace]{relace}. Čili, zápis funkce $y = 2x + 5$ můžeme přímočaře
 chápat jako definici relace $\{(x, y) \mid y = 2x + 5\}$.
 
 Všechny funkce jsou relacemi, ale jistě ne všechny relace jsou funkcemi.
-Součástí definice funkce je fakt, že: \uv{Jednomu $x$ odpovídá nejvýše jedno
-$y$,} což v jazyce relací znamená, že jeden prvek $x$ první množiny smí být ve
-vztahu (ve dvojici) s nejvýše jedním prvkem $y$ z~množiny druhé. Právě jsme
-vyřkli definici funkce, již pro úplnost vytesáme do ... papíru.
+Součástí definice funkce je fakt: \uv{Jednomu $x$ odpovídá nejvýše jedno $y$,}
+kterýž přeneseně znamená, že jeden prvek $x$ z první množiny smí být ve vztahu
+(ve dvojici) s nejvýše jedním prvkem $y$ z~množiny druhé. Právě jsme vyřkli
+definici funkce, již pro úplnost vytesáme do ... papíru.
 
 \begin{definition}[Funkce]
   \label{def:funkce}
@@ -541,7 +541,7 @@ vyřkli definici funkce, již pro úplnost vytesáme do ... papíru.
   \hyperref[def:funkce]{Funkce} jsou natolik běžným druhem
   \hyperref[def:relace]{relací}, že sobě vysloužily vlastních značení a
   pojmenování. Fakt, že relace $f$ z množiny $a$ do množiny $b$ je
-  \emph{funkce}, zapisujeme symbolem $f\colon a \to b$. Fakt $(x, y) \in f$
+  \emph{funkce}, zapisujeme symbolem $f\colon a \to b$. Výrok $(x, y) \in f$
   píšeme jako $f(x) = y$, kde použití rovnosti je ospravedlněno právě podmínkou,
   že k danému $x$ takové $y$ existuje jen jedno. Místo slova \emph{funkce} též
   často používáme \emph{zobrazení}.
@@ -602,7 +602,7 @@ vlastností -- jejichž užitečnost zůstane chvíli halena rouchem časův bud
       r$ pro všechna $x, y \in a$, neboli \alert{vztah mezi prvky je
       jednosměrný};
     \item \alert{slabě antisymetrická}, když $((x, y) \in r \wedge (y, x) \in
-      r) \Leftarrow x = y$ pro všechna $x, y \in a$, neboli
+      r) \Rightarrow x = y$ pro všechna $x, y \in a$, neboli
       \alert{antisymetrická až na vztah prvků k sobě samým};
     \item \alert{transitivní}, když $((x, y) \in r \wedge (y, z) \in r)
       \Rightarrow (x, z) \in r$ pro všechna $x, y, z \in r$, neboli \alert{vztah
@@ -610,9 +610,9 @@ vlastností -- jejichž užitečnost zůstane chvíli halena rouchem časův bud
   \end{itemize}
 \end{definition}
 
-Mnoho s relací, s nimiž jste se již setkali (akorát jste jich nenazývali
-relacemi) nesou některé z vlastností výše. Pro naše účely definujeme dva
-mimořádné druhy relací: \emph{ekvivalenci} a \emph{uspořádání}.
+Mnoho relací, s nimiž jste se již setkali (akorát jste jich nenazývali relacemi)
+nesou některé z vlastností výše. Pro svoje účely definujeme dva mimořádné druhy
+relací: \emph{ekvivalenci} a \emph{uspořádání}.
 
 Relace \emph{ekvivalence} je relace na množině, jejímž účelem je být jakousi
 \emph{zobecněnou rovností} či rovností podle daného kritéria. Například, uvažme
@@ -633,7 +633,7 @@ podle relace \uv{být stejně starý}.
   \hyperref[def:relace-ekvivalence]{ekvivalence}. Je
   \begin{itemize}
     \item \emph{reflexivní}, protože každý člověk je stejně starý jako on sám;
-    \item \emph{symetrická}, protože když je Adam stejně starý jako Bedřich, pak
+    \item \emph{symetrická}: je-li Adam stejně starý jako Bedřich, pak
       je jistě Bedřich stejně starý jako Adam;
     \item \emph{transitivní}: když je Adam stejně starý jako Bedřich a Bedřich
       stejně starý jako Cyril, pak je Adam stejně starý jako Cyril.
@@ -673,18 +673,19 @@ podle relace \uv{být stejně starý}.
   \label{exam:ekvivalence-rovnost}
   Relace $=$ (být roven) je \hyperref[def:relace-ekvivalence]{ekvivalencí} na
   jakékoli množině. Je \emph{reflexivní}, anobrž každý prvek jest sám sobě
-  roven, a je triviálně \emph{symetrická} i \emph{transitivní}, protože žádné
-  dva různé prvky nejsou ve vztahu rovnosti.
+  roven, a je triviálně \emph{symetrická} i \emph{transitivní}, bo žádné dva
+  různé prvky nejsou ve vztahu rovnosti.
 \end{example}
 
 \begin{notation}
   Některé relace jsou natolik běžné, že sobě vysloužily vlastní značení,
-  například relace rovnosti z \myref{příkladu}{exam:ekvivalence-rovnost}.
-  Nezacházíme s nimi jako s množinami a symbol relace píšeme mezi prvky dvojice,
-  i.e. píšeme $x = y$ místo \uv{správného} $(x, y) \in~=$, nebo též relace $<$ a
-  $ \leq $ (více o nich níže). My samozřejmě toto značení upravovat nebudeme,
-  ale budeme-li relace značit písmeny (třeba $r$), budeme stále psát $(x, y) \in
-  r$, a ne $xry$, abychom tvrdili, že $x$ je ve vztahu $r$ s $y$.
+  například relace rovnosti z \myref{příkladu}{exam:ekvivalence-rovnost} nebo
+  též relace $<$ a $ \leq $ (více o nich níže). Nezacházíme s nimi jako s
+  množinami a symbol relace píšeme mezi prvky dvojice, i. e. píšeme $x = y$ či
+  $x < y$ místo \uv{správných} $(x, y) \in~=$ a $(x, y) \in~<$. My samozřejmě
+  toto značení upravovat nebudeme, ale budeme-li relace značit písmeny (třeba
+  $r$), budeme stále psát $(x, y) \in r$, a ne $xry$, abychom tvrdili, že $x$ je
+  ve vztahu $r$ s $y$.
 \end{notation}
 
 Další v řadě (pun intended) je relace \emph{uspořádání}, která je zobecněním
@@ -722,7 +723,7 @@ podmnožiny postupně větších prvků.
   \hyperref[def:usporadani]{neostré uspořádání}. Je
   \begin{itemize}
     \item \emph{reflexivní}, protože každé číslo dělí samo sebe;
-    \item \emph{slabě antisymetrické}: když číslo $x$ dělí číslo $y$ a zároveň
+    \item \emph{slabě antisymetrická}: když číslo $x$ dělí číslo $y$ a zároveň
       $y$ dělí $x$, pak se $x$ a $y$ musejí rovnat;
     \item \emph{transitivní}: když $x$ dělí $y$ a $y$ dělí $z$, tak potom $x$
       dělí $z$.
@@ -801,10 +802,10 @@ kreslit množinu $\clr{a} \times \clb{b}$, vyobrazen
   \label{fig:nakresleni-soucinu}
 \end{figure}
 
-Protože relace z $\clr{a}$ do $\clb{b}$ jsou pouhými podmnožinami součinu
-$\clr{a} \times \clb{b}$ můžeme je zakreslit do mříže na
-\myref{obrázku}{fig:nakresleni-soucinu} zkrátka tak, že zvýrazníme dvojice, jež
-do ní patří. Pro příklad uvažme relaci $\clg{r = \{(x, \vartriangleright), (x,
+Ježto relace z $\clr{a}$ do $\clb{b}$ jsou pouhými podmnožinami součinu $\clr{a}
+\times \clb{b}$, můžeme je zakreslit do mříže na
+\myref{obrázku}{fig:nakresleni-soucinu} zkrátka tak, že zvýrazníme dvojice do
+nich patřící. Pro příklad uvažme relaci $\clg{r = \{(x, \vartriangleright), (x,
 \odot), (x, \times), (y, \odot)\}}$ z $\clr{a}$ do $\clb{b}$. Nakreslení takové
 relace můžete vidět na \myref{obrázku}{fig:nakresleni-relace-mriz}.
 
@@ -840,7 +841,7 @@ Pro zajímavost a rozšíření katalogu příkladů relací ukážeme, jak se n
 projevují v jejich visuální podobě.
 
 Relace na \myref{obrázku}{fig:nakresleni-funkce-mriz} je \emph{funkce}. Lze to
-poznat stejným způsobem, na který jste zvyklí z~\emph{grafů} funkcí: na každé
+poznat stejným způsobem, jemuž jste navykli u \emph{grafů} funkcí: na každé
 svislé čáře smí ležet maximálně jeden její bod.
 \begin{figure}[ht]
   \centering
@@ -986,7 +987,7 @@ antisymetrické relace vizte na
 Mimo kreslení relace do soustavy souřadnic součinu množin, jehož podmnožinou
 jsou, můžeme též vztahy mezi prvky značit šipkami mezi nimi. Tento způsob
 zakreslování relací je zvlášť užitečný pro funkce, o nichž často přemýšlíme jako
-o relací, které z \uv{prvků jedné množiny dělají prvky množiny druhé}.
+o relacích, které z \uv{prvků jedné množiny dělají prvky množiny druhé}.
 Kupříkladu funkci $\clg{f}\colon \clr{\{x, y\}} \to \clb{\{\vartriangleright,
 \odot, \times\}}$, danou předpisy $\clg{f}(\clr{x}) = \clb{\odot}$ a
 $\clg{f}(\clr{y}) = \clb{\vartriangleright}$ můžete vidět nakreslenou šipkami na
@@ -1011,3 +1012,211 @@ $\clg{f}(\clr{y}) = \clb{\vartriangleright}$ můžete vidět nakreslenou šipkam
   \clb{\vartriangleright})\}$.}
   \label{fig:nakresleni-funkce-sipkami}
 \end{figure}
+
+V rámci ještě jednoho příkladu kreslení relací šipkami zobrazíme takto
+ekvivalenci
+\[
+  \clg{e} = \{(\clb{\vartriangleright}, \clb{\vartriangleright}), (\clb{\odot},
+    \clb{\odot}), (\clb{\times}, \clb{\times}), (\clb{\odot}, \clb{\times}),
+  (\clb{\times}, \clb{\odot})\}
+\]
+na množině $\clb{\{\vartriangleright, \odot, \times\}}$. Hledejte ji na
+\myref{obrázku}{fig:nakresleni-ekvivalence-sipkami}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, 0) {$\clb{\vartriangleright}$};
+    \node at (0, 1) {$\clb{\odot}$};
+    \node at (0, 2) {$\clb{\times}$};
+    \node at (2, 0) {$\clb{\vartriangleright}$};
+    \node at (2, 1) {$\clb{\odot}$};
+    \node at (2, 2) {$\clb{\times}$};
+
+    \draw[-latex,ForestGreen,thick,shorten <=5pt, shorten >=6pt] (0, 0)
+    -- (2, 0);
+    \draw[-latex,ForestGreen,thick,shorten <=5pt, shorten >=6pt] (0, 1)
+    -- (2, 1);
+    \draw[-latex,ForestGreen,thick,shorten <=5pt, shorten >=6pt] (0, 2)
+    -- (2, 2);
+    \draw[-latex,ForestGreen,thick,shorten <=5pt, shorten >=6pt] (0, 1)
+    -- (2, 2);
+    \draw[-latex,ForestGreen,thick,shorten <=5pt, shorten >=6pt] (0, 2)
+    -- (2, 1);
+  \end{tikzpicture}
+
+  \caption{Nakreslení ekvivalence $\clg{e} = \{(\clb{\vartriangleright},
+      \clb{\vartriangleright}), (\clb{\odot}, \clb{\odot}), (\clb{\times},
+  \clb{\times}), (\clb{\odot}, \clb{\times}), (\clb{\times}, \clb{\odot})\}$.}
+  \label{fig:nakresleni-ekvivalence-sipkami}
+\end{figure}
+
+\begin{exercise}
+  Uvažte relaci $\clg{r}$ danou \myref{obrázkem}{fig:relace-cviceni-1} na
+  množině $\clr{\{x, y, z, w\}}$. Má tato relace nějaké zvláštní vlastnosti?
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \node at (0, -0.75) (t) {$\strut\clr{x}$};
+      \node[baseline=t.base] at (1, -0.75) {$\strut\clr{y}$};
+      \node[baseline=t.base] at (2, -0.75) {$\strut\clr{z}$};
+      \node[baseline=t.base] at (3, -0.75) {$\strut\clr{w}$};
+
+      \node at (-0.75, 0) {$\clr{x}$};
+      \node at (-0.75, 1) {$\clr{y}$};
+      \node at (-0.75, 2) {$\clr{z}$};
+      \node at (-0.75, 3) {$\clr{w}$};
+
+      \foreach \x in {0, 1, 2, 3} {
+        \foreach \y in {0, 1, 2, 3} {
+          \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+        }
+      }
+
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 0) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 1) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 2) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (3, 3) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 3) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 3) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (3, 0) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 1) {};
+    \end{tikzpicture}
+
+    \caption{Nakreslení relace $\clg{r}$ na množině $\clr{\{x, y, z, w\}}$.}
+    \label{fig:relace-cviceni-1}
+  \end{figure}
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Je relace na \myref{obrázku}{fig:relace-cviceni-2} funkce? Překreslete ji do
+  mříže.
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \node at (0, 0) {$\clr{x}$};
+      \node at (0, 1) {$\clr{y}$};
+      \node at (0, 2) {$\clr{z}$};
+      \node at (0, 3) {$\clr{w}$};
+      \node at (2, 0) {$\clb{\Psi}$};
+      \node at (2, 1) {$\clb{\Xi}$};
+
+      \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+      0) -- (2, 1);
+      \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+      1) -- (2, 0);
+      \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+      2) -- (2, 1);
+      \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+      3) -- (2, 1);
+      \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+      0) -- (2, 0);
+    \end{tikzpicture}
+
+    \caption{Nakreslení relace $\clg{r}$ z $\clr{\{x, y, z, w\}}$ do
+    $\clb{\{\Psi, \Xi\}}$.}
+    \label{fig:relace-cviceni-2}
+  \end{figure}
+\end{exercise}
+
+\subsection{Axiom sumy}
+\label{ssec:axiom-sumy}
+
+Axiom \emph{sumy} či \emph{součtu} je možná prvním axiomem, jehož význam není
+intuitivně zřejmý, ale je formálně důležitý. K porozumění jeho přirozené
+smysluplnosti může pomoci představa, že teorie množin se hrubě řídí pravidlem:
+\uv{Umím-li soubor věcí nějak pojmenovat, je ten množina.} Ono pojmenování může
+být různorodé: množina lidí; množina obsahující mrkev, bramboru a celer; množina
+všech věcí, které jsou zelené, ale ne modré... V případě axiomu sumy jsou oním
+pojmenováním \emph{všechny části všech částí celku}. Axiom sumy říká, že soubor
+všech prvků všech množin uvnitř nějaké dané množiny je sám o sobě též množinou.
+Trpíme obtížemi zaheslovat axiom sumy průzračně; spokojíme se s heslem:
+\begin{highlightBox}
+  \alert{Části všech částí celku tvoří celek.}
+\end{highlightBox}
+
+Vezměme kupříkladu opět množinu všech blonďatých lidí s modrýma očima. Částmi
+všech těchto lidí jsou mimo jiné právě jejich oči. Axiom sumy zjednodušeně říká,
+že i soubor všech očí všech blonďatých lidí s modrýma oči je množina.
+
+Formálně je \emph{součet množiny} $a$ množina $z$ taková, že když $x$ je prvkem
+$a$ právě tehdy, když je podmnožinou $z$, čili, že všechny prvky množiny $x$
+jsou obsaženy v množině $z$ zatímco celá množina $x$ je části množiny $a$.
+
+\begin{definition}[Součet množiny]
+  \label{def:soucet-mnoziny}
+  Ať $a$ je množina. Součtem množiny $a$ myslíme
+  \[
+    \bigcup a = \{x \mid ( \exists z)(x \in z \wedge z \in a)\},
+  \]
+  čili množinu všech množin $x$, které jsou prvky nějakého prvku množiny $a$.
+\end{definition}
+
+Axiom sumy ztvrzuje, že pro každou množinu $a$ je $\bigcup a$ množina.
+Symbolicky:
+\begin{equation}
+  \label{eq:axiom-sumy}
+  (\forall a)(\exists y)(y = \bigcup a).
+\end{equation}
+
+\begin{example}
+  \label{exam:axiom-sumy}
+  Uvažme množinu
+  \[
+    a = \{\{x, y\}, \{y, z, \vartriangleright\}, \{\odot\}\}.
+  \]
+  Pak
+  \[
+    \bigcup a = \{x, y, z, \vartriangleright, \odot\}.
+  \]
+\end{example}
+
+Díky \hyperref[eq:axiom-sumy]{axiomu sumy} můžeme definovat operaci
+\emph{sjednocení} dvou množin, které představuje jakési \uv{slití} prvků obou
+množin do jedné množiny.
+
+\begin{definition}[Sjednocení množin]
+  \label{def:sjednoceni-mnozin}
+  Ať $a, b$ jsou množiny. Definujeme \emph{sjednocení} množin $a$ a $b$ -- které
+  značíme $a \cup b$ -- jako množinu
+  \[
+    a \cup b = \bigcup \{a, b\},
+  \]
+  čili jako součet dvojice $\{a, b\}$. Připomínáme, že $\{a, b\}$ je množina
+  díky \hyperref[eq:axiom-dvojice]{axiomu dvojice} a $\bigcup \{a, b\}$ je
+  množina díky \hyperref[eq:axiom-sumy]{axiomu sumy}.
+\end{definition}
+
+\hyperref[def:sjednoceni-mnozin]{Definice sjednocení} nedává jednoduchý pohled
+na operaci sjednocení, která je však veskrze přirozená. Ve skutečnosti je
+sjednocení množin $a$ a $b$ zkrátka množina všech prvků, které leží v $a$, v $b$
+nebo v obou množinách. Důkaz tohoto faktu bude první svého druhu v tomto textu.
+
+\begin{lemma}[O sjednocení množin]
+  \label{lem:o-sjednoceni-mnozin}
+  Ať $a, b$ jsou množiny. Pak platí
+  \begin{equation}
+    \label{eq:sjednoceni-nebo}
+    a \cup b = \{x \mid x \in a \vee x \in b\},
+  \end{equation}
+  čili $a \cup b$ je množina všech $x$, které leží v $a$ nebo v $b$.
+\end{lemma}
+\begin{proof}
+  Rovnost množin obvykle dokazujeme tím způsobem, že ukážeme, že když je $x$
+  prvkem jedné množiny, pak je prvkem i té druhé a naopak. Pak je jisté, že obě
+  množiny mají tytéž prvky, a tudíž se sobě rovnají.
+
+  Ať je tedy $x \in a \cup b = \bigcup \{a, b\}$. Potom z
+  \hyperref[def:soucet-mnoziny]{definice součtu} existuje množina $z$ taková, že
+  $x \in z$ a $z \in \{a, b\}$. Ovšem, dvojice $\{a, b\}$ obsahuje jen dvě
+  množiny, takže buď platí $z = a$, nebo $z = b$. V prvním případě $x \in a$, v
+  druhém $x \in b$. Čili platí výrok $x \in a \vee x \in b$. Tím jsme dokázali,
+  že když je $x$ prvkem množiny na levé straně
+  rovnosti~\eqref{eq:sjednoceni-nebo}, pak je prvkem množiny na levé straně
+  rovnosti~\eqref{eq:sjednoceni-nebo}.
+
+  Ať naopak platí $x \in a \vee x \in b$ pro nějakou množinu $x$. Vyrobme z
+  \hyperref[eq:axiom-dvojice]{axiomu dvojice} dvojici $\{a, b\}$. Pak $x \in
+  \bigcup \{a, b\}$, protože $x$ je prvkem buď množiny $a$, nebo množiny $b$
+  nebo obou.
+\end{proof}

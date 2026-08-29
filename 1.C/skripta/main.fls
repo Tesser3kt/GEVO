@@ -672,10 +672,15 @@ INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/vf/adobe/times/zptmcm7t.vf
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/vf/adobe/times/zptmcm7v.vf
+INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/symbol/psyr.tfm
 OUTPUT main.ptc
 INPUT main.aux
 INPUT main.run.xml
 OUTPUT main.run.xml
+INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
@@ -684,6 +689,7 @@ INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagk8a.pfb
+INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/symbol/usyr.pfb
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmb8a.pfb
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmr8a.pfb
 INPUT /nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmri8a.pfb

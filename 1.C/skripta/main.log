@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  27 AUG 2026 21:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  29 AUG 2026 15:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1124,17 +1124,18 @@ Package: amsthm 2020/05/29 v2.20.6
 \dth@everypar=\toks39
 )
 \c@proposition=\count471
-\c@theoremeT=\count472
-\c@problem=\count473
-\c@exerciseT=\count474
-\c@warningT=\count475
-\c@hardExerciseT=\count476
-\c@exampleT=\count477
-\c@parableT=\count478
-\c@notation=\count479
-\c@vocabulary=\count480
-\c@definitionT=\count481
-\c@corollaryT=\count482
+\c@lemmaT=\count472
+\c@theoremeT=\count473
+\c@problem=\count474
+\c@exerciseT=\count475
+\c@warningT=\count476
+\c@hardExerciseT=\count477
+\c@exampleT=\count478
+\c@parableT=\count479
+\c@notation=\count480
+\c@vocabulary=\count481
+\c@definitionT=\count482
+\c@corollaryT=\count483
  (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
  (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/latex/zref/zref-abspage.sty
@@ -1150,13 +1151,13 @@ Package zref Info: New property list: main on input line 767.
 Package zref Info: New property: default on input line 768.
 Package zref Info: New property: page on input line 769.
 )
-\c@abspage=\count483
+\c@abspage=\count484
 Package zref Info: New property: abspage on input line 67.
 ) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/latex/needspace/needspace.sty
 Package: needspace 2025/03/13 v1.3e reserve vertical space
 )
 \mdf@templength=\skip105
-\c@mdf@globalstyle@cnt=\count484
+\c@mdf@globalstyle@cnt=\count485
 \mdf@skipabove@length=\skip106
 \mdf@skipbelow@length=\skip107
 \mdf@leftmargin@length=\skip108
@@ -1231,16 +1232,16 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@horizontalspaceofbox=\skip169
 \mdfsubtitleheight=\skip170
 \mdfsubsubtitleheight=\skip171
-\c@mdfcountframes=\count485
+\c@mdfcountframes=\count486
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count486
-\c@mdf@env@i=\count487
-\c@mdf@env@ii=\count488
-\c@mdf@zref@counter=\count489
+\mdf@envdepth=\count487
+\c@mdf@env@i=\count488
+\c@mdf@env@ii=\count489
+\c@mdf@zref@counter=\count490
 Package zref Info: New property: mdf@pagevalue on input line 895.
 ) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
@@ -1275,14 +1276,14 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@yd=\dimen265
 \w@pgf@writea=\write5
 \r@pgf@reada=\read4
-\c@pgf@counta=\count490
-\c@pgf@countb=\count491
-\c@pgf@countc=\count492
-\c@pgf@countd=\count493
+\c@pgf@counta=\count491
+\c@pgf@countb=\count492
+\c@pgf@countc=\count493
+\c@pgf@countd=\count494
 \t@pgf@toka=\toks44
 \t@pgf@tokb=\toks45
 \t@pgf@tokc=\toks46
-\pgf@sys@id@count=\count494
+\pgf@sys@id@count=\count495
  (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
@@ -1293,8 +1294,8 @@ File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 ))) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count495
-\pgfsyssoftpath@bigbuffer@items=\count496
+\pgfsyssoftpath@smallbuffer@items=\count496
+\pgfsyssoftpath@bigbuffer@items=\count497
 ) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))
@@ -1302,14 +1303,14 @@ File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
  (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmath.code.tex (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathutil.code.tex) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen266
-\pgfmath@count=\count497
+\pgfmath@count=\count498
 \pgfmath@box=\box68
 \pgfmath@toks=\toks47
 \pgfmath@stack@operand=\toks48
 \pgfmath@stack@operation=\toks49
 ) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathcalc.code.tex)
 (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count498
+\c@pgfmathroundto@lastzeros=\count499
 )) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/math/pgfint.code.tex) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@picminx=\dimen267
@@ -1339,7 +1340,7 @@ File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfpic=\box69
 \pgf@hbox=\box70
 \pgf@layerbox@main=\box71
-\pgf@picture@serial@count=\count499
+\pgf@picture@serial@count=\count500
 ) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgflinewidth=\dimen285
@@ -1360,8 +1361,8 @@ File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@max=\dimen290
-\pgf@sys@shading@range@num=\count500
-\pgf@shadingcount=\count501
+\pgf@sys@shading@range@num=\count501
+\pgf@shadingcount=\count502
 ) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
@@ -1398,7 +1399,7 @@ Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
 Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
  (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count502
+\pgf@plot@mark@count=\count503
 \pgfplotmarksize=\dimen295
 )
 \tikz@lastx=\dimen296
@@ -1413,17 +1414,17 @@ File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \tikz@figbox@bg=\box75
 \tikz@tempbox=\box76
 \tikz@tempbox@bg=\box77
-\tikztreelevel=\count503
-\tikznumberofchildren=\count504
-\tikznumberofcurrentchild=\count505
-\tikz@fig@count=\count506
+\tikztreelevel=\count504
+\tikznumberofchildren=\count505
+\tikznumberofcurrentchild=\count506
+\tikz@fig@count=\count507
  (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count507
-\pgfmatrixcurrentcolumn=\count508
-\pgf@matrix@numberofcolumns=\count509
+\pgfmatrixcurrentrow=\count508
+\pgfmatrixcurrentcolumn=\count509
+\pgf@matrix@numberofcolumns=\count510
 )
-\tikz@expandcount=\count510
+\tikz@expandcount=\count511
  (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/latex/tools/verbatim.sty
@@ -1440,9 +1441,9 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@upperbox=\box79
 \tcb@lowerbox=\box80
 \tcb@phantombox=\box81
-\c@tcbbreakpart=\count511
-\c@tcblayer=\count512
-\c@tcolorbox@number=\count513
+\c@tcbbreakpart=\count512
+\c@tcblayer=\count513
+\c@tcolorbox@number=\count514
 \l__tcobox_tmpa_box=\box82
 \l__tcobox_tmpa_dim=\dimen304
 \tcb@temp=\box83
@@ -1501,16 +1502,16 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
 LaTeX Font Info:    ... okay on input line 73.
  (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count514
+\scratchcounter=\count515
 \scratchdimen=\dimen309
 \scratchbox=\box87
-\nofMPsegments=\count515
-\nofMParguments=\count516
+\nofMPsegments=\count516
+\nofMParguments=\count517
 \everyMPshowfont=\toks54
-\MPscratchCnt=\count517
+\MPscratchCnt=\count518
 \MPscratchDim=\dimen310
-\MPnumerator=\count518
-\makeMPintoPDFobject=\count519
+\MPnumerator=\count519
+\makeMPintoPDFobject=\count520
 \everyMPtoPDFconversion=\toks55
 ) (/nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1683,7 +1684,7 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <14.4> not available
  <./figs/part1.jpg>] [4
 
 ]
-\c@ttl@toc@part=\count520
+\c@ttl@toc@part=\count521
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <220> not available
 (Font)              Font shape `T1/pag/db/n' tried instead on input line 135.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
@@ -1692,7 +1693,7 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
 
 ] [6] (./mnoziny_logika.tex
 Kapitola 1.
-<figs/section1.jpg, id=118, 1927.2pt x 451.6875pt>
+<figs/section1.jpg, id=122, 1927.2pt x 451.6875pt>
 File: figs/section1.jpg Graphic file (type jpg)
 <use figs/section1.jpg>
 Package pdftex.def Info: figs/section1.jpg  used on input line 1.
@@ -1765,7 +1766,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 [8
 
 ]
-<figs/deer-grazing.jpg, id=140, 602.25pt x 333.245pt>
+<figs/deer-grazing.jpg, id=144, 602.25pt x 333.245pt>
 File: figs/deer-grazing.jpg Graphic file (type jpg)
 <use figs/deer-grazing.jpg>
 Package pdftex.def Info: figs/deer-grazing.jpg  used on input line 108.
@@ -2127,10 +2128,10 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 
 [27]
 Package mdframed Info: Not enough space on this page on input line 629.
-Package mdframed Info: mdframed works in twoside mode on input line 694.
+Package mdframed Info: mdframed works in twoside mode on input line 695.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 694.
+(mdframed)              on input line 695.
 
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
@@ -2140,22 +2141,22 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
 [28]
-Package mdframed Info: mdframed works in twoside mode on input line 732.
+Package mdframed Info: mdframed works in twoside mode on input line 733.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 732.
-Package mdframed Info: mdframed works in twoside mode on input line 737.
+(mdframed)              on input line 733.
+Package mdframed Info: mdframed works in twoside mode on input line 738.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 737.
-Package mdframed Info: mdframed works in twoside mode on input line 752.
+(mdframed)              on input line 738.
+Package mdframed Info: mdframed works in twoside mode on input line 753.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 752.
-Package mdframed Info: mdframed works in twoside mode on input line 760.
+(mdframed)              on input line 753.
+Package mdframed Info: mdframed works in twoside mode on input line 761.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 760.
+(mdframed)              on input line 761.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2168,7 +2169,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
 [29]
-Package mdframed Info: Not enough space on this page on input line 765.
+Package mdframed Info: Not enough space on this page on input line 766.
 
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
@@ -2178,11 +2179,70 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
 [30]
-Package mdframed Info: mdframed works in twoside mode on input line 945.
+Package mdframed Info: mdframed works in twoside mode on input line 946.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 945.
-)))
+(mdframed)              on input line 946.
+
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
+
+[31]
+Package mdframed Info: mdframed works in twoside mode on input line 1054.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1054.
+
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
+
+[32]
+Package mdframed Info: mdframed works in twoside mode on input line 1091.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1091.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
+
+[33]
+Package mdframed Info: mdframed works in twoside mode on input line 1146.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1146.
+Package mdframed Info: Not enough space on this page on input line 1153.
+Package mdframed Info: mdframed works in twoside mode on input line 1178.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1178.
+Package mdframed Info: mdframed works in twoside mode on input line 1195.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1195.
+
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
+
+[34])))
 \tf@ptc=\write7
 \openout7 = `main.ptc'.
 
@@ -2194,7 +2254,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[31] (./main.aux)
+[35] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -2208,18 +2268,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41460 strings out of 467535
- 812318 string characters out of 5388798
- 1715432 words of memory out of 5000000
- 68959 multiletter control sequences out of 15000+600000
- 767523 words of font info for 532 fonts, out of 8000000 for 9000
+ 41536 strings out of 467535
+ 813525 string characters out of 5388798
+ 1717530 words of memory out of 5000000
+ 69008 multiletter control sequences out of 15000+600000
+ 768751 words of font info for 539 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,13n,122p,969b,2402s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/cbfonts/grmn1200.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagk8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmb8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmr8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (31 pages, 14450348 bytes).
+</nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmex10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/cbfonts/grmn1200.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagk8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/symbol/usyr.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmb8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmr8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (35 pages, 14477135 bytes).
 PDF statistics:
- 580 PDF objects out of 1000 (max. 8388607)
- 493 compressed objects within 5 object streams
- 172 named destinations out of 1000 (max. 500000)
- 142993 words of extra memory for PDF output out of 154059 (max. 10000000)
+ 645 PDF objects out of 1000 (max. 8388607)
+ 548 compressed objects within 6 object streams
+ 190 named destinations out of 1000 (max. 500000)
+ 143001 words of extra memory for PDF output out of 154059 (max. 10000000)
 

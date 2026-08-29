@@ -771,6 +771,10 @@
 
 % Orange theorem number and optional black title with no padding above and below
 \theoremstyle{DarkCyannumbox}
+\newtheorem{lemmaT}{Lemma}[chapter] % Lemmata, the first
+% argument is the lemma name, the second the theorem title used
+% before the number and the third optional argument is whether to
+% number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
 \newtheorem{theoremeT}{Věta}[chapter] % Theorems, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
@@ -840,6 +844,7 @@
   skipbelow=12pt, % Whitespace below box
   backgroundcolor=black!5, % Background color
   linecolor=DarkCyan, % Border color
+  linewidth=1pt,
   innerleftmargin=10pt, % Inside left margin width
   innerrightmargin=10pt, % Inside right margin width
   innertopmargin=20pt, % Inside top margin height
@@ -945,6 +950,11 @@
 % Creates an environment for each type of theorem and assigns it a
 % theorem text style from the THEOREM STYLES block above and a
 % colored box from above
+\newenvironment{lemma}{
+  \begin{tBox}
+  \begin{lemmaT}}{
+    \end{lemmaT}
+\end{tBox}}
 \newenvironment{theorem}{
   \begin{tBox}
   \begin{theoremeT}}{
