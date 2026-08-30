@@ -1139,9 +1139,9 @@ Vezměme kupříkladu opět množinu všech blonďatých lidí s modrýma očima
 všech těchto lidí jsou mimo jiné právě jejich oči. Axiom sumy zjednodušeně říká,
 že i soubor všech očí všech blonďatých lidí s modrýma oči je množina.
 
-Formálně je \emph{součet množiny} $a$ množina $z$ taková, že když $x$ je prvkem
+Formálně je \emph{součet množiny} $a$ množina $z$ taková, že $x$ je prvkem
 $a$ právě tehdy, když je podmnožinou $z$, čili, že všechny prvky množiny $x$
-jsou obsaženy v množině $z$ zatímco celá množina $x$ je části množiny $a$.
+jsou obsaženy v množině $z$, zatímco celá množina $x$ je části množiny $a$.
 
 \begin{definition}[Součet množiny]
   \label{def:soucet-mnoziny}
@@ -1152,7 +1152,7 @@ jsou obsaženy v množině $z$ zatímco celá množina $x$ je části množiny $
   čili množinu všech množin $x$, které jsou prvky nějakého prvku množiny $a$.
 \end{definition}
 
-Axiom sumy ztvrzuje, že pro každou množinu $a$ je $\bigcup a$ množina.
+Axiom sumy ztvrzuje, že pro každou množinu $a$ je $\bigcup a$ opravdu množina.
 Symbolicky:
 \begin{equation}
   \label{eq:axiom-sumy}
@@ -1188,9 +1188,9 @@ množin do jedné množiny.
 \end{definition}
 
 \hyperref[def:sjednoceni-mnozin]{Definice sjednocení} nedává jednoduchý pohled
-na operaci sjednocení, která je však veskrze přirozená. Ve skutečnosti je
-sjednocení množin $a$ a $b$ zkrátka množina všech prvků, které leží v $a$, v $b$
-nebo v obou množinách. Důkaz tohoto faktu bude první svého druhu v tomto textu.
+na tuto operaci, která je však veskrze přirozená. Ve skutečnosti je sjednocení
+množin $a$ a $b$ zkrátka množina všech prvků, které leží v $a$, v $b$ nebo v
+obou množinách. Důkaz tohoto faktu bude první svého druhu v tomto textu.
 
 \begin{lemma}[O sjednocení množin]
   \label{lem:o-sjednoceni-mnozin}
@@ -1203,8 +1203,8 @@ nebo v obou množinách. Důkaz tohoto faktu bude první svého druhu v tomto te
 \end{lemma}
 \begin{proof}
   Rovnost množin obvykle dokazujeme tím způsobem, že ukážeme, že když je $x$
-  prvkem jedné množiny, pak je prvkem i té druhé a naopak. Pak je jisté, že obě
-  množiny mají tytéž prvky, a tudíž se sobě rovnají.
+  prvkem jedné množiny, pak je prvkem i té druhé, a naopak. Je jisté, že mají-li
+  obě množiny tytéž prvky, tak se sobě rovnají.
 
   Ať je tedy $x \in a \cup b = \bigcup \{a, b\}$. Potom z
   \hyperref[def:soucet-mnoziny]{definice součtu} existuje množina $z$ taková, že
@@ -1212,7 +1212,7 @@ nebo v obou množinách. Důkaz tohoto faktu bude první svého druhu v tomto te
   množiny, takže buď platí $z = a$, nebo $z = b$. V prvním případě $x \in a$, v
   druhém $x \in b$. Čili platí výrok $x \in a \vee x \in b$. Tím jsme dokázali,
   že když je $x$ prvkem množiny na levé straně
-  rovnosti~\eqref{eq:sjednoceni-nebo}, pak je prvkem množiny na levé straně
+  rovnosti~\eqref{eq:sjednoceni-nebo}, pak je i prvkem množiny na pravé straně
   rovnosti~\eqref{eq:sjednoceni-nebo}.
 
   Ať naopak platí $x \in a \vee x \in b$ pro nějakou množinu $x$. Vyrobme z
@@ -1220,3 +1220,299 @@ nebo v obou množinách. Důkaz tohoto faktu bude první svého druhu v tomto te
   \bigcup \{a, b\}$, protože $x$ je prvkem buď množiny $a$, nebo množiny $b$
   nebo obou.
 \end{proof}
+
+\begin{example}
+  \label{exam:sjednoceni-mnozin}
+  Je-li $a = \{x, y, z\}$ a $b = \{z, w\}$, pak
+  \[
+    a \cup b = \{x, y, z, w\}.
+  \]
+\end{example}
+
+\hyperref[def:sjednoceni-mnozin]{Definicí sjednocení} jsme dospěli ke znalosti
+tří základních množinových operací:
+\hyperref[def:sjednoceni-mnozin]{sjednocení},
+\hyperref[def:prunik-mnozin]{průniku} a \hyperref[def:rozdil-mnozin]{rozdílu}.
+Opět dočasně odbočíme, abychom promluvili o známém způsobu ztvárnění těchto
+operací, tzv. \emph{Vennových diagramech}.
+
+\subsubsection{Vennovy diagramy}
+\label{sssec:vennovy-diagramy}
+
+Vennovy diagramy jsou zakresleními množinových operací obvykle na dvou nebo
+třech množinách. Jejich smyslem je poskytnout obrázek, v němž lze zvýraznit
+jakýkoli řetězec množinových operací (výrazy typu $a \setminus (b \cap c)$ či
+$(a \cup c) \cap (c \setminus b)$).
+
+Obecným vztahem dvou množin je situace, kdy spolu sdílejí nějaké prvky, ale ne
+všechny (jako například množiny $a, b$ z
+\myref{příkladu}{exam:sjednoceni-mnozin}). Do Vennova diagramu je kreslíme jako
+dva kruhy, které se protínají.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \draw[fill=FireBrick, opacity=0.5] (0,0) circle (1);
+    \draw[fill=RoyalBlue, opacity=0.5] (1,0) circle (1);
+    \node at (135:1.35) {$\clr{a}$};
+    \node[xshift=1cm] at (45:1.35) {$\clb{b}$};
+  \end{tikzpicture}
+
+  \caption{Vennův diagram dvou množin.}
+  \label{fig:vennuv-diagram-1}
+\end{figure}
+
+\clr{Červená} část \myref{obrázku}{fig:vennuv-diagram-1} představuje prvky,
+které leží pouze v $\clr{a}$, ale nikoli v $\clb{b}$, tedy přesně množinu
+$\clr{a} \setminus \clb{b}$. Naopak část \clb{modrá} odpovídá množině prvků
+ležících v $\clb{b}$, ale ne v $\clr{a}$: množině $\clb{b} \setminus \clr{a}$.
+Konečně, v části \clp{fialové} nalezneme pouze prvků, jež jsou společné množině
+$\clr{a}$ i množině $\clb{b}$ ležíce v jejich průniku $\clr{a} \cap \clb{b}$.
+Sjednocení $\clr{a} \cup \clb{b}$ vyjadřuje celá plocha obrázku. Všechny oblasti
+odpovídající množinovým operacím můžete vidět znovu na
+\myref{obrázku}{fig:vennuv-diagram-2}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{scope}
+        \clip (0,0) circle (1cm);
+        \fill[DarkCyan] (1,0) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+    \end{tikzpicture}
+    \caption{Průnik $\clc{a \cap b}$.}
+  \end{subfigure}
+  \vspace{1cm}
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0,0) circle (1cm);
+      \fill[DarkCyan] (1,0) circle (1cm);
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+    \end{tikzpicture}
+    \caption{Sjednocení $\clc{a \cup b}$.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0,0) circle (1cm);
+      \fill[white](1,0) circle (1cm);
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+    \end{tikzpicture}
+    \caption{Rozdíl $\clc{a \setminus b}$.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (1,0) circle (1cm);
+      \fill[white](0,0) circle (1cm);
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+    \end{tikzpicture}
+    \caption{Rozdíl $\clc{b \setminus a}$.}
+  \end{subfigure}
+  \caption{Vennovy diagramy základních množinových operací.}
+  \label{fig:vennuv-diagram-2}
+\end{figure}
+
+\begin{example}
+  \label{exam:vennuv-diagram-sym-rozdilu}
+  Do Vennových diagramů můžeme zakreslit jakoukoli kombinaci množinových
+  operací. Na \myref{obrázku}{fig:vennuv-diagram-3} vizte oblast odpovídající
+  množině $(\clr{a} \setminus \clb{b}) \cup (\clb{b} \setminus \clr{a})$.
+
+  Této množině se též říká \emph{symetrický rozdíl} množin $\clr{a}$ a $\clb{b}$
+  a značí se $\clr{a} \vartriangle \clb{b}$. Vyjadřuje množinu prvků, které leží
+  pouze v $\clr{a}$ nebo pouze v $\clb{b}$, ale ne v obou množinách.
+\end{example}
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \fill[DarkCyan] (0,0) circle (1cm);
+    \fill[white] (1,0) circle (1cm);
+
+    \begin{scope}
+      \clip (1,0) circle (1cm);
+      \fill[DarkCyan] (1,0) circle (1cm);
+      \fill[white] (0,0) circle (1cm);
+    \end{scope}
+
+    \draw (0,0) circle (1cm);
+    \draw (1,0) circle (1cm);
+
+    \node at (135:1.35) {$a$};
+    \node[xshift=1cm] at (45:1.35) {$b$};
+  \end{tikzpicture}
+
+  \caption{Vennův diagram množiny $(\clr{a} \setminus \clb{b}) \cup (\clb{b}
+  \setminus \clr{a})$.}
+  \label{fig:vennuv-diagram-3}
+\end{figure}
+
+Vennovy diagramy tří množin jsou pochopitelně komplikovanější, neboť existuje
+mnoho různých výrazů složených z tří množin a tří množinových operací, ani
+nemluvě o výrazech delších. Jejich princip však zůstává stejný.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[blend mode=screen]
+    \draw[fill=FireBrick, opacity=1] (0,0) circle (1);
+    \draw[fill=RoyalBlue, opacity=1] (1,0) circle (1);
+    \draw[fill=ForestGreen, opacity=1] (0.5,-1) circle (1);
+    \node at (135:1.35) {$\clr{a}$};
+    \node[xshift=1cm] at (45:1.35) {$\clb{b}$};
+    \node[xshift=0.5cm] at (270:2.35) {$\clg{c}$};
+  \end{tikzpicture}
+
+  \caption{Vennův diagram tří množin.}
+  \label{fig:vennuv-diagram-tri-1}
+\end{figure}
+
+Na \myref{obrázku}{fig:vennuv-diagram-tri-1} můžeme vidět sedm různě barevných
+oblastí. Oblast
+\begin{itemize}
+  \item \clr{červená} obsahuje prvky ležící pouze v $\clr{a}$, ale nikoli v
+    $\clb{b}$ nebo v $\clg{c}$: množina $\clr{a} \setminus (\clb{b} \cup
+    \clg{c})$;
+  \item \clb{modrá} obsahuje prvky ležící pouze v $\clb{b}$, ale nikoli v
+    $\clr{a}$ nebo v $\clg{c}$: množina $\clb{b} \setminus (\clr{a} \cup
+    \clg{c})$;
+  \item \clg{zelená} obsahuje prvky ležící pouze v $\clg{c}$, ale nikoli v
+    $\clr{a}$ nebo v $\clb{b}$: množina $\clg{c} \setminus (\clr{a} \cup
+    \clb{b})$;
+  \item \textcolor{FireBrick!50!RoyalBlue}{fialová} obsahuje prvky ležící v
+    $\clr{a}$ i v $\clb{b}$, ale nikoli v $\clg{c}$: množina $(\clr{a} \cap
+    \clb{b}) \setminus \clg{c}$;
+  \item \textcolor{FireBrick!50!ForestGreen}{žlutá} obsahuje prvky ležící v
+    $\clr{a}$ i v $\clg{c}$, ale nikoli v $\clb{b}$: množina $(\clr{a} \cap
+    \clg{c}) \setminus \clb{b}$;
+  \item \textcolor{RoyalBlue!50!ForestGreen}{tyrkysová} obsahuje prvky ležící v
+    $\clb{b}$ i v $\clg{c}$, ale nikoli v $\clr{a}$: množina $(\clb{b} \cup
+    \clg{c}) \setminus \clr{a}$;
+  \item \textcolor{FireBrick!33!RoyalBlue!33!ForestGreen!33!white}{bílá}
+    obsahuje prvky ležící v $\clr{a}$ i v $\clb{b}$ i v $\clg{c}$: množina
+    $\clr{a} \cap \clb{b} \cap \clg{c}$.
+\end{itemize}
+
+Stejně jako Vennův diagram dvou množin, i Vennův diagram množin tří umožňuje
+zakreslit jakýkoli výraz sestávající z tří proměnných pro množiny a množinových
+operací. Na \myref{obrázku}{fig:vennuv-diagram-tri-2} vizte několik příkladů.
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{scope}
+        \clip (0,0) circle (1cm);
+        \fill[DarkCyan] (1,0) circle (1cm);
+      \end{scope}
+      \begin{scope}
+        \clip (1,0) circle (1cm);
+        \fill[DarkCyan] (0.5,-1) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+    \caption{Množina $\clc{(a \cap b) \cup (b \cap c)}$.}
+  \end{subfigure}
+  \vspace*{1cm}
+  \begin{subfigure}[b]{.54\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0,0) circle (1cm);
+      \fill[DarkCyan] (0.5,-1) circle (1cm);
+      \fill[white] (1,0) circle (1cm);
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+    \caption{Množina $\clc{(a \cup c) \setminus b}$.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0.5,-1) circle (1cm);
+      \fill[white] (0,0) circle (1cm);
+
+      \begin{scope}
+        \clip (0.5,-1) circle (1cm);
+        \fill[DarkCyan] (1,0) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+    \caption{Množina $\clc{(c \setminus a) \cup (b \cap c)}$.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.54\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0,0) circle (1cm);
+      \fill[white] (1,0) circle (1cm);
+      \fill[white] (0.5,-1) circle (1cm);
+
+      \begin{scope}
+        \clip (1,0) circle (1cm);
+        \fill[DarkCyan] (1,0) circle (1cm);
+        \fill[white] (0,0) circle (1cm);
+        \fill[white] (0.5,-1) circle (1cm);
+      \end{scope}
+      \begin{scope}
+        \clip (0.5,-1) circle (1cm);
+        \fill[DarkCyan] (0.5,-1) circle (1cm);
+        \fill[white] (0,0) circle (1cm);
+        \fill[white] (1,0) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+    \caption{Množina $\clc{(a \cup b \cup c) \setminus ((a \cap b) \cup (a \cap
+    c) \cup (b \cap c))}$.}
+  \end{subfigure}
+  \caption{Vennovy diagramy základních množinových operací.}
+  \label{fig:vennuv-diagram-tri-2}
+\end{figure}

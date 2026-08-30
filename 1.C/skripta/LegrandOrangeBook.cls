@@ -38,6 +38,8 @@
 \usepackage{float} % Allows more precisely positioning floats e.g.
 % \begin{figure}[H]
 
+\usepackage{subcaption} % subfigures
+
 \usepackage[svgnames, table]{xcolor} % Required for
 % defining and using custom colors
 
@@ -1050,6 +1052,7 @@
 \newcommand{\clb}[1]{\textcolor{RoyalBlue}{#1}}
 \newcommand{\clg}[1]{\textcolor{ForestGreen}{#1}}
 \newcommand{\clp}[1]{\textcolor{DarkViolet}{#1}}
+\newcommand{\clc}[1]{\textcolor{DarkCyan}{#1}}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
