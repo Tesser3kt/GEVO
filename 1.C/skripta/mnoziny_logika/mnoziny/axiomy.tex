@@ -1228,6 +1228,24 @@ obou množinách. Důkaz tohoto faktu bude první svého druhu v tomto textu.
     a \cup b = \{x, y, z, w\}.
   \]
 \end{example}
+\begin{exercise}
+  Pro
+  \begin{enumerate}
+    \item $a = \{\vartriangleright, \odot, 2, 3, \times\}$ a $b =
+      \{\vartriangleright, 3, \Psi, \Xi\}$,
+    \item $a = \{\{1, \odot\}, \{\{\times\}\}\}$ a $b = \{\{\times\},
+      1, \{\odot\}\}$
+  \end{enumerate}
+  spočtěte $a \cup b$.
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Platí rovnost
+  \[
+    \bigcup \{a, b, c\} = a \cup b \cup c?
+  \]
+  Proč?
+\end{exercise}
 
 \hyperref[def:sjednoceni-mnozin]{Definicí sjednocení} jsme dospěli ke znalosti
 tří základních množinových operací:
@@ -1267,7 +1285,7 @@ $\clr{a} \setminus \clb{b}$. Naopak část \clb{modrá} odpovídá množině prv
 ležících v $\clb{b}$, ale ne v $\clr{a}$: množině $\clb{b} \setminus \clr{a}$.
 Konečně, v části \clp{fialové} nalezneme pouze prvků, jež jsou společné množině
 $\clr{a}$ i množině $\clb{b}$ ležíce v jejich průniku $\clr{a} \cap \clb{b}$.
-Sjednocení $\clr{a} \cup \clb{b}$ vyjadřuje celá plocha obrázku. Všechny oblasti
+Sjednocení $\clr{a} \cup \clb{b}$ odpovídá celé ploše obrázku. Všechny oblasti
 odpovídající množinovým operacím můžete vidět znovu na
 \myref{obrázku}{fig:vennuv-diagram-2}.
 
@@ -1342,7 +1360,7 @@ odpovídající množinovým operacím můžete vidět znovu na
   množině $(\clr{a} \setminus \clb{b}) \cup (\clb{b} \setminus \clr{a})$.
 
   Této množině se též říká \emph{symetrický rozdíl} množin $\clr{a}$ a $\clb{b}$
-  a značí se $\clr{a} \vartriangle \clb{b}$. Vyjadřuje množinu prvků, které leží
+  a značí se $\clr{a} \vartriangle \clb{b}$. Popisuje množinu prvků, které leží
   pouze v $\clr{a}$ nebo pouze v $\clb{b}$, ale ne v obou množinách.
 \end{example}
 
@@ -1408,7 +1426,7 @@ oblastí. Oblast
     $\clr{a}$ i v $\clg{c}$, ale nikoli v $\clb{b}$: množina $(\clr{a} \cap
     \clg{c}) \setminus \clb{b}$;
   \item \textcolor{RoyalBlue!50!ForestGreen}{tyrkysová} obsahuje prvky ležící v
-    $\clb{b}$ i v $\clg{c}$, ale nikoli v $\clr{a}$: množina $(\clb{b} \cup
+    $\clb{b}$ i v $\clg{c}$, ale nikoli v $\clr{a}$: množina $(\clb{b} \cap
     \clg{c}) \setminus \clr{a}$;
   \item \textcolor{FireBrick!33!RoyalBlue!33!ForestGreen!33!white}{bílá}
     obsahuje prvky ležící v $\clr{a}$ i v $\clb{b}$ i v $\clg{c}$: množina
@@ -1515,4 +1533,97 @@ operací. Na \myref{obrázku}{fig:vennuv-diagram-tri-2} vizte několik příklad
   \end{subfigure}
   \caption{Vennovy diagramy základních množinových operací.}
   \label{fig:vennuv-diagram-tri-2}
+\end{figure}
+
+Vennův diagram pro čtyři množiny již nelze nakreslit pomocí kruhů bez ohledu na
+jejich rozmístění: existují pak totiž kombinace množinových operací na těchto
+čtyřech množinách, kterým nemůže odpovídat žádná oblast diagramu. Za cvičení
+můžete zkusit jednu takovou kombinaci najít.
+
+\begin{hardExercise}
+  Najděte kombinaci množinových operací $ \cap , \cup $ a $ \setminus $
+  použitých na množiny $\clr{a}, \clb{b}, \clg{c}, \clc{d}$, kterou nelze
+  zvýraznit na \myref{obrázku}{fig:vennuv-diagram-ctyri}.
+\end{hardExercise}
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[blend mode=screen]
+    \draw[fill=FireBrick, opacity=1] (0,0) circle (1);
+    \draw[fill=RoyalBlue, opacity=1] (1,0) circle (1);
+    \draw[fill=ForestGreen, opacity=1] (0,-1) circle (1);
+    \draw[fill=DarkCyan, opacity=1] (1,-1) circle (1);
+    \node at (135:1.35) {$\clr{a}$};
+    \node[xshift=1cm] at (45:1.35) {$\clb{b}$};
+    \node[shift={(0,-1)}] at (225:1.35) {$\clg{c}$};
+    \node[shift={(1,-1)}] at (315:1.35) {$\clc{d}$};
+  \end{tikzpicture}
+
+  \caption{Mylný pokus o Vennův diagram čtyř množin.}
+  \label{fig:vennuv-diagram-ctyri}
+\end{figure}
+\begin{exercise}
+  Nakreslete Vennův diagram množiny
+  \begin{enumerate}
+    \item $(a \setminus b) \cap (a \cup b)$;
+    \item $(a \cap c) \cup (c \setminus b)$;
+    \item $(a \cap b \cup c) \setminus (a \cap b \cap c)$.
+  \end{enumerate}
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Napište nějaké výrazy odpovídající Vennovým diagramům na
+  \myref{obrázku}{fig:vennuv-diagram-cviceni}.
+\end{exercise}
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (1,0) circle (1cm);
+      \begin{scope}
+        \clip (0.5,-1) circle (1cm);
+        \fill[DarkCyan] (0,0) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+  \end{subfigure}
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0.5,-1) circle (1cm);
+      \fill[white] (0,0) circle (1cm);
+      \fill[white] (1,0) circle (1cm);
+
+      \begin{scope}
+        \clip (0,0) circle (1cm);
+        \fill[DarkCyan] (0,0) circle (1cm);
+        \fill[white] (1,0) circle (1cm);
+        \fill[white] (0.5,-1) circle (1cm);
+      \end{scope}
+
+      \begin{scope}
+        \clip (1,0) circle (1cm);
+        \fill[DarkCyan] (0,0) circle (1cm);
+        \fill[white] (0.5,-1) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+  \end{subfigure}
+
+  \caption{Další příklady Vennových diagramů.}
+  \label{fig:vennuv-diagram-cviceni}
 \end{figure}
