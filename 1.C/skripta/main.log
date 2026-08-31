@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  30 AUG 2026 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  31 AUG 2026 17:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1724,7 +1724,7 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
 
 ] [6] (./mnoziny_logika.tex
 Kapitola 1.
-<figs/section1.jpg, id=122, 1927.2pt x 451.6875pt>
+<figs/section1.jpg, id=126, 1927.2pt x 451.6875pt>
 File: figs/section1.jpg Graphic file (type jpg)
 <use figs/section1.jpg>
 Package pdftex.def Info: figs/section1.jpg  used on input line 1.
@@ -1797,7 +1797,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 [8
 
 ]
-<figs/deer-grazing.jpg, id=144, 602.25pt x 333.245pt>
+<figs/deer-grazing.jpg, id=148, 602.25pt x 333.245pt>
 File: figs/deer-grazing.jpg Graphic file (type jpg)
 <use figs/deer-grazing.jpg>
 Package pdftex.def Info: figs/deer-grazing.jpg  used on input line 108.
@@ -2311,6 +2311,27 @@ Package mdframed Info: mdframed works in twoside mode on input line 1573.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1573.
+
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
+
+[38]
+Package mdframed Info: mdframed works in twoside mode on input line 1666.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1666.
+Package mdframed Info: mdframed works in twoside mode on input line 1694.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1694.
+Package mdframed Info: mdframed works in twoside mode on input line 1700.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1700.
 )))
 \tf@ptc=\write7
 \openout7 = `main.ptc'.
@@ -2323,7 +2344,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[38] (./main.aux)
+[39] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -2337,18 +2358,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 43000 strings out of 467535
- 842479 string characters out of 5388798
- 1737751 words of memory out of 5000000
- 70442 multiletter control sequences out of 15000+600000
- 768717 words of font info for 539 fonts, out of 8000000 for 9000
+ 43021 strings out of 467535
+ 842779 string characters out of 5388798
+ 1737999 words of memory out of 5000000
+ 70451 multiletter control sequences out of 15000+600000
+ 768942 words of font info for 541 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,13n,122p,969b,2402s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmex10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/cbfonts/grmn1200.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagk8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/symbol/usyr.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmb8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmr8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (38 pages, 14489367 bytes).
+</nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmex10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/cbfonts/grmn1200.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/public/rsfs/rsfs10.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagd8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/avantgar/uagk8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/symbol/usyr.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/symbol/usyr.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmb8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmr8a.pfb></nix/store/2bvm1w9phv7p940p8xmji64fbi2c0rcv-texlive-2025-r78234-final-env-texmfdist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (39 pages, 14503093 bytes).
 PDF statistics:
- 702 PDF objects out of 1000 (max. 8388607)
- 601 compressed objects within 7 object streams
- 213 named destinations out of 1000 (max. 500000)
- 143009 words of extra memory for PDF output out of 154059 (max. 10000000)
+ 738 PDF objects out of 1000 (max. 8388607)
+ 631 compressed objects within 7 object streams
+ 222 named destinations out of 1000 (max. 500000)
+ 143017 words of extra memory for PDF output out of 154059 (max. 10000000)
 

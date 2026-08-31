@@ -1627,3 +1627,80 @@ můžete zkusit jednu takovou kombinaci najít.
   \caption{Další příklady Vennových diagramů.}
   \label{fig:vennuv-diagram-cviceni}
 \end{figure}
+
+\subsection{Axiom potence}
+\label{ssec:axiom-potence}
+
+Axiom potence je jeden z axiomů zásadních pro konstrukci [TODO:odkaz na
+přirozená čísla]. Říká, že soubor všech \uv{kusů} libovolného celku, je též
+celkem, kde \uv{kusem} zde míníme soubor ne nutně všech částí původního celku.
+Opět se řídíme pravidlem: \uv{Vše, co umíme pojmenovat, je množina.} V tomto
+případě je onou množinou přesně \emph{množina všech podmnožin}, či celek všech
+\uv{způsobů, jak rozkouskovat celek}.
+
+Axiom potence s sebou nese jistý filosofický význam zásadní pro teorii množin.
+Mnozí, kdo se s teorií množin setkají poprvé, vnímají množiny jako \uv{soubory
+věcí}. Tento pohled není nezbytně mylný, pokud ovšem slovu \emph{věc}
+nepřiřazujeme materiální smysl. Ono slovo \emph{věc} má v teorii množin mnohem
+širší význam. Musíme-li učinit příměr se světem, slovo \emph{věc} zde může nést
+význam \emph{předmětu}, ale i třeba \emph{konceptu} či \emph{ideje} nebo dokonce
+(jako v~případě axiomu potence) \emph{způsobu, jak něco dělat}.
+
+Ještě jeden příklad za všechny: jest-li balíček hracích karet množina, pak axiom
+potence zaručuje, že všechny způsoby, jak vybrat libovolný počet karet z tohoto
+balíčku, též tvoří množinu. Zaheslujme jej větou:
+\begin{highlightBox}
+  \alert{Všechny způsoby rozdělení celku tvoří celek.}
+\end{highlightBox}
+Formalisovat axiom potence je poměrně jednoduché. V jazyce teorie množin přejímá
+podobu výroku
+\begin{equation}
+  \label{eq:axiom-potence}
+  ( \forall a)( \exists y)( \forall x)((x \in y) \Leftrightarrow (x \subseteq
+  a)),
+\end{equation}
+neboli: \uv{Ke každé množině $a$ existuje množina $y$, jejímiž prvky jsou
+podmnožiny množiny $a$.} Této množině $y$ se často říká \emph{potence} množiny
+$a$.
+
+\begin{definition}[Potence množiny]
+  \label{def:potence-mnoziny}
+  Je-li $a$ množina, pak množině všech jejích podmnožin říkáme \emph{potence}
+  množiny $a$ a značíme ji $\mathcal{P}(a)$.
+
+  Existence $\mathcal{P}(a)$ je pro každou množinu $a$ zaručena
+  \hyperref[eq:axiom-potence]{axiomem potence}.
+\end{definition}
+\lessboxspace
+\begin{remark}
+  Zdůrazněme, že podmnožinou každé množiny $a$ je prázdná množina $0$ a také
+  samotná množina $a$. To dává dobrý smysl, když přemýšlíme o podmnožině právě
+  jako o jednom možném způsobu, jak vybrat prvky z množiny $a$. Prázdná množina
+  vyjadřuje fakt, že jsme nevybrali žáden, a celá množina $a$ fakt, že jsme
+  vybrali všechny.
+\end{remark}
+\begin{example}
+  \label{exam:axiom-potence}
+  Je-li $a = \{x, y, z\}$, pak
+  \[
+    \mathcal{P}(a) = \{0, \{x\}, \{y\}, \{z\}, \{x, y\}, \{x, z\}, \{y, z\},
+    \{x, y, z\}\}.
+  \]
+\end{example}
+Jak snad vidno z \myref{příkladu}{exam:axiom-potence},
+\hyperref[def:potence-mnoziny]{potence množiny} celkem rychle bobtná se
+zvyšující se velikostí původní množiny. Můžete si zkusit rozmyslet, \emph{jak}
+rychle.
+\begin{hardExercise}
+  Jaký je počet prvků \hyperref[def:potence-mnoziny]{potence množiny}
+  $\mathcal{P}(a)$ vzhledem k počtu prvků množiny $a$? Zkuste jej nejprve určit
+  pro malé množiny s pár prvky a poté odvodit obecný vzorec.
+\end{hardExercise}
+\lessboxspace
+\begin{exercise}
+  Určete $\mathcal{P}(a)$ pro
+  \begin{enumerate}
+    \item $a = \{\vartriangleright, \Psi\}$;
+    \item $a = \{\{0\}, \{x, y\}, \xi, \{\{\alpha\}\}\}$.
+  \end{enumerate}
+\end{exercise}
