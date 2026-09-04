@@ -1723,9 +1723,8 @@ Formálně dí \emph{axiom fundovanosti}, že každá neprázdná množina obsah
 prvek, jehož prvky jsou zcela rozdílné od prvků původní množiny.
 
 Rozmyslíme si jeho význam na množině blonďáků s modrýma očima. Totiž, prvky této
-množiny jsou přesně blonďáci s modrýma očima a mezi prvky každého jednoho
-blonďáka s modrýma očima patří třeba jeho oči a vlasy. Ale oči a vlasy blonďáka
-s modrýma očima přeci nejsou prvky množiny všech blonďáků s modrýma očima!
+množiny jsou přesně blonďáci s modrýma očima, ale nedává žádný smysl tvrdit, že
+množina všech blonďáků s modrýma očima je sama o sobě blonďákem s modrýma očima!
 Logicky:
 \begin{equation}
   \label{eq:axiom-fundovanosti}
@@ -1752,7 +1751,7 @@ množiny prvky z množin dvou, nám zde nemůže pomoci, neboť aspoň jedna ze
 slévaných množin už by sama musela být nekonečná.
 
 Hlavním důvodem potřeby nekonečné množiny je konstrukce [TODO:odkaz na přirozená
-čísla]. Zde se můžeme chvíli zamyslet, proč vlastně dává smysl mít nekonečně
+čísla]. Zdeť záhodno chvíli sebe zamyslet, proč vlastně dává smysl mít nekonečně
 mnoho čísel. Ve světě žádné \uv{hmatatelné} nekonečno neexistuje; na každém
 místě je jen konečně mnoho \uv{předmětů}. Ovšem, zde opět narážíme na situaci z
 \hyperref[ssec:axiom-potence]{pododdílu o axiomu potence}. Totiž, řekněme, že
@@ -1775,9 +1774,9 @@ přirozená čísla]. Klíčem k~jeho pochopení je skutečnost, že podle
 \hyperref[eq:axiom-fundovanosti]{axiomu fundovanosti} neexistuje množina, jež by
 byla svým vlastním prvkem, a tedy je množina $x \cup \{x\}$ vždy odlišná od
 množiny $x$. Ačkoli \hyperref[def:sjednoceni-mnozin]{sjednocení} samo o sobě
-nestačí k výrobě nekonečné množiny, dává nám však nezanedbatelný nástroj.
-Nekonečnou množinu budeme totiž definovat jako takovou množinu, která spolu s
-prvkem $x$ musí obsahovat i $x \cup \{x\}$. Formálně:
+nestačí k výrobě nekonečné množiny, dává nám nezanedbatelný nástroj. Nekonečnou
+množinu budeme totiž definovat jako takovou množinu, která spolu s~prvkem $x$
+musí obsahovat i $x \cup \{x\}$. Formálně:
 \begin{equation}
   \label{eq:axiom-nekonecna}
   ( \exists a)( \forall x)(0 \in a \wedge (x \in a \Rightarrow x \cup \{x\} \in
@@ -1793,3 +1792,62 @@ ${0 \cup \{0\}} = \{0\}$. Protože však obsahuje $\{0\}$, obsahuje i $\{0\} \cu
 \begin{highlightBox}
   \alert{Existuje nekonečná množina.}
 \end{highlightBox}
+
+\subsection{Axiomy nahrazení}
+\label{ssec:axiomy-nahrazeni}
+
+Naše předlouhá pouť axiomy teorie množin končí tzv. \emph{axiomy nahrazení}.
+Podobně jako u \hyperref[ssec:axiomy-vydeleni]{axiomů vydělení}, i zde si
+všimněte použití plurálu. Tentokráte nemáme jeden axiom pro každý logický výrok,
+nýbrž pro každou \emph{funkci}. Totiž, \emph{axiom nahrazení} pro nějakou danou
+funkci $f\colon a \to b$ jednoduše říká, že obraz množiny $a$ při funkci $f$ je
+\emph{vždy množina}.\footnote{Zde jsme si záměrně dovolili mírný formální
+  prohřešek: běžné znění axiomů nahrazení nemluví přímo o žádných funkcích, a
+  tudíž nepožaduje existenci cílové množiny. Jejich znění se však tímto natolik
+  zkomplikuje, že jsme se přidrželi méně formální, leč mnohem intuitivnější
+varianty.} Zaheslujeme jej větou:
+\begin{highlightBox}
+  \alert{Obraz celku je celek.}
+\end{highlightBox}
+Jeho formalisace není obtížná; vlastně říká, že existuje obraz každé funkce.
+Přesně:
+\begin{equation}
+  \label{eq:axiom-nahrazeni}
+  ( \forall a)( \exists z)( \forall y)(y \in z \Leftrightarrow ( \exists x)(x
+  \in a \wedge f(x) = y)),
+\end{equation}
+kde $f$ je nějaká funkce vedoucí z $a$. Polidštěno: \uv{Pro každou množinu $a$
+  existuje množina $z$ obsahující právě ty prvky $y$, pro něž existuje $x \in a$
+takové, že $f(x) = y$.} \textbf{Rozmyslete si, že $z = f(a)$!}
+
+\begin{example}
+  \label{exam:axiom-nahrazeni-1}
+  Je-li $a = \{1, 2, 3\}$ množina a $f$ je funkce, která číslům $1, 2$ a $3$
+  přiřazuje jejich římské obdoby, tj.
+  \[
+    f(1) = \mathrm{I}, \quad f(2) = \mathrm{II}, \quad f(3) = \mathrm{III},
+  \]
+  pak \hyperref[eq:axiom-nahrazeni]{axiom nahrazení} pro funkci $f$ a množinu
+  $a$ říká, že existuje množina $z = \{\mathrm{I}, \mathrm{II}, \mathrm{III}\}$.
+\end{example}
+\begin{example}
+  \label{exam:axiom-nahrazeni-2}
+  Ať $a$ je množina všech předmětů a $f$ je funkce, která každému předmětu
+  přiřazuje jeho \emph{barvu}. Pak \hyperref[eq:axiom-nahrazeni]{axiom
+  nahrazení} pro funkci $f$ a množinu $a$ zaručuje, že existuje \textbf{množina
+  barev všech předmětů}.
+\end{example}
+Konkrétní použití zaznamenají \hyperref[eq:axiom-nahrazeni]{axiomy nahrazení}
+při konstrukci [TODO:odkaz celá čísla] a [TODO:odkaz racionální čísla].
+
+\begin{exercise}
+  Uvažte množinu $a = \{x, y, z\}$ a funkci $f$ vedoucí z $a$ danou předpisem
+  $f(x) =~\vartriangleleft, f(y) =~\vartriangleright, f(z) = \times$. Určete
+  $f(a)$.
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Představte sobě funkci $f$, která každému člověku z množiny všech lidí $l$
+  přiřazuje jeho výšku. Popište slovy množinu $f(l)$. Co je za množinu třeba
+  $f^{-1}(180)$?
+\end{exercise}
