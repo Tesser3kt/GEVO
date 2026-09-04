@@ -1704,3 +1704,92 @@ rychle.
     \item $a = \{\{0\}, \{x, y\}, \xi, \{\{\alpha\}\}\}$.
   \end{enumerate}
 \end{exercise}
+
+\subsection{Axiom fundovanosti}
+\label{ssec:axiom-fundovanosti}
+
+U axiomu fundovanosti nepobudeme dlouho; je jím veskrze formální axiom, který
+vylučuje existenci \uv{nesmyslných} množin: mimo jiné množin, které jsou svými
+vlastními prvky. Je intuitivně nepřijatelné, aby celek byl zároveň svojí vlastní
+částí, a v teorii množin historicky působily takové množiny pramnoho problémů.
+Tak je zkrátka vyhodíme... Za zmínku stojí skutečnost, že \emph{axiom
+fundovanosti} je jediný \emph{negativní} axiom teorie množin ve smyslu, že
+zakazuje existenci jistých množin, spíše než aby ji zaručoval. Uveďme jej pod
+heslem:
+\begin{highlightBox}
+  \alert{Žádný celek nemůže být svou vlastní částí.}
+\end{highlightBox}
+Formálně dí \emph{axiom fundovanosti}, že každá neprázdná množina obsahuje
+prvek, jehož prvky jsou zcela rozdílné od prvků původní množiny.
+
+Rozmyslíme si jeho význam na množině blonďáků s modrýma očima. Totiž, prvky této
+množiny jsou přesně blonďáci s modrýma očima a mezi prvky každého jednoho
+blonďáka s modrýma očima patří třeba jeho oči a vlasy. Ale oči a vlasy blonďáka
+s modrýma očima přeci nejsou prvky množiny všech blonďáků s modrýma očima!
+Logicky:
+\begin{equation}
+  \label{eq:axiom-fundovanosti}
+  ( \forall a)(a \neq 0 \Rightarrow ( \exists x)(x \in a \wedge x \cap a = 0)),
+\end{equation}
+čili: \uv{Každá neprázdná množina $a$ obsahuje prvek $x$, s nímž nesdílí žádné
+prvky.}
+
+Jak z \hyperref[eq:axiom-fundovanosti]{axiomu fundovanosti} plyne fakt, že žádná
+množina není svým vlastním prvkem? Uvažme množinu $a$ takovou, že $a \in a$.
+Podle \hyperref[eq:axiom-vydeleni]{axiomu vydělení} a
+\hyperref[eq:axiom-dvojice]{axiomu dvojice} existuje množina $\{a\}$. Jistě $a
+\in \{a\}$. Pak ale spolu množina $\{a\}$ a množina $a$ sdílejí prvek $a$.
+Množina $\{a\}$ je tudíž ve sporu s \hyperref[eq:axiom-fundovanosti]{axiomem
+fundovanosti}, neboť jejím jediným prvkem je množina $a$ a zároveň platí $a \cap
+\{a\} = a$.
+
+\subsection{Axiom nekonečna}
+\label{ssec:axiom-nekonecna}
+
+Zatím žádný z axiomů teorie množin neumožňoval robit \emph{nekonečné} množiny.
+Ani \hyperref[def:sjednoceni-mnozin]{operace sjednocení}, jež slévá do jedné
+množiny prvky z množin dvou, nám zde nemůže pomoci, neboť aspoň jedna ze
+slévaných množin už by sama musela být nekonečná.
+
+Hlavním důvodem potřeby nekonečné množiny je konstrukce [TODO:odkaz na přirozená
+čísla]. Zde se můžeme chvíli zamyslet, proč vlastně dává smysl mít nekonečně
+mnoho čísel. Ve světě žádné \uv{hmatatelné} nekonečno neexistuje; na každém
+místě je jen konečně mnoho \uv{předmětů}. Ovšem, zde opět narážíme na situaci z
+\hyperref[ssec:axiom-potence]{pododdílu o axiomu potence}. Totiž, řekněme, že
+bychom dokázali určit maximální počet věcí ve vesmíru, tedy takové číslo, že i
+kdyby každá nejmenší část prostoru byla vyplněna nějakým neskutečně malým
+předmětem, stejně by jich nemohlo být více. Ani v tomto případě by nedávalo
+smysl mít konečně mnoho čísel. Totiž, čísly nepočítáme jenom předměty, ale třeba
+i způsoby, jak s~onými předměty zacházet. Počet způsobů, jak za sebe uspořádat
+všechny existující věci ve vesmíru, je zcela jistě mnohem vyšší, než počet těch
+věcí samotných. Čili, bez ohledu na to, jak vysoké by bylo dané \uv{nejvyšší}
+číslo, vždy si dokážeme představit číslo vyšší zkrátka tak, že začneme počítat
+způsoby, jak s tímto \uv{nejvyšším} počtem předmětů manipulovat. Snad jsme vás
+tímto, bdělí čtenáři, přesvědčili, že mít nekonečně mnoho čísel dává lepší
+filosofický smysl než opak, ačkoli nekonečno samo o sobě je těžko uchopitelné.
+
+Teď přichází na řadu však potíž více formálního rázu: \uv{Jak vlastně vyrobit
+nekonečnou množinu?} Učiníme to způsobem známým jako \emph{matematická indukce},
+způsobem, kterým budeme rovněž později v tomto textu vyrábět [TODO: odkaz na
+přirozená čísla]. Klíčem k~jeho pochopení je skutečnost, že podle
+\hyperref[eq:axiom-fundovanosti]{axiomu fundovanosti} neexistuje množina, jež by
+byla svým vlastním prvkem, a tedy je množina $x \cup \{x\}$ vždy odlišná od
+množiny $x$. Ačkoli \hyperref[def:sjednoceni-mnozin]{sjednocení} samo o sobě
+nestačí k výrobě nekonečné množiny, dává nám však nezanedbatelný nástroj.
+Nekonečnou množinu budeme totiž definovat jako takovou množinu, která spolu s
+prvkem $x$ musí obsahovat i $x \cup \{x\}$. Formálně:
+\begin{equation}
+  \label{eq:axiom-nekonecna}
+  ( \exists a)( \forall x)(0 \in a \wedge (x \in a \Rightarrow x \cup \{x\} \in
+  a)),
+\end{equation}
+čili, ještě jednou: \uv{Existuje množina $a$, která není prázdná (obsahuje $0$)
+a s každým prvkem $x$ obsahuje i prvek $x \cup \{x\}$}.
+
+Takto definovaná množina je skutečně nekonečná. Obsahuje $0$, a tedy obsahuje i
+${0 \cup \{0\}} = \{0\}$. Protože však obsahuje $\{0\}$, obsahuje i $\{0\} \cup
+\{\{0\}\} = \{0, \{0\}\}$ a tak dále do nekonečna...
+\hyperref[eq:axiom-nekonecna]{Axiom nekonečna} shrneme jednoduchým heslem:
+\begin{highlightBox}
+  \alert{Existuje nekonečná množina.}
+\end{highlightBox}
