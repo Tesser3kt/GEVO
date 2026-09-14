@@ -1,0 +1,1853 @@
+Připomínáme, že slovo \emph{axiom} je označením pro gramaticky správnou
+posloupnost symbolů v daném \hyperref[def:jazyk]{jazyce}, která tvoří část
+\hyperref[def:teorie]{teorie}; je tedy vlastně \uv{označena za
+\emph{pravdivou}}. Protože \hyperref[def:jazyk]{jazyk} teorie množin dědí jazyk
+\hyperref[def:predikatova-logika]{predikátové logiky}, jsou axiomy teorie množin
+\hyperref[def:vyrok]{výroky}, o kterých prohlásíme, že platí.
+
+Zásluhou mnoha matematiků (převážně) 20. století, je teorie množin redukována na
+rozumně malé množství (skupin) axiomů. Cílem však často není získat tu nejmenší
+možnou teorii, ale též zachovat jistou \uv{intuitivnost} zvolených axiomů.
+Teorie množin nejsouc sic tak malá, jak by jistě mohla být, zachovává si jistý
+vyšší stupeň srozumitelnosti.
+
+Probereme se nyní jejími axiomy -- dá se říci od nejlehčích po nejtěžší -- a u
+každého předneseme vysvětlení, příměry a snahy o \uv{polidštění}. Mnoho axiomů
+též dává možnost vzniknout operacím na množinách, jež nám přijde vhodné uvést
+společně s nimi.
+
+\subsection{Axiom existence}
+\label{ssec:axiom-existence}
+
+Mnozí teologové v průběhu tisíciletí našeho letopočtu vnímali Boha jako prapůvod
+existence -- tvůrce, jenž stvořil z ničeho něco. Otázka, proč ve vesmíru vůbec
+něco je, zůstává ve fyzice a filosofii víceméně otevřená. Teorie množin, jejímiž
+architekty jsou bezesporu lidé, pročež obsahuje \emph{axiom existence}, který
+zaručuje, že v matematickém vesmíru vůbec něco je.
+
+Formulovat jej není pravda obtížné, ale vyžaduje chvíli zamyšlení. Totiž
+\hyperref[def:existencni-kvantifikator]{existenční kvantifikátor} umožňuje
+vyjádřit, že \emph{existuje $x$}. Avšak, jaké $x$? Podle pravidel
+\hyperref[def:predikatova-logika]{predikátové logiky} musí kvantifikátoru
+následovat výrok. Jelikož zatím žádné množiny k disposici nemáme, nabízí se
+výrok $x = x$. Tedy, axiom existence vlastně říká, že \textbf{existuje množina
+rovna sobě samé}. Jeho přesná formulace jest
+\begin{equation}
+  \label{eq:axiom-existence}
+  ( \exists x)(x = x).
+\end{equation}
+Axiom existence si můžeme pamatovat pod triviálním heslem:
+\begin{highlightBox}
+  \alert{Existuje něco.}
+\end{highlightBox}
+
+\subsection{Axiom extensionality}
+\label{ssec:axiom-extensionality}
+
+Název tohoto axiomu je záhadný, leč vyjadřuje přirozenou intuici, že dvě
+množiny, které mají přesně ty samé prvky, už nutně musejí být stejné. Heslovitě,
+v teorii množin platí:
+\begin{highlightBox}
+  \alert{Celek je přesně (tedy ani víc ani méně) než součet svých částí.}
+\end{highlightBox}
+Formulovat jej opět není obtížné, stačí přeformulovat větu: \uv{Množiny $x$ a
+$y$ mají stejné prvky.} Inu, to se stane přesně tehdy, když pro každou množinu
+platí, že je prvkem $x$ právě tehdy, když je prvkem $y$. V jazyce teorie množin,
+výrok
+\[
+  ( \forall z)(z \in x \Leftrightarrow z \in y)
+\]
+přesně vyjadřuje, že množiny $x$ a $y$ mají totožné prvky. \emph{Axiom
+extensionality} tvrdí, že v~tomto případě již je $x$ rovna $y$. Ještě jednou
+vyslovíme \emph{axiom extensionality} slovně a pak jej vyjádříme symbolicky.
+Tedy, v teorii množin platí výrok: \uv{Když je každá množina prvkem $x$ právě
+tehdy, když je prvkem $y$, pak jsou množiny $x$ a $y$ stejné}. Symbolicky:
+\begin{equation}
+  \label{eq:axiom-extensionality}
+  ( \forall z)(z \in x \Leftrightarrow z \in y) \Rightarrow (x = y).
+\end{equation}
+\begin{notation}
+  Fakt, že množina $a$ má za prvky množiny $b, c$ a $d$ a \emph{žádné jiné}
+  zapisujeme
+  \[
+    a = \{b, c, d\}.
+  \]
+\end{notation}
+\begin{warning}
+  Pozor! \hyperref[ssec:axiom-extensionality]{Axiom extensionality} v žádném
+  smyslu nehovoří o \emph{uspořádání} nebo \emph{pořadí} prvků v množinách.
+  Obecné \textbf{množiny nemají uspořádané prvky}. Vskutku, podle
+  \hyperref[ssec:axiom-extensionality]{axiomu extensionality} jsou množiny
+  \[
+    a = \{x, y, z\} \quad \text{a} \quad b = \{z, y, x\}
+  \]
+  \emph{naprosto stejné}, přestože jsme se rozhodli napsat prvky množiny $b$ v
+  jiném pořadí než prvky množiny $a$.
+\end{warning}
+
+Když na levé straně výroku~\eqref{eq:axiom-extensionality} platí pouze implikace
+zleva doprava, tj. když platí výrok
+\[
+  ( \forall z)(z \in x \Rightarrow z \in y),
+\]
+který lze přetlumočit na: \uv{Každá množina, jež je prvkem $x$, je taky prvkem
+$y$,} pak říkáme, že $x$ \emph{je podmnožina} $y$; tento vztah jednoduše
+znamená, že $x$ se skládá z některých částí $y$.
+
+\begin{definition}[Podmnožina]
+  \label{def:podmnozina}
+  O množině $x$ řekneme, že je \emph{podmnožinou} množiny $y$ -- a píšeme $x
+  \subseteq y$ -- pokud platí
+  \begin{equation}
+    \label{eq:podmnozina}
+    ( \forall z)(z \in x \Rightarrow z \in y).
+  \end{equation}
+  Místo $\neg (x \subseteq y)$ píšeme zkráceně $x \nsubseteq y$.
+\end{definition}
+\begin{example}
+  \label{exam:podmnozina}
+  Je-li $x$ množina lidí a $y$ množina \emph{dospělých} lidí, pak platí $y
+  \subseteq x$, tedy $y$ je \hyperref[def:podmnozina]{podmnožinou} $x$. Je tomu
+  tak pro to, že každý dospělý člověk je samozřejmě též člověk, ale ne každý
+  člověk je nezbytně dospělý.
+\end{example}
+
+\subsection{Axiomy vydělení}
+\label{ssec:axiomy-vydeleni}
+
+Všimněte si, drazí čtenáři, nejprve, že zde hovoříme o \emph{axiomech} vydělení
+namísto pouhého \emph{jednoho} axiomu vydělení. To má dobrý důvod: totiž, v
+teorii množin \textbf{formulujeme jeden axiom vydělení pro každý jeden výrok
+závislý na proměnné}. To má svůj dobrý důvod, jak záhy vyložíme.
+
+Axiom vydělení je velmi přirozený axiom, který lze heslovitě shrnout větou
+\begin{highlightBox}
+  \alert{Od každého celku lze oddělit části s danou vlastností.}
+\end{highlightBox}
+Například, uvážíme-li množinu všech lidí a vlastnost \emph{být dospělý}, pak
+axiom vydělení (pro tuto konkrétní vlastnost) říká, že existuje množina všech
+lidí, kteří \emph{jsou dospělí}, neboli existuje množina dospělých lidí.
+Přestože se v tomto znění jeví axiomy vydělení velmi přirozeně (jak by také
+měly), jejich formulace je na první pohled zbytečně komplikovaná. Onu složitost
+rodí jisté \emph{paradoxy}, které v teorii množin nastanou, pokud axiomy
+vydělení formulujeme příliš přímočaře.
+
+Osvětlíme místo, kde lze z nepozornosti sejít na logické scestí při tvorbě
+axiomů vydělení. Ať je nejprve $p(x)$ výrok závislý na $x$: ten představuje onu
+\emph{vlastnost}, dle níž vydělujeme. V příkladě výše by $p(x)$ byl výrok:
+\uv{$x$ je dospělý.} Budeme chtít tvrdit, že pro libovolný výrok $p(x)$ existuje
+množina prvků, které mají tuto vlastnost. První pokus bude tento: \uv{Existuje
+množina $y$ taková, že $x$ je prvkem $y$ přesně tehdy, když platí $p(x)$.} V
+jazyce
+\hyperref[def:predikatova-logika]{predikátové logiky}:
+\begin{equation}
+  \label{eq:russelluv-paradox}
+  ( \exists y)( \forall x)(x \in y \Leftrightarrow p(x)).
+\end{equation}
+Žel bohu, takový axiom by z teorie množin udělal velkou paseku.
+
+\begin{example}[Russellův paradox]
+  \label{exam:russelluv-paradox}
+  Slovem \emph{paradox} (z řec. \textgreek{pará}, \uv{proti}, a
+  \textgreek{dóxa}, \uv{očekávání}) zde míníme výrok, který je \emph{sporný},
+  tj. je zároveň pravdivý i lživý. Russelův paradox je paradox teorie množin
+  formulovaný Bertrandem Russellem v roce 1901.  Jeho polidštěná podoba zní
+  takto: \uv{Ve městě žije holič, který holí přesně ty lidi, kdo se neholí sami.
+  Holí holič sám sebe, nebo ne?}
+
+  Uvážíme oba případy:
+  \begin{itemize}
+    \item Řekněme, že se holič holí. Potom ale holí někoho (sebe), kdo se sám
+      holí, a tudíž nemůže holit jenom ty, kdo se neholí sami.
+    \item Naopak, řekněme, že holič sám sebe neholí. Pak ale nemůže holit
+      všechny lidi, kdo se neholí sami, protože sám sebe neholí.
+  \end{itemize}
+  V obou případech jsme vyšli z předpokladu, že: \uv{Existuje holič, který holí
+  přesně ty, kdo se neholí sami,} a došli jsme k opaku (negaci) tohoto
+  předpokladu. Jinak řečeno, našli jsme výrok, který platí i neplatí zároveň:
+  \emph{paradox}.
+\end{example}
+
+Určitě přemýšlíte, kterak souvisí \myref{příklad}{exam:russelluv-paradox} s
+výrokem~\eqref{eq:russelluv-paradox}. Rozeberme si tento vztah. Místo lidí ve
+městě berme všechny množiny, čili, každá jedna množina je jeden člověk ve městě.
+Pomíjejíce skutečnost, že takové město bylo by poněkud přelidněné, vyberme z~něj
+dvou lidí: člověka $x$ a člověka $y$. Větu: \uv{$x$ holí $y$,} nahradíme výrokem
+v jazyce teorie množin: $y \in x$, který můžeme intuitivně vnímat třeba jako:
+\uv{Člověk $y$ patří do množiny všech lidí, kteří jsou holeni člověkem $x$.}
+\hyperref[exam:russelluv-paradox]{Russellův paradox} ukazuje, že \textbf{nemůže
+existovat} množina $h$ (onen \emph{holič}), která obsahuje právě ty množiny, pro
+něž platí $x \notin x$. Ještě jednou, představme si pro spor, že existuje
+množina $h$, která splňuje, že platí $x \in h$ (čili: \uv{$h$ holí $x$.}) právě
+tehdy, když $x \notin x$ (čili \uv{$x$ se neholí sám.}). Pokud platí $h \in h$
+(tedy, \uv{$h$ se holí sám.}), pak ale z definice množiny $h$ platí $h \notin h$
+(protože $h$ obsahuje právě všechny prvky $x$ splňující $x \notin x$). Naopak,
+pokud $h \notin h$, pak opět z definice $h$ platí $h \in h$, protože $h$
+obsahuje všechna $x$, pro něž platí $x \notin x$. V obou případech vidíme, že je
+výrok $h \in h$ pravdivý i lživý zároveň. Má-li teorie množin dávat smysl,
+musíme požadovat, aby taková množina $h$ nesměla existovat.
+
+Řešení je naštěstí nasnadě. Stačí, když ve výroku~\eqref{eq:russelluv-paradox}
+budeme prvky $x$ vybírat (\uv{vydělovat}) z již existující množiny a ne ze všech
+možných množin. Opravená, a finální, podoba axiomu vydělení pro libovolný výrok
+$p(x)$ vypadá takto:
+\begin{equation}
+  \label{eq:axiom-vydeleni}
+  ( \forall a)( \exists y)( \forall x)(x \in y \Leftrightarrow (x \in a \wedge
+  p(x))),
+\end{equation}
+čili, selštěji: \uv{Z každé množiny $a$ lze vytvořit množinu $y$, která obsahuje
+všechny její prvky $x$, pro které platí $p(x)$.} Touto úpravou se
+\hyperref[exam:russelluv-paradox]{Russellova paradoxu} ihned zbavíme, neboť
+požadujeme, aby prvky $x$ byly vybírány (\uv{vydělovány}) z předem existující
+množiny $a$.
+
+\begin{example}
+  \label{exam:axiom-vydeleni}
+  Navraťme se k příkladu ze začátku pododdílu. Za množinu $a$ vezměme množinu
+  všech lidí a za výrok $p(x)$ větu: \uv{$x$ je dospělý.} Pak axiom
+  vydělení~\eqref{eq:axiom-vydeleni} pro výrok $p(x)$ říká, že existuje množina
+  $y$, která obsahuje všechny prvky $x \in a$, pro něž platí $p(x)$. Jinak
+  řečeno, existuje množina $y$ obsahující všechny dospělé lidi.
+\end{example}
+\begin{notation}
+  Fakt, že $y$ je množina všech prvků $x \in a$ splňujících $p(x)$, píšeme jako
+  \[
+    y = \{x \in a \mid p(x)\}.
+  \]
+\end{notation}
+\begin{example}
+  \label{exam:axiom-vydeleni-2}
+  Uvedeme dva další příklady použití axiomu vydělení.
+  \begin{itemize}
+    \item Označme množinu všech přirozených čísel (kterou vyrobíme později) jako
+      $\N$. Z té můžeme vydělit množinu všech čísel sudých jako množinu
+      \[
+        y = \{x \in \N \mid x \text{ je dělitelné } 2\}.
+      \]
+    \item S trochou fantasie můžeme množinu všech trojúhelníků $t$ vyjádřit jako
+      podmnožinu množiny $g$ všech geometrických útvarů třeba takto:
+      \[
+        t = \{x \in g \mid \text{součet vnitřních úhlů } x = 180^{ \circ }\}.
+      \]
+  \end{itemize}
+\end{example}
+
+Díky \hyperref[eq:axiom-vydeleni]{axiomu vydělení} můžeme definovat dvě další
+operace na množinách: operaci \emph{průniku} a operaci \emph{rozdílu}. Pro dvě
+množiny $x$ a $y$ je jejich průnikem množina prvků, které jsou jim oběma
+společné. Kupříkladu, je-li $x$ množina všech bloňdáků a $y$ množina všech
+modrookých lidí, pak průnik $x$ a $y$ (značený $x \cap y$) je množina všech
+bloňdáků s modrýma očima. Rozdíl množin $x$ a $y$ (značený $x \setminus y$) je
+množina všech prvků, které patří do $x$, ale nepatří do $y$. Tedy, při naší
+konkrétní volbě množin $x$ a $y$ je $x \setminus y$ množina všech bloňdáků,
+kteří \emph{nemají} modré oči.
+
+\begin{definition}[Průnik množin]
+  \label{def:prunik-mnozin}
+  Pro dvě množiny $x$ a $y$ definujeme množinu $x \cap y$ (zvanou \emph{průnik}
+  množin $x$ a $y$) takto:
+  \begin{equation}
+    \label{eq:prunik-mnozin}
+    x \cap y = \{z \in x \mid z \in y\}.
+  \end{equation}
+  Jeho existence plyne z \hyperref[eq:axiom-vydeleni]{axiomu vydělení} pro výrok
+  $p(z) = z \in y$ s volbou $a = x$.
+\end{definition}
+\begin{example}
+  \label{exam:prunik-mnozin}
+  Je-li $x = \{a, b, c\}$ a $y = \{b, d, e\}$, pak
+  \[
+    x \cap y = \{b\}.
+  \]
+\end{example}
+\lessboxspace
+\begin{definition}[Rozdíl množin]
+  \label{def:rozdil-mnozin}
+  Pro dvě množiny $x$ a $y$ definujeme množinu $x \setminus y$ (zvanou
+  \emph{rozdíl} množin $x$ a $y$) takto:
+  \begin{equation}
+    \label{eq:rozdil-mnozin}
+    x \setminus y = \{z \in x \mid z \notin y\}.
+  \end{equation}
+  Jeho existence plyne z \hyperref[eq:axiom-vydeleni]{axiomu vydělení} pro výrok
+  $p(z) = z \notin y$ s volbou $a = x$.
+\end{definition}
+\begin{example}
+  \label{exam:rozdil-mnozin}
+  Je-li opět $x = \{a, b, c\}$ a $y = \{b, d, e\}$, pak
+  \[
+    x \setminus y = \{a, c\}.
+  \]
+\end{example}
+
+Z \hyperref[eq:axiom-vydeleni]{axiomu vydělení} též plyne existence
+\emph{prázdné množiny}: množiny neobsahující žádné prvky. Získáme ji velmi
+jednoduše třeba jako rozdíl libovolné množiny se sebou samou, tedy jako $x
+\setminus x$ pro jakoukoli množinu $x$. Totiž, podíváme-li se na množinu $x
+\setminus x$ podle \myref{definice}{def:rozdil-mnozin}, vidíme, že
+\[
+  x \setminus x = \{z \in x \mid z \notin x\}
+\]
+a množina $x \setminus x$ sestává ze všech prvků $z$, které patří do $x$, pro
+něž platí, že ... ehm ... \emph{nepatří} do $x$. Je jasné, že žádný prvek snaže
+se sebevíc nemůže takovému výroku vyhovět, pročež $x \setminus x$ nehostí
+žádných prvkův.
+
+\begin{definition}[Prázdná množina]
+  \label{def:prazdna-mnozina}
+  \emph{Prázdná} množina, značená $0$, je množina neobsahující prvky. Též můžeme
+  formálně říci, že výrok $x \in 0$ je \emph{lživý} pro každou množinu $x$. Její
+  existence plyne z \hyperref[eq:axiom-vydeleni]{axiomu vydělení} pro výrok
+  $p(z) = z \notin x$ a volbu $a = x$.
+\end{definition}
+\lessboxspace
+\begin{remark}
+  Označení $0$ pro prázdnou množinu není náhodné ani konfliktní. V oddílu
+  [TODO:odkaz na číselné množiny] se dozvíme, že prázdná množina $0$ je vskutku
+  dokonale to samé, jak přirozené číslo $0$.
+\end{remark}
+
+\begin{exercise}
+  Pomocí \hyperref[eq:axiom-vydeleni]{axiomu vydělení} vyrobte množinu
+  \begin{enumerate}
+    \item všech záporných čísel jako podmnožinu množiny $\Z$ všech celých
+      čísel;
+    \item přirozených čísel dělitelných $5$, ale ne $7$, jako podmnožinu množiny
+      $\N$ všech přirozených čísel;
+    \item množinu všech indukčních sporáků jako podmnožinu množiny $s$ všech
+      sporáků.
+  \end{enumerate}
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Pro $a = \{x, y, z\}$ a $b = \{x, y, v, w\}$ spočtěte
+  \begin{enumerate}
+    \item $a \cap b$,
+    \item $a \setminus b$,
+    \item $a \setminus (b \cap a)$.
+  \end{enumerate}
+\end{exercise}
+\lessboxspace
+\begin{hardExercise}
+  Ukažte, že když pro dvě množiny $a, b$ platí $a \setminus b = b \setminus a$,
+  pak už nutně $a = b$.
+\end{hardExercise}
+
+\subsection{Axiom dvojice}
+\label{ssec:axiom-dvojice}
+
+Zatím jsme ve svém průchodu křovinami teorie množin na místě, kde máme z
+\hyperref[ssec:axiom-existence]{axiomu existence} zaručeny existence aspoň
+nějakých množin a \hyperref[ssec:axiomy-vydeleni]{axiomy vydělení} umíme z
+existujících množin dělat množiny \emph{menší}. Zatím nám však schází výroky,
+kterými se naučíme \uv{slepovat} množiny dohromady a robit množiny \emph{větší}.
+Prvním z nich je tzv. \emph{axiom dvojice}, který nám umožní sloučit dvě
+existující množiny v novou množinu. Zaheslujeme ho pod větou:
+\begin{highlightBox}
+  \alert{Každé dva celky tvoří celek.}
+\end{highlightBox}
+Intuitivně by axiom dvojice měl být snadno přijatelný: dáme-li libovolné dvě
+věci dohromady, dostaneme přeci soubor dvou věcí, který je odlišný od obou věcí,
+jež obsahuje. Mezi příklady čítáme třebas sloučení množin mělkých a hlubokých
+talířů tvořící množinu \emph{všech} talířů nebo množina všech lidí jako sloučení
+množin všech dětí a všech dospělých.
+
+Formálně, axiom dvojice říká přesně toto: \uv{Pro každé dvě množiny $a$ a $b$,
+existuje množina $y$, která je obsahuje.} V jazyce teorie množin:
+\begin{equation}
+  \label{eq:axiom-dvojice}
+  ( \forall a) ( \forall b)( \exists y)( \forall x)(x \in y \Leftrightarrow (x =
+  a \vee x = b)).
+\end{equation}
+\begin{example}
+  \label{exam:axiom-dvojice}
+  Vezměme množinu $a = \{x, y\}$ a množinu $b = \{x, y, z\}$. Pak podle
+  \hyperref[eq:axiom-dvojice]{axiomu dvojice} existuje množina
+  \[
+    \{a, b\} = \{\{x, y\}, \{x, y, z\}\}.
+  \]
+\end{example}
+\lessboxspace
+\begin{warning}
+  Axiom dvojice \textbf{neříká}, že pro dvě množiny $a, b$ existuje množina
+  obsahující jejich \textbf{prvky}. Říká pouze, že existuje množina, která
+  obsahuje množiny $a$ a $b$ jako své vlastní prvky. Vizte
+  \myref{příklad}{exam:axiom-dvojice}.
+\end{warning}
+Axiom dvojice dává vzniknout dvěma novým konceptům teorie množin, jež nabudou
+svého významu již ve formulaci budoucích axiomů. Jsou jimi pojmy uspořádané a
+neuspořádané dvojice.
+
+\begin{definition}[Dvojice]
+  \label{def:dvojice}
+  Každou dvouprvkovou množinu nazýváme (\emph{neuspořádanou}) \emph{dvojicí}.
+\end{definition}
+\begin{example}
+  \label{exam:dvojice}
+  Množiny $\{a, b\}, \{\{a\}, 0\}$ a $\{\{a, b, c, d\}, \{\{\{a\}\}, b\}\}$
+  \emph{jsou} dvojice, zatímco třeba množiny $\{a, b, c\}$ nebo $\{\{0, a\},
+  \{a\}, \{\{b\}\}\}$ ne.
+\end{example}
+
+Pojem \emph{uspořádané} dvojice je mírně složité definovat. Má zachycovat
+\hyperref[def:dvojice]{dvojici}, u níž záleží na pořadí jejích prvků. Množiny
+však samy o sobě uspořádané nejsou, musíme pročež sáhnout ke komplikovanější
+konstrukci. Její standardní podobu vizte níže.
+\begin{definition}[Uspořádaná dvojice]
+  \label{def:usporadana-dvojice}
+  Jsou-li $a, b$ dvě množiny, pak množinu $\{\{a\}, \{a, b\}\}$, kterou značíme
+  $(a, b)$, nazýváme \emph{uspořádanou dvojicí} s prvky $a$ a $b$.
+\end{definition}
+Všimněme si, že $(a, b) \neq (b, a)$, protože $(a, b) = \{\{a\}, \{a, b\}\}$
+zatímco $(b, a) = \{\{b\}, \{a, b\}\}$. Získali jsme tedy dvouprvkovou množinu,
+kde o jednom z prvků můžeme prohlásit, že je \uv{první} a o tom druhém, že je
+... \uv{druhý}.
+\begin{example}
+  \label{exam:usporadana-dvojice}
+  Čtenáři se měli příležitost setkat s
+  \hyperref[def:usporadana-dvojice]{uspořádanými dvojicemi} v kontextu soustav
+  souřadnic. Body v rovině (jež mohli vidět značeny různě: jako $(3, 5)$, $[3,
+  5]$ nebo též $[3; 5]$) jsou zkrátka uspořádanými dvojicemi reálných čísel.
+\end{example}
+\begin{remark}
+  Existence \hyperref[def:usporadana-dvojice]{uspořádané dvojice} $(a, b)$ plyne
+  z \hyperref[eq:axiom-dvojice]{axiomu dvojice}, ale též z
+  \hyperref[eq:axiom-vydeleni]{axiomu vydělení}. Rozeberme si její konstrukci
+  podrobně:
+  \begin{enumerate}
+    \item Z axiomu dvojice plyne pro $a, b$ existence množiny $\{a, b\}$.
+    \item Z axiomu vydělení plyne pro výrok $p(x) = (x = a)$ a množinu $\{a,
+      b\}$ existence množiny
+      \[
+        y = \{x \in \{a, b\} \mid p(x)\} = \{x \in \{a, b\} \mid x = a\}
+      \]
+      tedy množiny všech prvků z $\{a, b\}$, které splňují, že $x = a$. Ale tou
+      je právě množina $\{a\}$.
+    \item Opětovným použitím axiomu dvojice na množiny $\{a\}$ a $\{a, b\}$
+      dostaneme existenci množiny $\{\{a\}, \{a, b\}\}$.
+  \end{enumerate}
+\end{remark}
+S konceptem \hyperref[def:usporadana-dvojice]{uspořádané dvojice} se přirozeně
+váže tzv. (\emph{kartézský}) \emph{součin} množin -- množina všech uspořádaných
+dvojic prvků z vybraných dvou množin.
+\begin{definition}[Součin množin]
+  \label{def:soucin-mnozin}
+  Ať jsou $a, b$ dvě množiny. Jejich (\emph{kartézským}) \emph{součinem} myslíme
+  množiny všech uspořádaných dvojic $(x, y)$, kde $x \in a$ a $y \in b$, a
+  značíme jej $a \times b$. Symbolicky:
+  \begin{equation}
+    \label{eq:soucin-mnozin}
+    a \times b = \{(x, y) \mid x \in a \wedge y \in b\}.
+  \end{equation}
+\end{definition}
+\begin{example}
+  \label{exam:soucin-mnozin}
+  Je-li $a = \{x, y\}$ a $b = \{x, y, z\}$, pak součin $a \times b$ je množina
+  \[
+    a \times b = \{(x, x), (x, y), (x, z), (y, x), (y, y), (y, z)\}.
+  \]
+  O \hyperref[def:soucin-mnozin]{součinu množin} lze přemýšlet podobně jako o
+  roznásobování závorek s výrazy. Vlastně \uv{násobíme} každý prvek z $a$ s
+  každým prvkem z $b$. Všimněte si podobnosti mezi množinou $a \times b$ a
+  výrazem
+  \[
+    (x + y) \cdot (x + y + z) = x \cdot x + x \cdot y + x \cdot z + y \cdot x +
+    y \cdot y + y \cdot z.
+  \]
+  Jedním rozdílem pochopitelně je, že $x \cdot y = y \cdot x$, zatímco $(x, y)
+  \neq (y, x)$.
+\end{example}
+\begin{warning}
+  Fakt, že součin množin \emph{existuje} pro každé dvě množiny $a$ a $b$ není
+  samozřejmý a plyne z axiomů [TODO:axiom sumy] a [TODO:axiom potence], které
+  jsme ještě nepředstavili. Problém je v tom, že v
+  \hyperref[eq:soucin-mnozin]{definici součinu množin} nevybíráme dvojice $(a,
+  b)$ z žádné předem existující množiny (vizte
+  \hyperref[exam:russelluv-paradox]{Russellův paradox}), tedy by jeho definice
+  mohla způsobit obtíže.
+\end{warning}
+\hyperref[def:soucin-mnozin]{Součin množin} je jednou z nejdůležitějších definic
+v matematice a vede ke konceptům, s~nimiž jste se již jistě setkali:
+\emph{souřadnice}, \emph{zlomek}, \emph{funkce} nebo třeba \emph{nerovnost}.
+Osvětlíme.
+
+\subsubsection{Relace}
+\label{sssec:relace}
+
+\hyperref[def:soucin-mnozin]{Součin množin} umožňuje dávat dvě množiny, které
+spolu nemusejí sdílet žádné prvky, do \uv{vztahu}. Uvažme množinu $l$ všech lidí
+a množinu $d$ všech domů. Díky \hyperref[def:soucin-mnozin]{součinu množin}
+umíme v jazyce teorie množin dát abstraktní podobu vztahu: \uv{Člověk $x$ bydlí
+v domě $y$.} Totiž, množina $l \times d$ sestává právě ze všech dvojic $(x, y)$,
+kde $x$ je člověk a $y$ je dům. Ovšem, \emph{celá} množina $l \times d$ je zde
+poněkud nepraktická, protože jeden daný člověk je ve dvojici s úplně každým
+domem. Vezměme spíše nějakou její podmnožinu $k \subseteq l \times d$. Větu:
+\uv{Člověk $x$ bydlí v domě $y$,} můžeme nahradit výrokem $(x, y) \in k$.
+Množina $k$ je vlastně jakýmsi zjednodušeným \uv{katastrem}, kde dvojici $(x,
+y)$ najdeme v tomto \uv{katastru} právě tehdy, když člověk $x$ bydlí v domě $y$.
+O $k$ můžeme též přemýšlet jako o tabulce mající v~prvním sloupci lidi z množiny
+$l$, v druhém sloupci domy z množiny $d$ a člověk $x$ je na stejném řádku jako
+dům $y$, když v něm bydlí. Formálně se podmnožinám součinu říká
+\emph{relace} (z lat. \emph{relātiō}, \uv{vztah}).
+\begin{definition}[Relace]
+  \label{def:relace}
+  Ať $a, b$ jsou dvě množiny. Jakoukoli podmnožinu $r \subseteq a \times b$
+  nazýváme \emph{relací} z množiny $a$ do množiny $b$.
+\end{definition}
+\begin{example}
+  \label{exam:relace}
+  Je-li $a = \{x, y\}$ a $b = \{x, y, z\}$, pak množiny
+  \begin{align*}
+    r &= \{(x, y), (x, z)\},\\
+    s &= \{(x, x), (y, y), (y, z)\}
+  \end{align*}
+  jsou \emph{relace} z $a$ do $b$. Relace $r$ vyjadřuje, že $x$ je ve vztahu s
+  $y$ a též se $z$, zatímco relace $s$ říká, že $x$ je ve vztahu se sebou samým
+  a $y$ je ve vztahu se sebou samým a se $z$.
+\end{example}
+
+Možná nejčastějším druhem relace v matematice je relace \emph{funkce}. Čtenáři
+jistě neměli možnost přemýšlet o funkcích jako o relacích. Vysvětlíme. Totiž,
+uvažme kupříkladu lineární funkci zapsanou rovnicí $y = 2x + 5$. Tato rovnice
+říká, že druhá souřadnice $y$ je rovna $2x + 5$, když první souřadnice je $x$.
+Je-li třeba $x = 2$, pak $y = 2 \cdot 2 + 5 = 9$, čili zápis $y = 2x + 5$
+zachycuje \textbf{množinu těch uspořádaných dvojic} reálných čísel $(x, y)$,
+pro něž platí, že $y = 2x + 5$. Ovšem, množina uspořádaných dvojic je přeci
+\hyperref[def:relace]{relace}. Čili, zápis funkce $y = 2x + 5$ můžeme přímočaře
+chápat jako definici relace $\{(x, y) \mid y = 2x + 5\}$.
+
+Všechny funkce jsou relacemi, ale jistě ne všechny relace jsou funkcemi.
+Součástí definice funkce je fakt: \uv{Jednomu $x$ odpovídá nejvýše jedno $y$,}
+kterýž přeneseně znamená, že jeden prvek $x$ z první množiny smí být ve vztahu
+(ve dvojici) s nejvýše jedním prvkem $y$ z~množiny druhé. Právě jsme vyřkli
+definici funkce, již pro úplnost vytesáme do ... papíru.
+
+\begin{definition}[Funkce]
+  \label{def:funkce}
+  Ať $a, b$ jsou množiny. Relaci $f \subseteq a \times b$ z $a$ do $b$ nazveme
+  \emph{funkcí}, pokud platí, že pro jeden prvek $x \in a$ existuje maximálně
+  jeden prvek $y \in b$ takový, že $(x, y) \in f$. Symbolicky lze tuto větu
+  shrnout takto:
+  \begin{equation}
+    \label{eq:funkce}
+    ( \forall x \in a)( \forall y_1, y_2 \in b)(((x, y_1) \in f \wedge (x, y_2)
+    \in f) \Rightarrow y_1 = y_2),
+  \end{equation}
+  neboli: \uv{Když je nějaký prvek $x \in a$ ve vztahu s $y_1 \in b$ i s $y_2
+  \in b$, pak nutně $y_1 = y_2$.}
+\end{definition}
+\begin{notation}
+  \hyperref[def:funkce]{Funkce} jsou natolik běžným druhem
+  \hyperref[def:relace]{relací}, že sobě vysloužily vlastních značení a
+  pojmenování. Fakt, že relace $f$ z množiny $a$ do množiny $b$ je
+  \emph{funkce}, zapisujeme symbolem $f\colon a \to b$. Výrok $(x, y) \in f$
+  píšeme jako $f(x) = y$, kde použití rovnosti je ospravedlněno právě podmínkou,
+  že k danému $x$ takové $y$ existuje jen jedno. Místo slova \emph{funkce} též
+  často používáme \emph{zobrazení}.
+
+  Pro prvky ve dvojicích jisté funkce se rovněž ujala zvláštní slova. Vezměme
+  nějakou funkci $f\colon a \to b$.
+  \begin{itemize}
+    \item Je-li $x \in a$, pak prvek $f(x) \in b$ sluje \emph{obraz} prvku $x$
+      při zobrazení $f$.
+    \item Naopak, když $y \in b$, pak \textbf{množinu} všech prvků $x$, pro
+      které platí $f(x) = y$, nazýváme \emph{vzorem} prvku $y$ při zobrazení
+      $f$. Zapisujeme ji jako $f^{-1}(y)$. Symbolicky
+      \[
+        f^{-1}(y) = \{x \in a \mid f(x) = y\}.
+      \]
+    \item Pojmy \emph{vzor} a \emph{obraz} rozšiřujeme též na podmnožiny množin
+      $a$ a $b$. Je-li $c \subseteq a$, pak definujeme
+      \[
+        f(c) = \{f(x) \in b \mid x \in a\},
+      \]
+      tedy množinu všech obrazů prvků z $c$, které říkáme také \emph{obraz}
+      množiny $c$. Naopak, je-li $d \subseteq b$, pak definujeme
+      \[
+        f^{-1}(d) = \{x \in a \mid f(x) \in d\},
+      \]
+      tedy množinu všech vzorů prvků z množiny $d$, které též říkáme \emph{vzor}
+      množiny $d$ při zobrazení $f$.
+  \end{itemize}
+\end{notation}
+\begin{example}
+  \label{exam:funkce}
+  Uvažme množinu všech lidí $l$ a množinu všech přirozených čísel $\N$. Ať
+  $f\colon l \to \N$ je funkce, která každému člověku přiřadí jeho rok narození.
+  Tedy, když se třeba Adam narodil v roce 1996, pak $f(\text{Adam}) = 1996$. Rok
+  $1996$ je \emph{obrazem} člověka Adama při zobrazení $f$. To též znamená, že
+  $\text{Adam} \in f^{-1}(1996)$, tedy člověk Adam patří do \emph{vzoru} roku
+  1996 při zobrazení $f$. Není ale v tomto vzoru sám; jsou v něm všichni lidé,
+  kteří se narodili v roce 1996.
+\end{example}
+O funkcích budeme šířeji hovořit až výrazně později v tomto textu.
+
+Mimo funkce se zmíníme o relacích \emph{na množině}. Tak přezdíváme relacím,
+které vedou z~množiny do téže množiny, tedy relacím $r \subseteq a \times a$.
+Představíme několik běžných vlastností, kterých mohou relace na množině nabývat,
+a poté několik speciálních typů relací -- vzniknuvších kombinací těchto
+vlastností -- jejichž užitečnost zůstane chvíli halena rouchem časův budoucích.
+
+\begin{definition}[Vlastnosti relací na množině]
+  \label{def:vlastnosti-relaci-na-mnozine}
+  Ať $r$ je relace na množině $a$, tedy $r \subseteq a \times a$. Řekneme, že
+  $r$ je
+  \begin{itemize}
+    \item \alert{reflexivní}, když $(x, x) \in r$ pro každé $x \in a$, čili
+      \alert{každý prvek je ve vztahu sám se sebou};
+    \item \alert{symetrická}, když $(x, y) \in r \Rightarrow (y, x) \in r$ pro
+      všechna $x, y \in a$, neboli \alert{vztah mezi prvky je vzájemný};
+    \item \alert{antisymetrická}, když $(x, y) \in r \Rightarrow (y, x) \notin
+      r$ pro všechna $x, y \in a$, neboli \alert{vztah mezi prvky je
+      jednosměrný};
+    \item \alert{slabě antisymetrická}, když $((x, y) \in r \wedge (y, x) \in
+      r) \Rightarrow x = y$ pro všechna $x, y \in a$, neboli
+      \alert{antisymetrická až na vztah prvků k sobě samým};
+    \item \alert{transitivní}, když $((x, y) \in r \wedge (y, z) \in r)
+      \Rightarrow (x, z) \in r$ pro všechna $x, y, z \in r$, neboli \alert{vztah
+      se přenáší přes prostředníka}.
+  \end{itemize}
+\end{definition}
+
+Mnoho relací, s nimiž jste se již setkali (akorát jste jich nenazývali relacemi)
+nesou některé z vlastností výše. Pro svoje účely definujeme dva mimořádné druhy
+relací: \emph{ekvivalenci} a \emph{uspořádání}.
+
+Relace \emph{ekvivalence} je relace na množině, jejímž účelem je být jakousi
+\emph{zobecněnou rovností} či rovností podle daného kritéria. Například, uvažme
+množinu všech lidí, na níž lze určit, že dva lidé jsou ve vztahu, když jsou
+stejně staří. Tím se nám přirozeně množina lidí rozpadá na podmnožiny stejně
+starých lidí. Pochopitelně, dva lidé nejsou \emph{doslova} stejní, když jsou
+stejného věku, ale sdílejí spolu jistou vlastnost -- jsou \emph{ekvivalentní}
+podle relace \uv{být stejně starý}.
+
+\begin{definition}[Relace ekvivalence]
+  \label{def:relace-ekvivalence}
+  Relace $r$ na množině $a$ se nazývá \emph{ekvivalence}, když je
+  \emph{reflexivní}, \emph{symetrická} a \emph{transitivní}.
+\end{definition}
+\begin{example}
+  \label{exam:relace-ekvivalence}
+  Relace \uv{být stejně starý} na množině lidí je
+  \hyperref[def:relace-ekvivalence]{ekvivalence}. Je
+  \begin{itemize}
+    \item \emph{reflexivní}, protože každý člověk je stejně starý jako on sám;
+    \item \emph{symetrická}: je-li Adam stejně starý jako Bedřich, pak
+      je jistě Bedřich stejně starý jako Adam;
+    \item \emph{transitivní}: když je Adam stejně starý jako Bedřich a Bedřich
+      stejně starý jako Cyril, pak je Adam stejně starý jako Cyril.
+  \end{itemize}
+\end{example}
+\begin{example}
+  \label{exam:ekvivalence-2}
+  Relace
+  \[
+    r = \{(x, x), (y, y), (z, z), (w, w), (x, y), (y, x), (y, w), (w, y), (x,
+    w), (w, x)\}
+  \]
+  je \hyperref[def:relace-ekvivalence]{ekvivalence} na množině $\{x, y, z, w\}$.
+  Vskutku, je
+  \begin{itemize}
+    \item \emph{reflexivní}, protože obsahuje dvojice $(x, x), (y, y), (z,
+      z)$ a $(w, w)$.
+    \item \emph{symetrická}, protože s dvojicí $(x, y)$ obsahuje též dvojici
+      $(y, x)$, s dvojicí $(y, w)$ též dvojici $(w, y)$ a s dvojicí $(x, w)$ též
+      dvojici $(w, x)$.
+    \item \emph{transitivní}, protože s dvojicemi $(x, y)$ a $(y, w)$ obsahuje
+      též dvojici $(x, w)$ apod.
+  \end{itemize}
+  Tato ekvivalence říká, že na množině $\{x, y, z, w\}$ jsou prvky $x, y$ a $w$
+  ekvivalentní a $z$ je ekvivalentní pouze sám sobě.
+\end{example}
+\begin{example}
+  \label{exam:ekvivalence-zlomky}
+  Relace \uv{mít stejnou hodnotu} na množině všech zlomků (čili množině všech
+  výrazů typu $x / y$, kde $x, y$ jsou celá) je
+  \hyperref[def:relace-ekvivalence]{ekvivalence}. Všimněme si, že například
+  zlomky $2 / 5$ a $4 / 10$ \textbf{si nejsou rovny}, protože $2 \neq 4$ a $5
+  \neq 10$, ale \textbf{jsou ekvivalentní} ve smyslu, že představují tutéž
+  hodnotu, kterou můžeme vyjádřit třeba desetinným číslem $0.4$.
+\end{example}
+\begin{example}
+  \label{exam:ekvivalence-rovnost}
+  Relace $=$ (být roven) je \hyperref[def:relace-ekvivalence]{ekvivalencí} na
+  jakékoli množině. Je \emph{reflexivní}, anobrž každý prvek jest sám sobě
+  roven, a je triviálně \emph{symetrická} i \emph{transitivní}, bo žádné dva
+  různé prvky nejsou ve vztahu rovnosti.
+\end{example}
+
+\begin{notation}
+  Některé relace jsou natolik běžné, že sobě vysloužily vlastní značení,
+  například relace rovnosti z \myref{příkladu}{exam:ekvivalence-rovnost} nebo
+  též relace $<$ a $ \leq $ (více o nich níže). Nezacházíme s nimi jako s
+  množinami a symbol relace píšeme mezi prvky dvojice, i. e. píšeme $x = y$ či
+  $x < y$ místo \uv{správných} $(x, y) \in~=$ a $(x, y) \in~<$. My samozřejmě
+  toto značení upravovat nebudeme, ale budeme-li relace značit písmeny (třeba
+  $r$), budeme stále psát $(x, y) \in r$, a ne $xry$, abychom tvrdili, že $x$ je
+  ve vztahu $r$ s $y$.
+\end{notation}
+
+Další v řadě (pun intended) je relace \emph{uspořádání}, která je zobecněním
+vztahu \uv{být menší~/~větší} na libovolné množině. Umožňuje množinu rozdělit na
+podmnožiny postupně větších prvků.
+
+\begin{definition}[Uspořádání]
+  \label{def:usporadani}
+  Relace $r$ na množině $a$ se nazývá \emph{ostré uspořádání}, když je
+  \emph{antisymetrická} a \emph{transitivní}.
+
+  Nazývá se \emph{neostré uspořádání}, když je \emph{reflexivní}, \emph{slabě
+  antisymetrická} a \emph{transitivní}.
+\end{definition}
+\begin{example}
+  \label{exam:usporadani}
+  Relace $<$ (být menší) na množině přirozených čísel je
+  \hyperref[def:usporadani]{ostré uspořádání}. Je
+  \begin{itemize}
+    \item \emph{antisymetrická}: když $x < y$, pak jistě neplatí $y < x$;
+    \item \emph{transitivní}: když $x < y$ a $y < z$, pak $x < z$.
+  \end{itemize}
+  Oproti tomu, relace $ \leq $ (být menší nebo roven) je
+  \hyperref[def:usporadani]{neostré uspořádání}. Je
+  \begin{itemize}
+    \item \emph{reflexivní}, protože $x \leq x$ pro každé číslo $x$;
+    \item \emph{slabě antisymetrická}: když platí $x \leq y$ a $y \leq x$, tak
+      potom $x = y$;
+    \item \emph{transitivní}: když $x \leq y$ a $y \leq z$, pak $x \leq z$.
+  \end{itemize}
+\end{example}
+\begin{example}
+  \label{exam:usporadani-delitelnosti}
+  Relace \uv{být dělitelem} na množině přirozených čísel je
+  \hyperref[def:usporadani]{neostré uspořádání}. Je
+  \begin{itemize}
+    \item \emph{reflexivní}, protože každé číslo dělí samo sebe;
+    \item \emph{slabě antisymetrická}: když číslo $x$ dělí číslo $y$ a zároveň
+      $y$ dělí $x$, pak se $x$ a $y$ musejí rovnat;
+    \item \emph{transitivní}: když $x$ dělí $y$ a $y$ dělí $z$, tak potom $x$
+      dělí $z$.
+  \end{itemize}
+\end{example}
+
+\begin{exercise}
+  Najděte aspoň tři různé ekvivalence a tři různá uspořádání na množině všech
+  lidí.
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Uvažte relaci $r \subseteq a \times a$ na množině $a = \{x, y, z\}$ danou jako
+  \[
+    r = \{(x, x), (y, y), (x, y), (y, x), (x, z), (z, x)\}.
+  \]
+  Je $r$
+  \begin{enumerate}
+    \item funkce (z $a$ do $a$)?
+    \item ekvivalence?
+    \item ostré uspořádání?
+    \item neostré uspořádání?
+  \end{enumerate}
+  Proč?
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Odeberte nebo přidejte \textbf{co nejmenší počet dvojic}, aby se z relace
+  \[
+    r = \{(\vartriangleright, 1), (\odot, 1), (\odot, 2)\}
+  \]
+  stala funkce z $\{\vartriangleright, \odot, \times\}$ do $\{1, 2, 3\}$.
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Najděte dvě různé ekvivalence a dvě různá ostrá uspořádání na množině
+  \[
+    a = \{\vartriangleright, \odot, \times\}.
+  \]
+\end{exercise}
+
+\subsubsection{Kreslení relací}
+\label{sssec:kresleni-relaci}
+
+Rozebereme dva oblíbené způsoby zakreslení součinu množin a relací. Jak jsme
+uvedli v \myref{příkladu}{exam:usporadana-dvojice}, čtenáři se jistě měli
+možnost setkat s \hyperref[def:soucin-mnozin]{součinem množin} v souvislosti se
+souřadnicemi v rovině: body v rovině jsou uspořádané dvojice reálných čísel.
+Tyto body obvykle zakreslujeme tak, že první ze souřadnic umístíme na vodorovnou
+osu a druhou ze souřadnic na osu na ni kolmou: vertikální. Zcela stejně můžeme
+zakreslit i součin libovolných dvou množin. Pro dvě množiny $\clr{a = \{x, y\}}$
+a $\clb{b = \{\vartriangleright, \odot, \times\}}$ je jeden způsob, kterak
+kreslit množinu $\clr{a} \times \clb{b}$, vyobrazen
+\myref{obrázkem}{fig:nakresleni-soucinu}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (x) {$\strut\clr{x}$};
+    \node[baseline=x.base] at (1, -0.75) {$\strut\clr{y}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+    \node[above right=-1pt and -1pt] at (1, 1) {$(\clr{y}, \clb{\odot})$};
+  \end{tikzpicture}
+
+  \caption{Nakreslení množiny $\clr{\{x, y\}} \times \clb{\{\vartriangleright,
+  \odot, \times\}}.$}
+  \label{fig:nakresleni-soucinu}
+\end{figure}
+
+Ježto relace z $\clr{a}$ do $\clb{b}$ jsou pouhými podmnožinami součinu $\clr{a}
+\times \clb{b}$, můžeme je zakreslit do mříže na
+\myref{obrázku}{fig:nakresleni-soucinu} zkrátka tak, že zvýrazníme dvojice do
+nich patřící. Pro příklad uvažme relaci $\clg{r = \{(x, \vartriangleright), (x,
+\odot), (x, \times), (y, \odot)\}}$ z $\clr{a}$ do $\clb{b}$. Nakreslení takové
+relace můžete vidět na \myref{obrázku}{fig:nakresleni-relace-mriz}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (x) {$\strut\clr{x}$};
+    \node[baseline=x.base] at (1, -0.75) {$\strut\clr{y}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+
+    \foreach \y in {0, 1, 2} {
+      \node[circle,draw=ForestGreen,inner sep=4pt,thick] at (0, \y) {};
+    }
+    \node[circle,draw=ForestGreen,inner sep=4pt,thick] at (1, 1) {};
+  \end{tikzpicture}
+
+  \caption{Nakreslení relace $\clg{r = \{(x, \vartriangleright), (x,\odot), (x,
+  \times), (y, \odot)\}}$.}
+  \label{fig:nakresleni-relace-mriz}
+\end{figure}
+
+Pro zajímavost a rozšíření katalogu příkladů relací ukážeme, jak se některé
+\hyperref[def:vlastnosti-relaci-na-mnozine]{vlastnosti relací na množině}
+projevují v jejich visuální podobě.
+
+Relace na \myref{obrázku}{fig:nakresleni-funkce-mriz} je \emph{funkce}. Lze to
+poznat stejným způsobem, jemuž jste navykli u \emph{grafů} funkcí: na každé
+svislé čáře smí ležet maximálně jeden její bod.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (t) {$\strut\clb{\vartriangleright}$};
+    \node[baseline=t.base] at (1, -0.75) {$\strut\clb{\odot}$};
+    \node[baseline=t.base] at (2, -0.75) {$\strut\clb{\times}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1, 2} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 0) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 2) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 1) {};
+  \end{tikzpicture}
+
+  \caption{Zakreslení funkce $\clg{f = \{(\vartriangleright,
+  \vartriangleright), (\odot, \times), (\times, \odot)\}}$.}
+  \label{fig:nakresleni-funkce-mriz}
+\end{figure}
+
+Dále, na \myref{obrázku}{fig:nakresleni-reflexivni-relace} můžete vidět příklad
+\emph{reflexivní} relace. Poznáte je tak, že body na uhlopříčce z levého dolního
+rohu do pravého horního rohu, jež odpovídají dvojicím obsahujícím dvakrát týž
+prvek, jsou vyznačeny. Ostatní body vyznačeny být mohou, leč nemusejí.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (t) {$\strut\clb{\vartriangleright}$};
+    \node[baseline=t.base] at (1, -0.75) {$\strut\clb{\odot}$};
+    \node[baseline=t.base] at (2, -0.75) {$\strut\clb{\times}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1, 2} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 0) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 2) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 2) {};
+  \end{tikzpicture}
+
+  \caption{Zakreslení \emph{reflexivní} relace $\clg{r = \{(\vartriangleright,
+        \vartriangleright), (\odot, \odot), (\times, \times),
+  (\vartriangleright, \odot), (\vartriangleright, \times)\}}$.}
+  \label{fig:nakresleni-reflexivni-relace}
+\end{figure}
+
+Relace \emph{symetrické} jsou rovněž \emph{geometricky} symetrické. Jejich
+obrázky jsou vždy souměrné podle již zmíněné uhlopříčky z levého dolního do
+pravého horního rohu. Vizte \myref{obrázek}{fig:nakresleni-symetricke-relace}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (t) {$\strut\clb{\vartriangleright}$};
+    \node[baseline=t.base] at (1, -0.75) {$\strut\clb{\odot}$};
+    \node[baseline=t.base] at (2, -0.75) {$\strut\clb{\times}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1, 2} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 0) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 0) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 2) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 1) {};
+  \end{tikzpicture}
+
+  \caption{Nakreslení symetrické relace $\clg{r = \{(\vartriangleright,
+        \vartriangleright), (\vartriangleright, \odot), (\odot,
+        \vartriangleright),
+  (\odot, \times), (\times, \odot)\}}$.}
+  \label{fig:nakresleni-symetricke-relace}
+\end{figure}
+
+Transitivní relace mají geometricky neprůzračnou interpretaci -- můžete ji
+zkusit odhalit za cvičení.
+
+\begin{hardExercise}
+  Popište podrobně geometrické vlastnosti obrázků \emph{transitivních} relací na
+  množině.
+\end{hardExercise}
+
+Oproti symetrickým relacím jsou \emph{slabě antisymetrické} relace právě
+(překvápko...) zcela geometricky nesymetrické. Mohou obsahovat prvky na
+uhlopříčce, ale v moment, kdy obsahují bod mimo uhlopříčku, tak nesmějí z
+definice obsahovat bod zrcadlený podle téže uhlopříčky. Příklad nakreslení slabě
+antisymetrické relace vizte na
+\myref{obrázku}{fig:nakresleni-slabe-antisymetricke-relace}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, -0.75) (t) {$\strut\clb{\vartriangleright}$};
+    \node[baseline=t.base] at (1, -0.75) {$\strut\clb{\odot}$};
+    \node[baseline=t.base] at (2, -0.75) {$\strut\clb{\times}$};
+
+    \node at (-0.75, 0) {$\clb{\vartriangleright}$};
+    \node at (-0.75, 1) {$\clb{\odot}$};
+    \node at (-0.75, 2) {$\clb{\times}$};
+
+    \foreach \x in {0, 1, 2} {
+      \foreach \y in {0, 1, 2} {
+        \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+      }
+    }
+
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 2) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 1) {};
+    \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 1) {};
+  \end{tikzpicture}
+
+  \caption{Nakreslení \emph{slabě antisymetrické} relace $\clg{r =
+      \{(\vartriangleright, \odot), (\odot, \odot), (\times, \times), (\times,
+  \odot)\}}$.}
+  \label{fig:nakresleni-slabe-antisymetricke-relace}
+\end{figure}
+
+Mimo kreslení relace do soustavy souřadnic součinu množin, jehož podmnožinou
+jsou, můžeme též vztahy mezi prvky značit šipkami mezi nimi. Tento způsob
+zakreslování relací je zvlášť užitečný pro funkce, o nichž často přemýšlíme jako
+o relacích, které z \uv{prvků jedné množiny dělají prvky množiny druhé}.
+Kupříkladu funkci $\clg{f}\colon \clr{\{x, y\}} \to \clb{\{\vartriangleright,
+\odot, \times\}}$, danou předpisy $\clg{f}(\clr{x}) = \clb{\odot}$ a
+$\clg{f}(\clr{y}) = \clb{\vartriangleright}$ můžete vidět nakreslenou šipkami na
+\myref{obrázku}{fig:nakresleni-funkce-sipkami}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, 0) {$\clr{x}$};
+    \node at (0, 1) {$\clr{y}$};
+    \node at (2, 0) {$\clb{\vartriangleright}$};
+    \node at (2, 1) {$\clb{\odot}$};
+    \node at (2, 2) {$\clb{\times}$};
+
+    \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+    0) -- (2, 1);
+    \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+    1) -- (2, 0);
+  \end{tikzpicture}
+
+  \caption{Nakreslení funkce $\clg{f} = \{(\clr{x}, \clb{\odot}), (\clr{y},
+  \clb{\vartriangleright})\}$.}
+  \label{fig:nakresleni-funkce-sipkami}
+\end{figure}
+
+V rámci ještě jednoho příkladu kreslení relací šipkami zobrazíme takto
+ekvivalenci
+\[
+  \clg{e} = \{(\clb{\vartriangleright}, \clb{\vartriangleright}), (\clb{\odot},
+    \clb{\odot}), (\clb{\times}, \clb{\times}), (\clb{\odot}, \clb{\times}),
+  (\clb{\times}, \clb{\odot})\}
+\]
+na množině $\clb{\{\vartriangleright, \odot, \times\}}$. Hledejte ji na
+\myref{obrázku}{fig:nakresleni-ekvivalence-sipkami}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node at (0, 0) {$\clb{\vartriangleright}$};
+    \node at (0, 1) {$\clb{\odot}$};
+    \node at (0, 2) {$\clb{\times}$};
+    \node at (2, 0) {$\clb{\vartriangleright}$};
+    \node at (2, 1) {$\clb{\odot}$};
+    \node at (2, 2) {$\clb{\times}$};
+
+    \draw[-latex,ForestGreen,thick,shorten <=5pt, shorten >=6pt] (0, 0)
+    -- (2, 0);
+    \draw[-latex,ForestGreen,thick,shorten <=5pt, shorten >=6pt] (0, 1)
+    -- (2, 1);
+    \draw[-latex,ForestGreen,thick,shorten <=5pt, shorten >=6pt] (0, 2)
+    -- (2, 2);
+    \draw[-latex,ForestGreen,thick,shorten <=5pt, shorten >=6pt] (0, 1)
+    -- (2, 2);
+    \draw[-latex,ForestGreen,thick,shorten <=5pt, shorten >=6pt] (0, 2)
+    -- (2, 1);
+  \end{tikzpicture}
+
+  \caption{Nakreslení ekvivalence $\clg{e} = \{(\clb{\vartriangleright},
+      \clb{\vartriangleright}), (\clb{\odot}, \clb{\odot}), (\clb{\times},
+  \clb{\times}), (\clb{\odot}, \clb{\times}), (\clb{\times}, \clb{\odot})\}$.}
+  \label{fig:nakresleni-ekvivalence-sipkami}
+\end{figure}
+
+\begin{exercise}
+  Uvažte relaci $\clg{r}$ danou \myref{obrázkem}{fig:relace-cviceni-1} na
+  množině $\clr{\{x, y, z, w\}}$. Má tato relace nějaké zvláštní vlastnosti?
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \node at (0, -0.75) (t) {$\strut\clr{x}$};
+      \node[baseline=t.base] at (1, -0.75) {$\strut\clr{y}$};
+      \node[baseline=t.base] at (2, -0.75) {$\strut\clr{z}$};
+      \node[baseline=t.base] at (3, -0.75) {$\strut\clr{w}$};
+
+      \node at (-0.75, 0) {$\clr{x}$};
+      \node at (-0.75, 1) {$\clr{y}$};
+      \node at (-0.75, 2) {$\clr{z}$};
+      \node at (-0.75, 3) {$\clr{w}$};
+
+      \foreach \x in {0, 1, 2, 3} {
+        \foreach \y in {0, 1, 2, 3} {
+          \node[circle,fill,inner sep=2pt] at (\x, \y) {};
+        }
+      }
+
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (0, 0) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 1) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 2) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (3, 3) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (1, 3) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 3) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (3, 0) {};
+      \node[circle,draw=ForestGreen,thick,inner sep=4pt] at (2, 1) {};
+    \end{tikzpicture}
+
+    \caption{Nakreslení relace $\clg{r}$ na množině $\clr{\{x, y, z, w\}}$.}
+    \label{fig:relace-cviceni-1}
+  \end{figure}
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Je relace na \myref{obrázku}{fig:relace-cviceni-2} funkce? Překreslete ji do
+  mříže.
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \node at (0, 0) {$\clr{x}$};
+      \node at (0, 1) {$\clr{y}$};
+      \node at (0, 2) {$\clr{z}$};
+      \node at (0, 3) {$\clr{w}$};
+      \node at (2, 0) {$\clb{\Psi}$};
+      \node at (2, 1) {$\clb{\Xi}$};
+
+      \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+      0) -- (2, 1);
+      \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+      1) -- (2, 0);
+      \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+      2) -- (2, 1);
+      \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+      3) -- (2, 1);
+      \draw[-Latex,ForestGreen,thick,shorten <=6pt, shorten >=6pt] (0,
+      0) -- (2, 0);
+    \end{tikzpicture}
+
+    \caption{Nakreslení relace $\clg{r}$ z $\clr{\{x, y, z, w\}}$ do
+    $\clb{\{\Psi, \Xi\}}$.}
+    \label{fig:relace-cviceni-2}
+  \end{figure}
+\end{exercise}
+
+\subsection{Axiom sumy}
+\label{ssec:axiom-sumy}
+
+Axiom \emph{sumy} či \emph{součtu} je možná prvním axiomem, jehož význam není
+intuitivně zřejmý, ale je formálně důležitý. K porozumění jeho přirozené
+smysluplnosti může pomoci představa, že teorie množin se hrubě řídí pravidlem:
+\uv{Umím-li soubor věcí nějak pojmenovat, je ten množina.} Ono pojmenování může
+být různorodé: množina lidí; množina obsahující mrkev, bramboru a celer; množina
+všech věcí, které jsou zelené, ale ne modré... V případě axiomu sumy jsou oním
+pojmenováním \emph{všechny části všech částí celku}. Axiom sumy říká, že soubor
+všech prvků všech množin uvnitř nějaké dané množiny je sám o sobě též množinou.
+Trpíme obtížemi zaheslovat axiom sumy průzračně; spokojíme se s heslem:
+\begin{highlightBox}
+  \alert{Části všech částí celku tvoří celek.}
+\end{highlightBox}
+
+Vezměme kupříkladu opět množinu všech blonďatých lidí s modrýma očima. Částmi
+všech těchto lidí jsou mimo jiné právě jejich oči. Axiom sumy zjednodušeně říká,
+že i soubor všech očí všech blonďatých lidí s modrýma oči je množina.
+
+Formálně je \emph{součet množiny} $a$ množina $z$ taková, že $x$ je prvkem
+$a$ právě tehdy, když je podmnožinou $z$, čili, že všechny prvky množiny $x$
+jsou obsaženy v množině $z$, zatímco celá množina $x$ je části množiny $a$.
+
+\begin{definition}[Součet množiny]
+  \label{def:soucet-mnoziny}
+  Ať $a$ je množina. Součtem množiny $a$ myslíme
+  \[
+    \bigcup a = \{x \mid ( \exists z)(x \in z \wedge z \in a)\},
+  \]
+  čili množinu všech množin $x$, které jsou prvky nějakého prvku množiny $a$.
+\end{definition}
+
+Axiom sumy ztvrzuje, že pro každou množinu $a$ je $\bigcup a$ opravdu množina.
+Symbolicky:
+\begin{equation}
+  \label{eq:axiom-sumy}
+  (\forall a)(\exists y)(y = \bigcup a).
+\end{equation}
+
+\begin{example}
+  \label{exam:axiom-sumy}
+  Uvažme množinu
+  \[
+    a = \{\{x, y\}, \{y, z, \vartriangleright\}, \{\odot\}\}.
+  \]
+  Pak
+  \[
+    \bigcup a = \{x, y, z, \vartriangleright, \odot\}.
+  \]
+\end{example}
+
+Díky \hyperref[eq:axiom-sumy]{axiomu sumy} můžeme definovat operaci
+\emph{sjednocení} dvou množin, které představuje jakési \uv{slití} prvků obou
+množin do jedné množiny.
+
+\begin{definition}[Sjednocení množin]
+  \label{def:sjednoceni-mnozin}
+  Ať $a, b$ jsou množiny. Definujeme \emph{sjednocení} množin $a$ a $b$ -- které
+  značíme $a \cup b$ -- jako množinu
+  \[
+    a \cup b = \bigcup \{a, b\},
+  \]
+  čili jako součet dvojice $\{a, b\}$. Připomínáme, že $\{a, b\}$ je množina
+  díky \hyperref[eq:axiom-dvojice]{axiomu dvojice} a $\bigcup \{a, b\}$ je
+  množina díky \hyperref[eq:axiom-sumy]{axiomu sumy}.
+\end{definition}
+
+\hyperref[def:sjednoceni-mnozin]{Definice sjednocení} nedává jednoduchý pohled
+na tuto operaci, která je však veskrze přirozená. Ve skutečnosti je sjednocení
+množin $a$ a $b$ zkrátka množina všech prvků, které leží v $a$, v $b$ nebo v
+obou množinách. Důkaz tohoto faktu bude první svého druhu v tomto textu.
+
+\begin{lemma}[O sjednocení množin]
+  \label{lem:o-sjednoceni-mnozin}
+  Ať $a, b$ jsou množiny. Pak platí
+  \begin{equation}
+    \label{eq:sjednoceni-nebo}
+    a \cup b = \{x \mid x \in a \vee x \in b\},
+  \end{equation}
+  čili $a \cup b$ je množina všech $x$, které leží v $a$ nebo v $b$.
+\end{lemma}
+\begin{proof}
+  Rovnost množin obvykle dokazujeme tím způsobem, že ukážeme, že když je $x$
+  prvkem jedné množiny, pak je prvkem i té druhé, a naopak. Je jisté, že mají-li
+  obě množiny tytéž prvky, tak se sobě rovnají.
+
+  Ať je tedy $x \in a \cup b = \bigcup \{a, b\}$. Potom z
+  \hyperref[def:soucet-mnoziny]{definice součtu} existuje množina $z$ taková, že
+  $x \in z$ a $z \in \{a, b\}$. Ovšem, dvojice $\{a, b\}$ obsahuje jen dvě
+  množiny, takže buď platí $z = a$, nebo $z = b$. V prvním případě $x \in a$, v
+  druhém $x \in b$. Čili platí výrok $x \in a \vee x \in b$. Tím jsme dokázali,
+  že když je $x$ prvkem množiny na levé straně
+  rovnosti~\eqref{eq:sjednoceni-nebo}, pak je i prvkem množiny na pravé straně
+  rovnosti~\eqref{eq:sjednoceni-nebo}.
+
+  Ať naopak platí $x \in a \vee x \in b$ pro nějakou množinu $x$. Vyrobme z
+  \hyperref[eq:axiom-dvojice]{axiomu dvojice} dvojici $\{a, b\}$. Pak $x \in
+  \bigcup \{a, b\}$, protože $x$ je prvkem buď množiny $a$, nebo množiny $b$
+  nebo obou.
+\end{proof}
+
+\begin{example}
+  \label{exam:sjednoceni-mnozin}
+  Je-li $a = \{x, y, z\}$ a $b = \{z, w\}$, pak
+  \[
+    a \cup b = \{x, y, z, w\}.
+  \]
+\end{example}
+\begin{exercise}
+  Pro
+  \begin{enumerate}
+    \item $a = \{\vartriangleright, \odot, 2, 3, \times\}$ a $b =
+      \{\vartriangleright, 3, \Psi, \Xi\}$,
+    \item $a = \{\{1, \odot\}, \{\{\times\}\}\}$ a $b = \{\{\times\},
+      1, \{\odot\}\}$
+  \end{enumerate}
+  spočtěte $a \cup b$.
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Platí rovnost
+  \[
+    \bigcup \{a, b, c\} = a \cup b \cup c?
+  \]
+  Proč?
+\end{exercise}
+
+\hyperref[def:sjednoceni-mnozin]{Definicí sjednocení} jsme dospěli ke znalosti
+tří základních množinových operací:
+\hyperref[def:sjednoceni-mnozin]{sjednocení},
+\hyperref[def:prunik-mnozin]{průniku} a \hyperref[def:rozdil-mnozin]{rozdílu}.
+Opět dočasně odbočíme, abychom promluvili o známém způsobu ztvárnění těchto
+operací, tzv. \emph{Vennových diagramech}.
+
+\subsubsection{Vennovy diagramy}
+\label{sssec:vennovy-diagramy}
+
+Vennovy diagramy jsou zakresleními množinových operací obvykle na dvou nebo
+třech množinách. Jejich smyslem je poskytnout obrázek, v němž lze zvýraznit
+jakýkoli řetězec množinových operací (výrazy typu $a \setminus (b \cap c)$ či
+$(a \cup c) \cap (c \setminus b)$).
+
+Obecným vztahem dvou množin je situace, kdy spolu sdílejí nějaké prvky, ale ne
+všechny (jako například množiny $a, b$ z
+\myref{příkladu}{exam:sjednoceni-mnozin}). Do Vennova diagramu je kreslíme jako
+dva kruhy, které se protínají.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \draw[fill=FireBrick, opacity=0.5] (0,0) circle (1);
+    \draw[fill=RoyalBlue, opacity=0.5] (1,0) circle (1);
+    \node at (135:1.35) {$\clr{a}$};
+    \node[xshift=1cm] at (45:1.35) {$\clb{b}$};
+  \end{tikzpicture}
+
+  \caption{Vennův diagram dvou množin.}
+  \label{fig:vennuv-diagram-1}
+\end{figure}
+
+\clr{Červená} část \myref{obrázku}{fig:vennuv-diagram-1} představuje prvky,
+které leží pouze v $\clr{a}$, ale nikoli v $\clb{b}$, tedy přesně množinu
+$\clr{a} \setminus \clb{b}$. Naopak část \clb{modrá} odpovídá množině prvků
+ležících v $\clb{b}$, ale ne v $\clr{a}$: množině $\clb{b} \setminus \clr{a}$.
+Konečně, v části \clp{fialové} nalezneme pouze prvků, jež jsou společné množině
+$\clr{a}$ i množině $\clb{b}$ ležíce v jejich průniku $\clr{a} \cap \clb{b}$.
+Sjednocení $\clr{a} \cup \clb{b}$ odpovídá celé ploše obrázku. Všechny oblasti
+odpovídající množinovým operacím můžete vidět znovu na
+\myref{obrázku}{fig:vennuv-diagram-2}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{scope}
+        \clip (0,0) circle (1cm);
+        \fill[DarkCyan] (1,0) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+    \end{tikzpicture}
+    \caption{Průnik $\clc{a \cap b}$.}
+  \end{subfigure}
+  \vspace{1cm}
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0,0) circle (1cm);
+      \fill[DarkCyan] (1,0) circle (1cm);
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+    \end{tikzpicture}
+    \caption{Sjednocení $\clc{a \cup b}$.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0,0) circle (1cm);
+      \fill[white](1,0) circle (1cm);
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+    \end{tikzpicture}
+    \caption{Rozdíl $\clc{a \setminus b}$.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (1,0) circle (1cm);
+      \fill[white](0,0) circle (1cm);
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+    \end{tikzpicture}
+    \caption{Rozdíl $\clc{b \setminus a}$.}
+  \end{subfigure}
+  \caption{Vennovy diagramy základních množinových operací.}
+  \label{fig:vennuv-diagram-2}
+\end{figure}
+
+\begin{example}
+  \label{exam:vennuv-diagram-sym-rozdilu}
+  Do Vennových diagramů můžeme zakreslit jakoukoli kombinaci množinových
+  operací. Na \myref{obrázku}{fig:vennuv-diagram-3} vizte oblast odpovídající
+  množině $(\clr{a} \setminus \clb{b}) \cup (\clb{b} \setminus \clr{a})$.
+
+  Této množině se též říká \emph{symetrický rozdíl} množin $\clr{a}$ a $\clb{b}$
+  a značí se $\clr{a} \vartriangle \clb{b}$. Popisuje množinu prvků, které leží
+  pouze v $\clr{a}$ nebo pouze v $\clb{b}$, ale ne v obou množinách.
+\end{example}
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \fill[DarkCyan] (0,0) circle (1cm);
+    \fill[white] (1,0) circle (1cm);
+
+    \begin{scope}
+      \clip (1,0) circle (1cm);
+      \fill[DarkCyan] (1,0) circle (1cm);
+      \fill[white] (0,0) circle (1cm);
+    \end{scope}
+
+    \draw (0,0) circle (1cm);
+    \draw (1,0) circle (1cm);
+
+    \node at (135:1.35) {$a$};
+    \node[xshift=1cm] at (45:1.35) {$b$};
+  \end{tikzpicture}
+
+  \caption{Vennův diagram množiny $(\clr{a} \setminus \clb{b}) \cup (\clb{b}
+  \setminus \clr{a})$.}
+  \label{fig:vennuv-diagram-3}
+\end{figure}
+
+Vennovy diagramy tří množin jsou pochopitelně komplikovanější, neboť existuje
+mnoho různých výrazů složených z tří množin a tří množinových operací, ani
+nemluvě o výrazech delších. Jejich princip však zůstává stejný.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[blend mode=screen]
+    \draw[fill=FireBrick, opacity=1] (0,0) circle (1);
+    \draw[fill=RoyalBlue, opacity=1] (1,0) circle (1);
+    \draw[fill=ForestGreen, opacity=1] (0.5,-1) circle (1);
+    \node at (135:1.35) {$\clr{a}$};
+    \node[xshift=1cm] at (45:1.35) {$\clb{b}$};
+    \node[xshift=0.5cm] at (270:2.35) {$\clg{c}$};
+  \end{tikzpicture}
+
+  \caption{Vennův diagram tří množin.}
+  \label{fig:vennuv-diagram-tri-1}
+\end{figure}
+
+Na \myref{obrázku}{fig:vennuv-diagram-tri-1} můžeme vidět sedm různě barevných
+oblastí. Oblast
+\begin{itemize}
+  \item \clr{červená} obsahuje prvky ležící pouze v $\clr{a}$, ale nikoli v
+    $\clb{b}$ nebo v $\clg{c}$: množina $\clr{a} \setminus (\clb{b} \cup
+    \clg{c})$;
+  \item \clb{modrá} obsahuje prvky ležící pouze v $\clb{b}$, ale nikoli v
+    $\clr{a}$ nebo v $\clg{c}$: množina $\clb{b} \setminus (\clr{a} \cup
+    \clg{c})$;
+  \item \clg{zelená} obsahuje prvky ležící pouze v $\clg{c}$, ale nikoli v
+    $\clr{a}$ nebo v $\clb{b}$: množina $\clg{c} \setminus (\clr{a} \cup
+    \clb{b})$;
+  \item \textcolor{FireBrick!50!RoyalBlue}{fialová} obsahuje prvky ležící v
+    $\clr{a}$ i v $\clb{b}$, ale nikoli v $\clg{c}$: množina $(\clr{a} \cap
+    \clb{b}) \setminus \clg{c}$;
+  \item \textcolor{FireBrick!50!ForestGreen}{žlutá} obsahuje prvky ležící v
+    $\clr{a}$ i v $\clg{c}$, ale nikoli v $\clb{b}$: množina $(\clr{a} \cap
+    \clg{c}) \setminus \clb{b}$;
+  \item \textcolor{RoyalBlue!50!ForestGreen}{tyrkysová} obsahuje prvky ležící v
+    $\clb{b}$ i v $\clg{c}$, ale nikoli v $\clr{a}$: množina $(\clb{b} \cap
+    \clg{c}) \setminus \clr{a}$;
+  \item \textcolor{FireBrick!33!RoyalBlue!33!ForestGreen!33!white}{bílá}
+    obsahuje prvky ležící v $\clr{a}$ i v $\clb{b}$ i v $\clg{c}$: množina
+    $\clr{a} \cap \clb{b} \cap \clg{c}$.
+\end{itemize}
+
+Stejně jako Vennův diagram dvou množin, i Vennův diagram množin tří umožňuje
+zakreslit jakýkoli výraz sestávající z tří proměnných pro množiny a množinových
+operací. Na \myref{obrázku}{fig:vennuv-diagram-tri-2} vizte několik příkladů.
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{scope}
+        \clip (0,0) circle (1cm);
+        \fill[DarkCyan] (1,0) circle (1cm);
+      \end{scope}
+      \begin{scope}
+        \clip (1,0) circle (1cm);
+        \fill[DarkCyan] (0.5,-1) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+    \caption{Množina $\clc{(a \cap b) \cup (b \cap c)}$.}
+  \end{subfigure}
+  \vspace*{1cm}
+  \begin{subfigure}[b]{.54\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0,0) circle (1cm);
+      \fill[DarkCyan] (0.5,-1) circle (1cm);
+      \fill[white] (1,0) circle (1cm);
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+    \caption{Množina $\clc{(a \cup c) \setminus b}$.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0.5,-1) circle (1cm);
+      \fill[white] (0,0) circle (1cm);
+
+      \begin{scope}
+        \clip (0.5,-1) circle (1cm);
+        \fill[DarkCyan] (1,0) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+    \caption{Množina $\clc{(c \setminus a) \cup (b \cap c)}$.}
+  \end{subfigure}
+  \begin{subfigure}[b]{.54\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0,0) circle (1cm);
+      \fill[white] (1,0) circle (1cm);
+      \fill[white] (0.5,-1) circle (1cm);
+
+      \begin{scope}
+        \clip (1,0) circle (1cm);
+        \fill[DarkCyan] (1,0) circle (1cm);
+        \fill[white] (0,0) circle (1cm);
+        \fill[white] (0.5,-1) circle (1cm);
+      \end{scope}
+      \begin{scope}
+        \clip (0.5,-1) circle (1cm);
+        \fill[DarkCyan] (0.5,-1) circle (1cm);
+        \fill[white] (0,0) circle (1cm);
+        \fill[white] (1,0) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+    \caption{Množina $\clc{(a \cup b \cup c) \setminus ((a \cap b) \cup (a \cap
+    c) \cup (b \cap c))}$.}
+  \end{subfigure}
+  \caption{Vennovy diagramy základních množinových operací.}
+  \label{fig:vennuv-diagram-tri-2}
+\end{figure}
+
+Vennův diagram pro čtyři množiny již nelze nakreslit pomocí kruhů bez ohledu na
+jejich rozmístění: existují pak totiž kombinace množinových operací na těchto
+čtyřech množinách, kterým nemůže odpovídat žádná oblast diagramu. Za cvičení
+můžete zkusit jednu takovou kombinaci najít.
+
+\begin{hardExercise}
+  Najděte kombinaci množinových operací $ \cap , \cup $ a $ \setminus $
+  použitých na množiny $\clr{a}, \clb{b}, \clg{c}, \clc{d}$, kterou nelze
+  zvýraznit na \myref{obrázku}{fig:vennuv-diagram-ctyri}.
+\end{hardExercise}
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[blend mode=screen]
+    \draw[fill=FireBrick, opacity=1] (0,0) circle (1);
+    \draw[fill=RoyalBlue, opacity=1] (1,0) circle (1);
+    \draw[fill=ForestGreen, opacity=1] (0,-1) circle (1);
+    \draw[fill=DarkCyan, opacity=1] (1,-1) circle (1);
+    \node at (135:1.35) {$\clr{a}$};
+    \node[xshift=1cm] at (45:1.35) {$\clb{b}$};
+    \node[shift={(0,-1)}] at (225:1.35) {$\clg{c}$};
+    \node[shift={(1,-1)}] at (315:1.35) {$\clc{d}$};
+  \end{tikzpicture}
+
+  \caption{Mylný pokus o Vennův diagram čtyř množin.}
+  \label{fig:vennuv-diagram-ctyri}
+\end{figure}
+\begin{exercise}
+  Nakreslete Vennův diagram množiny
+  \begin{enumerate}
+    \item $(a \setminus b) \cap (a \cup b)$;
+    \item $(a \cap c) \cup (c \setminus b)$;
+    \item $(a \cap b \cup c) \setminus (a \cap b \cap c)$.
+  \end{enumerate}
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Napište nějaké výrazy odpovídající Vennovým diagramům na
+  \myref{obrázku}{fig:vennuv-diagram-cviceni}.
+\end{exercise}
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (1,0) circle (1cm);
+      \begin{scope}
+        \clip (0.5,-1) circle (1cm);
+        \fill[DarkCyan] (0,0) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+  \end{subfigure}
+  \begin{subfigure}[b]{.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \fill[DarkCyan] (0.5,-1) circle (1cm);
+      \fill[white] (0,0) circle (1cm);
+      \fill[white] (1,0) circle (1cm);
+
+      \begin{scope}
+        \clip (0,0) circle (1cm);
+        \fill[DarkCyan] (0,0) circle (1cm);
+        \fill[white] (1,0) circle (1cm);
+        \fill[white] (0.5,-1) circle (1cm);
+      \end{scope}
+
+      \begin{scope}
+        \clip (1,0) circle (1cm);
+        \fill[DarkCyan] (0,0) circle (1cm);
+        \fill[white] (0.5,-1) circle (1cm);
+      \end{scope}
+
+      \draw (0,0) circle (1cm);
+      \draw (1,0) circle (1cm);
+      \draw (0.5,-1) circle (1cm);
+
+      \node at (135:1.35) {$a$};
+      \node[xshift=1cm] at (45:1.35) {$b$};
+      \node[xshift=.5cm] at (270:2.35) {$c$};
+    \end{tikzpicture}
+  \end{subfigure}
+
+  \caption{Další příklady Vennových diagramů.}
+  \label{fig:vennuv-diagram-cviceni}
+\end{figure}
+
+\subsection{Axiom potence}
+\label{ssec:axiom-potence}
+
+Axiom potence je jeden z axiomů zásadních pro konstrukci [TODO:odkaz na
+přirozená čísla]. Říká, že soubor všech \uv{kusů} libovolného celku, je též
+celkem, kde \uv{kusem} zde míníme soubor ne nutně všech částí původního celku.
+Opět se řídíme pravidlem: \uv{Vše, co umíme pojmenovat, je množina.} V tomto
+případě je onou množinou přesně \emph{množina všech podmnožin}, či celek všech
+\uv{způsobů, jak rozkouskovat celek}.
+
+Axiom potence s sebou nese jistý filosofický význam zásadní pro teorii množin.
+Mnozí, kdo se s teorií množin setkají poprvé, vnímají množiny jako \uv{soubory
+věcí}. Tento pohled není nezbytně mylný, pokud ovšem slovu \emph{věc}
+nepřiřazujeme materiální smysl. Ono slovo \emph{věc} má v teorii množin mnohem
+širší význam. Musíme-li učinit příměr se světem, slovo \emph{věc} zde může nést
+význam \emph{předmětu}, ale i třeba \emph{konceptu} či \emph{ideje} nebo dokonce
+(jako v~případě axiomu potence) \emph{způsobu, jak něco dělat}.
+
+Ještě jeden příklad za všechny: jest-li balíček hracích karet množina, pak axiom
+potence zaručuje, že všechny způsoby, jak vybrat libovolný počet karet z tohoto
+balíčku, též tvoří množinu. Zaheslujme jej větou:
+\begin{highlightBox}
+  \alert{Všechny způsoby rozdělení celku tvoří celek.}
+\end{highlightBox}
+Formalisovat axiom potence je poměrně jednoduché. V jazyce teorie množin přejímá
+podobu výroku
+\begin{equation}
+  \label{eq:axiom-potence}
+  ( \forall a)( \exists y)( \forall x)((x \in y) \Leftrightarrow (x \subseteq
+  a)),
+\end{equation}
+neboli: \uv{Ke každé množině $a$ existuje množina $y$, jejímiž prvky jsou
+podmnožiny množiny $a$.} Této množině $y$ se často říká \emph{potence} množiny
+$a$.
+
+\begin{definition}[Potence množiny]
+  \label{def:potence-mnoziny}
+  Je-li $a$ množina, pak množině všech jejích podmnožin říkáme \emph{potence}
+  množiny $a$ a značíme ji $\mathcal{P}(a)$.
+
+  Existence $\mathcal{P}(a)$ je pro každou množinu $a$ zaručena
+  \hyperref[eq:axiom-potence]{axiomem potence}.
+\end{definition}
+\lessboxspace
+\begin{remark}
+  Zdůrazněme, že podmnožinou každé množiny $a$ je prázdná množina $0$ a také
+  samotná množina $a$. To dává dobrý smysl, když přemýšlíme o podmnožině právě
+  jako o jednom možném způsobu, jak vybrat prvky z množiny $a$. Prázdná množina
+  vyjadřuje fakt, že jsme nevybrali žáden, a celá množina $a$ fakt, že jsme
+  vybrali všechny.
+\end{remark}
+\begin{example}
+  \label{exam:axiom-potence}
+  Je-li $a = \{x, y, z\}$, pak
+  \[
+    \mathcal{P}(a) = \{0, \{x\}, \{y\}, \{z\}, \{x, y\}, \{x, z\}, \{y, z\},
+    \{x, y, z\}\}.
+  \]
+\end{example}
+Jak snad vidno z \myref{příkladu}{exam:axiom-potence},
+\hyperref[def:potence-mnoziny]{potence množiny} celkem rychle bobtná se
+zvyšující se velikostí původní množiny. Můžete si zkusit rozmyslet, \emph{jak}
+rychle.
+\begin{hardExercise}
+  Jaký je počet prvků \hyperref[def:potence-mnoziny]{potence množiny}
+  $\mathcal{P}(a)$ vzhledem k počtu prvků množiny $a$? Zkuste jej nejprve určit
+  pro malé množiny s pár prvky a poté odvodit obecný vzorec.
+\end{hardExercise}
+\lessboxspace
+\begin{exercise}
+  Určete $\mathcal{P}(a)$ pro
+  \begin{enumerate}
+    \item $a = \{\vartriangleright, \Psi\}$;
+    \item $a = \{\{0\}, \{x, y\}, \xi, \{\{\alpha\}\}\}$.
+  \end{enumerate}
+\end{exercise}
+
+\subsection{Axiom fundovanosti}
+\label{ssec:axiom-fundovanosti}
+
+U axiomu fundovanosti nepobudeme dlouho; je jím veskrze formální axiom, který
+vylučuje existenci \uv{nesmyslných} množin: mimo jiné množin, které jsou svými
+vlastními prvky. Je intuitivně nepřijatelné, aby celek byl zároveň svojí vlastní
+částí, a v teorii množin historicky působily takové množiny pramnoho problémů.
+Tak je zkrátka vyhodíme... Za zmínku stojí skutečnost, že \emph{axiom
+fundovanosti} je jediný \emph{negativní} axiom teorie množin ve smyslu, že
+zakazuje existenci jistých množin, spíše než aby ji zaručoval. Uveďme jej pod
+heslem:
+\begin{highlightBox}
+  \alert{Žádný celek nemůže být svou vlastní částí.}
+\end{highlightBox}
+Formálně dí \emph{axiom fundovanosti}, že každá neprázdná množina obsahuje
+prvek, jehož prvky jsou zcela rozdílné od prvků původní množiny.
+
+Rozmyslíme si jeho význam na množině blonďáků s modrýma očima. Totiž, prvky této
+množiny jsou přesně blonďáci s modrýma očima, ale nedává žádný smysl tvrdit, že
+množina všech blonďáků s modrýma očima je sama o sobě blonďákem s modrýma očima!
+Logicky:
+\begin{equation}
+  \label{eq:axiom-fundovanosti}
+  ( \forall a)(a \neq 0 \Rightarrow ( \exists x)(x \in a \wedge x \cap a = 0)),
+\end{equation}
+čili: \uv{Každá neprázdná množina $a$ obsahuje prvek $x$, s nímž nesdílí žádné
+prvky.}
+
+Jak z \hyperref[eq:axiom-fundovanosti]{axiomu fundovanosti} plyne fakt, že žádná
+množina není svým vlastním prvkem? Uvažme množinu $a$ takovou, že $a \in a$.
+Podle \hyperref[eq:axiom-vydeleni]{axiomu vydělení} a
+\hyperref[eq:axiom-dvojice]{axiomu dvojice} existuje množina $\{a\}$. Jistě $a
+\in \{a\}$. Pak ale spolu množina $\{a\}$ a množina $a$ sdílejí prvek $a$.
+Množina $\{a\}$ je tudíž ve sporu s \hyperref[eq:axiom-fundovanosti]{axiomem
+fundovanosti}, neboť jejím jediným prvkem je množina $a$ a zároveň platí $a \cap
+\{a\} = a$.
+
+\subsection{Axiom nekonečna}
+\label{ssec:axiom-nekonecna}
+
+Zatím žádný z axiomů teorie množin neumožňoval robit \emph{nekonečné} množiny.
+Ani \hyperref[def:sjednoceni-mnozin]{operace sjednocení}, jež slévá do jedné
+množiny prvky z množin dvou, nám zde nemůže pomoci, neboť aspoň jedna ze
+slévaných množin už by sama musela být nekonečná.
+
+Hlavním důvodem potřeby nekonečné množiny je konstrukce [TODO:odkaz na přirozená
+čísla]. Zdeť záhodno chvíli sebe zamyslet, proč vlastně dává smysl mít nekonečně
+mnoho čísel. Ve světě žádné \uv{hmatatelné} nekonečno neexistuje; na každém
+místě je jen konečně mnoho \uv{předmětů}. Ovšem, zde opět narážíme na situaci z
+\hyperref[ssec:axiom-potence]{pododdílu o axiomu potence}. Totiž, řekněme, že
+bychom dokázali určit maximální počet věcí ve vesmíru, tedy takové číslo, že i
+kdyby každá nejmenší část prostoru byla vyplněna nějakým neskutečně malým
+předmětem, stejně by jich nemohlo být více. Ani v tomto případě by nedávalo
+smysl mít konečně mnoho čísel. Totiž, čísly nepočítáme jenom předměty, ale třeba
+i způsoby, jak s~onými předměty zacházet. Počet způsobů, jak za sebe uspořádat
+všechny existující věci ve vesmíru, je zcela jistě mnohem vyšší, než počet těch
+věcí samotných. Čili, bez ohledu na to, jak vysoké by bylo dané \uv{nejvyšší}
+číslo, vždy si dokážeme představit číslo vyšší zkrátka tak, že začneme počítat
+způsoby, jak s tímto \uv{nejvyšším} počtem předmětů manipulovat. Snad jsme vás
+tímto, bdělí čtenáři, přesvědčili, že mít nekonečně mnoho čísel dává lepší
+filosofický smysl než opak, ačkoli nekonečno samo o sobě je těžko uchopitelné.
+
+Teď přichází na řadu však potíž více formálního rázu: \uv{Jak vlastně vyrobit
+nekonečnou množinu?} Učiníme to způsobem známým jako \emph{matematická indukce},
+způsobem, kterým budeme rovněž později v tomto textu vyrábět [TODO: odkaz na
+přirozená čísla]. Klíčem k~jeho pochopení je skutečnost, že podle
+\hyperref[eq:axiom-fundovanosti]{axiomu fundovanosti} neexistuje množina, jež by
+byla svým vlastním prvkem, a tedy je množina $x \cup \{x\}$ vždy odlišná od
+množiny $x$. Ačkoli \hyperref[def:sjednoceni-mnozin]{sjednocení} samo o sobě
+nestačí k výrobě nekonečné množiny, dává nám nezanedbatelný nástroj. Nekonečnou
+množinu budeme totiž definovat jako takovou množinu, která spolu s~prvkem $x$
+musí obsahovat i $x \cup \{x\}$. Formálně:
+\begin{equation}
+  \label{eq:axiom-nekonecna}
+  ( \exists a)( \forall x)(0 \in a \wedge (x \in a \Rightarrow x \cup \{x\} \in
+  a)),
+\end{equation}
+čili, ještě jednou: \uv{Existuje množina $a$, která není prázdná (obsahuje $0$)
+a s každým prvkem $x$ obsahuje i prvek $x \cup \{x\}$}.
+
+Takto definovaná množina je skutečně nekonečná. Obsahuje $0$, a tedy obsahuje i
+${0 \cup \{0\}} = \{0\}$. Protože však obsahuje $\{0\}$, obsahuje i $\{0\} \cup
+\{\{0\}\} = \{0, \{0\}\}$ a tak dále do nekonečna...
+\hyperref[eq:axiom-nekonecna]{Axiom nekonečna} shrneme jednoduchým heslem:
+\begin{highlightBox}
+  \alert{Existuje nekonečná množina.}
+\end{highlightBox}
+
+\subsection{Axiomy nahrazení}
+\label{ssec:axiomy-nahrazeni}
+
+Naše předlouhá pouť axiomy teorie množin končí tzv. \emph{axiomy nahrazení}.
+Podobně jako u \hyperref[ssec:axiomy-vydeleni]{axiomů vydělení}, i zde si
+všimněte použití plurálu. Tentokráte nemáme jeden axiom pro každý logický výrok,
+nýbrž pro každou \emph{funkci}. Totiž, \emph{axiom nahrazení} pro nějakou danou
+funkci $f\colon a \to b$ jednoduše říká, že obraz množiny $a$ při funkci $f$ je
+\emph{vždy množina}.\footnote{Zde jsme si záměrně dovolili mírný formální
+  prohřešek: běžné znění axiomů nahrazení nemluví přímo o žádných funkcích, a
+  tudíž nepožaduje existenci cílové množiny. Jejich znění se však tímto natolik
+  zkomplikuje, že jsme se přidrželi méně formální, leč mnohem intuitivnější
+varianty.} Zaheslujeme jej větou:
+\begin{highlightBox}
+  \alert{Obraz celku je celek.}
+\end{highlightBox}
+Jeho formalisace není obtížná; vlastně říká, že existuje obraz každé funkce.
+Přesně:
+\begin{equation}
+  \label{eq:axiom-nahrazeni}
+  ( \forall a)( \exists z)( \forall y)(y \in z \Leftrightarrow ( \exists x)(x
+  \in a \wedge f(x) = y)),
+\end{equation}
+kde $f$ je nějaká funkce vedoucí z $a$. Polidštěno: \uv{Pro každou množinu $a$
+  existuje množina $z$ obsahující právě ty prvky $y$, pro něž existuje $x \in a$
+takové, že $f(x) = y$.} \textbf{Rozmyslete si, že $z = f(a)$!}
+
+\begin{example}
+  \label{exam:axiom-nahrazeni-1}
+  Je-li $a = \{1, 2, 3\}$ množina a $f$ je funkce, která číslům $1, 2$ a $3$
+  přiřazuje jejich římské obdoby, tj.
+  \[
+    f(1) = \mathrm{I}, \quad f(2) = \mathrm{II}, \quad f(3) = \mathrm{III},
+  \]
+  pak \hyperref[eq:axiom-nahrazeni]{axiom nahrazení} pro funkci $f$ a množinu
+  $a$ říká, že existuje množina $z = \{\mathrm{I}, \mathrm{II}, \mathrm{III}\}$.
+\end{example}
+\begin{example}
+  \label{exam:axiom-nahrazeni-2}
+  Ať $a$ je množina všech předmětů a $f$ je funkce, která každému předmětu
+  přiřazuje jeho \emph{barvu}. Pak \hyperref[eq:axiom-nahrazeni]{axiom
+  nahrazení} pro funkci $f$ a množinu $a$ zaručuje, že existuje \textbf{množina
+  barev všech předmětů}.
+\end{example}
+Konkrétní použití zaznamenají \hyperref[eq:axiom-nahrazeni]{axiomy nahrazení}
+při konstrukci [TODO:odkaz celá čísla] a [TODO:odkaz racionální čísla].
+
+\begin{exercise}
+  Uvažte množinu $a = \{x, y, z\}$ a funkci $f$ vedoucí z $a$ danou předpisem
+  $f(x) =~\vartriangleleft, f(y) =~\vartriangleright, f(z) = \times$. Určete
+  $f(a)$.
+\end{exercise}
+\lessboxspace
+\begin{exercise}
+  Představte sobě funkci $f$, která každému člověku z množiny všech lidí $l$
+  přiřazuje jeho výšku. Popište slovy množinu $f(l)$. Co je za množinu třeba
+  $f^{-1}(180)$?
+\end{exercise}

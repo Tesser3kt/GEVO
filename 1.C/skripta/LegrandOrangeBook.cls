@@ -38,7 +38,9 @@
 \usepackage{float} % Allows more precisely positioning floats e.g.
 % \begin{figure}[H]
 
-\usepackage[usenames, svgnames, table]{xcolor} % Required for
+\usepackage{subcaption} % subfigures
+
+\usepackage[svgnames, table]{xcolor} % Required for
 % defining and using custom colors
 
 \usepackage{calc} % For simpler calculations - used for spacing the
@@ -76,6 +78,7 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage[greek, english, czech]{babel}
+\usepackage{csquotes}
 
 %----------------------------------------------------------------------------------------
 %  FONTS
@@ -89,6 +92,8 @@
 % Com­puter Modern fonts
 
 \usepackage{microtype} % Improve typography
+% Better line spacing.
+\renewcommand{\baselinestretch}{1.1}
 
 %----------------------------------------------------------------------------------------
 %  HEADERS AND FOOTERS
@@ -154,7 +159,8 @@
     \node[anchor=south east, inner sep=0pt, xshift=-\Gm@rmargin,
     yshift=\Gm@bmargin] at (current page.south east) { % Mini table of contents
       \parbox[t][][t]{8.5cm}{ % Width of box holding the mini ToC
-        \printcontents[part]{l}{0}{\setcounter{tocdepth}{1}} %
+        \begingroup\setcounter{tocdepth}{1}\printcontents[part]{l}{0}{}\endgroup
+        %
         % Display the mini table of contents showing chapters and
         % sections, change tocdepth to 2 to also show subsections or
         % 0 to only show chapters
@@ -556,6 +562,16 @@
 
 \usepackage{booktabs} % Required for high quality horizontal rules in tables
 
+% Remove gaps around table rules.
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+
+% Add extra row padding.
+\setlength{\extrarowheight}{.75ex}
+
+% Make rows alternate colors.
+\rowcolors{2}{DarkCyan!10}{white}
+
 %----------------------------------------------------------------------------------------
 %   LISTS
 %----------------------------------------------------------------------------------------
@@ -570,6 +586,11 @@
 % level numbered list characters
 \renewcommand{\labelenumiii}{\roman{enumiii}.} % Customize the third
 % level numbered list characters
+
+% no topsep for enumerate and itemize
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{topsep=-6pt}
+\setlist[itemize]{topsep=-6pt}
 
 %------------------------------------------------
 
@@ -591,7 +612,7 @@
   % around links if this is false)
   %hidelinks, % Hide the default boxes around links
   urlcolor=DarkCyan, % Color for \url and \href links
-  linkcolor=black, % Color for \ref/\nameref links
+  linkcolor=DarkCyan, % Color for \ref/\nameref links
   citecolor=DarkCyan, % Color for reference citations like \cite{}
   hyperindex=true, % Adds links from the page numbers in the index to
   % the relevant page
@@ -608,6 +629,7 @@
 \bookmarksetup{
   open, % Open all bookmark drawers automatically
   numbered, % Add section numbers to bookmarks
+  depth=3, % Show bookmarks down to subsubsections (matches tocdepth)
   addtohook={%
     \ifnum\bookmarkget{level}=-1 % Customize part bookmarks
     \bookmarksetup{color=DarkCyan, bold}% Bold and colored
@@ -649,7 +671,7 @@
 
 %------------------------------------------------
 
-% Orange theorem number and optional black title with padding above and below
+% Cyan theorem number and optional black title with padding above and below
 \newtheoremstyle{DarkCyannum} % Theorem style name
 {6pt} % Space above
 {6pt} % Space below
@@ -665,7 +687,7 @@
 
 %------------------------------------------------
 
-% Orange theorem number and optional black title with no padding above and below
+% Cyan theorem number and optional black title with no padding above and below
 \newtheoremstyle{DarkCyannumbox} % Theorem style name
 {0pt} % Space above
 {0pt} % Space below
@@ -679,12 +701,38 @@
 \thmnote{\the\thm@notefont\sffamily\bfseries\color{black}---~#3.\hspace{0.25em}}}
 % Optional theorem note
 
+\newtheoremstyle{FireBricknumbox} % Theorem style name
+{0pt} % Space above
+{0pt} % Space below
+{\normalfont} % Body font
+{} % Indent amount
+{} % Theorem head font
+{} % Punctuation after theorem head
+{0.25em} % Space after theorem head
+{\small\sffamily\bfseries\color{FireBrick}\thmname{#1}~\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}
+  % Theorem text (e.g. Theorem 2.1)
+\thmnote{\the\thm@notefont\sffamily\bfseries\color{black}---~#3.\hspace{0.25em}}}
+% Optional theorem note
+
+\newtheoremstyle{VioletRednumbox} % Theorem style name
+{0pt} % Space above
+{0pt} % Space below
+{\normalfont} % Body font
+{} % Indent amount
+{} % Theorem head font
+{} % Punctuation after theorem head
+{0.25em} % Space after theorem head
+{\small\sffamily\bfseries\color{MediumVioletRed}\thmname{#1}~\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}
+  % Theorem text (e.g. Theorem 2.1)
+\thmnote{\the\thm@notefont\sffamily\bfseries\color{black}---~#3.\hspace{0.25em}}}
+% Optional theorem note
+
 %------------------------------------------------
 
 % Black theorem number and optional black title no padding above and below
 \newtheoremstyle{blacknumex} % Theorem style name
 {6pt} % Space above
-{6pt} % Space below
+{0pt} % Space below
 {\normalfont} % Body font
 {} % Indent amount
 {} % Theorem head font
@@ -725,26 +773,46 @@
 
 % Orange theorem number and optional black title with no padding above and below
 \theoremstyle{DarkCyannumbox}
-\newtheorem{theoremeT}{Theorem}[chapter] % Theorems, the first
+\newtheorem{lemmaT}{Lemma}[chapter] % Lemmata, the first
+% argument is the lemma name, the second the theorem title used
+% before the number and the third optional argument is whether to
+% number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
+\newtheorem{theoremeT}{Věta}[chapter] % Theorems, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
-\newtheorem{problem}{Problem}[chapter] % Problems, the first argument
+\newtheorem{problem}{Úloha}[chapter] % Problems, the first argument
 % is the theorem name, the second the theorem title used before the
 % number and the third optional argument is whether to number under
 % chapters (e.g. 2.1) or sections (e.g. 2.1.1)
-\newtheorem{exerciseT}{Exercise}[chapter] % Exercises, the first
+\newtheorem{exerciseT}{Cvičení}[chapter] % Exercises, the first
+% argument is the theorem name, the second the theorem title used
+% before the number and the third optional argument is whether to
+% number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
+
+\theoremstyle{FireBricknumbox}
+\newtheorem{warningT}{Výstraha}[chapter] % Exercises, the first
+% argument is the theorem name, the second the theorem title used
+% before the number and the third optional argument is whether to
+% number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
+
+\theoremstyle{VioletRednumbox}
+\newtheorem{hardExerciseT}{Těžké cvičení}[chapter] % Hard Exercises, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
 
 % Black theorem number and optional black title no padding above and below
 \theoremstyle{blacknumex}
-\newtheorem{exampleT}{Example}[chapter] % Examples, the first
+\newtheorem{exampleT}{Příklad}[chapter] % Examples, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
-\newtheorem{notation}{Notation}[chapter] % Notations, the first
+\newtheorem{parableT}{Příměr}[chapter] % Examples, the first
+% argument is the theorem name, the second the theorem title used
+% before the number and the third optional argument is whether to
+% number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
+\newtheorem{notation}{Značení}[chapter] % Notations, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
@@ -755,11 +823,11 @@
 
 % Black theorem number and optional black title with padding above and below
 \theoremstyle{blacknumbox}
-\newtheorem{definitionT}{Definition}[chapter] % Definitions, the
+\newtheorem{definitionT}{Definice}[chapter] % Definitions, the
 % first argument is the theorem name, the second the theorem title
 % used before the number and the third optional argument is whether
 % to number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
-\newtheorem{corollaryT}{Corollary}[chapter] % Corollaries, the first
+\newtheorem{corollaryT}{Důsledek}[chapter] % Corollaries, the first
 % argument is the theorem name, the second the theorem title used
 % before the number and the third optional argument is whether to
 % number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
@@ -774,22 +842,23 @@
 
 % Theorem box
 \newmdenv[
-  skipabove=7pt, % Whitespace above box
-  skipbelow=7pt, % Whitespace below box
+  skipabove=12pt, % Whitespace above box
+  skipbelow=12pt, % Whitespace below box
   backgroundcolor=black!5, % Background color
   linecolor=DarkCyan, % Border color
-  innerleftmargin=5pt, % Inside left margin width
-  innerrightmargin=5pt, % Inside right margin width
-  innertopmargin=5pt, % Inside top margin height
-  innerbottommargin=5pt, % Inside bottom margin height
+  linewidth=1pt,
+  innerleftmargin=10pt, % Inside left margin width
+  innerrightmargin=10pt, % Inside right margin width
+  innertopmargin=20pt, % Inside top margin height
+  innerbottommargin=10pt, % Inside bottom margin height
   leftmargin=0cm, % Outside left margin width
   rightmargin=0cm % Outside right margin width
 ]{tBox}
 
 % Exercise box
 \newmdenv[
-  skipabove=7pt, % Whitespace above box
-  skipbelow=7pt, % Whitespace below box
+  skipabove=12pt, % Whitespace above box
+  skipbelow=12pt, % Whitespace below box
   rightline=false, % Right line visible
   leftline=true, % Left line visible
   topline=false, % Top line visible
@@ -797,31 +866,69 @@
   linecolor=DarkCyan, % Line color
   linewidth=4pt, % Line width
   backgroundcolor=DarkCyan!10, % Background color
-  innerleftmargin=5pt, % Inside left margin width
-  innerrightmargin=5pt, % Inside right margin width
-  innertopmargin=5pt, % Inside top margin height
-  innerbottommargin=5pt, % Inside bottom margin height
+  innerleftmargin=10pt, % Inside left margin width
+  innerrightmargin=10pt, % Inside right margin width
+  innertopmargin=20pt, % Inside top margin height
+  innerbottommargin=10pt, % Inside bottom margin height
   leftmargin=0cm, % Outside left margin width
   rightmargin=0cm % Outside right margin width
 ]{eBox}
 
+% Hard Exercise box
+\newmdenv[
+  skipabove=12pt, % Whitespace above box
+  skipbelow=12pt, % Whitespace below box
+  rightline=false, % Right line visible
+  leftline=true, % Left line visible
+  topline=false, % Top line visible
+  bottomline=false, % Bottom line visible
+  linecolor=MediumVioletRed, % Line color
+  linewidth=4pt, % Line width
+  backgroundcolor=MediumVioletRed!10, % Background color
+  innerleftmargin=10pt, % Inside left margin width
+  innerrightmargin=10pt, % Inside right margin width
+  innertopmargin=20pt, % Inside top margin height
+  innerbottommargin=10pt, % Inside bottom margin height
+  leftmargin=0cm, % Outside left margin width
+  rightmargin=0cm % Outside right margin width
+]{heBox}
+
 % Definition box
 \newmdenv[
-  skipabove=7pt, % Whitespace above box
-  skipbelow=7pt, % Whitespace below box
+  skipabove=12pt, % Whitespace above box
+  skipbelow=12pt, % Whitespace below box
   rightline=false, % Right line visible
   leftline=true, % Left line visible
   topline=false, % Top line visible
   bottomline=false, % Bottom line visible
   linecolor=DarkCyan, % Border color
   linewidth=4pt, % Border width
-  innerleftmargin=5pt, % Inside left margin width
-  innerrightmargin=5pt, % Inside right margin width
-  innertopmargin=0pt, % Inside top margin height
-  innerbottommargin=0pt, % Inside bottom margin height
+  innerleftmargin=10pt, % Inside left margin width
+  innerrightmargin=10pt, % Inside right margin width
+  innertopmargin=20pt, % Inside top margin height
+  innerbottommargin=10pt, % Inside bottom margin height
   leftmargin=0cm, % Outside left margin width
   rightmargin=0cm % Outside right margin width
 ]{dBox}
+
+% Warning box
+\newmdenv[
+  skipabove=12pt, % Whitespace above box
+  skipbelow=12pt, % Whitespace below box
+  rightline=false, % Right line visible
+  leftline=true, % Left line visible
+  topline=false, % Top line visible
+  bottomline=false, % Bottom line visible
+  linecolor=FireBrick, % Line color
+  linewidth=4pt, % Line width
+  backgroundcolor=FireBrick!10, % Background color
+  innerleftmargin=10pt, % Inside left margin width
+  innerrightmargin=10pt, % Inside right margin width
+  innertopmargin=20pt, % Inside top margin height
+  innerbottommargin=10pt, % Inside bottom margin height
+  leftmargin=0cm, % Outside left margin width
+  rightmargin=0cm % Outside right margin width
+]{wBox}
 
 % Corollary box
 \newmdenv[
@@ -845,6 +952,11 @@
 % Creates an environment for each type of theorem and assigns it a
 % theorem text style from the THEOREM STYLES block above and a
 % colored box from above
+\newenvironment{lemma}{
+  \begin{tBox}
+  \begin{lemmaT}}{
+    \end{lemmaT}
+\end{tBox}}
 \newenvironment{theorem}{
   \begin{tBox}
   \begin{theoremeT}}{
@@ -852,17 +964,30 @@
 \end{tBox}}
 \newenvironment{exercise}{
   \begin{eBox}
-  \begin{exerciseT}}{\hfill{\color{DarkCyan}\tiny\ensuremath{\blacksquare}}
+  \begin{exerciseT}}{
     \end{exerciseT}
 \end{eBox}}
+\newenvironment{hardExercise}{
+  \begin{heBox}
+  \begin{hardExerciseT}}{
+    \end{hardExerciseT}
+\end{heBox}}
+\newenvironment{warning}{
+  \begin{wBox}
+  \begin{warningT}}{
+    \end{warningT}
+\end{wBox}}
 \newenvironment{definition}{
   \begin{dBox}
   \begin{definitionT}}{
     \end{definitionT}
 \end{dBox}}
 \newenvironment{example}{
-\begin{exampleT}}{\hfill{\tiny\ensuremath{\blacksquare}}
+\begin{exampleT}}{
 \end{exampleT}}
+\newenvironment{parable}{
+\begin{parableT}}{
+\end{parableT}}
 \newenvironment{corollary}{
   \begin{cBox}
   \begin{corollaryT}}{
@@ -881,7 +1006,7 @@
     \begin{tikzpicture}[overlay]
       \node[draw=DarkCyan!60,line
         width=1pt,circle,fill=DarkCyan!25,font=\sffamily\bfseries,inner
-      sep=3pt,outer sep=0pt] at (-15pt,0pt){\textcolor{DarkCyan}{R}}; %
+      sep=3pt,outer sep=0pt] at (-15pt,0pt){\textcolor{DarkCyan}{P}}; %
       % Orange R in a circle
     \end{tikzpicture}
     \advance\baselineskip -1pt% Reduce line spacing
@@ -890,11 +1015,34 @@
 }
 
 %----------------------------------------------------------------------------------------
+%   COLORED BOXES FOR HIGHLIGHT
+%----------------------------------------------------------------------------------------
+
+\usepackage{tcolorbox}
+\tcbset{
+  sharp corners,
+  colback = DarkCyan!10,
+  before skip = 7pt,    % add extra space before the box
+  after skip = 7pt,      % add extra space after the box
+  halign = center,
+  add to width=-20pt,
+  center
+}
+\newtcolorbox{highlightBox}{
+  colframe = DarkCyan,
+  boxrule = -0.3pt,
+  toprule = 3pt, % top rule weight
+  bottomrule = 3pt, % bottom rule weight
+  fontupper = \bfseries
+}
+
+%----------------------------------------------------------------------------------------
 %   LOAD PACKAGES THAT CLASH WITH OTHER PACKAGES
 %----------------------------------------------------------------------------------------
 
 \usepackage{tikz} % Required for drawing custom shapes and
 % positioning elements absolutely on the page
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning}
 
 %----------------------------------------------------------------------------------------
 %   HELPFUL COMMANDS AND MACROS
@@ -904,9 +1052,16 @@
 \newcommand{\clb}[1]{\textcolor{RoyalBlue}{#1}}
 \newcommand{\clg}[1]{\textcolor{ForestGreen}{#1}}
 \newcommand{\clp}[1]{\textcolor{DarkViolet}{#1}}
+\newcommand{\clc}[1]{\textcolor{DarkCyan}{#1}}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mahtbb{R}}
 \newcommand{\C}{\mathbb{C}}
+
+% Make space between two immediate boxes smaller.
+\newcommand{\lessboxspace}{\vspace*{-12pt}}
+% Extra custom commands %
+\newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
+\newcommand{\alert}[1]{\textcolor{DarkCyan}{#1}}
