@@ -118,10 +118,10 @@
   #align(center + horizon)[
     #grid(
       columns: (1fr, 1fr, 1fr),
-      gutter: 2cm,
-      [#rect(width: 4cm, height: 2cm)[Tato obálka obsahuje výhru.]],
-      [#rect(width: 4cm, height: 2cm)[První obálka neobsahuje výhru.]],
-      [#rect(width: 4cm, height: 2cm)[Tato obálka neobsahuje výhru.]],
+      gutter: 1cm,
+      [#rect(inset: 12pt, width: 4.5cm, height: 2cm)[Tato obálka obsahuje výhru.]],
+      [#rect(inset: 12pt, width: 4.5cm, height: 2cm)[První obálka neobsahuje výhru.]],
+      [#rect(inset: 12pt, width: 4.5cm, height: 2cm)[Tato obálka neobsahuje výhru.]],
     )
   ]
   *Přesně jedna z těchto obálek obsahuje výhru*. Ve které obálce výhra je, když
@@ -132,7 +132,7 @@
   - lichý počet nadpisů je pravdivý?
   - nadpis na obálce obsahující výhru je lživý?
 
-  Ve které z těchto situací *je výhra stále v přesně jedné obálce?*
+  Ve které z těchto situací je pravda, že *je výhra stále v přesně jedné obálce?*
 ]
 
 #pagebreak()
@@ -149,6 +149,6 @@
   musíte změnit pravdivostní hodnotu přesně dvou proměnných, aby měl i celý
   výrok opačnou hodnotu.
 
-  Zkuste najít _co nejkratší_ posloupnost výroků pomocí níž se jednoznačně
+  Zkuste najít _co nejkratší_ posloupnost výroků, pomocí níž se jednoznačně
   dozvíte pravdivost $a, b, c, d$.
 ]
