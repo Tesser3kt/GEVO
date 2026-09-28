@@ -18,3 +18,10 @@ random-fun/csts_scrape/app.log
 **/__pycache__/**
 **/.venv/**
 4.AB/python/notebooks/.vscode/settings.json
+
+# Manim outputs
+media/
+
+# Flakes
+.direnv/
+.envrc
