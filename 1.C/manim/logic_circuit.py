@@ -207,3 +207,180 @@ class DrawSimpleCircuit(Scene):
         self.play(MoveToTarget(gate_result))
 
         self.wait(5)
+
+
+class DrawAdderCircuit(Scene):
+    def draw_adder(self, color=WHITE, scale=1, position=ORIGIN):
+        def draw_and_gate():
+            # Draw and gate
+            points = [
+                np.array([0.75, 0, 0]) * scale,
+                np.array([0, 0, 0]) * scale,
+                np.array([0, 1, 0]) * scale,
+                np.array([0.75, 1, 0]) * scale,
+            ]
+
+            # Draw Open rectangle
+            rect = VMobject()
+            rect.set_points_as_corners(points)
+            rect.set_z_index(5)
+
+            # Draw arc.
+            arc = ArcBetweenPoints(
+                start=points[-1], end=points[0], color=color, angle=-PI, z_index=5
+            )
+
+            # Draw input lines.
+            midpoint_input = (points[1] + points[2]) / 2
+            input1 = (midpoint_input + points[2]) / 2
+            input2 = (midpoint_input + points[1]) / 2
+            input_line1 = Line(
+                start=input1 + 0.75 * scale * LEFT, end=input1, color=color
+            )
+            input_line2 = Line(
+                start=input2 + 0.75 * scale * LEFT, end=input2, color=color
+            )
+
+            # Draw output line.
+            output = arc.get_edge_center(RIGHT)
+            output_line = Line(
+                start=output,
+                end=np.array([0, output[1], 0]) + 2 * scale * RIGHT,
+                color=color,
+            )
+
+            gate = VGroup(rect, arc, input_line1, input_line2, output_line).move_to(
+                position + scale * DOWN + 0.5 * scale * RIGHT
+            )
+
+            # Rect animation.
+            rect_anim = Create(rect)
+
+            # Arc animation.
+            arc_anim = Create(arc)
+
+            # Lines animation
+            lines_anim = [Create(input_line1), Create(input_line2), Create(output_line)]
+            return (
+                gate,
+                AnimationGroup(
+                    rect_anim,
+                    arc_anim,
+                    AnimationGroup(*lines_anim, lag_ratio=0),
+                    lag_ratio=0.4,
+                ),
+            )
+
+        def draw_xor_gate():
+            # Draw and gate
+            points = [
+                np.array([0.25, 0, 0]) * scale,
+                np.array([0, 0, 0]) * scale,
+                np.array([0, 1, 0]) * scale,
+                np.array([0.25, 1, 0]) * scale,
+            ]
+            tip = np.array([1.25, 0.5, 0] * scale)
+
+            # Draw lines
+            lines = [
+                Line(
+                    start=points[1],
+                    end=points[0] + 0.01 * scale * RIGHT,
+                    color=color,
+                    z_index=5,
+                ),
+                Line(
+                    start=points[2],
+                    end=points[3] + 0.01 * scale * RIGHT,
+                    color=color,
+                    z_index=5,
+                ),
+            ]
+
+            # Draw top arc.
+            top_arc = ArcBetweenPoints(
+                start=points[-1],
+                end=tip,
+                color=color,
+                angle=-15 * PI / 48,
+                z_index=5,
+            )
+            # Draw bottom arc.
+            bot_arc = ArcBetweenPoints(
+                start=points[0],
+                end=tip,
+                color=color,
+                angle=15 * PI / 48,
+                z_index=5,
+            )
+            # Draw back arcs.
+            back_arc = ArcBetweenPoints(
+                start=points[1], end=points[2], color=color, angle=PI / 2, z_index=5
+            ).shift(0.01 * scale * RIGHT)
+            back_arc_2 = back_arc.copy().shift(scale * 0.15 * LEFT)
+
+            # Draw input lines.
+            midpoint_input = (points[1] + points[2]) / 2
+            input1 = (midpoint_input + points[2]) / 2
+            input2 = (midpoint_input + points[1]) / 2
+            input_line1 = Line(
+                start=input1 + 1.5 * scale * LEFT,
+                end=input1 + 0.18 * scale * RIGHT,
+                color=color,
+            )
+            input_line2 = Line(
+                start=input2 + 1.5 * scale * LEFT,
+                end=input2 + 0.18 * scale * RIGHT,
+                color=color,
+            )
+
+            # Draw output line.
+            output = tip
+            output_line = Line(
+                start=output,
+                end=np.array([0, output[1], 0]) + 2 * scale * RIGHT,
+                color=color,
+            )
+
+            gate = VGroup(
+                *lines,
+                top_arc,
+                bot_arc,
+                back_arc,
+                back_arc_2,
+                input_line1,
+                input_line2,
+                output_line,
+            ).move_to(position + scale * UP)
+
+            # Rect animation.
+            lines_anim = [Create(line) for line in lines]
+
+            # Arc animation.
+            top_arc_anim = Create(top_arc)
+            bot_arc_anim = Create(bot_arc)
+            back_arc_anim = Create(back_arc)
+            back_arc_2_anim = Create(back_arc_2)
+
+            # Input/output animation.
+            io_anim = [Create(input_line1), Create(input_line2), Create(output_line)]
+
+            return (
+                gate,
+                AnimationGroup(
+                    AnimationGroup(*lines_anim, lag_ratio=0),
+                    AnimationGroup(top_arc_anim, bot_arc_anim, lag_ratio=0),
+                    AnimationGroup(back_arc_anim, back_arc_2_anim, lag_ratio=0),
+                    AnimationGroup(*io_anim, lag_ratio=0),
+                    lag_ratio=0.4,
+                ),
+            )
+
+        return draw_and_gate(), draw_xor_gate()
+
+    def construct(self):
+        (and_gate, and_gate_anim), (xor_gate, xor_gate_anim) = self.draw_adder()
+
+        self.play(and_gate_anim, xor_gate_anim)
+
+        self.wait()
