@@ -491,13 +491,78 @@ class DrawAdderCircuit(Scene):
         and_input_line1 = and_gate[2].copy()
         and_input_line1.set_color(PINK).set_z_index(10)
 
-        and_input1_anim = AnimationGroup(
-            Create(
-                and_connecting_line1,
-                run_time=1,
-                rate_func=rate_functions.ease_out_cubic,
+        and_connecting_line2 = connect_lines[1].copy()
+        and_connecting_line2.set_color(PINK).set_z_index(10)
+
+        and_input_line2 = Line(
+            start=connect_lines[2].get_left(), end=and_gate[3].get_end(), color=PINK
+        )
+        and_input_line2.set_color(PINK).set_z_index(10)
+
+        # Fill AND gate.
+        and_gate_inside = VGroup(*[mobj.copy() for mobj in and_gate[:2]])
+        for mobj in and_gate_inside:
+            mobj.set_color(PINK).set_z_index(20)
+        and_fill_anim = AnimationGroup(
+            *[Create(mobj) for mobj in and_gate_inside], lag_ratio=0
+        )
+
+        fill_anim = AnimationGroup(
+            AnimationGroup(
+                Create(
+                    and_connecting_line1,
+                    run_time=1,
+                    rate_func=rate_functions.ease_out_cubic,
+                ),
+                Create(
+                    and_connecting_line2,
+                    run_time=1,
+                    rate_func=rate_functions.ease_out_cubic,
+                ),
+                lag_ratio=0,
             ),
-            Create(and_input_line1, run_time=1, rate_func=rate_functions.ease_in_cubic),
+            AnimationGroup(
+                Create(
+                    and_input_line1, run_time=1, rate_func=rate_functions.ease_in_cubic
+                ),
+                Create(
+                    and_input_line2, run_time=1, rate_func=rate_functions.ease_in_cubic
+                ),
+                lag_ratio=0,
+            ),
+            lag_ratio=0.7,
+        )
+
+        # Get XOR output
+        xor_output = xor_gate[-1].copy()
+        xor_output.set_color(TEAL).set_z_index(10)
+
+        xor_output_dot = Dot(point=xor_output.get_end(), radius=0.1, color=TEAL)
+        xor_output_text = MathTex(r"\mathbf{0}", color=TEAL).next_to(
+            xor_output_dot, RIGHT
+        )
+
+        xor_output_anim = AnimationGroup(
+            Create(xor_output),
+            AnimationGroup(
+                GrowFromCenter(xor_output_dot), Write(xor_output_text), lag_ratio=0.4
+            ),
+            lag_ratio=0.8,
+        )
+
+        # Get AND output.
+        and_output = and_gate[-1].copy()
+        and_output.set_color(PINK).set_z_index(10)
+        and_output_dot = Dot(point=and_output.get_end(), radius=0.1, color=PINK)
+        and_output_text = MathTex(r"\mathbf{1}", color=PINK).next_to(
+            and_output_dot, RIGHT
+        )
+
+        and_output_anim = AnimationGroup(
+            Create(and_output),
+            AnimationGroup(
+                GrowFromCenter(and_output_dot), Write(and_output_text), lag_ratio=0.4
+            ),
             lag_ratio=0.8,
         )
 
@@ -505,10 +570,14 @@ class DrawAdderCircuit(Scene):
             AnimationGroup(
                 AnimationGroup(
                     AnimationGroup(xor_input1_anim, xor_input2_anim, lag_ratio=0),
-                    and_input1_anim,
+                    fill_anim,
                     lag_ratio=0.5,
                 ),
-                xor_fill_anim,
+                AnimationGroup(
+                    AnimationGroup(xor_fill_anim, xor_output_anim, lag_ratio=0.4),
+                    AnimationGroup(and_fill_anim, and_output_anim, lag_ratio=0.4),
+                    lag_ratio=0.5,
+                ),
                 lag_ratio=0.3,
             )
         )
