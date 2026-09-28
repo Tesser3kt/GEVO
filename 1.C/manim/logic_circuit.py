@@ -221,7 +221,7 @@ class DrawAdderCircuit(Scene):
             ]
 
             # Draw Open rectangle
-            rect = VMobject()
+            rect = VMobject(color=color)
             rect.set_points_as_corners(points)
             rect.set_z_index(5)
 
@@ -243,9 +243,10 @@ class DrawAdderCircuit(Scene):
 
             # Draw output line.
             output = arc.get_edge_center(RIGHT)
+            end = ORIGIN + 2 * scale * RIGHT + np.array([0, output[1], 0])
             output_line = Line(
                 start=output,
-                end=np.array([0, output[1], 0]) + 2 * scale * RIGHT,
+                end=end,
                 color=color,
             )
 
@@ -279,7 +280,7 @@ class DrawAdderCircuit(Scene):
                 np.array([0, 1, 0]) * scale,
                 np.array([0.25, 1, 0]) * scale,
             ]
-            tip = np.array([1.25, 0.5, 0] * scale)
+            tip = np.array([1.25, 0.5, 0]) * scale
 
             # Draw lines
             lines = [
@@ -336,9 +337,10 @@ class DrawAdderCircuit(Scene):
 
             # Draw output line.
             output = tip
+            end = ORIGIN + 2 * scale * RIGHT + np.array([0, output[1], 0])
             output_line = Line(
                 start=output,
-                end=np.array([0, output[1], 0]) + 2 * scale * RIGHT,
+                end=end,
                 color=color,
             )
 
@@ -376,11 +378,139 @@ class DrawAdderCircuit(Scene):
                 ),
             )
 
-        return draw_and_gate(), draw_xor_gate()
+        (and_gate, and_gate_anim) = draw_and_gate()
+        (xor_gate, xor_gate_anim) = draw_xor_gate()
+
+        # Align gate outputs
+        distance = and_gate.get_right() - xor_gate.get_right()
+        xor_gate = xor_gate.shift(distance[0] * RIGHT)
+
+        # Connect xor input to and inputs
+        and_input1 = and_gate[2].get_left()
+        xor_input1 = xor_gate[6].get_left()
+
+        and_input2 = and_gate[3].get_left()
+        xor_input2 = xor_gate[7].get_left()
+
+        connecting_line1 = Line(
+            start=np.array([and_input1[0], xor_input1[1], 0]),
+            end=and_input1 + 0.02 * scale * DOWN,
+            color=color,
+        )
+        connecting_line2 = Line(
+            start=np.array([and_input2[0], xor_input2[1], 0]),
+            end=and_input2 + 0.02 * scale * DOWN,
+            color=color,
+        ).shift(0.4 * scale * LEFT)
+        connecting_line3 = Line(
+            start=connecting_line2.get_bottom() + 0.02 * scale * UP,
+            end=and_input2,
+            color=color,
+        )
+        connect_anim = AnimationGroup(
+            Create(connecting_line1), Create(connecting_line2), Create(connecting_line3)
+        )
+
+        connecting_lines = VGroup(connecting_line1, connecting_line2, connecting_line3)
+
+        return (
+            (and_gate, and_gate_anim),
+            (xor_gate, xor_gate_anim),
+            (connecting_lines, connect_anim),
+        )
 
     def construct(self):
-        (and_gate, and_gate_anim), (xor_gate, xor_gate_anim) = self.draw_adder()
+        # Create adder
+        (
+            (and_gate, and_gate_anim),
+            (xor_gate, xor_gate_anim),
+            (connect_lines, connect_anim),
+        ) = self.draw_adder()
 
-        self.play(and_gate_anim, xor_gate_anim)
+        self.play(
+            AnimationGroup(
+                AnimationGroup(and_gate_anim, xor_gate_anim, lag_ratio=0),
+                connect_anim,
+                lag_ratio=0.5,
+            )
+        )
+
+        # Mark inputs.
+        input1_dot = Dot(
+            point=xor_gate[6].get_left(), radius=0.1, color=PINK, z_index=10
+        )
+        input2_dot = Dot(
+            point=xor_gate[7].get_left(), radius=0.1, color=PINK, z_index=10
+        )
+        input1_text = MathTex(r"\mathbf{1}", color=PINK).next_to(input1_dot, LEFT)
+        input2_text = MathTex(r"\mathbf{1}", color=PINK).next_to(input2_dot, LEFT)
+
+        self.play(
+            GrowFromCenter(input1_dot),
+            GrowFromCenter(input2_dot),
+            Write(input1_text),
+            Write(input2_text),
+        )
+
+        # Send current through the XOR gate.
+        xor_input1_line = Line(
+            start=input1_dot.get_center(),
+            end=xor_gate[6].get_right(),
+            color=PINK,
+            z_index=10,
+        )
+        xor_input2_line = Line(
+            start=input2_dot.get_center(),
+            end=xor_gate[7].get_right(),
+            color=PINK,
+            z_index=10,
+        )
+
+        xor_input1_anim = Create(xor_input1_line)
+        xor_input2_anim = Create(xor_input2_line)
+
+        for mobj in xor_gate[:-3]:
+            mobj.set_z_index(20)
+
+        # Fill XOR gate.
+        xor_gate_inside = VGroup(*[mobj.copy() for mobj in xor_gate[:-3]])
+        for mobj in xor_gate_inside:
+            mobj.set_color(TEAL).set_z_index(20)
+
+        xor_fill_anim = AnimationGroup(
+            *[Create(mobj) for mobj in xor_gate_inside], lag_ratio=0
+        )
+
+        # Send current through AND gate.
+        for mobj in and_gate[:2]:
+            mobj.set_z_index(20)
+
+        and_connecting_line1 = connect_lines[0].copy()
+        and_connecting_line1.set_color(PINK).set_z_index(10)
+
+        and_input_line1 = and_gate[2].copy()
+        and_input_line1.set_color(PINK).set_z_index(10)
+
+        and_input1_anim = AnimationGroup(
+            Create(
+                and_connecting_line1,
+                run_time=1,
+                rate_func=rate_functions.ease_out_cubic,
+            ),
+            Create(and_input_line1, run_time=1, rate_func=rate_functions.ease_in_cubic),
+            lag_ratio=0.8,
+        )
+
+        self.play(
+            AnimationGroup(
+                AnimationGroup(
+                    AnimationGroup(xor_input1_anim, xor_input2_anim, lag_ratio=0),
+                    and_input1_anim,
+                    lag_ratio=0.5,
+                ),
+                xor_fill_anim,
+                lag_ratio=0.3,
+            )
+        )
 
         self.wait()
