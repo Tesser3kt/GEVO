@@ -159,7 +159,7 @@
     \node[anchor=south east, inner sep=0pt, xshift=-\Gm@rmargin,
     yshift=\Gm@bmargin] at (current page.south east) { % Mini table of contents
       \parbox[t][][t]{8.5cm}{ % Width of box holding the mini ToC
-        \begingroup\setcounter{tocdepth}{1}\printcontents[part]{l}{0}{}\endgroup
+        \begingroup\setcounter{tocdepth}{2}\printcontents[part]{l}{0}{}\endgroup
         %
         % Display the mini table of contents showing chapters and
         % sections, change tocdepth to 2 to also show subsections or
@@ -1042,7 +1042,7 @@
 
 \usepackage{tikz} % Required for drawing custom shapes and
 % positioning elements absolutely on the page
-\usetikzlibrary{shapes.geometric,arrows.meta,positioning}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,decorations.markings}
 
 %----------------------------------------------------------------------------------------
 %   HELPFUL COMMANDS AND MACROS

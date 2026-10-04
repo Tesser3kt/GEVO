@@ -1,0 +1,116 @@
+Někteří možná víte, že počítače nepočítají s našimi \uv{běžnými} čísly zapsanými
+pomocí číslic od $0$ do $9$, ale mají k disposici číslice jen dvě: $0$ a $1$.
+Důvod pro toto je historický a záhy si jej částečně vyložíme; vedl však k
+objevu, který navždy změnil způsob, jak v~informatice pohlížíme na aritmetické
+operace: jako na \emph{rozšíření operací logických}.
+
+Jistě jste slyšeli o Morseově abecedě: abecedě složené ze dvou znaků: $-$ a $
+\cdot $, jejichž kombinace představují písmena abecedy římské. Například $ \cdot
+-$ je písmeno A a $- - \cdot \cdot$ je písmeno Z. Samotná podoba Morseovy
+abecedy není relevantní; důležité je pouze uvědomění, že \textbf{dva různé
+symboly} stačí k přenosu libovolné informace.
+
+Začátkem 19. století se objevují první pokusy o komunikaci pomocí elektrického
+proudu, které vedly ke konci téhož století mimo jiné k výrobě prvního telefonu
+britským vynálezcem Alexanderem Grahamem Bellem. Samotná idea je v zásadě
+jednoduchá: dvě zařízení schopná číst a vytvářet elektrické napětí jsou spojena
+kovovým drátem vedoucím pod zemí pro minimalisaci šumu jako na
+\myref{obrázku}{fig:komunikace-proudem}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \tikzset{
+      mid arrows/.style={
+        postaction={
+          decorate,
+          decoration={
+            markings,
+            mark=at position 0.3 with {\arrow[scale=1.5,RoyalBlue]{Latex}},
+            mark=at position 0.5 with {\arrow[scale=1.5,RoyalBlue]{Latex}},
+            mark=at position 0.7 with {\arrow[scale=1.5,RoyalBlue]{Latex}}
+          }
+        }
+      }
+    }
+    \draw[thick] (-1, 0) -- (6, 0);
+    \draw[thick] (0, 0) -- (0, -1);
+    \draw[thick] (5, 0) -- (5, -1);
+
+    \draw[thick, RoyalBlue] (0,0) -- (0,2);
+    \draw[thick, FireBrick] (5,0) -- (5,2);
+    \foreach \y in {1, 1.5, 2} {
+      \draw[thick, RoyalBlue] (-0.5, \y) -- (0.5, \y);
+      \draw[thick, FireBrick] (4.5, \y) -- (5.5, \y);
+    }
+
+    \draw[thick, mid arrows] (0, -1) .. controls (2, 0) and (3, -2) .. (5, -1)
+    node[pos=0.67,below=2pt,RoyalBlue] {$1$} node[pos=0.45,below=2pt,RoyalBlue]
+    {$0$} node[pos=0.23,below=2pt,RoyalBlue] {$1$};
+    \node[circle,fill=RoyalBlue, inner sep=2pt] at (0, 0) {};
+    \node[circle,fill=FireBrick, inner sep=2pt] at (5, 0) {};
+  \end{tikzpicture}
+  \caption{Náčrt komunikace elektrickým proudem.}
+  \label{fig:komunikace-proudem}
+\end{figure}
+
+Uvažme, že \clb{modrý} vysílač chce poslat zprávu. Jak to udělá? Inu, víme, že
+\clr{červený} přijímač je schopen číst elektrické napětí. Oba korespondenti se
+pročež domluví, že \clr{červený} každou vteřinu naměří napětí. \clb{Modrý}
+přijímač může poslat třeba zprávu $512341$ \clr{červenému} tak, že vytvoří
+napětí 5 V, které příští vteřinu změní na 1 V, pak na 2 V atd.
+
+Ovšem, mít tak \uv{jemný} rozdíl mezi čísly není rozumné. Totiž, náš ideální
+návrh naráží na skutečný stav věcí. Dráty nejsou dokonalé a reznou, degradují;
+náhodné atmosferické i pozemní události mají vliv na výslednou hodnotu
+elektrického proudu. Postupem času byli lidé vedeni k pochopení, že nejmenší
+ztráty informace při přenosu zprávy dosáhnou tak, že nebudou měřit velikost
+napětí, ale pouze jeho \emph{existenci}, tedy fakt, zda proud drátem prochází,
+či nikoliv. Tím jsme se vrátili zpět k Morseově abecedě, místo $-$ a $ \cdot $
+máme napětí o velikosti 0 V a napětí o velikosti (třeba) 1 V. Stejným způsobem
+jako písmeno A je v Morseově abecedě posloupnost $ \cdot -$, můžeme v komunikaci
+elektrickým proudem téže písmeno zakódovat jako $01$.
+
+Moderní počítače však neposílají zprávy, ale -- jak jejich jméno napovídá --
+\emph{počítají}. Provádějí různé aritmetické, logické i porovnávací operace.
+Rozmyslíme si, že počítání s~pouze dvěma číslicemi funguje úplně stejně jako
+počítání s číslicemi desíti.
+
+\subsection{Číselné soustavy}
+\label{ssec:iselne-soustavy}
+
+Co přesně znamená, že jsou čísla sestavená z desíti číslic. V arabském systému
+počítání (který používáme) mají číslice různou \uv{důležitost} -- čím více
+nalevo jsou v zápisu čísla, tím jsou významnější, tím větší počet představují. V
+moment, kdy již délka čísla nestačí k~vyjádření většího počtu, jako v případě
+$999$, přidáme číslici s větší důležitostí, než je ta zatím nejvyšší, a počítáme
+zase od začátku. V čísle $999$ je číslice nejvyšší důležitosti právě $9$ na
+posici stovek. Musíme zvětšit dosavadní číslici na posici tisíců (kterou je $0$,
+ačkoli ji nepíšeme) a na ostatních posicích začít zase od $0$, čímž dostáváme
+$1000$. Jednodušeji řečeno, když ve všech číslicích dosáhnu té nejvyšší (v
+arabském systému $9$), přidám číslici novou.
+
+K pochopení principu číselných soustav si stačí uvědomit, že číslic nemusí být
+deset. My jsme zvyklí počítat do deseti, neboť máme týž počet prstů (latinské
+  slovo \emph{digitus}, z něhož plyne angl. slovo \emph{digit}, znamená
+\uv{prst}), ale vžijme se na chvíli do kůže šestiprstých mimozemských
+dobyvatelů. Ti zničí naši planetu pro to, že nám dali $10$ dní na kapitulaci,
+ale my jsme se jim ani po šestém dni neozvali. Totiž, mají-li mimozemšťané pouze
+šest číslic, pak odpovídají našim číslicím $0, 1, 2, 3, 4, 5$. Jejich číslo $10$
+je naše číslo $6$. Oni totiž znaky pro číslice $6, 7, 8, 9$ nemají, neboť jich
+nepotřebují. V moment, kdy se dopočítají své šesté a \emph{poslední} číslice,
+dělají totéž, co my: přidají $1$ na posici desítek a počítají zase od $0$. Pro
+srovnání vizte \myref{tabulku}{table:sestkova-desitkova}.
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{l|cccccccccccccc}
+    \textbf{Naše čísla} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 &
+    13\\
+    \hline
+    \textbf{Mimozemská čísla} & 0 & 1 & 2 & 3 & 4 & 5 & 10 & 11 & 12 & 13 & 14 &
+    15 & 20 & 21
+  \end{tabular}
+  \caption{Porovnání čísel v šestkové a desítkové soustavě.}
+  \label{table:sestkova-desitkova}
+\end{table}
