@@ -1,0 +1,41 @@
+Tušíme, drazí čtenáři, že si dobře nepředstavujete, jak provádět logické operace
+pomocí \emph{elektrického proudu}. V této sekci se zrodu této představy
+věnujeme. V jádru moderních počítačových procesorů (výpočetních jednotek) leží
+tzv. \emph{transistory} -- pro účely našeho výkladu jednoduché přístroje
+napojené na elektrické dráty, které propouštějí elektrický proud v moment, kdy
+jimi samými proud prochází (řekněme, jsou \uv{zapnuté}) a naopak jej zadržují,
+když jimi samými proud neprochází (řekněme, jsou \uv{vypnuté}).
+
+Uvažujme část elektrického obvodu na \myref{obrázku}{fig:and-brana} se dvěma
+zapojenými \clr{transistory}. Když oběma \clr{transistory} prochází proud,
+prochází i touto částí obvodu, ale když byť jedním \clr{transistorem} proud
+\emph{neprochází}, je v celém obvodu proud zastaven. Čili, tato část obvodu se
+chová jako logická spojka $ \wedge $. Jedině tehdy, když oběma transistory
+prochází proud (oba \uv{dostávají} číslo $1$), tak prochází proud obvodem
+(\uv{vychází} $1$). Když jedním transistorem proud neprochází (jeden nebo oba
+\uv{dostávají} $0$), tak proud obvodem neprochází (\uv{vychází} $0$). Z toho
+důvodu se takovéto konfiguraci transistorů říká logická AND brána a je způsobem,
+jak počítač provádí logickou operaci $ \wedge $ na dvojici čísel $0$ nebo $1$.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \draw[
+      thick,
+      postaction=decorate,
+      decoration={
+        markings,mark=between positions 0.2 and 1 step 2.2cm
+      with {\arrow[scale=1.5]{Latex}}}
+    ] (0,4.5) -- (0,4) -- (-1,3.5) -- (-1,3) -- (0,2.5) -- (0,2) -- (-1,1.5) --
+    (-1,1) -- (0,0.5) -- (0,0);
+
+    \draw[thick,FireBrick] (-2, 3.25) -- (-0.5, 3.25);
+    \draw[thick,FireBrick] (-0.5, 3) rectangle ++(0.5, 0.5);
+
+    \draw[thick,FireBrick] (-2, 1.25) -- (-0.5, 1.25);
+    \draw[thick,FireBrick] (-0.5, 1) rectangle ++(0.5, 0.5);
+  \end{tikzpicture}
+
+  \caption{AND brána složená z dvou transistorů.}
+  \label{fig:and-brana}
+\end{figure}

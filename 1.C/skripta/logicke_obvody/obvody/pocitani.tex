@@ -62,7 +62,7 @@ napětí 5 V, které příští vteřinu změní na 1 V, pak na 2 V atd.
 
 Ovšem, mít tak \uv{jemný} rozdíl mezi čísly není rozumné. Totiž, náš ideální
 návrh naráží na skutečný stav věcí. Dráty nejsou dokonalé a reznou, degradují;
-náhodné atmosferické i pozemní události mají vliv na výslednou hodnotu
+náhodné atmosferické i pozemní události mají vliv na výslednou sílu
 elektrického proudu. Postupem času byli lidé vedeni k pochopení, že nejmenší
 ztráty informace při přenosu zprávy dosáhnou tak, že nebudou měřit velikost
 napětí, ale pouze jeho \emph{existenci}, tedy fakt, zda proud drátem prochází,
@@ -77,7 +77,7 @@ Rozmyslíme si, že počítání s~pouze dvěma číslicemi funguje úplně stej
 počítání s číslicemi desíti.
 
 \subsection{Číselné soustavy}
-\label{ssec:iselne-soustavy}
+\label{ssec:ciselne-soustavy}
 
 Co přesně znamená, že jsou čísla sestavená z desíti číslic. V arabském systému
 počítání (který používáme) mají číslice různou \uv{důležitost} -- čím více
@@ -96,11 +96,11 @@ deset. My jsme zvyklí počítat do deseti, neboť máme týž počet prstů (la
 \uv{prst}), ale vžijme se na chvíli do kůže šestiprstých mimozemských
 dobyvatelů. Ti zničí naši planetu pro to, že nám dali $10$ dní na kapitulaci,
 ale my jsme se jim ani po šestém dni neozvali. Totiž, mají-li mimozemšťané pouze
-šest číslic, pak odpovídají našim číslicím $0, 1, 2, 3, 4, 5$. Jejich číslo $10$
-je naše číslo $6$. Oni totiž znaky pro číslice $6, 7, 8, 9$ nemají, neboť jich
-nepotřebují. V moment, kdy se dopočítají své šesté a \emph{poslední} číslice,
-dělají totéž, co my: přidají $1$ na posici desítek a počítají zase od $0$. Pro
-srovnání vizte \myref{tabulku}{table:sestkova-desitkova}.
+šest číslic, pak tyto odpovídají našim číslicím $0, 1, 2, 3, 4, 5$. Jejich číslo
+$10$ je naše číslo $6$. Oni totiž znaky pro číslice $6, 7, 8, 9$ nemají, neboť
+jich nepotřebují. V moment, kdy se dopočítají své šesté a \emph{poslední}
+číslice, dělají totéž, co my: přidají $1$ na posici desítek a počítají zase od
+$0$. Pro srovnání vizte \myref{tabulku}{table:sestkova-desitkova}.
 
 \begin{table}[ht]
   \centering
@@ -114,3 +114,55 @@ srovnání vizte \myref{tabulku}{table:sestkova-desitkova}.
   \caption{Porovnání čísel v šestkové a desítkové soustavě.}
   \label{table:sestkova-desitkova}
 \end{table}
+
+Způsobu representace čísel s daným počtem číslic říkáme \emph{číselná soustava}.
+Soustavě mající pouze šest číslic bychom přezdili \emph{šestková}, té mající
+číslic šestnáct \emph{šestnáctková} a soustavě o dvou číslicích \emph{dvojková}.
+Pár příkladů.
+
+\begin{example}[Číselné soustavy]
+  \label{exam:ciselne-soustavy}
+  V informatice často narážíme na číselné soustavy s~počtem číslic rovným
+  mocninám dvojky (snad se někdy dozvíte proč). Mezi nimi čítáme
+  \begin{itemize}
+    \item soustavu osmičkovou, s číslicemi $0$ až $7$, ve které počítání vypadá
+      takto:
+      \[
+        0, 1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, \ldots
+      \]
+    \item soustavu šestnáctkovou, s šestnácti číslicemi $0$ až $9$ a potom $A$
+      až $F$ (arabská desítková soustava nemá dostatek číslic pro šestnáctkovou
+      soustavu), v níž počítáme takto:
+      \[
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 12, 12,
+        13, 14,\ldots
+      \]
+    \item soustavu dvojkovou s číslicemi $0$ a $1$, v níž počítáme
+      \[
+        0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, \ldots
+      \]
+  \end{itemize}
+\end{example}
+
+Naše počítače jsou pozemští dobyvatelé se dvěma prsty -- používají k počítání
+právě soustavu dvojkovou. Ovšem, dvojková soustava je mezi číselnými soustavami
+unikátní; jako jediná má totiž stejný počet číslic jako má
+\hyperref[def:vyrokova-logika]{jazyk výrokové logiky} konstant, tj. dvě: lež
+(číslice $0$) a pravda (číslice $1$).
+
+Přes dvojkovou soustavu dokážeme povýšit operace logické na operace aritmetické.
+Totiž, označíme-li jako výše konstantu lži $F$ číslicí $0$ a konstantu pravdy
+$T$ číslicí $1$, pak negace $\neg $ a logické spojky $ \wedge , \vee,
+\Rightarrow$ a $ \Leftrightarrow $ jsou operace na číslech $0$ a $1$ jejichž
+výsledkem je opět buď číslo $0$, nebo číslo $1$. Například, $\neg 0 = 1$
+(protože negací lži je pravda), $0 \wedge 1 = 0$ (neb lež a pravda je lež) a
+$0 \Rightarrow 0 = 1$ (poněvadž \uv{Ze lži plyne lež.} je pravda).
+
+\begin{exercise}
+  Rozmyslete si, jak vypadá sčítání v různých číselných soustavách. Sečtěte
+  \begin{itemize}
+    \item čísla $3657$ a $1145$ v osmičkové soustavě.
+    \item čísla $DEAD$ a $BEEF$ v šestnáctkové soustavě.
+    \item čísla $1100101$ a $11101001$ v dvojkové soustavě.
+  \end{itemize}
+\end{exercise}
