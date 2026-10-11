@@ -1041,8 +1041,10 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage{tikz} % Required for drawing custom shapes and
+\usepackage{circuitikz} % Logic circuits.
 % positioning elements absolutely on the page
 \usetikzlibrary{shapes.geometric,arrows.meta,positioning,decorations.markings}
+\ctikzset{logic ports=ieee} % European gates.
 
 %----------------------------------------------------------------------------------------
 %   HELPFUL COMMANDS AND MACROS

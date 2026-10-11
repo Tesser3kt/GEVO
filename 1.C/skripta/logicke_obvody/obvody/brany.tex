@@ -39,3 +39,141 @@ jak počítač provádí logickou operaci $ \wedge $ na dvojici čísel $0$ nebo
   \caption{AND brána složená z dvou transistorů.}
   \label{fig:and-brana}
 \end{figure}
+
+Účelům aritmetických operací poslouží ještě dvě logické brány -- XOR brána a OR
+brána. OR brána je elektrických zhmotněním (poněkud oxymoron, že?) logické
+spojky $ \vee $ a XOR je vtělením logické spojky $ \oplus $, kterou jsme ještě
+nepotkali. Sluje \emph{výlučné nebo} (e\textbf{x}clusive \textbf{or}) a chová se
+jako $ \vee $ s tím rozdílem, že je lživá v moment, kdy jsou oba slučované
+výroky pravda. Vizte \hyperref[table:xor-tabulka]{její pravdivostní tabulku},
+kde jsme hodnoty $T$ a $F$ již zapsali jako $1$ a $0$.
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{cc|c}
+    $p$ & $q$ & $p \oplus q$\\
+    \hline
+    0 & 0 & 0\\
+    0 & 1 & 1\\
+    1 & 0 & 1\\
+    1 & 1 & 0
+  \end{tabular}
+  \caption{Pravdivostní tabulka logické spojky $\oplus$.}
+  \label{table:xor-tabulka}
+\end{table}
+
+Způsob výroby OR brány a XOR brány pomocí transistorů ponecháváme na snaživých
+čtenářích.
+
+\begin{exercise}
+  Navrhněte OR bránu implementující logickou spojku $ \vee $ a XOR bránu
+  implementující logickou spojku $ \oplus $ pomocí transistorů.
+\end{exercise}
+
+Logické brány budeme muset zapojovat za sebe a kreslit je pokaždé pomocí
+transistorů by bylo otravné. Zavádíme proto zjednodušené značení logických bran
+v elektrických obvodech jako na \myref{obrázku}{fig:diagramy-bran}. Každá brána
+má dva vstupy (odpovídající drátům vedoucích do transistorů) a jeden výstup
+(drát, vedoucí skrze transistory).
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{.32\textwidth}
+    \centering
+    \begin{circuitikz}
+      \node[and port, anchor=out]{$ \wedge $};
+    \end{circuitikz}
+    \caption{AND brána.}
+  \end{subfigure}
+  \begin{subfigure}{.32\textwidth}
+    \centering
+    \begin{circuitikz}
+      \node[xor port, anchor=out]{$ \oplus $};
+    \end{circuitikz}
+    \caption{XOR brána.}
+  \end{subfigure}
+  \begin{subfigure}{.32\textwidth}
+    \centering
+    \begin{circuitikz}
+      \node[or port, anchor=out]{$ \vee $};
+    \end{circuitikz}
+    \caption{OR brána.}
+  \end{subfigure}
+  \caption{Diagramy logických AND, OR a XOR bran.}
+  \label{fig:diagramy-bran}
+\end{figure}
+
+\subsection{Poloviční sčítač}
+\label{ssec:polovicni-scitac}
+
+Již umíme stavět elektrické obvody, jež provádějí logické operace. Abychom je
+naučili provádět rovněž operace \emph{aritmetické}, musíme je správným způsobem
+napojit na sebe. Začneme tím, že si rozmyslíme, jak se pomocí logických spojek
+dají čísla sčítat.
+
+Za tímto účelem osvěžíme algoritmus sčítání \uv{pod sebou}, neboli algoritmus
+sčítání dvou čísel číslici po číslici.
+Uvažme úlohu jako tuto:
+\begin{equation*}
+  \begin{array}{rr}
+    & 324 \\
+    + & 788\\
+    \hline
+    = & 1112
+  \end{array}
+\end{equation*}
+
+Celý výpočet provádíme ve třech krocích.
+\begin{enumerate}
+  \item $4 + 8$ je rovno $12$, tedy $2$, zbytek $1$.
+  \item $2 + 8$ je rovno $0$, což spolu se zbytkem z předchozího kroku je $1$ a
+    zbytek $1$.
+  \item $3 + 7$ je rovno $0$, spolu se zbytkem z předchozího kroku $1$ a zbytek
+    $1$.
+\end{enumerate}
+
+Počítače sčítají přesně takto, akorát ve dvojkové soustavě. Protože jediné
+číslice ve dvojkové soustavě jsou $0$ a $1$, existují pouze čtyři způsoby, jak
+jejich součet může dopadnout.
+\begin{itemize}
+  \item $0 + 0$ je rovno $\clr{0}$, zbytek $\clb{0}$;
+  \item $0 + 1$ je rovno $\clr{1}$, zbytek $\clb{0}$;
+  \item $1 + 0$ je rovno $\clr{1}$, zbytek $\clb{0}$;
+  \item $1 + 1$ je rovno $\clr{0}$, zbytek $\clb{1}$.
+\end{itemize}
+
+Označíme-li si první číslici písmenem $p$ a druhou písmenem $q$, vidíme, že
+\clr{výsledek} jejich součtu je logická operace $p~\clr{\oplus}~q$ a
+\clb{zbytek} po součtu je $p~\clb{\wedge}~q$.
+
+Tato znalost umožňuje sestavit tzv. \emph{poloviční sčítač} -- elektrický obvod,
+jenž umí sečíst dvě číslice. Vidíte jej na
+\myref{obrázku}{fig:polovicni-scitac}. Vskutku, představme si, že například
+drátem $p$ neprochází proud (tedy $p$ je $0$) a drátem $q$ proud prochází (čili
+$q$ je $1$). Pak horní \clb{XOR bránou} prochází proud, neboť pro její aktivaci
+stačí, aby jedním z drátů procházel proud. Tudíž, výsledek součtu $\clb{r}$,
+který je roven $p~\clb{ \oplus }~q$, vychází $1$. Naopak, dolní \clr{AND bránou}
+proud neprochází, protože drátem $p$ neprochází proud. Čili, zbytek $\clr{s}$,
+který je roven $p~\clr{ \wedge }~q$, vychází $0$.
+
+\begin{figure}[ht]
+  \centering
+  \begin{circuitikz}
+    \node[xor port,RoyalBlue] (XOR) at (0,0) {$ \oplus $};
+    \node[and port,FireBrick] (AND) at (0,-2) {$ \wedge $};
+
+    \draw (XOR.in 1) to[short,-*] ++ (-2,0) node[left=2pt] {$p$};
+    \draw (XOR.in 2) to[short,-*] ++ (-2,0) node[left=2pt] {$q$};
+
+    \draw (AND.in 1) -| ++ (-1,2);
+    \draw (AND.in 2) -| ++ (-1.5, 2);
+
+    \draw[RoyalBlue] (XOR.out) to [short,-*] ++ (1,0)
+    node[right=2pt] {$\clb{r}$};
+    \draw[FireBrick] (AND.out) to [short,-*] ++ (1,0) node[right=2pt]
+    {$\clr{s}$};
+  \end{circuitikz}
+
+  \caption{Poloviční sčítač.}
+  \label{fig:polovicni-scitac}
+\end{figure}
