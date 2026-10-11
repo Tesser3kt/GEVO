@@ -130,7 +130,7 @@
   ze čtyř* ostatních? Pořádně *vysvětlete*.
 ]
 #text(size: 10pt)[Zkuste k řešení nepoužívat pravdivostní tabulku (jsou to čtyři
-výroky, takže šestnáct řádků).]
+  výroky, takže šestnáct řádků).]
 #pagebreak()
 
 #block(width: 100%)[
@@ -151,7 +151,7 @@ výroky, takže šestnáct řádků).]
 #block(width: 100%)[
   #points(25)
   Napište výrok ekvivalentní výroku $p <=> q$ použitím jenom logických operátorů
-  $not, and$ a $or$.
+  $not, and$ a $or$. Svůj *postup popište*.
 ]
 #pagebreak()
 
@@ -179,7 +179,7 @@ výroky, takže šestnáct řádků).]
   nejméně výroků (a jakých) mi musíte předložit, abyste zjistili, zda jsou $p$ a
   $q$ pravda či lež?\
   Že výrok není ekvivalentní ani $p$ ani $q$ ani jejich negacím, znamená, že se
-  nemůžete ptát třeba na pravdivost výroku $not p and (q or not q)$, který je
+  nesmíte ptát třeba na pravdivost výroku $not p and (q or not q)$, který je
   ekvivalentní $not p$.
 ]
 
