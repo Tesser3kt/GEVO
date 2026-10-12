@@ -1,20 +1,20 @@
 # Fdb version 4
-["biber main"] 1791736611.45646 "main.bcf" "main.bbl" "main" 1791736615.41967 0
-  "main.bcf" 1791736615.33445 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
+["biber main"] 1791736611.45646 "main.bcf" "main.bbl" "main" 1791822855.29069 0
+  "main.bcf" 1791822855.20399 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1787653830.0488 "main.idx" "main.ind" "main" 1791736615.41958 0
-  "main.idx" 1791736613.96143 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1787653830.0488 "main.idx" "main.ind" "main" 1791822855.29059 0
+  "main.idx" 1791822853.55398 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1791736613.65343 "main.tex" "main.pdf" "main" 1791736615.4198 0
-  "/nix/store/94mpa61n6p8kdc0zmhn4vf219h2p7xhj-texlive-2025-r78234-final-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 5541489 1df30c47f4a05f659ab78984e8aa5d04 ""
-  "/nix/store/94mpa61n6p8kdc0zmhn4vf219h2p7xhj-texlive-2025-r78234-final-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 3637274 c11f58e7564cd9a38eef37e9114508dc ""
-  "/nix/store/94mpa61n6p8kdc0zmhn4vf219h2p7xhj-texlive-2025-r78234-final-env/share/texmf-var/web2c/texmf.cnf" 1 44263 6f233910082232ecfb77fe2fbc9d2b5f ""
+["pdflatex"] 1791822853.24713 "main.tex" "main.pdf" "main" 1791822855.29082 0
+  "/nix/store/1hh1p54mzc2rcybspz9hjwx9lk88856g-texlive-2025-r78234-final-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 5541489 16b6a1f203c29a298027a1fcf659702f ""
+  "/nix/store/1hh1p54mzc2rcybspz9hjwx9lk88856g-texlive-2025-r78234-final-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 3637274 c11f58e7564cd9a38eef37e9114508dc ""
+  "/nix/store/1hh1p54mzc2rcybspz9hjwx9lk88856g-texlive-2025-r78234-final-env/share/texmf-var/web2c/texmf.cnf" 1 44263 8b5004dbc1594a3b51c4bb9933ce5a50 ""
   "/nix/store/qzvsdw6h3dhh9aalm4qi9zhfkxnp5cx4-texlive-2025-r78234-final-env-texmfdist/fonts/enc/dvips/base/8r.enc" 1 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/nix/store/qzvsdw6h3dhh9aalm4qi9zhfkxnp5cx4-texlive-2025-r78234-final-env-texmfdist/fonts/map/fontname/texfonts.map" 1 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/nix/store/qzvsdw6h3dhh9aalm4qi9zhfkxnp5cx4-texlive-2025-r78234-final-env-texmfdist/fonts/tfm/adobe/avantgar/pagd8r.tfm" 1 4840 6a894dde946186de9a64269f0edd24e5 ""
@@ -303,15 +303,15 @@
   "figs/part1.jpg" 1781164867.03064 76435 5114e3179f4cdcf49093efe406fbbca5 ""
   "figs/section1.jpg" 1781164867.03064 25586 f54de5d73b4c0c73811994a2802a0d0c ""
   "logicke_obvody/obvody.tex" 1791468417.10403 572 83798cfddd1a8eb77346f215ca7112c3 ""
-  "logicke_obvody/obvody/brany.tex" 1791736576.20583 7268 36601910a0427455c3a273d439b597bd ""
+  "logicke_obvody/obvody/brany.tex" 1791822850.96897 11777 c8189dc5c5b38d2b4e60a44d52ff514a ""
   "logicke_obvody/obvody/pocitani.tex" 1791468388.53913 8853 a7a8493388f3763374632abb99271567 ""
-  "main.aux" 1791736615.33045 37306 cbf6f16ce712cd9b6caf41d84332e992 "pdflatex"
+  "main.aux" 1791822855.19999 37807 43a9430b99b27a596f99d11408987f63 "pdflatex"
   "main.bbl" 1791736611.8904 466 76d65a242ec496c9b4361af646ff12cb "biber main"
   "main.ind" 1781164867.03064 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.ptc" 1791736615.336 2294 2438af101429668b6ce7a721adccf287 "pdflatex"
-  "main.run.xml" 1791736615.336 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
-  "main.tex" 1791736609.64336 5242 25b0c9eb129de6c8e75d2201271743a2 ""
-  "main.toc" 1791736615.336 2271 cdebcc06982a1acc0bd1ed09345e5b5e "pdflatex"
+  "main.ptc" 1791822855.206 2304 dfd2aabfa0957e6fb92154a296496f71 "pdflatex"
+  "main.run.xml" 1791822855.206 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
+  "main.tex" 1791818986.073 5242 25b0c9eb129de6c8e75d2201271743a2 ""
+  "main.toc" 1791822855.206 2281 adc5c69494f383605c95076dc151a483 "pdflatex"
   "mnoziny_logika.tex" 1787848223.03838 176 4b520f85d7396f707598bbc46ddf6ac3 ""
   "mnoziny_logika/logika.tex" 1787848223.03838 3246 ba1659c9a4e5e6f46f506d760d061b49 ""
   "mnoziny_logika/logika/teorie-modelu.tex" 1787848223.03838 4515 38c3c0d4b3c76f3302fefe70975c04df ""

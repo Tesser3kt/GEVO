@@ -74,7 +74,7 @@ Logické brány budeme muset zapojovat za sebe a kreslit je pokaždé pomocí
 transistorů by bylo otravné. Zavádíme proto zjednodušené značení logických bran
 v elektrických obvodech jako na \myref{obrázku}{fig:diagramy-bran}. Každá brána
 má dva vstupy (odpovídající drátům vedoucích do transistorů) a jeden výstup
-(drát, vedoucí skrze transistory).
+(drát vedoucí skrze transistory).
 
 \begin{figure}[ht]
   \centering
@@ -103,8 +103,8 @@ má dva vstupy (odpovídající drátům vedoucích do transistorů) a jeden vý
   \label{fig:diagramy-bran}
 \end{figure}
 
-\subsection{Poloviční sčítač}
-\label{ssec:polovicni-scitac}
+\subsection{Poloviční a úplný sčítač}
+\label{ssec:polovicni-a-uplny-scitac}
 
 Již umíme stavět elektrické obvody, jež provádějí logické operace. Abychom je
 naučili provádět rovněž operace \emph{aritmetické}, musíme je správným způsobem
@@ -177,3 +177,102 @@ který je roven $p~\clr{ \wedge }~q$, vychází $0$.
   \caption{Poloviční sčítač.}
   \label{fig:polovicni-scitac}
 \end{figure}
+
+Abychom postavili \emph{úplný sčítač}, tedy obvod, který při sčítání dvou číslic
+bere v úvahu i zbytek z předchozího výpočtu (jako tomu je u sčítání pod sebou),
+opět si nejprve rozmyslíme, jak takový výpočet musí probíhat.
+\begin{enumerate}
+  \item Sečteme první dvě číslice obou čísel: výsledek označíme $r_0$ a zbytek
+    $s_0$.
+  \item Sečteme druhé dvě číslice obou čísel: výsledek označíme $r_1$ a zbytek
+    $s_1$. K výsledku $r_1$ přičteme zbytek $s_0$: tento součet označíme $r_2$ a
+    zbytek $s_2$. Nyní, po sečtení druhých dvou číslic může zbytek po součtu
+    vzniknout dvěma způsoby: buď jsme sečetli $1$ a $1$, a tedy je $s_1$ taky
+    $1$, \textbf{anebo} jsme sečetli $0$ a $1$ a po přičtení zbytku $s_0$ z
+    předchozího výpočtu jsme dostali $10$, čili $s_2$ je $1$. Vidíme, že sečtení
+    druhých číslic dá zbytek, když $s_2$ je $1$ \textbf{nebo} $s_1$ je $1$,
+    musíme tudíž zbytky $s_2$ a $s_1$ ještě prohnat OR bránou.
+\end{enumerate}
+
+Osvětlíme právě vyřčený princip na \hyperref[fig:uplny-scitac]{obrázku úplného
+sčítače}, který umí sečíst dvě dvojciferná čísla. První číslice ($p_1$ a $q_1$)
+obou čísel jsou horní vstupy a druhé číslice ($p_2$ a $q_2$) jsou dolní vstupy.
+
+\begin{figure}[ht]
+  \centering
+  \begin{circuitikz}
+    % One half adder.
+    \node[xor port,RoyalBlue] (XOR1) at (0,0) {$ \oplus $};
+    \node[above=0pt of XOR1] {$\clb{X_1}$};
+    \node[and port,FireBrick] (AND1) at (0,-2) {$ \wedge $};
+    \node[above=0pt of AND1] {$\clr{A_1}$};
+
+    \draw (XOR1.in 1) to[short,-*] ++ (-2,0) node[left=2pt] {$p_1$};
+    \draw (XOR1.in 2) to[short,-*] ++ (-2,0) node[left=2pt] {$q_1$};
+
+    \draw (AND1.in 1) -| ++ (-1,2);
+    \draw (AND1.in 2) -| ++ (-1.5, 2);
+
+    \draw[RoyalBlue] (XOR1.out) to [short,-*] ++ (1,0) node[right=2pt]
+    {$\clb{r_0}$};
+
+    \node[xor port,RoyalBlue] (XOR3) at (4,-3) {$\oplus$};
+    \node[above=0pt of XOR3] {$\clb{X_3}$};
+    \node[and port,FireBrick] (AND3) at (4, -5) {$ \wedge $};
+    \node[above=0pt of AND3] {$\clr{A_3}$};
+    \node[above=2pt of AND3.out] {$\clr{s_2}$};
+
+    \draw (AND1.out) -| ($(XOR3.in 1)+(-1.5,0)$) -- (XOR3.in 1);
+    \node[above=2pt of AND1.out] {$\clr{s_0}$};
+
+    \draw (AND3.in 1) -| ++ (-0.5,2);
+    \draw (AND3.in 2) -| ++ (-1,2);
+
+    % Second half adder.
+    \node[xor port,RoyalBlue] (XOR2) at (0,-4) {$ \oplus $};
+    \node[above=0pt of XOR2] {$\clb{X_2}$};
+
+    \node[and port,FireBrick] (AND2) at (0,-6) {$ \wedge $};
+    \node[above=0pt of AND2] {$\clr{A_2}$};
+    \node[above=2pt of AND2.out] {$\clr{s_1}$};
+
+    \draw (XOR2.in 1) to[short,-*] ++ (-2,0) node[left=2pt] {$p_2$};
+    \draw (XOR2.in 2) to[short,-*] ++ (-2,0) node[left=2pt] {$q_2$};
+    \draw (XOR2.out) -| ($(XOR3.in 2)+(-1.5,0)$) -- (XOR3.in 2);
+    \node[above=2pt of XOR2.out] {$\clb{r_1}$};
+
+    \draw (AND2.in 1) -| ++ (-1,2);
+    \draw (AND2.in 2) -| ++ (-1.5, 2);
+
+    \draw[RoyalBlue] (XOR3.out) to[short,-*] ++(1,0) node[right=2pt]
+    {$\clb{r_2}$};
+
+    \node[or port,ForestGreen] (OR1) at (7, -5.75) {$ \vee $};
+    \node[above=0pt of OR1] {$\clg{O_1}$};
+    \draw (AND2.out) -- (OR1.in 2);
+    \draw (AND3.out) -| ($(OR1.in 1)+(-0.5,0)$) -- (OR1.in 1);
+
+    \draw[ForestGreen] (OR1.out) to[short,-*] ++(1,0) node[right=2pt]
+    {$\clg{s_3}$};
+  \end{circuitikz}
+
+  \caption{Úplný sčítač pro dvě dvojciferná čísla.}
+  \label{fig:uplny-scitac}
+\end{figure}
+
+Sčítejme třeba $11$ a $10$, čili $p_2 = 1, q_2 = 1$ a $p_1 = 1, q_1 = 0$.
+Výsledek $\clb{r_0}$ je roven $p_1~\clb{ \oplus }~q_1$, což je $1$. Zbytek
+$\clr{s_0}$ je $p_1~\clr{ \wedge }~q_1$, tedy $0$. Sečtěme též $p_2$ a $q_2$:
+výsledek $\clb{r_1} = p_2~\clb{ \oplus }~q_2$ je $0$ a zbytek $\clr{s_1} =
+p_2~\clr{ \wedge }~q_2$ je $1$. Nyní, branou $\clb{X_3}$ prochází zbytek
+$\clr{s_0} = 0$ a výsledek $\clb{r_1} = 0$, takže $\clb{r_2} = 0$. Branou
+$\clr{A_3}$ rovněž prochází $\clr{s_0} = 0$ a $\clb{r_1} = 0$, takže $\clr{s_2}
+= 0$. Poslední branou $\clg{O_3}$ prochází $\clr{s_1}~\clg{ \vee }~\clr{s_2}$,
+neboli $0~\clg{ \vee }~1 = 1$, pročež $\clg{s_3} = 1$. Výsledný součet
+čteme od poslední číslice k první, tedy $101$.
+
+\begin{exercise}
+  Zkuste sčítač na \myref{obrázku}{fig:uplny-scitac} rozšířit na dvě
+  \emph{trojciferná} čísla. Stačí zbytek $\clb{s_3}$ napojit na poloviční sčítač
+  jako jsme to my udělali se zbytkem $\clr{s_0}$.
+\end{exercise}
