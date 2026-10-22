@@ -136,6 +136,17 @@ zevrubností náplň vyučovacích hodin.
 \part{Teorie množin a logika}
 \input{mnoziny_logika}
 
+\part{Číselné množiny}
+\input{ciselne_mnoziny}
+
+\stopcontents[part] % Keep appendices out of the last part's mini ToC
+\bookmarksetup{startatroot} % Appendices are not a child of the last
+% part in PDF bookmarks
+\makeatletter\@dotoc@ppfalse\makeatother % Replace the chapter-level
+% "Přílohy" entry with a part-level one
+\cleardoublepage\phantomsection
+\addcontentsline{toc}{part}{\appendixtocname}
+
 \chapterimage{figs/appendix1.png}
 \begin{appendices}
   \renewcommand{\chaptername}{Appendix}
