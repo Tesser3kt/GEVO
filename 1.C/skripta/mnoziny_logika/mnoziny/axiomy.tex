@@ -303,9 +303,9 @@ se sebevíc nemůže takovému výroku vyhovět, pročež $x \setminus x$ nehost
 \end{definition}
 \lessboxspace
 \begin{remark}
-  Označení $0$ pro prázdnou množinu není náhodné ani konfliktní. V oddílu
-  [TODO:odkaz na číselné množiny] se dozvíme, že prázdná množina $0$ je vskutku
-  dokonale to samé, jak přirozené číslo $0$.
+  Označení $0$ pro prázdnou množinu není náhodné ani konfliktní. V
+  \myref{kapitole}{chap:prirozena-cisla} se dozvíme, že prázdná množina $0$ je
+  vskutku dokonale to samé, jak přirozené číslo $0$.
 \end{remark}
 
 \begin{exercise}
@@ -460,10 +460,10 @@ dvojic prvků z vybraných dvou množin.
 \end{example}
 \begin{warning}
   Fakt, že součin množin \emph{existuje} pro každé dvě množiny $a$ a $b$ není
-  samozřejmý a plyne z axiomů [TODO:axiom sumy] a [TODO:axiom potence], které
-  jsme ještě nepředstavili. Problém je v tom, že v
-  \hyperref[eq:soucin-mnozin]{definici součinu množin} nevybíráme dvojice $(a,
-  b)$ z žádné předem existující množiny (vizte
+  samozřejmý a plyne z axiomů \hyperref[eq:axiom-sumy]{sumy} a
+  \hyperref[eq:axiom-potence]{potence}, které jsme ještě nepředstavili. Problém
+  je v tom, že v \hyperref[eq:soucin-mnozin]{definici součinu množin} nevybíráme
+  dvojice $(a, b)$ z žádné předem existující množiny (vizte
   \hyperref[exam:russelluv-paradox]{Russellův paradox}), tedy by jeho definice
   mohla způsobit obtíže.
 \end{warning}
@@ -1631,12 +1631,12 @@ můžete zkusit jednu takovou kombinaci najít.
 \subsection{Axiom potence}
 \label{ssec:axiom-potence}
 
-Axiom potence je jeden z axiomů zásadních pro konstrukci [TODO:odkaz na
-přirozená čísla]. Říká, že soubor všech \uv{kusů} libovolného celku, je též
-celkem, kde \uv{kusem} zde míníme soubor ne nutně všech částí původního celku.
-Opět se řídíme pravidlem: \uv{Vše, co umíme pojmenovat, je množina.} V tomto
-případě je onou množinou přesně \emph{množina všech podmnožin}, či celek všech
-\uv{způsobů, jak rozkouskovat celek}.
+Axiom potence je jeden z axiomů zásadních pro konstrukci
+\hyperref[chap:prirozena-cisla]{přirozených čísel}. Říká, že soubor všech
+\uv{kusů} libovolného celku, je též celkem, kde \uv{kusem} zde míníme soubor ne
+nutně všech částí původního celku. Opět se řídíme pravidlem: \uv{Vše, co umíme
+pojmenovat, je množina.} V tomto případě je onou množinou přesně \emph{množina
+všech podmnožin}, či celek všech \uv{způsobů, jak rozkouskovat celek}.
 
 Axiom potence s sebou nese jistý filosofický význam zásadní pro teorii množin.
 Mnozí, kdo se s teorií množin setkají poprvé, vnímají množiny jako \uv{soubory
@@ -1750,10 +1750,11 @@ Ani \hyperref[def:sjednoceni-mnozin]{operace sjednocení}, jež slévá do jedn�
 množiny prvky z množin dvou, nám zde nemůže pomoci, neboť aspoň jedna ze
 slévaných množin už by sama musela být nekonečná.
 
-Hlavním důvodem potřeby nekonečné množiny je konstrukce [TODO:odkaz na přirozená
-čísla]. Zdeť záhodno chvíli sebe zamyslet, proč vlastně dává smysl mít nekonečně
-mnoho čísel. Ve světě žádné \uv{hmatatelné} nekonečno neexistuje; na každém
-místě je jen konečně mnoho \uv{předmětů}. Ovšem, zde opět narážíme na situaci z
+Hlavním důvodem potřeby nekonečné množiny je konstrukce
+\hyperref[chap:prirozena-cisla]{přirozených čísel}. Zdeť záhodno chvíli sebe
+zamyslet, proč vlastně dává smysl mít nekonečně mnoho čísel. Ve světě žádné
+\uv{hmatatelné} nekonečno neexistuje; na každém místě je jen konečně mnoho
+\uv{předmětů}. Ovšem, zde opět narážíme na situaci z
 \hyperref[ssec:axiom-potence]{pododdílu o axiomu potence}. Totiž, řekněme, že
 bychom dokázali určit maximální počet věcí ve vesmíru, tedy takové číslo, že i
 kdyby každá nejmenší část prostoru byla vyplněna nějakým neskutečně malým
@@ -1769,21 +1770,19 @@ filosofický smysl než opak, ačkoli nekonečno samo o sobě je těžko uchopit
 
 Teď přichází na řadu však potíž více formálního rázu: \uv{Jak vlastně vyrobit
 nekonečnou množinu?} Učiníme to způsobem známým jako \emph{matematická indukce},
-způsobem, kterým budeme rovněž později v tomto textu vyrábět [TODO: odkaz na
-přirozená čísla]. Klíčem k~jeho pochopení je skutečnost, že podle
-\hyperref[eq:axiom-fundovanosti]{axiomu fundovanosti} neexistuje množina, jež by
-byla svým vlastním prvkem, a tedy je množina $x \cup \{x\}$ vždy odlišná od
-množiny $x$. Ačkoli \hyperref[def:sjednoceni-mnozin]{sjednocení} samo o sobě
-nestačí k výrobě nekonečné množiny, dává nám nezanedbatelný nástroj. Nekonečnou
-množinu budeme totiž definovat jako takovou množinu, která spolu s~prvkem $x$
-musí obsahovat i $x \cup \{x\}$. Formálně:
-\begin{equation}
-  \label{eq:axiom-nekonecna}
-  ( \exists a)( \forall x)(0 \in a \wedge (x \in a \Rightarrow x \cup \{x\} \in
-  a)),
-\end{equation}
-čili, ještě jednou: \uv{Existuje množina $a$, která není prázdná (obsahuje $0$)
-a s každým prvkem $x$ obsahuje i prvek $x \cup \{x\}$}.
+způsobem, kterým budeme rovněž později v tomto textu vyrábět
+\hyperref[chap:prirozena-cisla]{přirozená čísla}. Klíčem k~jeho pochopení je
+skutečnost, že podle \hyperref[eq:axiom-fundovanosti]{axiomu fundovanosti}
+neexistuje množina, jež by byla svým vlastním prvkem, a tedy je množina $x \cup
+\{x\}$ vždy odlišná od množiny $x$. Ačkoli
+\hyperref[def:sjednoceni-mnozin]{sjednocení} samo o sobě nestačí k výrobě
+nekonečné množiny, dává nám nezanedbatelný nástroj. Nekonečnou množinu budeme
+totiž definovat jako takovou množinu, která spolu s~prvkem $x$ musí obsahovat i
+$x \cup \{x\}$. Formálně:
+\begin{equation} \label{eq:axiom-nekonecna} ( \exists
+  a)( \forall x)(0 \in a \wedge (x \in a \Rightarrow x \cup \{x\} \in a)),
+\end{equation} čili, ještě jednou: \uv{Existuje množina $a$, která není prázdná
+(obsahuje $0$) a s každým prvkem $x$ obsahuje i prvek $x \cup \{x\}$}.
 
 Takto definovaná množina je skutečně nekonečná. Obsahuje $0$, a tedy obsahuje i
 ${0 \cup \{0\}} = \{0\}$. Protože však obsahuje $\{0\}$, obsahuje i $\{0\} \cup

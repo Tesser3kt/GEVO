@@ -1,0 +1,29 @@
+Existuje mnoho způsobů, kterak v teorii množin vyrobit přirozená čísla. My se
+přidržíme konstrukce, která přímo plyne z \hyperref[eq:axiom-nekonecna]{axiomu
+nekonečna} a je naprosto názorná a dokonale neaxiomatická. Tedy, nestojí na
+žádných výrocích, jež označíme za pravdivé, nýbrž je umožněna již poznanými
+axiomy teorie množin.
+
+V \hyperref[ssec:axiomy-vydeleni]{pododdíle o axiomech vydělení} jsme uvedli, že
+jedním z jejich důsledků je existence prázdné množiny $0$. Stojí za uvědomění,
+že $0$ je na první pohled vlastně \textbf{ta jediná} množina, o které můžeme
+naprosto jednoznačně tvrdit, \textbf{že existuje}. Totiž,
+\hyperref[eq:axiom-existence]{axiom existence} zaručuje existenci \emph{nějaké}
+množiny $x$ a z \hyperref[eq:axiom-vydeleni]{axiomů vydělení} plyne, že existuje
+i $x \setminus x$. Nic ale nezaručuje, že $x$ není sama množina $0$. Tedy, nic
+až na \hyperref[eq:axiom-potence]{axiom potence} a již zmíněný
+\hyperref[eq:axiom-nekonecna]{axiom nekonečna}. Díky těmto dvěma budeme moci
+zkonstruovat přirozená čísla.
+
+Nejprve ale poskytneme intuitivní představu této konstrukce: číslo $0$ je
+označením pro prázdnou množinu právě pro to, že je množinou s \emph{nula}
+prvky. Podobně, číslo $1$ bude označením pro množinu s \emph{jedním} prvkem,
+číslo $2$ označením pro množinu se \emph{dvěma} prvky atd. Opakujeme,
+\textbf{vše} v teorii množin \textbf{je množina}, tedy i čísla jsou množiny.
+
+Kde ale ty další prvky vezmeme, když máme jen prázdnou množinu $0$? Přeci z
+\hyperref[eq:axiom-potence]{axiomu potence}, který říká, že všechny podmnožiny
+množiny $0$ tvoří množinu. Jistě, $0$ má jedinou podmnožinu, a to sebe sama, a
+tedy $\mathcal{P}(0) = \{0\}$. Ale množina $\{0\}$ je množina s jedním prvkem!
+Označíme ji jako $1$. Číslo $1$ je tedy množinou s jediným prvkem, kterým je
+$0$.
