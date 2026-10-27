@@ -27,3 +27,45 @@ množiny $0$ tvoří množinu. Jistě, $0$ má jedinou podmnožinu, a to sebe sa
 tedy $\mathcal{P}(0) = \{0\}$. Ale množina $\{0\}$ je množina s jedním prvkem!
 Označíme ji jako $1$. Číslo $1$ je tedy množinou s jediným prvkem, kterým je
 $0$.
+
+Zbytek konstrukce je veden \hyperref[eq:axiom-nekonecna]{axiomem nekonečna}. Ten
+říká, že existuje množina $a$ taková, že obsahuje $0$ a kdykoli je množina $x$
+prvkem $a$, pak je jejím prvkem i $x \cup \{x\}$. Nyní, protože $0 \in a$, pak
+taky $0 \cup \{0\} = \{0\} \in a$, ale množinu $\{0\}$ s jedním prvkem jsme
+označili jako $1$. Tedy, $1 \in a$. Protože $1 \in a$, z
+\hyperref[eq:axiom-nekonecna]{axiomu nekonečna} i $1 \cup \{1\} = \{0\} \cup
+\{1\} = \{0, 1\} \in a$. Množina $\{0, 1\}$ je množina se dvěma prvky, označíme
+ji jako $2$. Čili, $2 \in a$. Takto pokračujeme nekonečně dlouho. Z toho, že
+$2 \in a$ plyne, že $2 \cup \{2\} = 3 \in a$ atd. Množině $a$ z
+\hyperref[eq:axiom-nekonecna]{axiomu nekonečna} říkáme \emph{množina přirozených
+čísel} a značíme ji $\N$.
+
+Všimněme si dvou (souvisejících) skutečností:
+\begin{itemize}
+  \item přirozené číslo $n \in \N$ je množina všech přirozených čísel menších
+    než $n$;
+  \item odtud plyne, že je-li $n \in \N$ přirozené číslo, pak \emph{následující}
+    číslo v řadě dostanu jako $n \cup \{n\}$. Například, $1 \cup \{1\} = 2$ nebo
+    $5 \cup \{5\} = 6$. Je tomu tak pro to, že $n$ je množina čísel menších než
+    $n$, a tedy $n \cup \{n\}$ je množina čísel menších než $n$ obohacená o $n$.
+    To znamená, že to je množina $n + 1$ čísel menších než $n + 1$.
+\end{itemize}
+
+\begin{warning}
+  Zatím jsme \textbf{nedefinovali žádné aritmetické operace} na přirozených
+  číslech. Píšeme-li výrazy jako $n + 1$ a $n - 1$, myslíme je pouze v
+  \emph{intuitivním} smyslu jako \uv{číslo následující $n$} a \uv{číslo
+  předcházející $n$}.
+\end{warning}
+\lessboxspace
+
+Operace \uv{vytvoření následujícího čísla v řadě} je pro práci s přirozenými
+čísly nezanedbatelná. Pojmenujeme si ji.
+
+\begin{definition}[Následník]
+  \label{def:naslednik}
+  Je-li $n \in \N$ přirozené číslo, pak $n \cup \{n\}$ je z
+  \hyperref[eq:axiom-nekonecna]{axiomu nekonečna} též přirozené číslo, které
+  značíme jako $s(n)$ (z angl. \emph{successor}, \uv{následník}) a říkáme mu
+  \emph{následník} čísla $n$.
+\end{definition}
