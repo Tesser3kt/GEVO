@@ -1,0 +1,34 @@
+V mateřské a základní škole jste se učili sčítat, a posléze násobit. V tomto
+oddílu máte příležitost se těmto operacím naučit znova -- spolu s mnohými
+detaily, o které jste se jistě, hltaví čtenáři, přímo děsili, že přijdete.
+
+Totiž, definovat operaci \emph{součtu} na množině přirozených čísel není zdaleka
+tak jednoduché, jak by intuice napovídala. Rozmyslíme si, že nemůže přímo vzejít
+z žádné množinové operace: tedy, operaci $+$ nezískáme jako žádnou z operací $
+\cup , \cap $ ani $ \setminus $; aspoň ne okamžitě. Problém je následující:
+přejeme si, aby platila rovnost $4 + 3 = 7$. Ovšem, $4$ je množina $\{0, 1, 2,
+3\}$, $3$ je množina $\{0, 1, 2\}$, zatímco $7$ je množina $\{0, 1, 2, 3, 4, 5,
+6\}$. Ta má oproti $3$ a $4$ v sobě navíc prvky $4$, $5$ a $6$. Žádná z
+množinových operací neumí ke dvěma množinám \uv{přikouzlit} prvky, jež ani jedna
+z nich nemá. Musíme si poradit jinak.
+
+Číslo $7$ přímo z čísel $3$ ani $4$ vyrobit neumíme. Z čísla $4$ však umíme
+vyrobit číslo $5$, z~čísla $5$ pak číslo $6$ a, konečně, z čísla $6$ číslo $7$.
+Vlastně stačí \emph{třikrát} po sobě vzít \hyperref[def:naslednik]{následníka}
+čísla: nejdřív vzít následníka čísla $4$, což je $5$; pak následníka $5$, což je
+$6$ a nakonec následníka čísla $6$, kterýmž číslo $7$ jest. Povšimněme si, že
+ono číslo $3$ v součtu $4 + 3$ hraje v tomto pohledu velmi odlišnou roli od
+čísla $4$. Totiž, číslo $4$ je číslo, u kterého začínám, a číslo $3$ mi určuje,
+\emph{kolik následujících čísel} musím projít, než dojdu k výsledku. To znamená,
+že -- aspoň \textbf{principiálně} -- je součet $4 + 3$ \textbf{odlišný} od
+součtu $3 + 4$. Vysvětlíme se.
+\begin{itemize}
+  \item $4 + 3$ říká: \uv{Začni u čísla $4$ a třikrát za sebou vezmi následující
+    číslo.}
+  \item $3 + 4$ říká: \uv{Začni u čísla $3$ a čtyřikrát za sebou vezmi
+    následující číslo.}
+\end{itemize}
+Jeden může být veden k myšlence, že je \emph{jednodušší} spočítat $4 + 3$ než $3
++ 4$. Vskutku, na takto jednoduchém příkladě rozdíl sotva zříti, ale považte
+způsob, kterým počítáte kupříkladu $4 + 3312890102$. Skutečně přidáváte číslo
+$3312890102$ k číslu $4$ nebo spíše číslo $4$ k číslu $3312890102$?

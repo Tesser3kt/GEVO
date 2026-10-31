@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber main"] 1792858336.51501 "main.bcf" "main.bbl" "main" 1793125698.06837 0
-  "main.bcf" 1793125697.95536 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
+["biber main"] 1793473034.80046 "main.bcf" "main.bbl" "main" 1793476037.60881 0
+  "main.bcf" 1793476037.49453 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1787653830.0488 "main.idx" "main.ind" "main" 1793125698.06828 0
-  "main.idx" 1793125695.9943 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1787653830.0488 "main.idx" "main.ind" "main" 1793476037.60873 0
+  "main.idx" 1793476035.50249 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1793125695.58445 "main.tex" "main.pdf" "main" 1793125698.06853 0
+["pdflatex"] 1793476035.08209 "main.tex" "main.pdf" "main" 1793476037.60897 0
   "/nix/store/1hh1p54mzc2rcybspz9hjwx9lk88856g-texlive-2025-r78234-final-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 5541489 16b6a1f203c29a298027a1fcf659702f ""
   "/nix/store/1hh1p54mzc2rcybspz9hjwx9lk88856g-texlive-2025-r78234-final-env/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 3637274 c11f58e7564cd9a38eef37e9114508dc ""
   "/nix/store/1hh1p54mzc2rcybspz9hjwx9lk88856g-texlive-2025-r78234-final-env/share/texmf-var/web2c/texmf.cnf" 1 44263 8b5004dbc1594a3b51c4bb9933ce5a50 ""
@@ -298,8 +298,9 @@
   "/nix/store/qzvsdw6h3dhh9aalm4qi9zhfkxnp5cx4-texlive-2025-r78234-final-env-texmfdist/tex/latex/zref/zref-base.sty" 1 20785 198a9cb2e04238d92c320d0d9edbd76a ""
   "LegrandOrangeBook.cls" 1792855949.06931 41054 5da9c919bf2fa9a73633c4fb12d991be ""
   "ciselne_mnoziny.tex" 1792858390.77895 99 7bb3c13662e4ac43808c0d93ef8e5d5c ""
-  "ciselne_mnoziny/prirozena_cisla.tex" 1793124626.31294 1096 e8888f3aee7826bf3e6fd94fa6110dbc ""
-  "ciselne_mnoziny/prirozena_cisla/konstrukce.tex" 1793125695.09527 4173 98d2df269c8e0b204f9d881ba756d8ef ""
+  "ciselne_mnoziny/prirozena_cisla.tex" 1793473025.41498 1209 3c1dec06d52f8952c93f1864aab7a107 ""
+  "ciselne_mnoziny/prirozena_cisla/konstrukce.tex" 1793472989.9405 4173 98d2df269c8e0b204f9d881ba756d8ef ""
+  "ciselne_mnoziny/prirozena_cisla/operace.tex" 1793476033.52045 2404 834233635f0ae1e25507e730ed899624 ""
   "figs/appendix1.png" 1791104714.2178 3462583 bf6029d3364c4df3b31990a46efb2500 ""
   "figs/background.pdf" 1784719589.72583 13886067 51629c61750d5c30eb8d20b5c7e24595 ""
   "figs/deer-grazing.jpg" 1784719589.72683 221807 be685400dfe7508c045ff14a2ab9cbd0 ""
@@ -308,13 +309,13 @@
   "logicke_obvody/obvody.tex" 1791704143.08919 572 83798cfddd1a8eb77346f215ca7112c3 ""
   "logicke_obvody/obvody/brany.tex" 1792855949.06931 11777 c8189dc5c5b38d2b4e60a44d52ff514a ""
   "logicke_obvody/obvody/pocitani.tex" 1791704143.08919 8853 a7a8493388f3763374632abb99271567 ""
-  "main.aux" 1793125697.94936 39987 dfe1e0df129dec42e11de24aa74d0851 "pdflatex"
-  "main.bbl" 1792858337.00041 466 76d65a242ec496c9b4361af646ff12cb "biber main"
+  "main.aux" 1793476037.4899 40524 17912dbaf6426267dbfbb4801830721e "pdflatex"
+  "main.bbl" 1793473035.44812 466 76d65a242ec496c9b4361af646ff12cb "biber main"
   "main.ind" 1784719589.72983 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.ptc" 1793125697.95668 2638 d3115b199b25206a24a625fc2e152ba3 "pdflatex"
-  "main.run.xml" 1793125697.95668 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
+  "main.ptc" 1793476037.49697 2719 97aac1e44df598f4b03e0b139867f81f "pdflatex"
+  "main.run.xml" 1793476037.49697 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
   "main.tex" 1792855949.10631 5647 00416948ef2cd883a4a51f49a7162c96 ""
-  "main.toc" 1793125697.95668 2548 308151ab5008e41f9707a3e96143f58c "pdflatex"
+  "main.toc" 1793476037.49697 2629 938b795de9886a5aeea0ff626ec79259 "pdflatex"
   "mnoziny_logika.tex" 1792856138.90726 176 4b520f85d7396f707598bbc46ddf6ac3 ""
   "mnoziny_logika/logika.tex" 1786900282.97009 3246 ba1659c9a4e5e6f46f506d760d061b49 ""
   "mnoziny_logika/logika/teorie-modelu.tex" 1786900282.97009 4515 38c3c0d4b3c76f3302fefe70975c04df ""
