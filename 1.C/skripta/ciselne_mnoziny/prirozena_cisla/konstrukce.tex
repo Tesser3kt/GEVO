@@ -36,7 +36,7 @@ označili jako $1$. Tedy, $1 \in a$. Protože $1 \in a$, z
 \hyperref[eq:axiom-nekonecna]{axiomu nekonečna} i $1 \cup \{1\} = \{0\} \cup
 \{1\} = \{0, 1\} \in a$. Množina $\{0, 1\}$ je množina se dvěma prvky, označíme
 ji jako $2$. Čili, $2 \in a$. Takto pokračujeme nekonečně dlouho. Z toho, že
-$2 \in a$ plyne, že $2 \cup \{2\} = 3 \in a$ atd. Množině $a$ z
+$2 \in a$, plyne, že $2 \cup \{2\} = 3 \in a$ atd. Množině $a$ z
 \hyperref[eq:axiom-nekonecna]{axiomu nekonečna} říkáme \emph{množina přirozených
 čísel} a značíme ji $\N$.
 
@@ -69,3 +69,20 @@ Operace \uv{vytvoření následujícího čísla v řadě} je pro práci s přir
   značíme jako $s(n)$ (z angl. \emph{successor}, \uv{následník}) a říkáme mu
   \emph{následník} čísla $n$.
 \end{definition}
+
+\begin{example}
+  \label{exam:naslednik}
+  Následníkem čísla $4 = \{0, 1, 2, 3\}$ je číslo $5 = 4 \cup \{4\} = \{0, 1, 2,
+  3, 4\}$. Stojí za zmínku, že tato konstrukce se velmi rychle stává
+  nepřehlednou a speciální symboly pro čísla jsou zvlášť užitečné. Konkrétně,
+  \begin{itemize}
+    \item $0$ je prázdná množina;
+    \item $1$ je množina $0 \cup \{0\} = \{0\}$;
+    \item $2$ je množina $1 \cup \{1\} = \{0\} \cup \{\{0\}\} = \{0, \{0\}\}$;
+    \item 3 je množina $2 \cup \{2\} = \{0, \{0\}\} \cup \{\{0, \{0\}\}\} = \{0,
+      \{0\}, \{0, \{0\}\}\}$;
+    \item $4$ je množina $3 \cup \{3\} = \{0, \{0\}, \{0, \{0\}\}, \{0, \{0\},
+      \{0, \{0\}\}\}\}$;
+    \item $5$ je množina ...
+  \end{itemize}
+\end{example}

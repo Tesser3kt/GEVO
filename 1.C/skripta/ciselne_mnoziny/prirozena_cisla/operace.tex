@@ -32,3 +32,54 @@ Jeden může být veden k myšlence, že je \emph{jednodušší} spočítat $4 +
 + 4$. Vskutku, na takto jednoduchém příkladě rozdíl sotva zříti, ale považte
 způsob, kterým počítáte kupříkladu $4 + 3312890102$. Skutečně přidáváte číslo
 $3312890102$ k číslu $4$ nebo spíše číslo $4$ k číslu $3312890102$?
+
+Sčítání na přirozených číslech budeme definovat pomocí pár jednoduchých
+pravidel:
+\begin{itemize}
+  \item přičtení $0$ k jakémukoli číslu nedělá nic;
+  \item přičtení $1$ k jakémukoli číslu je \hyperref[def:naslednik]{následník}
+    tohoto čísla;
+  \item sčítání je \emph{komutativní} (je jedno, v kterém pořadí sčítám);
+  \item sčítání je \emph{asociativní} (je jedno, který ze dvou součtů provedu
+    dříve).
+\end{itemize}
+
+Zvlášť poslední dvě pravidla je, tušíme, dobré vidět napsaná symbolicky. Učiníme
+tak záhy, v \hyperref[def:scitani]{definici operace sčítání}.
+
+\begin{definition}[Sčítání]
+  \label{def:scitani}
+  \emph{Sčítání} je binární operace (ze dvou čísel dělá jedno) na přirozených
+  číslech splňující pro každá tři čísla $l, m, n \in \N$
+  \begin{enumerate}
+    \item $n + 0 = n$,
+    \item $n + 1 = s(n)$,
+    \item $m + n = n + m$,
+    \item $(l + m) + n = l + (m + n)$.
+  \end{enumerate}
+\end{definition}
+
+Jak ovšem s těmito pravidly pracovat? Ukážeme si podrobný příklad výpočtu součtu
+dvou čísel jejich použitím.
+
+\begin{example}
+  \label{exam:scitani}
+  Spočteme $4 + 3$. Víme, že $3 = s(2)$, a tedy $3 = 2 + 1$ podle druhého
+  pravidla výše. Tedy $4 + 3 = 4 + (2 + 1)$. Podle čtvrtého pravidla je toto
+  rovno $(4 + 2) + 1$. Stačí nám tudíž umět spočítat $4 + 2$.
+
+  Postupujeme stejně jako předtím: $4 + 2 = 4 + s(1) = 4 + (1 + 1) = (4 + 1) +
+  1$. Dále, $4 + 1 = s(4) = 5$. Takže $4 + 2 = (4 + 1) + 1 = 5 + 1 = s(5) = 6$.
+  Teď už stačí jen spočítat $4 + 3 = 4 + (2 + 1) = (4 + 2) + 1 = 6 + 1 = s(6) =
+  7$.
+\end{example}
+
+\begin{remark}
+  Z příkladu výše vyplývá, že $4 + 3 = 4 + (1 + (1 + 1))$. Protože je ale
+  přičítání $1$ to samé jako vzít následníka, můžeme též říci, že $4 + 3 =
+  s(s(s(4)))$, tedy $4 + 3$ je třetí následník čísla $4$. Vyřčeno ještě
+  obecněji: \hyperref[def:scitani]{operace sčítání} je vlastně jenom pořád
+  dokola opakovaná operace \uv{vezmi následníka}. Na tuto situaci narazíme
+  vícekrát: podobný vztah je mezi sčítáním a násobením i mezi násobením a
+  mocněním.
+\end{remark}
