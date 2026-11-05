@@ -2,9 +2,12 @@ V mateřské a základní škole jste se učili sčítat, a posléze násobit. V
 oddílu máte příležitost se těmto operacím naučit znova -- spolu s mnohými
 detaily, o které jste se jistě, hltaví čtenáři, přímo děsili, že přijdete.
 
-Totiž, definovat operaci \emph{součtu} na množině přirozených čísel není zdaleka
-tak jednoduché, jak by intuice napovídala. Rozmyslíme si, že nemůže přímo vzejít
-z žádné množinové operace: tedy, operaci $+$ nezískáme jako žádnou z operací $
+\subsection{Sčítání}
+\label{ssec:scitani}
+
+Definovat operaci \emph{součtu} na množině přirozených čísel není zdaleka tak
+jednoduché, jak by intuice napovídala. Rozmyslíme si, že nemůže přímo vzejít z
+žádné množinové operace: tedy, operaci $+$ nezískáme jako žádnou z operací $
 \cup , \cap $ ani $ \setminus $; aspoň ne okamžitě. Problém je následující:
 přejeme si, aby platila rovnost $4 + 3 = 7$. Ovšem, $4$ je množina $\{0, 1, 2,
 3\}$, $3$ je množina $\{0, 1, 2\}$, zatímco $7$ je množina $\{0, 1, 2, 3, 4, 5,
@@ -83,3 +86,50 @@ dvou čísel jejich použitím.
   vícekrát: podobný vztah je mezi sčítáním a násobením i mezi násobením a
   mocněním.
 \end{remark}
+
+Všimněme si, že první a třetí pravidlo sčítání jsme vůbec nepoužili. U prvního
+je důvod snad zřejmý: pro výpočet součtu dvou nenulových čísel není přímo
+užitečné. Pravidlo \emph{komutativity} však také není pro výpočet součtu
+nezbytné. Jak jsme zpozorovali již dříve, je zde spíše pro \uv{pohodlí}. Je
+zcela jistě jednodušší vzít druhého následníka čísla $443123$ při součtu $443123
++ 2$ než čtyřistačtyřicettřitisícého stého dvacátého třetího následníka čísla
+$2$ při součtu $2 + 443123$. Pravidlo komutativity zajišťuje, že výsledek obou
+operací je tentýž.
+
+\begin{remark}
+  Ve skutečnosti plyne pravidlo komutativity z ostatních pravidel. Jeho odvození
+  však vyžaduje užití principu [TODO:odkaz na matematickou indukci], kterému se
+  věnovat nebudeme.
+\end{remark}
+
+\subsection{Násobení}
+\label{ssec:nasobeni}
+
+Stejně jako sčítání je v podstatě opakovaná operace \uv{vezmi následníka}, je
+násobení na přirozených číslech definované jako \emph{opakované sčítání}.
+Tušíme, že tak jste se i učili poprvé násobit na základní škole. Totiž, výpočet
+součinu $3 \cdot 4$ spočívá v opakovaném přičítání čísla $3$ sama k sobě -- v
+tomto případě konkrétně \emph{čtyřikrát}. Stojí opět za zmínku, že \emph{v
+principu} je $4 \cdot 3$ \emph{jiná} operace, jež naopak vyžaduje přičtení čísla
+$4$ k sobě \emph{třikrát}. Jejich výsledek je pochopitelně stejný, ale cesta k
+němu rozdílná. Považte, jak jsme vybízeli už u \hyperref[def:scitani]{sčítání},
+že součin $3 \cdot 473$ spíše spočtete jako $473 \cdot 3$, tedy jako $473 + 473
++ 473$.
+
+Nyní definujeme násobení formálně.
+\begin{definition}[Násobení]
+  \label{def:nasobeni}
+  \emph{Násobení} je operace na přirozených číslech odpovídající následujícím
+  pěti pravidlům: pro všechna $l, n, m \in \N$
+  \begin{itemize}
+    \item $n \cdot 0 = 0$,
+    \item $n \cdot 1 = n$,
+    \item $n \cdot (m + 1) = n \cdot m + n$,
+    \item $n \cdot m = m \cdot n$,
+    \item $l \cdot (n \cdot m) = (l \cdot n) \cdot m$.
+  \end{itemize}
+\end{definition}
+
+Stejně jako u \hyperref[def:scitani]{sčítání} říkají poslední dvě pravidla, že
+násobení je \emph{komutativní} (na pořadí čísel nezáleží) a \emph{asociativní}
+(na pořadí operací nezáleží).

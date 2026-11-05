@@ -85,11 +85,12 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage[LGR, T1]{fontenc}
-\usepackage{avant} % Use the Avantgarde font for headings
+\usepackage{tgadventor} % Avantgarde clone for headings (real ť/ď glyphs, unlike avant's fake t+')
 
 \usepackage{mathptmx} % Use the Adobe Times Roman as the default text
 % font together with math symbols from the Sym­bol, Chancery and
 % Com­puter Modern fonts
+\usepackage{tgtermes} % Times clone for text: psnfss ptm builds ť/ď as t+' with too-wide metrics
 
 \usepackage{microtype} % Improve typography
 % Better line spacing.
