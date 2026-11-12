@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.11.3)  11 NOV 2026 20:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.11.4)  12 NOV 2026 10:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2512,6 +2512,31 @@ Package mdframed Info: mdframed works in twoside mode on input line 120.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 120.
+Package mdframed Info: mdframed works in twoside mode on input line 152.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 152.
+Package mdframed Info: mdframed works in twoside mode on input line 171.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 171.
+
+
+Package fancyhdr Warning: \headheight is too small (14.22636pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
+
+[49]
+Package mdframed Info: mdframed works in twoside mode on input line 198.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 198.
+Package mdframed Info: mdframed works in twoside mode on input line 203.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 203.
 )))
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
@@ -2520,16 +2545,15 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[49] [50
-
-]
+[50]
 P\v {r}\'{\i }loha A.
-<figs/appendix1.png, id=800, 462.528pt x 108.405pt>
+<figs/appendix1.png, id=811, 462.528pt x 108.405pt>
 File: figs/appendix1.png Graphic file (type png)
 <use figs/appendix1.png>
 Package pdftex.def Info: figs/appendix1.png  used on input line 153.
 (pdftex.def)             Requested size: 597.50787pt x 140.04813pt.
 (./logicke_obvody/obvody.tex (./logicke_obvody/obvody/pocitani.tex [51
+
 
  <./figs/appendix1.png>]
 
@@ -2614,18 +2638,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 62761 strings out of 469408
- 1408320 string characters out of 5468160
- 2581594 words of memory out of 5000000
- 90015 multiletter control sequences out of 15000+600000
- 786906 words of font info for 370 fonts, out of 8000000 for 9000
+ 62788 strings out of 469408
+ 1408626 string characters out of 5468160
+ 2581764 words of memory out of 5000000
+ 90021 multiletter control sequences out of 15000+600000
+ 791023 words of font info for 381 fonts, out of 8000000 for 9000
  69 hyphenation exceptions out of 8191
  113i,13n,122p,969b,2408s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cbfonts/grmn1200.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qagb.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qagr.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmb.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmri.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (57 pages, 16458269 bytes).
+Output written on main.pdf (57 pages, 16461716 bytes).
 PDF statistics:
- 1100 PDF objects out of 1200 (max. 8388607)
- 932 compressed objects within 10 object streams
- 292 named destinations out of 1000 (max. 500000)
+ 1112 PDF objects out of 1200 (max. 8388607)
+ 944 compressed objects within 10 object streams
+ 297 named destinations out of 1000 (max. 500000)
  86318 words of extra memory for PDF output out of 89155 (max. 10000000)
 

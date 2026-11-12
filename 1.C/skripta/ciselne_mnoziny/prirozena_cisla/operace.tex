@@ -68,7 +68,7 @@ dvou čísel jejich použitím.
 \begin{example}
   \label{exam:scitani}
   Spočteme $4 + 3$. Víme, že $3 = s(2)$, a tedy $3 = 2 + 1$ podle druhého
-  pravidla výše. Tedy $4 + 3 = 4 + (2 + 1)$. Podle čtvrtého pravidla je toto
+  pravidla výše. Proto $4 + 3 = 4 + (2 + 1)$. Podle čtvrtého pravidla je toto
   rovno $(4 + 2) + 1$. Stačí nám tudíž umět spočítat $4 + 2$.
 
   Postupujeme stejně jako předtím: $4 + 2 = 4 + s(1) = 4 + (1 + 1) = (4 + 1) +
@@ -149,8 +149,58 @@ násobení je \emph{komutativní} (na pořadí čísel nezáleží) a \emph{asoc
   Dosazením dostaneme $4 \cdot 3 = 4 \cdot 2 + 4 = (4 + 4) + 4$.
 \end{example}
 
+\begin{exercise}
+  Spočtěte $4 \cdot 5$ využitím pravidel z \hyperref[def:nasobeni]{definice
+  násobení}. Spočtěte stejným způsobem i $5 \cdot 4$ a sledujte, jak se výpočty
+  liší.
+\end{exercise}
+
 \subsection{Mocnění}
 \label{ssec:mocneni}
 
 Ještě naposledy předvedeme princip: \uv{Opakování operace dá operaci novou,} na
 operaci \emph{mocnění} jakožto opakovaného \hyperref[def:nasobeni]{násobení}.
+Například, $3^{4}$ je definováno jako $3 \cdot 3 \cdot 3 \cdot 3$. Za zmínku
+stojí, že oproti \hyperref[def:scitani]{sčítání} a
+\hyperref[def:nasobeni]{násobení} \textbf{není mocnění komutativní}: $3^{4} \neq
+4^{3}$, a dokonce \textbf{ani asociativní}: $(3^{4})^{2} \neq 3^{(4^{2})}$.
+První z těchto čísel je rovno $(3 \cdot 3 \cdot 3 \cdot 3)^{2} = 81^{2} = 6561$,
+zatímco druhé je rovno $3^{4 \cdot 4} = 3^{16} = 43046721$.
+Definujeme je formálně ihned.
+
+\begin{definition}[Mocnění]
+  \label{def:mocneni}
+  \emph{Mocnění} je binární operace na přirozených číslech splňující pro všechna
+  $n, m \in \N$ následující pravidla.
+  \begin{itemize}
+    \item $n^{0} = 1$;
+    \item $n^{1} = n$;
+    \item $n^{m+1} = n^{m} \cdot n$.
+  \end{itemize}
+\end{definition}
+\lessboxspace
+\begin{remark}
+  Poslední pravidlo z \hyperref[def:mocneni]{definice mocnění} říká, že mocnění
+  je opravdu \uv{opakované násobení}. Přesněji, \uv{Číslo $n$ umocněno na číslo
+  o jedna větší než $m$ je právě $n$-krát číslo $n$ umocněno na $m$.}
+\end{remark}
+\begin{example}
+  \label{exam:mocneni}
+  Spočteme $3^{4}$ použitím pravidel z \hyperref[def:mocneni]{definice mocnění}.
+  Protože $4 = 3 + 1$, můžeme pomocí prvního pravidla počítat $3^{3 + 1} = 3^{3}
+  \cdot 3$. Podobně spočítáme i $3^{2 + 1} = 3^{2} \cdot 3$ a nakonec $3^{2} =
+  3^{1 + 1} = 3^{1} \cdot 3$. Podle druhého pravidla pak $3^{1} = 3$. Zpětným
+  dosazením vznikne $3^{2} = 3^{1} \cdot 3 = 3 \cdot 3$; odtud $3^{3} = 3^{2}
+  \cdot 3 = (3 \cdot 3) \cdot 3$ a nakonec $3^{4} = 3^{3} \cdot 3 = ((3 \cdot
+  3) \cdot 3) \cdot 3$.
+\end{example}
+
+\begin{exercise}
+  Spočtěte $5^{3}$ použitím pravidel z \hyperref[def:mocneni]{definice mocnění}.
+  Které pravidlo způsobuje, že mocnění není komutativní? Proč?
+\end{exercise}
+\lessboxspace
+\begin{hardExercise}
+  Jak by vypadala operace \uv{opakovaného mocnění}? Označme ji třeba symbolem
+  $\uparrow$. Zkuste ji pořádně definovat a spočítat $3 \uparrow 2$.
+\end{hardExercise}
