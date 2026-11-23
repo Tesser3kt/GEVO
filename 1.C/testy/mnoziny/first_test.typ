@@ -184,8 +184,8 @@ Pro účely prvních tří úloh definujeme následující množiny
 
 #block(width: 100%)[
   #points(25)
-Mějme množiny $#clr[$a$] = {airplane,{lollipop,bison,boat.sail}}$ a
-$#clb[$b$]={boat.sail,{darts}}$. *Pouze* pomocí *axiomu součtu* a *dvojice* z
+Mějme množiny $#clr[$a$] = {{airplane},{lollipop,bison,boat.sail}}$ a
+$#clb[$b$]={{boat.sail},{darts}}$. *Pouze* pomocí *axiomu součtu* a *dvojice* z
 množin #clr[$a$], #clb[$b$] utvořte množinu $#clg[$c$]={airplane,lollipop,bison,boat.sail,darts}$. *Důkladně
 komentujte* použití axiomů. 
 ]
@@ -196,7 +196,7 @@ komentujte* použití axiomů.
   === #text(airblue)[Bonusová úloha]
   Jako opačný pojem k pojmu *podmnožina* definujeme *nadmnožinu*. Slovní
   definice nadmnožiny je, že $x$ je nadmnožinou $y$ když $y$ je podmnožinou
-  $x$. Definujte tento pojem formálně, začněte s *axiomem existencionality* a z
+  $x$. Definujte tento pojem formálně, začněte s *axiomem existenzionality* a z
   nten upravte aby seděl pojmu *nadmnožiny*.
 ]
 
