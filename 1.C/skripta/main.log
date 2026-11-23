@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.11.4)  12 NOV 2026 10:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.11.4)  23 NOV 2026 12:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1055,11 +1055,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip98
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 622.
+Package hyperref Info: Option `colorlinks' set `true' on input line 624.
 
 
 Package hyperref Warning: Option `hyperindex' has already been used,
-(hyperref)                setting the option has no effect on input line 622.
+(hyperref)                setting the option has no effect on input line 624.
 
 (/usr/share/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -1765,7 +1765,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [3
 
  <./figs/part1.jpg>]
-Overfull \hbox (391.22542pt too wide) detected at line 29
+Overfull \hbox (391.22542pt too wide) detected at line 31
 [][][][][][] 
  []
 
@@ -1788,7 +1788,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 
 ] [6] (./mnoziny_logika.tex
 Kapitola 1.
-<figs/section1.jpg, id=222, 1927.2pt x 451.6875pt>
+<figs/section1.jpg, id=230, 1927.2pt x 451.6875pt>
 File: figs/section1.jpg Graphic file (type jpg)
 <use figs/section1.jpg>
 Package pdftex.def Info: figs/section1.jpg  used on input line 1.
@@ -1857,7 +1857,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 [8
 
 {/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-<figs/deer-grazing.jpg, id=246, 602.25pt x 333.245pt>
+<figs/deer-grazing.jpg, id=254, 602.25pt x 333.245pt>
 File: figs/deer-grazing.jpg Graphic file (type jpg)
 <use figs/deer-grazing.jpg>
 Package pdftex.def Info: figs/deer-grazing.jpg  used on input line 108.
@@ -2453,16 +2453,17 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 
 ] [44] (./ciselne_mnoziny.tex
 Kapitola 3.
-File: figs/section1.jpg Graphic file (type jpg)
-<use figs/section1.jpg>
-Package pdftex.def Info: figs/section1.jpg  used on input line 1.
+<figs/numbers_bg.jpg, id=751, 1927.2pt x 451.6875pt>
+File: figs/numbers_bg.jpg Graphic file (type jpg)
+<use figs/numbers_bg.jpg>
+Package pdftex.def Info: figs/numbers_bg.jpg  used on input line 1.
 (pdftex.def)             Requested size: 597.50787pt x 140.03545pt.
 (./ciselne_mnoziny/prirozena_cisla.tex (./ciselne_mnoziny/prirozena_cisla/konstrukce.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45
 
-]
+ <./figs/numbers_bg.jpg>]
 Package mdframed Info: mdframed works in twoside mode on input line 54.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -2537,7 +2538,7 @@ Package mdframed Info: mdframed works in twoside mode on input line 203.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 203.
-)))
+))
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2546,14 +2547,23 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
 [50]
+Kapitola 4.
+File: figs/numbers_bg.jpg Graphic file (type jpg)
+<use figs/numbers_bg.jpg>
+Package pdftex.def Info: figs/numbers_bg.jpg  used on input line 5.
+(pdftex.def)             Requested size: 597.50787pt x 140.03545pt.
+(./ciselne_mnoziny/cela_cisla.tex (./ciselne_mnoziny/cela_cisla/tridy_ekvivalence.tex))) [51
+
+] [52
+
+]
 P\v {r}\'{\i }loha A.
-<figs/appendix1.png, id=811, 462.528pt x 108.405pt>
+<figs/appendix1.png, id=837, 462.528pt x 108.405pt>
 File: figs/appendix1.png Graphic file (type png)
 <use figs/appendix1.png>
-Package pdftex.def Info: figs/appendix1.png  used on input line 153.
+Package pdftex.def Info: figs/appendix1.png  used on input line 154.
 (pdftex.def)             Requested size: 597.50787pt x 140.04813pt.
-(./logicke_obvody/obvody.tex (./logicke_obvody/obvody/pocitani.tex [51
-
+(./logicke_obvody/obvody.tex (./logicke_obvody/obvody/pocitani.tex [53
 
  <./figs/appendix1.png>]
 
@@ -2563,7 +2573,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[52]
+[54]
 Package mdframed Info: mdframed works in twoside mode on input line 161.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -2576,7 +2586,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[53]
+[55]
 Package mdframed Info: mdframed works in twoside mode on input line 68.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -2589,7 +2599,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[54]
+[56]
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2597,7 +2607,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[55]
+[57]
 Package mdframed Info: mdframed works in twoside mode on input line 274.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -2610,7 +2620,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[56]
+[58]
 Package mdframed Info: Not enough space on this page on input line 278.
 ))
 \tf@ptc=\write7
@@ -2624,7 +2634,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[57] (./main.aux)
+[59] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -2638,18 +2648,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 62788 strings out of 469408
- 1408626 string characters out of 5468160
- 2581764 words of memory out of 5000000
- 90021 multiletter control sequences out of 15000+600000
+ 62822 strings out of 469408
+ 1409624 string characters out of 5468160
+ 2581895 words of memory out of 5000000
+ 90044 multiletter control sequences out of 15000+600000
  791023 words of font info for 381 fonts, out of 8000000 for 9000
  69 hyphenation exceptions out of 8191
  113i,13n,122p,969b,2408s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cbfonts/grmn1200.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qagb.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qagr.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmb.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmri.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (57 pages, 16461716 bytes).
+Output written on main.pdf (59 pages, 16587207 bytes).
 PDF statistics:
- 1112 PDF objects out of 1200 (max. 8388607)
- 944 compressed objects within 10 object streams
- 297 named destinations out of 1000 (max. 500000)
- 86318 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1145 PDF objects out of 1200 (max. 8388607)
+ 970 compressed objects within 10 object streams
+ 301 named destinations out of 1000 (max. 500000)
+ 86339 words of extra memory for PDF output out of 89155 (max. 10000000)
 
