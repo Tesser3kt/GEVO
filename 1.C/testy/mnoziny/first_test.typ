@@ -1,18 +1,70 @@
 // Package imports
 #import "@preview/cheq:0.2.2": checklist
-#import "@preview/cetz:0.5.2"
-#import "@preview/cetz-venn:0.2.0"
+#import "@preview/cetz:0.5.3"
+#import "@preview/cetz-venn:0.2.0": venn3
 #import "@preview/oxifmt:0.2.1": strfmt
 #import "@preview/icu-datetime:0.2.2" as icu
 
-// Emojis
-#import emoji: airplane, banana,darts, boat, bison, lollipop, bird
 
 // Define custom colors
 #let crimson = rgb("#B80F0A")
 #let airblue = rgb("#00308F")
 #let raingreen = rgb("#00755E")
 #let ashgray = rgb("#B2BEB5")
+#let brown = rgb("#5C4033")
+
+// diagram shorthand
+#let venn-box(
+  box-label,
+  only-e,
+  only-a,
+  only-d,
+  e-and-a,
+  e-and-d,
+  a-and-d,
+  all-three,
+) = {
+  align(center)[
+    // Box is 7.0 x 6.6 units -> ~7.35cm x 6.9cm at length: 1.05cm (fits 2x2 on one page)
+    #cetz.canvas(length: 1.05cm, {
+      import cetz.draw: *
+
+      // Outer box
+      rect((-3.5, -3.5), (3.5, 3.1), stroke: 1pt + black)
+
+      // Box label (A, B, or C) in the top-left corner
+      content(
+        (-3.25, 2.85),
+        anchor: "north-west",
+        text(weight: "bold", size: 13pt)[#box-label],
+      )
+
+      // Three full circles of radius 2, spaced well apart
+      circle((-1.0, 0.58), radius: 2, stroke: 1.5pt + black)   // e
+      circle((1.0, 0.58), radius: 2, stroke: 1.5pt + crimson)  // a
+      circle((0, -1.15), radius: 2, stroke: 1.5pt + brown)     // d
+
+      // Set labels just outside each circle
+      content((-2.75, 2.25), text(fill: black, weight: "bold")[e])
+      content((2.75, 2.25), text(fill: crimson, weight: "bold")[a])
+      content((-2.15, -2.85), text(fill: brown, weight: "bold")[d])
+
+      // Region numbers placed at the exact geometric centers of the 7 regions
+      set-style(content: (padding: 0pt))
+      content((-1.73, 1.0), text(size: 9pt)[#only-e])     
+      content((1.73, 1.0), text(size: 9pt)[#only-a])      
+      content((0, -2.0), text(size: 9pt)[#only-d])        
+      content((0, 1.35), text(size: 9pt)[#e-and-a])       
+      content((-1.17, -0.68), text(size: 9pt)[#e-and-d])  
+      content((1.17, -0.68), text(size: 9pt)[#a-and-d])   
+      content((0, 0), text(size: 9pt)[#all-three])        
+    })
+  ]
+}
+
+// Emojis
+#import emoji: airplane, banana,darts, boat, bison, lollipop, bird
+
 
 // Set page and fonts
 #let page-counter(cur, last) = {
@@ -160,24 +212,48 @@ Pro účely prvních tří úloh definujeme následující množiny
 
   #points(25)
   #block(width: 100%)[
-    Do následujícího diagramu množin #clr[$a$], #clbr[$d$] dokreslete množinu
-    $e = {6,7,1,10}$. Do každé části diagramu dopište jaké prvky representuje (jaké prvky se něm nacházejí). Dále v diagramu zvýrazněte množinu $#clr[$a$] without e$.
+    Z následujících diagramů vyberte ten, který správně representuje množiny
+    #clr[$a$], #clbr[$d$] a $e = {6,7,1,10}$.  Dále do vybraného diagramu
+    zvýrazněte množinu $#clr[$a$] without e$.
     #v(1cm)
-  #align(center)[
-    #cetz.canvas({
-    for (angle, color, label, anchor) in (
-          (180deg, crimson, "a", "east"),
-          (0deg, rgb("#5C4033"), "d", "west"), 
-        ) {
-          cetz.draw.circle((angle, 1.5), radius: 3, stroke: color)
-          cetz.draw.content(
-            (angle, 5), 
-            text(fill: color, weight: "bold", label),
-            anchor: anchor,
-          )
-        }
-      })
-  ]
+// 2-column grid so A, B, and C fit comfortably on a single page
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 12pt,
+
+  venn-box(
+    "A",
+    [6, 7],          
+    [1004, \ 12345], 
+    [3, 4],          
+    [10],            
+    [],              
+    [2, 5],          
+    [1],             
+  ),
+
+  venn-box(
+    "B",
+    [],            
+    [12345],        
+    [3, 4],         
+    [10, 1004],    
+    [6, 7],          
+    [2, 5],         
+    [1],            
+  ),
+
+  venn-box(
+    "C",
+    [7],             
+    [1004, \ 12345], 
+    [3, 4, 6],       
+    [10],            
+    [],              
+    [5],             
+    [1, 2],          
+  ),
+)
 ]
 
 #pagebreak()
