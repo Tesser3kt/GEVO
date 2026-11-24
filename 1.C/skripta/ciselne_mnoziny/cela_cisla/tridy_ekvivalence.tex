@@ -3,10 +3,29 @@ V \myref{pododdíle}{sssec:relace} jsme definovali
 podstatě umožňuje považovat dva prvky množiny za \emph{stejné}, za předpokladu,
 že sdílejí jisté vlastnosti. Intuitivně využíváme ekvivalence neustále, téměř
 kdykoli pojmenováváme objekty. Žádné dva objekty, které vnímáme, nejsou přímo
-stejné, ale přiříkáme jim tatáž jména, protože jsou \uv{dostatečně podobné},
-abychom je mohli označit stejně. Kupříkladu, starou dřevěnou vysokou židli i
-novou malou kovovou židli jsme právě nazvali \emph{židlí}, neboť obě mají
-dostatek společných charakteristik a plní stejný účel, přestože se jistě nejedná
-o týž předmět.
+\emph{stejné}, ale přiříkáme jim tatáž jména, protože jsou \uv{dostatečně
+podobné}, abychom je mohli označit stejně. Kupříkladu, starou dřevěnou vysokou
+židli i novou malou kovovou židli jsme právě nazvali \emph{židlí}, neboť obě
+mají dostatek společných charakteristik a plní stejný účel, přestože se jistě
+nejedná o týž předmět.
 
-Příklad židle s sebou nese
+Příklad židle s sebou nese další samozřejmou, leč užitečnou, myšlenku: svůj svět
+přirozeně rozdělujeme na skupiny předmětů, které považujeme za \uv{stejné}. V
+matematice se taková \emph{skupina podobných předmětů} nazývá \alert{třída
+ekvivalence}. Je to množina všech prvků, které jsou vzájemně ekvivalentní.
+
+\begin{definition}[Třída ekvivalence]
+  \label{def:trida-ekvivalence}
+  Ať $e$ je ekvivalence na množině $a$. Pro libovolný $x \in a$ říkáme všem
+  prvkům z $a$, které jsou ekvivalentní s $x$, \emph{třída ekvivalence příslušná
+  $x$} a značíme ji $[x]_e$. Formálně, pro každé $x \in a$ je
+  \[
+    [x]_e = \{y \in a \mid (x, y) \in e\}.
+  \]
+  Prvku $x$ pak říkáme \emph{representant} této třídy ekvivalence.
+\end{definition}
+\begin{example}
+  \label{exam:trida-ekvivalence-1}
+  Ať $l$ je množina lidí a $e$ je ekvivalence \uv{být stejně starý} (je to
+  opravdu ekvivalence?). Když je $\text{Adam} \in l$ člověk, kterému je 29 let.
+\end{example}
