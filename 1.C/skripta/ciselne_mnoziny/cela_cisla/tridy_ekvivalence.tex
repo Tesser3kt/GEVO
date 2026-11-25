@@ -1,6 +1,6 @@
 V \myref{pododdíle}{sssec:relace} jsme definovali
 \hyperref[def:relace-ekvivalence]{relaci ekvivalence}. Je to relace, která v
-podstatě umožňuje považovat dva prvky množiny za \emph{stejné}, za předpokladu,
+podstatě umožňuje považovat dva prvky množiny za \emph{stejné} za předpokladu,
 že sdílejí jisté vlastnosti. Intuitivně využíváme ekvivalence neustále, téměř
 kdykoli pojmenováváme objekty. Žádné dva objekty, které vnímáme, nejsou přímo
 \emph{stejné}, ale přiříkáme jim tatáž jména, protože jsou \uv{dostatečně
@@ -12,7 +12,7 @@ nejedná o týž předmět.
 Příklad židle s sebou nese další samozřejmou, leč užitečnou, myšlenku: svůj svět
 přirozeně rozdělujeme na skupiny předmětů, které považujeme za \uv{stejné}. V
 matematice se taková \emph{skupina podobných předmětů} nazývá \alert{třída
-ekvivalence}. Je to množina všech prvků, které jsou vzájemně ekvivalentní.
+ekvivalence}. Je ta množina všech prvků, které jsou vzájemně ekvivalentní.
 
 \begin{definition}[Třída ekvivalence]
   \label{def:trida-ekvivalence}
@@ -27,5 +27,42 @@ ekvivalence}. Je to množina všech prvků, které jsou vzájemně ekvivalentní
 \begin{example}
   \label{exam:trida-ekvivalence-1}
   Ať $l$ je množina lidí a $e$ je ekvivalence \uv{být stejně starý} (je to
-  opravdu ekvivalence?). Když je $\text{Adam} \in l$ člověk, kterému je 29 let.
+  opravdu ekvivalence?). Když je $\text{Adam} \in l$ člověk, kterému je 29 let,
+  pak $[\text{Adam}]_e$ je množina všech lidí, kterým je 29 let a Adam je jejich
+  representant.
+
+  Povšimněme si též, že tato ekvivalence přirozeně rozděluje množinu $l$ všech
+  lidí na mnoho tříd ekvivalence, z nichž každá obsahuje jenom ty lidi, kteří
+  mají stejný věk. Zatím zdokumentovaně nejstarším člověkem byla Jeanne Calment,
+  jež zemřela roku 1997 ve věku 122 let. Řekněme tedy, že ekvivalence $e$
+  rozděluje množinu lidí na 123 podmnožin (někomu je stále 0 let), které spolu
+  nesdílejí žádné prvky a všechny dohromady dávají celou množinu~$l$. To není
+  náhoda, ekvivalence vždy tímto způsobem rozděluje množiny na podmnožiny, které
+  nemají společné prvky a jejich sjednocením je původní množina. Dokážeme si
+  tuto skutečnost.
 \end{example}
+
+\begin{lemma}[O třídách ekvivalence]
+  \label{lem:o-tridach-ekvivalence}
+  Ať $e$ je ekvivalence na množině $a$. Pro každé dva prvky $x, y \in a$ platí,
+  že jsou jim příslušné třídy ekvivalence -- $[x]_e$ a $[y]_e$ -- buď disjunktní
+  (nesdílejí žádné prvky), anebo stejné. Navíc, každý prvek množiny $a$ patří do
+  \emph{nějaké} třídy ekvivalence $e$.
+\end{lemma}
+\begin{proof}
+  Pomněme, že ekvivalence je \hyperref[def:relace]{relace}, která je
+  \alert{reflexivní}, \alert{symetrická} a \alert{transitivní}. Definici těchto
+  vlastností si můžete připomenout
+  \hyperref[def:vlastnosti-relaci-na-mnozine]{zde}.
+
+  Z \alert{reflexivity} ihned plyne, že každý prvek $x \in a$ musí být v
+  \emph{nějaké} třídě ekvivalence -- konkrétně ve své samé: $[x]_e$ -- protože
+  je vždy ekvivalentní sám sobě.
+
+  Dále uvažme dva prvky $x, y \in a$. Jsou dvě možnosti: buď jsou vzájemně
+  ekvivalentní, nebo nejsou. Díky \alert{symetrii} se nemůže stát, že by jen $x$
+  byl ekvivalentní $y$ nebo jen $y$ ekvivalentní $x$.
+  \begin{itemize}
+    \item Ať jsou nejprve $x$ a $y$ ekvivalentní. Potom $[x]_e = [y]_e$.
+  \end{itemize}
+\end{proof}

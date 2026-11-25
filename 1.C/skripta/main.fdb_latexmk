@@ -1,18 +1,18 @@
 # Fdb version 4
-["biber main"] 1793732328.7224 "main.bcf" "main.bbl" "main" 1795516753.91898 2
-  "main.bcf" 1795516753.73667 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
+["biber main"] 1793732328.7224 "main.bcf" "main.bbl" "main" 1795603773.15108 2
+  "main.bcf" 1795603773.03429 108142 b3c3c4811df319db812e87c086572b4d "pdflatex"
   "sample.bib" 1793800174.03371 423 68b8f6cb50917872bb3a29f3e28dd3c7 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1793732328.70133 "main.idx" "main.ind" "main" 1795516753.91878 0
-  "main.idx" 1795516750.24134 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1793732328.70133 "main.idx" "main.ind" "main" 1795603773.151 0
+  "main.idx" 1795603770.7879 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1795516749.55175 "main.tex" "main.pdf" "main" 1795516753.91924 0
+["pdflatex"] 1795603770.40816 "main.tex" "main.pdf" "main" 1795603773.15125 0
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1775415801 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc" 1775415801 2457 aaabbccba4df2a7f7371410ee4e075a3 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1775415801 3124 3813fd4c981d99822890a2861b0d274c ""
@@ -296,7 +296,7 @@
   "LegrandOrangeBook.cls" 1795433235.60209 41200 1b36dd1c2fa5e098a4795b404af2290e ""
   "ciselne_mnoziny.tex" 1795433235.60209 183 80e2eab617ccf51d6f1a08fdcf56b00a ""
   "ciselne_mnoziny/cela_cisla.tex" 1795515383.23619 2158 55b0985b651cdbafa6764f0482338998 ""
-  "ciselne_mnoziny/cela_cisla/tridy_ekvivalence.tex" 1795516747.62345 1801 d2a49664faaded57a8209906fbee8787 ""
+  "ciselne_mnoziny/cela_cisla/tridy_ekvivalence.tex" 1795603769.88323 3830 4561ff06aad480970507295787d2c60f ""
   "ciselne_mnoziny/prirozena_cisla.tex" 1793800173.92982 1209 3c1dec06d52f8952c93f1864aab7a107 ""
   "ciselne_mnoziny/prirozena_cisla/konstrukce.tex" 1794467932.81643 5085 f0ea4145992182b9895170eeafd4756b ""
   "ciselne_mnoziny/prirozena_cisla/operace.tex" 1795421371.05998 10374 e307bbb59844bd9b692514b6120aea23 ""
@@ -309,13 +309,13 @@
   "logicke_obvody/obvody.tex" 1793800173.98325 572 83798cfddd1a8eb77346f215ca7112c3 ""
   "logicke_obvody/obvody/brany.tex" 1793800173.98425 11777 c8189dc5c5b38d2b4e60a44d52ff514a ""
   "logicke_obvody/obvody/pocitani.tex" 1793800173.98457 8853 a7a8493388f3763374632abb99271567 ""
-  "main.aux" 1795516753.72667 44089 6c60ba4c84fc7f39ad857bfd6e0aa571 "pdflatex"
+  "main.aux" 1795603773.02729 44264 45349ef99fd8d9889d81756b9ebe93f5 "pdflatex"
   "main.bbl" 0 -1 0 "biber main"
   "main.ind" 1793800173.98457 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.ptc" 1795516753.73918 3112 6be175f39419230f6b03bc2886a3e737 "pdflatex"
-  "main.run.xml" 1795516753.73918 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
+  "main.ptc" 1795603773.03614 3112 6be175f39419230f6b03bc2886a3e737 "pdflatex"
+  "main.run.xml" 1795603773.03614 2359 05fba433109c2efd4aa4493e7ddab37f "pdflatex"
   "main.tex" 1795433235.65409 5682 b3a28e0e887b27ef0e7a3f99263062f8 ""
-  "main.toc" 1795516753.73918 3022 0f94c054fbf2df982c01db38830e8ed9 "pdflatex"
+  "main.toc" 1795603773.03614 3022 0f94c054fbf2df982c01db38830e8ed9 "pdflatex"
   "mnoziny_logika.tex" 1793800174.03325 176 4b520f85d7396f707598bbc46ddf6ac3 ""
   "mnoziny_logika/logika.tex" 1793800174.03325 3246 ba1659c9a4e5e6f46f506d760d061b49 ""
   "mnoziny_logika/logika/teorie-modelu.tex" 1793800174.03367 4515 38c3c0d4b3c76f3302fefe70975c04df ""
