@@ -1,8 +1,8 @@
 V \myref{pododdíle}{sssec:relace} jsme definovali
 \hyperref[def:relace-ekvivalence]{relaci ekvivalence}. Je to relace, která v
-podstatě umožňuje považovat dva prvky množiny za \emph{stejné} za předpokladu,
-že sdílejí jisté vlastnosti. Intuitivně využíváme ekvivalence neustále, téměř
-kdykoli pojmenováváme objekty. Žádné dva objekty, které vnímáme, nejsou přímo
+podstatě umožňuje považovat dva prvky množiny za \emph{stejné}, pokud že sdílejí
+jisté vlastnosti. Intuitivně využíváme ekvivalence neustále, téměř kdykoli
+pojmenováváme objekty. Žádné dva objekty, které vnímáme, nejsou přímo
 \emph{stejné}, ale přiříkáme jim tatáž jména, protože jsou \uv{dostatečně
 podobné}, abychom je mohli označit stejně. Kupříkladu, starou dřevěnou vysokou
 židli i novou malou kovovou židli jsme právě nazvali \emph{židlí}, neboť obě
@@ -63,6 +63,36 @@ ekvivalence}. Je ta množina všech prvků, které jsou vzájemně ekvivalentní
   ekvivalentní, nebo nejsou. Díky \alert{symetrii} se nemůže stát, že by jen $x$
   byl ekvivalentní $y$ nebo jen $y$ ekvivalentní $x$.
   \begin{itemize}
-    \item Ať jsou nejprve $x$ a $y$ ekvivalentní. Potom $[x]_e = [y]_e$.
+    \item Ať jsou nejprve $x$ a $y$ ekvivalentní. Potom $[x]_e = [y]_e$, čili
+      $x$ a $y$ patří do stejné třídy ekvivalence. Opravdu, když je $z \in
+      [x]_e$, tak je $z$ ekvivalentní $x$. Protože je ale $x$ ekvivalentní $y$,
+      tak je díky \alert{transitivitě} i $z$ ekvivalentní $y$. Proto $z \in
+      [y]_e$. Shrnuto, všechny prvky z $[x]_e$ jsou i v $[y]_e$. Opačný fakt (že
+      vše z $[y]_e$ je i v $[x]_e$) plyne úplně stejně.
+    \item Ať naopak teď nejsou $x$ a $y$ ekvivalentní. Pak taky nemůže existovat
+      žádné $z$, které by bylo ekvivalentní s $x$ i $y$, protože pak by díky
+      \alert{transitivitě} byly $x$ i $y$ ekvivalentní. Čili, třídy $[x]_e$ a
+      $[y]_e$ nemají společné prvky.\qedhere
   \end{itemize}
 \end{proof}
+
+\begin{example}
+  \label{exam:trida-ekvivalence-2}
+  Uvažme množinu $a = \{x, y, z\}$ a dvě ekvivalence na $a$:
+  \begin{align*}
+    e_1 &= \{(x, x), (y, y), (z, z), (x, y), (y, x)\},\\
+    e_2 &= \{(x, x), (y, y), (z, z), (x, z), (z, x)\}.
+  \end{align*}
+  Vzhledem k relaci $e_1$ se $a$ rozpadá na dvě třídy ekvivalence: $\{x, y\}$ a
+  $\{z\}$, protože existence dvojic $(x, y), (y, x) \in e_1$ říká, že $x$ je
+  ekvivalentní s $y$. Oproti tomu, vzhledem k $e_2$ se $a$ rozpadá na $\{x, z\}$
+  a $\{y\}$.
+\end{example}
+
+\begin{example}
+  \label{exam:trida-ekvivalence-3}
+  Uvažme ekvivalenci \uv{mít stejnou barvu}, kterou označíme $b$, na množině $v$
+  všech věcí. Tato ekvivalence dělí množinu $v$ na podmnožiny věcí, které mají
+  stejnou barvu. Mezi ně patří třeba třída ekvivalence $[\text{stěna GEVO}]_b$,
+  která obsahuje všechny \emph{zelené} věci.
+\end{example}
