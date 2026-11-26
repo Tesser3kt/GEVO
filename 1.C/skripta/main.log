@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.11.4)  26 NOV 2026 18:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.11.3)  26 NOV 2026 19:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2574,7 +2574,25 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.27362pt}.
 
-[52])))
+[52]
+Package mdframed Info: mdframed works in twoside mode on input line 140.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 140.
+Package mdframed Info: mdframed works in twoside mode on input line 146.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 146.
+Package mdframed Info: mdframed works in twoside mode on input line 157.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 157.
+
+Overfull \hbox (5.11728pt too wide) in paragraph at lines 158--159
+[][][]\T1/qag/b/n/10.95 (-20) T¥ºké cvi-£ení 4.1  [][]\T1/qtm/m/n/12 (-20) Ko-lik je r·z-ných ekvi-va-lencí na mno-ºin¥ $\OML/ztmcm/m/it/12 a \OT1/ztmcm/m/n/12 = \OMS/ztmcm/m/n/12 f\OT1/ztmcm/m/n/12 1\OML/ztmcm/m/it/12 ; \OT1/ztmcm/m/n/12 2\OML/ztmcm/m/it/12 ; \OT1/ztmcm/m/n/12 3\OML/ztmcm/m/it/12 ; \OT1/ztmcm/m/n/12 4\OML/ztmcm/m/it/12 ; \OT1/ztmcm/m/n/12 5\OML/ztmcm/m/it/12 ; \OT1/ztmcm/m/n/12 6\OML/ztmcm/m/it/12 ; \OT1/ztmcm/m/n/12 7\OML/ztmcm/m/it/12 ; \OT1/ztmcm/m/n/12 8\OML/ztmcm/m/it/12 ; \OT1/ztmcm/m/n/12 9\OMS/ztmcm/m/n/12 g$\T1/qtm/m/n/12 (-20) ? 
+ []
+
+)))
 
 Package fancyhdr Warning: \headheight is too small (14.22636pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2586,7 +2604,7 @@ Package fancyhdr Warning: \headheight is too small (14.22636pt):
 
 ]
 P\v {r}\'{\i }loha A.
-<figs/appendix1.png, id=852, 462.528pt x 108.405pt>
+<figs/appendix1.png, id=863, 462.528pt x 108.405pt>
 File: figs/appendix1.png Graphic file (type png)
 <use figs/appendix1.png>
 Package pdftex.def Info: figs/appendix1.png  used on input line 154.
@@ -2676,18 +2694,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 62838 strings out of 469408
- 1409889 string characters out of 5468160
- 2582130 words of memory out of 5000000
- 90051 multiletter control sequences out of 15000+600000
+ 62872 strings out of 469408
+ 1410360 string characters out of 5468160
+ 2583377 words of memory out of 5000000
+ 90078 multiletter control sequences out of 15000+600000
  791152 words of font info for 382 fonts, out of 8000000 for 9000
  69 hyphenation exceptions out of 8191
  113i,13n,122p,969b,2408s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cbfonts/grmn1200.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qagb.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qagr.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmb.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmri.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (61 pages, 16593248 bytes).
+Output written on main.pdf (61 pages, 16595213 bytes).
 PDF statistics:
- 1162 PDF objects out of 1200 (max. 8388607)
- 985 compressed objects within 10 object streams
- 308 named destinations out of 1000 (max. 500000)
+ 1174 PDF objects out of 1200 (max. 8388607)
+ 996 compressed objects within 10 object streams
+ 315 named destinations out of 1000 (max. 500000)
  86339 words of extra memory for PDF output out of 89155 (max. 10000000)
 
